@@ -1,0 +1,218 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Present Continuous",
+ "duzen": "konu",
+ "seviye": "temel",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogretmen": {
+   "ses": "gsJ9nrlXYbPztJxC4fwc",
+   "cinsiyet": "erkek",
+   "yas": "yetiskin",
+   "govde": "ShirtPantsWB",
+   "yuz": "Smile",
+   "sac": "Short"
+  }
+ },
+ "kartlar": {
+  "can": {
+   "tip": "ornek",
+   "en": "I am going tonight.",
+   "tr": "Bu akşam gidiyorum."
+  },
+  "kanca": {
+   "tip": "ornek",
+   "en": "I'm going to my uncle's tonight.",
+   "tr": "Bu akşam amcamlara gidiyorum."
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Bu akşam gidiyorum."
+    ],
+    [
+     "en",
+     "I am going tonight."
+    ],
+    [
+     "tr",
+     "İki dilde de şimdiki zaman, ama gelecek demek."
+    ]
+   ],
+   "olaylar": [
+    {
+     "tip": "kart",
+     "id": "can",
+     "yer": "tek",
+     "ofset": 0.1
+    },
+    {
+     "tip": "odak",
+     "id": "can",
+     "sozcuk": "going",
+     "sesParca": 1,
+     "ofset": 0.4
+    }
+   ],
+   "metin": "Bu akşam gidiyorum. I am going tonight. İki dilde de şimdiki zaman, ama gelecek demek."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "I'm going to my uncle's tonight."
+    ],
+    [
+     "tr",
+     "Bu akşam amcamlara gidiyorum."
+    ],
+    [
+     "tr",
+     "Fiil artı -ing. Önüne de am, is ya da are gelir."
+    ]
+   ],
+   "olaylar": [
+    {
+     "tip": "odakKapat",
+     "ofset": 0
+    },
+    {
+     "tip": "gizle",
+     "id": "can",
+     "ofset": 0
+    },
+    {
+     "tip": "kart",
+     "id": "kanca",
+     "yer": "alt",
+     "ofset": 0.2
+    },
+    {
+     "tip": "cizim",
+     "id": "kanca",
+     "sesParca": 1,
+     "ofset": 0.3,
+     "sahne": [
+      {
+       "figur": "ogretmen",
+       "x": 30,
+       "y": 55,
+       "olcek": 0.7
+      },
+      {
+       "ad": "home",
+       "x": 72,
+       "y": 52,
+       "olcek": 0.5
+      }
+     ]
+    },
+    {
+     "tip": "odak",
+     "id": "kanca",
+     "sozcuk": "going",
+     "sesParca": 0,
+     "ofset": 0.5
+    }
+   ],
+   "metin": "I'm going to my uncle's tonight. Bu akşam amcamlara gidiyorum. Fiil artı -ing. Önüne de am, is ya da are gelir."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Tam ders: Present Continuous, 6 dakika."
+    ],
+    [
+     "tr",
+     "Tam dersi kanalda izle."
+    ]
+   ],
+   "olaylar": [
+    {
+     "tip": "odakKapat",
+     "ofset": 0
+    },
+    {
+     "tip": "gizle",
+     "id": "kanca",
+     "ofset": 0
+    },
+    {
+     "tip": "baslik",
+     "metin": "Present Continuous",
+     "alt": "Tam ders kanalda · 6 dk",
+     "ofset": 0.2
+    }
+   ],
+   "metin": "Tam ders: Present Continuous, 6 dakika. Tam dersi kanalda izle."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "BU AKŞAM",
+  "satir2": "= I AM GOING",
+  "rozetler": [
+   "YDT · BASIC",
+   "GRAMMAR"
+  ],
+  "sahne": [
+   {
+    "figur": "ogretmen",
+    "x": 32,
+    "y": 58,
+    "olcek": 0.8
+   },
+   {
+    "ad": "home",
+    "x": 72,
+    "y": 52,
+    "olcek": 0.5
+   }
+  ]
+ },
+ "meta": {
+  "kimlik": "02-01-ydt-temel-s1",
+  "kod": "ING-YDT-GR-02-01-T-S1",
+  "eskiKod": "ING-YDT-GR-01-PC",
+  "ders": "İngilizce",
+  "konu": "Present Continuous",
+  "kitle": "ydt",
+  "seviye": "temel",
+  "kapak": {
+   "satir1": "BU AKŞAM",
+   "satir2": "= I AM GOING",
+   "canAlici": "şimdiki zamanla gelecek, iki dilde aynı"
+  },
+  "amaclar": [
+   "Present Continuous ile planlı geleceği anlatmak"
+  ],
+  "canAlici": [
+   "şimdiki zamanla gelecek, iki dilde aynı"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "temel",
+   "gramer",
+   "Present Continuous",
+   "shorts"
+  ]
+ }
+}

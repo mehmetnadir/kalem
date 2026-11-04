@@ -23,6 +23,7 @@ for s, (b, d) in zip(fig, fz):
     ol.append({"kare": f(b), "tur": "cizgi", "guc": g})
 for (b, d), g in zip(ez, (0.7, 0.6, 0.5)):
     ol.append({"kare": f(b), "tur": "cizgi", "guc": g})
+ol.append({"kare": f(Z["zemin"][0]), "tur": "cizgi", "guc": 0.4})
 for i in range(2):
     ol.append({"kare": f(Z["rozet"][0] + i * Z["rozet"][1]), "tur": "tik", "guc": 0.4})
 ol.append({"kare": f(Z["ucus"][0]), "tur": "parilti", "guc": 0.5})

@@ -1,7 +1,8 @@
 // Paper.js "kendini çizen kalem" ortak modülü — DİKEY 1080x1920 (S1 Shorts).
 // Zaman yalnız kare numarasından gelir; Math.random / Date yok (tohumlu hash).
 // Kullanım: const S = await sahneKur(paper, { KARE, tBas, bolum, etkin }); ...içerik...; S.kare(f) -> canvas
-import { kunyeHazirla, zeminCiz, kunyeCiz, RENK, RT, renkCoz, temaSurum, KOK } from "/projeler/present-continuous-s1/ortak/kunye.js";
+import { kunyeHazirla, zeminCiz, kunyeCiz, altyaziMetin, altyaziCiz, RENK, RT, renkCoz, temaSurum,
+  KOK } from "/projeler/present-continuous-s1/ortak/kunye.js";
 
 const W = 1080, H = 1920;
 export { RENK, RT, renkCoz };
@@ -155,7 +156,7 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
       if (p.closed) pts.push(pts[0]);
       const sa = o.sesAralik || 4;
       ciz(pts, { duz: true, w: o.w || 3.4, amp: o.amp == null ? 0.8 : o.amp, renk: o.renk, alfa: 0.92, bas: cur, sure: Math.max(3, agirlik[i] * kf * ust), oge: ogeS,
-        uc0: 10, uc1: 22, ses: i % sa === 0 });
+        uc0: 10, uc1: 22, ses: o.sessiz ? false : i % sa === 0 });
       cur += agirlik[i] * kf;
     });
     g.remove();
@@ -169,7 +170,7 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
     const w = genislik(str, font), x0 = o.hizala === "orta" ? o.x - w / 2 : o.hizala === "sag" ? o.x - w : o.x;
     const g = new P.Group({ applyMatrix: false });
     const tx = new P.PointText({ point: [x0, o.y], content: str, fillColor: renkCoz(o.renk || RT.murekkep), fontFamily: aile, fontWeight: agirlik, fontSize: boyut });
-    g.addChild(tx); g.visible = false;
+    g.addChild(tx); g.visible = false; if (o.oge) o.oge.g.addChild(g);
     const y = { g, tx, renk: o.renk || RT.murekkep, str, x0, x1: x0 + w, y: o.y, boyut, bas: o.bas, sure: o.sure || 4, olcek: !!o.olcek, w, oge: o.oge };
     YAZILAR.push(y);
     if (o.ses) olay(o.bas, o.ses === true ? "tik" : o.ses, 0.5);
@@ -195,7 +196,8 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
     const sonuc = [];
     for (const k of kel) {
       const s = k.satir || 0; const x = sat[s] == null ? o.x : sat[s];
-      const yz = yazi(k.s, { x, y: o.y + s * (o.aralik || 80), boyut: o.boyut, aile: o.aile || "Fredoka", agirlik: o.agirlik || 700, renk: o.renk, bas: k.f, sure: 4 });
+      const yz = yazi(k.s, { x, y: o.y + s * (o.aralik || 80), boyut: o.boyut, aile: o.aile || "Fredoka", agirlik: o.agirlik || 700, renk: o.renk, bas: k.f, sure: 4,
+        oge: o.oge });
       sat[s] = yz.x1 + bosluk; sonuc.push(yz);
     }
     return sonuc;
@@ -264,6 +266,7 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
     for (const e of OGELER) matrisUygula(e, fe);
     P.view.update();
     zeminCiz(oc, f, K); oc.drawImage(document.getElementById("cv"), 0, 0); kunyeCiz(oc, { bolum, logo: K.logo });
+    altyaziCiz(oc, altyaziMetin(K.altyazi, tBas + fe / 30));
     if (f === KARE - 1) {
       const ev = [...OLAY.values()].sort((a, b) => a.kare - b.kare || b.guc - a.guc), say = {}, son = [];
       for (const e of ev) { if (e.kare > SON) continue; say[e.kare] = (say[e.kare] || 0) + 1; if (say[e.kare] <= 3) son.push(e); }   // son 12 kare durgun: olay yok

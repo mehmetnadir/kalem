@@ -17,5 +17,6 @@ LOGO_DOSYA="yds-publishing-seffaf.svg"; [ "$TEMA" = acik ] && LOGO_DOSYA="yds-pu
 # HyperFrames sahnesinin index.html'ini temaya çevirir (render sorgu almaz, tema dosyaya gömülür).
 tema_hf() { /usr/bin/python3 -I "$_TEMA_DIZIN/hf_tema.py" "$1" "$TEMA"; }
 # kontrol.png'ye tema damgası, RAPOR.md'ye "Tema:" satırı (PIL kullanıcı site-packages'ta: -I yok).
-tema_bitir() { /usr/bin/python3 "$_TEMA_DIZIN/tema_damga.py" "$1" "$TEMA"; }
+# 05.11: tema başına sahne videosu saklanır (video-acik.mp4 / video-koyu.mp4); birlestir.py --tema ile seçer.
+tema_bitir() { /usr/bin/python3 "$_TEMA_DIZIN/tema_damga.py" "$1" "$TEMA"; [ -f "$1/video.mp4" ] && cp "$1/video.mp4" "$1/video-$TEMA.mp4"; true; }
 echo "tema: $TEMA" >&2

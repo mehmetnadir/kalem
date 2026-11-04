@@ -140,9 +140,10 @@ def tabler(ad):
     return [d for d in re.findall(r'<path d="([^"]+)"', s) if not d.startswith("M0 0h24v24")]
 
 
-# ---- künye (SVG, dikey HUD 0-288; kunye.js ile aynı px) ----
-HUD = {"kenar": 48, "dersTaban": 104, "dersYazi": 36, "rozetY": 136, "rozetH": 46, "rozetYazi": 24,
-       "cipY": 62, "cipH": 48, "cipYazi": 26, "logoY": 1464, "logoYuk": 48}
+# ---- künye (SVG, dikey HUD v2, 05.11 telefon ölçeği; kunye.js ile aynı px) ----
+HUD = {"kenar": 48, "logoY": 48, "logoYuk": 96, "dersTaban": 212, "dersYazi": 56, "rozetY": 236,
+       "rozetH": 72, "rozetYazi": 36, "cipY": 48, "cipH": 80, "cipYazi": 40, "cipDolgu": 48,
+       "altyaziBas": 1400, "altyaziYazi": 44, "altyaziSatir": 56}
 ROZETLER = ("YDT · BASIC", "GRAMMAR")
 
 
@@ -150,19 +151,19 @@ def rozet_konumlari():
     """İki rozet hapı: (x, genislik) listesi."""
     x, out = HUD["kenar"], []
     for m in ROZETLER:
-        w = genislik("Lexend", 700, m, HUD["rozetYazi"]) + 44
+        w = genislik("Lexend", 700, m, HUD["rozetYazi"]) + 56
         out.append((x, w)); x += w + 12
     return out
 
 
 def cip_olcu(metin):
     """Çip: (x, y, genislik, yukseklik) sağ kenar W-48."""
-    w = genislik("Lexend", 700, metin, HUD["cipYazi"]) + 44
+    w = genislik("Lexend", 700, metin, HUD["cipYazi"]) + HUD["cipDolgu"]
     return W - HUD["kenar"] - w, HUD["cipY"], w, HUD["cipH"]
 
 
 def kunye_svg(cip):
-    """Ders adı + iki rozet (#rz0 #rz1) + çip (#ku-cip). Hepsi kendi id'siyle yönetilir."""
+    """Logo (#ku-logo) + ders adı + iki rozet (#rz0 #rz1) + çip (#ku-cip). Hepsi kendi id'siyle yönetilir."""
     sar, kre, zem = RENK["vurgu"], RENK["murekkep"], RENK["zemin"]
     h = HUD
     roz = ""
@@ -171,17 +172,55 @@ def kunye_svg(cip):
                 '<text x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" font-weight="700" '
                 'font-size="%d" fill="%s">%s</text></g>'
                 % (i, x, h["rozetY"], w, h["rozetH"], h["rozetH"] // 2, sar if i == 0 else kre,
-                   x + w / 2, h["rozetY"] + h["rozetH"] / 2 + 8.5, h["rozetYazi"], zem, m))
+                   x + w / 2, h["rozetY"] + h["rozetH"] / 2 + 13, h["rozetYazi"], zem, m))
     cx, cy, cw, ch = cip_olcu(cip)
     chip = ('<g id="ku-cip"><rect id="ku-cipr" x="%.1f" y="%d" width="%.1f" height="%d" rx="%d" fill="none" stroke="%s" '
-            'stroke-width="2.5"/><text id="ku-cipt" x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" '
+            'stroke-width="4"/><text id="ku-cipt" x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" '
             'font-weight="700" font-size="%d" fill="%s">%s</text></g>'
-            % (cx, cy, cw, ch, ch // 2, sar, cx + cw / 2, cy + ch / 2 + 9.3, h["cipYazi"], sar, cip))
+            % (cx, cy, cw, ch, ch // 2, sar, cx + cw / 2, cy + ch / 2 + 14, h["cipYazi"], sar, cip))
     ders = ('<text id="ku-ders" x="%d" y="%d" font-family="Fredoka" font-weight="700" font-size="%d" '
             'fill="%s">PRESENT CONTINUOUS</text>' % (h["kenar"], h["dersTaban"], h["dersYazi"], kre))
     logo = ('<image id="ku-logo" href="assets/logo.svg" x="%.2f" y="%d" width="%.2f" height="%d"/>'
             % (h["kenar"], h["logoY"], h["logoYuk"] * LOGO_EN_BOY, h["logoYuk"]))
     return '<g id="kunye">' + ders + roz + chip + logo + '</g>'
+
+
+def altyazi_satirlari(metin):
+    """Lexend 500 44, genişlik 984'e göre en çok 2 satır (kunye.js altyaziCiz ile aynı kural)."""
+    sat, s = [], ""
+    for w in metin.split(" "):
+        d = s + " " + w if s else w
+        if genislik("Lexend", 500, d, HUD["altyaziYazi"]) > W - 2 * HUD["kenar"] and s:
+            sat.append(s); s = w
+        else:
+            s = d
+    if s:
+        sat.append(s)
+    while len(sat) > 2:
+        son = sat.pop(); sat[1] += " " + son
+    return sat
+
+
+def altyazi_svg(t_bas, sure, liste):
+    """Altyazı bandı (y 1400-1536): her parça bir #al<i> grubu. -> (svg, [[id, aç, kapat], ...]) yerel sn."""
+    svg, zaman = "", []
+    for i, a in enumerate(liste):
+        ac = max(0.0, a["t0"] - 0.05 - t_bas)
+        son = a["t1"] + 0.35
+        if i + 1 < len(liste):
+            son = min(son, liste[i + 1]["t0"] - 0.05)
+        kapat = son - t_bas
+        if kapat <= 0 or ac >= sure:
+            continue
+        sat = altyazi_satirlari(a["metin"])
+        y0 = HUD["altyaziBas"] + (84 if len(sat) == 1 else 56)
+        txt = "".join('<text x="540" y="%d" text-anchor="middle" font-family="Lexend" font-weight="500" '
+                      'font-size="%d" fill="%s">%s</text>'
+                      % (y0 + k * HUD["altyaziSatir"], HUD["altyaziYazi"], RENK["murekkep"], t)
+                      for k, t in enumerate(sat))
+        svg += '<g id="al%d" style="opacity:0">%s</g>' % (i, txt)
+        zaman.append(["al%d" % i, round(ac, 3), round(min(kapat, sure), 3)])
+    return svg, zaman
 
 
 def zemin_html():

@@ -1,7 +1,7 @@
 """Sahne 01 kapak index.html üretici (DİKEY 1080x1920; soğuk açılış, 3 sn içerik + 12 kare geçiş = 102 kare).
 Zamanlar: zamanlar.json (olay.py ile ortak); cümle 1 sözcük zamanları: ortak/anlatim/sozcukler.json.
 Kapak kalıbı: başlık `BU AKŞAM` / `= I AM GOING` kalemle çizilir, figür + ev eskizi, Caveat cümle konuşmayla
-yazılır, 2,0-3,0 sn'de başlık HUD çipine uçar, cümleler içerik bandının üstüne çıkar, eskiz solar."""
+yazılır, 2,0-3,0 sn'de başlık HUD çipine uçar, cümleler içerik bandının üstüne çıkar, eskiz (figür + ev) yerinde kalır."""
 import json
 import sys
 from pathlib import Path
@@ -11,19 +11,25 @@ sys.path.insert(0, str(AD))
 import yardim as Y  # noqa: E402
 
 Z = json.loads((AD / "zamanlar.json").read_text())
+ALT = json.loads((AD / ".." / ".." / "ortak" / "anlatim" / "altyazi.json").read_text())
 SOZ = [w for w in json.loads((AD / ".." / ".." / "ortak" / "anlatim" / "sozcukler.json").read_text())
        if w["cumle"] == 1]
 TR = SOZ[:3]            # Bu akşam gidiyorum.
 R = Y.RENK
 CIP = "BU AKŞAM = I AM GOING"
 SOL = 72
-BASLIK_BOY = 150
-T1_Y = 466
-T2_Y = T1_Y + 165
-CUMLE1_Y, CUMLE2_Y, CUMLE_BOY = 745, 820, 64
-KAYMA_Y = -315                      # uçuşta cümleler: 745/820 -> 430/505
-FIG_S, FIG_X, FIG_Y = 0.67, 150.0, 874.0
-EV_S, EV_X, EV_Y = 15.0, 560.0, 984.0
+# 05.11 düzeltme (telefon ölçeği, BRIEF-DIKEY §3): başlık 2 satır; "= I AM GOING" 190'da 1136 px olur
+# (984'e sığmaz) -> 2. satır 160 px (943 px); 1. satır 180 px (Ş'li ölçüm +%11: 05.11 render ölçümü).
+BASLIK1, BASLIK2 = 180, 160
+T1_Y = 495
+T2_Y = 655
+CUMLE1_Y, CUMLE2_Y, CUMLE_BOY = 765, 855, 80
+KAYMA_Y = -325                      # uçuşta cümleler: 765/855 -> 440/530 (sahne 02 kare 0 ile aynı)
+# eskiz bandı y 900-1380 (bant ortası): figür 480 px, ev 460 kutu (görünür 345 px), zemin çizgisi y 1384
+FIG_S = 0.685
+FIG_X, FIG_Y = 177.0, 900.0
+EV_S, EV_X, EV_Y = 460 / 24, 522.5, 977.4
+ZEMIN_Y = 1384
 CAP = 0.36                          # cümle yazımı sözcük başına en çok 0,36 sn (kapak karesi 1,95 tam olsun)
 
 
@@ -37,24 +43,27 @@ def yapi():
 
 def uret():
     fig, ev, fz, ez = yapi()
-    sw = 3.5
+    sw = 4.4
     figs = "".join('<path id="f%d" transform="translate(%.2f %.2f)" d="%s" style="opacity:0"/>'
                    % (i, s["tx"], s["ty"], s["d"]) for i, s in enumerate(fig))
     evs = "".join('<path id="k%d" d="%s" style="opacity:0"/>' % (i, d) for i, d in enumerate(ev))
-    bs = 'font-family="Fredoka" font-weight="700" font-size="%d" stroke="%s" stroke-width="10" ' \
-         'stroke-linejoin="round" style="paint-order:stroke fill"' % (BASLIK_BOY, R["zemin"])
-    tit = ('<text id="t1" x="%d" y="%d" fill="%s" clip-path="url(#cp1)" %s>BU AKŞAM</text>'
-           '<text id="t2" x="%d" y="%d" fill="%s" clip-path="url(#cp2)" %s>= I AM GOING</text>'
-           % (SOL, T1_Y, R["murekkep"], bs, SOL, T2_Y, R["logoSari"], bs))
-    tw1 = Y.genislik("Fredoka", 700, "BU AKŞAM", BASLIK_BOY) * 1.15 + 40   # ölçüm kerning/Ş farkı payı
-    tw2 = Y.genislik("Fredoka", 700, "= I AM GOING", BASLIK_BOY) * 1.15 + 40
+    bs = 'font-family="Fredoka" font-weight="700" font-size="%d" stroke="%s" stroke-width="12" ' \
+         'stroke-linejoin="round" style="paint-order:stroke fill"'
+    w1 = Y.genislik("Fredoka", 700, "BU AKŞAM", BASLIK1) * 1.113     # gerçek render genişliği
+    w2 = Y.genislik("Fredoka", 700, "= I AM GOING", BASLIK2) * 0.985
+    t1x, t2x = (1080 - w1) / 2, (1080 - w2) / 2
+    tit = ('<text id="t1" x="%.1f" y="%d" fill="%s" clip-path="url(#cp1)" %s>BU AKŞAM</text>'
+           '<text id="t2" x="%.1f" y="%d" fill="%s" clip-path="url(#cp2)" %s>= I AM GOING</text>'
+           % (t1x, T1_Y, R["murekkep"], bs % (BASLIK1, R["zemin"]),
+              t2x, T2_Y, R["logoSari"], bs % (BASLIK2, R["zemin"])))
+    tw1, tw2 = w1 * 1.1 + 40, w2 * 1.1 + 40   # ölçüm kerning/Ş farkı payı
     tr_metin = " ".join(w["sozcuk"] for w in TR)
     cum_x = [SOL + Y.genislik("Caveat", 700, " ".join(w["sozcuk"] for w in TR[:i + 1]), CUMLE_BOY) + 8
              for i in range(len(TR))]
     en_w = Y.genislik("Caveat", 700, "I am going tonight.", CUMLE_BOY) + 24
-    clips = "".join('<clipPath id="cp%d"><rect id="cr%d" x="%d" y="%d" width="0" height="%d"/></clipPath>'
-                    % (n, n, SOL - 12, y - BASLIK_BOY + 8, int(BASLIK_BOY * 1.35))
-                    for n, y in ((1, T1_Y), (2, T2_Y)))
+    clips = "".join('<clipPath id="cp%d"><rect id="cr%d" x="%.1f" y="%d" width="0" height="%d"/></clipPath>'
+                    % (n, n, x - 12, y - b + 8, int(b * 1.35))
+                    for n, y, x, b in ((1, T1_Y, t1x, BASLIK1), (2, T2_Y, t2x, BASLIK2)))
     for n, y in ((3, CUMLE1_Y), (4, CUMLE2_Y)):
         clips += ('<clipPath id="cp%d"><rect id="cr%d" x="%d" y="%d" width="0" height="%d"/></clipPath>'
                   % (n, n, SOL - 12, y - CUMLE_BOY, int(CUMLE_BOY * 1.5)))
@@ -63,16 +72,17 @@ def uret():
            '<text id="cm2" x="%d" y="%d" font-family="Caveat" font-weight="700" font-size="%d" '
            'fill="%s" clip-path="url(#cp4)">I am going tonight.</text></g>'
            % (SOL, CUMLE1_Y, CUMLE_BOY, R["murekkep"], tr_metin, SOL, CUMLE2_Y, CUMLE_BOY, R["murekkep"]))
-    # uçuş hedefleri: çip metninin iki parçası (Lexend 26)
+    # uçuş hedefleri: çip metninin iki parçası (Lexend 40); başlık satırları kendi boylarından küçülür
     cx, cy, cw, ch = Y.cip_olcu(CIP)
-    base = cy + ch / 2 + 9.3
-    x0 = cx + 22
+    base = cy + ch / 2 + 14
+    x0 = cx + Y.HUD["cipDolgu"] / 2
     w_bu = Y.genislik("Lexend", 700, "BU AKŞAM ", Y.HUD["cipYazi"])
-    k = Y.HUD["cipYazi"] / BASLIK_BOY
-    hedef = {"t1": [x0, base, k], "t2": [x0 + w_bu, base, k]}
+    hedef = {"t1": [x0, base, Y.HUD["cipYazi"] / BASLIK1], "t2": [x0 + w_bu, base, Y.HUD["cipYazi"] / BASLIK2]}
     kunye = Y.kunye_svg(CIP)
+    alt_svg, alt_zaman = Y.altyazi_svg(0.0, Z["sure"], ALT)
     veri = {"Z": Z, "fz": fz, "ez": ez, "nF": len(fig), "nE": len(ev), "hedef": hedef,
-            "sol": SOL, "t1y": T1_Y, "t2y": T2_Y, "tw": [tw1, tw2], "enw": en_w, "kayma": KAYMA_Y,
+            "sol": SOL, "t1y": T1_Y, "t2y": T2_Y, "tw": [tw1, tw2],
+            "t1x": t1x, "t2x": t2x, "alt": alt_zaman, "zc": Z["zemin"], "enw": en_w, "kayma": KAYMA_Y,
             "logoc": "%.2f %.2f" % (Y.HUD["kenar"] + Y.HUD["logoYuk"] * Y.LOGO_EN_BOY / 2, Y.HUD["logoY"] + Y.HUD["logoYuk"] / 2),
             "cw": [[w["t0"], min(w["t1"], w["t0"] + CAP), cum_x[i]] for i, w in enumerate(TR)]}
     html = f"""<!doctype html>
@@ -91,12 +101,13 @@ def uret():
 <g id="eskiz" fill="none" stroke="{R['murekkep']}" stroke-linecap="round" stroke-linejoin="round">
 <g id="fig" transform="translate({FIG_X} {FIG_Y}) scale({FIG_S})" stroke-width="{sw / FIG_S:.3f}">{figs}</g>
 <g id="evg" filter="url(#el)"><g transform="translate({EV_X} {EV_Y}) scale({EV_S})" stroke-width="{sw / EV_S:.3f}">{evs}</g></g>
-<g id="par" stroke="{R['vurgu']}" stroke-width="5" style="opacity:0">
-<path d="M470 1010 l0 -40 M450 990 l40 0 M458 978 l24 24 M482 978 l-24 24"/>
-<path d="M980 1090 l0 -34 M963 1073 l34 0"/><path d="M520 1300 l0 -30 M505 1285 l30 0"/></g>
+<path id="zc" d="M96 {ZEMIN_Y} L560 {ZEMIN_Y - 2} L1000 {ZEMIN_Y}" stroke="{R['ikincil']}" stroke-opacity="0.75" stroke-width="4" style="opacity:0"/>
+<g id="par" stroke="{R['vurgu']}" stroke-width="6" style="opacity:0">
+<path d="M440 960 l0 -44 M418 938 l44 0 M426 922 l28 32 M454 922 l-28 32"/>
+<path d="M990 1000 l0 -36 M972 982 l36 0"/><path d="M500 1230 l0 -34 M483 1213 l34 0"/></g>
 </g>
 {tit}{cum}
-{kunye}
+{kunye}<g id="altyazi">{alt_svg}</g>
 </svg>
 </div>
 <script src="lib/gsap.min.js"></script>
@@ -114,6 +125,11 @@ def uret():
   }}
   for (var i = 0; i < V.nF; i++) darbe("f" + i, V.fz[i][0], V.fz[i][1]);
   for (var j = 0; j < V.nE; j++) darbe("k" + j, V.ez[j][0], V.ez[j][1]);
+  darbe("zc", V.zc[0], V.zc[1]);
+  // altyazı bandı: parça başında açılır, bitince (ya da sonraki parça başlarken) kapanır
+  V.alt.forEach(function (a) {{
+    tl.set("#" + a[0], ac({{ opacity: 1 }}), a[1]); tl.set("#" + a[0], ac({{ opacity: 0 }}), a[2]);
+  }});
   gsap.set("#ku-cip", {{ opacity: 0 }});
   gsap.set("#ku-cipt", {{ opacity: 0 }});
 
@@ -138,20 +154,19 @@ def uret():
   // İngilizce cümle altında
   tl.fromTo("#cr4", {{ attr: {{ width: 0 }} }}, {{ attr: {{ width: V.enw }}, duration: Z.en_cumle[1], ease: "none", immediateRender: false }}, Z.en_cumle[0]);
 
-  gsap.set("#eskiz", {{ svgOrigin: "540 1100" }});
-
-  // uçuş 2,0-3,0: başlık -> çip, cümleler yukarı, eskiz solar
+  
+  // uçuş 2,0-3,0: başlık -> çip, cümleler yukarı
   var u0 = Z.ucus[0], ud = Z.ucus[1], u1 = u0 + ud, H = V.hedef;
   function uc2(id, ox, oy, h, ex) {{
     tl.to(id, ac({{ svgOrigin: ox + " " + oy, x: h[0] - ox, duration: ud, ease: ex }}), u0);
     tl.to(id, ac({{ svgOrigin: ox + " " + oy, y: h[1] - oy, duration: ud, ease: "power3.inOut" }}), u0);
     tl.to(id, ac({{ svgOrigin: ox + " " + oy, scale: h[2], duration: ud * 0.8, ease: "power3.out" }}), u0);
   }}
-  uc2("#t1", V.sol, V.t1y, H.t1, "power3.inOut"); uc2("#t2", V.sol, V.t2y, H.t2, "power2.out");
+  uc2("#t1", V.t1x, V.t1y, H.t1, "power3.inOut"); uc2("#t2", V.t2x, V.t2y, H.t2, "power2.out");
   tl.to("#t2", ac({{ fill: "{R['murekkep']}", duration: ud * 0.6, ease: "power1.inOut" }}), u0);
   tl.to("#cum", ac({{ y: V.kayma, duration: ud, ease: "power3.inOut" }}), u0);
-  tl.to("#eskiz", ac({{ opacity: 0, scale: 1.06, duration: 0.4, ease: "power1.in" }}), u0 + 0.1);
-  tl.fromTo("#par", {{ opacity: 0, scale: 0.6 }}, {{ opacity: 1, scale: 1, duration: 0.2, ease: "power3.out", immediateRender: false, svgOrigin: "540 1100" }}, u0);
+  // eskiz (figür + ev + zemin) yerinde kalır: sahne 02 aynı kareyi hazır çizili açar
+  tl.fromTo("#par", {{ opacity: 0, scale: 0.6 }}, {{ opacity: 1, scale: 1, duration: 0.2, ease: "power3.out", immediateRender: false, svgOrigin: "540 1150" }}, u0);
   tl.to("#par", ac({{ opacity: 0, duration: 0.3, ease: "power1.in" }}), u0 + 0.25);
   tl.to("#ku-cip", ac({{ opacity: 1, duration: 0.35, ease: "power1.out" }}), u0 + 0.35);
   var son = u1 - 0.3;   // çip metni son 0,25 sn'de belirir, başlık satırları söner
