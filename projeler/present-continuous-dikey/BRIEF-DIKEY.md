@@ -51,7 +51,7 @@ uygular (logo `<img>` 387×96 sol üst; ders adı; rozet; çip; altyazı `div` 1
 | Türkçe çeviri / kanca cümlesi | Caveat 700 | 64–80 | mürekkep |
 | El notu, ok etiketi ("şimdiki zaman", "= iş sürüyor") | Caveat 700 | 64 (ikincil yalnız ≥ 72) | vurgu ya da mürekkep |
 | Formül / anahtar sözcük (`be + V-ing`, `-yor = -ing`, `go → go-ing`) | Fredoka 700 | 110–160 | mürekkep + vurgu |
-| Kapak başlığı (sahne 01) | Fredoka 700 | 190–230, 2 satır, kontur 12 | mürekkep / vurgu |
+| Kapak başlığı (sahne 01) | Fredoka 700 | 190–230; uzun sözcük 984 px içerik genişliğine sığmazsa küçült (en az 150; ör. CONTINUOUS 156), 2 satır, kontur 12 | mürekkep / vurgu |
 | Kart | kenar 4 px kalem çizgisi, iç boşluk 40, genişlik 984 | | |
 | Figür / nesne | 420–560 px yüksek; kalınlık figür 4,0–4,8, nesne 4,0; belirteç (daire/altı/ok) w 9–12 | | |
 Satır başına en çok 24 karakter (Caveat 64'te 984 px'e sığar). Güvenli alan: kenar 48, HUD/altyazı bandına 0 taşma.
