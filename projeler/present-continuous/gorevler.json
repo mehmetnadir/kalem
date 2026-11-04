@@ -388,13 +388,14 @@
     "baslik": "D1 dikey parça: -yor = -ing (55 sn) üretimi",
     "aciklama": "senaryo-dikey-taslak.md D1 → senaryo.json (9:16), sentez (el.py), motor dikey, lint, snapshot",
     "grup": "motor",
-    "durum": "uretimde",
+    "durum": "inceleme",
     "atanan": "ajan",
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T14:21:23.975Z",
     "bagimli": [],
-    "guncelleme": "2026-11-04T18:34:00.894Z"
+    "guncelleme": "2026-11-04T19:05:00Z",
+    "sonuc": "D1 üretildi: 4 sahne, 54,33 sn, 1080×1920, efekt hışırtı 81/132; kapak -YOR = -ING; altyazı bandı boş (karar)."
   },
   {
     "kimlik": "g-26",
@@ -404,13 +405,14 @@
     "baslik": "S1 Shorts tanıtım (25 sn) + kapak \"BU AKŞAM = I AM GOING\"",
     "aciklama": "taslak S1 → senaryo.json, sentez, motor dikey, kapak sahnesi snapshot (PNG)",
     "grup": "motor",
-    "durum": "uretimde",
+    "durum": "inceleme",
     "atanan": "ajan",
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T14:21:23.976Z",
     "bagimli": [],
-    "guncelleme": "2026-11-04T18:34:00.897Z"
+    "guncelleme": "2026-11-04T19:05:00Z",
+    "sonuc": "S1 üretildi: 3 sahne, 26,4 sn, kapak.png 'BU AKŞAM = I AM GOING' (t 1,97); altyazı bandı boş (karar)."
   },
   {
     "kimlik": "g-27",
@@ -420,13 +422,14 @@
     "baslik": "Öğrenci balonu: kadro figürünün başı",
     "aciklama": "K22; motor balon olayı kadro başı çizer; pilotlar yeniden derlenir",
     "grup": "motor",
-    "durum": "uretimde",
+    "durum": "inceleme",
     "atanan": "ajan",
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T14:21:23.978Z",
     "bagimli": [],
-    "guncelleme": "2026-11-04T18:34:00.899Z"
+    "guncelleme": "2026-11-04T19:05:00Z",
+    "sonuc": "Sahne 06: siluet yerine peeps-kit ogrenci-bas.svg (kadın, gözlüklü); k/75 doğrulandı; ana video yeniden birleştirildi."
   },
   {
     "kimlik": "g-28",
@@ -436,12 +439,13 @@
     "baslik": "Efekt sesi: yalnız kalem hışırtısı izi (motor + oynatıcı)",
     "aciklama": "ses-efekt --katman hisirti; motor ses/efekt.wav; oynatıcı ikinci iz −18 dB",
     "grup": "motor",
-    "durum": "uretimde",
+    "durum": "inceleme",
     "atanan": "ajan",
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T14:21:23.979Z",
     "bagimli": [],
-    "guncelleme": "2026-11-04T18:34:00.902Z"
+    "guncelleme": "2026-11-04T19:05:00Z",
+    "sonuc": "birlestir.py --efekt hisirti (yalnız çizgi olayları, +9,5 dB); ana video 135/212 olay; 28 test geçti."
   }
 ]

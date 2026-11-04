@@ -30,3 +30,17 @@ projeler/present-continuous/sahneler/*/kareler/
 projeler/present-continuous/ortak/anlatim/*.wav
 projeler/present-continuous/ortak/font/
 projeler/present-continuous/ortak/cizim/
+!projeler/present-continuous-d1/
+!projeler/present-continuous-s1/
+projeler/present-continuous-d1/_is/
+projeler/present-continuous-d1/*.mp4
+projeler/present-continuous-d1/*.png
+projeler/present-continuous-d1/sahneler/*/video.mp4
+projeler/present-continuous-d1/sahneler/*/*.png
+projeler/present-continuous-d1/ortak/anlatim/*.wav
+projeler/present-continuous-s1/_is/
+projeler/present-continuous-s1/*.mp4
+projeler/present-continuous-s1/sahneler/*/video.mp4
+projeler/present-continuous-s1/sahneler/*/*.png
+projeler/present-continuous-s1/ortak/anlatim/*.wav
+projeler/present-continuous-s1/kontrol.png

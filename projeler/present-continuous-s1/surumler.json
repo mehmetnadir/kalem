@@ -1,0 +1,54 @@
+{
+  "video": {
+    "kimlik": "present-continuous-s1",
+    "ders": "İngilizce",
+    "konu": "Present Continuous",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-01-T-S1",
+    "amaclar": [
+      "Present Continuous formunu kurmak (be + V-ing)",
+      "zaman ifadelerini tanımak",
+      "altı kullanımı ayırt etmek",
+      "Türkçe -yor ile köprü"
+    ],
+    "canAlici": [
+      "Türkçedeki -yor = İngilizcedeki -ing",
+      "'Bu akşam amcamlara gidiyorum' — şimdiki zamanla gelecek, iki dilde aynı",
+      "Look! Listen! Watch out! = şimdi oluyor sinyali",
+      "be fiili zamanı taşır: am/is/are şimdi, was/were geçmiş",
+      "3 örnek, 1 kural: üçünde de -ing"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Present Continuous"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "s1",
+      "video": "present-continuous-s1",
+      "tur": "shorts",
+      "ad": "S1 Shorts — BU AKŞAM = I AM GOING",
+      "senaryo": "/Users/nadir/01dev/dijital-anlatim/pilot/grammar-tenses-01-shorts-s1/senaryo.json",
+      "kapak": "kapak.png",
+      "seviye": "temel",
+      "kaynak": null,
+      "durum": "inceleme",
+      "onizleme": "/p/present-continuous-s1/onizle.html?surum=s1",
+      "tarih": "2026-11-04T12:00:00Z"
+    }
+  ],
+  "revizyonlar": [
+    {
+      "surum": "s1",
+      "no": "r1",
+      "tarih": "2026-11-04T12:00:00Z",
+      "degisiklik": "S1 Shorts: 3 sahne, 1080x1920",
+      "cikti": "cikti.mp4"
+    }
+  ]
+}

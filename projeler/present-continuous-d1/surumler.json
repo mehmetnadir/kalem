@@ -1,0 +1,29 @@
+{
+  "video": {
+    "kimlik": "present-continuous-d1",
+    "ders": "İngilizce",
+    "konu": "-yor = -ing (dikey parça)",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-01-T-D1",
+    "amaclar": ["Türkçe -yor ile İngilizce -ing eşleşmesini görmek", "be + V-ing formunu tanımak"],
+    "canAlici": ["-yor = -ing"],
+    "kazanim": [],
+    "etiketler": ["İngilizce", "temel", "gramer", "Present Continuous", "dikey"]
+  },
+  "surumler": [
+    {
+      "kimlik": "d1",
+      "video": "present-continuous-d1",
+      "tur": "dikey",
+      "ad": "D1 -yor = -ing (9:16)",
+      "senaryo": "ortak/anlatim/senaryo.json",
+      "kapak": null,
+      "seviye": "temel",
+      "kaynak": null,
+      "durum": "inceleme",
+      "onizleme": "/p/present-continuous-d1/onizle.html?surum=d1",
+      "tarih": "2026-11-04T21:40:00Z"
+    }
+  ]
+}

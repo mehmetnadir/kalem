@@ -4,10 +4,17 @@
 var PROJE = KalemYol.projeAdi() || "present-continuous", YOL = KalemYol.projeYolu(PROJE), FPS = 30, GECIS = 0.4, ONYUKLE = 3, ET = 104;
 var RENK = ["var(--s0)", "var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)"];
 var BOLUM = ["Giriş", "Hook", "Example 1 / 3", "Example 2 / 3", "Example 3 / 3", "Question"];
+function bolumAd(i) {
+  var s = S[i]; if (!s) return "";
+  if (s.ad) return s.ad;
+  if (PROJE === "present-continuous" && BOLUM[i]) return BOLUM[i];
+  return s.klasor.replace(/^\d+-[a-z]+-/, "");
+}
 var NTUR = { cizim: "var(--n-cizim)", metin: "var(--n-metin)", kart: "var(--n-kart)", isaret: "var(--n-isaret)" };
 var $ = function (s) { return document.querySelector(s); };
 var au = $("#au"), zk = $("#zk"), zi = $("#zi");
-var D = null, S = [], T = 94.33, t = 0, calma = "dur", hiz = 1, zoom = 1, TEMA = "koyu", H = {};
+var D = null, S = [], T = 94.33, GEN = 1920, YUK = 1080, t = 0, calma = "dur", hiz = 1, zoom = 1;
+var TEMA = "koyu", H = {};
 var sessiz = false, panes = [], yan = false, sonMs = 0, wave = null, sonOlay = -1;
 
 function e(tag, cls, html, ust) {
@@ -71,10 +78,12 @@ function nesneYukle(z) {                                                  // nes
 }
 function veriYukle() {
   return zamanYukle().then(function (z) {
-    return Promise.all([sozcukYukle(), olayYukle(z), nesneYukle(z), getJ(YOL + "sahneler/" + z.sahneler[5].klasor
-      + "/zamanlar.json")
-      .catch(function () { return {}; })]).then(function (a) {
-      return { z: z, cumle: a[0], olay: a[1], nesne: a[2], form: a[3].form || null };
+    var fs = z.sahneler.filter(function (s) { return /form/.test(s.klasor); }).pop();
+    var formJ = fs ? getJ(YOL + "sahneler/" + fs.klasor + "/zamanlar.json")
+      .catch(function () { return {}; }) : Promise.resolve({});
+    return Promise.all([sozcukYukle(), olayYukle(z), nesneYukle(z), formJ]).then(function (a) {
+      return { z: z, cumle: a[0], olay: a[1], nesne: a[2], form: a[3].form || null,
+        formI: fs ? z.sahneler.indexOf(fs) : -1 };
     });
   });
 }
@@ -126,12 +135,18 @@ window.addEventListener("message", function (ev) {
 });
 function olc() {
   var o = $("#orta"), n = yan ? 2 : 1, ara = yan ? 8 : 0, ust = yan ? 44 : 0, sh = $("#sahne");
-  var w = Math.min((o.clientWidth - 24 - ara) / n, (o.clientHeight - 24 - ust) * 16 / 9);
-  sh.style.width = (w * n + ara) + "px"; sh.style.height = (w * 9 / 16) + "px";
+  if (!panes.length) return;
+  var P = panes.slice(0, n), oran = P.reduce(function (a, p) { return a + p.gen / p.yuk; }, 0);
+  var h = Math.min(o.clientHeight - 24 - ust, (o.clientWidth - 24 - ara) / oran), x = 0;
+  sh.style.width = (h * oran + ara) + "px"; sh.style.height = h + "px";
   panes.forEach(function (p, k) {
-    p.el.style.display = k < n ? "block" : "none"; p.el.style.left = (k * (w + ara)) + "px";
-    p.el.style.width = w + "px"; p.el.style.height = (w * 9 / 16) + "px";
-    p.slot.forEach(function (s) { s.f.style.transform = "scale(" + (w / 1920) + ")"; });
+    var w = h * p.gen / p.yuk;
+    p.el.style.display = k < n ? "block" : "none"; p.el.style.left = x + "px";
+    p.el.style.width = w + "px"; p.el.style.height = h + "px"; if (k < n) x += w + ara;
+    p.slot.forEach(function (s) {
+      s.f.style.width = p.gen + "px"; s.f.style.height = p.yuk + "px";
+      s.f.style.transform = "scale(" + (w / p.gen) + ")";
+    });
   });
 }
 // pencerenin sahne kaynağını değiştirir, tamponları sıfırlar
@@ -152,11 +167,14 @@ function surumTaban(a) { return a.split("?")[0].replace(/[^\/]*$/, ""); }
 function paneAyarla(p, v) {                            // v: "t:koyu" | "t:acik" | "s:<sürüm kimliği>"
   if (v.indexOf("t:") === 0) {
     p.tema = v.slice(2);
-    if (p.surum) { p.surum = ""; paneKaynak(p, YOL, S); }
+    if (p.surum) { p.surum = ""; p.gen = GEN; p.yuk = YUK; paneKaynak(p, YOL, S); olc(); }
     paneTema(p); return;
   }
   var kid = v.slice(2), s = surumBul(kid), taban = s ? surumTaban(surumAdres(s)) : "";
-  getJ(taban + "zaman.json").then(function (z) { p.surum = kid; paneKaynak(p, taban, z.sahneler); paneTema(p); })
+  getJ(taban + "zaman.json").then(function (z) {
+    p.surum = kid; p.gen = z.genislik || 1920; p.yuk = z.yukseklik || 1080;
+    paneKaynak(p, taban, z.sahneler); paneTema(p); olc();
+  })
     .catch(function () { durumMesaj("Sürümün sahneleri yüklenemedi"); paneSecenek(); });
 }
 function yanSec(a) {
@@ -242,14 +260,19 @@ function zamanCizgisiKur() {
     "<button data-z='+' title='Yakınlaştır'>+</button>";
   H.bas = e("div", null, null, r.ic); H.bas.id = "bas";
   // bölüm
-  var b = satir("Bölüm", 18), ad = BOLUM.slice(), form = D.form || S[5].t_bas + 3.91;
+  var b = satir("Bölüm", 18), ad = S.map(function (_, i) { return bolumAd(i); }), fI = D.formI,
+    form = D.form || (PROJE === "present-continuous" && fI === 5 ? S[5].t_bas + 3.91 : null);
   H.bolum = [];
   S.forEach(function (s, i) {
-    var son = i === 5 ? form : s.t_son;
+    var son = (form && i === fI) ? form : s.t_son;
     H.bolum.push(blok(b.ic, s.t_bas, son, "b bl", ad[i], ad[i]));
     H.bolum[i]._a = s.t_bas; H.bolum[i]._b = son;
   });
-  H.bolum.push(blok(b.ic, form, S[5].t_son, "b bl", "Form", "Form")); H.bolum[6]._a = form; H.bolum[6]._b = S[5].t_son;
+  if (form) {                                  // form bölümü: form sahnesinin ikinci yarısı
+    var fb = blok(b.ic, form, S[fI].t_son, "b bl", "Form", "Form");
+    fb._a = form; fb._b = S[fI].t_son;
+    H.bolum.push(fb);
+  }
   // sahne
   var sr = satir("Sahne", 26); H.sbl = [];
   S.forEach(function (s, i) {
@@ -412,8 +435,8 @@ function sagKur() {
   });
   var sol = $("#sahneler");
   S.forEach(function (s, i) {
-    var b = e("button", "sl", "<i></i><span><b>" + pad(s.no) + " " + BOLUM[i] + "</b><small>" + s.motor + " · " +
-      sn(s.t_son - s.t_bas) + " sn</small></span>", sol);
+    var b = e("button", "sl", "<i></i><span><b>" + pad(s.no) + " " + bolumAd(i) + "</b><small>"
+      + s.motor + " · " + sn(s.t_son - s.t_bas) + " sn</small></span>", sol);
     b.style.setProperty("--r", RENK[i]); b.onclick = function () { git(s.t_bas); }; b.dataset.i = i;
   });
   document.querySelectorAll("#sek2 button").forEach(function (b) {
@@ -441,7 +464,7 @@ function sahneBilgiYaz(i) {
   });
   secNesne = ""; yorumMetaYaz();
   var olSay = D.olay.filter(function (o) { return o.sahne === i; }).length;
-  $("#p-sah").innerHTML = "<dl class='bil'><dt>Sahne</dt><dd>" + pad(s.no) + " · " + BOLUM[i]
+  $("#p-sah").innerHTML = "<dl class='bil'><dt>Sahne</dt><dd>" + pad(s.no) + " · " + bolumAd(i)
     + "</dd><dt>Klasör</dt><dd>" +
     s.klasor + "</dd><dt>Motor</dt><dd>" + s.motor + "</dd><dt>Süre</dt><dd>" + sn(s.t_bas) + " – " + sn(s.t_son) +
     " sn</dd><dt>Kare</dt><dd>" + s.kare + " (içerik " + s.icerik_kare + ")</dd><dt>Geçiş</dt><dd>" + s.gecis +
@@ -864,9 +887,11 @@ var haritaVeri = Promise.all([listeAl("surumler", "surumler.json"), listeAl("gor
   listeAl("yorumlar", "yorumlar.json")]);
 veriYukle().then(function (v) {
   D = v; S = v.z.sahneler; FPS = v.z.fps; T = S[S.length - 1].t_son;
+  GEN = v.z.genislik || 1920; YUK = v.z.yukseklik || 1080;
   TEMA = QS.get("tema") === "acik" ? "acik" : "koyu";
   panes = [0, 1].map(function (k) {
     return { k: k, el: $("#pn" + k), S: S, yol: YOL, tema: TEMA, surum: "", gosterilen: -1,
+      gen: GEN, yuk: YUK,
       slot: [0, 1].map(function (m) { return { idx: m, f: $("#f" + k + m), no: -1, hazir: false, goster: false,
         sonT: null, op: -1, z: -1 }; }) };
   });
