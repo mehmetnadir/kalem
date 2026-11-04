@@ -2,7 +2,8 @@
 """HyperFrames sahnesinin proje/index.html dosyasını temaya çevirir (yerinde, tekrar çalıştırılabilir).
   /usr/bin/python3 -I hf_tema.py <index.html> acik|koyu
 uret.py koyu renkleri sabit yazar; bu betik renk değişkenlerini (CSS), 'tema-acik' sınıfını ve canlı önizleme
-düğmesini ekler. Palet ortak/kunye.js TEMALAR ile aynıdır (K19: zemin #f7f3ea, mürekkep #1b2440, vurgu #d9900f)."""
+köprüsünü ekler: tema mesajı + ortak/surucu.js canliHF (editör 'hazir' mesajı; b5d3940'ta
+düşmüştü, 04.11 gece geri geldi)."""
 from __future__ import annotations
 import re, sys
 
@@ -34,6 +35,11 @@ JS = ('<script>/* kalem-tema */(function () {  /* canlı önizleme (?canli=1): ?
       '    if (L) L.setAttribute("href", "' + LOGO + '" + (a === "acik" ? "yds-publishing-lacivert.svg" : "yds-publishing-seffaf.svg")); }\n'
       '  t(new URLSearchParams(location.search).get("tema") || "koyu");\n'
       '  addEventListener("message", function (e) { if (e.data && e.data.tip === "tema") t(e.data.ad); });\n'
+      '  var tl = window.__timelines && window.__timelines.main;  '
+      '/* canlı sürücü: zaman çizelgesi kare sayacına/editör mesajına bağlanır '
+      '(hazir mesajı) */\n'
+      '  if (tl) import("/ortak/surucu.js").then(function (m) { '
+      'm.canliHF(tl, +R.dataset.fps || 30); });\n'
       '})();</script>')
 ESKI_JS = re.compile(r"<script>(?:/\* kalem-tema \*/)?\(function \(\) \{  /\* canlı önizleme (?:\(\?canli=1\): )?"
                      r"(?:teması: )?.*?\}\)\(\);</script>", re.S)

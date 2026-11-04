@@ -64,9 +64,11 @@ export function canliCekirdek({ fps, KARE, ciz, indir }) {
 // HyperFrames sayfaları: gsap zaman çizelgesi (paused) canlı kipte kare sayacına bağlanır.
 export function canliHF(tl, fps = 30) {
   const kok = document.getElementById("root"), sure = parseFloat(kok.dataset.duration);
+  const gen = parseFloat(kok.dataset.width) || 1920;    // dikey sahne: data-width/height
+  const yuk = parseFloat(kok.dataset.height) || 1080;
   const olc = () => {
     kok.style.transformOrigin = "0 0";
-    kok.style.transform = `scale(${Math.min(innerWidth / 1920, innerHeight / 1080)})`;
+    kok.style.transform = `scale(${Math.min(innerWidth / gen, innerHeight / yuk)})`;
   };
   document.body.style.overflow = "hidden"; olc(); addEventListener("resize", olc);
   tl.pause();

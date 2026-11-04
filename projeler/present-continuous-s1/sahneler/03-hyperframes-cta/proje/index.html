@@ -69,12 +69,16 @@ html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1080px;heig
   window.__timelines = window.__timelines || {};
   window.__timelines["main"] = tl;
 })();
-</script><script>/* kalem-tema */(function () {  /* canlı önizleme (?canli=1): ?tema=acik ya da message {tip:"tema", ad}; sorgu yoksa koyu. Render sırasında çalışmaz, tema dosyaya gömülüdür */
+</script>
+
+<script>/* kalem-tema */(function () {  /* canlı önizleme (?canli=1): ?tema=acik ya da message {tip:"tema", ad}; sorgu yoksa koyu. Render sırasında çalışmaz, tema dosyaya gömülüdür */
   if (!/[?&]canli=1/.test(location.search)) return;
   var R = document.getElementById("root"), L = document.getElementById("logoimg") || document.getElementById("logo");
   function t(a) { R.classList.toggle("tema-acik", a === "acik");
-    if (L) L.setAttribute("href", "/projeler/present-continuous-s1/ortak/logo/" + (a === "acik" ? "yds-publishing-lacivert.svg" : "yds-publishing-seffaf.svg")); }
+    if (L) L.setAttribute("href", "/projeler/present-continuous/ortak/logo/" + (a === "acik" ? "yds-publishing-lacivert.svg" : "yds-publishing-seffaf.svg")); }
   t(new URLSearchParams(location.search).get("tema") || "koyu");
   addEventListener("message", function (e) { if (e.data && e.data.tip === "tema") t(e.data.ad); });
+  var tl = window.__timelines && window.__timelines.main;  /* canlı sürücü: zaman çizelgesi kare sayacına/editör mesajına bağlanır (hazir mesajı) */
+  if (tl) import("/ortak/surucu.js").then(function (m) { m.canliHF(tl, +R.dataset.fps || 30); });
 })();</script>
 </body></html>
