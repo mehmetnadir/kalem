@@ -37,7 +37,7 @@
       "kapak": null,
       "seviye": "temel",
       "kaynak": null,
-      "durum": "planli",
+      "durum": "hazir",
       "onizleme": "/p/simple-past-temel/onizle.html",
       "tarih": "2026-11-05T02:00:00Z"
     },
@@ -50,7 +50,7 @@
       "kapak": "SIMPLE PAST",
       "seviye": "temel",
       "kaynak": "ana-yatay",
-      "durum": "planli",
+      "durum": "hazir",
       "onizleme": "/p/simple-past-temel-dikey/onizle.html",
       "tarih": "2026-11-05T02:00:00Z",
       "proje": "simple-past-temel-dikey"
