@@ -92,7 +92,8 @@ export async function surucu(kur, kare, KARE = 240, fps = 30) {
   } catch (e) { await log("HATA " + (e.stack || e)); await fetch("/bitti", { method: "POST", body: "hata " + e }); }
 }
 
-// Canlı kip: sahne canvas'ı gizlenir, kare(f) çıktısı görünür 1920x1080 canvas'a kopyalanır.
+// Canlı kip: sahne canvas'ı gizlenir, kare(f) çıktısı görünür canvas'a kopyalanır; boyut kare canvas'ından
+// (yatay 1920x1080, dikey 1080x1920) — sabit 1920x1080 dikey sahneyi 16:9'a eziyordu (04.11).
 function canliKare(kare, KARE, fps) {
   document.querySelectorAll("body > canvas").forEach((c) => { c.style.display = "none"; });
   document.body.style.cssText += ";margin:0;background:#111;overflow:hidden";
@@ -102,7 +103,11 @@ function canliKare(kare, KARE, fps) {
   const g = cv.getContext("2d");
   canliCekirdek({
     fps, KARE,
-    ciz: async (f) => { const c = await kare(f); g.drawImage(c, 0, 0, 1920, 1080); },
+    ciz: async (f) => {
+      const c = await kare(f);
+      if (cv.width !== c.width || cv.height !== c.height) { cv.width = c.width; cv.height = c.height; }
+      g.drawImage(c, 0, 0);
+    },
     indir: (f) => cv.toBlob((b) => {
       const a = document.createElement("a"); a.href = URL.createObjectURL(b);
       a.download = "kare-" + String(f).padStart(4, "0") + ".png"; a.click();
