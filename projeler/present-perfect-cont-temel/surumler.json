@@ -1,0 +1,75 @@
+{
+  "video": {
+    "kimlik": "02-09-ydt-temel",
+    "ders": "İngilizce",
+    "konu": "Present Perfect Continuous",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-09-T",
+    "amaclar": [
+      "Present Perfect Continuous formunu kurmak (have/has been + V-ing)",
+      "for ile since farkını ayırt etmek",
+      "sonucu görünen eylemi tanımak",
+      "Türkçe -dir ... -yor ile köprü"
+    ],
+    "canAlici": [
+      "Türkçedeki -dir ... -yor = İngilizcedeki have been ... -ing",
+      "'İki saattir çalışıyorum' — I have been working for two hours",
+      "for = süre uzunluğu, since = başlangıç noktası",
+      "Sokak ıslak = yağmurun izi: sonucu görünen eylem",
+      "3 örnek, 1 kalıp: üçünde de have/has been + -ing"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Present Perfect Continuous"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "present-perfect-cont-temel",
+      "tur": "ana-yatay",
+      "ad": "Ana video (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "temel",
+      "kaynak": null,
+      "durum": "planli",
+      "onizleme": "/p/present-perfect-cont-temel/onizle.html",
+      "tarih": "2026-11-05T02:00:00Z"
+    },
+    {
+      "kimlik": "dikey-tam",
+      "video": "present-perfect-cont-temel",
+      "tur": "dikey",
+      "ad": "Dikey tam ders (9:16, aynı ses, 83 sn)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": "PRESENT PERFECT CONTINUOUS",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/present-perfect-cont-temel-dikey/onizle.html",
+      "tarih": "2026-11-05T02:00:00Z",
+      "proje": "present-perfect-cont-temel-dikey"
+    },
+    {
+      "kimlik": "shorts",
+      "video": "present-perfect-cont-temel",
+      "tur": "shorts",
+      "ad": "S1 Shorts tanıtım",
+      "senaryo": "../present-perfect-cont-temel-s1/BRIEF-S1.md",
+      "kapak": "İKİ SAATTİR = HAVE BEEN",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/present-perfect-cont-temel-s1/onizle.html",
+      "tarih": "2026-11-05T02:00:00Z",
+      "kapak_canalici": 1,
+      "proje": "present-perfect-cont-temel-s1"
+    }
+  ],
+  "revizyonlar": []
+}

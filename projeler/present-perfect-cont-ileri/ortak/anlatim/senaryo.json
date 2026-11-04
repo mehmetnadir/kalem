@@ -1,0 +1,275 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Present Perfect Continuous",
+ "duzen": "konu",
+ "seviye": "ileri",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
+  }
+ },
+ "kartlar": {
+  "kanca": {
+   "tip": "ornek",
+   "en": "Process or result?",
+   "tr": "Süreç mi, sonuç mu?"
+  },
+  "k1": {
+   "tip": "ornek",
+   "en": "Since the school changed the timetable, students have been complaining.",
+   "tr": "Program değişeli beri öğrenciler yakınıyor.",
+   "parcalar": {
+    "yardimci": "have been",
+    "ek": "ing"
+   }
+  },
+  "k2": {
+   "tip": "ornek",
+   "en": "I have been reading this novel all week, but I have only finished two chapters.",
+   "tr": "Bütün hafta bu romanı okuyorum, ama yalnızca iki bölümü bitirdim.",
+   "parcalar": {
+    "yardimci": "have been",
+    "ek": "ing"
+   }
+  },
+  "k3": {
+   "tip": "ornek",
+   "en": "We have known each other since we were at primary school.",
+   "tr": "İlkokuldan beri birbirimizi tanıyoruz."
+  },
+  "form": {
+   "tip": "ornek",
+   "en": "have / has been + V-ing  |  have / has + V3",
+   "tr": "süreç | sonuç"
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Süreç mi, sonuç mu?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Süreç mi, sonuç mu?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Sınav bunu sorar. Önce kural."
+    ],
+    [
+     "en",
+     "Have or has, plus been, plus the -ing form."
+    ],
+    [
+     "tr",
+     "Altı dakikada Present Perfect Continuous'ın formunu, süre ipuçlarını ve iki tuzağı bitiriyoruz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Sınav bunu sorar. Önce kural. Have or has, plus been, plus the -ing form. Altı dakikada Present Perfect Continuous'ın formunu, süre ipuçlarını ve iki tuzağı bitiriyoruz."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Birinci örnek."
+    ],
+    [
+     "en",
+     "Since the school changed the timetable, students have been complaining."
+    ],
+    [
+     "tr",
+     "Program değişeli beri öğrenciler yakınıyor."
+    ],
+    [
+     "en",
+     "Since, plus a simple past clause."
+    ],
+    [
+     "tr",
+     "Ana cümlede have been ve -ing gelir."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Birinci örnek. Since the school changed the timetable, students have been complaining. Program değişeli beri öğrenciler yakınıyor. Since, plus a simple past clause. Ana cümlede have been ve -ing gelir."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İkinci örnek."
+    ],
+    [
+     "en",
+     "I have been reading this novel all week, but I have only finished two chapters."
+    ],
+    [
+     "tr",
+     "Bütün hafta okuyorum, ama yalnızca iki bölümü bitirdim."
+    ],
+    [
+     "tr",
+     "Süreç, been reading. Sonuç ve sayı, have finished."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İkinci örnek. I have been reading this novel all week, but I have only finished two chapters. Bütün hafta okuyorum, ama yalnızca iki bölümü bitirdim. Süreç, been reading. Sonuç ve sayı, have finished."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Üçüncü örnek."
+    ],
+    [
+     "en",
+     "We have known each other since we were at primary school."
+    ],
+    [
+     "tr",
+     "İlkokuldan beri birbirimizi tanıyoruz."
+    ],
+    [
+     "en",
+     "Know is a state verb."
+    ],
+    [
+     "tr",
+     "Durum fiili -ing almaz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Üçüncü örnek. We have known each other since we were at primary school. İlkokuldan beri birbirimizi tanıyoruz. Know is a state verb. Durum fiili -ing almaz."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Hocam,"
+    ],
+    [
+     "en",
+     "have been knowing,"
+    ],
+    [
+     "tr",
+     "olmaz mıydı?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Hocam, have been knowing, olmaz mıydı?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Olmaz. Durum fiilleri -ing almaz."
+    ],
+    [
+     "en",
+     "Process: have been plus -ing."
+    ],
+    [
+     "en",
+     "Result: have plus the third form."
+    ],
+    [
+     "tr",
+     "Türkçede -yor süreci, -di sonucu söyler."
+    ],
+    [
+     "tr",
+     "Aklında kalsın: süreç varsa been var, sonuç varsa been yok."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Olmaz. Durum fiilleri -ing almaz. Process: have been plus -ing. Result: have plus the third form. Türkçede -yor süreci, -di sonucu söyler. Aklında kalsın: süreç varsa been var, sonuç varsa been yok."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "PRESENT PERFECT",
+  "satir2": "CONTINUOUS",
+  "rozetler": [
+   "YDT · ADVANCED",
+   "GRAMMAR"
+  ],
+  "sahne": [
+   {
+    "ad": "clock",
+    "x": 30,
+    "y": 55,
+    "olcek": 0.55
+   },
+   {
+    "ad": "book",
+    "x": 72,
+    "y": 45,
+    "olcek": 0.45
+   }
+  ]
+ },
+ "meta": {
+  "kimlik": "02-09-ydt-ileri",
+  "kod": "ING-YDT-GR-02-09-I",
+  "ders": "İngilizce",
+  "konu": "Present Perfect Continuous",
+  "kitle": "ydt",
+  "seviye": "ileri",
+  "kapak": {
+   "satir1": "SÜREÇ Mİ?",
+   "satir2": "SONUÇ MU?",
+   "canAlici": "been varsa süreç var, been yoksa sonuç var"
+  },
+  "amaclar": [
+   "have/has been + V-ing formunu kural olarak söylemek",
+   "since + geçmiş zamanlı yan cümle kökünü çözmek",
+   "süreç (been -ing) ile sonuç (have + V3) ayrımını yapmak",
+   "durum fiillerinin -ing almadığını bilmek"
+  ],
+  "canAlici": [
+   "Süreç varsa been var, sonuç varsa been yok",
+   "Since + geçmiş zamanlı yan cümle -> ana cümle have been -ing",
+   "Bütün hafta okuyorum (been reading) ama iki bölüm bitirdim (have finished)",
+   "know, like, belong: durum fiili, have been knowing olmaz",
+   "Türkçede -yor süreci, -di sonucu söyler"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "ileri",
+   "gramer",
+   "Present Perfect Continuous",
+   "YDT"
+  ]
+ }
+}

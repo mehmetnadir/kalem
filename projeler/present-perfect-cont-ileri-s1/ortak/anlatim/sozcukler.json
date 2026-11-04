@@ -1,0 +1,278 @@
+[
+{
+"cumle": 1,
+"sozcuk": "Sınav",
+"t0": 1.0,
+"t1": 1.4
+},
+{
+"cumle": 1,
+"sozcuk": "tek",
+"t0": 1.48,
+"t1": 1.64
+},
+{
+"cumle": 1,
+"sozcuk": "şey",
+"t0": 1.72,
+"t1": 1.88
+},
+{
+"cumle": 1,
+"sozcuk": "sorar:",
+"t0": 1.92,
+"t1": 2.68
+},
+{
+"cumle": 1,
+"sozcuk": "süreç",
+"t0": 2.76,
+"t1": 3.08
+},
+{
+"cumle": 1,
+"sozcuk": "mi,",
+"t0": 3.16,
+"t1": 3.56
+},
+{
+"cumle": 1,
+"sozcuk": "sonuç",
+"t0": 3.64,
+"t1": 3.96
+},
+{
+"cumle": 1,
+"sozcuk": "mu?",
+"t0": 4.04,
+"t1": 4.36
+},
+{
+"cumle": 1,
+"sozcuk": "Have",
+"t0": 4.61,
+"t1": 4.85
+},
+{
+"cumle": 1,
+"sozcuk": "been",
+"t0": 4.93,
+"t1": 5.25
+},
+{
+"cumle": 1,
+"sozcuk": "plus",
+"t0": 5.49,
+"t1": 5.81
+},
+{
+"cumle": 1,
+"sozcuk": "the",
+"t0": 5.97,
+"t1": 6.05
+},
+{
+"cumle": 1,
+"sozcuk": "-ing",
+"t0": 6.13,
+"t1": 6.61
+},
+{
+"cumle": 1,
+"sozcuk": "form.",
+"t0": 6.69,
+"t1": 7.33
+},
+{
+"cumle": 2,
+"sozcuk": "I",
+"t0": 7.8,
+"t1": 7.96
+},
+{
+"cumle": 2,
+"sozcuk": "have",
+"t0": 8.04,
+"t1": 8.12
+},
+{
+"cumle": 2,
+"sozcuk": "been",
+"t0": 8.2,
+"t1": 8.28
+},
+{
+"cumle": 2,
+"sozcuk": "reading",
+"t0": 8.36,
+"t1": 8.6
+},
+{
+"cumle": 2,
+"sozcuk": "this",
+"t0": 8.68,
+"t1": 8.76
+},
+{
+"cumle": 2,
+"sozcuk": "novel",
+"t0": 8.84,
+"t1": 9.24
+},
+{
+"cumle": 2,
+"sozcuk": "all",
+"t0": 9.36,
+"t1": 9.48
+},
+{
+"cumle": 2,
+"sozcuk": "week,",
+"t0": 9.56,
+"t1": 10.12
+},
+{
+"cumle": 2,
+"sozcuk": "but",
+"t0": 10.28,
+"t1": 10.44
+},
+{
+"cumle": 2,
+"sozcuk": "I",
+"t0": 10.48,
+"t1": 10.52
+},
+{
+"cumle": 2,
+"sozcuk": "have",
+"t0": 10.6,
+"t1": 10.68
+},
+{
+"cumle": 2,
+"sozcuk": "only",
+"t0": 10.8,
+"t1": 10.92
+},
+{
+"cumle": 2,
+"sozcuk": "finished",
+"t0": 11.0,
+"t1": 11.32
+},
+{
+"cumle": 2,
+"sozcuk": "two",
+"t0": 11.4,
+"t1": 11.48
+},
+{
+"cumle": 2,
+"sozcuk": "chapters.",
+"t0": 11.64,
+"t1": 12.44
+},
+{
+"cumle": 2,
+"sozcuk": "Süreç,",
+"t0": 12.69,
+"t1": 13.49
+},
+{
+"cumle": 2,
+"sozcuk": "been",
+"t0": 13.57,
+"t1": 13.73
+},
+{
+"cumle": 2,
+"sozcuk": "reading.",
+"t0": 13.81,
+"t1": 14.77
+},
+{
+"cumle": 2,
+"sozcuk": "Sonuç,",
+"t0": 14.85,
+"t1": 15.65
+},
+{
+"cumle": 2,
+"sozcuk": "have",
+"t0": 15.73,
+"t1": 15.89
+},
+{
+"cumle": 2,
+"sozcuk": "finished.",
+"t0": 15.97,
+"t1": 16.77
+},
+{
+"cumle": 3,
+"sozcuk": "Tam",
+"t0": 17.24,
+"t1": 17.48
+},
+{
+"cumle": 3,
+"sozcuk": "ders:",
+"t0": 17.68,
+"t1": 18.08
+},
+{
+"cumle": 3,
+"sozcuk": "Present",
+"t0": 18.28,
+"t1": 18.6
+},
+{
+"cumle": 3,
+"sozcuk": "Perfect",
+"t0": 18.68,
+"t1": 19.0
+},
+{
+"cumle": 3,
+"sozcuk": "Continuous,",
+"t0": 19.08,
+"t1": 19.8
+},
+{
+"cumle": 3,
+"sozcuk": "6",
+"t0": 20.12,
+"t1": 20.28
+},
+{
+"cumle": 3,
+"sozcuk": "dakika.",
+"t0": 20.36,
+"t1": 21.0
+},
+{
+"cumle": 3,
+"sozcuk": "Tam",
+"t0": 21.15,
+"t1": 21.39
+},
+{
+"cumle": 3,
+"sozcuk": "dersi",
+"t0": 21.55,
+"t1": 21.79
+},
+{
+"cumle": 3,
+"sozcuk": "kanalda",
+"t0": 21.95,
+"t1": 22.35
+},
+{
+"cumle": 3,
+"sozcuk": "izle.",
+"t0": 22.47,
+"t1": 22.99
+}
+]

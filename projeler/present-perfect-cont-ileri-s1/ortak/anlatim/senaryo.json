@@ -1,0 +1,140 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Present Perfect Continuous",
+ "duzen": "konu",
+ "seviye": "ileri",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogretmen": {
+   "ses": "gsJ9nrlXYbPztJxC4fwc",
+   "cinsiyet": "erkek",
+   "yas": "yetiskin",
+   "govde": "ShirtPantsWB",
+   "yuz": "Smile",
+   "sac": "Short"
+  }
+ },
+ "kartlar": {
+  "can": {
+   "tip": "ornek",
+   "en": "Have been plus the -ing form.",
+   "tr": "Süreç mi, sonuç mu?"
+  },
+  "kanca": {
+   "tip": "ornek",
+   "en": "I have been reading this novel all week, but I have only finished two chapters.",
+   "tr": "Bütün hafta bu romanı okuyorum, ama yalnızca iki bölümü bitirdim."
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Sınav tek şey sorar: süreç mi, sonuç mu?"
+    ],
+    [
+     "en",
+     "Have been plus the -ing form."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Sınav tek şey sorar: süreç mi, sonuç mu? Have been plus the -ing form."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "I have been reading this novel all week, but I have only finished two chapters."
+    ],
+    [
+     "tr",
+     "Süreç, been reading. Sonuç, have finished."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "I have been reading this novel all week, but I have only finished two chapters. Süreç, been reading. Sonuç, have finished."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Tam ders: Present Perfect Continuous, 6 dakika."
+    ],
+    [
+     "tr",
+     "Tam dersi kanalda izle."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Tam ders: Present Perfect Continuous, 6 dakika. Tam dersi kanalda izle."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "SÜREÇ Mİ?",
+  "satir2": "SONUÇ MU?",
+  "rozetler": [
+   "YDT · ADVANCED",
+   "GRAMMAR"
+  ],
+  "sahne": [
+   {
+    "figur": "ogretmen",
+    "x": 32,
+    "y": 58,
+    "olcek": 0.8
+   },
+   {
+    "ad": "book",
+    "x": 72,
+    "y": 52,
+    "olcek": 0.5
+   }
+  ]
+ },
+ "meta": {
+  "kimlik": "02-09-ydt-ileri-s1",
+  "kod": "ING-YDT-GR-02-09-I-S1",
+  "ders": "İngilizce",
+  "konu": "Present Perfect Continuous",
+  "kitle": "ydt",
+  "seviye": "ileri",
+  "kapak": {
+   "satir1": "SÜREÇ Mİ?",
+   "satir2": "SONUÇ MU?",
+   "canAlici": "been varsa süreç var, been yoksa sonuç var"
+  },
+  "amaclar": [
+   "Süreç ve sonuç ayrımını tek örnekle görmek"
+  ],
+  "canAlici": [
+   "Süreç varsa been var, sonuç varsa been yok",
+   "Been reading = süreç, have finished = sonuç",
+   "Bütün hafta okuyorum ama iki bölüm bitirdim",
+   "Have been plus the -ing form",
+   "Tam ders kanalda · 6 dk"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "ileri",
+   "gramer",
+   "Present Perfect Continuous",
+   "shorts"
+  ]
+ }
+}

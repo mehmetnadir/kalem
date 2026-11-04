@@ -1,0 +1,270 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Present Perfect Continuous",
+ "duzen": "konu",
+ "seviye": "temel",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
+  }
+ },
+ "kartlar": {
+  "kanca": {
+   "tip": "ornek",
+   "en": "I have been working for two hours.",
+   "tr": "İki saattir çalışıyorum.",
+   "parcalar": {
+    "yardimci": "have been",
+    "ek": "ing"
+   }
+  },
+  "k1": {
+   "tip": "ornek",
+   "en": "I have been waiting for the bus for twenty minutes.",
+   "tr": "Yirmi dakikadır otobüs bekliyorum.",
+   "parcalar": {
+    "yardimci": "have been",
+    "ek": "ing"
+   }
+  },
+  "k2": {
+   "tip": "ornek",
+   "en": "My brother has been playing the guitar since this morning.",
+   "tr": "Kardeşim sabahtan beri gitar çalıyor.",
+   "parcalar": {
+    "yardimci": "has been",
+    "ek": "ing"
+   }
+  },
+  "k3": {
+   "tip": "ornek",
+   "en": "Look! The street is wet. It has been raining.",
+   "tr": "Bak, sokak ıslak. Yağmur yağıyor.",
+   "parcalar": {
+    "yardimci": "has been",
+    "ek": "ing"
+   }
+  },
+  "form": {
+   "tip": "ornek",
+   "en": "have / has been + V-ing",
+   "tr": "-dir ... -yor"
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İki saattir çalışıyorum."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İki saattir çalışıyorum."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Türkçede süre için -dir, süren iş için -yor deriz."
+    ],
+    [
+     "tr",
+     "İngilizce de iki parçayla yapar."
+    ],
+    [
+     "tr",
+     "Altı dakikada Present Perfect Continuous'ın formunu, süre ifadelerini ve sonuç ipucunu bitiriyoruz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Türkçede süre için -dir, süren iş için -yor deriz. İngilizce de iki parçayla yapar. Altı dakikada Present Perfect Continuous'ın formunu, süre ifadelerini ve sonuç ipucunu bitiriyoruz."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Birinci örnek."
+    ],
+    [
+     "en",
+     "I have been waiting for the bus for twenty minutes."
+    ],
+    [
+     "tr",
+     "Yirmi dakikadır otobüs bekliyorum. İş sürüyor."
+    ],
+    [
+     "en",
+     "For twenty minutes."
+    ],
+    [
+     "tr",
+     "Süre bu. Kalıp: have been, artı fiile -ing."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Birinci örnek. I have been waiting for the bus for twenty minutes. Yirmi dakikadır otobüs bekliyorum. İş sürüyor. For twenty minutes. Süre bu. Kalıp: have been, artı fiile -ing."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İkinci örnek."
+    ],
+    [
+     "en",
+     "My brother has been playing the guitar since this morning."
+    ],
+    [
+     "tr",
+     "Kardeşim sabahtan beri gitar çalıyor."
+    ],
+    [
+     "en",
+     "Since this morning."
+    ],
+    [
+     "tr",
+     "Başlangıç noktası. Tekil kişide has been, artı -ing."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İkinci örnek. My brother has been playing the guitar since this morning. Kardeşim sabahtan beri gitar çalıyor. Since this morning. Başlangıç noktası. Tekil kişide has been, artı -ing."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Üçüncü örnek."
+    ],
+    [
+     "en",
+     "Look! The street is wet. It has been raining."
+    ],
+    [
+     "tr",
+     "Bak, sokak ıslak. Yağmur bir süredir yağıyor. İzi şimdi görünüyor."
+    ],
+    [
+     "tr",
+     "Kalıp yine aynı: has been, artı -ing."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Üçüncü örnek. Look! The street is wet. It has been raining. Bak, sokak ıslak. Yağmur bir süredir yağıyor. İzi şimdi görünüyor. Kalıp yine aynı: has been, artı -ing."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Hocam, üçünde de been var. Neden hep been?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Hocam, üçünde de been var. Neden hep been?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Have geçmişi bugüne bağlar. Been ve -ing işin sürdüğünü gösterir."
+    ],
+    [
+     "tr",
+     "Türkçedeki -dir ve -yor gibi düşün:"
+    ],
+    [
+     "en",
+     "I have been working for two hours."
+    ],
+    [
+     "tr",
+     "İki saattir çalışıyorum. Kod: have been, artı -ing."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Have geçmişi bugüne bağlar. Been ve -ing işin sürdüğünü gösterir. Türkçedeki -dir ve -yor gibi düşün: I have been working for two hours. İki saattir çalışıyorum. Kod: have been, artı -ing."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "PRESENT PERFECT",
+  "satir2": "CONTINUOUS",
+  "rozetler": [
+   "YDT · BASIC",
+   "GRAMMAR"
+  ],
+  "sahne": [
+   {
+    "ad": "clock",
+    "x": 30,
+    "y": 55,
+    "olcek": 0.55
+   },
+   {
+    "ad": "bus",
+    "x": 72,
+    "y": 45,
+    "olcek": 0.45
+   }
+  ]
+ },
+ "meta": {
+  "kimlik": "02-09-ydt-temel",
+  "kod": "ING-YDT-GR-02-09-T",
+  "ders": "İngilizce",
+  "konu": "Present Perfect Continuous",
+  "kitle": "ydt",
+  "seviye": "temel",
+  "kapak": {
+   "satir1": "İKİ SAATTİR",
+   "satir2": "= HAVE BEEN",
+   "canAlici": "Türkçedeki -dir ... -yor, İngilizcede have been ... -ing"
+  },
+  "amaclar": [
+   "Present Perfect Continuous formunu kurmak (have/has been + V-ing)",
+   "for ile since farkını ayırt etmek",
+   "sonucu görünen eylemi tanımak",
+   "Türkçe -dir ... -yor ile köprü"
+  ],
+  "canAlici": [
+   "Türkçedeki -dir ... -yor = İngilizcedeki have been ... -ing",
+   "'İki saattir çalışıyorum' — I have been working for two hours",
+   "for = süre uzunluğu, since = başlangıç noktası",
+   "Sokak ıslak = yağmurun izi: sonucu görünen eylem",
+   "3 örnek, 1 kalıp: üçünde de have/has been + -ing"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "temel",
+   "gramer",
+   "Present Perfect Continuous"
+  ]
+ }
+}

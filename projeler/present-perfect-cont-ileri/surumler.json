@@ -1,0 +1,76 @@
+{
+  "video": {
+    "kimlik": "02-09-ydt-ileri",
+    "ders": "İngilizce",
+    "konu": "Present Perfect Continuous",
+    "seviye": "ileri",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-09-I",
+    "amaclar": [
+      "have/has been + V-ing formunu kural olarak söylemek",
+      "since + geçmiş zamanlı yan cümle kökünü çözmek",
+      "süreç (been -ing) ile sonuç (have + V3) ayrımını yapmak",
+      "durum fiillerinin -ing almadığını bilmek"
+    ],
+    "canAlici": [
+      "Süreç varsa been var, sonuç varsa been yok",
+      "Since + geçmiş zamanlı yan cümle -> ana cümle have been -ing",
+      "Bütün hafta okuyorum (been reading) ama iki bölüm bitirdim (have finished)",
+      "know, like, belong: durum fiili, have been knowing olmaz",
+      "Türkçede -yor süreci, -di sonucu söyler"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "ileri",
+      "gramer",
+      "Present Perfect Continuous",
+      "YDT"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "present-perfect-cont-ileri",
+      "tur": "ana-yatay",
+      "ad": "Ana video (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "ileri",
+      "kaynak": null,
+      "durum": "planli",
+      "onizleme": "/p/present-perfect-cont-ileri/onizle.html",
+      "tarih": "2026-11-05T02:00:00Z"
+    },
+    {
+      "kimlik": "dikey-tam",
+      "video": "present-perfect-cont-ileri",
+      "tur": "dikey",
+      "ad": "Dikey tam ders (9:16, aynı ses, 86 sn)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": "PRESENT PERFECT CONTINUOUS",
+      "seviye": "ileri",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/present-perfect-cont-ileri-dikey/onizle.html",
+      "tarih": "2026-11-05T02:00:00Z",
+      "proje": "present-perfect-cont-ileri-dikey"
+    },
+    {
+      "kimlik": "shorts",
+      "video": "present-perfect-cont-ileri",
+      "tur": "shorts",
+      "ad": "S1 Shorts tanıtım",
+      "senaryo": "../present-perfect-cont-ileri-s1/BRIEF-S1.md",
+      "kapak": "SÜREÇ Mİ? SONUÇ MU?",
+      "seviye": "ileri",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/present-perfect-cont-ileri-s1/onizle.html",
+      "tarih": "2026-11-05T02:00:00Z",
+      "kapak_canalici": 1,
+      "proje": "present-perfect-cont-ileri-s1"
+    }
+  ],
+  "revizyonlar": []
+}
