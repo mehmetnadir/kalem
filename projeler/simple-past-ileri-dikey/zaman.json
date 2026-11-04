@@ -1,0 +1,75 @@
+{
+  "fps": 30,
+  "genislik": 1080,
+  "yukseklik": 1920,
+  "gecis_kare": 12,
+  "tema": "acik",
+  "anlatim": "ortak/anlatim/anlatim.wav",
+  "sahneler": [
+    {
+      "no": 1,
+      "klasor": "01-hyperframes-giris",
+      "motor": "HyperFrames",
+      "ad": "Giriş",
+      "kare": 102,
+      "t_bas": 0.0,
+      "t_son": 3.0,
+      "icerik_kare": 90,
+      "gecis": "BookFlip"
+    },
+    {
+      "no": 2,
+      "klasor": "02-paperjs-kanca",
+      "motor": "Paper.js",
+      "ad": "Kanca",
+      "kare": 326,
+      "t_bas": 3.0,
+      "t_son": 13.47,
+      "icerik_kare": 314,
+      "gecis": "BookFlip"
+    },
+    {
+      "no": 3,
+      "klasor": "03-paperjs-ornek1",
+      "motor": "Paper.js",
+      "ad": "Örnek 1",
+      "kare": 602,
+      "t_bas": 13.47,
+      "t_son": 33.15,
+      "icerik_kare": 590,
+      "gecis": "BookFlip"
+    },
+    {
+      "no": 4,
+      "klasor": "04-canvas-ornek2",
+      "motor": "Düz canvas",
+      "ad": "Örnek 2",
+      "kare": 487,
+      "t_bas": 33.15,
+      "t_son": 48.99,
+      "icerik_kare": 475,
+      "gecis": "BookFlip"
+    },
+    {
+      "no": 5,
+      "klasor": "05-canvas-ornek3",
+      "motor": "Düz canvas",
+      "ad": "Örnek 3",
+      "kare": 528,
+      "t_bas": 48.99,
+      "t_son": 66.19,
+      "icerik_kare": 516,
+      "gecis": "fade"
+    },
+    {
+      "no": 6,
+      "klasor": "06-hyperframes-form",
+      "motor": "HyperFrames",
+      "ad": "Soru + Form",
+      "kare": 791,
+      "t_bas": 66.19,
+      "t_son": 91.54,
+      "icerik_kare": 761
+    }
+  ]
+}

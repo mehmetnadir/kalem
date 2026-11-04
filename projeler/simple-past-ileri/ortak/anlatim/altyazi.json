@@ -1,0 +1,170 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 3.16,
+"metin": "Ago varsa Perfect yok.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 3.71,
+"t1": 9.47,
+"metin": "Altı dakikada Simple Past'in kuralını, zaman belirteçlerini ve sınav tuzaklarını bitiriyoruz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 9.72,
+"t1": 12.92,
+"metin": "A finished action at a definite time in the past.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 13.47,
+"t1": 14.43,
+"metin": "Birinci kök.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "en",
+"t0": 14.68,
+"t1": 20.6,
+"metin": "Marie Curie won her second Nobel Prize in 1911, three years before the war began.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 20.85,
+"t1": 27.25,
+"metin": "In 1911 belirli zaman, yani Simple Past. Won ve began düzensiz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 27.4,
+"t1": 32.6,
+"metin": "Tuzak: begin, began, begun. Burada begun yanlış.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 33.15,
+"t1": 34.11,
+"metin": "İkinci kök.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "en",
+"t0": 34.36,
+"t1": 38.76,
+"metin": "We used to live in a village, and we would walk to school every morning.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 39.01,
+"t1": 42.29,
+"metin": "Used to durumu da alışkanlığı da anlatır.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 42.44,
+"t1": 48.44,
+"metin": "Would yalnız tekrarlanan eylemde olur: would walk doğru, would live yanlış.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 48.99,
+"t1": 51.07,
+"metin": "Üçüncü kök, asıl tuzak.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "en",
+"t0": 51.32,
+"t1": 56.2,
+"metin": "The manager resigned two weeks ago, and the board has not found a replacement yet.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 56.45,
+"t1": 60.69,
+"metin": "Resigned: ago var, zaman belli, Simple Past.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 60.84,
+"t1": 65.64,
+"metin": "Has not found: yet var, zaman belirsiz, Present Perfect.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 6,
+"dil": "tr",
+"t0": 66.19,
+"t1": 70.51,
+"metin": "Hocam, ago varken has resigned yazsam olmaz mıydı?",
+"konusan": "ogrenci"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 71.06,
+"t1": 71.86,
+"metin": "Olmaz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "en",
+"t0": 72.11,
+"t1": 75.31,
+"metin": "A definite time word blocks the present perfect.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 75.56,
+"t1": 83.72,
+"metin": "Ago, last year, in 1911: belirli zaman. Present Perfect for, since, yet ister.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "en",
+"t0": 83.97,
+"t1": 85.65,
+"metin": "Did not resign.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 85.9,
+"t1": 90.54,
+"metin": "Kod: ago varsa Past, since varsa Perfect.",
+"konusan": "ogretmen"
+}
+]

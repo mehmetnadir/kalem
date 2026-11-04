@@ -1,0 +1,75 @@
+{
+  "video": {
+    "kimlik": "simple-past-temel",
+    "ders": "İngilizce",
+    "konu": "Simple Past",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-10-T",
+    "amaclar": [
+      "Simple Past formunu kurmak (V-ed, düzensiz fiil, did/didn't)",
+      "belirli geçmiş zaman ifadelerini tanımak",
+      "biten olay dizisini anlatmak",
+      "Türkçe -di ile köprü"
+    ],
+    "canAlici": [
+      "Türkçedeki -di = İngilizcedeki -ed",
+      "'Dün akşam amcamlara gittim' — biten iş, belli zaman",
+      "yesterday · ago · last year = Simple Past sinyali",
+      "düzensiz fiil: go değil went, ikinci hâlini ezberle",
+      "olumsuzda ve soruda did gelir, fiil yalın kalır"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Simple Past"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "simple-past-temel",
+      "tur": "ana-yatay",
+      "ad": "Ana video (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "temel",
+      "kaynak": null,
+      "durum": "planli",
+      "onizleme": "/p/simple-past-temel/onizle.html",
+      "tarih": "2026-11-05T02:00:00Z"
+    },
+    {
+      "kimlik": "dikey-tam",
+      "video": "simple-past-temel",
+      "tur": "dikey",
+      "ad": "Dikey tam ders (9:16, aynı ses, 94 sn)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": "SIMPLE PAST",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/simple-past-temel-dikey/onizle.html",
+      "tarih": "2026-11-05T02:00:00Z",
+      "proje": "simple-past-temel-dikey"
+    },
+    {
+      "kimlik": "shorts",
+      "video": "simple-past-temel",
+      "tur": "shorts",
+      "ad": "S1 Shorts (22 sn)",
+      "senaryo": "../simple-past-temel-s1/BRIEF-S1.md",
+      "kapak": "-Dİ = -ED",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/simple-past-temel-s1/onizle.html",
+      "tarih": "2026-11-05T02:00:00Z",
+      "kapak_canalici": 1,
+      "proje": "simple-past-temel-s1"
+    }
+  ],
+  "revizyonlar": []
+}

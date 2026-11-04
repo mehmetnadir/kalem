@@ -1,0 +1,74 @@
+{
+  "video": {
+    "kimlik": "simple-past-ileri",
+    "ders": "İngilizce",
+    "konu": "Simple Past",
+    "seviye": "ileri",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-10-I",
+    "amaclar": [
+      "Simple Past ile Present Perfect arasındaki sınav tuzağını ayırt etmek",
+      "used to / would farkını kullanmak",
+      "düzensiz fiilin ikinci ve üçüncü hâlini karıştırmamak"
+    ],
+    "canAlici": [
+      "ago görürsen Present Perfect yazma",
+      "belirli zaman (in 1911, ago, last year) = Simple Past",
+      "used to durumu da alışkanlığı da anlatır; would yalnız tekrarlanan eylemi",
+      "begin, began, begun: ikinci hâl ile üçüncü hâl karışmasın",
+      "for, since, yet, already = Present Perfect tarafı"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "ileri",
+      "gramer",
+      "Simple Past"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "simple-past-ileri",
+      "tur": "ana-yatay",
+      "ad": "Ana video (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "ileri",
+      "kaynak": null,
+      "durum": "planli",
+      "onizleme": "/p/simple-past-ileri/onizle.html",
+      "tarih": "2026-11-05T02:00:00Z"
+    },
+    {
+      "kimlik": "dikey-tam",
+      "video": "simple-past-ileri",
+      "tur": "dikey",
+      "ad": "Dikey tam ders (9:16, aynı ses, 92 sn)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": "SIMPLE PAST",
+      "seviye": "ileri",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/simple-past-ileri-dikey/onizle.html",
+      "tarih": "2026-11-05T02:00:00Z",
+      "proje": "simple-past-ileri-dikey"
+    },
+    {
+      "kimlik": "shorts",
+      "video": "simple-past-ileri",
+      "tur": "shorts",
+      "ad": "S1 Shorts (21 sn)",
+      "senaryo": "../simple-past-ileri-s1/BRIEF-S1.md",
+      "kapak": "AGO = PAST",
+      "seviye": "ileri",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/simple-past-ileri-s1/onizle.html",
+      "tarih": "2026-11-05T02:00:00Z",
+      "kapak_canalici": 1,
+      "proje": "simple-past-ileri-s1"
+    }
+  ],
+  "revizyonlar": []
+}

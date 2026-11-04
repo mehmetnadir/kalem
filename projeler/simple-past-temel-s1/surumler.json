@@ -1,0 +1,39 @@
+{
+  "video": {
+    "kimlik": "simple-past-temel-s1",
+    "ders": "İngilizce",
+    "konu": "Simple Past",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-10-T-S1",
+    "amaclar": [
+      "Simple Past'te -ed ekini Türkçe -di ile bağlamak"
+    ],
+    "canAlici": [
+      "Türkçedeki -di = İngilizcedeki -ed"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Simple Past"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "s1",
+      "video": "simple-past-temel-s1",
+      "tur": "shorts",
+      "ad": "S1 Shorts — -Dİ = -ED",
+      "senaryo": "/Users/nadir/01dev/dijital-anlatim/pilot/grammar-tenses-05-simple-past-temel-s1/senaryo.json",
+      "kapak": "kapak.png",
+      "seviye": "temel",
+      "kaynak": null,
+      "durum": "planli",
+      "onizleme": "/p/simple-past-temel-s1/onizle.html?surum=s1",
+      "tarih": "2026-11-05T02:00:00Z"
+    }
+  ],
+  "revizyonlar": []
+}
