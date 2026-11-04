@@ -82,9 +82,11 @@ async function yukle(zorla) {
     k.videolar.map((v) => v.proje).filter(Boolean))))];
   const projeler = {};
   await Promise.all(adlar.map(async (p) => {
-    const [sv, gorevler, yorumlar] = await Promise.all(['surumler', 'gorevler', 'yorumlar']
-      .map((k) => getJson(`/api/${p}/${k}`)));
-    projeler[p] = { sv, gorevler, yorumlar };
+    try {                                 // proje dizini henüz yoksa (üretimde) harita kırılmaz, kart katalogdan çizilir
+      const [sv, gorevler, yorumlar] = await Promise.all(['surumler', 'gorevler', 'yorumlar']
+        .map((k) => getJson(`/api/${p}/${k}`)));
+      projeler[p] = { sv, gorevler, yorumlar };
+    } catch (e) { console.warn('proje yüklenemedi:', p, String(e)); }
   }));
   const [dg, dy, konum] = await Promise.all([getJson(`/api/${KAT}/gorevler`),
     getJson(`/api/${KAT}/yorumlar`),
