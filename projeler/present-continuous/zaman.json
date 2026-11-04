@@ -1,0 +1,69 @@
+{
+  "fps": 30,
+  "genislik": 1920,
+  "yukseklik": 1080,
+  "gecis_kare": 12,
+  "anlatim": "ortak/anlatim/anlatim.wav",
+  "sahneler": [
+    {
+      "no": 1,
+      "klasor": "01-hyperframes-giris",
+      "motor": "HyperFrames",
+      "kare": 102,
+      "t_bas": 0,
+      "t_son": 3.0,
+      "icerik_kare": 90,
+      "gecis": "BookFlip"
+    },
+    {
+      "no": 2,
+      "klasor": "02-paperjs-kanca",
+      "motor": "Paper.js",
+      "kare": 385,
+      "t_bas": 3.0,
+      "t_son": 15.44,
+      "icerik_kare": 373,
+      "gecis": "BookFlip"
+    },
+    {
+      "no": 3,
+      "klasor": "03-paperjs-ornek1",
+      "motor": "Paper.js",
+      "kare": 453,
+      "t_bas": 15.44,
+      "t_son": 30.15,
+      "icerik_kare": 441,
+      "gecis": "BookFlip"
+    },
+    {
+      "no": 4,
+      "klasor": "04-canvas-ornek2",
+      "motor": "Düz canvas",
+      "kare": 487,
+      "t_bas": 30.15,
+      "t_son": 45.98,
+      "icerik_kare": 475,
+      "gecis": "BookFlip"
+    },
+    {
+      "no": 5,
+      "klasor": "05-canvas-ornek3",
+      "motor": "Düz canvas",
+      "kare": 517,
+      "t_bas": 45.98,
+      "t_son": 62.81,
+      "icerik_kare": 505,
+      "gecis": "fade"
+    },
+    {
+      "no": 6,
+      "klasor": "06-hyperframes-form",
+      "motor": "HyperFrames",
+      "kare": 766,
+      "t_bas": 62.81,
+      "t_son": 87.33,
+      "icerik_kare": 736,
+      "gecis": "fade"
+    }
+  ]
+}

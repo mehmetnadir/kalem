@@ -1,0 +1,110 @@
+[
+ {
+  "ad": "daire içinde 3",
+  "t0": 46.38,
+  "t1": 62.81,
+  "tur": "isaret"
+ },
+ {
+  "ad": "Look! (kırmızı)",
+  "t0": 47.27,
+  "t1": 62.81,
+  "tur": "metin"
+ },
+ {
+  "ad": "ağaç (tree)",
+  "t0": 47.3,
+  "t1": 62.81,
+  "tur": "cizim"
+ },
+ {
+  "ad": "ünlem çizgisi",
+  "t0": 47.5,
+  "t1": 62.81,
+  "tur": "cizim"
+ },
+ {
+  "ad": "cümle: The cat is climbing...",
+  "t0": 47.99,
+  "t1": 62.81,
+  "tur": "metin"
+ },
+ {
+  "ad": "kedi (cat)",
+  "t0": 48.4,
+  "t1": 62.81,
+  "tur": "cizim"
+ },
+ {
+  "ad": "ağaç parıltısı",
+  "t0": 48.65,
+  "t1": 49.2,
+  "tur": "isaret"
+ },
+ {
+  "ad": "toz çizgileri",
+  "t0": 49.15,
+  "t1": 49.95,
+  "tur": "cizim"
+ },
+ {
+  "ad": "çeviri: Bak, kedi ağaca...",
+  "t0": 50.32,
+  "t1": 62.81,
+  "tur": "metin"
+ },
+ {
+  "ad": "etiket Look!",
+  "t0": 52.88,
+  "t1": 62.81,
+  "tur": "kart"
+ },
+ {
+  "ad": "etiket Listen!",
+  "t0": 53.6,
+  "t1": 62.81,
+  "tur": "kart"
+ },
+ {
+  "ad": "etiket Watch out!",
+  "t0": 54.52,
+  "t1": 62.81,
+  "tur": "kart"
+ },
+ {
+  "ad": "sarı ok → NOW",
+  "t0": 56.8,
+  "t1": 62.81,
+  "tur": "kart"
+ },
+ {
+  "ad": "NOW noktası",
+  "t0": 57.5,
+  "t1": 62.81,
+  "tur": "isaret"
+ },
+ {
+  "ad": "NOW etiketi",
+  "t0": 57.6,
+  "t1": 62.81,
+  "tur": "metin"
+ },
+ {
+  "ad": "halka: is",
+  "t0": 59.37,
+  "t1": 62.81,
+  "tur": "isaret"
+ },
+ {
+  "ad": "halka: climbing",
+  "t0": 59.69,
+  "t1": 62.81,
+  "tur": "isaret"
+ },
+ {
+  "ad": "formül kartı",
+  "t0": 61.14,
+  "t1": 62.81,
+  "tur": "kart"
+ }
+]

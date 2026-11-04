@@ -1,0 +1,116 @@
+[
+ {
+  "ad": "daire 1 çizimi",
+  "t0": 15.84,
+  "t1": 30.15,
+  "tur": "isaret"
+ },
+ {
+  "ad": "figür çizimi başı",
+  "t0": 16.51,
+  "t1": 30.15,
+  "tur": "cizim"
+ },
+ {
+  "ad": "cümle başı (I)",
+  "t0": 16.74,
+  "t1": 30.15,
+  "tur": "metin"
+ },
+ {
+  "ad": "kamera çizimi başı",
+  "t0": 17.81,
+  "t1": 30.15,
+  "tur": "cizim"
+ },
+ {
+  "ad": "sehpa (3 çizgi)",
+  "t0": 18.27,
+  "t1": 30.15,
+  "tur": "cizim"
+ },
+ {
+  "ad": "now",
+  "t0": 18.64,
+  "t1": 30.15,
+  "tur": "metin"
+ },
+ {
+  "ad": "now daire",
+  "t0": 18.64,
+  "t1": 30.15,
+  "tur": "isaret"
+ },
+ {
+  "ad": "Türkçe çeviri",
+  "t0": 19.31,
+  "t1": 30.15,
+  "tur": "metin"
+ },
+ {
+  "ad": "zaman çizgisi",
+  "t0": 20.77,
+  "t1": 30.15,
+  "tur": "kart"
+ },
+ {
+  "ad": "now noktası (nabız)",
+  "t0": 21.51,
+  "t1": 30.15,
+  "tur": "kart"
+ },
+ {
+  "ad": "in progress bandı",
+  "t0": 21.77,
+  "t1": 30.15,
+  "tur": "cizim"
+ },
+ {
+  "ad": "am daire",
+  "t0": 24.74,
+  "t1": 30.15,
+  "tur": "isaret"
+ },
+ {
+  "ad": "sitting daire",
+  "t0": 25.84,
+  "t1": 30.15,
+  "tur": "isaret"
+ },
+ {
+  "ad": "formül kartı kutusu",
+  "t0": 26.71,
+  "t1": 30.15,
+  "tur": "kart"
+ },
+ {
+  "ad": "be",
+  "t0": 27.04,
+  "t1": 30.15,
+  "tur": "metin"
+ },
+ {
+  "ad": "am (kart)",
+  "t0": 27.61,
+  "t1": 30.15,
+  "tur": "kart"
+ },
+ {
+  "ad": "V",
+  "t0": 28.41,
+  "t1": 30.15,
+  "tur": "metin"
+ },
+ {
+  "ad": "-ing",
+  "t0": 28.97,
+  "t1": 30.15,
+  "tur": "metin"
+ },
+ {
+  "ad": "sitt-ing",
+  "t0": 29.01,
+  "t1": 30.15,
+  "tur": "metin"
+ }
+]

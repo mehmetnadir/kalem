@@ -1,0 +1,134 @@
+[
+ {
+  "ad": "öğrenci figürü (sitting-6)",
+  "t0": 62.81,
+  "t1": 66.72,
+  "tur": "cizim"
+ },
+ {
+  "ad": "konuşma balonu",
+  "t0": 62.81,
+  "t1": 66.72,
+  "tur": "kart"
+ },
+ {
+  "ad": "balon yazısı",
+  "t0": 62.81,
+  "t1": 66.72,
+  "tur": "metin"
+ },
+ {
+  "ad": "sitt-ing",
+  "t0": 63.5,
+  "t1": 66.72,
+  "tur": "metin"
+ },
+ {
+  "ad": "tak-ing",
+  "t0": 64.2,
+  "t1": 66.72,
+  "tur": "metin"
+ },
+ {
+  "ad": "climb-ing",
+  "t0": 64.9,
+  "t1": 66.72,
+  "tur": "metin"
+ },
+ {
+  "ad": "büyük -ing",
+  "t0": 66.72,
+  "t1": 87.33,
+  "tur": "metin"
+ },
+ {
+  "ad": "in progress bandı",
+  "t0": 67.5,
+  "t1": 87.33,
+  "tur": "kart"
+ },
+ {
+  "ad": "be",
+  "t0": 71.43,
+  "t1": 87.33,
+  "tur": "metin"
+ },
+ {
+  "ad": "am",
+  "t0": 73.83,
+  "t1": 87.33,
+  "tur": "metin"
+ },
+ {
+  "ad": "is",
+  "t0": 74.55,
+  "t1": 87.33,
+  "tur": "metin"
+ },
+ {
+  "ad": "are",
+  "t0": 75.19,
+  "t1": 87.33,
+  "tur": "metin"
+ },
+ {
+  "ad": "now",
+  "t0": 75.75,
+  "t1": 87.33,
+  "tur": "metin"
+ },
+ {
+  "ad": "was · were",
+  "t0": 77.34,
+  "t1": 87.33,
+  "tur": "metin"
+ },
+ {
+  "ad": "past",
+  "t0": 77.34,
+  "t1": 87.33,
+  "tur": "metin"
+ },
+ {
+  "ad": "kırmızı çizgi",
+  "t0": 80.18,
+  "t1": 87.33,
+  "tur": "kart"
+ },
+ {
+  "ad": "-ing halkası",
+  "t0": 81.25,
+  "t1": 87.33,
+  "tur": "isaret"
+ },
+ {
+  "ad": "koşu-yor",
+  "t0": 81.25,
+  "t1": 87.33,
+  "tur": "metin"
+ },
+ {
+  "ad": "=",
+  "t0": 84.21,
+  "t1": 87.33,
+  "tur": "cizim"
+ },
+ {
+  "ad": "runn-ing",
+  "t0": 85.09,
+  "t1": 87.33,
+  "tur": "metin"
+ },
+ {
+  "ad": "formül kartı",
+  "t0": 85.73,
+  "t1": 87.33,
+  "tur": "kart"
+ },
+ {
+  "ad": "Next lesson →",
+  "t0": 86.5,
+  "t1": 87.33,
+  "tur": "metin"
+ }
+]

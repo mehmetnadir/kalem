@@ -1,0 +1,774 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Present Continuous — etkileşim önizleme 3",
+ "duzen": "konu",
+ "seviye": "temel",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kartlar": {
+  "kanca": {
+   "tip": "ornek",
+   "en": "I'm going to my uncle's tonight.",
+   "tr": "Bu akşam amcamlara gidiyorum."
+  },
+  "k1": {
+   "tip": "ornek",
+   "en": "I am sitting in front of the camera now.",
+   "tr": "Şu anda oturuyorum.",
+   "parcalar": {
+    "yardimci": "am",
+    "ek": "ing"
+   }
+  },
+  "k2": {
+   "tip": "ornek",
+   "en": "My sister is taking piano lessons this semester.",
+   "tr": "Kardeşim bu dönem piyano dersi alıyor.",
+   "parcalar": {
+    "yardimci": " is ",
+    "ek": "ing"
+   }
+  },
+  "k3": {
+   "tip": "ornek",
+   "en": "Look! The cat is climbing the tree.",
+   "tr": "Bak, kedi ağaca tırmanıyor.",
+   "parcalar": {
+    "yardimci": "is",
+    "ek": "ing"
+   }
+  },
+  "form": {
+   "tip": "tanim",
+   "sol": {
+    "baslik": "FORM",
+    "satirlar": [
+     "I am / he-she-it is / we-you-they are + V-ing",
+     "(−) be + not + V-ing",
+     "(?) Be + özne + V-ing?"
+    ]
+   },
+   "sag": {
+    "baslik": "USE",
+    "etiketler": [
+     "şu an",
+     "şu sıralar / geçici",
+     "look-listen",
+     "değişen durum",
+     "planlı gelecek",
+     "always → yakınma"
+    ]
+   }
+  },
+  "chris1": {
+   "tip": "ornek",
+   "en": "Chris lives in London.",
+   "tr": "Chris Londra'da yaşar."
+  },
+  "chris2": {
+   "tip": "ornek",
+   "en": "Chris is staying in Brussels this month because there are a few business meetings there.",
+   "tr": "Bu ay Brüksel'de kalıyor."
+  },
+  "steve1": {
+   "tip": "ornek",
+   "en": "Steve drives his own car.",
+   "tr": "Her zaman kendi arabasını sürer."
+  },
+  "steve2": {
+   "tip": "ornek",
+   "en": "As Steve's car is in service, he is driving his father's car today.",
+   "tr": "Bugün babasının arabasını sürüyor."
+  },
+  "tech": {
+   "tip": "ornek",
+   "en": "Computer technology is improving very rapidly.",
+   "tr": "Bilgisayar teknolojisi çok hızlı gelişiyor."
+  },
+  "world": {
+   "tip": "ornek",
+   "en": "The world is becoming smaller and smaller.",
+   "tr": "Dünya gittikçe küçülüyor."
+  },
+  "ftb": {
+   "tip": "ornek",
+   "en": "For the time being, I am staying at my friend's house because there is a problem with the water pipes in my flat.",
+   "tr": "Şimdilik arkadaşımın evinde kalıyorum."
+  },
+  "movie": {
+   "tip": "ornek",
+   "en": "I am going to the movie theater tonight.",
+   "tr": "Bu akşam sinemaya gidiyorum."
+  },
+  "bbq": {
+   "tip": "ornek",
+   "en": "We are having a barbecue party with the neighbors this Saturday afternoon.",
+   "tr": "Bu cumartesi öğleden sonra komşularla mangal yapıyoruz."
+  },
+  "soru1": {
+   "tip": "soru",
+   "kok": "Nina ---- continually about her friends, and I find it so irritating.",
+   "siklar": [
+    {
+     "harf": "A",
+     "metin": "gossips"
+    },
+    {
+     "harf": "B",
+     "metin": "is gossiping"
+    },
+    {
+     "harf": "C",
+     "metin": "has gossiped"
+    },
+    {
+     "harf": "D",
+     "metin": "gossiped"
+    },
+    {
+     "harf": "E",
+     "metin": "had gossiped"
+    }
+   ],
+   "cevap": "B"
+  },
+  "oz1": {
+   "tip": "ozet",
+   "baslik": "ÖZET",
+   "maddeler": [
+    "am / is / are + V-ing",
+    "şu an · şu sıralar / geçici · değişen durum · planlı gelecek",
+    "now · at the moment · these days · nowadays · still · today · tonight · this week · for the time being"
+   ]
+  },
+  "yor": {
+   "tip": "ornek",
+   "en": "running",
+   "tr": "koşuyor"
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Bu akşam amcamlara gidiyorum."
+    ]
+   ],
+   "olaylar": [
+    {
+     "tip": "kinetik_baslik",
+     "metin": "Present Continuous",
+     "alt": "Şimdiki zaman · YDT temel",
+     "vurgu": "Continuous",
+     "ofset": 0
+    }
+   ],
+   "metin": "Bu akşam amcamlara gidiyorum."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Türkçede şimdiki zamanla geleceği anlatırız."
+    ],
+    [
+     "tr",
+     "İngilizce de aynısını yapar."
+    ],
+    [
+     "tr",
+     "Altı dakikada Present Continuous'ın formunu, zaman ifadelerini ve altı kullanımını bitiriyoruz."
+    ]
+   ],
+   "olaylar": [
+    {
+     "tip": "kart",
+     "id": "kanca",
+     "yer": "tek",
+     "ofset": 0.1
+    },
+    {
+     "tip": "bag",
+     "kaynak": {
+      "id": "kanca",
+      "sozcuk": "going"
+     },
+     "hedef": {
+      "id": "kanca",
+      "sozcuk": "gidiyorum",
+      "alan": "tr"
+     },
+     "etiket": "−ing ↔ −yor",
+     "sesParca": 1,
+     "kesikli": true,
+     "dugum": true,
+     "akis": true
+    },
+    {
+     "tip": "kamera",
+     "kip": "yaklas",
+     "id": "kanca",
+     "sesParca": 2
+    },
+    {
+     "tip": "kamera",
+     "kip": "sifirla",
+     "sesParca": 2,
+     "sesParcaSonu": true,
+     "ofset": -0.8
+    },
+    {
+     "tip": "defter",
+     "yaz": "Present Continuous = am/is/are + V-ing",
+     "sure": 4,
+     "sesParca": 2,
+     "sesParcaSonu": true,
+     "ofset": -4.2
+    }
+   ],
+   "metin": "Türkçede şimdiki zamanla geleceği anlatırız. İngilizce de aynısını yapar. Altı dakikada Present Continuous'ın formunu, zaman ifadelerini ve altı kullanımını bitiriyoruz."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Birinci örnek."
+    ],
+    [
+     "en",
+     "I am sitting in front of the camera now."
+    ],
+    [
+     "tr",
+     "Şu anda oturuyorum. Olay tam konuşma anında sürüyor."
+    ],
+    [
+     "tr",
+     "İki parça var: am ve sitting."
+    ],
+    [
+     "tr",
+     "Be fiili, artı fiile -ing."
+    ]
+   ],
+   "olaylar": [
+    {
+     "tip": "bolum",
+     "ad": "Examples",
+     "ofset": 0
+    },
+    {
+     "tip": "kart",
+     "id": "k1",
+     "yer": "alt",
+     "sesParca": 1,
+     "ofset": 0.3
+    },
+    {
+     "tip": "cizim",
+     "id": "k1",
+     "ikon": "camera",
+     "sesParca": 1,
+     "ofset": 0.8
+    },
+    {
+     "tip": "zaman_cizgisi",
+     "isaret": "simdi",
+     "etiket": "now",
+     "sesParca": 2
+    },
+    {
+     "tip": "yakin_cekim",
+     "id": "k1",
+     "parca": "yardimci",
+     "sesParca": 3
+    },
+    {
+     "tip": "ek_ayir",
+     "id": "k1",
+     "sozcuk": "sitting",
+     "ek": "ing",
+     "sesParca": 3,
+     "ofset": 1
+    },
+    {
+     "tip": "isaret",
+     "id": "k1",
+     "sozcuk": "am",
+     "sekil": "daire",
+     "sesParca": 4
+    },
+    {
+     "tip": "isaret",
+     "id": "k1",
+     "sozcuk": "the camera",
+     "sekil": "kutu",
+     "sesParca": 1,
+     "ofset": 1.3
+    }
+   ],
+   "metin": "Birinci örnek. I am sitting in front of the camera now. Şu anda oturuyorum. Olay tam konuşma anında sürüyor. İki parça var: am ve sitting. Be fiili, artı fiile -ing."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İkinci örnek."
+    ],
+    [
+     "en",
+     "My sister is taking piano lessons this semester."
+    ],
+    [
+     "tr",
+     "Kardeşim bu dönem piyano dersi alıyor. Şu anda piyanonun başında değil. Ama bu günlerde süren bir iş."
+    ],
+    [
+     "tr",
+     "Yine is taking."
+    ],
+    [
+     "tr",
+     "Be fiili, artı -ing."
+    ]
+   ],
+   "olaylar": [
+    {
+     "tip": "odakKapat",
+     "ofset": 0
+    },
+    {
+     "tip": "kart",
+     "id": "k2",
+     "yer": "alt",
+     "sesParca": 1
+    },
+    {
+     "tip": "figur",
+     "id": "k2",
+     "sesParca": 1,
+     "ofset": 0.6,
+     "poz": "otur"
+    },
+    {
+     "tip": "zaman_cizgisi",
+     "isaret": "aralik",
+     "etiket": "this semester",
+     "sesParca": 2
+    },
+    {
+     "tip": "yakin_cekim",
+     "id": "k2",
+     "parca": "yardimci",
+     "sesParca": 3
+    },
+    {
+     "tip": "ek_ayir",
+     "id": "k2",
+     "sozcuk": "taking",
+     "ek": "ing",
+     "sesParca": 4,
+     "ofset": 0.6
+    },
+    {
+     "tip": "isaret",
+     "id": "k2",
+     "sozcuk": "piano lessons this semester",
+     "sekil": "fosfor",
+     "sesParca": 1,
+     "ofset": 1.6
+    },
+    {
+     "tip": "isaret",
+     "id": "k2",
+     "sozcuk": "My sister",
+     "sekil": "ayrac",
+     "sesParca": 2,
+     "ofset": 1.2
+    }
+   ],
+   "metin": "İkinci örnek. My sister is taking piano lessons this semester. Kardeşim bu dönem piyano dersi alıyor. Şu anda piyanonun başında değil. Ama bu günlerde süren bir iş. Yine is taking. Be fiili, artı -ing."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Üçüncü örnek."
+    ],
+    [
+     "en",
+     "Look! The cat is climbing the tree."
+    ],
+    [
+     "tr",
+     "Bak, kedi ağaca tırmanıyor. Look, listen, watch out gibi sözcükler olayın tam şu anda olduğunu söyler."
+    ],
+    [
+     "en",
+     "Is climbing."
+    ],
+    [
+     "tr",
+     "Aynı yapı."
+    ]
+   ],
+   "olaylar": [
+    {
+     "tip": "odakKapat",
+     "ofset": 0
+    },
+    {
+     "tip": "kart",
+     "id": "k3",
+     "yer": "alt",
+     "sesParca": 1
+    },
+    {
+     "tip": "cizim",
+     "id": "k3",
+     "ikon": "kedi_agacta",
+     "sesParca": 1,
+     "ofset": 0.6,
+     "yer": "sol"
+    },
+    {
+     "tip": "isaret",
+     "id": "k3",
+     "sozcuk": "Look",
+     "sekil": "ok",
+     "sesParca": 2,
+     "ofset": 1.6,
+     "yon": "iki",
+     "dugum": true
+    },
+    {
+     "tip": "yakin_cekim",
+     "id": "k3",
+     "parca": "yardimci",
+     "sesParca": 3
+    },
+    {
+     "tip": "ek_ayir",
+     "id": "k3",
+     "sozcuk": "climbing",
+     "ek": "ing",
+     "sesParca": 3,
+     "ofset": 0.9
+    },
+    {
+     "tip": "zaman_cizgisi",
+     "isaret": "simdi",
+     "etiket": "now!",
+     "sesParca": 3
+    },
+    {
+     "tip": "isaret",
+     "id": "k3",
+     "sozcuk": "the tree",
+     "sekil": "alti",
+     "sesParca": 1,
+     "ofset": 2
+    },
+    {
+     "tip": "sessiz_film",
+     "id": "k3",
+     "sure": 4,
+     "sesParca": 2,
+     "ofset": 3,
+     "paneller": [
+      {
+       "ikon": "piyano_calan",
+       "hareket": "notalar"
+      },
+      {
+       "ikon": "calendar",
+       "hareket": "yaprak"
+      }
+     ]
+    },
+    {
+     "tip": "qr",
+     "kod": "pc1-1",
+     "sure": 10,
+     "sesParca": 2,
+     "ofset": 0.5
+    }
+   ],
+   "metin": "Üçüncü örnek. Look! The cat is climbing the tree. Bak, kedi ağaca tırmanıyor. Look, listen, watch out gibi sözcükler olayın tam şu anda olduğunu söyler. Is climbing. Aynı yapı."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Hocam, üçünde de -ing var. Neden hep -ing?"
+    ]
+   ],
+   "olaylar": [
+    {
+     "tip": "odakKapat",
+     "ofset": 0
+    },
+    {
+     "tip": "kamera",
+     "kip": "yaklas",
+     "id": "k2",
+     "ofset": 0.3
+    }
+   ],
+   "metin": "Hocam, üçünde de -ing var. Neden hep -ing?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Çünkü -ing devam eden işi gösterir. Olay bitmemiş, sürüyor."
+    ],
+    [
+     "tr",
+     "Be fiili ise zamanı taşır: am, is, are şimdiki zaman demek."
+    ],
+    [
+     "tr",
+     "Past olsaydı was, were derdik."
+    ],
+    [
+     "tr",
+     "-ing ekini Türkçedeki -yor gibi düşün: koşu-yor, runn-ing."
+    ]
+   ],
+   "olaylar": [
+    {
+     "tip": "kamera",
+     "kip": "sifirla",
+     "ofset": 0
+    },
+    {
+     "tip": "ek_ayir",
+     "id": "k1",
+     "sozcuk": "sitting",
+     "ek": "ing",
+     "ofset": 0.3
+    },
+    {
+     "tip": "ek_ayir",
+     "id": "k2",
+     "sozcuk": "taking",
+     "ek": "ing",
+     "ofset": 0.3
+    },
+    {
+     "tip": "ek_ayir",
+     "id": "k3",
+     "sozcuk": "climbing",
+     "ek": "ing",
+     "ofset": 0.3
+    },
+    {
+     "tip": "odakKapat",
+     "sesParca": 1
+    },
+    {
+     "tip": "yakin_cekim",
+     "id": "k1",
+     "parca": "yardimci",
+     "sesParca": 1,
+     "ofset": 0.1
+    },
+    {
+     "tip": "yakin_cekim",
+     "id": "k2",
+     "parca": "yardimci",
+     "sesParca": 1,
+     "ofset": 0.1
+    },
+    {
+     "tip": "yakin_cekim",
+     "id": "k3",
+     "parca": "yardimci",
+     "sesParca": 1,
+     "ofset": 0.1
+    },
+    {
+     "tip": "zaman_cizgisi",
+     "isaret": "gecmis",
+     "etiket": "was / were",
+     "sesParca": 2
+    },
+    {
+     "tip": "odakKapat",
+     "sesParca": 3
+    },
+    {
+     "tip": "gizle",
+     "id": "k1",
+     "sesParca": 3
+    },
+    {
+     "tip": "gizle",
+     "id": "k2",
+     "sesParca": 3
+    },
+    {
+     "tip": "gizle",
+     "id": "k3",
+     "sesParca": 3
+    },
+    {
+     "tip": "kart",
+     "id": "yor",
+     "yer": "tek",
+     "sesParca": 3,
+     "ofset": 0.4
+    },
+    {
+     "tip": "ek_ayir",
+     "id": "yor",
+     "sozcuk": "running",
+     "ek": "ing",
+     "sesParca": 3,
+     "ofset": 1.3
+    },
+    {
+     "tip": "ek_ayir",
+     "id": "yor",
+     "sozcuk": "koşuyor",
+     "ek": "yor",
+     "alan": "tr",
+     "sesParca": 3,
+     "ofset": 1.3
+    },
+    {
+     "tip": "bag",
+     "kaynak": {
+      "id": "yor",
+      "sozcuk": "ing"
+     },
+     "hedef": {
+      "id": "yor",
+      "sozcuk": "yor",
+      "alan": "tr"
+     },
+     "etiket": "aynı iş",
+     "sesParca": 3,
+     "ofset": 2
+    },
+    {
+     "tip": "isaret",
+     "id": "k1",
+     "sozcuk": "now",
+     "sekil": "ustu",
+     "sesParca": 1,
+     "ofset": 1
+    },
+    {
+     "tip": "gizle",
+     "id": "yor",
+     "sesParca": 3,
+     "ofset": 2.4
+    },
+    {
+     "tip": "baslik",
+     "metin": "Present Continuous",
+     "alt": "am / is / are + V-ing",
+     "kapanis": true,
+     "sonraki": "Past Continuous",
+     "dikey": "Vertical part",
+     "sesParca": 3,
+     "ofset": 2.4
+    },
+    {
+     "tip": "defter",
+     "yaz": "3 kullanım: şu an · bu dönem · plan",
+     "sure": 4,
+     "sesParca": 0,
+     "sesParcaSonu": true,
+     "ofset": -0.4
+    },
+    {
+     "tip": "qr",
+     "kod": "pc1-2",
+     "sure": 10,
+     "sesParca": 1,
+     "ofset": 0.3
+    }
+   ],
+   "metin": "Çünkü -ing devam eden işi gösterir. Olay bitmemiş, sürüyor. Be fiili ise zamanı taşır: am, is, are şimdiki zaman demek. Past olsaydı was, were derdik. -ing ekini Türkçedeki -yor gibi düşün: koşu-yor, runn-ing."
+  }
+ ],
+ "zaman": {
+  "giris": 3
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "PRESENT",
+  "satir2": "CONTINUOUS",
+  "rozetler": [
+   "YDT · BASIC",
+   "GRAMMAR"
+  ],
+  "sahne": [
+   {
+    "ad": "camera",
+    "x": 30,
+    "y": 55,
+    "olcek": 0.55
+   },
+   {
+    "ad": "calendar",
+    "x": 72,
+    "y": 45,
+    "olcek": 0.45
+   }
+  ]
+ },
+ "perde": "karalama",
+ "karaoke": "kart",
+ "qr": {
+  "kok": "https://yds.link/q/",
+  "dizin": "pilot/grammar-etkilesim-onizleme/qr"
+ },
+ "kunye": true,
+ "quizEk": [
+  {
+   "soru": "She ___ a book right now.",
+   "siklar": [
+    "reads",
+    "is reading",
+    "read"
+   ],
+   "dogru": "is reading",
+   "neden": "right now: iş şu an sürüyor, bu yüzden is + V-ing"
+  },
+  {
+   "soru": "Look! The children ___ in the garden.",
+   "siklar": [
+    "play",
+    "are playing",
+    "played"
+   ],
+   "dogru": "are playing",
+   "neden": "Look! olayın şu an olduğunu söyler, bu yüzden are + V-ing"
+  },
+  {
+   "soru": "He ___ his father's car today because his own car is in service.",
+   "siklar": [
+    "is driving",
+    "drives",
+    "drove"
+   ],
+   "dogru": "is driving",
+   "neden": "bugüne özgü geçici durum, bu yüzden is + V-ing"
+  }
+ ]
+}

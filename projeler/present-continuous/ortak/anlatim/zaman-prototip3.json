@@ -1,0 +1,37 @@
+{
+ "cumleBaslari": [
+  7,
+  9.39,
+  21.44,
+  36.15,
+  51.98,
+  68.81,
+  72.72
+ ],
+ "toplam": 93.33,
+ "bolumler": [
+  {
+   "ad": "Examples",
+   "t": 21.44
+  }
+ ],
+ "kartlar": [
+  "kanca",
+  "k1",
+  "k2",
+  "k3",
+  "form",
+  "chris1",
+  "chris2",
+  "steve1",
+  "steve2",
+  "tech",
+  "world",
+  "ftb",
+  "movie",
+  "bbq",
+  "soru1",
+  "oz1",
+  "yor"
+ ]
+}

@@ -100,7 +100,7 @@ class Plan(unittest.TestCase):
         gercek = {s["klasor"]: None for s in z["sahneler"]}
         t = b.plan_tablosu(p, N, z["fps"], gercek, GL, "x.wav", 93.33)
         self.assertIn("yok", t); self.assertIn("fade (xfade)", t); self.assertIn("BookFlip (gl)", t)
-        self.assertIn("TOPLAM 2710 kare = 90.33 sn", t); self.assertIn("x.wav  93.33 sn", t)
+        self.assertIn("TOPLAM 2650 kare = 88.33 sn", t); self.assertIn("x.wav  93.33 sn", t)
         self.assertEqual(len(t.splitlines()), 1 + 6 + 2)
 
     def test_gercek_kare_farki_isaretlenir(self):

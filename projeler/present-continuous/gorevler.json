@@ -118,14 +118,15 @@
     "baslik": "Oynatıcı ders kipi",
     "aciklama": "Bölüm çubuğu, etkinlik paneli, tema anahtarı. Duraklatıp araya etkinlik girer.",
     "grup": "oynatici",
-    "durum": "uretimde",
+    "durum": "inceleme",
     "atanan": "ajan",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
     "bagimli": [
       "g-1"
-    ]
+    ],
+    "guncelleme": "2026-11-04T12:58:42.541Z"
   },
   {
     "kimlik": "g-9",
@@ -329,6 +330,21 @@
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T12:49:42.303Z",
+    "bagimli": []
+  },
+  {
+    "kimlik": "g-22",
+    "video": "present-continuous",
+    "surum": "dikey",
+    "tur": "karar",
+    "baslik": "Dikey senaryo taslağı onayı (D1 -yor=-ing · D2 Be tuzağı · D3 mini soru · S1 Shorts) + kapak başlığı",
+    "aciklama": "Kalıp: .claude/docs/dikey-senaryo-kalibi.md (116 satır). Pilot taslak: pilot/grammar-tenses-01-temel/senaryo-dikey-taslak.md (103 satır). Sorular: alt %30 bant platform alanını kapsıyor mu; mini soru ayrı parça mı; Shorts çağrısında QR; kimlikler dikey-1/shorts-1 ve -D1/-S1 sonekleri; D3 (Nina) temel seviyeye uyar mı; kapak başlığı: -YOR = -ING / BU AKŞAM = I AM GOING / LOOK! = ŞİMDİ.",
+    "grup": "senaryo",
+    "durum": "acik",
+    "atanan": "Nadir",
+    "oncelik": "yuksek",
+    "olusturan": "sef",
+    "tarih": "2026-11-04T12:56:04.806Z",
     "bagimli": []
   }
 ]
