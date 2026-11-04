@@ -1,0 +1,119 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Simple Present",
+ "duzen": "konu",
+ "seviye": "temel",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogretmen": {
+   "ses": "gsJ9nrlXYbPztJxC4fwc",
+   "cinsiyet": "erkek",
+   "yas": "yetiskin",
+   "govde": "ShirtPantsWB",
+   "yuz": "Smile",
+   "sac": "Short"
+  }
+ },
+ "kartlar": {
+  "can": {
+   "tip": "ornek",
+   "en": "My brother goes to school by bus.",
+   "tr": "Kardeşim okula otobüsle gider."
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Gider, İngilizcede goes olur: fiilin sonuna s gelir."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Gider, İngilizcede goes olur: fiilin sonuna s gelir."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "My brother goes to school by bus."
+    ],
+    [
+     "tr",
+     "Kardeşim okula otobüsle gider."
+    ],
+    [
+     "tr",
+     "Özne he, she ya da it olunca fiile s gelir."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "My brother goes to school by bus. Kardeşim okula otobüsle gider. Özne he, she ya da it olunca fiile s gelir."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Tam ders: Simple Present, altı dakika."
+    ],
+    [
+     "tr",
+     "Tam dersi kanalda izle."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Tam ders: Simple Present, altı dakika. Tam dersi kanalda izle."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "GİDER",
+  "satir2": "= GOES",
+  "rozetler": [
+   "YDT · BASIC",
+   "GRAMMAR"
+  ]
+ },
+ "meta": {
+  "kimlik": "02-04-ydt-temel-s1",
+  "kod": "ING-YDT-GR-02-04-T-S1",
+  "ders": "İngilizce",
+  "konu": "Simple Present",
+  "kitle": "ydt",
+  "seviye": "temel",
+  "amaclar": [
+   "Simple Present formunu kurmak (fiil, fiil + s, do / does)",
+   "zaman ifadelerini tanımak",
+   "genelleme, alışkanlık ve tarife kullanımlarını ayırt etmek",
+   "Türkçe geniş zaman eki ile köprü"
+  ],
+  "canAlici": [
+   "Türkçedeki geniş zaman eki = İngilizcedeki s: gider = goes",
+   "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
+   "usually, always, every day = tekrar eden iş sinyali",
+   "he, she, it fiile s alır; I, you, we, they almaz",
+   "3 örnek, 1 kural: üçünde de fiilin sonunda s"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "temel",
+   "gramer",
+   "Simple Present"
+  ],
+  "kancaKapak": "GİDER = GOES"
+ }
+}

@@ -1,0 +1,178 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 3.0,
+"metin": "Uçak yarın dokuzda kalkıyor.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 3.55,
+"t1": 6.99,
+"metin": "İngilizcede hangi zamanla kurarsın? Önce kural.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 7.24,
+"t1": 13.72,
+"metin": "Positive: he, she, it takes s. Negative and question: does plus base verb.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 13.97,
+"t1": 17.65,
+"metin": "Altı dakikada kuralı ve üç YDT kökünü bitiriyoruz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 18.2,
+"t1": 19.16,
+"metin": "Birinci kök.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "en",
+"t0": 19.41,
+"t1": 24.05,
+"metin": "Although the sun looks small from here, it gives plants the energy they need.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 24.3,
+"t1": 28.78,
+"metin": "Güneş küçük görünse de bitkilere gereken enerjiyi verir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 28.93,
+"t1": 32.45,
+"metin": "Bağlaç var, zaman değişmez: gives.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 33.0,
+"t1": 33.88,
+"metin": "İkinci kök.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "en",
+"t0": 34.13,
+"t1": 39.65,
+"metin": "Mike owns two cars, but he usually takes the bus because parking costs so much.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 39.9,
+"t1": 44.14,
+"metin": "Mike'ın iki arabası var, ama genellikle otobüse biner.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 44.29,
+"t1": 48.29,
+"metin": "Owns ve costs durum fiilidir: ing almaz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 48.84,
+"t1": 49.8,
+"metin": "Üçüncü kök.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "en",
+"t0": 50.05,
+"t1": 54.69,
+"metin": "Our flight takes off at eleven tomorrow morning, so we have to leave home at nine.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 54.94,
+"t1": 57.26,
+"metin": "Uçuşumuz yarın on birde kalkıyor.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 57.41,
+"t1": 61.41,
+"metin": "Tarife kesin, Simple Present. Tomorrow tuzaktır.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 6,
+"dil": "tr",
+"t0": 61.96,
+"t1": 65.88,
+"metin": "Hocam, yarın dediği için will take off olmaz mıydı?",
+"konusan": "ogrenci"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 66.43,
+"t1": 70.99,
+"metin": "Hayır. Tarife, program, takvim kesinse Simple Present.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "en",
+"t0": 71.24,
+"t1": 74.76,
+"metin": "Will is for predictions and sudden decisions.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 75.01,
+"t1": 81.01,
+"metin": "Durum fiilleri know, own, cost: now gelse bile ing almaz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "en",
+"t0": 81.26,
+"t1": 84.62,
+"metin": "I know the answer. Not: I am knowing.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 84.87,
+"t1": 89.43,
+"metin": "Kod: tarife varsa Simple Present, tahmin varsa will.",
+"konusan": "ogretmen"
+}
+]

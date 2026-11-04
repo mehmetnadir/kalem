@@ -1,0 +1,222 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Simple Present",
+ "duzen": "konu",
+ "seviye": "ileri",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
+  }
+ },
+ "kartlar": {
+  "k1": {
+   "tip": "ornek",
+   "en": "Although the sun looks small from here, it gives plants the energy they need.",
+   "tr": "Güneş küçük görünse de bitkilere gereken enerjiyi verir."
+  },
+  "k2": {
+   "tip": "ornek",
+   "en": "Mike owns two cars, but he usually takes the bus because parking costs so much.",
+   "tr": "Mike'ın iki arabası var, ama genellikle otobüse biner."
+  },
+  "k3": {
+   "tip": "ornek",
+   "en": "Our flight takes off at eleven tomorrow morning, so we have to leave home at nine.",
+   "tr": "Uçuşumuz yarın sabah on birde kalkıyor."
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Uçak yarın dokuzda kalkıyor."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Uçak yarın dokuzda kalkıyor."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İngilizcede hangi zamanla kurarsın? Önce kural."
+    ],
+    [
+     "en",
+     "Positive: he, she, it takes s. Negative and question: does plus base verb."
+    ],
+    [
+     "tr",
+     "Altı dakikada kuralı ve üç YDT kökünü bitiriyoruz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İngilizcede hangi zamanla kurarsın? Önce kural. Positive: he, she, it takes s. Negative and question: does plus base verb. Altı dakikada kuralı ve üç YDT kökünü bitiriyoruz."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Birinci kök."
+    ],
+    [
+     "en",
+     "Although the sun looks small from here, it gives plants the energy they need."
+    ],
+    [
+     "tr",
+     "Güneş küçük görünse de bitkilere gereken enerjiyi verir."
+    ],
+    [
+     "tr",
+     "Bağlaç var, zaman değişmez: gives."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Birinci kök. Although the sun looks small from here, it gives plants the energy they need. Güneş küçük görünse de bitkilere gereken enerjiyi verir. Bağlaç var, zaman değişmez: gives."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İkinci kök."
+    ],
+    [
+     "en",
+     "Mike owns two cars, but he usually takes the bus because parking costs so much."
+    ],
+    [
+     "tr",
+     "Mike'ın iki arabası var, ama genellikle otobüse biner."
+    ],
+    [
+     "tr",
+     "Owns ve costs durum fiilidir: ing almaz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İkinci kök. Mike owns two cars, but he usually takes the bus because parking costs so much. Mike'ın iki arabası var, ama genellikle otobüse biner. Owns ve costs durum fiilidir: ing almaz."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Üçüncü kök."
+    ],
+    [
+     "en",
+     "Our flight takes off at eleven tomorrow morning, so we have to leave home at nine."
+    ],
+    [
+     "tr",
+     "Uçuşumuz yarın on birde kalkıyor."
+    ],
+    [
+     "tr",
+     "Tarife kesin, Simple Present. Tomorrow tuzaktır."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Üçüncü kök. Our flight takes off at eleven tomorrow morning, so we have to leave home at nine. Uçuşumuz yarın on birde kalkıyor. Tarife kesin, Simple Present. Tomorrow tuzaktır."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Hocam, yarın dediği için will take off olmaz mıydı?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Hocam, yarın dediği için will take off olmaz mıydı?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Hayır. Tarife, program, takvim kesinse Simple Present."
+    ],
+    [
+     "en",
+     "Will is for predictions and sudden decisions."
+    ],
+    [
+     "tr",
+     "Durum fiilleri know, own, cost: now gelse bile ing almaz."
+    ],
+    [
+     "en",
+     "I know the answer. Not: I am knowing."
+    ],
+    [
+     "tr",
+     "Kod: tarife varsa Simple Present, tahmin varsa will."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Hayır. Tarife, program, takvim kesinse Simple Present. Will is for predictions and sudden decisions. Durum fiilleri know, own, cost: now gelse bile ing almaz. I know the answer. Not: I am knowing. Kod: tarife varsa Simple Present, tahmin varsa will."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "SIMPLE",
+  "satir2": "PRESENT",
+  "rozetler": [
+   "YDT · ADVANCED",
+   "GRAMMAR"
+  ]
+ },
+ "meta": {
+  "kimlik": "02-04-ydt-ileri",
+  "kod": "ING-YDT-GR-02-04-I",
+  "ders": "İngilizce",
+  "konu": "Simple Present",
+  "kitle": "ydt",
+  "seviye": "ileri",
+  "amaclar": [
+   "Simple Present formunu kurmak (s, does not, does + yalın fiil)",
+   "tarifeli geleceği Simple Present ile anlatmak (will tuzağı)",
+   "durum fiillerini (know, own, cost) ing'den ayırmak",
+   "YDT kökünde bağlaç sonrası zamanı korumak"
+  ],
+  "canAlici": [
+   "Tarifeli gelecek Simple Present ile gelir: The flight takes off at nine.",
+   "Tomorrow gördün diye will deme: tarife, program, takvim = Simple Present",
+   "Durum fiilleri (know, own, cost) now gelse bile ing almaz",
+   "Olumsuz ve soru: does + yalın fiil; s does'a geçer",
+   "Bağlaçtan sonra da zaman değişmez: Although ... it gives"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "ileri",
+   "gramer",
+   "Simple Present"
+  ],
+  "kancaKapak": "TARİFE = SIMPLE"
+ }
+}

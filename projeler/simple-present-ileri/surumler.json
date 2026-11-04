@@ -1,0 +1,74 @@
+{
+  "video": {
+    "kimlik": "02-04-ydt-ileri",
+    "ders": "İngilizce",
+    "konu": "Simple Present",
+    "seviye": "ileri",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-04-I",
+    "amaclar": [
+      "Simple Present formunu kurmak (s, does not, does + yalın fiil)",
+      "tarifeli geleceği Simple Present ile anlatmak (will tuzağı)",
+      "durum fiillerini (know, own, cost) ing'den ayırmak",
+      "YDT kökünde bağlaç sonrası zamanı korumak"
+    ],
+    "canAlici": [
+      "Tarifeli gelecek Simple Present ile gelir: The flight takes off at nine.",
+      "Tomorrow gördün diye will deme: tarife, program, takvim = Simple Present",
+      "Durum fiilleri (know, own, cost) now gelse bile ing almaz",
+      "Olumsuz ve soru: does + yalın fiil; s does'a geçer",
+      "Bağlaçtan sonra da zaman değişmez: Although ... it gives"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "ileri",
+      "gramer",
+      "Simple Present"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "simple-present-ileri",
+      "tur": "ana-yatay",
+      "ad": "Ana video (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "ileri",
+      "kaynak": null,
+      "durum": "planli",
+      "onizleme": "/p/simple-present-ileri/onizle.html",
+      "tarih": "2026-11-05T01:30:00Z"
+    },
+    {
+      "kimlik": "dikey-tam",
+      "video": "simple-present-ileri",
+      "tur": "dikey",
+      "ad": "Dikey tam ders (9:16, aynı ses)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": "TARİFE = SIMPLE",
+      "seviye": "ileri",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/simple-present-ileri-dikey/onizle.html",
+      "tarih": "2026-11-05T01:30:00Z",
+      "proje": "simple-present-ileri-dikey"
+    },
+    {
+      "kimlik": "shorts",
+      "video": "simple-present-ileri",
+      "tur": "shorts",
+      "ad": "S1 Shorts (19 sn)",
+      "senaryo": "../simple-present-ileri-s1/BRIEF-S1.md",
+      "kapak": "TARİFE = SIMPLE",
+      "seviye": "ileri",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/simple-present-ileri-s1/onizle.html",
+      "tarih": "2026-11-05T01:30:00Z",
+      "proje": "simple-present-ileri-s1"
+    }
+  ],
+  "revizyonlar": []
+}

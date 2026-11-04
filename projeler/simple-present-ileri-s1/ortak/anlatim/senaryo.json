@@ -1,0 +1,119 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Simple Present",
+ "duzen": "konu",
+ "seviye": "ileri",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogretmen": {
+   "ses": "gsJ9nrlXYbPztJxC4fwc",
+   "cinsiyet": "erkek",
+   "yas": "yetiskin",
+   "govde": "ShirtPantsWB",
+   "yuz": "Smile",
+   "sac": "Short"
+  }
+ },
+ "kartlar": {
+  "can": {
+   "tip": "ornek",
+   "en": "Our flight takes off at nine tomorrow.",
+   "tr": "Uçuşumuz yarın dokuzda kalkar."
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Tarife varsa will deme."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Tarife varsa will deme."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "Our flight takes off at nine tomorrow."
+    ],
+    [
+     "tr",
+     "Uçuşumuz yarın dokuzda kalkar."
+    ],
+    [
+     "tr",
+     "Tarife kesin: gelecek anlamı olsa da Simple Present."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Our flight takes off at nine tomorrow. Uçuşumuz yarın dokuzda kalkar. Tarife kesin: gelecek anlamı olsa da Simple Present."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Tam ders: Simple Present, altı dakika."
+    ],
+    [
+     "tr",
+     "Tam dersi kanalda izle."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Tam ders: Simple Present, altı dakika. Tam dersi kanalda izle."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "TARİFE",
+  "satir2": "= SIMPLE",
+  "rozetler": [
+   "YDT · ADVANCED",
+   "GRAMMAR"
+  ]
+ },
+ "meta": {
+  "kimlik": "02-04-ydt-ileri-s1",
+  "kod": "ING-YDT-GR-02-04-I-S1",
+  "ders": "İngilizce",
+  "konu": "Simple Present",
+  "kitle": "ydt",
+  "seviye": "ileri",
+  "amaclar": [
+   "Simple Present formunu kurmak (s, does not, does + yalın fiil)",
+   "tarifeli geleceği Simple Present ile anlatmak (will tuzağı)",
+   "durum fiillerini (know, own, cost) ing'den ayırmak",
+   "YDT kökünde bağlaç sonrası zamanı korumak"
+  ],
+  "canAlici": [
+   "Tarifeli gelecek Simple Present ile gelir: The flight takes off at nine.",
+   "Tomorrow gördün diye will deme: tarife, program, takvim = Simple Present",
+   "Durum fiilleri (know, own, cost) now gelse bile ing almaz",
+   "Olumsuz ve soru: does + yalın fiil; s does'a geçer",
+   "Bağlaçtan sonra da zaman değişmez: Although ... it gives"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "ileri",
+   "gramer",
+   "Simple Present"
+  ],
+  "kancaKapak": "TARİFE = SIMPLE"
+ }
+}

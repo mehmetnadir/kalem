@@ -1,0 +1,950 @@
+[
+{
+"cumle": 1,
+"sozcuk": "Her",
+"t0": 1.0,
+"t1": 1.24
+},
+{
+"cumle": 1,
+"sozcuk": "sabah",
+"t0": 1.32,
+"t1": 1.64
+},
+{
+"cumle": 1,
+"sozcuk": "yedide",
+"t0": 1.72,
+"t1": 2.04
+},
+{
+"cumle": 1,
+"sozcuk": "kalkarım.",
+"t0": 2.12,
+"t1": 2.84
+},
+{
+"cumle": 2,
+"sozcuk": "Türkçede",
+"t0": 3.31,
+"t1": 3.79
+},
+{
+"cumle": 2,
+"sozcuk": "buna",
+"t0": 3.83,
+"t1": 4.11
+},
+{
+"cumle": 2,
+"sozcuk": "geniş",
+"t0": 4.27,
+"t1": 4.51
+},
+{
+"cumle": 2,
+"sozcuk": "zaman",
+"t0": 4.59,
+"t1": 4.91
+},
+{
+"cumle": 2,
+"sozcuk": "deriz:",
+"t0": 4.99,
+"t1": 5.51
+},
+{
+"cumle": 2,
+"sozcuk": "kalkar,",
+"t0": 5.71,
+"t1": 6.43
+},
+{
+"cumle": 2,
+"sozcuk": "gider,",
+"t0": 6.47,
+"t1": 6.99
+},
+{
+"cumle": 2,
+"sozcuk": "yapar.",
+"t0": 7.07,
+"t1": 7.63
+},
+{
+"cumle": 2,
+"sozcuk": "İngilizcedeki",
+"t0": 7.78,
+"t1": 8.42
+},
+{
+"cumle": 2,
+"sozcuk": "karşılığı",
+"t0": 8.5,
+"t1": 9.22
+},
+{
+"cumle": 2,
+"sozcuk": "Simple",
+"t0": 9.3,
+"t1": 9.54
+},
+{
+"cumle": 2,
+"sozcuk": "Present.",
+"t0": 9.62,
+"t1": 10.58
+},
+{
+"cumle": 2,
+"sozcuk": "Altı",
+"t0": 10.65,
+"t1": 10.93
+},
+{
+"cumle": 2,
+"sozcuk": "dakikada",
+"t0": 10.97,
+"t1": 11.53
+},
+{
+"cumle": 2,
+"sozcuk": "formunu,",
+"t0": 11.61,
+"t1": 12.37
+},
+{
+"cumle": 2,
+"sozcuk": "zaman",
+"t0": 12.41,
+"t1": 12.65
+},
+{
+"cumle": 2,
+"sozcuk": "ifadelerini",
+"t0": 12.73,
+"t1": 13.53
+},
+{
+"cumle": 2,
+"sozcuk": "ve",
+"t0": 13.61,
+"t1": 13.69
+},
+{
+"cumle": 2,
+"sozcuk": "kullanımlarını",
+"t0": 13.77,
+"t1": 14.41
+},
+{
+"cumle": 2,
+"sozcuk": "bitiriyoruz.",
+"t0": 14.49,
+"t1": 15.53
+},
+{
+"cumle": 3,
+"sozcuk": "Birinci",
+"t0": 16.0,
+"t1": 16.4
+},
+{
+"cumle": 3,
+"sozcuk": "örnek.",
+"t0": 16.48,
+"t1": 16.96
+},
+{
+"cumle": 3,
+"sozcuk": "The",
+"t0": 17.21,
+"t1": 17.37
+},
+{
+"cumle": 3,
+"sozcuk": "sun",
+"t0": 17.45,
+"t1": 17.69
+},
+{
+"cumle": 3,
+"sozcuk": "rises",
+"t0": 17.77,
+"t1": 18.25
+},
+{
+"cumle": 3,
+"sozcuk": "in",
+"t0": 18.33,
+"t1": 18.41
+},
+{
+"cumle": 3,
+"sozcuk": "the",
+"t0": 18.49,
+"t1": 18.57
+},
+{
+"cumle": 3,
+"sozcuk": "east.",
+"t0": 18.65,
+"t1": 19.61
+},
+{
+"cumle": 3,
+"sozcuk": "Güneş",
+"t0": 19.86,
+"t1": 20.26
+},
+{
+"cumle": 3,
+"sozcuk": "doğudan",
+"t0": 20.34,
+"t1": 20.74
+},
+{
+"cumle": 3,
+"sozcuk": "doğar.",
+"t0": 20.86,
+"t1": 21.22
+},
+{
+"cumle": 3,
+"sozcuk": "Doğa",
+"t0": 21.7,
+"t1": 21.86
+},
+{
+"cumle": 3,
+"sozcuk": "kanunu:",
+"t0": 21.94,
+"t1": 22.58
+},
+{
+"cumle": 3,
+"sozcuk": "hep",
+"t0": 22.74,
+"t1": 22.98
+},
+{
+"cumle": 3,
+"sozcuk": "böyledir.",
+"t0": 23.06,
+"t1": 23.7
+},
+{
+"cumle": 3,
+"sozcuk": "Fiile",
+"t0": 23.85,
+"t1": 24.17
+},
+{
+"cumle": 3,
+"sozcuk": "bak:",
+"t0": 24.25,
+"t1": 24.89
+},
+{
+"cumle": 3,
+"sozcuk": "rises.",
+"t0": 24.93,
+"t1": 26.09
+},
+{
+"cumle": 3,
+"sozcuk": "Sonunda",
+"t0": 26.17,
+"t1": 26.57
+},
+{
+"cumle": 3,
+"sozcuk": "s",
+"t0": 26.65,
+"t1": 26.89
+},
+{
+"cumle": 3,
+"sozcuk": "harfi",
+"t0": 27.01,
+"t1": 27.21
+},
+{
+"cumle": 3,
+"sozcuk": "var.",
+"t0": 27.29,
+"t1": 27.77
+},
+{
+"cumle": 4,
+"sozcuk": "İkinci",
+"t0": 28.24,
+"t1": 28.64
+},
+{
+"cumle": 4,
+"sozcuk": "örnek.",
+"t0": 28.72,
+"t1": 29.28
+},
+{
+"cumle": 4,
+"sozcuk": "My",
+"t0": 29.53,
+"t1": 29.69
+},
+{
+"cumle": 4,
+"sozcuk": "brother",
+"t0": 29.77,
+"t1": 30.01
+},
+{
+"cumle": 4,
+"sozcuk": "usually",
+"t0": 30.17,
+"t1": 30.57
+},
+{
+"cumle": 4,
+"sozcuk": "goes",
+"t0": 30.61,
+"t1": 30.81
+},
+{
+"cumle": 4,
+"sozcuk": "to",
+"t0": 30.89,
+"t1": 30.97
+},
+{
+"cumle": 4,
+"sozcuk": "school",
+"t0": 31.13,
+"t1": 31.29
+},
+{
+"cumle": 4,
+"sozcuk": "by",
+"t0": 31.41,
+"t1": 31.53
+},
+{
+"cumle": 4,
+"sozcuk": "bus.",
+"t0": 32.01,
+"t1": 32.57
+},
+{
+"cumle": 4,
+"sozcuk": "Kardeşim",
+"t0": 32.74,
+"t1": 33.3
+},
+{
+"cumle": 4,
+"sozcuk": "genellikle",
+"t0": 33.38,
+"t1": 33.94
+},
+{
+"cumle": 4,
+"sozcuk": "okula",
+"t0": 34.02,
+"t1": 34.26
+},
+{
+"cumle": 4,
+"sozcuk": "otobüsle",
+"t0": 34.34,
+"t1": 34.82
+},
+{
+"cumle": 4,
+"sozcuk": "gider.",
+"t0": 34.9,
+"t1": 35.38
+},
+{
+"cumle": 4,
+"sozcuk": "Usually,",
+"t0": 35.53,
+"t1": 36.41
+},
+{
+"cumle": 4,
+"sozcuk": "always,",
+"t0": 36.73,
+"t1": 37.29
+},
+{
+"cumle": 4,
+"sozcuk": "every",
+"t0": 37.45,
+"t1": 37.61
+},
+{
+"cumle": 4,
+"sozcuk": "day:",
+"t0": 37.69,
+"t1": 38.41
+},
+{
+"cumle": 4,
+"sozcuk": "alışkanlık",
+"t0": 38.53,
+"t1": 38.97
+},
+{
+"cumle": 4,
+"sozcuk": "işareti.",
+"t0": 39.05,
+"t1": 40.17
+},
+{
+"cumle": 4,
+"sozcuk": "Fiil",
+"t0": 40.32,
+"t1": 40.72
+},
+{
+"cumle": 4,
+"sozcuk": "goes.",
+"t0": 40.96,
+"t1": 41.76
+},
+{
+"cumle": 4,
+"sozcuk": "Yine",
+"t0": 42.0,
+"t1": 42.24
+},
+{
+"cumle": 4,
+"sozcuk": "s",
+"t0": 42.4,
+"t1": 42.56
+},
+{
+"cumle": 4,
+"sozcuk": "harfi",
+"t0": 42.68,
+"t1": 42.88
+},
+{
+"cumle": 4,
+"sozcuk": "var.",
+"t0": 43.04,
+"t1": 43.44
+},
+{
+"cumle": 5,
+"sozcuk": "Üçüncü",
+"t0": 43.91,
+"t1": 44.31
+},
+{
+"cumle": 5,
+"sozcuk": "örnek.",
+"t0": 44.39,
+"t1": 44.95
+},
+{
+"cumle": 5,
+"sozcuk": "Our",
+"t0": 45.2,
+"t1": 45.44
+},
+{
+"cumle": 5,
+"sozcuk": "plane",
+"t0": 45.6,
+"t1": 45.76
+},
+{
+"cumle": 5,
+"sozcuk": "takes",
+"t0": 45.88,
+"t1": 46.0
+},
+{
+"cumle": 5,
+"sozcuk": "off",
+"t0": 46.08,
+"t1": 46.24
+},
+{
+"cumle": 5,
+"sozcuk": "at",
+"t0": 46.32,
+"t1": 46.4
+},
+{
+"cumle": 5,
+"sozcuk": "nine",
+"t0": 46.48,
+"t1": 46.72
+},
+{
+"cumle": 5,
+"sozcuk": "tomorrow.",
+"t0": 46.8,
+"t1": 47.84
+},
+{
+"cumle": 5,
+"sozcuk": "Uçağımız",
+"t0": 48.01,
+"t1": 48.65
+},
+{
+"cumle": 5,
+"sozcuk": "yarın",
+"t0": 48.73,
+"t1": 48.89
+},
+{
+"cumle": 5,
+"sozcuk": "dokuzda",
+"t0": 48.97,
+"t1": 49.29
+},
+{
+"cumle": 5,
+"sozcuk": "kalkar.",
+"t0": 49.37,
+"t1": 50.25
+},
+{
+"cumle": 5,
+"sozcuk": "Gelecek,",
+"t0": 50.33,
+"t1": 51.05
+},
+{
+"cumle": 5,
+"sozcuk": "ama",
+"t0": 51.25,
+"t1": 51.45
+},
+{
+"cumle": 5,
+"sozcuk": "tarifede",
+"t0": 51.57,
+"t1": 51.93
+},
+{
+"cumle": 5,
+"sozcuk": "yazılı.",
+"t0": 52.01,
+"t1": 52.81
+},
+{
+"cumle": 5,
+"sozcuk": "Tarife,",
+"t0": 52.88,
+"t1": 53.6
+},
+{
+"cumle": 5,
+"sozcuk": "program,",
+"t0": 53.88,
+"t1": 54.32
+},
+{
+"cumle": 5,
+"sozcuk": "takvim:",
+"t0": 54.36,
+"t1": 55.2
+},
+{
+"cumle": 5,
+"sozcuk": "Türkçe",
+"t0": 55.28,
+"t1": 55.52
+},
+{
+"cumle": 5,
+"sozcuk": "gibi",
+"t0": 55.56,
+"t1": 55.84
+},
+{
+"cumle": 5,
+"sozcuk": "geniş",
+"t0": 56.0,
+"t1": 56.24
+},
+{
+"cumle": 5,
+"sozcuk": "zaman.",
+"t0": 56.32,
+"t1": 57.2
+},
+{
+"cumle": 5,
+"sozcuk": "Fiil",
+"t0": 57.35,
+"t1": 57.75
+},
+{
+"cumle": 5,
+"sozcuk": "takes",
+"t0": 57.99,
+"t1": 58.31
+},
+{
+"cumle": 5,
+"sozcuk": "off.",
+"t0": 58.39,
+"t1": 59.03
+},
+{
+"cumle": 5,
+"sozcuk": "Yine",
+"t0": 59.27,
+"t1": 59.51
+},
+{
+"cumle": 5,
+"sozcuk": "s",
+"t0": 59.59,
+"t1": 59.83
+},
+{
+"cumle": 5,
+"sozcuk": "harfi.",
+"t0": 59.95,
+"t1": 60.55
+},
+{
+"cumle": 6,
+"sozcuk": "Hocam,",
+"t0": 61.02,
+"t1": 61.74
+},
+{
+"cumle": 6,
+"sozcuk": "üçünde",
+"t0": 61.82,
+"t1": 62.14
+},
+{
+"cumle": 6,
+"sozcuk": "de",
+"t0": 62.22,
+"t1": 62.3
+},
+{
+"cumle": 6,
+"sozcuk": "fiilin",
+"t0": 62.38,
+"t1": 62.7
+},
+{
+"cumle": 6,
+"sozcuk": "sonunda",
+"t0": 62.78,
+"t1": 63.18
+},
+{
+"cumle": 6,
+"sozcuk": "s",
+"t0": 63.26,
+"t1": 63.5
+},
+{
+"cumle": 6,
+"sozcuk": "var.",
+"t0": 63.66,
+"t1": 64.06
+},
+{
+"cumle": 6,
+"sozcuk": "Neden",
+"t0": 64.1,
+"t1": 64.38
+},
+{
+"cumle": 6,
+"sozcuk": "hep",
+"t0": 64.46,
+"t1": 64.7
+},
+{
+"cumle": 6,
+"sozcuk": "s?",
+"t0": 64.82,
+"t1": 65.26
+},
+{
+"cumle": 7,
+"sozcuk": "Çünkü",
+"t0": 65.73,
+"t1": 66.13
+},
+{
+"cumle": 7,
+"sozcuk": "özne",
+"t0": 66.29,
+"t1": 66.77
+},
+{
+"cumle": 7,
+"sozcuk": "üçüncü",
+"t0": 67.01,
+"t1": 67.33
+},
+{
+"cumle": 7,
+"sozcuk": "tekil",
+"t0": 67.41,
+"t1": 67.65
+},
+{
+"cumle": 7,
+"sozcuk": "kişi:",
+"t0": 67.73,
+"t1": 68.21
+},
+{
+"cumle": 7,
+"sozcuk": "he,",
+"t0": 68.46,
+"t1": 69.1
+},
+{
+"cumle": 7,
+"sozcuk": "she,",
+"t0": 69.3,
+"t1": 69.74
+},
+{
+"cumle": 7,
+"sozcuk": "it.",
+"t0": 69.9,
+"t1": 70.62
+},
+{
+"cumle": 7,
+"sozcuk": "Fiile",
+"t0": 70.87,
+"t1": 71.27
+},
+{
+"cumle": 7,
+"sozcuk": "s",
+"t0": 71.43,
+"t1": 71.67
+},
+{
+"cumle": 7,
+"sozcuk": "gelir.",
+"t0": 71.75,
+"t1": 72.47
+},
+{
+"cumle": 7,
+"sozcuk": "I,",
+"t0": 72.55,
+"t1": 73.11
+},
+{
+"cumle": 7,
+"sozcuk": "you,",
+"t0": 73.19,
+"t1": 73.83
+},
+{
+"cumle": 7,
+"sozcuk": "we,",
+"t0": 73.91,
+"t1": 74.47
+},
+{
+"cumle": 7,
+"sozcuk": "they",
+"t0": 74.51,
+"t1": 74.87
+},
+{
+"cumle": 7,
+"sozcuk": "ile",
+"t0": 74.95,
+"t1": 75.11
+},
+{
+"cumle": 7,
+"sozcuk": "gelmez.",
+"t0": 75.19,
+"t1": 76.23
+},
+{
+"cumle": 7,
+"sozcuk": "Olumsuzda",
+"t0": 76.38,
+"t1": 77.02
+},
+{
+"cumle": 7,
+"sozcuk": "ve",
+"t0": 77.1,
+"t1": 77.18
+},
+{
+"cumle": 7,
+"sozcuk": "soruda",
+"t0": 77.26,
+"t1": 77.66
+},
+{
+"cumle": 7,
+"sozcuk": "does",
+"t0": 77.74,
+"t1": 77.98
+},
+{
+"cumle": 7,
+"sozcuk": "girer,",
+"t0": 78.02,
+"t1": 78.62
+},
+{
+"cumle": 7,
+"sozcuk": "s",
+"t0": 78.7,
+"t1": 78.94
+},
+{
+"cumle": 7,
+"sozcuk": "ona",
+"t0": 79.02,
+"t1": 79.18
+},
+{
+"cumle": 7,
+"sozcuk": "geçer.",
+"t0": 79.26,
+"t1": 80.22
+},
+{
+"cumle": 7,
+"sozcuk": "He",
+"t0": 80.47,
+"t1": 80.63
+},
+{
+"cumle": 7,
+"sozcuk": "does",
+"t0": 80.75,
+"t1": 80.87
+},
+{
+"cumle": 7,
+"sozcuk": "not",
+"t0": 80.95,
+"t1": 81.19
+},
+{
+"cumle": 7,
+"sozcuk": "go.",
+"t0": 81.27,
+"t1": 82.19
+},
+{
+"cumle": 7,
+"sozcuk": "Does",
+"t0": 82.23,
+"t1": 82.39
+},
+{
+"cumle": 7,
+"sozcuk": "he",
+"t0": 82.47,
+"t1": 82.55
+},
+{
+"cumle": 7,
+"sozcuk": "go?",
+"t0": 82.99,
+"t1": 83.51
+},
+{
+"cumle": 7,
+"sozcuk": "Türkçedeki",
+"t0": 83.68,
+"t1": 84.32
+},
+{
+"cumle": 7,
+"sozcuk": "er",
+"t0": 84.4,
+"t1": 84.56
+},
+{
+"cumle": 7,
+"sozcuk": "eki",
+"t0": 84.64,
+"t1": 84.88
+},
+{
+"cumle": 7,
+"sozcuk": "gibi:",
+"t0": 84.92,
+"t1": 85.52
+},
+{
+"cumle": 7,
+"sozcuk": "git-er,",
+"t0": 85.6,
+"t1": 86.4
+},
+{
+"cumle": 7,
+"sozcuk": "go-es.",
+"t0": 86.52,
+"t1": 87.6
+},
+{
+"cumle": 7,
+"sozcuk": "Kod:",
+"t0": 87.75,
+"t1": 88.63
+},
+{
+"cumle": 7,
+"sozcuk": "always,",
+"t0": 88.95,
+"t1": 89.51
+},
+{
+"cumle": 7,
+"sozcuk": "usually,",
+"t0": 89.59,
+"t1": 90.39
+},
+{
+"cumle": 7,
+"sozcuk": "every",
+"t0": 90.47,
+"t1": 90.71
+},
+{
+"cumle": 7,
+"sozcuk": "day,",
+"t0": 90.79,
+"t1": 91.43
+},
+{
+"cumle": 7,
+"sozcuk": "Simple",
+"t0": 91.51,
+"t1": 91.75
+},
+{
+"cumle": 7,
+"sozcuk": "Present.",
+"t0": 91.83,
+"t1": 92.55
+}
+]

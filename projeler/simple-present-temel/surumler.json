@@ -1,0 +1,74 @@
+{
+  "video": {
+    "kimlik": "02-04-ydt-temel",
+    "ders": "İngilizce",
+    "konu": "Simple Present",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-04-T",
+    "amaclar": [
+      "Simple Present formunu kurmak (fiil, fiil + s, do / does)",
+      "zaman ifadelerini tanımak",
+      "genelleme, alışkanlık ve tarife kullanımlarını ayırt etmek",
+      "Türkçe geniş zaman eki ile köprü"
+    ],
+    "canAlici": [
+      "Türkçedeki geniş zaman eki = İngilizcedeki s: gider = goes",
+      "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
+      "usually, always, every day = tekrar eden iş sinyali",
+      "he, she, it fiile s alır; I, you, we, they almaz",
+      "3 örnek, 1 kural: üçünde de fiilin sonunda s"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Simple Present"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "simple-present-temel",
+      "tur": "ana-yatay",
+      "ad": "Ana video (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "temel",
+      "kaynak": null,
+      "durum": "planli",
+      "onizleme": "/p/simple-present-temel/onizle.html",
+      "tarih": "2026-11-05T01:30:00Z"
+    },
+    {
+      "kimlik": "dikey-tam",
+      "video": "simple-present-temel",
+      "tur": "dikey",
+      "ad": "Dikey tam ders (9:16, aynı ses)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": "GİDER = GOES",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/simple-present-temel-dikey/onizle.html",
+      "tarih": "2026-11-05T01:30:00Z",
+      "proje": "simple-present-temel-dikey"
+    },
+    {
+      "kimlik": "shorts",
+      "video": "simple-present-temel",
+      "tur": "shorts",
+      "ad": "S1 Shorts (23 sn)",
+      "senaryo": "../simple-present-temel-s1/BRIEF-S1.md",
+      "kapak": "GİDER = GOES",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/simple-present-temel-s1/onizle.html",
+      "tarih": "2026-11-05T01:30:00Z",
+      "proje": "simple-present-temel-s1"
+    }
+  ],
+  "revizyonlar": []
+}
