@@ -597,7 +597,7 @@ addEventListener("resize", function () { olc(); zoomUygula(false); });
 
 // ---------- Görev haritası verisi: API varsa yazılır, yoksa dosyadan salt okunur ----------
 var API = "/api/" + encodeURIComponent(PROJE) + "/", apiVar = false, SU = [], GO = [], YO = [], SK = "";
-var VM = null, REV = [], secGorev = "", secNesne = "", vurYorum = "", tfAcik = false, gfAcik = false;
+var VM = null, VMA = {}, REV = [], secGorev = "", secNesne = "", vurYorum = "", tfAcik = false, gfAcik = false;
 var DURUM = ["acik", "uretimde", "inceleme", "onay", "kapali"];
 var DAD = { planli: "planlı", acik: "açık", uretimde: "üretimde", inceleme: "inceleme", onay: "onay",
   kapali: "kapalı" };
@@ -628,12 +628,26 @@ function apiIste(yontem, yol, govde) {
 }
 // video meta ve revizyonlar: surumler.json içinde (API dizi dönerse dosyadan) ya da video.json
 function metaYukle() {
-  var a = (VM && REV.length) ? Promise.resolve() : getJ(YOL + "surumler.json")
+  var a = (VM && (REV.length || apiVar)) ? Promise.resolve() : getJ(YOL + "surumler.json")
     .then(function (x) { listeAyir(x, "surumler"); })
     .catch(function () {});
   return a.then(function () { return VM ? null : getJ(YOL + "video.json").then(function (v) { VM = v.video || v; }); })
-    .catch(function () {});
+    .catch(function () {}).then(adYaz);
 }
+// Üst başlık: video meta (konu, kitle, seviye); dikey/s1 projede meta ana projeden (05.11; önce sabitti).
+function adYaz() {
+  var v = VM || {}, ana = PROJE.replace(/-(dikey|s1|d1)$/, "");
+  var p = (v.konu || v.ders || ana === PROJE) ? Promise.resolve(v)
+    : getJ("/api/" + encodeURIComponent(ana) + "/surumler").then(function (x) { return x.video || v; })
+      .catch(function () { return v; });
+  return p.then(function (m) {
+    VMA = m; var ad = m.konu || m.ders || PROJE, alt = kitleYazi();
+    var ek = PROJE.slice(ana.length).replace("-", " · ");
+    $("#ad").innerHTML = ec(ad + ek) + "<small>" + ec((alt ? alt + " · " : "") + "canlı önizleme") + "</small>";
+    document.title = ad + ek + " — kurgu";
+  }).catch(function () {});
+}
+function kitleYazi() { return [VMA.kitle, VMA.seviye].filter(Boolean).join(" "); }
 function surumRev(s) {
   return (s.revizyonlar || []).concat(REV.filter(function (r) { return r.surum === s.kimlik; }));
 }
@@ -907,7 +921,7 @@ veriYukle().then(function (v) {
 }).then(function () {
   var ana = SU.filter(function (s) { return s.tur === "ana-yatay"; })[0] || SU[0];
   SK = QS.get("surum") || (ana ? ana.kimlik : "");
-  var s = surumBul(SK); if (s) $("#ad small").textContent = "YDT Basic · " + (s.ad || s.kimlik);
+  var s = surumBul(SK); if (s) $("#ad small").textContent = (kitleYazi() || "YDT") + " · " + (s.ad || s.kimlik);
   kirintiKur(s ? (s.ad || s.kimlik) : SK);
   hepsiCiz(); yorumMetaYaz();
   if (QS.get("t")) git(+QS.get("t") || 0);
