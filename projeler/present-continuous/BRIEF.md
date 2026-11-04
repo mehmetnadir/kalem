@@ -201,3 +201,15 @@ istenirse uzun yazı maskesi. Sahne başına 20–80 olay; aynı karede ≤ 3.
 
 ---
 Şef: Claude (Fable), 04.11.2026. Kararlar: `~/01dev/dijital-anlatim/.claude/docs/video-format-kararlari.md`.
+
+## Harita/editör
+
+Kod ortaktır: `ortak/editor/{harita,onizle}.{html,js,css}`, `harita-model.js`, `yol.js`. Proje dizininde yalnız veri kalır.
+Sunucu: `node ortak/onizle-sunucu.mjs --port 3012` (sunucu kodu değişince yeniden başlat).
+
+| Sayfa | Adres |
+|---|---|
+| Harita | `/p/present-continuous/harita.html?ac=02,02-01,02-01-ydt-temel&sec=<kimlik>` |
+| Editör | `/p/present-continuous/onizle.html?surum=ana-yatay&t=0&tema=acik&yan=1&yol=02,02-01,02-01-ydt-temel` |
+| API | `/api/present-continuous/{gorevler,surumler,yorumlar,konum}` |
+| Eski adres | `/projeler/present-continuous/{harita,onizle}.html` → 302, sorgu korunur |

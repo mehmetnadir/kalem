@@ -46,5 +46,53 @@
     "yazar": "sef",
     "tarih": "2026-11-04T11:00:00Z",
     "durum": "acik"
+  },
+  {
+    "kimlik": "y-5",
+    "gorev": "g-27",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Şef: seçici hatası düzeltildi (#), baş u(84) kare; snapshot 64,2 sn iki pilotta baş var. Nadir gözü bekler.",
+    "yazar": "Nadir",
+    "tarih": "2026-11-04T14:33:56.779Z",
+    "durum": "acik"
+  },
+  {
+    "kimlik": "y-6",
+    "gorev": "g-28",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Şef: isaret → cizgi eşlemesi eklendi; oynatıcı 1.8.1 efekt izi ağda istendi (200). efekt.wav 33 MB açık iş.",
+    "yazar": "Nadir",
+    "tarih": "2026-11-04T14:33:56.781Z",
+    "durum": "acik"
+  },
+  {
+    "kimlik": "y-7",
+    "gorev": "g-25",
+    "surum": "dikey",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "D1 derlendi (53,3 sn, 7 cümle, Whisper 21/22; '-yor eşittir -ing' 0,83 kulak onayı). Kare kapısı: dikey yerleşim yalnız üst %36, ek_ayir satır sonunda bölünüyor, kinetik başlık küçük, coco:home karalama → motor dikey güvenli alan şeridi açıldı.",
+    "yazar": "Nadir",
+    "tarih": "2026-11-04T14:47:49.356Z",
+    "durum": "acik"
+  },
+  {
+    "kimlik": "y-8",
+    "gorev": "g-26",
+    "surum": "shorts",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "S1 derlendi (25,4 sn, 3 cümle, Whisper 8/8). Kapak karesi t=1,95 (başlık üstte, figür altta, orta boş). Kapanış CTA kartı görünmüyor: K23 kuralı baslik olayını toptan atıyor → düzeltme dikey yerleşim şeridinde.",
+    "yazar": "Nadir",
+    "tarih": "2026-11-04T14:47:49.358Z",
+    "durum": "acik"
   }
 ]

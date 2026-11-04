@@ -123,6 +123,38 @@ test('statik: Range ve yol kaçışı', async () => {
   assert.equal((await fetch(taban + '/%2e%2e/etc/passwd')).status >= 400, true);
 });
 
+test('editör: yeni yol 200 ve doğru içerik, ortak dosya, bilinmeyen dosya 404', async () => {
+  const h = await fetch(taban + '/p/deneme/harita.html');
+  assert.equal(h.status, 200);
+  assert.match(h.headers.get('content-type'), /text\/html/);
+  assert.match(await h.text(), /Görev haritası/);
+  const j = await fetch(taban + '/p/deneme/onizle.js');
+  assert.equal(j.status, 200);
+  assert.match(j.headers.get('content-type'), /javascript/);
+  assert.match(await j.text(), /KalemYol/);
+  assert.equal((await fetch(taban + '/p/deneme/gorevler.json')).status, 404);
+  assert.equal((await fetch(taban + '/p/yok/harita.html')).status, 404);
+});
+
+test('eski editör adresi 302, sorgu korunur', async () => {
+  const q = '?surum=ana-yatay&t=3&tema=acik&yan=1&yol=02,02-01';
+  const r = await fetch(taban + '/projeler/deneme/onizle.html' + q, { redirect: 'manual' });
+  assert.equal(r.status, 302);
+  assert.equal(r.headers.get('location'), '/p/deneme/onizle.html' + q);
+  const h = await fetch(taban + '/projeler/deneme/harita.html?ac=02,02-01&sec=02-01',
+    { redirect: 'manual' });
+  assert.equal(h.status, 302);
+  assert.equal(h.headers.get('location'), '/p/deneme/harita.html?ac=02,02-01&sec=02-01');
+});
+
+test('başka proje adıyla aynı editör HTML', async () => {
+  fs.mkdirSync(path.join(kok, 'projeler', 'baska'), { recursive: true });
+  const a = await (await fetch(taban + '/p/deneme/onizle.html')).text();
+  const b = await (await fetch(taban + '/p/baska/onizle.html')).text();
+  assert.equal(a, b);
+  assert.ok(a.length > 500);
+});
+
 test('port 3000 yasak, dolu port hata verir', async () => {
   await assert.rejects(baslat({ kok, port: 3000 }), /yasak/);
   await assert.rejects(baslat({ kok, port: sunucu.address().port }), /port dolu/);

@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import * as M from '../projeler/present-continuous/harita-model.js';
+import * as M from '../ortak/editor/harita-model.js';
 
 const kok = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const katalog = JSON.parse(fs.readFileSync(path.join(kok, 'projeler/katalog.json'), 'utf8'));

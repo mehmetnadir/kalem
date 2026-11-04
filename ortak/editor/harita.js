@@ -2,8 +2,9 @@
 // Veri: /projeler/katalog.json (plan) + /api/<proje>/{surumler,gorevler,yorumlar} + /api/katalog/*.
 import * as M from './harita-model.js';
 
-const PROJE = new URLSearchParams(location.search).get('proje')
-  || (location.pathname.match(/\/projeler\/([^/]+)\//) || [])[1] || 'present-continuous';
+const Y = globalThis.KalemYol;
+const PROJE = new URLSearchParams(location.search).get('proje') || Y.projeAdi()
+  || 'present-continuous';
 const KAT = 'katalog';
 const ETIKET = {
   durum: { acik: 'Açık', planli: 'Planlı', hazirlik: 'Hazırlık', uretimde: 'Üretimde',
@@ -348,7 +349,7 @@ function sec(id) { S.secili = id; secimGoster(); panel(); }
 function editorAdresi(surum, t, vYol) {
   if (!surum || !surum.onizleme) return null;
   const y = vYol ? `&yol=${encodeURIComponent(vYol)}` : '';
-  return `${surum.onizleme}?surum=${encodeURIComponent(surum.kimlik)}&t=${t || 0}${y}`;
+  return `${Y.yeniAdres(surum.onizleme)}?surum=${encodeURIComponent(surum.kimlik)}&t=${t || 0}${y}`;
 }
 const videoYolu = (v) => M.yol(S.agac, v.id).join(',');
 const projeVideosu = (p) => [...S.agac.video.values()].find((v) => v.proje === p);

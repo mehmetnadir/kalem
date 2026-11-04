@@ -1,7 +1,5 @@
 /* Present Continuous — kurgu editörü. Arayüz kromu koyu nötr gri;
    içerik teması (Koyu/Açık) yalnız sahneye uygulanır. */
-@font-face{font-family:Lexend;font-weight:500;src:url(ortak/font/lexend-latin-500-normal.woff2)}
-@font-face{font-family:Lexend;font-weight:700;src:url(ortak/font/lexend-latin-700-normal.woff2)}
 :root{
   --bg:#17181a;--p1:#1f2023;--p2:#26272b;--p3:#2e3035;--ln:#383a40;--tx:#d9dadd;--dm:#8d9097;--vur:#4aa3ff;
   --kirmizi:#ff5d4f;--sahne-bg:#15140f;

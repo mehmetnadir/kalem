@@ -1,7 +1,7 @@
 // Present Continuous — kurgu editörü. Tek saat: <audio>.
 // Sahneler iframe'de ?canli=1&mesaj=1 ile yalnız mesaj zamanıyla çizer.
 "use strict";
-var YOL = "/projeler/present-continuous/", FPS = 30, GECIS = 0.4, ONYUKLE = 3, ET = 104;
+var PROJE = KalemYol.projeAdi() || "present-continuous", YOL = KalemYol.projeYolu(PROJE), FPS = 30, GECIS = 0.4, ONYUKLE = 3, ET = 104;
 var RENK = ["var(--s0)", "var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)"];
 var BOLUM = ["Giriş", "Hook", "Example 1 / 3", "Example 2 / 3", "Example 3 / 3", "Question"];
 var NTUR = { cizim: "var(--n-cizim)", metin: "var(--n-metin)", kart: "var(--n-kart)", isaret: "var(--n-isaret)" };
@@ -24,13 +24,22 @@ function mmss(x) {
 function kisaSn(x) { return Math.floor(x / 60) + ":" + pad(Math.floor(x % 60)); }
 
 // ---------- Veri sözleşmesi (dijital-anlatim paketi için yalnız bu bölüm değişir) ----------
+// Lexend yazı tipi proje dizinindedir (CSS projeyi bilmez): @font-face adresi YOL'dan kurulur.
+(function () {
+  var st = document.createElement("style");
+  st.textContent = [500, 700].map(function (w) {
+    return "@font-face{font-family:Lexend;font-weight:" + w + ";src:url(" + YOL + "ortak/font/lexend-latin-" + w
+      + "-normal.woff2)}";
+  }).join("");
+  document.head.appendChild(st);
+})();
 function getJ(yol) { return fetch(yol).then(function (r) { if (!r.ok) throw new Error(yol + " " + r.status);
   return r.json(); }); }
 // zaman.json sahneleri: klasor, motor, kare, t_bas, t_son
-function zamanYukle() { return getJ("zaman.json"); }
+function zamanYukle() { return getJ(YOL + "zaman.json"); }
 function sozcukYukle() {                                                  // küresel sözcük zamanları → cümleler
-  return Promise.all([getJ("ortak/anlatim/sozcukler.json"),
-    fetch("ortak/anlatim/METIN.md").then(function (r) { return r.text(); })])
+  return Promise.all([getJ(YOL + "ortak/anlatim/sozcukler.json"),
+    fetch(YOL + "ortak/anlatim/METIN.md").then(function (r) { return r.text(); })])
     .then(function (a) {
       var konusan = {};
       a[1].split("\n").forEach(function (l) {
@@ -47,7 +56,7 @@ function sozcukYukle() {                                                  // kü
 }
 function olayYukle(z) {                                                   // yerel kare → küresel sn
   return Promise.all(z.sahneler.map(function (s, i) {
-    return getJ("sahneler/" + s.klasor + "/olaylar.json").then(function (L) {
+    return getJ(YOL + "sahneler/" + s.klasor + "/olaylar.json").then(function (L) {
       return L.map(function (o) { return { t: s.t_bas + o.kare / z.fps, tur: o.tur, guc: o.guc, sahne: i,
         kare: o.kare }; });
     }).catch(function () { return []; });
@@ -55,14 +64,14 @@ function olayYukle(z) {                                                   // yer
 }
 function nesneYukle(z) {                                                  // nesneler.json: [{ad,t0,t1,tur}] küresel sn
   return Promise.all(z.sahneler.map(function (s, i) {
-    return getJ("sahneler/" + s.klasor + "/nesneler.json").then(function (L) {
+    return getJ(YOL + "sahneler/" + s.klasor + "/nesneler.json").then(function (L) {
       return L.map(function (o) { return { ad: o.ad, t0: o.t0, t1: o.t1, tur: o.tur, sahne: i }; });
     }).catch(function () { return []; });
   })).then(function (a) { return [].concat.apply([], a); });
 }
 function veriYukle() {
   return zamanYukle().then(function (z) {
-    return Promise.all([sozcukYukle(), olayYukle(z), nesneYukle(z), getJ("sahneler/" + z.sahneler[5].klasor
+    return Promise.all([sozcukYukle(), olayYukle(z), nesneYukle(z), getJ(YOL + "sahneler/" + z.sahneler[5].klasor
       + "/zamanlar.json")
       .catch(function () { return {}; })]).then(function (a) {
       return { z: z, cumle: a[0], olay: a[1], nesne: a[2], form: a[3].form || null };
@@ -331,7 +340,7 @@ function dalgaCiz() {
 }
 // wav bir kez indirilir: <audio> blob'dan çalar, dalga aynı veriden çözülür
 function sesYukle() {
-  return fetch("ortak/anlatim/anlatim.wav").then(function (r) { return r.arrayBuffer(); }).then(function (buf) {
+  return fetch(YOL + "ortak/anlatim/anlatim.wav").then(function (r) { return r.arrayBuffer(); }).then(function (buf) {
     au.src = URL.createObjectURL(new Blob([buf], { type: "audio/wav" }));
     return new OfflineAudioContext(1, 1, 44100).decodeAudioData(buf);
   }).then(function (ab) {
@@ -438,7 +447,7 @@ function sahneBilgiYaz(i) {
     " sn</dd><dt>Kare</dt><dd>" + s.kare + " (içerik " + s.icerik_kare + ")</dd><dt>Geçiş</dt><dd>" + s.gecis +
     "</dd><dt>Nesne</dt><dd>" + n.length + "</dd><dt>Kanca olayı</dt><dd>" + olSay
       + "</dd><dt>Yerel kare</dt><dd id='yk'></dd>" +
-    "<dt>Rapor</dt><dd><a target='_blank' href='sahneler/" + s.klasor + "/RAPOR.md'>RAPOR.md</a></dd></dl>";
+    "<dt>Rapor</dt><dd><a target='_blank' href='" + YOL + "sahneler/" + s.klasor + "/RAPOR.md'>RAPOR.md</a></dd></dl>";
   document.querySelectorAll(".sl").forEach(function (b) { b.classList.toggle("on", +b.dataset.i === i); });
   kSahne = i;
 }
@@ -564,7 +573,7 @@ $("#sahne").onclick = function () { oyna(); };
 addEventListener("resize", function () { olc(); zoomUygula(false); });
 
 // ---------- Görev haritası verisi: API varsa yazılır, yoksa dosyadan salt okunur ----------
-var API = "/api/present-continuous/", apiVar = false, SU = [], GO = [], YO = [], SK = "";
+var API = "/api/" + encodeURIComponent(PROJE) + "/", apiVar = false, SU = [], GO = [], YO = [], SK = "";
 var VM = null, REV = [], secGorev = "", secNesne = "", vurYorum = "", tfAcik = false, gfAcik = false;
 var DURUM = ["acik", "uretimde", "inceleme", "onay", "kapali"];
 var DAD = { planli: "planlı", acik: "açık", uretimde: "üretimde", inceleme: "inceleme", onay: "onay",
@@ -583,7 +592,7 @@ function listeAyir(x, ad) {
   return Array.isArray(x) ? x : ((x && (x[ad] || x.liste)) || []); }
 function listeAl(ad, dosya) {
   return getJ(API + ad).then(function (x) { apiVar = true; return listeAyir(x, ad); }).catch(function () {
-    return getJ(dosya).then(function (x) { return listeAyir(x, ad); }).catch(function () { return []; });
+    return getJ(YOL + dosya).then(function (x) { return listeAyir(x, ad); }).catch(function () { return []; });
   });
 }
 function apiIste(yontem, yol, govde) {
@@ -596,10 +605,10 @@ function apiIste(yontem, yol, govde) {
 }
 // video meta ve revizyonlar: surumler.json içinde (API dizi dönerse dosyadan) ya da video.json
 function metaYukle() {
-  var a = (VM && REV.length) ? Promise.resolve() : getJ("surumler.json")
+  var a = (VM && REV.length) ? Promise.resolve() : getJ(YOL + "surumler.json")
     .then(function (x) { listeAyir(x, "surumler"); })
     .catch(function () {});
-  return a.then(function () { return VM ? null : getJ("video.json").then(function (v) { VM = v.video || v; }); })
+  return a.then(function () { return VM ? null : getJ(YOL + "video.json").then(function (v) { VM = v.video || v; }); })
     .catch(function () {});
 }
 function surumRev(s) {
@@ -642,7 +651,7 @@ function formHata(kok, m) { var h = kok.querySelector(".hata"); if (h) h.textCon
 
 // ---------- Sol panel: İlgililer (sürüm ağacı) ----------
 function surumAc(s) {
-  var a = surumAdres(s);
+  var a = KalemYol.yeniAdres(surumAdres(s));
   if (s.kimlik === SK) return durumMesaj("Bu sürüm zaten açık");
   if (!a) return durumMesaj("Planlı sürüm: önizleme adresi yok");
   location.href = a + (a.indexOf("?") < 0 ? "?" : "&") + "surum=" + encodeURIComponent(s.kimlik)
@@ -834,17 +843,16 @@ function kirintiCiz(oge, surumAd) {
     if (o.son) { var b = document.createElement("b"); b.textContent = o.ad; kok.appendChild(b); return; }
     var q = [o.ac ? "ac=" + encodeURIComponent(o.ac) : "", o.sec ? "sec=" + encodeURIComponent(o.sec) : ""]
       .filter(Boolean).join("&");
-    var a = document.createElement("a"); a.textContent = o.ad; a.href = "harita.html" + (q ? "?" + q : "");
+    var a = document.createElement("a"); a.textContent = o.ad; a.href = KalemYol.editorYolu("harita.html", q, PROJE);
     kok.appendChild(a); KIRINTI_UST = a.href;
   });
 }
 function kirintiUst() { if (!KIRINTI_UST) return false; location.href = KIRINTI_UST; return true; }
 function kirintiKur(surumAd) {
-  var proje = API.split("/")[2];
   return Promise.all([fetch("/projeler/katalog.json").then(function (r) { return r.json(); }),
     import("./harita-model.js")]).then(function (v) {
     var kat = v[0], M = v[1];
-    YOLM = QS.get("yol") || M.projeYolu(kat, proje).join(",");
+    YOLM = QS.get("yol") || M.projeYolu(kat, PROJE).join(",");
     kirintiCiz(M.kirinti(kat, YOLM), surumAd);
   }).catch(function () { kirintiCiz([{ ad: "Harita", ac: "", sec: "" }], surumAd); });
 }

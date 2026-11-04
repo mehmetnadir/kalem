@@ -1,5 +1,6 @@
 // Önizleme + görev haritası sunucusu (Node, bağımlılıksız).
-// Paket kökünü statik sunar (Range destekli) ve /api/<proje>/... JSON ucunu verir.
+// Paket kökünü statik sunar (Range destekli), /api/<proje>/... JSON ucunu verir ve
+// /p/<proje>/{harita,onizle}.html editörünü ortak/editor/ içinden sunar.
 // Kullanım: node ortak/onizle-sunucu.mjs [--port 3012] [--kok <dizin>]
 import http from 'node:http';
 import fs from 'node:fs';
@@ -26,6 +27,9 @@ const MIME = {
   '.txt': 'text/plain; charset=utf-8',
 };
 const MAX_GOVDE = 1024 * 1024;
+const EDITOR_DIZINI = path.join(path.dirname(fileURLToPath(import.meta.url)), 'editor');
+const EDITOR_DOSYA = new Set(['harita.html', 'harita.js', 'harita.css', 'harita-model.js',
+  'onizle.html', 'onizle.js', 'onizle.css', 'yol.js']);
 
 class HataApi extends Error {
   constructor(kod, mesaj) { super(mesaj); this.kod = kod; }
@@ -342,6 +346,19 @@ export function sunucuKur({ kok }) {
     fs.createReadStream(dosya).pipe(yanit);
   }
 
+  // /p/<proje>/<editör dosyası>: bütün projeler için ortak/editor/ içeriğini sunar.
+  function editorSun(istek, yanit, parcalar) {
+    const [proje, dosya, ...artik] = parcalar;
+    if (artik.length || !EDITOR_DOSYA.has(dosya)) return json(yanit, 404, { hata: 'bulunamadı' });
+    projeDizini(proje);
+    const yol = path.join(EDITOR_DIZINI, dosya);
+    const tur = MIME[path.extname(dosya)] || 'application/octet-stream';
+    const boy = fs.statSync(yol).size;
+    yanit.writeHead(200, { 'Content-Type': tur, 'Content-Length': boy, 'Cache-Control': 'no-cache' });
+    if (istek.method === 'HEAD') return yanit.end();
+    fs.createReadStream(yol).pipe(yanit);
+  }
+
   return http.createServer(async (istek, yanit) => {
     const url = new URL(istek.url, 'http://x');
     try {
@@ -352,6 +369,17 @@ export function sunucuKur({ kok }) {
           govde));
       }
       if (!['GET', 'HEAD'].includes(istek.method)) return json(yanit, 405, { hata: 'yöntem yok' });
+      if (url.pathname.startsWith('/p/')) {
+        const parcalar = url.pathname.slice(3).split('/').map(decodeURIComponent);
+        return editorSun(istek, yanit, parcalar);
+      }
+      // eski adres: /projeler/<proje>/(harita|onizle).html -> /p/<proje>/..., sorgu korunur
+      const eski = /^\/projeler\/([^/]+)\/(harita|onizle)\.html$/.exec(url.pathname);
+      if (eski) {
+        yanit.writeHead(302, { Location: `/p/${eski[1]}/${eski[2]}.html${url.search}`,
+          'Cache-Control': 'no-store' });
+        return yanit.end();
+      }
       statik(istek, yanit, url.pathname);
     } catch (e) {
       if (e instanceof HataApi) return json(yanit, e.kod, { hata: e.message });
