@@ -1,6 +1,6 @@
 # Sahne 06 — Öğrenci sorusu + Form (HyperFrames, 766 kare)
 
-Tema: acik
+Tema: koyu
 
 ## Yapılan
 - `uret.py` index.html + olay listesini aynı çağrılardan üretir; komutlar JSON olarak gsap yorumlayıcısına gömülüdür; `zamanlar.json` küresel sn (yerel = t − 68,81).

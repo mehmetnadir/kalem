@@ -1,6 +1,6 @@
 # Sahne 03 — Örnek 1 (Paper.js, 453 kare, t_bas 21,44)
 
-Tema: acik
+Tema: koyu
 
 ## Yapılan
 - `sahne-03.js` içerik; ortak modül `../02-paperjs-kanca/kalem-paper.js`. Künye `Example 1 / 3`, etkin 1, kare 0'dan sabit.

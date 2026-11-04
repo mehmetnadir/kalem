@@ -1,0 +1,194 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 2.84,
+"metin": "Bu akşam amcamlara gidiyorum.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 3.39,
+"t1": 6.35,
+"metin": "Türkçede şimdiki zamanla geleceği anlatırız.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 6.5,
+"t1": 8.58,
+"metin": "İngilizce de aynısını yapar.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 8.73,
+"t1": 14.89,
+"metin": "Altı dakikada Present Continuous'ın formunu, zaman ifadelerini ve altı kullanımını bitiriyoruz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 15.44,
+"t1": 16.48,
+"metin": "Birinci örnek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "en",
+"t0": 16.73,
+"t1": 19.05,
+"metin": "I am sitting in front of the camera now.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 19.3,
+"t1": 23.14,
+"metin": "Şu anda oturuyorum. Olay tam konuşma anında sürüyor.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 23.29,
+"t1": 26.89,
+"metin": "İki parça var: am ve sitting.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 27.04,
+"t1": 29.6,
+"metin": "Be fiili, artı fiile -ing.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 30.15,
+"t1": 31.19,
+"metin": "İkinci örnek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "en",
+"t0": 31.44,
+"t1": 34.64,
+"metin": "My sister is taking piano lessons this semester.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 34.89,
+"t1": 40.97,
+"metin": "Kardeşim bu dönem piyano dersi alıyor. Şu anda piyanonun başında değil. Ama bu günlerde süren bir iş.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 41.12,
+"t1": 42.88,
+"metin": "Yine is taking.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 43.03,
+"t1": 45.43,
+"metin": "Be fiili, artı -ing.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 45.98,
+"t1": 47.02,
+"metin": "Üçüncü örnek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "en",
+"t0": 47.27,
+"t1": 50.07,
+"metin": "Look! The cat is climbing the tree.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 50.32,
+"t1": 59.12,
+"metin": "Bak, kedi ağaca tırmanıyor. Look, listen, watch out gibi sözcükler olayın tam şu anda olduğunu söyler.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "en",
+"t0": 59.37,
+"t1": 60.89,
+"metin": "Is climbing.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 61.14,
+"t1": 62.26,
+"metin": "Aynı yapı.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 6,
+"dil": "tr",
+"t0": 62.81,
+"t1": 66.17,
+"metin": "Hocam, üçünde de -ing var. Neden hep -ing?",
+"konusan": "ogrenci"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 66.72,
+"t1": 71.28,
+"metin": "Çünkü -ing devam eden işi gösterir. Olay bitmemiş, sürüyor.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 71.43,
+"t1": 77.19,
+"metin": "Be fiili ise zamanı taşır: am, is, are şimdiki zaman demek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 77.34,
+"t1": 81.1,
+"metin": "Past olsaydı was, were derdik.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 81.25,
+"t1": 85.73,
+"metin": "-ing ekini Türkçedeki -yor gibi düşün: koşu-yor, runn-ing.",
+"konusan": "ogretmen"
+}
+]

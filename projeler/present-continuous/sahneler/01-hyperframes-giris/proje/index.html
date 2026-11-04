@@ -23,7 +23,7 @@ html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1920px;heig
 #root [stroke="#1b1a17"]{stroke:var(--zemin)}#root text[fill="#1b1a17"]{fill:var(--pilMetin)}#root #rz1 text{fill:var(--zemin)}
 #root.tema-acik #t2{fill:var(--vurgu)}
 </style></head><body>
-<div id="root" class="tema-acik" data-composition-id="main" data-start="0" data-duration="3.4" data-fps="30" data-width="1920" data-height="1080">
+<div id="root" data-composition-id="main" data-start="0" data-duration="3.4" data-fps="30" data-width="1920" data-height="1080">
 <div id="zemin"></div><svg id="gren" width="1920" height="1080" xmlns="http://www.w3.org/2000/svg"><filter id="grenf" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1920" height="1080" filter="url(#grenf)"/></svg><div id="vinyet"></div>
 <svg id="sahne" width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
 <defs><clipPath id="cp1"><rect id="cr1" x="84" y="228" width="0" height="189"/></clipPath><clipPath id="cp2"><rect id="cr2" x="84" y="378" width="0" height="189"/></clipPath><clipPath id="cp3"><rect id="cr3" x="84" y="586" width="0" height="96"/></clipPath><filter id="el" x="-5%" y="-5%" width="110%" height="110%">
@@ -107,9 +107,7 @@ html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1920px;heig
   window.__timelines = window.__timelines || {};
   window.__timelines["main"] = tl;
 })();
-</script>
-
-<script>/* kalem-tema */(function () {  /* canlı önizleme (?canli=1): ?tema=acik ya da message {tip:"tema", ad}; sorgu yoksa koyu. Render sırasında çalışmaz, tema dosyaya gömülüdür */
+</script><script>/* kalem-tema */(function () {  /* canlı önizleme (?canli=1): ?tema=acik ya da message {tip:"tema", ad}; sorgu yoksa koyu. Render sırasında çalışmaz, tema dosyaya gömülüdür */
   if (!/[?&]canli=1/.test(location.search)) return;
   var R = document.getElementById("root"), L = document.getElementById("logoimg") || document.getElementById("logo");
   function t(a) { R.classList.toggle("tema-acik", a === "acik");

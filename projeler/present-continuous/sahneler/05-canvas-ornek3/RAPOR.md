@@ -1,6 +1,6 @@
 # Sahne 05 — Örnek 3 (düz canvas) — RAPOR
 
-Tema: acik
+Tema: koyu
 
 04.11.2026 · 517 kare · t_bas 51,98 · cümle 5 · çıkış geçişi fade. Ortak kod `../04-canvas-ornek2/sahne-ortak.js`.
 

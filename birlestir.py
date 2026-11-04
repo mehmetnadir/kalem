@@ -110,6 +110,13 @@ def karisim_filtre(anlatim_var: bool, sure_sn: float = 0.0, kip: str = "tam") ->
             f"[an][e]amix=inputs=2:duration=longest:normalize=0,atrim=duration={sure_sn:.3f},{ln}[s]"]
 
 
+def sahne_video(P: str, s: dict, tema: str) -> str:
+    """Sahne videosu: önce tema başına dosya (video-<tema>.mp4, 05.11 tema.sh tema_bitir), yoksa video.mp4."""
+    d = os.path.join(P, "sahneler", s["klasor"])
+    v = os.path.join(d, f"video-{tema}.mp4")
+    return v if os.path.exists(v) else os.path.join(d, "video.mp4")
+
+
 def kontrol_etiketleri(toplam: int, fps: int, adet: int = 12) -> list[tuple[int, str]]:
     """kontrol.png karoları: (kare no, 'k=<kare>  t=<sn>') — select ile aynı adım."""
     adim = max(1, toplam // adet)
@@ -246,7 +253,7 @@ def main(argv: list[str]) -> None:
     if "--plan" in argv:
         gercek = {}
         for s in S:
-            v = os.path.join(P, "sahneler", s["klasor"], "video.mp4")
+            v = sahne_video(P, s, TEMA)
             gercek[s["klasor"]] = kare_say(v) if os.path.exists(v) else None
         pl = planla([{**s, "_k": gercek[s["klasor"]]} if gercek[s["klasor"]] else s for s in S], N, GECIS)
         tum = []
@@ -262,7 +269,7 @@ def main(argv: list[str]) -> None:
     if an_yol and not os.path.exists(an_yol): sys.exit(f"eksik anlatım: {an_yol}")
 
     for s in S:
-        v = os.path.join(P, "sahneler", s["klasor"], "video.mp4")
+        v = sahne_video(P, s, TEMA)
         if not os.path.exists(v): sys.exit(f"eksik: {v}")
         k = kare_say(v)
         if k != s["kare"]: print(f"uyarı: {s['klasor']} {k} kare, beklenen {s['kare']} (gerçek sayı kullanılır)")
