@@ -1,11 +1,12 @@
 #!/bin/bash
-# Sahne 02 (Paper.js, 385 kare): yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png
+# Sahne 02 (Paper.js, 385 kare): yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png Tema: --tema acik|koyu (varsayılan acik, K19).
 # Geçici kareler bitince ~/Silinecekler/<tarih>-kalem/ altına taşınır (silme yok).
 set -eo pipefail
 D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=${KARE_SAYISI:-385}
+. "$D/../../ortak/tema.sh" "$@"
 cd "$K"
 BAS=$(date +%s)
-perl -e 'alarm 480; exec @ARGV' /usr/bin/python3 ortak/yakala.py projeler/present-continuous/sahneler/02-paperjs-kanca/sayfa.html "$KARE_DIR" | tee "$D/yakala.log"
+perl -e 'alarm 480; exec @ARGV' /usr/bin/python3 ortak/yakala.py projeler/present-continuous/sahneler/02-paperjs-kanca/sayfa.html$SORGU "$KARE_DIR" | tee "$D/yakala.log"
 grep '^\[sayfa\] OLAYLAR ' "$D/yakala.log" | sed 's/^\[sayfa\] OLAYLAR //' > "$D/olaylar.json"
 grep '^\[sayfa\] ZAMANLAR ' "$D/yakala.log" | sed 's/^\[sayfa\] ZAMANLAR //' > "$D/zamanlar.json" || true
 [ -s "$D/olaylar.json" ] || { echo "olaylar.json boş"; exit 1; }
@@ -20,4 +21,5 @@ cp "$KARE_DIR/$(printf '%04d' "$S").png" "$D/k/$(printf '%04d' "$S").png"
 if [ "${KAREYI_TUT:-0}" != "1" ]; then
   H="$HOME/Silinecekler/2026-11-04-kalem"; mkdir -p "$H"; mv "$KARE_DIR" "$H/kareler-02-$(date +%H%M%S)"
 fi
+tema_bitir "$D"
 echo "tamam: $(( $(date +%s) - BAS )) sn"

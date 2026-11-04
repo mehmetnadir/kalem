@@ -1,5 +1,7 @@
 # Sahne 04 — Örnek 2 (düz canvas) — RAPOR
 
+Tema: acik
+
 04.11.2026 · 487 kare · t_bas 36,15 · cümle 4 · `calistir.sh` ile üretildi (yakala → olaylar.json → video.mp4 → kontrol.png → k/).
 
 ## Yapılan

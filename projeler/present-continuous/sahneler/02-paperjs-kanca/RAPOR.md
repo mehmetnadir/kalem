@@ -1,5 +1,7 @@
 # Sahne 02 — Kanca (Paper.js, 385 kare, t_bas 3,00; 04.11 K23: 445 → 385, cümle 2 sonrası 60 kare öne, cümle 1 yazısı 0–0,4 sn hazır belirir)
 
+Tema: acik
+
 ## Yapılan
 - `kalem-paper.js`: ortak modül (kalem darbesi geometrisi, SVG→darbe, sözcük belirme, alt çizgi, daire, ok, kutu, tik, parıltı, olay günlüğü). Sahne 03 de buradan import eder.
 - `sahne-02.js` içerik, `sayfa.html` sürücü, `calistir.sh` hat. Künye `kunye.js`'ten (`Hook`, etkin 0), kare 0'dan sabit.

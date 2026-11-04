@@ -1,5 +1,7 @@
 # Sahne 06 — Öğrenci sorusu + Form (HyperFrames, 766 kare)
 
+Tema: acik
+
 ## Yapılan
 - `uret.py` index.html + olay listesini aynı çağrılardan üretir; komutlar JSON olarak gsap yorumlayıcısına gömülüdür; `zamanlar.json` küresel sn (yerel = t − 68,81).
 - Öğrenci Peeps `sitting-6` (30 darbe, 14 yüz parçası dahil), el çizimi balon yolu, belirteç alt çizgileri, el braketi/ok/elips/kutu hep stroke-dash.

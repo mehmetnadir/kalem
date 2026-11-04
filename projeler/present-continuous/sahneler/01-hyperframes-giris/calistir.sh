@@ -1,17 +1,19 @@
 #!/bin/bash
-# Sahne 01 giriş (HyperFrames, 102 kare): üret -> olaylar -> render -> video.mp4 + kontrol.png + k/*.png
+# Sahne 01 giriş (HyperFrames, 102 kare): üret -> olaylar -> render -> video.mp4 + kontrol.png + k/*.png Tema: --tema acik|koyu (varsayılan acik, K19).
 set -e
 export PATH="/opt/homebrew/bin:$PATH"   # arm64 node >= 22 (hyperframes şartı)
 AD="$(cd "$(dirname "$0")" && pwd)"
+. "$AD/../../ortak/tema.sh" "$@"
 KOK="$AD/../../../.."                       # paket kökü (kalem)
 M="$KOK/motorlar/hyperframes"; BIN="$M/node_modules/.bin"
 ORTAK="$AD/../../ortak"
 KARE=102
 mkdir -p "$AD/proje/lib" "$AD/proje/assets/fonts" "$AD/proje/assets/cizim" "$AD/k" "$AD/proje/renders"
 cp "$M/node_modules/gsap/dist/gsap.min.js" "$AD/proje/lib/" 2>/dev/null || cp "$M/lib/gsap.min.js" "$AD/proje/lib/"
-cp "$ORTAK/logo/yds-publishing-seffaf.svg" "$AD/proje/assets/logo.svg"
+cp "$ORTAK/logo/$LOGO_DOSYA" "$AD/proje/assets/logo.svg"
 cp "$ORTAK/cizim/open-peeps/standing-3.svg" "$ORTAK/cizim/tabler/camera.svg" "$AD/proje/assets/cizim/"
 /usr/bin/python3 "$AD/uret.py" >&2 && /usr/bin/python3 "$AD/olay.py" >&2
+tema_hf "$AD/proje/index.html"
 /usr/bin/python3 -c "import sys;sys.path.insert(0,'$AD');import yardim;yardim.font_kopyala('$AD/proje/assets/fonts')"
 # yük bekçisi: 1 dk yük > 24 ise 60 sn bekle (en çok 5 dk)
 for i in 1 2 3 4 5; do
@@ -30,3 +32,4 @@ for sn in 1.2 2.0 2.9; do
   ffmpeg -loglevel error -y -i "$AD/video.mp4" -vf "select=eq(n\,$n)" -frames:v 1 "$AD/k/$n.png"
 done
 ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=codec_name,pix_fmt,width,height,nb_read_frames,r_frame_rate -of csv=p=0 "$AD/video.mp4"
+tema_bitir "$AD"

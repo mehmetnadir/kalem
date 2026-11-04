@@ -346,5 +346,35 @@
     "olusturan": "sef",
     "tarih": "2026-11-04T12:56:04.806Z",
     "bagimli": []
+  },
+  {
+    "kimlik": "g-23",
+    "video": "present-continuous",
+    "surum": "ana-yatay",
+    "tur": "uret",
+    "baslik": "Kalem kare yakalama varsayılan tema açık (K19)",
+    "aciklama": "calistir.sh/yakala.py kareleri koyu temayla alıyor (kontrol.png koyu). Render varsayılanı açık (K19): calistir.sh ?tema=acik varsayılan, --tema koyu seçenek; birlestir --plan etiketlerine tema adı.",
+    "grup": "motor",
+    "durum": "acik",
+    "atanan": "ajan",
+    "oncelik": "dusuk",
+    "olusturan": "sef",
+    "tarih": "2026-11-04T13:01:43.198Z",
+    "bagimli": []
+  },
+  {
+    "kimlik": "g-24",
+    "video": "present-continuous",
+    "surum": "ana-yatay",
+    "tur": "karar",
+    "baslik": "Ses tasarımı katmanı: efekt sesi videoya girsin mi? (dinle: scratchpad/ses-efekt/karisim.wav)",
+    "aciklama": "Araç hazır: araclar/ses-efekt (olay → kalem hışırtısı / tık / vuruş / çan / sayfa; bağımlılıksız WAV sentez; 10 test). Pilot: anlatım + efekt (−18 dB) karışımı /private/tmp/claude-501/-Users-nadir/7541766e-14a2-4d14-bb93-234109b91572/scratchpad/ses-efekt/karisim.wav. Karar: (a) efekt katmanı açık, (b) yalnız kalem hışırtısı, (c) kapalı. Müzik ayrı karar (Mixkit lisansı).",
+    "grup": "tasarim-karar",
+    "durum": "acik",
+    "atanan": "Nadir",
+    "oncelik": "orta",
+    "olusturan": "sef",
+    "tarih": "2026-11-04T13:10:21.354Z",
+    "bagimli": []
   }
 ]

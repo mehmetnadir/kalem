@@ -1,7 +1,8 @@
 #!/bin/bash
-# Sahne 04 (düz canvas): yakala -> OLAYLAR -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png. Paket kökünden bağımsız.
+# Sahne 04 (düz canvas): yakala -> OLAYLAR -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png. Paket kökünden bağımsız. Tema: --tema acik|koyu (varsayılan acik, K19).
 set -eo pipefail
 D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KAREDIR="$D/kareler"
+. "$D/../../ortak/tema.sh" "$@"
 N=487; TBAS=36.15; KLASOR=04-canvas-ornek2; GLOBAL_SN="39.5 45.5 50.8"
 cd "$K"
 BAS=$(date +%s)
@@ -9,7 +10,7 @@ for i in 1 2 3 4 5; do
   Y=$(uptime | sed 's/.*load averages*: //' | awk '{gsub(",","",$1); print int($1)}')
   [ "$Y" -le 24 ] && break; echo "yük $Y > 24, 60 sn bekle"; sleep 60
 done
-perl -e 'alarm 480; exec @ARGV' python3 ortak/yakala.py projeler/present-continuous/sahneler/$KLASOR/sayfa.html "$KAREDIR" | tee "$D/yakala.log"
+perl -e 'alarm 480; exec @ARGV' /usr/bin/python3 ortak/yakala.py projeler/present-continuous/sahneler/$KLASOR/sayfa.html$SORGU "$KAREDIR" | tee "$D/yakala.log"
 grep '^\[sayfa\] OLAYLAR ' "$D/yakala.log" | sed 's/^\[sayfa\] OLAYLAR //' > "$D/olaylar.json"
 [ -s "$D/olaylar.json" ] || { echo "olaylar.json boş"; exit 1; }
 SAY=$(ls "$KAREDIR" | grep -c '\.png$'); [ "$SAY" -eq "$N" ] || { echo "kare sayısı $SAY ($N olmalı)"; exit 1; }
@@ -25,4 +26,5 @@ done
 if [ "${KAREYI_TUT:-0}" != "1" ]; then
   H=~/Silinecekler/2026-11-04-kalem/$KLASOR-kareler-$(date +%H%M%S); mkdir -p "$(dirname "$H")"; mv "$KAREDIR" "$H"
 fi
+tema_bitir "$D"
 echo "tamam: $(( $(date +%s) - BAS )) sn"

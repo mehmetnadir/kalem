@@ -1,5 +1,7 @@
 # Sahne 03 — Örnek 1 (Paper.js, 453 kare, t_bas 21,44)
 
+Tema: acik
+
 ## Yapılan
 - `sahne-03.js` içerik; ortak modül `../02-paperjs-kanca/kalem-paper.js`. Künye `Example 1 / 3`, etkin 1, kare 0'dan sabit.
 - Çıktı: `video.mp4` (ffprobe: 1920×1080, yuv420p, 30 fps, 453 kare), `olaylar.json`, `zamanlar.json`, `kontrol.png`, `k/*.png`.

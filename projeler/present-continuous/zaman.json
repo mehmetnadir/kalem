@@ -3,6 +3,7 @@
   "genislik": 1920,
   "yukseklik": 1080,
   "gecis_kare": 12,
+  "tema": "acik",
   "anlatim": "ortak/anlatim/anlatim.wav",
   "sahneler": [
     {

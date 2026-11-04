@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Sahneleri tek videoya birleştirir: sahneler arası geçiş + kareye kilitli Tone.js efekt sesi (+ isteğe bağlı anlatım).
-  python3 birlestir.py ornek/ucan-makine [--gecis BookFlip] [--etiket] [--anlatim ses.wav] [--plan]
+  python3 birlestir.py ornek/ucan-makine [--gecis BookFlip] [--etiket] [--anlatim ses.wav] [--plan] [--tema acik|koyu]
 --gecis ADI: varsayılan geçiş (sahnede "gecis" yoksa). Sahne başına: zaman.json sahneler[i]["gecis"] = i. ile i+1. sahne arası.
   Ad gl-transitions'ta varsa (BookFlip, Fade...) gl-transitions yolu; yoksa ffmpeg xfade adı sayılır (ör. "fade").
   Sayfa ses olayı yalnız gl-transitions geçişlerinde basılır; xfade geçişinde olay yok.
@@ -9,6 +9,8 @@
 --plan: hiçbir şey render etmez, _is silmez; sahne/kare/ofset/geçiş tablosunu ve anlatım süresini basıp çıkar.
 --etiket: her sahnenin altına motor kartı basar (zaman.json'da sahne "etiket": [motor, ne yapıyor, (yardımcı)],
 ilk geçişte "gecis_etiketi"). Anlatım/tanıtım videosu için; düz kullanımda kapalı.
+--tema: zaman.json["tema"] (varsayılan "acik", K19) değerini geçersiz kılar. Sahne videoları o temayla yakalanmış olmalıdır
+  (sahnenin calistir.sh --tema ...). --plan ve --etiket tema adını yazar; çıktı adı: acik -> cikti.mp4, koyu -> cikti-koyu.mp4.
 Girdi: <proje>/zaman.json + her sahnenin <proje>/sahneler/<klasor>/video.mp4 ve olaylar.json. <proje> mutlak yol da olur.
 Çıktı: <proje>/cikti.mp4 (+ <proje>/_is/ ara dosyalar, <proje>/kontrol.png: 12 karo, her karoda zaman etiketi).
 Geçiş, A'nın son N karesiyle B'nin ilk N karesini üst üste bindirir; toplam süre = kareler toplamı - N x (sahne-1)."""
@@ -19,6 +21,7 @@ KOK = os.path.dirname(os.path.abspath(__file__))
 GL_JSON = os.path.join(KOK, "motorlar/yardimci/node_modules/gl-transitions/gl-transitions.json")
 ARIAL, MENLO = "/System/Library/Fonts/Supplemental/Arial.ttf", "/System/Library/Fonts/Menlo.ttc"
 EFEKT_VOLUME = 0.35   # -9 dB
+TEMALAR = ("acik", "koyu")
 
 
 # ---------- saf işlevler (ağ/ffmpeg yok; testler bunları sınar) ----------
@@ -35,6 +38,18 @@ def planla(sahneler: list[dict], N: int, varsayilan: str = "BookFlip") -> list[d
                      "gecis": None if son_sahne else s.get("gecis", varsayilan)})
         ofs += k - N
     return plan
+
+
+def tema_oku(z: dict, ezme: str | None = None) -> str:
+    """Tema: --tema ezmesi > zaman.json["tema"] > "acik" (K19: render varsayılanı açık). Geçersiz ad hata verir."""
+    t = ezme or z.get("tema") or "acik"
+    if t not in TEMALAR: raise ValueError(f"tema acik ya da koyu olmalı: {t!r}")
+    return t
+
+
+def cikti_adi(tema: str, taban: str = "cikti") -> str:
+    """Açık tema: cikti.mp4 (varsayılan); koyu: cikti-koyu.mp4. Aynı kural kontrol.png için de geçerlidir."""
+    return f"{taban}.mp4" if tema == "acik" else f"{taban}-koyu.mp4"
 
 
 def toplam_kare(plan: list[dict], N: int = 0) -> int:
@@ -79,7 +94,7 @@ def kontrol_etiketleri(toplam: int, fps: int, adet: int = 12) -> list[tuple[int,
 
 
 def plan_tablosu(plan: list[dict], N: int, fps: int, gercek: dict[str, int | None], gl_adlari: set[str],
-                 anlatim: str | None = None, anlatim_sn: float | None = None) -> str:
+                 anlatim: str | None = None, anlatim_sn: float | None = None, tema: str = "acik") -> str:
     """--plan çıktısı: sahne tablosu + toplam + anlatım. gercek: klasör -> ffprobe kare (None = video.mp4 yok)."""
     sat = [f"{'no':>2} {'klasör':<26} {'kare':>5} {'video':<7} {'gövde':<11} {'ofs(kare)':>9} {'ofs(sn)':>8}  geçiş"]
     for p in plan:
@@ -90,6 +105,7 @@ def plan_tablosu(plan: list[dict], N: int, fps: int, gercek: dict[str, int | Non
                    f"{p['ofs']:>9} {p['ofs'] / fps:>8.2f}  {gc}")
     T = toplam_kare(plan, N)
     sat.append(f"TOPLAM {T} kare = {T / fps:.2f} sn (N={N}, fps={fps}); video sütunu: 'yok' = video.mp4 yok, '!' = zaman.json'dan farklı")
+    sat.append(f"tema: {tema}  (çıktı: {cikti_adi(tema)})")
     sat.append("anlatım: " + ("yok" if not anlatim else f"{anlatim}  " +
                ("(dosya yok)" if anlatim_sn is None else f"{anlatim_sn:.2f} sn")))
     return "\n".join(sat)
@@ -184,13 +200,15 @@ def kontrol_yaz(cikti: str, hedef: str, toplam: int, fps: int) -> None:
 # ---------- akış ----------
 
 def main(argv: list[str]) -> None:
-    pozisyonel = [a for i, a in enumerate(argv[1:], 1) if not a.startswith("--") and argv[i - 1] not in ("--gecis", "--anlatim")]
+    pozisyonel = [a for i, a in enumerate(argv[1:], 1) if not a.startswith("--") and argv[i - 1] not in ("--gecis", "--anlatim", "--tema")]
     proje = pozisyonel[0].rstrip("/")
     GECIS = arg_degeri(argv, "--gecis") or "BookFlip"
     P = proje if os.path.isabs(proje) else os.path.join(KOK, proje)
     Z = json.load(open(os.path.join(P, "zaman.json")))
     FPS, W, H, N = Z["fps"], Z["genislik"], Z["yukseklik"], Z["gecis_kare"]
     S = Z["sahneler"]
+    try: TEMA = tema_oku(Z, arg_degeri(argv, "--tema"))
+    except ValueError as e: sys.exit(str(e))
     gl = gl_adlari_oku()
     an = arg_degeri(argv, "--anlatim") or Z.get("anlatim")
     an_yol = yol_coz(an, P, KOK) if an else None
@@ -201,7 +219,7 @@ def main(argv: list[str]) -> None:
             v = os.path.join(P, "sahneler", s["klasor"], "video.mp4")
             gercek[s["klasor"]] = kare_say(v) if os.path.exists(v) else None
         pl = planla([{**s, "_k": gercek[s["klasor"]]} if gercek[s["klasor"]] else s for s in S], N, GECIS)
-        print(plan_tablosu(pl, N, FPS, gercek, gl, an_yol, sure_sn(an_yol) if an_yol else None)); return
+        print(plan_tablosu(pl, N, FPS, gercek, gl, an_yol, sure_sn(an_yol) if an_yol else None, TEMA)); return
 
     IS = os.path.join(P, "_is"); shutil.rmtree(IS, ignore_errors=True); os.makedirs(IS)
     KOD = ["-c:v", "libx264", "-crf", "16", "-pix_fmt", "yuv420p", "-r", str(FPS)]
@@ -243,6 +261,7 @@ def main(argv: list[str]) -> None:
             parca.append(gv)
 
     TOPLAM = toplam_kare(PL, N)
+    if "--etiket" in argv: print(f"etiket: tema={TEMA}, çıktı {cikti_adi(TEMA)}")
 
     if "--etiket" in argv:
         kartlar = []
@@ -270,13 +289,13 @@ def main(argv: list[str]) -> None:
     json.dump({"fps": FPS, "kare": TOPLAM, "olaylar": olay}, open(os.path.join(IS, "olaylar.json"), "w"), ensure_ascii=False, indent=0)
     wav = os.path.join(IS, "ses.wav")
     ses_render(os.path.join(IS, "olaylar.json"), wav)
-    cikti = os.path.join(P, "cikti.mp4")
+    cikti = os.path.join(P, cikti_adi(TEMA))
     if an_yol:
         ff("-i", sessiz, "-i", wav, "-i", an_yol, "-filter_complex", ";".join(karisim_filtre(True, TOPLAM / FPS)),
            "-map", "0:v", "-map", "[s]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-t", f"{TOPLAM / FPS:.3f}", cikti)
     else:
         ff("-i", sessiz, "-i", wav, "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest", cikti)
-    kontrol_yaz(cikti, os.path.join(P, "kontrol.png"), TOPLAM, FPS)
+    kontrol_yaz(cikti, os.path.join(P, cikti_adi(TEMA, "kontrol").replace(".mp4", ".png")), TOPLAM, FPS)
     print(f"tamam: {cikti}  {kare_say(cikti)} kare ({kare_say(cikti) / FPS:.1f} sn), {len(olay)} ses olayı")
 
 

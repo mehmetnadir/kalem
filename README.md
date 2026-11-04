@@ -62,10 +62,12 @@ Claude önce sahne tablosunu gösterir (hangi sahne, hangi motor, neden) ve onay
 Elle birleştirmek istersen:
 
 ```bash
-python3 birlestir.py projeler/<ad> [--gecis BookFlip] [--etiket] [--anlatim ses.wav] [--plan]
+python3 birlestir.py projeler/<ad> [--gecis BookFlip] [--etiket] [--anlatim ses.wav] [--plan] [--tema acik|koyu]
 ```
 
 `--etiket` her sahnenin köşesine o sahneyi hangi motorun çizdiğini yazan küçük bir kart basar. `--anlatim` anlatım sesini tam seviyede, efekt sesini -9 dB altında karıştırır (bayrak yoksa `zaman.json["anlatim"]`). Sahne başına geçiş: `zaman.json` sahnesinde `"gecis"` (gl-transitions adı ya da ffmpeg `fade`). `--plan` hiçbir şey üretmeden sahne/kare/ofset/geçiş tablosunu basar. `kontrol.png` 12 karodur, her karoda zaman etiketi vardır.
+
+Tema: render varsayılanı açıktır (zemin `#f7f3ea`, mürekkep `#1b2440`, vurgu `#d9900f`). Her sahnenin `calistir.sh` dosyası `--tema acik|koyu` alır. `zaman.json["tema"]` ve `--tema` birleştirmenin temasını seçer. Açık çıktı `cikti.mp4`, koyu çıktı `cikti-koyu.mp4` olur. Sahne videoları ve birleştirme aynı temayla koşar.
 
 ### Canlı önizleme (render öncesi)
 

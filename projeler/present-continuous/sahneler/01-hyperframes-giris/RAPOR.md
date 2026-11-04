@@ -1,5 +1,7 @@
 # Sahne 01 — Giriş, soğuk açılış (HyperFrames, 102 kare)
 
+Tema: acik
+
 Karar 04.11 (K23): 7 sn → 3 sn içerik + 12 kare geçiş payı; cümle 1 bu sahnede (1,00–2,84 sn); kalem sesi 0. kareden.
 
 ## Zamanlama

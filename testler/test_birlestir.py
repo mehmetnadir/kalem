@@ -101,12 +101,41 @@ class Plan(unittest.TestCase):
         t = b.plan_tablosu(p, N, z["fps"], gercek, GL, "x.wav", 93.33)
         self.assertIn("yok", t); self.assertIn("fade (xfade)", t); self.assertIn("BookFlip (gl)", t)
         self.assertIn("TOPLAM 2650 kare = 88.33 sn", t); self.assertIn("x.wav  93.33 sn", t)
-        self.assertEqual(len(t.splitlines()), 1 + 6 + 2)
+        self.assertEqual(len(t.splitlines()), 1 + 6 + 3)
 
     def test_gercek_kare_farki_isaretlenir(self):
         S = sahneler(100, 100); p = b.planla(S, 10)
         t = b.plan_tablosu(p, 10, 30, {"s1": 100, "s2": 99}, GL)
         self.assertIn("99!", t); self.assertIn("anlatım: yok", t)
+
+
+class Tema(unittest.TestCase):
+    def test_varsayilan_acik(self):
+        self.assertEqual(b.tema_oku({}), "acik")
+        self.assertEqual(b.tema_oku({"tema": None}), "acik")
+
+    def test_zaman_json_ve_ezme(self):
+        self.assertEqual(b.tema_oku({"tema": "koyu"}), "koyu")
+        self.assertEqual(b.tema_oku({"tema": "koyu"}, "acik"), "acik")
+
+    def test_gecersiz_tema(self):
+        with self.assertRaises(ValueError): b.tema_oku({"tema": "mavi"})
+
+    def test_cikti_adi(self):
+        self.assertEqual(b.cikti_adi("acik"), "cikti.mp4")
+        self.assertEqual(b.cikti_adi("koyu"), "cikti-koyu.mp4")
+        self.assertEqual(b.cikti_adi("koyu", "kontrol"), "kontrol-koyu.mp4")
+
+    def test_plan_tablosu_tema_satiri(self):
+        p = b.planla(sahneler(100, 100), 10)
+        t = b.plan_tablosu(p, 10, 30, {}, GL)
+        self.assertIn("tema: acik  (çıktı: cikti.mp4)", t)
+        t = b.plan_tablosu(p, 10, 30, {}, GL, None, None, "koyu")
+        self.assertIn("tema: koyu  (çıktı: cikti-koyu.mp4)", t)
+
+    def test_zaman_json_temasi_acik(self):
+        with open(os.path.join(KOK, "projeler/present-continuous/zaman.json")) as f: z = json.load(f)
+        self.assertEqual(b.tema_oku(z), "acik")
 
 
 class Yol(unittest.TestCase):
