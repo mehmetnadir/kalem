@@ -1,0 +1,50 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 2.68,
+"metin": "İki saattir çalışıyorum.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 2.83,
+"t1": 7.39,
+"metin": "İngilizcede kalıp tek: have been, artı fiile -ing.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 7.86,
+"t1": 10.82,
+"metin": "My brother has been playing the guitar since this morning.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 11.07,
+"t1": 16.83,
+"metin": "Kardeşim sabahtan beri gitar çalıyor. Tekil kişide has been, artı -ing.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 17.3,
+"t1": 21.06,
+"metin": "Tam ders: Present Perfect Continuous, 6 dakika.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 21.21,
+"t1": 23.05,
+"metin": "Tam dersi kanalda izle.",
+"konusan": "ogretmen"
+}
+]
