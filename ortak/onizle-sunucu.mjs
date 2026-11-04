@@ -368,6 +368,8 @@ export function sunucuKur({ kok }) {
         return json(yanit, istek.method === 'POST' ? 201 : 200, await api(istek.method, parcalar,
           govde));
       }
+      // Sahnelerin canlı kip günlüğü (POST /log): sessizce yutulur; konsolda 405 görünmesin (05.11).
+      if (url.pathname === '/log') { istek.resume(); yanit.writeHead(204); return yanit.end(); }
       if (!['GET', 'HEAD'].includes(istek.method)) return json(yanit, 405, { hata: 'yöntem yok' });
       if (url.pathname.startsWith('/p/')) {
         const parcalar = url.pathname.slice(3).split('/').map(decodeURIComponent);
