@@ -1,0 +1,47 @@
+{
+  "video": {
+    "kimlik": "present-continuous-ileri-s1",
+    "ders": "İngilizce",
+    "konu": "Present Continuous",
+    "seviye": "ileri",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-01-I-S1",
+    "amaclar": [
+      "am/is/are + V-ing formülünü kurmak",
+      "durum fiillerini ayırt etmek",
+      "planlı geleceği tanımak",
+      "always + V-ing şikâyetini tanımak"
+    ],
+    "canAlici": [
+      "Her fiile -ing eklenmez: know, believe, own, belong durum fiilidir",
+      "Formül tek satır: am / is / are + V-ing",
+      "Yarın + Present Continuous = planlı gelecek (bilet alınmış, saat belli)",
+      "always + -ing = şikâyet; sınav bunu tuzak yapar",
+      "Biliyorum = I know; Türkçedeki -yor İngilizcede her zaman -ing değil"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "ileri",
+      "gramer",
+      "Present Continuous",
+      "shorts"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "s1",
+      "video": "present-continuous-ileri-s1",
+      "tur": "shorts",
+      "ad": "S1 Shorts ileri — I AM KNOWING = YANLIŞ",
+      "senaryo": "/Users/nadir/01dev/dijital-anlatim/pilot/grammar-tenses-01-ileri-s1/senaryo.json",
+      "kapak": null,
+      "seviye": "ileri",
+      "kaynak": null,
+      "durum": "planli",
+      "onizleme": "/p/present-continuous-ileri-s1/onizle.html?surum=s1",
+      "tarih": "2026-11-05T01:10:00Z"
+    }
+  ],
+  "revizyonlar": []
+}

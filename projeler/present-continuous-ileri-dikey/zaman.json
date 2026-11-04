@@ -1,0 +1,65 @@
+{
+  "fps": 30,
+  "genislik": 1080,
+  "yukseklik": 1920,
+  "gecis_kare": 12,
+  "tema": "acik",
+  "anlatim": "ortak/anlatim/anlatim.wav",
+  "sahneler": [
+    {
+      "no": 1,
+      "klasor": "01-hyperframes-giris",
+      "motor": "HyperFrames",
+      "kare": 102,
+      "t_bas": 0.0,
+      "t_son": 3.0,
+      "ad": "Giriş"
+    },
+    {
+      "no": 2,
+      "klasor": "02-paperjs-kanca",
+      "motor": "Paper.js",
+      "kare": 380,
+      "t_bas": 3.0,
+      "t_son": 15.25,
+      "ad": "Kanca"
+    },
+    {
+      "no": 3,
+      "klasor": "03-paperjs-ornek1",
+      "motor": "Paper.js",
+      "kare": 442,
+      "t_bas": 15.25,
+      "t_son": 29.58,
+      "ad": "Örnek 1"
+    },
+    {
+      "no": 4,
+      "klasor": "04-canvas-ornek2",
+      "motor": "Düz canvas",
+      "kare": 387,
+      "t_bas": 29.58,
+      "t_son": 42.07,
+      "ad": "Örnek 2"
+    },
+    {
+      "no": 5,
+      "klasor": "05-canvas-ornek3",
+      "motor": "Düz canvas",
+      "kare": 372,
+      "t_bas": 42.07,
+      "t_son": 54.08,
+      "ad": "Örnek 3",
+      "gecis": "fade"
+    },
+    {
+      "no": 6,
+      "klasor": "06-hyperframes-form",
+      "motor": "HyperFrames",
+      "kare": 956,
+      "t_bas": 54.08,
+      "t_son": 84.96,
+      "ad": "Soru + Form"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Present Continuous",
+ "duzen": "konu",
+ "seviye": "ileri",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogretmen": {
+   "ses": "gsJ9nrlXYbPztJxC4fwc",
+   "cinsiyet": "erkek",
+   "yas": "yetiskin",
+   "govde": "ShirtPantsWB",
+   "yuz": "Smile",
+   "sac": "Short"
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Biliyorum"
+    ],
+    [
+     "en",
+     "I am knowing"
+    ],
+    [
+     "tr",
+     "diyemezsin. YDT tam burada tuzak kurar."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Biliyorum I am knowing diyemezsin. YDT tam burada tuzak kurar."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "I know the answer, but I am not telling anyone."
+    ],
+    [
+     "tr",
+     "Cevabı biliyorum ama kimseye söylemiyorum. Bilmek durumdur, -ing almaz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "I know the answer, but I am not telling anyone. Cevabı biliyorum ama kimseye söylemiyorum. Bilmek durumdur, -ing almaz."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Tam ders: Present Continuous, ileri seviye, 6 dakika."
+    ],
+    [
+     "tr",
+     "Tam dersi kanalda izle."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Tam ders: Present Continuous, ileri seviye, 6 dakika. Tam dersi kanalda izle."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "I AM KNOWING",
+  "satir2": "= YANLIŞ",
+  "rozetler": [
+   "YDT · ADVANCED",
+   "GRAMMAR"
+  ],
+  "sahne": [
+   {
+    "figur": "ogretmen",
+    "x": 32,
+    "y": 58,
+    "olcek": 0.8
+   },
+   {
+    "ad": "phone",
+    "x": 72,
+    "y": 52,
+    "olcek": 0.5
+   }
+  ]
+ },
+ "meta": {
+  "kimlik": "02-01-ydt-ileri-s1",
+  "kod": "ING-YDT-GR-02-01-I-S1",
+  "eskiKod": "ING-YDT-GR-01-PC",
+  "ders": "İngilizce",
+  "konu": "Present Continuous",
+  "kitle": "ydt",
+  "seviye": "ileri",
+  "kapak": {
+   "satir1": "I AM KNOWING",
+   "satir2": "= YANLIŞ",
+   "canAlici": "Her fiile -ing eklenmez: know, believe, own, belong durum fiilidir"
+  },
+  "amaclar": [
+   "am/is/are + V-ing formülünü kurmak",
+   "durum fiillerini ayırt etmek",
+   "planlı geleceği tanımak",
+   "always + V-ing şikâyetini tanımak"
+  ],
+  "canAlici": [
+   "Her fiile -ing eklenmez: know, believe, own, belong durum fiilidir",
+   "Formül tek satır: am / is / are + V-ing",
+   "Yarın + Present Continuous = planlı gelecek (bilet alınmış, saat belli)",
+   "always + -ing = şikâyet; sınav bunu tuzak yapar",
+   "Biliyorum = I know; Türkçedeki -yor İngilizcede her zaman -ing değil"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "ileri",
+   "gramer",
+   "Present Continuous",
+   "shorts"
+  ]
+ }
+}

@@ -1,0 +1,220 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Present Continuous",
+ "duzen": "konu",
+ "seviye": "ileri",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "YDT'nin -ing tuzağına düşme."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "YDT'nin -ing tuzağına düşme."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Formül tek satır."
+    ],
+    [
+     "en",
+     "Subject, plus am, is, are, plus verb-ing."
+    ],
+    [
+     "tr",
+     "Altı dakikada formülü, üç sınav kökünü ve bir tuzağı bitiriyoruz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Formül tek satır. Subject, plus am, is, are, plus verb-ing. Altı dakikada formülü, üç sınav kökünü ve bir tuzağı bitiriyoruz."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Birinci kök."
+    ],
+    [
+     "en",
+     "Please be quiet! The baby is sleeping in the next room while I am talking on the phone."
+    ],
+    [
+     "tr",
+     "Bebek uyuyor, ben telefonda konuşuyorum. İki iş de şu anda sürüyor. While, tam anı gösterir."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Birinci kök. Please be quiet! The baby is sleeping in the next room while I am talking on the phone. Bebek uyuyor, ben telefonda konuşuyorum. İki iş de şu anda sürüyor. While, tam anı gösterir."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İkinci kök."
+    ],
+    [
+     "en",
+     "Because the roof is leaking, we are staying at my uncle's house this week."
+    ],
+    [
+     "tr",
+     "Çatı aktığı için bu hafta amcamlarda kalıyoruz. Geçici bir durum. This week bunu söyler."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İkinci kök. Because the roof is leaking, we are staying at my uncle's house this week. Çatı aktığı için bu hafta amcamlarda kalıyoruz. Geçici bir durum. This week bunu söyler."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Üçüncü kök."
+    ],
+    [
+     "en",
+     "We are taking the bus to Izmir tomorrow morning, so I am packing my bag tonight."
+    ],
+    [
+     "tr",
+     "Yarın sabah İzmir'e gidiyoruz. Planlı gelecek. Bilet alınmış, saat belli."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Üçüncü kök. We are taking the bus to Izmir tomorrow morning, so I am packing my bag tonight. Yarın sabah İzmir'e gidiyoruz. Planlı gelecek. Bilet alınmış, saat belli."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Hocam, bilmek de sürüyor."
+    ],
+    [
+     "en",
+     "I am knowing the answer"
+    ],
+    [
+     "tr",
+     "olmaz mıydı?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Hocam, bilmek de sürüyor. I am knowing the answer olmaz mıydı?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Olmaz. Know, believe, own, belong durum fiilidir, -ing almaz."
+    ],
+    [
+     "en",
+     "I know the answer."
+    ],
+    [
+     "tr",
+     "Türkçede biliyorum deriz, ama İngilizcede -ing yok."
+    ],
+    [
+     "en",
+     "He is always losing his keys."
+    ],
+    [
+     "tr",
+     "Always artı -ing şikâyettir. Sınavda ikisi de çıkar. Kod: olay -ing alır, durum almaz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Olmaz. Know, believe, own, belong durum fiilidir, -ing almaz. I know the answer. Türkçede biliyorum deriz, ama İngilizcede -ing yok. He is always losing his keys. Always artı -ing şikâyettir. Sınavda ikisi de çıkar. Kod: olay -ing alır, durum almaz."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "PRESENT",
+  "satir2": "CONTINUOUS",
+  "rozetler": [
+   "YDT · ADVANCED",
+   "GRAMMAR"
+  ],
+  "sahne": [
+   {
+    "ad": "phone",
+    "x": 30,
+    "y": 55,
+    "olcek": 0.55
+   },
+   {
+    "ad": "bus",
+    "x": 72,
+    "y": 45,
+    "olcek": 0.45
+   }
+  ]
+ },
+ "meta": {
+  "kimlik": "02-01-ydt-ileri",
+  "kod": "ING-YDT-GR-02-01-I",
+  "eskiKod": "ING-YDT-GR-01-PC",
+  "ders": "İngilizce",
+  "konu": "Present Continuous",
+  "kitle": "ydt",
+  "seviye": "ileri",
+  "kapak": {
+   "satir1": "-ING HER FİİLE",
+   "satir2": "EKLENMEZ",
+   "canAlici": "Her fiile -ing eklenmez: know, believe, own, belong durum fiilidir"
+  },
+  "amaclar": [
+   "am/is/are + V-ing formülünü kurmak",
+   "durum fiillerini ayırt etmek",
+   "planlı geleceği tanımak",
+   "always + V-ing şikâyetini tanımak"
+  ],
+  "canAlici": [
+   "Her fiile -ing eklenmez: know, believe, own, belong durum fiilidir",
+   "Formül tek satır: am / is / are + V-ing",
+   "Yarın + Present Continuous = planlı gelecek (bilet alınmış, saat belli)",
+   "always + -ing = şikâyet; sınav bunu tuzak yapar",
+   "Biliyorum = I know; Türkçedeki -yor İngilizcede her zaman -ing değil"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "ileri",
+   "gramer",
+   "Present Continuous"
+  ]
+ }
+}
