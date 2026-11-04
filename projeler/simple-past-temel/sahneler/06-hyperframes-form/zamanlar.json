@@ -1,0 +1,12 @@
+{
+  "fps": 30, "kare": 901, "sure": 30.0333, "t_bas": 64.78,
+  "balon_kelime": [["Hocam,", 64.78], ["birinde", 65.58], ["-ed", 66.14], ["var,", 66.54],
+                   ["ikisinde", 67.02], ["yok.", 67.58], ["Neden?", 68.27]],
+  "satir": [66.14, 67.02, 67.58],
+  "form": 69.33, "iki_yol": 70.09,
+  "duzenli": 71.01, "ed": 72.05, "ornek1": 72.62, "duzensiz": 73.25, "v2": 74.21, "ornek2": 74.9,
+  "kutu": 75.96, "didnt": 77.32, "soru": 77.7, "v1": 78.2,
+  "turkce": 79.87, "izledi": 82.03, "esit": 82.62, "watched": 83.07,
+  "yesterday": 84.34, "ago": 85.46, "lastyear": 86.1, "ok": 88.3, "simplepast": 88.86,
+  "kart": 89.9, "biten": 89.77, "sonraki": 92.0, "bitis_icerik": 92.81
+}
