@@ -1,0 +1,58 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 4.12,
+"metin": "Ago gördün mü, Present Perfect elenir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 4.27,
+"t1": 5.79,
+"metin": "Bu sınav tuzağına düşme.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 6.34,
+"t1": 8.5,
+"metin": "She moved to Berlin two years ago.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 8.75,
+"t1": 10.91,
+"metin": "İki yıl önce Berlin'e taşındı.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 11.06,
+"t1": 15.38,
+"metin": "Ago var, yani Simple Past. Has moved yanlış olurdu.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 15.93,
+"t1": 19.21,
+"metin": "Tam ders: Present Perfect, altı dakika.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 19.36,
+"t1": 21.12,
+"metin": "Tam dersi kanalda izle.",
+"konusan": "ogretmen"
+}
+]

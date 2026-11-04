@@ -1,0 +1,39 @@
+{
+  "video": {
+    "kimlik": "02-06-ydt-temel-s1",
+    "ders": "İngilizce",
+    "konu": "Present Perfect",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-06-T-S1",
+    "amaclar": [
+      "Present Perfect ile sonucu şimdi olan geçmişi anlatmak"
+    ],
+    "canAlici": [
+      "Türkçede -dı, İngilizcede have + üçüncü hâl"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Present Perfect"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "s1",
+      "video": "present-perfect-temel-s1",
+      "tur": "shorts",
+      "ad": "S1 Shorts — KAYBETTİM = I HAVE LOST",
+      "senaryo": "/Users/nadir/01dev/dijital-anlatim/pilot/grammar-tenses-03-present-perfect-temel-s1/senaryo.json",
+      "kapak": "kapak.png",
+      "seviye": "temel",
+      "kaynak": null,
+      "durum": "planli",
+      "onizleme": "/p/present-perfect-temel-s1/onizle.html?surum=s1",
+      "tarih": "2026-11-05T01:30:00Z"
+    }
+  ],
+  "revizyonlar": []
+}

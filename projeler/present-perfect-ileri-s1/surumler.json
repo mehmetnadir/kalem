@@ -1,0 +1,39 @@
+{
+  "video": {
+    "kimlik": "02-06-ydt-ileri-s1",
+    "ders": "İngilizce",
+    "konu": "Present Perfect",
+    "seviye": "ileri",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-06-I-S1",
+    "amaclar": [
+      "ago ile Simple Past tuzağını çözmek"
+    ],
+    "canAlici": [
+      "Ago varsa Simple Past"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "ileri",
+      "gramer",
+      "Present Perfect"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "s1",
+      "video": "present-perfect-ileri-s1",
+      "tur": "shorts",
+      "ad": "S1 Shorts — AGO VARSA SIMPLE PAST",
+      "senaryo": "/Users/nadir/01dev/dijital-anlatim/pilot/grammar-tenses-03-present-perfect-ileri-s1/senaryo.json",
+      "kapak": "kapak.png",
+      "seviye": "ileri",
+      "kaynak": null,
+      "durum": "planli",
+      "onizleme": "/p/present-perfect-ileri-s1/onizle.html?surum=s1",
+      "tarih": "2026-11-05T01:30:00Z"
+    }
+  ],
+  "revizyonlar": []
+}

@@ -1,0 +1,178 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 3.48,
+"metin": "Ago varsa Present Perfect yok.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 4.03,
+"t1": 9.71,
+"metin": "Altı dakikada formülü, since ile for ayrımını ve Simple Past tuzağını bitiriyoruz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 9.96,
+"t1": 15.32,
+"metin": "The formula: subject plus have or has plus past participle.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 15.57,
+"t1": 17.97,
+"metin": "Önce kural, sonra sınav kökleri.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 18.52,
+"t1": 19.4,
+"metin": "Birinci kök.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "en",
+"t0": 19.65,
+"t1": 24.21,
+"metin": "Ever since the company launched its new app, the number of users has doubled.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 24.46,
+"t1": 29.58,
+"metin": "Şirket yeni uygulamasını çıkardığından beri kullanıcı sayısı ikiye katlandı.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 29.73,
+"t1": 33.89,
+"metin": "Since cümleciği Simple Past alır, ana cümle Present Perfect.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 34.44,
+"t1": 35.32,
+"metin": "İkinci kök.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "en",
+"t0": 35.57,
+"t1": 40.45,
+"metin": "Selim has worked at this bank for thirty years, so he knows every customer.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 40.7,
+"t1": 45.74,
+"metin": "Selim bu bankada otuz yıldır çalışıyor, bu yüzden her müşteriyi tanıyor.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 45.89,
+"t1": 51.25,
+"metin": "For süreyi söyler: otuz yıl. Yıl adı verseydin since gelirdi.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 51.8,
+"t1": 53.96,
+"metin": "Üçüncü kök. Tuzak burada.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "en",
+"t0": 54.21,
+"t1": 58.05,
+"metin": "The plane took off two hours ago, but it hasn't landed yet.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 58.3,
+"t1": 61.5,
+"metin": "Uçak iki saat önce kalktı, ama henüz inmedi.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 61.65,
+"t1": 65.33,
+"metin": "Ago var, zaman bitmiş: Simple Past.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 65.48,
+"t1": 68.6,
+"metin": "Yet var, etki sürüyor: Present Perfect.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 6,
+"dil": "tr",
+"t0": 69.15,
+"t1": 73.07,
+"metin": "Hocam, ago varken de has landed diyemez miyiz?",
+"konusan": "ogrenci"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 73.62,
+"t1": 78.1,
+"metin": "Hayır. Bitmiş zaman bildiren sözcükler Present Perfect'i yasaklar:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "en",
+"t0": 78.35,
+"t1": 81.47,
+"metin": "ago, yesterday, last year.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "en",
+"t0": 81.72,
+"t1": 86.84,
+"metin": "Finished time: simple past. Unfinished time: present perfect.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 87.09,
+"t1": 92.77,
+"metin": "Kodu aklında tut: ago varsa Simple Past, yet varsa Present Perfect.",
+"konusan": "ogretmen"
+}
+]

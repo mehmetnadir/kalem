@@ -1,0 +1,83 @@
+{
+  "video": {
+    "kimlik": "02-06-ydt-ileri",
+    "ders": "İngilizce",
+    "konu": "Present Perfect",
+    "seviye": "ileri",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-06-I",
+    "amaclar": [
+      "Present Perfect formülünü sınav köklerinde uygulamak",
+      "since cümleciği ve for süre ayrımını kullanmak",
+      "ago ile Simple Past tuzağını çözmek",
+      "bitmiş ve bitmemiş zaman ayrımını yapmak"
+    ],
+    "canAlici": [
+      "Ago varsa Simple Past, yet varsa Present Perfect",
+      "have / has + past participle",
+      "since cümleciği Simple Past, ana cümle Present Perfect",
+      "for = süre, since = başlangıç noktası",
+      "Bitmiş zaman: Simple Past; bitmemiş zaman ya da şimdiye bağ: Present Perfect"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "ileri",
+      "gramer",
+      "Present Perfect"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "02-06-ydt-ileri",
+      "tur": "ana-yatay",
+      "ad": "Ana video (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "ileri",
+      "kaynak": null,
+      "durum": "planli",
+      "onizleme": "/p/present-perfect-ileri/onizle.html",
+      "tarih": "2026-11-05T01:30:00Z"
+    },
+    {
+      "kimlik": "dikey-tam",
+      "video": "02-06-ydt-ileri",
+      "tur": "dikey",
+      "ad": "Dikey tam ders (9:16, aynı ses)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": "AGO VARSA SIMPLE PAST",
+      "seviye": "ileri",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/present-perfect-ileri-dikey/onizle.html",
+      "tarih": "2026-11-05T01:30:00Z",
+      "proje": "present-perfect-ileri-dikey"
+    },
+    {
+      "kimlik": "shorts",
+      "video": "02-06-ydt-ileri",
+      "tur": "shorts",
+      "ad": "S1 Shorts tanıtım",
+      "senaryo": "../present-perfect-ileri-s1/BRIEF-S1.md",
+      "kapak": "AGO VARSA SIMPLE PAST",
+      "seviye": "ileri",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/present-perfect-ileri-s1/onizle.html",
+      "tarih": "2026-11-05T01:30:00Z",
+      "proje": "present-perfect-ileri-s1",
+      "kapak_canalici": 2
+    }
+  ],
+  "revizyonlar": [
+    {
+      "surum": "ana-yatay",
+      "no": "r1",
+      "tarih": "2026-11-05T01:30:00Z",
+      "degisiklik": "Senaryo + ses paketi (ElevenLabs v4), zaman.json, BRIEF",
+      "cikti": null
+    }
+  ]
+}

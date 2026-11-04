@@ -1,0 +1,248 @@
+[
+{
+"cumle": 1,
+"sozcuk": "Ago",
+"t0": 1.0,
+"t1": 1.32
+},
+{
+"cumle": 1,
+"sozcuk": "gördün",
+"t0": 1.56,
+"t1": 1.88
+},
+{
+"cumle": 1,
+"sozcuk": "mü,",
+"t0": 1.96,
+"t1": 2.44
+},
+{
+"cumle": 1,
+"sozcuk": "Present",
+"t0": 2.6,
+"t1": 2.76
+},
+{
+"cumle": 1,
+"sozcuk": "Perfect",
+"t0": 2.84,
+"t1": 3.32
+},
+{
+"cumle": 1,
+"sozcuk": "elenir.",
+"t0": 3.48,
+"t1": 4.12
+},
+{
+"cumle": 1,
+"sozcuk": "Bu",
+"t0": 4.27,
+"t1": 4.35
+},
+{
+"cumle": 1,
+"sozcuk": "sınav",
+"t0": 4.43,
+"t1": 4.75
+},
+{
+"cumle": 1,
+"sozcuk": "tuzağına",
+"t0": 4.83,
+"t1": 5.15
+},
+{
+"cumle": 1,
+"sozcuk": "düşme.",
+"t0": 5.23,
+"t1": 5.87
+},
+{
+"cumle": 2,
+"sozcuk": "She",
+"t0": 6.34,
+"t1": 6.58
+},
+{
+"cumle": 2,
+"sozcuk": "moved",
+"t0": 6.7,
+"t1": 6.82
+},
+{
+"cumle": 2,
+"sozcuk": "to",
+"t0": 6.86,
+"t1": 6.9
+},
+{
+"cumle": 2,
+"sozcuk": "Berlin",
+"t0": 6.98,
+"t1": 7.46
+},
+{
+"cumle": 2,
+"sozcuk": "two",
+"t0": 7.54,
+"t1": 7.7
+},
+{
+"cumle": 2,
+"sozcuk": "years",
+"t0": 7.78,
+"t1": 7.94
+},
+{
+"cumle": 2,
+"sozcuk": "ago.",
+"t0": 8.02,
+"t1": 8.5
+},
+{
+"cumle": 2,
+"sozcuk": "İki",
+"t0": 8.75,
+"t1": 8.91
+},
+{
+"cumle": 2,
+"sozcuk": "yıl",
+"t0": 8.99,
+"t1": 9.07
+},
+{
+"cumle": 2,
+"sozcuk": "önce",
+"t0": 9.15,
+"t1": 9.47
+},
+{
+"cumle": 2,
+"sozcuk": "Berlin'e",
+"t0": 9.55,
+"t1": 9.95
+},
+{
+"cumle": 2,
+"sozcuk": "taşındı.",
+"t0": 10.03,
+"t1": 10.91
+},
+{
+"cumle": 2,
+"sozcuk": "Ago",
+"t0": 11.06,
+"t1": 11.38
+},
+{
+"cumle": 2,
+"sozcuk": "var,",
+"t0": 11.5,
+"t1": 11.86
+},
+{
+"cumle": 2,
+"sozcuk": "yani",
+"t0": 11.94,
+"t1": 12.26
+},
+{
+"cumle": 2,
+"sozcuk": "Simple",
+"t0": 12.34,
+"t1": 12.58
+},
+{
+"cumle": 2,
+"sozcuk": "Past.",
+"t0": 12.66,
+"t1": 13.54
+},
+{
+"cumle": 2,
+"sozcuk": "Has",
+"t0": 13.62,
+"t1": 13.86
+},
+{
+"cumle": 2,
+"sozcuk": "moved",
+"t0": 13.94,
+"t1": 14.42
+},
+{
+"cumle": 2,
+"sozcuk": "yanlış",
+"t0": 14.5,
+"t1": 14.82
+},
+{
+"cumle": 2,
+"sozcuk": "olurdu.",
+"t0": 14.86,
+"t1": 15.46
+},
+{
+"cumle": 3,
+"sozcuk": "Tam",
+"t0": 15.93,
+"t1": 16.17
+},
+{
+"cumle": 3,
+"sozcuk": "ders:",
+"t0": 16.25,
+"t1": 16.77
+},
+{
+"cumle": 3,
+"sozcuk": "Present",
+"t0": 16.97,
+"t1": 17.29
+},
+{
+"cumle": 3,
+"sozcuk": "Perfect,",
+"t0": 17.37,
+"t1": 17.93
+},
+{
+"cumle": 3,
+"sozcuk": "altı",
+"t0": 18.25,
+"t1": 18.49
+},
+{
+"cumle": 3,
+"sozcuk": "dakika.",
+"t0": 18.57,
+"t1": 19.21
+},
+{
+"cumle": 3,
+"sozcuk": "Tam",
+"t0": 19.36,
+"t1": 19.52
+},
+{
+"cumle": 3,
+"sozcuk": "dersi",
+"t0": 19.6,
+"t1": 20.0
+},
+{
+"cumle": 3,
+"sozcuk": "kanalda",
+"t0": 20.16,
+"t1": 20.56
+},
+{
+"cumle": 3,
+"sozcuk": "izle.",
+"t0": 20.68,
+"t1": 21.2
+}
+]

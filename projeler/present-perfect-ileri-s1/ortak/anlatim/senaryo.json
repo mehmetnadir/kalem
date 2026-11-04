@@ -1,0 +1,135 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Present Perfect",
+ "duzen": "konu",
+ "seviye": "ileri",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogretmen": {
+   "ses": "gsJ9nrlXYbPztJxC4fwc",
+   "cinsiyet": "erkek",
+   "yas": "yetiskin",
+   "govde": "ShirtPantsWB",
+   "yuz": "Smile",
+   "sac": "Short"
+  }
+ },
+ "kartlar": {
+  "kanca": {
+   "tip": "ornek",
+   "en": "The plane took off two hours ago.",
+   "tr": "Ago gördün mü, Present Perfect elenir."
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Ago gördün mü, Present Perfect elenir."
+    ],
+    [
+     "tr",
+     "Bu sınav tuzağına düşme."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Ago gördün mü, Present Perfect elenir. Bu sınav tuzağına düşme."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "She moved to Berlin two years ago."
+    ],
+    [
+     "tr",
+     "İki yıl önce Berlin'e taşındı."
+    ],
+    [
+     "tr",
+     "Ago var, yani Simple Past. Has moved yanlış olurdu."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "She moved to Berlin two years ago. İki yıl önce Berlin'e taşındı. Ago var, yani Simple Past. Has moved yanlış olurdu."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Tam ders: Present Perfect, altı dakika."
+    ],
+    [
+     "tr",
+     "Tam dersi kanalda izle."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Tam ders: Present Perfect, altı dakika. Tam dersi kanalda izle."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "AGO VARSA",
+  "satir2": "SIMPLE PAST",
+  "rozetler": [
+   "YDT · ADVANCED",
+   "GRAMMAR"
+  ],
+  "sahne": [
+   {
+    "figur": "ogretmen",
+    "x": 32,
+    "y": 58,
+    "olcek": 0.8
+   },
+   {
+    "ad": "plane",
+    "x": 72,
+    "y": 52,
+    "olcek": 0.5
+   }
+  ]
+ },
+ "meta": {
+  "kimlik": "02-06-ydt-ileri-s1",
+  "kod": "ING-YDT-GR-02-06-I-S1",
+  "ders": "İngilizce",
+  "konu": "Present Perfect",
+  "kitle": "ydt",
+  "seviye": "ileri",
+  "kapak": {
+   "satir1": "AGO VARSA",
+   "satir2": "SIMPLE PAST",
+   "canAlici": "ago gördün mü Present Perfect elenir"
+  },
+  "amaclar": [
+   "ago ile Simple Past tuzağını çözmek"
+  ],
+  "canAlici": [
+   "Ago varsa Simple Past"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "ileri",
+   "gramer",
+   "Present Perfect",
+   "shorts"
+  ]
+ }
+}

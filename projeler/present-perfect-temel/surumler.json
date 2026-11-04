@@ -1,0 +1,83 @@
+{
+  "video": {
+    "kimlik": "02-06-ydt-temel",
+    "ders": "İngilizce",
+    "konu": "Present Perfect",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-06-T",
+    "amaclar": [
+      "Present Perfect formunu kurmak (have/has + üçüncü hâl)",
+      "for ile since farkını ayırt etmek",
+      "never, ever, just, already, yet sinyallerini tanımak",
+      "Türkçe -dı ama etkisi şimdi köprüsü"
+    ],
+    "canAlici": [
+      "'Kaybettim, kapıda kaldım' — geçmişte oldu, etkisi şimdi",
+      "have / has + fiilin üçüncü hâli",
+      "for = süre, since = başlangıç noktası",
+      "never · ever · just · already · yet = Present Perfect sinyalleri",
+      "3 örnek, 1 kural: üçünde de have + üçüncü hâl"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Present Perfect"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "02-06-ydt-temel",
+      "tur": "ana-yatay",
+      "ad": "Ana video (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "temel",
+      "kaynak": null,
+      "durum": "planli",
+      "onizleme": "/p/present-perfect-temel/onizle.html",
+      "tarih": "2026-11-05T01:30:00Z"
+    },
+    {
+      "kimlik": "dikey-tam",
+      "video": "02-06-ydt-temel",
+      "tur": "dikey",
+      "ad": "Dikey tam ders (9:16, aynı ses)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": "KAYBETTİM = I HAVE LOST",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/present-perfect-temel-dikey/onizle.html",
+      "tarih": "2026-11-05T01:30:00Z",
+      "proje": "present-perfect-temel-dikey"
+    },
+    {
+      "kimlik": "shorts",
+      "video": "02-06-ydt-temel",
+      "tur": "shorts",
+      "ad": "S1 Shorts tanıtım",
+      "senaryo": "../present-perfect-temel-s1/BRIEF-S1.md",
+      "kapak": "KAYBETTİM = I HAVE LOST",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": "/p/present-perfect-temel-s1/onizle.html",
+      "tarih": "2026-11-05T01:30:00Z",
+      "proje": "present-perfect-temel-s1",
+      "kapak_canalici": 2
+    }
+  ],
+  "revizyonlar": [
+    {
+      "surum": "ana-yatay",
+      "no": "r1",
+      "tarih": "2026-11-05T01:30:00Z",
+      "degisiklik": "Senaryo + ses paketi (ElevenLabs v4), zaman.json, BRIEF",
+      "cikti": null
+    }
+  ]
+}

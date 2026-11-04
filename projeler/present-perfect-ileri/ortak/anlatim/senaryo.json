@@ -1,0 +1,257 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Present Perfect",
+ "duzen": "konu",
+ "seviye": "ileri",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
+  }
+ },
+ "kartlar": {
+  "kanca": {
+   "tip": "ornek",
+   "en": "The plane took off two hours ago.",
+   "tr": "Ago gördün mü, Present Perfect elenir."
+  },
+  "k1": {
+   "tip": "ornek",
+   "en": "Ever since the company launched its new app, the number of users has doubled.",
+   "tr": "Şirket yeni uygulamasını çıkardığından beri kullanıcı sayısı ikiye katlandı.",
+   "parcalar": {
+    "yardimci": "has",
+    "ek": "doubled"
+   }
+  },
+  "k2": {
+   "tip": "ornek",
+   "en": "Selim has worked at this bank for thirty years, so he knows every customer.",
+   "tr": "Selim bu bankada otuz yıldır çalışıyor, bu yüzden her müşteriyi tanıyor.",
+   "parcalar": {
+    "yardimci": "has",
+    "ek": "worked"
+   }
+  },
+  "k3": {
+   "tip": "ornek",
+   "en": "The plane took off two hours ago, but it hasn't landed yet.",
+   "tr": "Uçak iki saat önce kalktı, ama henüz inmedi.",
+   "parcalar": {
+    "yardimci": "hasn't",
+    "ek": "landed"
+   }
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Ago varsa Present Perfect yok."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Ago varsa Present Perfect yok."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Altı dakikada formülü, since ile for ayrımını ve Simple Past tuzağını bitiriyoruz."
+    ],
+    [
+     "en",
+     "The formula: subject plus have or has plus past participle."
+    ],
+    [
+     "tr",
+     "Önce kural, sonra sınav kökleri."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Altı dakikada formülü, since ile for ayrımını ve Simple Past tuzağını bitiriyoruz. The formula: subject plus have or has plus past participle. Önce kural, sonra sınav kökleri."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Birinci kök."
+    ],
+    [
+     "en",
+     "Ever since the company launched its new app, the number of users has doubled."
+    ],
+    [
+     "tr",
+     "Şirket yeni uygulamasını çıkardığından beri kullanıcı sayısı ikiye katlandı."
+    ],
+    [
+     "tr",
+     "Since cümleciği Simple Past alır, ana cümle Present Perfect."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Birinci kök. Ever since the company launched its new app, the number of users has doubled. Şirket yeni uygulamasını çıkardığından beri kullanıcı sayısı ikiye katlandı. Since cümleciği Simple Past alır, ana cümle Present Perfect."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İkinci kök."
+    ],
+    [
+     "en",
+     "Selim has worked at this bank for thirty years, so he knows every customer."
+    ],
+    [
+     "tr",
+     "Selim bu bankada otuz yıldır çalışıyor, bu yüzden her müşteriyi tanıyor."
+    ],
+    [
+     "tr",
+     "For süreyi söyler: otuz yıl. Yıl adı verseydin since gelirdi."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İkinci kök. Selim has worked at this bank for thirty years, so he knows every customer. Selim bu bankada otuz yıldır çalışıyor, bu yüzden her müşteriyi tanıyor. For süreyi söyler: otuz yıl. Yıl adı verseydin since gelirdi."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Üçüncü kök. Tuzak burada."
+    ],
+    [
+     "en",
+     "The plane took off two hours ago, but it hasn't landed yet."
+    ],
+    [
+     "tr",
+     "Uçak iki saat önce kalktı, ama henüz inmedi."
+    ],
+    [
+     "tr",
+     "Ago var, zaman bitmiş: Simple Past."
+    ],
+    [
+     "tr",
+     "Yet var, etki sürüyor: Present Perfect."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Üçüncü kök. Tuzak burada. The plane took off two hours ago, but it hasn't landed yet. Uçak iki saat önce kalktı, ama henüz inmedi. Ago var, zaman bitmiş: Simple Past. Yet var, etki sürüyor: Present Perfect."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Hocam, ago varken de has landed diyemez miyiz?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Hocam, ago varken de has landed diyemez miyiz?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Hayır. Bitmiş zaman bildiren sözcükler Present Perfect'i yasaklar:"
+    ],
+    [
+     "en",
+     "ago, yesterday, last year."
+    ],
+    [
+     "en",
+     "Finished time: simple past. Unfinished time: present perfect."
+    ],
+    [
+     "tr",
+     "Kodu aklında tut: ago varsa Simple Past, yet varsa Present Perfect."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Hayır. Bitmiş zaman bildiren sözcükler Present Perfect'i yasaklar: ago, yesterday, last year. Finished time: simple past. Unfinished time: present perfect. Kodu aklında tut: ago varsa Simple Past, yet varsa Present Perfect."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "PRESENT",
+  "satir2": "PERFECT",
+  "rozetler": [
+   "YDT · ADVANCED",
+   "GRAMMAR"
+  ],
+  "sahne": [
+   {
+    "ad": "plane",
+    "x": 30,
+    "y": 55,
+    "olcek": 0.55
+   },
+   {
+    "ad": "clock",
+    "x": 72,
+    "y": 45,
+    "olcek": 0.45
+   }
+  ]
+ },
+ "meta": {
+  "kimlik": "02-06-ydt-ileri",
+  "kod": "ING-YDT-GR-02-06-I",
+  "ders": "İngilizce",
+  "konu": "Present Perfect",
+  "kitle": "ydt",
+  "seviye": "ileri",
+  "kapak": {
+   "satir1": "AGO VARSA",
+   "satir2": "SIMPLE PAST",
+   "canAlici": "ago gördün mü Present Perfect elenir"
+  },
+  "amaclar": [
+   "Present Perfect formülünü sınav köklerinde uygulamak",
+   "since cümleciği ve for süre ayrımını kullanmak",
+   "ago ile Simple Past tuzağını çözmek",
+   "bitmiş ve bitmemiş zaman ayrımını yapmak"
+  ],
+  "canAlici": [
+   "Ago varsa Simple Past, yet varsa Present Perfect",
+   "have / has + past participle",
+   "since cümleciği Simple Past, ana cümle Present Perfect",
+   "for = süre, since = başlangıç noktası",
+   "Bitmiş zaman: Simple Past; bitmemiş zaman ya da şimdiye bağ: Present Perfect"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "ileri",
+   "gramer",
+   "Present Perfect"
+  ]
+ }
+}
