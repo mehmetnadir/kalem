@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Görev haritası</title>
+<link rel="stylesheet" href="harita.css">
+</head><body>
+<header id="ust">
+  <a id="editor" href="onizle.html">Editör</a>
+  <div id="baslik">Görev haritası<small id="altbaslik"></small></div>
+  <button id="yg" class="btn">+ Görev</button>
+  <button id="yt" class="btn">+ Türev</button>
+  <span class="bos"></span>
+  <button id="sigdir" class="btn">Sığdır</button>
+</header>
+<nav id="arac">
+  <input id="ara" type="search" placeholder="Ara: konu adı, kod, kimlik" autocomplete="off">
+  <span class="grup">
+    <button id="hepsi-ac" class="btn">Hepsini aç</button>
+    <button id="hepsi-kapa" class="btn">Hepsini kapa</button>
+  </span>
+  <span class="grup" id="derinlik"></span>
+  <span class="bos"></span>
+  <label>Kitle <select id="s-kitle"></select></label>
+  <label>Video <select id="s-vdurum"></select></label>
+  <label>Grup <select id="s-grup"></select></label>
+  <label>Görev durumu <select id="s-durum"></select></label>
+  <label>Atanan <select id="s-atanan"></select></label>
+</nav>
+<main id="gorunum"><div id="dunya"><div id="dugumler"></div></div>
+  <div id="lejant"></div></main>
+<aside id="panel" hidden></aside>
+<div id="modal" hidden><form id="form"></form></div>
+<div id="uyari" hidden></div>
+<script type="module" src="harita.js"></script>
+</body></html>

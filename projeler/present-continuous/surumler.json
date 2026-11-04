@@ -1,0 +1,94 @@
+{
+  "video": {
+    "kimlik": "present-continuous",
+    "ders": "İngilizce",
+    "konu": "Present Continuous",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-01-PC",
+    "amaclar": [
+      "Present Continuous formunu kurmak (be + V-ing)",
+      "zaman ifadelerini tanımak",
+      "altı kullanımı ayırt etmek",
+      "Türkçe -yor ile köprü"
+    ],
+    "canAlici": [
+      "Türkçedeki -yor = İngilizcedeki -ing",
+      "'Bu akşam amcamlara gidiyorum' — şimdiki zamanla gelecek, iki dilde aynı",
+      "Look! Listen! Watch out! = şimdi oluyor sinyali",
+      "be fiili zamanı taşır: am/is/are şimdi, was/were geçmiş",
+      "3 örnek, 1 kural: üçünde de -ing"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Present Continuous"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "present-continuous",
+      "tur": "ana-yatay",
+      "ad": "Ana video (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "temel",
+      "kaynak": null,
+      "durum": "inceleme",
+      "onizleme": "/projeler/present-continuous/onizle.html",
+      "tarih": "2026-11-04T09:00:00Z"
+    },
+    {
+      "kimlik": "dikey",
+      "video": "present-continuous",
+      "tur": "dikey",
+      "ad": "Dikey 9:16 (yeni senaryo)",
+      "senaryo": null,
+      "kapak": null,
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": null,
+      "tarih": "2026-11-04T09:00:00Z"
+    },
+    {
+      "kimlik": "shorts",
+      "video": "present-continuous",
+      "tur": "shorts",
+      "ad": "YouTube Shorts (tanıtım + kapak)",
+      "senaryo": null,
+      "kapak": "kapak.py kalıbı",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": null,
+      "tarih": "2026-11-04T09:00:00Z",
+      "kapak_canalici": 1
+    },
+    {
+      "kimlik": "alternatif-seviye-orta",
+      "video": "present-continuous",
+      "tur": "alternatif",
+      "ad": "Alternatif senaryo (orta seviye)",
+      "senaryo": null,
+      "kapak": null,
+      "seviye": "orta",
+      "kaynak": "ana-yatay",
+      "durum": "planli",
+      "onizleme": null,
+      "tarih": "2026-11-04T09:00:00Z"
+    }
+  ],
+  "revizyonlar": [
+    {
+      "surum": "ana-yatay",
+      "no": "r1",
+      "tarih": "2026-11-04T09:00:00Z",
+      "degisiklik": "Prototip 4 kalem: 6 sahne, 3 motor",
+      "cikti": "/projeler/present-continuous/onizle.html"
+    }
+  ]
+}

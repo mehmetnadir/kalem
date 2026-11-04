@@ -1,0 +1,50 @@
+[
+  {
+    "kimlik": "y-1",
+    "gorev": "g-13",
+    "surum": "ana-yatay",
+    "t": 60,
+    "sahne": "05",
+    "nesne": null,
+    "metin": "Ölçüm notu: kedi son kontrol karesinde küçük kalıyor.",
+    "yazar": "sef",
+    "tarih": "2026-11-04T11:00:00Z",
+    "durum": "acik"
+  },
+  {
+    "kimlik": "y-2",
+    "gorev": "g-14",
+    "surum": "ana-yatay",
+    "t": 14,
+    "sahne": "02",
+    "nesne": null,
+    "metin": "Ölçüm notu: sol alt çeyrek boş; figür yeri öneriliyor.",
+    "yazar": "sef",
+    "tarih": "2026-11-04T11:00:00Z",
+    "durum": "acik"
+  },
+  {
+    "kimlik": "y-3",
+    "gorev": "g-11",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Şef önerisi: logo sarısı vurgu, kart zemini krem. Nadir onayı bekliyor.",
+    "yazar": "sef",
+    "tarih": "2026-11-04T11:00:00Z",
+    "durum": "acik"
+  },
+  {
+    "kimlik": "y-4",
+    "gorev": "g-1",
+    "surum": "ana-yatay",
+    "t": 7,
+    "sahne": "01",
+    "nesne": null,
+    "metin": "Kabul ölçütü: tema değişince künye yerinde kalır.",
+    "yazar": "sef",
+    "tarih": "2026-11-04T11:00:00Z",
+    "durum": "acik"
+  }
+]

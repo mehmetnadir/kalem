@@ -1,0 +1,8172 @@
+{
+ "kaynak": "vimeo-izleme-0211.tekil.tsv + premiere-0211 eşlemeleri",
+ "olusturma": "2026-11-04",
+ "kitleler": {
+  "ydt": "YDT",
+  "maarif": "Maarif 9–10"
+ },
+ "seviyeler": {
+  "temel": "Temel",
+  "ileri": "İleri"
+ },
+ "uniteler": [
+  {
+   "kod": "01",
+   "ad": "Pronouns",
+   "sira": 1,
+   "konular": [
+    {
+     "kod": "GR-01-01",
+     "ad": "U1-V1-Pronouns-Determiners-Quantifiers 1",
+     "sira": 1,
+     "lms": [
+      {
+       "id": "851621491",
+       "ad": "U1-V1-Pronouns-Determiners-Quantifiers 1",
+       "sure": 910,
+       "vimeo": "851621491",
+       "izlenme": 4247,
+       "tamamlama": 291,
+       "ortYuzde": 19,
+       "eski": false
+      }
+     ],
+     "pptx": [],
+     "videolar": [
+      {
+       "kimlik": "01-01-ydt-temel",
+       "kod": "ING-YDT-GR-01-01-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-01-ydt-ileri",
+       "kod": "ING-YDT-GR-01-01-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-01-maarif-temel",
+       "kod": "ING-MRF-GR-01-01-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-01-maarif-ileri",
+       "kod": "ING-MRF-GR-01-01-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-02",
+     "ad": "U1-V2-Pronouns-Determiners-Quantifiers 2",
+     "sira": 2,
+     "lms": [
+      {
+       "id": "851625503",
+       "ad": "U1-V2-Pronouns-Determiners-Quantifiers 2",
+       "sure": 777,
+       "vimeo": "851625503",
+       "izlenme": 1119,
+       "tamamlama": 158,
+       "ortYuzde": 29,
+       "eski": false
+      }
+     ],
+     "pptx": [],
+     "videolar": [
+      {
+       "kimlik": "01-02-ydt-temel",
+       "kod": "ING-YDT-GR-01-02-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-02-ydt-ileri",
+       "kod": "ING-YDT-GR-01-02-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-02-maarif-temel",
+       "kod": "ING-MRF-GR-01-02-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-02-maarif-ileri",
+       "kod": "ING-MRF-GR-01-02-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-03",
+     "ad": "U1-V3-Pronouns-Determiners-Quantifiers 3",
+     "sira": 3,
+     "lms": [
+      {
+       "id": "851627504",
+       "ad": "U1-V3-Pronouns-Determiners-Quantifiers 3",
+       "sure": 380,
+       "vimeo": "851627504",
+       "izlenme": 681,
+       "tamamlama": 134,
+       "ortYuzde": 37,
+       "eski": false
+      }
+     ],
+     "pptx": [],
+     "videolar": [
+      {
+       "kimlik": "01-03-ydt-temel",
+       "kod": "ING-YDT-GR-01-03-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-03-ydt-ileri",
+       "kod": "ING-YDT-GR-01-03-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-03-maarif-temel",
+       "kod": "ING-MRF-GR-01-03-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-03-maarif-ileri",
+       "kod": "ING-MRF-GR-01-03-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-04",
+     "ad": "01-Pronouns-04",
+     "sira": 4,
+     "lms": [
+      {
+       "id": "863221353",
+       "ad": "01-Pronouns-04",
+       "sure": 395,
+       "vimeo": "863221353",
+       "izlenme": 495,
+       "tamamlama": 133,
+       "ortYuzde": 42,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-2 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-04-ydt-temel",
+       "kod": "ING-YDT-GR-01-04-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-04-ydt-ileri",
+       "kod": "ING-YDT-GR-01-04-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-04-maarif-temel",
+       "kod": "ING-MRF-GR-01-04-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-04-maarif-ileri",
+       "kod": "ING-MRF-GR-01-04-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-05",
+     "ad": "01-Pronouns-05",
+     "sira": 5,
+     "lms": [
+      {
+       "id": "863221453",
+       "ad": "01-Pronouns-05",
+       "sure": 524,
+       "vimeo": "863221453",
+       "izlenme": 401,
+       "tamamlama": 91,
+       "ortYuzde": 42,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-2 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-05-ydt-temel",
+       "kod": "ING-YDT-GR-01-05-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-05-ydt-ileri",
+       "kod": "ING-YDT-GR-01-05-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-05-maarif-temel",
+       "kod": "ING-MRF-GR-01-05-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-05-maarif-ileri",
+       "kod": "ING-MRF-GR-01-05-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-06",
+     "ad": "01-Pronouns-06",
+     "sira": 6,
+     "lms": [
+      {
+       "id": "863230568",
+       "ad": "01-Pronouns-06",
+       "sure": 751,
+       "vimeo": "863230568",
+       "izlenme": 398,
+       "tamamlama": 82,
+       "ortYuzde": 42,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-3 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-06-ydt-temel",
+       "kod": "ING-YDT-GR-01-06-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-06-ydt-ileri",
+       "kod": "ING-YDT-GR-01-06-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-06-maarif-temel",
+       "kod": "ING-MRF-GR-01-06-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-06-maarif-ileri",
+       "kod": "ING-MRF-GR-01-06-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-07",
+     "ad": "01-Pronouns-07",
+     "sira": 7,
+     "lms": [
+      {
+       "id": "863233566",
+       "ad": "01-Pronouns-07",
+       "sure": 509,
+       "vimeo": "863233566",
+       "izlenme": 384,
+       "tamamlama": 76,
+       "ortYuzde": 42,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-4 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-07-ydt-temel",
+       "kod": "ING-YDT-GR-01-07-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-07-ydt-ileri",
+       "kod": "ING-YDT-GR-01-07-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-07-maarif-temel",
+       "kod": "ING-MRF-GR-01-07-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-07-maarif-ileri",
+       "kod": "ING-MRF-GR-01-07-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-08",
+     "ad": "01-Pronouns-08",
+     "sira": 8,
+     "lms": [
+      {
+       "id": "863233510",
+       "ad": "01-Pronouns-08",
+       "sure": 335,
+       "vimeo": "863233510",
+       "izlenme": 417,
+       "tamamlama": 169,
+       "ortYuzde": 49,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-5 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-08-ydt-temel",
+       "kod": "ING-YDT-GR-01-08-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-08-ydt-ileri",
+       "kod": "ING-YDT-GR-01-08-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-08-maarif-temel",
+       "kod": "ING-MRF-GR-01-08-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-08-maarif-ileri",
+       "kod": "ING-MRF-GR-01-08-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-09",
+     "ad": "01-Pronouns-09",
+     "sira": 9,
+     "lms": [
+      {
+       "id": "863230752",
+       "ad": "01-Pronouns-09",
+       "sure": 521,
+       "vimeo": "863230752",
+       "izlenme": 378,
+       "tamamlama": 70,
+       "ortYuzde": 45,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-5 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-09-ydt-temel",
+       "kod": "ING-YDT-GR-01-09-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-09-ydt-ileri",
+       "kod": "ING-YDT-GR-01-09-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-09-maarif-temel",
+       "kod": "ING-MRF-GR-01-09-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-09-maarif-ileri",
+       "kod": "ING-MRF-GR-01-09-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-10",
+     "ad": "01-Pronouns-10",
+     "sira": 10,
+     "lms": [
+      {
+       "id": "863230865",
+       "ad": "01-Pronouns-10",
+       "sure": 502,
+       "vimeo": "863230865",
+       "izlenme": 356,
+       "tamamlama": 60,
+       "ortYuzde": 46,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-6 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-10-ydt-temel",
+       "kod": "ING-YDT-GR-01-10-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-10-ydt-ileri",
+       "kod": "ING-YDT-GR-01-10-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-10-maarif-temel",
+       "kod": "ING-MRF-GR-01-10-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-10-maarif-ileri",
+       "kod": "ING-MRF-GR-01-10-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-11",
+     "ad": "01-Pronouns-11",
+     "sira": 11,
+     "lms": [
+      {
+       "id": "863231016",
+       "ad": "01-Pronouns-11",
+       "sure": 595,
+       "vimeo": "863231016",
+       "izlenme": 311,
+       "tamamlama": 56,
+       "ortYuzde": 44,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-6 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-11-ydt-temel",
+       "kod": "ING-YDT-GR-01-11-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-11-ydt-ileri",
+       "kod": "ING-YDT-GR-01-11-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-11-maarif-temel",
+       "kod": "ING-MRF-GR-01-11-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-11-maarif-ileri",
+       "kod": "ING-MRF-GR-01-11-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-12",
+     "ad": "01-Pronouns-12",
+     "sira": 12,
+     "lms": [
+      {
+       "id": "863231341",
+       "ad": "01-Pronouns-12",
+       "sure": 559,
+       "vimeo": "863231341",
+       "izlenme": 333,
+       "tamamlama": 73,
+       "ortYuzde": 45,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-7 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-12-ydt-temel",
+       "kod": "ING-YDT-GR-01-12-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-12-ydt-ileri",
+       "kod": "ING-YDT-GR-01-12-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-12-maarif-temel",
+       "kod": "ING-MRF-GR-01-12-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-12-maarif-ileri",
+       "kod": "ING-MRF-GR-01-12-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-13",
+     "ad": "01-Pronouns-13",
+     "sira": 13,
+     "lms": [
+      {
+       "id": "863231554",
+       "ad": "01-Pronouns-13",
+       "sure": 614,
+       "vimeo": "863231554",
+       "izlenme": 270,
+       "tamamlama": 50,
+       "ortYuzde": 42,
+       "eski": false
+      }
+     ],
+     "pptx": [],
+     "videolar": [
+      {
+       "kimlik": "01-13-ydt-temel",
+       "kod": "ING-YDT-GR-01-13-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-13-ydt-ileri",
+       "kod": "ING-YDT-GR-01-13-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-13-maarif-temel",
+       "kod": "ING-MRF-GR-01-13-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-13-maarif-ileri",
+       "kod": "ING-MRF-GR-01-13-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-14",
+     "ad": "01-Pronouns-14",
+     "sira": 14,
+     "lms": [
+      {
+       "id": "863231827",
+       "ad": "01-Pronouns-14",
+       "sure": 621,
+       "vimeo": "863231827",
+       "izlenme": 299,
+       "tamamlama": 89,
+       "ortYuzde": 39,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-8 - Yeni uygun.pptx",
+      "YEDEK/Pronouns/unit-2_sunum-8.pptx",
+      "YEDEK/unit-2_sunum-8.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-14-ydt-temel",
+       "kod": "ING-YDT-GR-01-14-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-14-ydt-ileri",
+       "kod": "ING-YDT-GR-01-14-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-14-maarif-temel",
+       "kod": "ING-MRF-GR-01-14-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-14-maarif-ileri",
+       "kod": "ING-MRF-GR-01-14-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-15",
+     "ad": "01-Pronouns-15",
+     "sira": 15,
+     "lms": [
+      {
+       "id": "863502411",
+       "ad": "01-Pronouns-15",
+       "sure": 556,
+       "vimeo": "863502411",
+       "izlenme": 258,
+       "tamamlama": 51,
+       "ortYuzde": 36,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-8 - Yeni uygun.pptx",
+      "YEDEK/Pronouns/unit-2_sunum-8.pptx",
+      "YEDEK/unit-2_sunum-8.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-15-ydt-temel",
+       "kod": "ING-YDT-GR-01-15-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-15-ydt-ileri",
+       "kod": "ING-YDT-GR-01-15-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-15-maarif-temel",
+       "kod": "ING-MRF-GR-01-15-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-15-maarif-ileri",
+       "kod": "ING-MRF-GR-01-15-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-16",
+     "ad": "01-Pronouns-16",
+     "sira": 16,
+     "lms": [
+      {
+       "id": "863232269",
+       "ad": "01-Pronouns-16",
+       "sure": 902,
+       "vimeo": "863232269",
+       "izlenme": 282,
+       "tamamlama": 34,
+       "ortYuzde": 39,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-9 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-16-ydt-temel",
+       "kod": "ING-YDT-GR-01-16-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-16-ydt-ileri",
+       "kod": "ING-YDT-GR-01-16-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-16-maarif-temel",
+       "kod": "ING-MRF-GR-01-16-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-16-maarif-ileri",
+       "kod": "ING-MRF-GR-01-16-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-17",
+     "ad": "01-Pronouns-17",
+     "sira": 17,
+     "lms": [
+      {
+       "id": "863232441",
+       "ad": "01-Pronouns-17",
+       "sure": 765,
+       "vimeo": "863232441",
+       "izlenme": 270,
+       "tamamlama": 47,
+       "ortYuzde": 45,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-10 güncellenen uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-17-ydt-temel",
+       "kod": "ING-YDT-GR-01-17-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-17-ydt-ileri",
+       "kod": "ING-YDT-GR-01-17-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-17-maarif-temel",
+       "kod": "ING-MRF-GR-01-17-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-17-maarif-ileri",
+       "kod": "ING-MRF-GR-01-17-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-18",
+     "ad": "01-Pronouns-18",
+     "sira": 18,
+     "lms": [
+      {
+       "id": "863232578",
+       "ad": "01-Pronouns-18",
+       "sure": 947,
+       "vimeo": "863232578",
+       "izlenme": 205,
+       "tamamlama": 46,
+       "ortYuzde": 48,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-11 güncellenen uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-18-ydt-temel",
+       "kod": "ING-YDT-GR-01-18-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-18-ydt-ileri",
+       "kod": "ING-YDT-GR-01-18-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-18-maarif-temel",
+       "kod": "ING-MRF-GR-01-18-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-18-maarif-ileri",
+       "kod": "ING-MRF-GR-01-18-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-19",
+     "ad": "01-Pronouns-19",
+     "sira": 19,
+     "lms": [
+      {
+       "id": "863232992",
+       "ad": "01-Pronouns-19",
+       "sure": 659,
+       "vimeo": "863232992",
+       "izlenme": 163,
+       "tamamlama": 20,
+       "ortYuzde": 49,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-11 güncellenen uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-19-ydt-temel",
+       "kod": "ING-YDT-GR-01-19-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-19-ydt-ileri",
+       "kod": "ING-YDT-GR-01-19-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-19-maarif-temel",
+       "kod": "ING-MRF-GR-01-19-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-19-maarif-ileri",
+       "kod": "ING-MRF-GR-01-19-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-20",
+     "ad": "01-Pronouns-20",
+     "sira": 20,
+     "lms": [
+      {
+       "id": "863549013",
+       "ad": "01-Pronouns-20",
+       "sure": 872,
+       "vimeo": "863549013",
+       "izlenme": 180,
+       "tamamlama": 32,
+       "ortYuzde": 52,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-12 güncellenen uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-20-ydt-temel",
+       "kod": "ING-YDT-GR-01-20-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-20-ydt-ileri",
+       "kod": "ING-YDT-GR-01-20-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-20-maarif-temel",
+       "kod": "ING-MRF-GR-01-20-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-20-maarif-ileri",
+       "kod": "ING-MRF-GR-01-20-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-21",
+     "ad": "01-Pronouns-21",
+     "sira": 21,
+     "lms": [
+      {
+       "id": "863233153",
+       "ad": "01-Pronouns-21",
+       "sure": 939,
+       "vimeo": "863233153",
+       "izlenme": 190,
+       "tamamlama": 39,
+       "ortYuzde": 44,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-12 güncellenen uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-21-ydt-temel",
+       "kod": "ING-YDT-GR-01-21-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-21-ydt-ileri",
+       "kod": "ING-YDT-GR-01-21-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-21-maarif-temel",
+       "kod": "ING-MRF-GR-01-21-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-21-maarif-ileri",
+       "kod": "ING-MRF-GR-01-21-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-22",
+     "ad": "01-Pronouns-22",
+     "sira": 22,
+     "lms": [
+      {
+       "id": "863233272",
+       "ad": "01-Pronouns-22",
+       "sure": 875,
+       "vimeo": "863233272",
+       "izlenme": 178,
+       "tamamlama": 25,
+       "ortYuzde": 43,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-13 güncellenen uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-22-ydt-temel",
+       "kod": "ING-YDT-GR-01-22-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-22-ydt-ileri",
+       "kod": "ING-YDT-GR-01-22-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-22-maarif-temel",
+       "kod": "ING-MRF-GR-01-22-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-22-maarif-ileri",
+       "kod": "ING-MRF-GR-01-22-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-23",
+     "ad": "01-Pronouns-23",
+     "sira": 23,
+     "lms": [
+      {
+       "id": "863233374",
+       "ad": "01-Pronouns-23",
+       "sure": 923,
+       "vimeo": "863233374",
+       "izlenme": 152,
+       "tamamlama": 32,
+       "ortYuzde": 47,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-14 güncellenen uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-23-ydt-temel",
+       "kod": "ING-YDT-GR-01-23-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-23-ydt-ileri",
+       "kod": "ING-YDT-GR-01-23-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-23-maarif-temel",
+       "kod": "ING-MRF-GR-01-23-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-23-maarif-ileri",
+       "kod": "ING-MRF-GR-01-23-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-24",
+     "ad": "01-Pronouns-24",
+     "sira": 24,
+     "lms": [
+      {
+       "id": "863559549",
+       "ad": "01-Pronouns-24",
+       "sure": 674,
+       "vimeo": "863559549",
+       "izlenme": 174,
+       "tamamlama": 22,
+       "ortYuzde": 40,
+       "eski": false
+      },
+      {
+       "id": "863230128",
+       "ad": "01-Pronouns-24",
+       "sure": 674,
+       "vimeo": "863230128",
+       "izlenme": 0,
+       "tamamlama": 0,
+       "ortYuzde": 0,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-15 güncellenen uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-24-ydt-temel",
+       "kod": "ING-YDT-GR-01-24-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-24-ydt-ileri",
+       "kod": "ING-YDT-GR-01-24-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-24-maarif-temel",
+       "kod": "ING-MRF-GR-01-24-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-24-maarif-ileri",
+       "kod": "ING-MRF-GR-01-24-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-25",
+     "ad": "01-Pronouns-25",
+     "sira": 25,
+     "lms": [
+      {
+       "id": "869516193",
+       "ad": "01-Pronouns-25",
+       "sure": 800,
+       "vimeo": "869516193",
+       "izlenme": 245,
+       "tamamlama": 24,
+       "ortYuzde": 31,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-16 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-25-ydt-temel",
+       "kod": "ING-YDT-GR-01-25-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-25-ydt-ileri",
+       "kod": "ING-YDT-GR-01-25-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-25-maarif-temel",
+       "kod": "ING-MRF-GR-01-25-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-25-maarif-ileri",
+       "kod": "ING-MRF-GR-01-25-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-01-26",
+     "ad": "01-Pronouns-26",
+     "sira": 26,
+     "lms": [
+      {
+       "id": "869516140",
+       "ad": "01-Pronouns-26",
+       "sure": 803,
+       "vimeo": "869516140",
+       "izlenme": 206,
+       "tamamlama": 21,
+       "ortYuzde": 26,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Pronouns/unit-2_sunum-17 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "01-26-ydt-temel",
+       "kod": "ING-YDT-GR-01-26-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-26-ydt-ileri",
+       "kod": "ING-YDT-GR-01-26-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-26-maarif-temel",
+       "kod": "ING-MRF-GR-01-26-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "01-26-maarif-ileri",
+       "kod": "ING-MRF-GR-01-26-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kod": "02",
+   "ad": "Tenses",
+   "sira": 2,
+   "konular": [
+    {
+     "kod": "GR-02-01",
+     "ad": "02 - tenses - 01",
+     "sira": 1,
+     "lms": [
+      {
+       "id": "869524450",
+       "ad": "02 - tenses - 01",
+       "sure": 770,
+       "vimeo": "869524450",
+       "izlenme": 1178,
+       "tamamlama": 189,
+       "ortYuzde": 36,
+       "eski": false
+      },
+      {
+       "id": "863572654",
+       "ad": "02 - tenses - 01- eski",
+       "sure": 1003,
+       "vimeo": "863572654",
+       "izlenme": 246,
+       "tamamlama": 35,
+       "ortYuzde": 33,
+       "eski": true
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-1-çekildi.pptx",
+      "unit-1_sunum-1 29 Nisan.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-01-ydt-temel",
+       "kod": "ING-YDT-GR-02-01-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "uretimde",
+       "proje": "present-continuous",
+       "eskiKod": "ING-YDT-GR-01-PC",
+       "not": "pilot: Present Continuous (kalem prototip 4 + hyperframes prototip 3)"
+      },
+      {
+       "kimlik": "02-01-ydt-ileri",
+       "kod": "ING-YDT-GR-02-01-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-01-maarif-temel",
+       "kod": "ING-MRF-GR-02-01-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-01-maarif-ileri",
+       "kod": "ING-MRF-GR-02-01-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-02",
+     "ad": "02 - tenses - 02",
+     "sira": 2,
+     "lms": [
+      {
+       "id": "863572777",
+       "ad": "02 - tenses - 02",
+       "sure": 987,
+       "vimeo": "863572777",
+       "izlenme": 661,
+       "tamamlama": 172,
+       "ortYuzde": 47,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-2a uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-02-ydt-temel",
+       "kod": "ING-YDT-GR-02-02-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-02-ydt-ileri",
+       "kod": "ING-YDT-GR-02-02-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-02-maarif-temel",
+       "kod": "ING-MRF-GR-02-02-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-02-maarif-ileri",
+       "kod": "ING-MRF-GR-02-02-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-03",
+     "ad": "02 - tenses - 03",
+     "sira": 3,
+     "lms": [
+      {
+       "id": "863572892",
+       "ad": "02 - tenses - 03",
+       "sure": 389,
+       "vimeo": "863572892",
+       "izlenme": 427,
+       "tamamlama": 69,
+       "ortYuzde": 51,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-2b uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-03-ydt-temel",
+       "kod": "ING-YDT-GR-02-03-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-03-ydt-ileri",
+       "kod": "ING-YDT-GR-02-03-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-03-maarif-temel",
+       "kod": "ING-MRF-GR-02-03-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-03-maarif-ileri",
+       "kod": "ING-MRF-GR-02-03-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-04",
+     "ad": "02 - tenses - 04",
+     "sira": 4,
+     "lms": [
+      {
+       "id": "863572960",
+       "ad": "02 - tenses - 04",
+       "sure": 1158,
+       "vimeo": "863572960",
+       "izlenme": 375,
+       "tamamlama": 52,
+       "ortYuzde": 41,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-3 uygun.pptx",
+      "YEDEK/Tenses/unit-1_sunum-3-NADIR-MSI.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-04-ydt-temel",
+       "kod": "ING-YDT-GR-02-04-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-04-ydt-ileri",
+       "kod": "ING-YDT-GR-02-04-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-04-maarif-temel",
+       "kod": "ING-MRF-GR-02-04-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-04-maarif-ileri",
+       "kod": "ING-MRF-GR-02-04-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-05",
+     "ad": "02 - tenses - 05",
+     "sira": 5,
+     "lms": [
+      {
+       "id": "863573110",
+       "ad": "02 - tenses - 05",
+       "sure": 436,
+       "vimeo": "863573110",
+       "izlenme": 356,
+       "tamamlama": 71,
+       "ortYuzde": 45,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-3 uygun.pptx",
+      "YEDEK/Tenses/unit-1_sunum-3-NADIR-MSI.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-05-ydt-temel",
+       "kod": "ING-YDT-GR-02-05-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-05-ydt-ileri",
+       "kod": "ING-YDT-GR-02-05-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-05-maarif-temel",
+       "kod": "ING-MRF-GR-02-05-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-05-maarif-ileri",
+       "kod": "ING-MRF-GR-02-05-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-06",
+     "ad": "02 - tenses - 06",
+     "sira": 6,
+     "lms": [
+      {
+       "id": "863573186",
+       "ad": "02 - tenses - 06",
+       "sure": 793,
+       "vimeo": "863573186",
+       "izlenme": 510,
+       "tamamlama": 53,
+       "ortYuzde": 41,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-4b uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-06-ydt-temel",
+       "kod": "ING-YDT-GR-02-06-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-06-ydt-ileri",
+       "kod": "ING-YDT-GR-02-06-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-06-maarif-temel",
+       "kod": "ING-MRF-GR-02-06-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-06-maarif-ileri",
+       "kod": "ING-MRF-GR-02-06-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-07",
+     "ad": "02 - tenses - 07",
+     "sira": 7,
+     "lms": [
+      {
+       "id": "863573301",
+       "ad": "02 - tenses - 07",
+       "sure": 750,
+       "vimeo": "863573301",
+       "izlenme": 352,
+       "tamamlama": 43,
+       "ortYuzde": 44,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-4c uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-07-ydt-temel",
+       "kod": "ING-YDT-GR-02-07-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-07-ydt-ileri",
+       "kod": "ING-YDT-GR-02-07-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-07-maarif-temel",
+       "kod": "ING-MRF-GR-02-07-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-07-maarif-ileri",
+       "kod": "ING-MRF-GR-02-07-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-08",
+     "ad": "02 - tenses - 08",
+     "sira": 8,
+     "lms": [
+      {
+       "id": "863573412",
+       "ad": "02 - tenses - 08",
+       "sure": 735,
+       "vimeo": "863573412",
+       "izlenme": 296,
+       "tamamlama": 38,
+       "ortYuzde": 45,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/YEDEK/unit-1_sunum-4d uygun 4. slayt tam versiyon.pptx",
+      "unit-1_sunum-4 Düzeltilecek..pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-08-ydt-temel",
+       "kod": "ING-YDT-GR-02-08-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-08-ydt-ileri",
+       "kod": "ING-YDT-GR-02-08-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-08-maarif-temel",
+       "kod": "ING-MRF-GR-02-08-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-08-maarif-ileri",
+       "kod": "ING-MRF-GR-02-08-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-09",
+     "ad": "02 - tenses - 09",
+     "sira": 9,
+     "lms": [
+      {
+       "id": "863573533",
+       "ad": "02 - tenses - 09",
+       "sure": 1002,
+       "vimeo": "863573533",
+       "izlenme": 285,
+       "tamamlama": 39,
+       "ortYuzde": 45,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-5 uygun.pptx",
+      "unit-1_sunum-5-düzeltilecek..pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-09-ydt-temel",
+       "kod": "ING-YDT-GR-02-09-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-09-ydt-ileri",
+       "kod": "ING-YDT-GR-02-09-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-09-maarif-temel",
+       "kod": "ING-MRF-GR-02-09-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-09-maarif-ileri",
+       "kod": "ING-MRF-GR-02-09-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-10",
+     "ad": "02 - tenses - 10",
+     "sira": 10,
+     "lms": [
+      {
+       "id": "863573756",
+       "ad": "02 - tenses - 10",
+       "sure": 1152,
+       "vimeo": "863573756",
+       "izlenme": 275,
+       "tamamlama": 37,
+       "ortYuzde": 44,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-6 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-10-ydt-temel",
+       "kod": "ING-YDT-GR-02-10-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-10-ydt-ileri",
+       "kod": "ING-YDT-GR-02-10-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-10-maarif-temel",
+       "kod": "ING-MRF-GR-02-10-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-10-maarif-ileri",
+       "kod": "ING-MRF-GR-02-10-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-11",
+     "ad": "02 - tenses - 11",
+     "sira": 11,
+     "lms": [
+      {
+       "id": "863571351",
+       "ad": "02 - tenses - 11",
+       "sure": 974,
+       "vimeo": "863571351",
+       "izlenme": 200,
+       "tamamlama": 36,
+       "ortYuzde": 51,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-7 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-11-ydt-temel",
+       "kod": "ING-YDT-GR-02-11-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-11-ydt-ileri",
+       "kod": "ING-YDT-GR-02-11-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-11-maarif-temel",
+       "kod": "ING-MRF-GR-02-11-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-11-maarif-ileri",
+       "kod": "ING-MRF-GR-02-11-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-12",
+     "ad": "02 - tenses - 12",
+     "sira": 12,
+     "lms": [
+      {
+       "id": "863571510",
+       "ad": "02 - tenses - 12",
+       "sure": 597,
+       "vimeo": "863571510",
+       "izlenme": 164,
+       "tamamlama": 34,
+       "ortYuzde": 48,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-8 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-12-ydt-temel",
+       "kod": "ING-YDT-GR-02-12-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-12-ydt-ileri",
+       "kod": "ING-YDT-GR-02-12-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-12-maarif-temel",
+       "kod": "ING-MRF-GR-02-12-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-12-maarif-ileri",
+       "kod": "ING-MRF-GR-02-12-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-13",
+     "ad": "02 - tenses - 13",
+     "sira": 13,
+     "lms": [
+      {
+       "id": "863571625",
+       "ad": "02 - tenses - 13",
+       "sure": 295,
+       "vimeo": "863571625",
+       "izlenme": 142,
+       "tamamlama": 35,
+       "ortYuzde": 55,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-8 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-13-ydt-temel",
+       "kod": "ING-YDT-GR-02-13-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-13-ydt-ileri",
+       "kod": "ING-YDT-GR-02-13-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-13-maarif-temel",
+       "kod": "ING-MRF-GR-02-13-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-13-maarif-ileri",
+       "kod": "ING-MRF-GR-02-13-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-14",
+     "ad": "02 - tenses - 14",
+     "sira": 14,
+     "lms": [
+      {
+       "id": "863571688",
+       "ad": "02 - tenses - 14",
+       "sure": 839,
+       "vimeo": "863571688",
+       "izlenme": 180,
+       "tamamlama": 36,
+       "ortYuzde": 57,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-9a uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-14-ydt-temel",
+       "kod": "ING-YDT-GR-02-14-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-14-ydt-ileri",
+       "kod": "ING-YDT-GR-02-14-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-14-maarif-temel",
+       "kod": "ING-MRF-GR-02-14-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-14-maarif-ileri",
+       "kod": "ING-MRF-GR-02-14-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-15",
+     "ad": "02 - tenses - 15",
+     "sira": 15,
+     "lms": [
+      {
+       "id": "863571824",
+       "ad": "02 - tenses - 15",
+       "sure": 838,
+       "vimeo": "863571824",
+       "izlenme": 142,
+       "tamamlama": 13,
+       "ortYuzde": 50,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-9b uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-15-ydt-temel",
+       "kod": "ING-YDT-GR-02-15-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-15-ydt-ileri",
+       "kod": "ING-YDT-GR-02-15-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-15-maarif-temel",
+       "kod": "ING-MRF-GR-02-15-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-15-maarif-ileri",
+       "kod": "ING-MRF-GR-02-15-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-16",
+     "ad": "02 - tenses - 16",
+     "sira": 16,
+     "lms": [
+      {
+       "id": "863571951",
+       "ad": "02 - tenses - 16",
+       "sure": 942,
+       "vimeo": "863571951",
+       "izlenme": 166,
+       "tamamlama": 17,
+       "ortYuzde": 48,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/YEDEK/unit-1_sunum-9c uygun 9. slayt tam versiyon.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-16-ydt-temel",
+       "kod": "ING-YDT-GR-02-16-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-16-ydt-ileri",
+       "kod": "ING-YDT-GR-02-16-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-16-maarif-temel",
+       "kod": "ING-MRF-GR-02-16-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-16-maarif-ileri",
+       "kod": "ING-MRF-GR-02-16-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-17",
+     "ad": "02 - tenses - 17",
+     "sira": 17,
+     "lms": [
+      {
+       "id": "863572087",
+       "ad": "02 - tenses - 17",
+       "sure": 728,
+       "vimeo": "863572087",
+       "izlenme": 180,
+       "tamamlama": 23,
+       "ortYuzde": 46,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-10a uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-17-ydt-temel",
+       "kod": "ING-YDT-GR-02-17-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-17-ydt-ileri",
+       "kod": "ING-YDT-GR-02-17-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-17-maarif-temel",
+       "kod": "ING-MRF-GR-02-17-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-17-maarif-ileri",
+       "kod": "ING-MRF-GR-02-17-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-18",
+     "ad": "02 - tenses - 18",
+     "sira": 18,
+     "lms": [
+      {
+       "id": "863572187",
+       "ad": "02 - tenses - 18",
+       "sure": 713,
+       "vimeo": "863572187",
+       "izlenme": 116,
+       "tamamlama": 26,
+       "ortYuzde": 55,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-10b uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-18-ydt-temel",
+       "kod": "ING-YDT-GR-02-18-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-18-ydt-ileri",
+       "kod": "ING-YDT-GR-02-18-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-18-maarif-temel",
+       "kod": "ING-MRF-GR-02-18-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-18-maarif-ileri",
+       "kod": "ING-MRF-GR-02-18-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-19",
+     "ad": "02 - tenses - 19",
+     "sira": 19,
+     "lms": [
+      {
+       "id": "863572280",
+       "ad": "02 - tenses - 19",
+       "sure": 412,
+       "vimeo": "863572280",
+       "izlenme": 105,
+       "tamamlama": 20,
+       "ortYuzde": 52,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/YEDEK/unit-1_sunum-10c uygun 10. slayt tam versiyon.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-19-ydt-temel",
+       "kod": "ING-YDT-GR-02-19-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-19-ydt-ileri",
+       "kod": "ING-YDT-GR-02-19-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-19-maarif-temel",
+       "kod": "ING-MRF-GR-02-19-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-19-maarif-ileri",
+       "kod": "ING-MRF-GR-02-19-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-20",
+     "ad": "02 - tenses - 20",
+     "sira": 20,
+     "lms": [
+      {
+       "id": "863572343",
+       "ad": "02 - tenses - 20",
+       "sure": 529,
+       "vimeo": "863572343",
+       "izlenme": 113,
+       "tamamlama": 17,
+       "ortYuzde": 56,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-11a uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-20-ydt-temel",
+       "kod": "ING-YDT-GR-02-20-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-20-ydt-ileri",
+       "kod": "ING-YDT-GR-02-20-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-20-maarif-temel",
+       "kod": "ING-MRF-GR-02-20-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-20-maarif-ileri",
+       "kod": "ING-MRF-GR-02-20-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-21",
+     "ad": "02 - tenses - 21",
+     "sira": 21,
+     "lms": [
+      {
+       "id": "863572437",
+       "ad": "02 - tenses - 21",
+       "sure": 452,
+       "vimeo": "863572437",
+       "izlenme": 123,
+       "tamamlama": 39,
+       "ortYuzde": 57,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-11b uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-21-ydt-temel",
+       "kod": "ING-YDT-GR-02-21-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-21-ydt-ileri",
+       "kod": "ING-YDT-GR-02-21-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-21-maarif-temel",
+       "kod": "ING-MRF-GR-02-21-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-21-maarif-ileri",
+       "kod": "ING-MRF-GR-02-21-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-22",
+     "ad": "02 - tenses - 22",
+     "sira": 22,
+     "lms": [
+      {
+       "id": "863572490",
+       "ad": "02 - tenses - 22",
+       "sure": 485,
+       "vimeo": "863572490",
+       "izlenme": 122,
+       "tamamlama": 31,
+       "ortYuzde": 51,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-11a uygun.pptx",
+      "YEDEK/Tenses/unit-1_sunum-11b uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-22-ydt-temel",
+       "kod": "ING-YDT-GR-02-22-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-22-ydt-ileri",
+       "kod": "ING-YDT-GR-02-22-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-22-maarif-temel",
+       "kod": "ING-MRF-GR-02-22-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-22-maarif-ileri",
+       "kod": "ING-MRF-GR-02-22-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-23",
+     "ad": "02 - tenses - 23",
+     "sira": 23,
+     "lms": [
+      {
+       "id": "863572563",
+       "ad": "02 - tenses - 23",
+       "sure": 720,
+       "vimeo": "863572563",
+       "izlenme": 156,
+       "tamamlama": 16,
+       "ortYuzde": 39,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-11a uygun.pptx",
+      "YEDEK/Tenses/unit-1_sunum-11b uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-23-ydt-temel",
+       "kod": "ING-YDT-GR-02-23-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-23-ydt-ileri",
+       "kod": "ING-YDT-GR-02-23-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-23-maarif-temel",
+       "kod": "ING-MRF-GR-02-23-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-23-maarif-ileri",
+       "kod": "ING-MRF-GR-02-23-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-24",
+     "ad": "02 - tenses - 24",
+     "sira": 24,
+     "lms": [
+      {
+       "id": "869510035",
+       "ad": "02 - tenses - 24",
+       "sure": 577,
+       "vimeo": "869510035",
+       "izlenme": 156,
+       "tamamlama": 14,
+       "ortYuzde": 40,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-12 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-24-ydt-temel",
+       "kod": "ING-YDT-GR-02-24-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-24-ydt-ileri",
+       "kod": "ING-YDT-GR-02-24-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-24-maarif-temel",
+       "kod": "ING-MRF-GR-02-24-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-24-maarif-ileri",
+       "kod": "ING-MRF-GR-02-24-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-25",
+     "ad": "02 - tenses - 25",
+     "sira": 25,
+     "lms": [
+      {
+       "id": "869510091",
+       "ad": "02 - tenses - 25",
+       "sure": 604,
+       "vimeo": "869510091",
+       "izlenme": 124,
+       "tamamlama": 13,
+       "ortYuzde": 39,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-13 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-25-ydt-temel",
+       "kod": "ING-YDT-GR-02-25-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-25-ydt-ileri",
+       "kod": "ING-YDT-GR-02-25-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-25-maarif-temel",
+       "kod": "ING-MRF-GR-02-25-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-25-maarif-ileri",
+       "kod": "ING-MRF-GR-02-25-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-02-26",
+     "ad": "02 - tenses - 26",
+     "sira": 26,
+     "lms": [
+      {
+       "id": "869510164",
+       "ad": "02 - tenses - 26",
+       "sure": 673,
+       "vimeo": "869510164",
+       "izlenme": 133,
+       "tamamlama": 15,
+       "ortYuzde": 30,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Tenses/unit-1_sunum-14 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "02-26-ydt-temel",
+       "kod": "ING-YDT-GR-02-26-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-26-ydt-ileri",
+       "kod": "ING-YDT-GR-02-26-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-26-maarif-temel",
+       "kod": "ING-MRF-GR-02-26-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "02-26-maarif-ileri",
+       "kod": "ING-MRF-GR-02-26-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kod": "03",
+   "ad": "Modals",
+   "sira": 3,
+   "konular": [
+    {
+     "kod": "GR-03-01",
+     "ad": "03-modals-01",
+     "sira": 1,
+     "lms": [
+      {
+       "id": "863644955",
+       "ad": "03-modals-01",
+       "sure": 537,
+       "vimeo": "863644955",
+       "izlenme": 516,
+       "tamamlama": 127,
+       "ortYuzde": 47,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-1.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-01-ydt-temel",
+       "kod": "ING-YDT-GR-03-01-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-01-ydt-ileri",
+       "kod": "ING-YDT-GR-03-01-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-01-maarif-temel",
+       "kod": "ING-MRF-GR-03-01-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-01-maarif-ileri",
+       "kod": "ING-MRF-GR-03-01-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-02",
+     "ad": "03-modals-02",
+     "sira": 2,
+     "lms": [
+      {
+       "id": "863645026",
+       "ad": "03-modals-02",
+       "sure": 544,
+       "vimeo": "863645026",
+       "izlenme": 240,
+       "tamamlama": 66,
+       "ortYuzde": 65,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-1.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-02-ydt-temel",
+       "kod": "ING-YDT-GR-03-02-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-02-ydt-ileri",
+       "kod": "ING-YDT-GR-03-02-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-02-maarif-temel",
+       "kod": "ING-MRF-GR-03-02-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-02-maarif-ileri",
+       "kod": "ING-MRF-GR-03-02-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-03",
+     "ad": "03-modals-03",
+     "sira": 3,
+     "lms": [
+      {
+       "id": "863645075",
+       "ad": "03-modals-03",
+       "sure": 1009,
+       "vimeo": "863645075",
+       "izlenme": 218,
+       "tamamlama": 34,
+       "ortYuzde": 57,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-2.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-03-ydt-temel",
+       "kod": "ING-YDT-GR-03-03-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-03-ydt-ileri",
+       "kod": "ING-YDT-GR-03-03-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-03-maarif-temel",
+       "kod": "ING-MRF-GR-03-03-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-03-maarif-ileri",
+       "kod": "ING-MRF-GR-03-03-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-04",
+     "ad": "03-modals-04",
+     "sira": 4,
+     "lms": [
+      {
+       "id": "863645192",
+       "ad": "03-modals-04",
+       "sure": 611,
+       "vimeo": "863645192",
+       "izlenme": 158,
+       "tamamlama": 26,
+       "ortYuzde": 61,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-2.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-04-ydt-temel",
+       "kod": "ING-YDT-GR-03-04-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-04-ydt-ileri",
+       "kod": "ING-YDT-GR-03-04-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-04-maarif-temel",
+       "kod": "ING-MRF-GR-03-04-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-04-maarif-ileri",
+       "kod": "ING-MRF-GR-03-04-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-05",
+     "ad": "03-modals-05",
+     "sira": 5,
+     "lms": [
+      {
+       "id": "863645273",
+       "ad": "03-modals-05",
+       "sure": 610,
+       "vimeo": "863645273",
+       "izlenme": 152,
+       "tamamlama": 29,
+       "ortYuzde": 58,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-3.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-05-ydt-temel",
+       "kod": "ING-YDT-GR-03-05-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-05-ydt-ileri",
+       "kod": "ING-YDT-GR-03-05-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-05-maarif-temel",
+       "kod": "ING-MRF-GR-03-05-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-05-maarif-ileri",
+       "kod": "ING-MRF-GR-03-05-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-06",
+     "ad": "03-modals-06",
+     "sira": 6,
+     "lms": [
+      {
+       "id": "863645350",
+       "ad": "03-modals-06",
+       "sure": 846,
+       "vimeo": "863645350",
+       "izlenme": 135,
+       "tamamlama": 22,
+       "ortYuzde": 59,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-3.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-06-ydt-temel",
+       "kod": "ING-YDT-GR-03-06-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-06-ydt-ileri",
+       "kod": "ING-YDT-GR-03-06-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-06-maarif-temel",
+       "kod": "ING-MRF-GR-03-06-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-06-maarif-ileri",
+       "kod": "ING-MRF-GR-03-06-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-07",
+     "ad": "03-modals-07",
+     "sira": 7,
+     "lms": [
+      {
+       "id": "863645455",
+       "ad": "03-modals-07",
+       "sure": 256,
+       "vimeo": "863645455",
+       "izlenme": 100,
+       "tamamlama": 43,
+       "ortYuzde": 63,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-4.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-07-ydt-temel",
+       "kod": "ING-YDT-GR-03-07-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-07-ydt-ileri",
+       "kod": "ING-YDT-GR-03-07-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-07-maarif-temel",
+       "kod": "ING-MRF-GR-03-07-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-07-maarif-ileri",
+       "kod": "ING-MRF-GR-03-07-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-08",
+     "ad": "03-modals-08",
+     "sira": 8,
+     "lms": [
+      {
+       "id": "863645503",
+       "ad": "03-modals-08",
+       "sure": 718,
+       "vimeo": "863645503",
+       "izlenme": 108,
+       "tamamlama": 27,
+       "ortYuzde": 53,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-4.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-08-ydt-temel",
+       "kod": "ING-YDT-GR-03-08-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-08-ydt-ileri",
+       "kod": "ING-YDT-GR-03-08-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-08-maarif-temel",
+       "kod": "ING-MRF-GR-03-08-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-08-maarif-ileri",
+       "kod": "ING-MRF-GR-03-08-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-09",
+     "ad": "03-modals-09",
+     "sira": 9,
+     "lms": [
+      {
+       "id": "863645581",
+       "ad": "03-modals-09",
+       "sure": 573,
+       "vimeo": "863645581",
+       "izlenme": 105,
+       "tamamlama": 17,
+       "ortYuzde": 54,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-5-yeniden.pptx",
+      "YEDEK/Modals/unit-3_sunum-5.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-09-ydt-temel",
+       "kod": "ING-YDT-GR-03-09-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-09-ydt-ileri",
+       "kod": "ING-YDT-GR-03-09-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-09-maarif-temel",
+       "kod": "ING-MRF-GR-03-09-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-09-maarif-ileri",
+       "kod": "ING-MRF-GR-03-09-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-10",
+     "ad": "03-modals-10",
+     "sira": 10,
+     "lms": [
+      {
+       "id": "863645641",
+       "ad": "03-modals-10",
+       "sure": 331,
+       "vimeo": "863645641",
+       "izlenme": 84,
+       "tamamlama": 18,
+       "ortYuzde": 65,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-5-yeniden.pptx",
+      "YEDEK/Modals/unit-3_sunum-5.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-10-ydt-temel",
+       "kod": "ING-YDT-GR-03-10-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-10-ydt-ileri",
+       "kod": "ING-YDT-GR-03-10-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-10-maarif-temel",
+       "kod": "ING-MRF-GR-03-10-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-10-maarif-ileri",
+       "kod": "ING-MRF-GR-03-10-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-11",
+     "ad": "03-modals-11",
+     "sira": 11,
+     "lms": [
+      {
+       "id": "863645696",
+       "ad": "03-modals-11",
+       "sure": 291,
+       "vimeo": "863645696",
+       "izlenme": 88,
+       "tamamlama": 19,
+       "ortYuzde": 61,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-5-yeniden.pptx",
+      "YEDEK/Modals/unit-3_sunum-5.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-11-ydt-temel",
+       "kod": "ING-YDT-GR-03-11-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-11-ydt-ileri",
+       "kod": "ING-YDT-GR-03-11-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-11-maarif-temel",
+       "kod": "ING-MRF-GR-03-11-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-11-maarif-ileri",
+       "kod": "ING-MRF-GR-03-11-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-12",
+     "ad": "03-modals-12",
+     "sira": 12,
+     "lms": [
+      {
+       "id": "863645738",
+       "ad": "03-modals-12",
+       "sure": 730,
+       "vimeo": "863645738",
+       "izlenme": 134,
+       "tamamlama": 25,
+       "ortYuzde": 42,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-6.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-12-ydt-temel",
+       "kod": "ING-YDT-GR-03-12-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-12-ydt-ileri",
+       "kod": "ING-YDT-GR-03-12-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-12-maarif-temel",
+       "kod": "ING-MRF-GR-03-12-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-12-maarif-ileri",
+       "kod": "ING-MRF-GR-03-12-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-13",
+     "ad": "03-modals-13",
+     "sira": 13,
+     "lms": [
+      {
+       "id": "863645828",
+       "ad": "03-modals-13",
+       "sure": 1029,
+       "vimeo": "863645828",
+       "izlenme": 92,
+       "tamamlama": 10,
+       "ortYuzde": 47,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-6.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-13-ydt-temel",
+       "kod": "ING-YDT-GR-03-13-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-13-ydt-ileri",
+       "kod": "ING-YDT-GR-03-13-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-13-maarif-temel",
+       "kod": "ING-MRF-GR-03-13-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-13-maarif-ileri",
+       "kod": "ING-MRF-GR-03-13-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-14",
+     "ad": "03-modals-14",
+     "sira": 14,
+     "lms": [
+      {
+       "id": "863645944",
+       "ad": "03-modals-14",
+       "sure": 499,
+       "vimeo": "863645944",
+       "izlenme": 81,
+       "tamamlama": 23,
+       "ortYuzde": 47,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-7 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-14-ydt-temel",
+       "kod": "ING-YDT-GR-03-14-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-14-ydt-ileri",
+       "kod": "ING-YDT-GR-03-14-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-14-maarif-temel",
+       "kod": "ING-MRF-GR-03-14-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-14-maarif-ileri",
+       "kod": "ING-MRF-GR-03-14-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-15",
+     "ad": "03-modals-15",
+     "sira": 15,
+     "lms": [
+      {
+       "id": "863646007",
+       "ad": "03-modals-15",
+       "sure": 506,
+       "vimeo": "863646007",
+       "izlenme": 83,
+       "tamamlama": 19,
+       "ortYuzde": 55,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/unit-3_sunum-7b uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-15-ydt-temel",
+       "kod": "ING-YDT-GR-03-15-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-15-ydt-ileri",
+       "kod": "ING-YDT-GR-03-15-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-15-maarif-temel",
+       "kod": "ING-MRF-GR-03-15-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-15-maarif-ileri",
+       "kod": "ING-MRF-GR-03-15-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-16",
+     "ad": "03-modals-16",
+     "sira": 16,
+     "lms": [
+      {
+       "id": "863646068",
+       "ad": "03-modals-16",
+       "sure": 542,
+       "vimeo": "863646068",
+       "izlenme": 95,
+       "tamamlama": 28,
+       "ortYuzde": 60,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-8.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-16-ydt-temel",
+       "kod": "ING-YDT-GR-03-16-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-16-ydt-ileri",
+       "kod": "ING-YDT-GR-03-16-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-16-maarif-temel",
+       "kod": "ING-MRF-GR-03-16-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-16-maarif-ileri",
+       "kod": "ING-MRF-GR-03-16-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-17",
+     "ad": "03-modals-17",
+     "sira": 17,
+     "lms": [
+      {
+       "id": "863646147",
+       "ad": "03-modals-17",
+       "sure": 843,
+       "vimeo": "863646147",
+       "izlenme": 87,
+       "tamamlama": 9,
+       "ortYuzde": 50,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-8.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-17-ydt-temel",
+       "kod": "ING-YDT-GR-03-17-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-17-ydt-ileri",
+       "kod": "ING-YDT-GR-03-17-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-17-maarif-temel",
+       "kod": "ING-MRF-GR-03-17-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-17-maarif-ileri",
+       "kod": "ING-MRF-GR-03-17-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-18",
+     "ad": "03-modals-18",
+     "sira": 18,
+     "lms": [
+      {
+       "id": "863646238",
+       "ad": "03-modals-18",
+       "sure": 672,
+       "vimeo": "863646238",
+       "izlenme": 80,
+       "tamamlama": 10,
+       "ortYuzde": 48,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-9.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-18-ydt-temel",
+       "kod": "ING-YDT-GR-03-18-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-18-ydt-ileri",
+       "kod": "ING-YDT-GR-03-18-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-18-maarif-temel",
+       "kod": "ING-MRF-GR-03-18-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-18-maarif-ileri",
+       "kod": "ING-MRF-GR-03-18-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-19",
+     "ad": "03-modals-19",
+     "sira": 19,
+     "lms": [
+      {
+       "id": "863646328",
+       "ad": "03-modals-19",
+       "sure": 825,
+       "vimeo": "863646328",
+       "izlenme": 81,
+       "tamamlama": 5,
+       "ortYuzde": 40,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-10.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-19-ydt-temel",
+       "kod": "ING-YDT-GR-03-19-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-19-ydt-ileri",
+       "kod": "ING-YDT-GR-03-19-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-19-maarif-temel",
+       "kod": "ING-MRF-GR-03-19-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-19-maarif-ileri",
+       "kod": "ING-MRF-GR-03-19-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-20",
+     "ad": "03-modals-20",
+     "sira": 20,
+     "lms": [
+      {
+       "id": "869531079",
+       "ad": "03-modals-20",
+       "sure": 596,
+       "vimeo": "869531079",
+       "izlenme": 126,
+       "tamamlama": 13,
+       "ortYuzde": 44,
+       "eski": false
+      },
+      {
+       "id": "863644767",
+       "ad": "03-modals-20-Eski",
+       "sure": 596,
+       "vimeo": "863644767",
+       "izlenme": 5,
+       "tamamlama": 0,
+       "ortYuzde": 4,
+       "eski": true
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-11 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-20-ydt-temel",
+       "kod": "ING-YDT-GR-03-20-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-20-ydt-ileri",
+       "kod": "ING-YDT-GR-03-20-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-20-maarif-temel",
+       "kod": "ING-MRF-GR-03-20-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-20-maarif-ileri",
+       "kod": "ING-MRF-GR-03-20-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-21",
+     "ad": "03-modals-21",
+     "sira": 21,
+     "lms": [
+      {
+       "id": "869531018",
+       "ad": "03-modals-21",
+       "sure": 742,
+       "vimeo": "869531018",
+       "izlenme": 67,
+       "tamamlama": 12,
+       "ortYuzde": 42,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Modals/unit-3_sunum-13.pptx",
+      "YEDEK/unit-3_sunum-13.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "03-21-ydt-temel",
+       "kod": "ING-YDT-GR-03-21-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-21-ydt-ileri",
+       "kod": "ING-YDT-GR-03-21-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-21-maarif-temel",
+       "kod": "ING-MRF-GR-03-21-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-21-maarif-ileri",
+       "kod": "ING-MRF-GR-03-21-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-03-22",
+     "ad": "03-modals-22",
+     "sira": 22,
+     "lms": [
+      {
+       "id": "863644829",
+       "ad": "03-modals-22",
+       "sure": 1212,
+       "vimeo": "863644829",
+       "izlenme": 85,
+       "tamamlama": 7,
+       "ortYuzde": 27,
+       "eski": false
+      }
+     ],
+     "pptx": [],
+     "videolar": [
+      {
+       "kimlik": "03-22-ydt-temel",
+       "kod": "ING-YDT-GR-03-22-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-22-ydt-ileri",
+       "kod": "ING-YDT-GR-03-22-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-22-maarif-temel",
+       "kod": "ING-MRF-GR-03-22-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "03-22-maarif-ileri",
+       "kod": "ING-MRF-GR-03-22-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kod": "04",
+   "ad": "Passive",
+   "sira": 4,
+   "konular": [
+    {
+     "kod": "GR-04-01",
+     "ad": "04-passive-1",
+     "sira": 1,
+     "lms": [
+      {
+       "id": "863240551",
+       "ad": "04-passive-1",
+       "sure": 813,
+       "vimeo": "863240551",
+       "izlenme": 473,
+       "tamamlama": 63,
+       "ortYuzde": 42,
+       "eski": false
+      }
+     ],
+     "pptx": [],
+     "videolar": [
+      {
+       "kimlik": "04-01-ydt-temel",
+       "kod": "ING-YDT-GR-04-01-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-01-ydt-ileri",
+       "kod": "ING-YDT-GR-04-01-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-01-maarif-temel",
+       "kod": "ING-MRF-GR-04-01-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-01-maarif-ileri",
+       "kod": "ING-MRF-GR-04-01-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-04-02",
+     "ad": "04-passive-2",
+     "sira": 2,
+     "lms": [
+      {
+       "id": "863240625",
+       "ad": "04-passive-2",
+       "sure": 879,
+       "vimeo": "863240625",
+       "izlenme": 278,
+       "tamamlama": 53,
+       "ortYuzde": 47,
+       "eski": false
+      }
+     ],
+     "pptx": [],
+     "videolar": [
+      {
+       "kimlik": "04-02-ydt-temel",
+       "kod": "ING-YDT-GR-04-02-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-02-ydt-ileri",
+       "kod": "ING-YDT-GR-04-02-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-02-maarif-temel",
+       "kod": "ING-MRF-GR-04-02-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-02-maarif-ileri",
+       "kod": "ING-MRF-GR-04-02-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-04-03",
+     "ad": "04-passive-3",
+     "sira": 3,
+     "lms": [
+      {
+       "id": "863239926",
+       "ad": "04-passive-3",
+       "sure": 639,
+       "vimeo": "863239926",
+       "izlenme": 216,
+       "tamamlama": 55,
+       "ortYuzde": 49,
+       "eski": false
+      }
+     ],
+     "pptx": [],
+     "videolar": [
+      {
+       "kimlik": "04-03-ydt-temel",
+       "kod": "ING-YDT-GR-04-03-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-03-ydt-ileri",
+       "kod": "ING-YDT-GR-04-03-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-03-maarif-temel",
+       "kod": "ING-MRF-GR-04-03-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-03-maarif-ileri",
+       "kod": "ING-MRF-GR-04-03-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-04-04",
+     "ad": "04-passive-4",
+     "sira": 4,
+     "lms": [
+      {
+       "id": "863240047",
+       "ad": "04-passive-4-p1",
+       "sure": 465,
+       "vimeo": "863240047",
+       "izlenme": 184,
+       "tamamlama": 51,
+       "ortYuzde": 60,
+       "eski": false
+      },
+      {
+       "id": "863240116",
+       "ad": "04-passive-4-p2",
+       "sure": 317,
+       "vimeo": "863240116",
+       "izlenme": 163,
+       "tamamlama": 69,
+       "ortYuzde": 64,
+       "eski": false
+      }
+     ],
+     "pptx": [],
+     "videolar": [
+      {
+       "kimlik": "04-04-ydt-temel",
+       "kod": "ING-YDT-GR-04-04-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-04-ydt-ileri",
+       "kod": "ING-YDT-GR-04-04-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-04-maarif-temel",
+       "kod": "ING-MRF-GR-04-04-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-04-maarif-ileri",
+       "kod": "ING-MRF-GR-04-04-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-04-05",
+     "ad": "04-passive-5",
+     "sira": 5,
+     "lms": [
+      {
+       "id": "863240186",
+       "ad": "04-passive-5",
+       "sure": 506,
+       "vimeo": "863240186",
+       "izlenme": 216,
+       "tamamlama": 58,
+       "ortYuzde": 54,
+       "eski": false
+      }
+     ],
+     "pptx": [],
+     "videolar": [
+      {
+       "kimlik": "04-05-ydt-temel",
+       "kod": "ING-YDT-GR-04-05-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-05-ydt-ileri",
+       "kod": "ING-YDT-GR-04-05-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-05-maarif-temel",
+       "kod": "ING-MRF-GR-04-05-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-05-maarif-ileri",
+       "kod": "ING-MRF-GR-04-05-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-04-06",
+     "ad": "04-passive-6",
+     "sira": 6,
+     "lms": [
+      {
+       "id": "863240269",
+       "ad": "04-passive-6-p1",
+       "sure": 739,
+       "vimeo": "863240269",
+       "izlenme": 172,
+       "tamamlama": 45,
+       "ortYuzde": 57,
+       "eski": false
+      },
+      {
+       "id": "863240352",
+       "ad": "04-passive-6-p2",
+       "sure": 543,
+       "vimeo": "863240352",
+       "izlenme": 145,
+       "tamamlama": 27,
+       "ortYuzde": 47,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/unit-4_sunum-6b uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "04-06-ydt-temel",
+       "kod": "ING-YDT-GR-04-06-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-06-ydt-ileri",
+       "kod": "ING-YDT-GR-04-06-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-06-maarif-temel",
+       "kod": "ING-MRF-GR-04-06-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-06-maarif-ileri",
+       "kod": "ING-MRF-GR-04-06-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-04-07",
+     "ad": "04-passive-7",
+     "sira": 7,
+     "lms": [
+      {
+       "id": "863240445",
+       "ad": "04-passive-7",
+       "sure": 953,
+       "vimeo": "863240445",
+       "izlenme": 177,
+       "tamamlama": 24,
+       "ortYuzde": 46,
+       "eski": false
+      }
+     ],
+     "pptx": [],
+     "videolar": [
+      {
+       "kimlik": "04-07-ydt-temel",
+       "kod": "ING-YDT-GR-04-07-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-07-ydt-ileri",
+       "kod": "ING-YDT-GR-04-07-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-07-maarif-temel",
+       "kod": "ING-MRF-GR-04-07-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-07-maarif-ileri",
+       "kod": "ING-MRF-GR-04-07-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-04-08",
+     "ad": "04-passive-8",
+     "sira": 8,
+     "lms": [
+      {
+       "id": "869538103",
+       "ad": "04-passive-8",
+       "sure": 1029,
+       "vimeo": "869538103",
+       "izlenme": 160,
+       "tamamlama": 23,
+       "ortYuzde": 33,
+       "eski": false
+      }
+     ],
+     "pptx": [],
+     "videolar": [
+      {
+       "kimlik": "04-08-ydt-temel",
+       "kod": "ING-YDT-GR-04-08-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-08-ydt-ileri",
+       "kod": "ING-YDT-GR-04-08-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-08-maarif-temel",
+       "kod": "ING-MRF-GR-04-08-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "04-08-maarif-ileri",
+       "kod": "ING-MRF-GR-04-08-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kod": "05",
+   "ad": "Conjunctions 1",
+   "sira": 5,
+   "konular": [
+    {
+     "kod": "GR-05-01",
+     "ad": "05-conjunctions-1",
+     "sira": 1,
+     "lms": [
+      {
+       "id": "863243252",
+       "ad": "05-conjunctions-1",
+       "sure": 778,
+       "vimeo": "863243252",
+       "izlenme": 391,
+       "tamamlama": 44,
+       "ortYuzde": 41,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 01/unit-5_sunum-1 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "05-01-ydt-temel",
+       "kod": "ING-YDT-GR-05-01-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-01-ydt-ileri",
+       "kod": "ING-YDT-GR-05-01-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-01-maarif-temel",
+       "kod": "ING-MRF-GR-05-01-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-01-maarif-ileri",
+       "kod": "ING-MRF-GR-05-01-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-05-02",
+     "ad": "05-conjunctions-2",
+     "sira": 2,
+     "lms": [
+      {
+       "id": "863243432",
+       "ad": "05-conjunctions-2",
+       "sure": 1020,
+       "vimeo": "863243432",
+       "izlenme": 294,
+       "tamamlama": 37,
+       "ortYuzde": 43,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 01/unit-5_sunum-2 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "05-02-ydt-temel",
+       "kod": "ING-YDT-GR-05-02-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-02-ydt-ileri",
+       "kod": "ING-YDT-GR-05-02-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-02-maarif-temel",
+       "kod": "ING-MRF-GR-05-02-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-02-maarif-ileri",
+       "kod": "ING-MRF-GR-05-02-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-05-03",
+     "ad": "05-conjunctions-3",
+     "sira": 3,
+     "lms": [
+      {
+       "id": "863243581",
+       "ad": "05-conjunctions-3",
+       "sure": 777,
+       "vimeo": "863243581",
+       "izlenme": 198,
+       "tamamlama": 33,
+       "ortYuzde": 49,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 01/unit-5_sunum-3 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "05-03-ydt-temel",
+       "kod": "ING-YDT-GR-05-03-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-03-ydt-ileri",
+       "kod": "ING-YDT-GR-05-03-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-03-maarif-temel",
+       "kod": "ING-MRF-GR-05-03-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-03-maarif-ileri",
+       "kod": "ING-MRF-GR-05-03-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-05-04",
+     "ad": "05-conjunctions-4",
+     "sira": 4,
+     "lms": [
+      {
+       "id": "863243697",
+       "ad": "05-conjunctions-4",
+       "sure": 1051,
+       "vimeo": "863243697",
+       "izlenme": 210,
+       "tamamlama": 43,
+       "ortYuzde": 49,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 01/unit-5_sunum-4 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "05-04-ydt-temel",
+       "kod": "ING-YDT-GR-05-04-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-04-ydt-ileri",
+       "kod": "ING-YDT-GR-05-04-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-04-maarif-temel",
+       "kod": "ING-MRF-GR-05-04-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-04-maarif-ileri",
+       "kod": "ING-MRF-GR-05-04-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-05-05",
+     "ad": "05-conjunctions-5",
+     "sira": 5,
+     "lms": [
+      {
+       "id": "863243813",
+       "ad": "05-conjunctions-5-p1",
+       "sure": 538,
+       "vimeo": "863243813",
+       "izlenme": 165,
+       "tamamlama": 39,
+       "ortYuzde": 48,
+       "eski": false
+      },
+      {
+       "id": "863243877",
+       "ad": "05-conjunctions-5-p2",
+       "sure": 616,
+       "vimeo": "863243877",
+       "izlenme": 152,
+       "tamamlama": 25,
+       "ortYuzde": 50,
+       "eski": false
+      },
+      {
+       "id": "863243950",
+       "ad": "05-conjunctions-5-p3",
+       "sure": 185,
+       "vimeo": "863243950",
+       "izlenme": 115,
+       "tamamlama": 33,
+       "ortYuzde": 55,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 01/unit-5_sunum-5 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "05-05-ydt-temel",
+       "kod": "ING-YDT-GR-05-05-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-05-ydt-ileri",
+       "kod": "ING-YDT-GR-05-05-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-05-maarif-temel",
+       "kod": "ING-MRF-GR-05-05-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-05-maarif-ileri",
+       "kod": "ING-MRF-GR-05-05-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-05-06",
+     "ad": "05-conjunctions-6",
+     "sira": 6,
+     "lms": [
+      {
+       "id": "863242448",
+       "ad": "05-conjunctions-6-p1",
+       "sure": 635,
+       "vimeo": "863242448",
+       "izlenme": 154,
+       "tamamlama": 40,
+       "ortYuzde": 55,
+       "eski": false
+      },
+      {
+       "id": "863242534",
+       "ad": "05-conjunctions-6-p2",
+       "sure": 505,
+       "vimeo": "863242534",
+       "izlenme": 135,
+       "tamamlama": 23,
+       "ortYuzde": 58,
+       "eski": false
+      },
+      {
+       "id": "863242604",
+       "ad": "05-conjunctions-6-p3",
+       "sure": 507,
+       "vimeo": "863242604",
+       "izlenme": 122,
+       "tamamlama": 27,
+       "ortYuzde": 57,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 01/unit-5_sunum-6.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "05-06-ydt-temel",
+       "kod": "ING-YDT-GR-05-06-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-06-ydt-ileri",
+       "kod": "ING-YDT-GR-05-06-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-06-maarif-temel",
+       "kod": "ING-MRF-GR-05-06-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-06-maarif-ileri",
+       "kod": "ING-MRF-GR-05-06-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-05-07",
+     "ad": "05-conjunctions-7",
+     "sira": 7,
+     "lms": [
+      {
+       "id": "863242732",
+       "ad": "05-conjunctions-7",
+       "sure": 868,
+       "vimeo": "863242732",
+       "izlenme": 114,
+       "tamamlama": 12,
+       "ortYuzde": 54,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 01/unit-5_sunum-7 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "05-07-ydt-temel",
+       "kod": "ING-YDT-GR-05-07-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-07-ydt-ileri",
+       "kod": "ING-YDT-GR-05-07-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-07-maarif-temel",
+       "kod": "ING-MRF-GR-05-07-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-07-maarif-ileri",
+       "kod": "ING-MRF-GR-05-07-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-05-08",
+     "ad": "05-conjunctions-8",
+     "sira": 8,
+     "lms": [
+      {
+       "id": "863242915",
+       "ad": "05-conjunctions-8-p1",
+       "sure": 936,
+       "vimeo": "863242915",
+       "izlenme": 115,
+       "tamamlama": 20,
+       "ortYuzde": 49,
+       "eski": false
+      },
+      {
+       "id": "863243148",
+       "ad": "05-conjunctions-8-p2",
+       "sure": 534,
+       "vimeo": "863243148",
+       "izlenme": 92,
+       "tamamlama": 25,
+       "ortYuzde": 52,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 01/unit-5_sunum-8 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "05-08-ydt-temel",
+       "kod": "ING-YDT-GR-05-08-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-08-ydt-ileri",
+       "kod": "ING-YDT-GR-05-08-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-08-maarif-temel",
+       "kod": "ING-MRF-GR-05-08-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-08-maarif-ileri",
+       "kod": "ING-MRF-GR-05-08-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-05-09",
+     "ad": "05-conjunctions-9",
+     "sira": 9,
+     "lms": [
+      {
+       "id": "869547239",
+       "ad": "05-conjunctions-9",
+       "sure": 777,
+       "vimeo": "869547239",
+       "izlenme": 141,
+       "tamamlama": 21,
+       "ortYuzde": 36,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 01/unit-5_sunum-9 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "05-09-ydt-temel",
+       "kod": "ING-YDT-GR-05-09-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-09-ydt-ileri",
+       "kod": "ING-YDT-GR-05-09-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-09-maarif-temel",
+       "kod": "ING-MRF-GR-05-09-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "05-09-maarif-ileri",
+       "kod": "ING-MRF-GR-05-09-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kod": "06",
+   "ad": "Conjunctions 2",
+   "sira": 6,
+   "konular": [
+    {
+     "kod": "GR-06-01",
+     "ad": "06-conjunctions-1",
+     "sira": 1,
+     "lms": [
+      {
+       "id": "863244071",
+       "ad": "06-conjunctions-1-p1",
+       "sure": 443,
+       "vimeo": "863244071",
+       "izlenme": 139,
+       "tamamlama": 53,
+       "ortYuzde": 52,
+       "eski": false
+      },
+      {
+       "id": "863244142",
+       "ad": "06-conjunctions-1-p2",
+       "sure": 435,
+       "vimeo": "863244142",
+       "izlenme": 102,
+       "tamamlama": 38,
+       "ortYuzde": 61,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 02/unit-6_sunum-1 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "06-01-ydt-temel",
+       "kod": "ING-YDT-GR-06-01-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-01-ydt-ileri",
+       "kod": "ING-YDT-GR-06-01-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-01-maarif-temel",
+       "kod": "ING-MRF-GR-06-01-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-01-maarif-ileri",
+       "kod": "ING-MRF-GR-06-01-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-06-02",
+     "ad": "06-conjunctions-2",
+     "sira": 2,
+     "lms": [
+      {
+       "id": "863244196",
+       "ad": "06-conjunctions-2",
+       "sure": 836,
+       "vimeo": "863244196",
+       "izlenme": 99,
+       "tamamlama": 26,
+       "ortYuzde": 51,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 02/unit-6_sunum-2 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "06-02-ydt-temel",
+       "kod": "ING-YDT-GR-06-02-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-02-ydt-ileri",
+       "kod": "ING-YDT-GR-06-02-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-02-maarif-temel",
+       "kod": "ING-MRF-GR-06-02-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-02-maarif-ileri",
+       "kod": "ING-MRF-GR-06-02-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-06-03",
+     "ad": "06-conjunctions-3",
+     "sira": 3,
+     "lms": [
+      {
+       "id": "863244305",
+       "ad": "06-conjunctions-3-p1",
+       "sure": 544,
+       "vimeo": "863244305",
+       "izlenme": 79,
+       "tamamlama": 17,
+       "ortYuzde": 59,
+       "eski": false
+      },
+      {
+       "id": "863244367",
+       "ad": "06-conjunctions-3-p2",
+       "sure": 717,
+       "vimeo": "863244367",
+       "izlenme": 84,
+       "tamamlama": 16,
+       "ortYuzde": 48,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 02/unit-6_sunum-3 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "06-03-ydt-temel",
+       "kod": "ING-YDT-GR-06-03-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-03-ydt-ileri",
+       "kod": "ING-YDT-GR-06-03-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-03-maarif-temel",
+       "kod": "ING-MRF-GR-06-03-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-03-maarif-ileri",
+       "kod": "ING-MRF-GR-06-03-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-06-04",
+     "ad": "06-conjunctions-4",
+     "sira": 4,
+     "lms": [
+      {
+       "id": "863244532",
+       "ad": "06-conjunctions-4-p1",
+       "sure": 537,
+       "vimeo": "863244532",
+       "izlenme": 77,
+       "tamamlama": 18,
+       "ortYuzde": 57,
+       "eski": false
+      },
+      {
+       "id": "863244651",
+       "ad": "06-conjunctions-4-p2",
+       "sure": 626,
+       "vimeo": "863244651",
+       "izlenme": 83,
+       "tamamlama": 16,
+       "ortYuzde": 53,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 02/unit-6_sunum-4 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "06-04-ydt-temel",
+       "kod": "ING-YDT-GR-06-04-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-04-ydt-ileri",
+       "kod": "ING-YDT-GR-06-04-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-04-maarif-temel",
+       "kod": "ING-MRF-GR-06-04-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-04-maarif-ileri",
+       "kod": "ING-MRF-GR-06-04-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-06-05",
+     "ad": "06-conjunctions-5",
+     "sira": 5,
+     "lms": [
+      {
+       "id": "863244764",
+       "ad": "06-conjunctions-5",
+       "sure": 576,
+       "vimeo": "863244764",
+       "izlenme": 75,
+       "tamamlama": 21,
+       "ortYuzde": 49,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 02/unit-6_sunum-5 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "06-05-ydt-temel",
+       "kod": "ING-YDT-GR-06-05-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-05-ydt-ileri",
+       "kod": "ING-YDT-GR-06-05-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-05-maarif-temel",
+       "kod": "ING-MRF-GR-06-05-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-05-maarif-ileri",
+       "kod": "ING-MRF-GR-06-05-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-06-06",
+     "ad": "06-conjunctions-6",
+     "sira": 6,
+     "lms": [
+      {
+       "id": "863244838",
+       "ad": "06-conjunctions-6-p1",
+       "sure": 562,
+       "vimeo": "863244838",
+       "izlenme": 91,
+       "tamamlama": 26,
+       "ortYuzde": 49,
+       "eski": false
+      },
+      {
+       "id": "863244904",
+       "ad": "06-conjunctions-6-p2",
+       "sure": 445,
+       "vimeo": "863244904",
+       "izlenme": 77,
+       "tamamlama": 13,
+       "ortYuzde": 48,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 02/unit-6_sunum-6 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "06-06-ydt-temel",
+       "kod": "ING-YDT-GR-06-06-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-06-ydt-ileri",
+       "kod": "ING-YDT-GR-06-06-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-06-maarif-temel",
+       "kod": "ING-MRF-GR-06-06-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-06-maarif-ileri",
+       "kod": "ING-MRF-GR-06-06-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-06-07",
+     "ad": "06-conjunctions-7",
+     "sira": 7,
+     "lms": [
+      {
+       "id": "863244961",
+       "ad": "06-conjunctions-7-p1",
+       "sure": 543,
+       "vimeo": "863244961",
+       "izlenme": 63,
+       "tamamlama": 14,
+       "ortYuzde": 58,
+       "eski": false
+      },
+      {
+       "id": "863245022",
+       "ad": "06-conjunctions-7-p2",
+       "sure": 865,
+       "vimeo": "863245022",
+       "izlenme": 62,
+       "tamamlama": 7,
+       "ortYuzde": 43,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 02/unit-6_sunum-7 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "06-07-ydt-temel",
+       "kod": "ING-YDT-GR-06-07-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-07-ydt-ileri",
+       "kod": "ING-YDT-GR-06-07-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-07-maarif-temel",
+       "kod": "ING-MRF-GR-06-07-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-07-maarif-ileri",
+       "kod": "ING-MRF-GR-06-07-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-06-08",
+     "ad": "06-conjunctions-8",
+     "sira": 8,
+     "lms": [
+      {
+       "id": "863245104",
+       "ad": "06-conjunctions-8-p1",
+       "sure": 487,
+       "vimeo": "863245104",
+       "izlenme": 102,
+       "tamamlama": 22,
+       "ortYuzde": 53,
+       "eski": false
+      },
+      {
+       "id": "863245169",
+       "ad": "06-conjunctions-8-p2",
+       "sure": 451,
+       "vimeo": "863245169",
+       "izlenme": 75,
+       "tamamlama": 11,
+       "ortYuzde": 45,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 02/unit-6_sunum-8 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "06-08-ydt-temel",
+       "kod": "ING-YDT-GR-06-08-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-08-ydt-ileri",
+       "kod": "ING-YDT-GR-06-08-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-08-maarif-temel",
+       "kod": "ING-MRF-GR-06-08-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-08-maarif-ileri",
+       "kod": "ING-MRF-GR-06-08-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-06-09",
+     "ad": "06-conjunctions-9",
+     "sira": 9,
+     "lms": [
+      {
+       "id": "863245226",
+       "ad": "06-conjunctions-9-p1",
+       "sure": 332,
+       "vimeo": "863245226",
+       "izlenme": 62,
+       "tamamlama": 19,
+       "ortYuzde": 51,
+       "eski": false
+      },
+      {
+       "id": "863243990",
+       "ad": "06-conjunctions-9-p2",
+       "sure": 719,
+       "vimeo": "863243990",
+       "izlenme": 71,
+       "tamamlama": 13,
+       "ortYuzde": 46,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 02/unit-6_sunum-9 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "06-09-ydt-temel",
+       "kod": "ING-YDT-GR-06-09-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-09-ydt-ileri",
+       "kod": "ING-YDT-GR-06-09-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-09-maarif-temel",
+       "kod": "ING-MRF-GR-06-09-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-09-maarif-ileri",
+       "kod": "ING-MRF-GR-06-09-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-06-10",
+     "ad": "06-conjunctions-10",
+     "sira": 10,
+     "lms": [
+      {
+       "id": "869551136",
+       "ad": "06-conjunctions-10",
+       "sure": 861,
+       "vimeo": "869551136",
+       "izlenme": 96,
+       "tamamlama": 17,
+       "ortYuzde": 31,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Conjunctions/Conjunctions 02/unit-6_sunum-10 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "06-10-ydt-temel",
+       "kod": "ING-YDT-GR-06-10-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-10-ydt-ileri",
+       "kod": "ING-YDT-GR-06-10-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-10-maarif-temel",
+       "kod": "ING-MRF-GR-06-10-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "06-10-maarif-ileri",
+       "kod": "ING-MRF-GR-06-10-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kod": "07",
+   "ad": "Conditionals",
+   "sira": 7,
+   "konular": [
+    {
+     "kod": "GR-07-01",
+     "ad": "07-conditionals-1",
+     "sira": 1,
+     "lms": [
+      {
+       "id": "863245670",
+       "ad": "07-conditionals-1-p1",
+       "sure": 563,
+       "vimeo": "863245670",
+       "izlenme": 222,
+       "tamamlama": 70,
+       "ortYuzde": 54,
+       "eski": false
+      },
+      {
+       "id": "863245726",
+       "ad": "07-conditionals-1-p2",
+       "sure": 847,
+       "vimeo": "863245726",
+       "izlenme": 142,
+       "tamamlama": 50,
+       "ortYuzde": 63,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/conditionals/unit-7_sunum-1a uygun.pptx",
+      "YEDEK/conditionals/unit-7_sunum-1b uygun.pptx",
+      "YEDEK/conditionals/unit-7_sunum-2 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "07-01-ydt-temel",
+       "kod": "ING-YDT-GR-07-01-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-01-ydt-ileri",
+       "kod": "ING-YDT-GR-07-01-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-01-maarif-temel",
+       "kod": "ING-MRF-GR-07-01-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-01-maarif-ileri",
+       "kod": "ING-MRF-GR-07-01-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-07-02",
+     "ad": "07-conditionals-2",
+     "sira": 2,
+     "lms": [
+      {
+       "id": "863245793",
+       "ad": "07-conditionals-2-p1",
+       "sure": 494,
+       "vimeo": "863245793",
+       "izlenme": 121,
+       "tamamlama": 45,
+       "ortYuzde": 60,
+       "eski": false
+      },
+      {
+       "id": "863245863",
+       "ad": "07-conditionals-2-p2",
+       "sure": 633,
+       "vimeo": "863245863",
+       "izlenme": 112,
+       "tamamlama": 31,
+       "ortYuzde": 60,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/conditionals/unit-7_sunum-2 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "07-02-ydt-temel",
+       "kod": "ING-YDT-GR-07-02-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-02-ydt-ileri",
+       "kod": "ING-YDT-GR-07-02-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-02-maarif-temel",
+       "kod": "ING-MRF-GR-07-02-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-02-maarif-ileri",
+       "kod": "ING-MRF-GR-07-02-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-07-03",
+     "ad": "07-conditionals-3",
+     "sira": 3,
+     "lms": [
+      {
+       "id": "863245940",
+       "ad": "07-conditionals-3",
+       "sure": 533,
+       "vimeo": "863245940",
+       "izlenme": 156,
+       "tamamlama": 41,
+       "ortYuzde": 53,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/conditionals/unit-7_sunum-3 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "07-03-ydt-temel",
+       "kod": "ING-YDT-GR-07-03-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-03-ydt-ileri",
+       "kod": "ING-YDT-GR-07-03-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-03-maarif-temel",
+       "kod": "ING-MRF-GR-07-03-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-03-maarif-ileri",
+       "kod": "ING-MRF-GR-07-03-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-07-04",
+     "ad": "07-conditionals-4",
+     "sira": 4,
+     "lms": [
+      {
+       "id": "863246012",
+       "ad": "07-conditionals-4",
+       "sure": 666,
+       "vimeo": "863246012",
+       "izlenme": 134,
+       "tamamlama": 29,
+       "ortYuzde": 50,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/conditionals/unit-7_sunum-4 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "07-04-ydt-temel",
+       "kod": "ING-YDT-GR-07-04-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-04-ydt-ileri",
+       "kod": "ING-YDT-GR-07-04-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-04-maarif-temel",
+       "kod": "ING-MRF-GR-07-04-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-04-maarif-ileri",
+       "kod": "ING-MRF-GR-07-04-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-07-05",
+     "ad": "07-conditionals-5",
+     "sira": 5,
+     "lms": [
+      {
+       "id": "863245271",
+       "ad": "07-conditionals-5",
+       "sure": 847,
+       "vimeo": "863245271",
+       "izlenme": 121,
+       "tamamlama": 17,
+       "ortYuzde": 49,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/conditionals/unit-7_sunum-5 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "07-05-ydt-temel",
+       "kod": "ING-YDT-GR-07-05-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-05-ydt-ileri",
+       "kod": "ING-YDT-GR-07-05-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-05-maarif-temel",
+       "kod": "ING-MRF-GR-07-05-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-05-maarif-ileri",
+       "kod": "ING-MRF-GR-07-05-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-07-06",
+     "ad": "07-conditionals-6",
+     "sira": 6,
+     "lms": [
+      {
+       "id": "863245381",
+       "ad": "07-conditionals-6-p1",
+       "sure": 333,
+       "vimeo": "863245381",
+       "izlenme": 105,
+       "tamamlama": 28,
+       "ortYuzde": 52,
+       "eski": false
+      },
+      {
+       "id": "863245425",
+       "ad": "07-conditionals-6-p2",
+       "sure": 632,
+       "vimeo": "863245425",
+       "izlenme": 113,
+       "tamamlama": 23,
+       "ortYuzde": 44,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/conditionals/unit-7_sunum-6 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "07-06-ydt-temel",
+       "kod": "ING-YDT-GR-07-06-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-06-ydt-ileri",
+       "kod": "ING-YDT-GR-07-06-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-06-maarif-temel",
+       "kod": "ING-MRF-GR-07-06-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-06-maarif-ileri",
+       "kod": "ING-MRF-GR-07-06-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-07-07",
+     "ad": "07-conditionals-7",
+     "sira": 7,
+     "lms": [
+      {
+       "id": "863245505",
+       "ad": "07-conditionals-7-p1",
+       "sure": 860,
+       "vimeo": "863245505",
+       "izlenme": 94,
+       "tamamlama": 20,
+       "ortYuzde": 49,
+       "eski": false
+      },
+      {
+       "id": "863245603",
+       "ad": "07-conditionals-7-p2",
+       "sure": 431,
+       "vimeo": "863245603",
+       "izlenme": 171,
+       "tamamlama": 15,
+       "ortYuzde": 24,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/conditionals/unit-7_sunum-7 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "07-07-ydt-temel",
+       "kod": "ING-YDT-GR-07-07-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-07-ydt-ileri",
+       "kod": "ING-YDT-GR-07-07-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-07-maarif-temel",
+       "kod": "ING-MRF-GR-07-07-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-07-maarif-ileri",
+       "kod": "ING-MRF-GR-07-07-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-07-08",
+     "ad": "07-conditionals-8",
+     "sira": 8,
+     "lms": [
+      {
+       "id": "863949238",
+       "ad": "07-conditionals-8",
+       "sure": 805,
+       "vimeo": "863949238",
+       "izlenme": 190,
+       "tamamlama": 18,
+       "ortYuzde": 26,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/conditionals/unit-7_sunum-8.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "07-08-ydt-temel",
+       "kod": "ING-YDT-GR-07-08-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-08-ydt-ileri",
+       "kod": "ING-YDT-GR-07-08-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-08-maarif-temel",
+       "kod": "ING-MRF-GR-07-08-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-08-maarif-ileri",
+       "kod": "ING-MRF-GR-07-08-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-07-09",
+     "ad": "07-conditionals-9",
+     "sira": 9,
+     "lms": [
+      {
+       "id": "869556210",
+       "ad": "07-conditionals-9",
+       "sure": 986,
+       "vimeo": "869556210",
+       "izlenme": 79,
+       "tamamlama": 13,
+       "ortYuzde": 40,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/conditionals/unit-7_sunum-9 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "07-09-ydt-temel",
+       "kod": "ING-YDT-GR-07-09-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-09-ydt-ileri",
+       "kod": "ING-YDT-GR-07-09-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-09-maarif-temel",
+       "kod": "ING-MRF-GR-07-09-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "07-09-maarif-ileri",
+       "kod": "ING-MRF-GR-07-09-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kod": "08",
+   "ad": "Relative Clauses",
+   "sira": 8,
+   "konular": [
+    {
+     "kod": "GR-08-01",
+     "ad": "08 - Relative_Clauses - 01",
+     "sira": 1,
+     "lms": [
+      {
+       "id": "869599959",
+       "ad": "08 - Relative_Clauses - 01-p1",
+       "sure": 571,
+       "vimeo": "869599959",
+       "izlenme": 290,
+       "tamamlama": 85,
+       "ortYuzde": 45,
+       "eski": false
+      },
+      {
+       "id": "869600087",
+       "ad": "08 - Relative_Clauses - 01-p2",
+       "sure": 1005,
+       "vimeo": "869600087",
+       "izlenme": 207,
+       "tamamlama": 25,
+       "ortYuzde": 47,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Relative Clauses/unit-8_sunum-1 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "08-01-ydt-temel",
+       "kod": "ING-YDT-GR-08-01-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-01-ydt-ileri",
+       "kod": "ING-YDT-GR-08-01-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-01-maarif-temel",
+       "kod": "ING-MRF-GR-08-01-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-01-maarif-ileri",
+       "kod": "ING-MRF-GR-08-01-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-08-02",
+     "ad": "08 - Relative_Clauses - 02",
+     "sira": 2,
+     "lms": [
+      {
+       "id": "869600225",
+       "ad": "08 - Relative_Clauses - 02-p1",
+       "sure": 720,
+       "vimeo": "869600225",
+       "izlenme": 157,
+       "tamamlama": 32,
+       "ortYuzde": 52,
+       "eski": false
+      },
+      {
+       "id": "869600345",
+       "ad": "08 - Relative_Clauses - 02-p2",
+       "sure": 797,
+       "vimeo": "869600345",
+       "izlenme": 127,
+       "tamamlama": 26,
+       "ortYuzde": 53,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Relative Clauses/unit-8_sunum-2 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "08-02-ydt-temel",
+       "kod": "ING-YDT-GR-08-02-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-02-ydt-ileri",
+       "kod": "ING-YDT-GR-08-02-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-02-maarif-temel",
+       "kod": "ING-MRF-GR-08-02-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-02-maarif-ileri",
+       "kod": "ING-MRF-GR-08-02-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-08-03",
+     "ad": "08 - Relative_Clauses - 03",
+     "sira": 3,
+     "lms": [
+      {
+       "id": "869600478",
+       "ad": "08 - Relative_Clauses - 03-p1",
+       "sure": 907,
+       "vimeo": "869600478",
+       "izlenme": 121,
+       "tamamlama": 18,
+       "ortYuzde": 52,
+       "eski": false
+      },
+      {
+       "id": "869600595",
+       "ad": "08 - Relative_Clauses - 03-p2",
+       "sure": 366,
+       "vimeo": "869600595",
+       "izlenme": 98,
+       "tamamlama": 32,
+       "ortYuzde": 55,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Relative Clauses/unit-8_sunum-3 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "08-03-ydt-temel",
+       "kod": "ING-YDT-GR-08-03-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-03-ydt-ileri",
+       "kod": "ING-YDT-GR-08-03-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-03-maarif-temel",
+       "kod": "ING-MRF-GR-08-03-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-03-maarif-ileri",
+       "kod": "ING-MRF-GR-08-03-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-08-04",
+     "ad": "08 - Relative_Clauses - 04",
+     "sira": 4,
+     "lms": [
+      {
+       "id": "869600676",
+       "ad": "08 - Relative_Clauses - 04",
+       "sure": 1032,
+       "vimeo": "869600676",
+       "izlenme": 104,
+       "tamamlama": 13,
+       "ortYuzde": 48,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Relative Clauses/unit-8_sunum-4 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "08-04-ydt-temel",
+       "kod": "ING-YDT-GR-08-04-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-04-ydt-ileri",
+       "kod": "ING-YDT-GR-08-04-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-04-maarif-temel",
+       "kod": "ING-MRF-GR-08-04-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-04-maarif-ileri",
+       "kod": "ING-MRF-GR-08-04-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-08-05",
+     "ad": "08 - Relative_Clauses - 05",
+     "sira": 5,
+     "lms": [
+      {
+       "id": "869599643",
+       "ad": "08 - Relative_Clauses - 05-p1",
+       "sure": 448,
+       "vimeo": "869599643",
+       "izlenme": 118,
+       "tamamlama": 36,
+       "ortYuzde": 58,
+       "eski": false
+      },
+      {
+       "id": "869599725",
+       "ad": "08 - Relative_Clauses - 05-p2",
+       "sure": 815,
+       "vimeo": "869599725",
+       "izlenme": 109,
+       "tamamlama": 16,
+       "ortYuzde": 54,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Relative Clauses/unit-8_sunum-5 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "08-05-ydt-temel",
+       "kod": "ING-YDT-GR-08-05-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-05-ydt-ileri",
+       "kod": "ING-YDT-GR-08-05-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-05-maarif-temel",
+       "kod": "ING-MRF-GR-08-05-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-05-maarif-ileri",
+       "kod": "ING-MRF-GR-08-05-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-08-06",
+     "ad": "08 - Relative_Clauses - 06",
+     "sira": 6,
+     "lms": [
+      {
+       "id": "869599832",
+       "ad": "08 - Relative_Clauses - 06",
+       "sure": 921,
+       "vimeo": "869599832",
+       "izlenme": 105,
+       "tamamlama": 22,
+       "ortYuzde": 47,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Relative Clauses/unit-8_sunum-6 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "08-06-ydt-temel",
+       "kod": "ING-YDT-GR-08-06-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-06-ydt-ileri",
+       "kod": "ING-YDT-GR-08-06-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-06-maarif-temel",
+       "kod": "ING-MRF-GR-08-06-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "08-06-maarif-ileri",
+       "kod": "ING-MRF-GR-08-06-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kod": "09",
+   "ad": "Gerunds & Infinitives",
+   "sira": 9,
+   "konular": [
+    {
+     "kod": "GR-09-01",
+     "ad": "09 - Gerunds-Infinitives- 01",
+     "sira": 1,
+     "lms": [
+      {
+       "id": "870242088",
+       "ad": "09 - Gerunds-Infinitives- 01",
+       "sure": 992,
+       "vimeo": "870242088",
+       "izlenme": 258,
+       "tamamlama": 51,
+       "ortYuzde": 51,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/gerunds infinitves/unit-9_sunum-1 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "09-01-ydt-temel",
+       "kod": "ING-YDT-GR-09-01-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-01-ydt-ileri",
+       "kod": "ING-YDT-GR-09-01-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-01-maarif-temel",
+       "kod": "ING-MRF-GR-09-01-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-01-maarif-ileri",
+       "kod": "ING-MRF-GR-09-01-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-09-02",
+     "ad": "09 - Gerunds-Infinitives- 02",
+     "sira": 2,
+     "lms": [
+      {
+       "id": "870242172",
+       "ad": "09 - Gerunds-Infinitives- 02-p1",
+       "sure": 510,
+       "vimeo": "870242172",
+       "izlenme": 227,
+       "tamamlama": 70,
+       "ortYuzde": 56,
+       "eski": false
+      },
+      {
+       "id": "870242230",
+       "ad": "09 - Gerunds-Infinitives- 02-p2",
+       "sure": 964,
+       "vimeo": "870242230",
+       "izlenme": 145,
+       "tamamlama": 48,
+       "ortYuzde": 64,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/gerunds infinitves/unit-9_sunum-2a uygun.pptx",
+      "YEDEK/gerunds infinitves/unit-9_sunum-2b uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "09-02-ydt-temel",
+       "kod": "ING-YDT-GR-09-02-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-02-ydt-ileri",
+       "kod": "ING-YDT-GR-09-02-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-02-maarif-temel",
+       "kod": "ING-MRF-GR-09-02-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-02-maarif-ileri",
+       "kod": "ING-MRF-GR-09-02-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-09-03",
+     "ad": "09 - Gerunds-Infinitives- 03",
+     "sira": 3,
+     "lms": [
+      {
+       "id": "870242300",
+       "ad": "09 - Gerunds-Infinitives- 03",
+       "sure": 544,
+       "vimeo": "870242300",
+       "izlenme": 113,
+       "tamamlama": 21,
+       "ortYuzde": 53,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/gerunds infinitves/unit-9_sunum-3 uygun.pptx",
+      "YEDEK/gerunds infinitves/unit-9_sunum-4 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "09-03-ydt-temel",
+       "kod": "ING-YDT-GR-09-03-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-03-ydt-ileri",
+       "kod": "ING-YDT-GR-09-03-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-03-maarif-temel",
+       "kod": "ING-MRF-GR-09-03-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-03-maarif-ileri",
+       "kod": "ING-MRF-GR-09-03-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-09-04",
+     "ad": "09 - Gerunds-Infinitives- 04",
+     "sira": 4,
+     "lms": [
+      {
+       "id": "870242343",
+       "ad": "09 - Gerunds-Infinitives- 04",
+       "sure": 565,
+       "vimeo": "870242343",
+       "izlenme": 107,
+       "tamamlama": 13,
+       "ortYuzde": 66,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/gerunds infinitves/unit-9_sunum-4 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "09-04-ydt-temel",
+       "kod": "ING-YDT-GR-09-04-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-04-ydt-ileri",
+       "kod": "ING-YDT-GR-09-04-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-04-maarif-temel",
+       "kod": "ING-MRF-GR-09-04-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-04-maarif-ileri",
+       "kod": "ING-MRF-GR-09-04-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-09-05",
+     "ad": "09 - Gerunds-Infinitives- 05",
+     "sira": 5,
+     "lms": [
+      {
+       "id": "870242403",
+       "ad": "09 - Gerunds-Infinitives- 05-p1",
+       "sure": 890,
+       "vimeo": "870242403",
+       "izlenme": 108,
+       "tamamlama": 32,
+       "ortYuzde": 61,
+       "eski": false
+      },
+      {
+       "id": "870242487",
+       "ad": "09 - Gerunds-Infinitives- 05-p2",
+       "sure": 881,
+       "vimeo": "870242487",
+       "izlenme": 85,
+       "tamamlama": 22,
+       "ortYuzde": 60,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/gerunds infinitves/unit-9_sunum-5 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "09-05-ydt-temel",
+       "kod": "ING-YDT-GR-09-05-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-05-ydt-ileri",
+       "kod": "ING-YDT-GR-09-05-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-05-maarif-temel",
+       "kod": "ING-MRF-GR-09-05-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-05-maarif-ileri",
+       "kod": "ING-MRF-GR-09-05-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-09-06",
+     "ad": "09 - Gerunds-Infinitives- 06",
+     "sira": 6,
+     "lms": [
+      {
+       "id": "870242580",
+       "ad": "09 - Gerunds-Infinitives- 06",
+       "sure": 551,
+       "vimeo": "870242580",
+       "izlenme": 74,
+       "tamamlama": 10,
+       "ortYuzde": 65,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/gerunds infinitves/unit-9_sunum-6 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "09-06-ydt-temel",
+       "kod": "ING-YDT-GR-09-06-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-06-ydt-ileri",
+       "kod": "ING-YDT-GR-09-06-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-06-maarif-temel",
+       "kod": "ING-MRF-GR-09-06-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-06-maarif-ileri",
+       "kod": "ING-MRF-GR-09-06-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-09-07",
+     "ad": "09 - Gerunds-Infinitives- 07",
+     "sira": 7,
+     "lms": [
+      {
+       "id": "870242639",
+       "ad": "09 - Gerunds-Infinitives- 07",
+       "sure": 714,
+       "vimeo": "870242639",
+       "izlenme": 70,
+       "tamamlama": 34,
+       "ortYuzde": 68,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/gerunds infinitves/unit-9_sunum-7 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "09-07-ydt-temel",
+       "kod": "ING-YDT-GR-09-07-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-07-ydt-ileri",
+       "kod": "ING-YDT-GR-09-07-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-07-maarif-temel",
+       "kod": "ING-MRF-GR-09-07-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-07-maarif-ileri",
+       "kod": "ING-MRF-GR-09-07-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-09-08",
+     "ad": "09 - Gerunds-Infinitives- 08",
+     "sira": 8,
+     "lms": [
+      {
+       "id": "870242695",
+       "ad": "09 - Gerunds-Infinitives- 08-p1",
+       "sure": 1006,
+       "vimeo": "870242695",
+       "izlenme": 67,
+       "tamamlama": 7,
+       "ortYuzde": 60,
+       "eski": false
+      },
+      {
+       "id": "870241698",
+       "ad": "09 - Gerunds-Infinitives- 08-p2",
+       "sure": 497,
+       "vimeo": "870241698",
+       "izlenme": 50,
+       "tamamlama": 9,
+       "ortYuzde": 63,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/gerunds infinitves/unit-9_sunum-8.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "09-08-ydt-temel",
+       "kod": "ING-YDT-GR-09-08-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-08-ydt-ileri",
+       "kod": "ING-YDT-GR-09-08-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-08-maarif-temel",
+       "kod": "ING-MRF-GR-09-08-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-08-maarif-ileri",
+       "kod": "ING-MRF-GR-09-08-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-09-09",
+     "ad": "09 - Gerunds-Infinitives- 09",
+     "sira": 9,
+     "lms": [
+      {
+       "id": "870241774",
+       "ad": "09 - Gerunds-Infinitives- 09-p1",
+       "sure": 721,
+       "vimeo": "870241774",
+       "izlenme": 89,
+       "tamamlama": 20,
+       "ortYuzde": 53,
+       "eski": false
+      },
+      {
+       "id": "870241843",
+       "ad": "09 - Gerunds-Infinitives- 09-p2",
+       "sure": 385,
+       "vimeo": "870241843",
+       "izlenme": 47,
+       "tamamlama": 11,
+       "ortYuzde": 68,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/gerunds infinitves/unit-9_sunum-9 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "09-09-ydt-temel",
+       "kod": "ING-YDT-GR-09-09-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-09-ydt-ileri",
+       "kod": "ING-YDT-GR-09-09-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-09-maarif-temel",
+       "kod": "ING-MRF-GR-09-09-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-09-maarif-ileri",
+       "kod": "ING-MRF-GR-09-09-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-09-10",
+     "ad": "09 - Gerunds-Infinitives- 10",
+     "sira": 10,
+     "lms": [
+      {
+       "id": "870241893",
+       "ad": "09 - Gerunds-Infinitives- 10",
+       "sure": 491,
+       "vimeo": "870241893",
+       "izlenme": 48,
+       "tamamlama": 13,
+       "ortYuzde": 64,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/gerunds infinitves/unit-9_sunum-10 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "09-10-ydt-temel",
+       "kod": "ING-YDT-GR-09-10-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-10-ydt-ileri",
+       "kod": "ING-YDT-GR-09-10-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-10-maarif-temel",
+       "kod": "ING-MRF-GR-09-10-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-10-maarif-ileri",
+       "kod": "ING-MRF-GR-09-10-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-09-11",
+     "ad": "09 - Gerunds-Infinitives- 11",
+     "sira": 11,
+     "lms": [
+      {
+       "id": "870241939",
+       "ad": "09 - Gerunds-Infinitives- 11",
+       "sure": 1025,
+       "vimeo": "870241939",
+       "izlenme": 52,
+       "tamamlama": 9,
+       "ortYuzde": 59,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/gerunds infinitves/unit-9_sunum-11.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "09-11-ydt-temel",
+       "kod": "ING-YDT-GR-09-11-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-11-ydt-ileri",
+       "kod": "ING-YDT-GR-09-11-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-11-maarif-temel",
+       "kod": "ING-MRF-GR-09-11-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-11-maarif-ileri",
+       "kod": "ING-MRF-GR-09-11-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-09-12",
+     "ad": "09 - Gerunds-Infinitives- 12",
+     "sira": 12,
+     "lms": [
+      {
+       "id": "870242019",
+       "ad": "09 - Gerunds-Infinitives- 12",
+       "sure": 1040,
+       "vimeo": "870242019",
+       "izlenme": 64,
+       "tamamlama": 6,
+       "ortYuzde": 40,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/gerunds infinitves/unit-9_sunum-12 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "09-12-ydt-temel",
+       "kod": "ING-YDT-GR-09-12-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-12-ydt-ileri",
+       "kod": "ING-YDT-GR-09-12-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-12-maarif-temel",
+       "kod": "ING-MRF-GR-09-12-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "09-12-maarif-ileri",
+       "kod": "ING-MRF-GR-09-12-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kod": "10",
+   "ad": "Noun Clauses & Reported Speech",
+   "sira": 10,
+   "konular": [
+    {
+     "kod": "GR-10-01",
+     "ad": "10 - Noun_Clauses-Reported_Speech- 01",
+     "sira": 1,
+     "lms": [
+      {
+       "id": "870293540",
+       "ad": "10 - Noun_Clauses-Reported_Speech- 01",
+       "sure": 581,
+       "vimeo": "870293540",
+       "izlenme": 154,
+       "tamamlama": 29,
+       "ortYuzde": 53,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Noun Clauses/unit-10_sunum-1.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "10-01-ydt-temel",
+       "kod": "ING-YDT-GR-10-01-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-01-ydt-ileri",
+       "kod": "ING-YDT-GR-10-01-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-01-maarif-temel",
+       "kod": "ING-MRF-GR-10-01-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-01-maarif-ileri",
+       "kod": "ING-MRF-GR-10-01-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-10-02",
+     "ad": "10 - Noun_Clauses-Reported_Speech- 02",
+     "sira": 2,
+     "lms": [
+      {
+       "id": "870293605",
+       "ad": "10 - Noun_Clauses-Reported_Speech- 02-p1",
+       "sure": 873,
+       "vimeo": "870293605",
+       "izlenme": 109,
+       "tamamlama": 28,
+       "ortYuzde": 60,
+       "eski": false
+      },
+      {
+       "id": "870293717",
+       "ad": "10 - Noun_Clauses-Reported_Speech- 02-p2",
+       "sure": 368,
+       "vimeo": "870293717",
+       "izlenme": 68,
+       "tamamlama": 26,
+       "ortYuzde": 77,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Noun Clauses/unit-10_sunum-2a uygun.pptx",
+      "YEDEK/Noun Clauses/unit-10_sunum-2b uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "10-02-ydt-temel",
+       "kod": "ING-YDT-GR-10-02-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-02-ydt-ileri",
+       "kod": "ING-YDT-GR-10-02-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-02-maarif-temel",
+       "kod": "ING-MRF-GR-10-02-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-02-maarif-ileri",
+       "kod": "ING-MRF-GR-10-02-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-10-03",
+     "ad": "10 - Noun_Clauses-Reported_Speech- 03",
+     "sira": 3,
+     "lms": [
+      {
+       "id": "870293781",
+       "ad": "10 - Noun_Clauses-Reported_Speech- 03-p1",
+       "sure": 749,
+       "vimeo": "870293781",
+       "izlenme": 72,
+       "tamamlama": 9,
+       "ortYuzde": 64,
+       "eski": false
+      },
+      {
+       "id": "870293894",
+       "ad": "10 - Noun_Clauses-Reported_Speech- 03-p2",
+       "sure": 427,
+       "vimeo": "870293894",
+       "izlenme": 57,
+       "tamamlama": 12,
+       "ortYuzde": 66,
+       "eski": false
+      },
+      {
+       "id": "870293947",
+       "ad": "10 - Noun_Clauses-Reported_Speech- 03-p3",
+       "sure": 329,
+       "vimeo": "870293947",
+       "izlenme": 68,
+       "tamamlama": 20,
+       "ortYuzde": 68,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Noun Clauses/unit-10_sunum-3.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "10-03-ydt-temel",
+       "kod": "ING-YDT-GR-10-03-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-03-ydt-ileri",
+       "kod": "ING-YDT-GR-10-03-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-03-maarif-temel",
+       "kod": "ING-MRF-GR-10-03-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-03-maarif-ileri",
+       "kod": "ING-MRF-GR-10-03-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-10-04",
+     "ad": "10 - Noun_Clauses-Reported_Speech- 04",
+     "sira": 4,
+     "lms": [
+      {
+       "id": "870293993",
+       "ad": "10 - Noun_Clauses-Reported_Speech- 04-p1",
+       "sure": 330,
+       "vimeo": "870293993",
+       "izlenme": 74,
+       "tamamlama": 14,
+       "ortYuzde": 64,
+       "eski": false
+      },
+      {
+       "id": "870294042",
+       "ad": "10 - Noun_Clauses-Reported_Speech- 04-p2",
+       "sure": 854,
+       "vimeo": "870294042",
+       "izlenme": 66,
+       "tamamlama": 10,
+       "ortYuzde": 61,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Noun Clauses/unit-10_sunum-4.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "10-04-ydt-temel",
+       "kod": "ING-YDT-GR-10-04-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-04-ydt-ileri",
+       "kod": "ING-YDT-GR-10-04-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-04-maarif-temel",
+       "kod": "ING-MRF-GR-10-04-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-04-maarif-ileri",
+       "kod": "ING-MRF-GR-10-04-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-10-05",
+     "ad": "10 - Noun_Clauses-Reported_Speech- 05",
+     "sira": 5,
+     "lms": [
+      {
+       "id": "870294146",
+       "ad": "10 - Noun_Clauses-Reported_Speech- 05",
+       "sure": 446,
+       "vimeo": "870294146",
+       "izlenme": 50,
+       "tamamlama": 19,
+       "ortYuzde": 63,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Noun Clauses/unit-10_sunum-5.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "10-05-ydt-temel",
+       "kod": "ING-YDT-GR-10-05-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-05-ydt-ileri",
+       "kod": "ING-YDT-GR-10-05-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-05-maarif-temel",
+       "kod": "ING-MRF-GR-10-05-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-05-maarif-ileri",
+       "kod": "ING-MRF-GR-10-05-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-10-06",
+     "ad": "10 - Noun_Clauses-Reported_Speech- 06",
+     "sira": 6,
+     "lms": [
+      {
+       "id": "870294203",
+       "ad": "10 - Noun_Clauses-Reported_Speech- 06-p1",
+       "sure": 544,
+       "vimeo": "870294203",
+       "izlenme": 47,
+       "tamamlama": 8,
+       "ortYuzde": 66,
+       "eski": false
+      },
+      {
+       "id": "870294275",
+       "ad": "10 - Noun_Clauses-Reported_Speech- 06-p2",
+       "sure": 504,
+       "vimeo": "870294275",
+       "izlenme": 42,
+       "tamamlama": 2,
+       "ortYuzde": 60,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Noun Clauses/unit-10_sunum-6.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "10-06-ydt-temel",
+       "kod": "ING-YDT-GR-10-06-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-06-ydt-ileri",
+       "kod": "ING-YDT-GR-10-06-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-06-maarif-temel",
+       "kod": "ING-MRF-GR-10-06-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-06-maarif-ileri",
+       "kod": "ING-MRF-GR-10-06-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-10-07",
+     "ad": "10 - Noun_Clauses-Reported_Speech- 07",
+     "sira": 7,
+     "lms": [
+      {
+       "id": "870294330",
+       "ad": "10 - Noun_Clauses-Reported_Speech- 07",
+       "sure": 848,
+       "vimeo": "870294330",
+       "izlenme": 38,
+       "tamamlama": 11,
+       "ortYuzde": 63,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Noun Clauses/unit-10_sunum-7.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "10-07-ydt-temel",
+       "kod": "ING-YDT-GR-10-07-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-07-ydt-ileri",
+       "kod": "ING-YDT-GR-10-07-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-07-maarif-temel",
+       "kod": "ING-MRF-GR-10-07-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-07-maarif-ileri",
+       "kod": "ING-MRF-GR-10-07-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-10-08",
+     "ad": "10 - Noun_Clauses-Reported_Speech- 08",
+     "sira": 8,
+     "lms": [
+      {
+       "id": "870293471",
+       "ad": "10 - Noun_Clauses-Reported_Speech- 08",
+       "sure": 832,
+       "vimeo": "870293471",
+       "izlenme": 41,
+       "tamamlama": 3,
+       "ortYuzde": 46,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Noun Clauses/unit-10_sunum-8 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "10-08-ydt-temel",
+       "kod": "ING-YDT-GR-10-08-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-08-ydt-ileri",
+       "kod": "ING-YDT-GR-10-08-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-08-maarif-temel",
+       "kod": "ING-MRF-GR-10-08-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "10-08-maarif-ileri",
+       "kod": "ING-MRF-GR-10-08-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kod": "11",
+   "ad": "Adjectives, Adverbs & Comparison",
+   "sira": 11,
+   "konular": [
+    {
+     "kod": "GR-11-01",
+     "ad": "11 -Adjectives_Adverbs_Comparison - 01",
+     "sira": 1,
+     "lms": [
+      {
+       "id": "870568637",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 01-p1",
+       "sure": 715,
+       "vimeo": "870568637",
+       "izlenme": 182,
+       "tamamlama": 44,
+       "ortYuzde": 52,
+       "eski": false
+      },
+      {
+       "id": "870568706",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 01-p2",
+       "sure": 838,
+       "vimeo": "870568706",
+       "izlenme": 113,
+       "tamamlama": 39,
+       "ortYuzde": 58,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Adj Adv Comparison/unit-11_sunum-1a uygun.pptx",
+      "YEDEK/Adj Adv Comparison/unit-11_sunum-1b uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "11-01-ydt-temel",
+       "kod": "ING-YDT-GR-11-01-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-01-ydt-ileri",
+       "kod": "ING-YDT-GR-11-01-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-01-maarif-temel",
+       "kod": "ING-MRF-GR-11-01-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-01-maarif-ileri",
+       "kod": "ING-MRF-GR-11-01-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-11-02",
+     "ad": "11 -Adjectives_Adverbs_Comparison - 02",
+     "sira": 2,
+     "lms": [
+      {
+       "id": "870575114",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 02-p1",
+       "sure": 1026,
+       "vimeo": "870575114",
+       "izlenme": 89,
+       "tamamlama": 19,
+       "ortYuzde": 52,
+       "eski": false
+      },
+      {
+       "id": "870568776",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 02-p2",
+       "sure": 308,
+       "vimeo": "870568776",
+       "izlenme": 57,
+       "tamamlama": 23,
+       "ortYuzde": 63,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Adj Adv Comparison/unit-11_sunum-2a uygun.pptx",
+      "YEDEK/Adj Adv Comparison/unit-11_sunum-2b uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "11-02-ydt-temel",
+       "kod": "ING-YDT-GR-11-02-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-02-ydt-ileri",
+       "kod": "ING-YDT-GR-11-02-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-02-maarif-temel",
+       "kod": "ING-MRF-GR-11-02-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-02-maarif-ileri",
+       "kod": "ING-MRF-GR-11-02-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-11-03",
+     "ad": "11 -Adjectives_Adverbs_Comparison - 03",
+     "sira": 3,
+     "lms": [
+      {
+       "id": "870568802",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 03-p1",
+       "sure": 614,
+       "vimeo": "870568802",
+       "izlenme": 67,
+       "tamamlama": 14,
+       "ortYuzde": 51,
+       "eski": false
+      },
+      {
+       "id": "870568849",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 03-p2",
+       "sure": 577,
+       "vimeo": "870568849",
+       "izlenme": 59,
+       "tamamlama": 12,
+       "ortYuzde": 61,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Adj Adv Comparison/unit-11_sunum-3a uygun.pptx",
+      "YEDEK/Adj Adv Comparison/unit-11_sunum-3b uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "11-03-ydt-temel",
+       "kod": "ING-YDT-GR-11-03-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-03-ydt-ileri",
+       "kod": "ING-YDT-GR-11-03-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-03-maarif-temel",
+       "kod": "ING-MRF-GR-11-03-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-03-maarif-ileri",
+       "kod": "ING-MRF-GR-11-03-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-11-04",
+     "ad": "11 -Adjectives_Adverbs_Comparison - 04",
+     "sira": 4,
+     "lms": [
+      {
+       "id": "870568892",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 04",
+       "sure": 992,
+       "vimeo": "870568892",
+       "izlenme": 78,
+       "tamamlama": 11,
+       "ortYuzde": 49,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Adj Adv Comparison/unit-11_sunum-4 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "11-04-ydt-temel",
+       "kod": "ING-YDT-GR-11-04-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-04-ydt-ileri",
+       "kod": "ING-YDT-GR-11-04-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-04-maarif-temel",
+       "kod": "ING-MRF-GR-11-04-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-04-maarif-ileri",
+       "kod": "ING-MRF-GR-11-04-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-11-05",
+     "ad": "11 -Adjectives_Adverbs_Comparison - 05",
+     "sira": 5,
+     "lms": [
+      {
+       "id": "870568957",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 05",
+       "sure": 715,
+       "vimeo": "870568957",
+       "izlenme": 65,
+       "tamamlama": 13,
+       "ortYuzde": 57,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Adj Adv Comparison/unit-11_sunum-5 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "11-05-ydt-temel",
+       "kod": "ING-YDT-GR-11-05-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-05-ydt-ileri",
+       "kod": "ING-YDT-GR-11-05-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-05-maarif-temel",
+       "kod": "ING-MRF-GR-11-05-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-05-maarif-ileri",
+       "kod": "ING-MRF-GR-11-05-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-11-06",
+     "ad": "11 -Adjectives_Adverbs_Comparison - 06",
+     "sira": 6,
+     "lms": [
+      {
+       "id": "870568999",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 06",
+       "sure": 562,
+       "vimeo": "870568999",
+       "izlenme": 64,
+       "tamamlama": 6,
+       "ortYuzde": 49,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Adj Adv Comparison/unit-11_sunum-6 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "11-06-ydt-temel",
+       "kod": "ING-YDT-GR-11-06-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-06-ydt-ileri",
+       "kod": "ING-YDT-GR-11-06-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-06-maarif-temel",
+       "kod": "ING-MRF-GR-11-06-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-06-maarif-ileri",
+       "kod": "ING-MRF-GR-11-06-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-11-07",
+     "ad": "11 -Adjectives_Adverbs_Comparison - 07",
+     "sira": 7,
+     "lms": [
+      {
+       "id": "870569040",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 07-p1",
+       "sure": 798,
+       "vimeo": "870569040",
+       "izlenme": 44,
+       "tamamlama": 7,
+       "ortYuzde": 62,
+       "eski": false
+      },
+      {
+       "id": "870569096",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 07-p2",
+       "sure": 532,
+       "vimeo": "870569096",
+       "izlenme": 39,
+       "tamamlama": 11,
+       "ortYuzde": 59,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Adj Adv Comparison/unit-11_sunum-7a uygun.pptx",
+      "YEDEK/Adj Adv Comparison/unit-11_sunum-7b uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "11-07-ydt-temel",
+       "kod": "ING-YDT-GR-11-07-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-07-ydt-ileri",
+       "kod": "ING-YDT-GR-11-07-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-07-maarif-temel",
+       "kod": "ING-MRF-GR-11-07-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-07-maarif-ileri",
+       "kod": "ING-MRF-GR-11-07-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-11-08",
+     "ad": "11 -Adjectives_Adverbs_Comparison - 08",
+     "sira": 8,
+     "lms": [
+      {
+       "id": "870569144",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 08-p1",
+       "sure": 838,
+       "vimeo": "870569144",
+       "izlenme": 46,
+       "tamamlama": 7,
+       "ortYuzde": 46,
+       "eski": false
+      },
+      {
+       "id": "870569213",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 08-p2",
+       "sure": 849,
+       "vimeo": "870569213",
+       "izlenme": 28,
+       "tamamlama": 9,
+       "ortYuzde": 56,
+       "eski": false
+      },
+      {
+       "id": "870569292",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 08-p3",
+       "sure": 536,
+       "vimeo": "870569292",
+       "izlenme": 22,
+       "tamamlama": 6,
+       "ortYuzde": 68,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Adj Adv Comparison/unit-11_sunum-8.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "11-08-ydt-temel",
+       "kod": "ING-YDT-GR-11-08-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-08-ydt-ileri",
+       "kod": "ING-YDT-GR-11-08-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-08-maarif-temel",
+       "kod": "ING-MRF-GR-11-08-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-08-maarif-ileri",
+       "kod": "ING-MRF-GR-11-08-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-11-09",
+     "ad": "11 -Adjectives_Adverbs_Comparison - 09",
+     "sira": 9,
+     "lms": [
+      {
+       "id": "870569325",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 09",
+       "sure": 605,
+       "vimeo": "870569325",
+       "izlenme": 27,
+       "tamamlama": 6,
+       "ortYuzde": 52,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Adj Adv Comparison/unit-11_sunum-9 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "11-09-ydt-temel",
+       "kod": "ING-YDT-GR-11-09-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-09-ydt-ileri",
+       "kod": "ING-YDT-GR-11-09-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-09-maarif-temel",
+       "kod": "ING-MRF-GR-11-09-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-09-maarif-ileri",
+       "kod": "ING-MRF-GR-11-09-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-11-10",
+     "ad": "11 -Adjectives_Adverbs_Comparison - 10",
+     "sira": 10,
+     "lms": [
+      {
+       "id": "870569360",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 10",
+       "sure": 636,
+       "vimeo": "870569360",
+       "izlenme": 30,
+       "tamamlama": 4,
+       "ortYuzde": 49,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Adj Adv Comparison/unit-11_sunum-10 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "11-10-ydt-temel",
+       "kod": "ING-YDT-GR-11-10-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-10-ydt-ileri",
+       "kod": "ING-YDT-GR-11-10-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-10-maarif-temel",
+       "kod": "ING-MRF-GR-11-10-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-10-maarif-ileri",
+       "kod": "ING-MRF-GR-11-10-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-11-11",
+     "ad": "11 -Adjectives_Adverbs_Comparison - 11",
+     "sira": 11,
+     "lms": [
+      {
+       "id": "870568589",
+       "ad": "11 -Adjectives_Adverbs_Comparison - 11",
+       "sure": 701,
+       "vimeo": "870568589",
+       "izlenme": 65,
+       "tamamlama": 22,
+       "ortYuzde": 37,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Adj Adv Comparison/unit-11_sunum-11 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "11-11-ydt-temel",
+       "kod": "ING-YDT-GR-11-11-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-11-ydt-ileri",
+       "kod": "ING-YDT-GR-11-11-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-11-maarif-temel",
+       "kod": "ING-MRF-GR-11-11-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "11-11-maarif-ileri",
+       "kod": "ING-MRF-GR-11-11-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kod": "12",
+   "ad": "Prepositions",
+   "sira": 12,
+   "konular": [
+    {
+     "kod": "GR-12-01",
+     "ad": "12 -Prepositions- 01",
+     "sira": 1,
+     "lms": [
+      {
+       "id": "870572254",
+       "ad": "12 -Prepositions- 01",
+       "sure": 980,
+       "vimeo": "870572254",
+       "izlenme": 189,
+       "tamamlama": 10,
+       "ortYuzde": 39,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Prepositions/unit-12_sunum-1 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "12-01-ydt-temel",
+       "kod": "ING-YDT-GR-12-01-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-01-ydt-ileri",
+       "kod": "ING-YDT-GR-12-01-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-01-maarif-temel",
+       "kod": "ING-MRF-GR-12-01-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-01-maarif-ileri",
+       "kod": "ING-MRF-GR-12-01-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-12-02",
+     "ad": "12 -Prepositions- 02",
+     "sira": 2,
+     "lms": [
+      {
+       "id": "870572305",
+       "ad": "12 -Prepositions- 02-p1",
+       "sure": 837,
+       "vimeo": "870572305",
+       "izlenme": 87,
+       "tamamlama": 7,
+       "ortYuzde": 46,
+       "eski": false
+      },
+      {
+       "id": "870572364",
+       "ad": "12 -Prepositions- 02-p2",
+       "sure": 437,
+       "vimeo": "870572364",
+       "izlenme": 58,
+       "tamamlama": 8,
+       "ortYuzde": 54,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Prepositions/unit-12_sunum-2 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "12-02-ydt-temel",
+       "kod": "ING-YDT-GR-12-02-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-02-ydt-ileri",
+       "kod": "ING-YDT-GR-12-02-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-02-maarif-temel",
+       "kod": "ING-MRF-GR-12-02-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-02-maarif-ileri",
+       "kod": "ING-MRF-GR-12-02-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-12-03",
+     "ad": "12 -Prepositions- 03",
+     "sira": 3,
+     "lms": [
+      {
+       "id": "870572394",
+       "ad": "12 -Prepositions- 03-p1",
+       "sure": 762,
+       "vimeo": "870572394",
+       "izlenme": 64,
+       "tamamlama": 3,
+       "ortYuzde": 38,
+       "eski": false
+      },
+      {
+       "id": "870572439",
+       "ad": "12 -Prepositions- 03-p2",
+       "sure": 886,
+       "vimeo": "870572439",
+       "izlenme": 54,
+       "tamamlama": 6,
+       "ortYuzde": 33,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Prepositions/unit-12_sunum-3 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "12-03-ydt-temel",
+       "kod": "ING-YDT-GR-12-03-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-03-ydt-ileri",
+       "kod": "ING-YDT-GR-12-03-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-03-maarif-temel",
+       "kod": "ING-MRF-GR-12-03-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-03-maarif-ileri",
+       "kod": "ING-MRF-GR-12-03-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-12-04",
+     "ad": "12 -Prepositions- 04",
+     "sira": 4,
+     "lms": [
+      {
+       "id": "870572491",
+       "ad": "12 -Prepositions- 04",
+       "sure": 848,
+       "vimeo": "870572491",
+       "izlenme": 77,
+       "tamamlama": 5,
+       "ortYuzde": 25,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Prepositions/unit-12_sunum-4 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "12-04-ydt-temel",
+       "kod": "ING-YDT-GR-12-04-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-04-ydt-ileri",
+       "kod": "ING-YDT-GR-12-04-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-04-maarif-temel",
+       "kod": "ING-MRF-GR-12-04-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-04-maarif-ileri",
+       "kod": "ING-MRF-GR-12-04-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-12-05",
+     "ad": "12 -Prepositions- 05",
+     "sira": 5,
+     "lms": [
+      {
+       "id": "870572533",
+       "ad": "12 -Prepositions- 05",
+       "sure": 700,
+       "vimeo": "870572533",
+       "izlenme": 272,
+       "tamamlama": 3,
+       "ortYuzde": 7,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Prepositions/unit-12_sunum-5 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "12-05-ydt-temel",
+       "kod": "ING-YDT-GR-12-05-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-05-ydt-ileri",
+       "kod": "ING-YDT-GR-12-05-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-05-maarif-temel",
+       "kod": "ING-MRF-GR-12-05-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-05-maarif-ileri",
+       "kod": "ING-MRF-GR-12-05-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    },
+    {
+     "kod": "GR-12-06",
+     "ad": "12 -Prepositions- 06",
+     "sira": 6,
+     "lms": [
+      {
+       "id": "870572209",
+       "ad": "12 -Prepositions- 06",
+       "sure": 765,
+       "vimeo": "870572209",
+       "izlenme": 296,
+       "tamamlama": 7,
+       "ortYuzde": 8,
+       "eski": false
+      }
+     ],
+     "pptx": [
+      "YEDEK/Prepositions/unit-12_sunum-6 uygun.pptx"
+     ],
+     "videolar": [
+      {
+       "kimlik": "12-06-ydt-temel",
+       "kod": "ING-YDT-GR-12-06-T",
+       "kitle": "ydt",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-06-ydt-ileri",
+       "kod": "ING-YDT-GR-12-06-I",
+       "kitle": "ydt",
+       "seviye": "ileri",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-06-maarif-temel",
+       "kod": "ING-MRF-GR-12-06-T",
+       "kitle": "maarif",
+       "seviye": "temel",
+       "durum": "planli"
+      },
+      {
+       "kimlik": "12-06-maarif-ileri",
+       "kod": "ING-MRF-GR-12-06-I",
+       "kitle": "maarif",
+       "seviye": "ileri",
+       "durum": "planli"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "imza": "a39a429a0f"
+}

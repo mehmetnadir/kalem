@@ -62,10 +62,19 @@ Claude önce sahne tablosunu gösterir (hangi sahne, hangi motor, neden) ve onay
 Elle birleştirmek istersen:
 
 ```bash
-python3 birlestir.py projeler/<ad> --gecis BookFlip --etiket
+python3 birlestir.py projeler/<ad> [--gecis BookFlip] [--etiket] [--anlatim ses.wav] [--plan]
 ```
 
-`--etiket` her sahnenin köşesine o sahneyi hangi motorun çizdiğini yazan küçük bir kart basar.
+`--etiket` her sahnenin köşesine o sahneyi hangi motorun çizdiğini yazan küçük bir kart basar. `--anlatim` anlatım sesini tam seviyede, efekt sesini -9 dB altında karıştırır (bayrak yoksa `zaman.json["anlatim"]`). Sahne başına geçiş: `zaman.json` sahnesinde `"gecis"` (gl-transitions adı ya da ffmpeg `fade`). `--plan` hiçbir şey üretmeden sahne/kare/ofset/geçiş tablosunu basar. `kontrol.png` 12 karodur, her karoda zaman etiketi vardır.
+
+### Canlı önizleme (render öncesi)
+
+Render almadan sahneleri tarayıcıda gerçek zamanlı izle. Sahne sayfasına `?canli=1` ekle; sürücü kareleri
+POST etmez, görünür canvas'ta oynatır (`?ses=<wav>&tbas=<sn>` ile anlatım sesine bağlanır).
+Kısayollar: boşluk durdur/sürdür, ok tuşları ±1 kare (duraklamışken), `k` kareyi PNG indirir.
+HyperFrames sahneleri aynı sorguyla gsap zaman çizelgesini oynatır; sorgu yokken render davranışı değişmez.
+Proje önizleme sayfası (küresel zaman çizelgesi, tek anlatım sesi, sahneler art arda):
+`ortak/onizle.sh projeler/present-continuous [port]` → `http://127.0.0.1:3012/projeler/present-continuous/onizle.html`
 
 ## Örnek: uçan makine
 

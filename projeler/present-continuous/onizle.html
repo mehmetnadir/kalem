@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Present Continuous — kurgu editörü</title>
+<link rel="stylesheet" href="onizle.css">
+</head><body>
+<div id="ed">
+  <header id="ust">
+    <nav id="kirinti" aria-label="Konum"></nav>
+    <div id="ad">Present Continuous<small>YDT Basic · canlı önizleme</small></div>
+    <div id="zaman" title="mm:ss.kare">00:00.00</div><div id="kare">kare 0</div>
+    <div class="grup" id="tasima">
+      <button class="ik" data-e="basa" title="Başa (Home)"><svg viewBox="0 0 24 24"><path
+        d="M6 5v14M19 5L9 12l10 7z"/></svg></button>
+      <button class="ik" data-e="-1s" title="1 sn geri (Shift+Sol)"><svg viewBox="0 0 24 24"><path
+        d="M12 6L4 12l8 6zM21 6l-8 6 8 6z"/></svg></button>
+      <button class="ik" data-e="-1k" title="1 kare geri (Sol)"><svg viewBox="0 0 24 24"><path
+        d="M15 6l-7 6 7 6z"/></svg></button>
+      <button class="ik" id="oy" data-e="oyna" title="Oynat / durdur (Boşluk)"><svg id="oyi"
+        viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg></button>
+      <button class="ik" data-e="+1k" title="1 kare ileri (Sağ)"><svg viewBox="0 0 24 24"><path
+        d="M9 6l7 6-7 6z"/></svg></button>
+      <button class="ik" data-e="+1s" title="1 sn ileri (Shift+Sağ)"><svg viewBox="0 0 24 24"><path
+        d="M12 6l8 6-8 6zM3 6l8 6-8 6z"/></svg></button>
+      <button class="ik" data-e="sona" title="Sona (End)"><svg viewBox="0 0 24 24"><path
+        d="M18 5v14M5 5l10 7L5 19z"/></svg></button>
+    </div>
+    <div class="seg" id="hiz"><button data-h="0.5">0,5×</button><button data-h="1" class="on">1×</button><button
+      data-h="1.5">1,5×</button></div>
+    <span class="bos"></span>
+    <span id="klv" style="color:var(--dm);font-size:11px">J geri · K durdur · L ileri</span>
+    <div class="seg" id="tema"><button data-t="koyu">Koyu</button><button data-t="acik">Açık</button></div>
+    <button id="yyb" title="İki sahne penceresi, tek saat">Yan yana</button>
+    <button id="png" title="Kare PNG (k)">Kare PNG</button>
+  </header>
+  <aside id="sol">
+    <div id="sek2"><button data-l="sahneler" class="on">Sahneler</button><button data-l="ilgili">İlgililer</button>
+    </div>
+    <div id="sahneler" class="lp on"></div><div id="ilgili" class="lp"></div>
+  </aside>
+  <main id="orta">
+    <div id="yy" hidden><label>Sol <select id="ys0"></select></label><label>Sağ <select id="ys1"></select></label>
+    </div>
+    <div id="sahne"><div id="bekle">Sahne yükleniyor</div>
+      <div class="pane" id="pn0"><iframe id="f00" title="sol tampon 1"></iframe>
+        <iframe id="f01" title="sol tampon 2"></iframe></div>
+      <div class="pane" id="pn1"><iframe id="f10" title="sağ tampon 1"></iframe>
+        <iframe id="f11" title="sağ tampon 2"></iframe></div>
+    </div></main>
+  <aside id="sag">
+    <div id="sek"><button data-p="alt" class="on">Altyazı</button><button data-p="nes">Nesneler</button>
+      <button data-p="ola">Olaylar</button><button data-p="sah">Sahne</button>
+      <button data-p="gor">Görevler</button></div>
+    <div class="pn on" id="p-alt"></div>
+    <div class="pn" id="p-nes"></div>
+    <div class="pn" id="p-ola"><div id="filtre"></div><div id="olaylar"></div></div>
+    <div class="pn" id="p-sah"></div>
+    <div class="pn" id="p-gor"><div id="gk"><div id="gu"></div><div id="gl"></div><div id="yl"></div></div>
+      <div id="yf"></div></div>
+  </aside>
+  <section id="zp"><div id="zk"><div id="zi"></div></div></section>
+  <footer id="alt"></footer>
+</div>
+<div id="ip"></div>
+<audio id="au" preload="auto"></audio>
+<script src="onizle.js"></script>
+</body></html>
