@@ -1,0 +1,185 @@
+"""Sahne 01 index.html üretici (soğuk açılış, 3 sn içerik + 12 kare geçiş payı = 102 kare).
+Zamanlar: zamanlar.json (olay.py ile ortak); cümle 1 sözcük zamanları: ortak/anlatim/sozcukler.json.
+Giriş kapak kalıbı: başlık kalemle çizilir, Caveat cümle konuşmayla yazılır, sonda künyeye uçuş."""
+import json
+import sys
+from pathlib import Path
+
+AD = Path(__file__).resolve().parent
+sys.path.insert(0, str(AD))
+import yardim as Y  # noqa: E402
+
+Z = json.loads((AD / "zamanlar.json").read_text())
+SOZ = [w for w in json.loads((AD / ".." / ".." / "ortak" / "anlatim" / "sozcukler.json").read_text())
+       if w["cumle"] == 1]
+R = Y.RENK
+BASLIK_BOY = 112
+# ---- yerleşim (px) ----
+SOL = 96
+ROZET_Y, ROZET_H = 150, 48
+T1_Y, T2_Y = 400, 535
+CUMLE_Y, CUMLE_BOY = 650, 64
+LOGO_H = 110
+LOGO_W = LOGO_H * Y.LOGO_EN_BOY
+LOGO_BX, LOGO_BY = SOL - Y.LOGO_KAYMA * LOGO_W, 880.0
+FIG_S, FIG_X, FIG_Y = 1.4, 1150.0, 180.0
+KAM_S, KAM_X, KAM_Y = 13.0, 1585.0, 590.0
+SAAT_S, SAAT_X, SAAT_Y = 11.0, 1610.0, 200.0
+
+
+def yapi():
+    gf, hf, fig = Y.peeps("sitting-5", 60)
+    kam = Y.tabler("device-laptop")
+    saat = Y.tabler("clock")
+    fz = Y.cizgi_zamanlari([s["uz"] for s in fig], *Z["figur"])
+    kz = Y.cizgi_zamanlari([70.0, 19.0], *Z["kamera"])
+    sz = Y.cizgi_zamanlari([57.0, 10.0], *Z["saat"])
+    return fig, kam, fz, kz, saat, sz
+
+
+def uret():
+    fig, kam, fz, kz, saat, sz = yapi()
+    sw = 3.5
+    figs = "".join('<path id="f%d" transform="translate(%.2f %.2f)" d="%s" style="opacity:0"/>'
+                   % (i, s["tx"], s["ty"], s["d"]) for i, s in enumerate(fig))
+    kams = "".join('<path id="k%d" d="%s" style="opacity:0"/>' % (i, d) for i, d in enumerate(kam))
+    saats = "".join('<path id="s%d" d="%s" style="opacity:0"/>' % (i, d) for i, d in enumerate(saat))
+    # rozetler
+    roz = []
+    x = SOL
+    for i, (m, dolgu) in enumerate((("YDT · BASIC", R["vurgu"]), ("GRAMMAR", R["murekkep"]))):
+        w = Y.genislik("Lexend", 700, m, 26) + 44
+        roz.append('<g id="rz%d" style="opacity:0"><rect x="%.1f" y="%d" width="%.1f" height="%d" rx="24" fill="%s"/>'
+                   '<text x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" font-weight="700" '
+                   'font-size="26" fill="%s">%s</text></g>'
+                   % (i, x, ROZET_Y, w, ROZET_H, dolgu, x + w / 2, ROZET_Y + ROZET_H / 2 + 9.1, R["zemin"], m))
+        x += w + 12
+    bs = 'font-family="Fredoka" font-weight="700" font-size="%d" stroke="%s" stroke-width="10" ' \
+         'stroke-linejoin="round" style="paint-order:stroke fill"' % (BASLIK_BOY, R["zemin"])
+    tit = ('<text id="t1" x="%d" y="%d" fill="%s" clip-path="url(#cp1)" %s>PRESENT PERFECT</text>'
+           '<text id="t2" x="%d" y="%d" fill="%s" clip-path="url(#cp2)" %s>CONTINUOUS</text>'
+           % (SOL, T1_Y, R["murekkep"], bs, SOL, T2_Y, R["logoSari"], bs))
+    # kırpma dikdörtgenleri: genişlik 0'dan yazı genişliğine büyür (kalem ilerlemesi)
+    tw1 = Y.genislik("Fredoka", 700, "PRESENT PERFECT", BASLIK_BOY) + 24
+    tw2 = Y.genislik("Fredoka", 700, "CONTINUOUS", BASLIK_BOY) + 24
+    cum_metin = " ".join(w["sozcuk"] for w in SOZ)
+    cum_x = [SOL + Y.genislik("Caveat", 700, " ".join(w["sozcuk"] for w in SOZ[:i + 1]), CUMLE_BOY) + 8
+             for i in range(len(SOZ))]
+    clips = "".join('<clipPath id="cp%d"><rect id="cr%d" x="%d" y="%d" width="0" height="%d"/></clipPath>'
+                    % (n, n, SOL - 12, y - BASLIK_BOY + 8, int(BASLIK_BOY * 1.35))
+                    for n, y in ((1, T1_Y), (2, T2_Y)))
+    clips += ('<clipPath id="cp3"><rect id="cr3" x="%d" y="%d" width="0" height="%d"/></clipPath>'
+              % (SOL - 12, CUMLE_Y - CUMLE_BOY, int(CUMLE_BOY * 1.5)))
+    cum = ('<text id="cm" x="%d" y="%d" font-family="Caveat" font-weight="700" font-size="%d" fill="%s" '
+           'clip-path="url(#cp3)">%s</text>' % (SOL, CUMLE_Y, CUMLE_BOY, R["murekkep"], cum_metin))
+    ders_w = Y.genislik("Fredoka", 700, "PRESENT PERFECT ", 30)
+    hedef = {"t1": [56, 72, 30 / BASLIK_BOY], "t2": [56 + ders_w, 72, 30 / BASLIK_BOY],
+             "logo": [56, 1002, 34 / LOGO_H]}
+    kunye = Y.kunye_svg("Hook", 0)
+    veri = {"Z": Z, "fz": fz, "kz": kz, "nF": len(fig), "nK": len(kam), "sz": sz, "nS": len(saat), "hedef": hedef,
+            "sol": SOL, "t1y": T1_Y, "t2y": T2_Y, "tw": [tw1, tw2],
+            "cw": [[w["t0"], min(w["t1"], w["t0"] + 0.5), cum_x[i]] for i, w in enumerate(SOZ)],
+            "logo": [LOGO_BX, LOGO_BY, LOGO_W, LOGO_H], "figs": FIG_S, "sw": sw, "kams": KAM_S}
+    html = f"""<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<style>
+{Y.font_css()}
+{Y.ZEMIN_CSS}
+#sahne{{position:absolute;left:0;top:0;}}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="{Z['sure']}" data-fps="30" data-width="1920" data-height="1080">
+{Y.zemin_html()}
+<svg id="sahne" width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+<defs>{clips}<filter id="el" x="-5%" y="-5%" width="110%" height="110%">
+<feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="5" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/></filter></defs>
+<g id="eskiz" fill="none" stroke="{R['murekkep']}" stroke-linecap="round" stroke-linejoin="round">
+<g id="fig" transform="translate({FIG_X} {FIG_Y}) scale({FIG_S})" stroke-width="{sw / FIG_S:.3f}">{figs}</g>
+<g id="kam" filter="url(#el)"><g transform="translate({KAM_X} {KAM_Y}) rotate(-3 12 12) scale({KAM_S})" stroke-width="{sw / KAM_S:.3f}">{kams}</g></g>
+<g id="saat" filter="url(#el)"><g transform="translate({SAAT_X} {SAAT_Y}) rotate(4 12 12) scale({SAAT_S})" stroke-width="{sw / SAAT_S:.3f}">{saats}</g></g>
+<g id="par" stroke="{R['vurgu']}" stroke-width="5" style="opacity:0">
+<path d="M1590 330 l0 -46 M1567 307 l46 0 M1576 291 l28 32 M1604 291 l-28 32"/>
+<path d="M1850 560 l0 -34 M1833 543 l34 0"/><path d="M1090 330 l0 -30 M1075 315 l30 0"/></g>
+</g>
+{''.join(roz)}{tit}{cum}
+<g id="logo"><g id="lgs" style="opacity:0"><image id="logoimg" href="assets/logo.svg" x="{LOGO_BX:.2f}" y="{LOGO_BY}" width="{LOGO_W:.2f}" height="{LOGO_H}"/></g></g>
+{kunye}
+</svg>
+</div>
+<script src="lib/gsap.min.js"></script>
+<script>
+(function () {{
+  var V = {json.dumps(veri)};
+  var Z = V.Z, $ = function (s) {{ return document.querySelector(s); }};
+  var tl = gsap.timeline({{ paused: true }});
+  var IR = {{ immediateRender: false }};
+  function ac(o) {{ o.immediateRender = false; return o; }}
+  // kalem darbesi: dash uzunluğu çalışma anında ölçülür
+  function darbe(id, bas, sure) {{
+    var p = $("#" + id), L = p.getTotalLength();
+    p.style.strokeDasharray = L + " " + (L + 2); p.style.strokeDashoffset = L;
+    tl.set(p, ac({{ opacity: 1 }}), bas);
+    tl.to(p, ac({{ strokeDashoffset: 0, duration: sure, ease: "none" }}), bas);
+  }}
+  for (var i = 0; i < V.nF; i++) darbe("f" + i, V.fz[i][0], V.fz[i][1]);
+  for (var j = 0; j < V.nK; j++) darbe("k" + j, V.kz[j][0], V.kz[j][1]);
+  for (var m = 0; m < V.nS; m++) darbe("s" + m, V.sz[m][0], V.sz[m][1]);
+  gsap.set("#ku-ders,#ku-bolum,#ku-ajanda,#ku-nokta", {{ opacity: 0 }});
+
+  // 0,0-0,4 logo damgası sol sütun altında (ölçek 1,18->1,0 + dönme -2 -> 0, alfa 0->1)
+  var lg = V.logo, bx = lg[0], by = lg[1], bw = lg[2], bh = lg[3];
+  gsap.set("#lgs", {{ svgOrigin: (bx + bw / 2) + " " + (by + bh / 2) }});
+  gsap.set("#logo", {{ svgOrigin: bx + " " + by }});
+  tl.fromTo("#lgs", {{ opacity: 0, scale: 1.18, rotation: -2 }},
+    {{ opacity: 1, scale: 1, rotation: 0, duration: Z.logo_damga[1], ease: "power3.out", immediateRender: false }}, Z.logo_damga[0]);
+
+  // 0,3-0,9 rozetler
+  [0, 1].forEach(function (i) {{
+    tl.fromTo("#rz" + i, {{ y: 26, opacity: 0 }}, {{ y: 0, opacity: 1, duration: 0.4, ease: "power3.out", immediateRender: false }}, Z.rozet[0] + i * Z.rozet[1]);
+  }});
+  // 0,0-2,2 başlık kalemle çizilir: kırpma dikdörtgeni soldan sağa açılır (satır 1, sonra satır 2)
+  [0, 1].forEach(function (i) {{
+    tl.fromTo("#cr" + (i + 1), {{ attr: {{ width: 0 }} }}, {{ attr: {{ width: V.tw[i] }}, duration: Z.baslik[i][1], ease: "none", immediateRender: false }}, Z.baslik[i][0]);
+  }});
+  // 1,0-2,9 Caveat cümlesi konuşmayla yazılır: her sözcük kendi süresinde açılır
+  var onceki = 0;
+  V.cw.forEach(function (w) {{
+    tl.fromTo("#cr3", {{ attr: {{ width: onceki }} }}, {{ attr: {{ width: w[2] - V.sol + 12 }}, duration: w[1] - w[0], ease: "none", immediateRender: false }}, w[0]);
+    onceki = w[2] - V.sol + 12;
+  }});
+
+  gsap.set("#eskiz", {{ svgOrigin: "1500 540" }});
+
+  // 2,2-3,0 uçuş
+  var u0 = Z.ucus[0], ud = Z.ucus[1], u1 = u0 + ud, H = V.hedef;
+  function uc2(id, ox, oy, h, ex) {{
+    tl.to(id, ac({{ svgOrigin: ox + " " + oy, x: h[0] - ox, duration: ud, ease: ex }}), u0);
+    tl.to(id, ac({{ svgOrigin: ox + " " + oy, y: h[1] - oy, duration: ud, ease: "power3.inOut" }}), u0);
+    tl.to(id, ac({{ svgOrigin: ox + " " + oy, scale: h[2], duration: ud * 0.8, ease: "power3.out" }}), u0);
+  }}
+  uc2("#t1", V.sol, V.t1y, H.t1, "power3.inOut"); uc2("#t2", V.sol, V.t2y, H.t2, "power2.out");
+  tl.to("#logo", ac({{ x: H.logo[0] - bx, y: H.logo[1] - by, scale: H.logo[2], duration: ud, ease: "power3.inOut" }}), u0);
+  tl.to("#t2", ac({{ fill: "{R['murekkep']}", duration: ud * 0.6, ease: "power1.inOut" }}), u0);
+  ["#rz0", "#rz1"].forEach(function (s, k) {{
+    tl.to(s, ac({{ opacity: 0, duration: 0.3, ease: "power1.in" }}), u0 + k * 0.04);
+  }});
+  tl.to("#eskiz", ac({{ opacity: 0, scale: 1.06, duration: 0.4, ease: "power1.in" }}), u0 + 0.1);
+  tl.fromTo("#par", {{ opacity: 0, scale: 0.6 }}, {{ opacity: 1, scale: 1, duration: 0.2, ease: "power3.out", immediateRender: false, svgOrigin: "1500 540" }}, u0);
+  tl.to("#par", ac({{ opacity: 0, duration: 0.3, ease: "power1.in" }}), u0 + 0.25);
+  var son = u1 - 0.25;   // künye gerçek metinleri son 0,25 sn'de belirir
+  ["#t1", "#t2"].forEach(function (s) {{ tl.to(s, ac({{ opacity: 0, duration: 0.25, ease: "power1.in" }}), son); }});
+  tl.to("#ku-ders,#ku-bolum,#ku-ajanda,#ku-nokta", ac({{ opacity: 1, duration: 0.25, ease: "power1.out" }}), son);
+
+  window.__timelines = window.__timelines || {{}};
+  window.__timelines["main"] = tl;
+}})();
+</script></body></html>"""
+    return html, fig, kam, fz, kz, saat, sz
+
+
+if __name__ == "__main__":
+    (AD / "proje").mkdir(exist_ok=True)
+    (AD / "proje" / "assets" / "cizim").mkdir(parents=True, exist_ok=True)
+    html, *_ = uret()
+    (AD / "proje" / "index.html").write_text(html)
+    print("index.html yazıldı", len(html))

@@ -1,0 +1,9 @@
+[
+ {"ad": "logo damgası (HUD)", "t0": 0, "t1": 0.4, "tur": "cizim"},
+ {"ad": "rozetler YDT · BASIC + GRAMMAR", "t0": 0.3, "t1": 2.0, "tur": "kart"},
+ {"ad": "başlık PRESENT / PERFECT / CONTINUOUS", "t0": 0.65, "t1": 1.5, "tur": "metin"},
+ {"ad": "cümle 1 (Caveat 80)", "t0": 1.0, "t1": 3.4, "tur": "metin"},
+ {"ad": "figür + dizüstü + saat eskizi", "t0": 0.15, "t1": 3.4, "tur": "cizim"},
+ {"ad": "altyazı cümle 1", "t0": 0.95, "t1": 3.4, "tur": "metin"},
+ {"ad": "uçuş: başlık → ders adı", "t0": 2.0, "t1": 3.0, "tur": "kart"}
+]
