@@ -109,16 +109,26 @@ export function altyaziMetin(liste, t) {
 export function altyaziCiz(ctx, metin, { alfa = 1 } = {}) {
   if (!metin) return;
   const k = KUNYE, R = RENK, genislik = W - 2 * k.kenar; ctx.save(); ctx.globalAlpha = alfa;
-  ctx.font = `500 ${k.altyaziYazi}px Lexend`; ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+  ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+  // Uzun parça (05.11): yazı 44 → 40 → 36 küçülür; hâlâ 2 satıra sığmazsa 3 satır (satır 44, bant 136 px).
+  let satirlar = [];
+  for (const boy of [k.altyaziYazi, 40, 36]) {
+    ctx.font = `500 ${boy}px Lexend`; satirlar = altyaziSar(ctx, metin, genislik);
+    if (satirlar.length <= 2) break;
+  }
+  while (satirlar.length > 3) { const son = satirlar.pop(); satirlar[2] += " " + son; }
+  const adim = satirlar.length === 3 ? 44 : k.altyaziSatir;
+  const y0 = k.altyaziBas + (satirlar.length === 1 ? 84 : satirlar.length === 2 ? 56 : 40);
+  ctx.fillStyle = R.murekkep;
+  satirlar.forEach((sat, i) => ctx.fillText(sat, W / 2, y0 + i * adim));
+  ctx.restore();
+}
+function altyaziSar(ctx, metin, genislik) {
   const satirlar = []; let s = "";
   for (const w of metin.split(" ")) {
     const d = s ? s + " " + w : w;
     if (ctx.measureText(d).width > genislik && s) { satirlar.push(s); s = w; } else s = d;
   }
   if (s) satirlar.push(s);
-  while (satirlar.length > 2) { const son = satirlar.pop(); satirlar[1] += " " + son; }
-  const y0 = k.altyaziBas + (satirlar.length === 1 ? 84 : 56);
-  ctx.fillStyle = R.murekkep;
-  satirlar.forEach((sat, i) => ctx.fillText(sat, W / 2, y0 + i * k.altyaziSatir));
-  ctx.restore();
+  return satirlar;
 }

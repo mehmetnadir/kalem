@@ -1,6 +1,6 @@
 {
  "kaynak": "vimeo-izleme-0211.tekil.tsv + premiere-0211 eşlemeleri",
- "olusturma": "2026-11-04",
+ "olusturma": "2026-11-05",
  "kitleler": {
   "ydt": "YDT",
   "maarif": "Maarif 9–10"
@@ -1374,7 +1374,8 @@
        "kod": "ING-YDT-GR-02-01-I",
        "kitle": "ydt",
        "seviye": "ileri",
-       "durum": "planli"
+       "durum": "uretimde",
+       "proje": "present-continuous-ileri"
       },
       {
        "kimlik": "02-01-maarif-temel",
@@ -1518,14 +1519,16 @@
        "kod": "ING-YDT-GR-02-04-T",
        "kitle": "ydt",
        "seviye": "temel",
-       "durum": "planli"
+       "durum": "uretimde",
+       "proje": "simple-present-temel"
       },
       {
        "kimlik": "02-04-ydt-ileri",
        "kod": "ING-YDT-GR-02-04-I",
        "kitle": "ydt",
        "seviye": "ileri",
-       "durum": "planli"
+       "durum": "uretimde",
+       "proje": "simple-present-ileri"
       },
       {
        "kimlik": "02-04-maarif-temel",
@@ -1619,14 +1622,16 @@
        "kod": "ING-YDT-GR-02-06-T",
        "kitle": "ydt",
        "seviye": "temel",
-       "durum": "planli"
+       "durum": "uretimde",
+       "proje": "present-perfect-temel"
       },
       {
        "kimlik": "02-06-ydt-ileri",
        "kod": "ING-YDT-GR-02-06-I",
        "kitle": "ydt",
        "seviye": "ileri",
-       "durum": "planli"
+       "durum": "uretimde",
+       "proje": "present-perfect-ileri"
       },
       {
        "kimlik": "02-06-maarif-temel",
@@ -1771,14 +1776,16 @@
        "kod": "ING-YDT-GR-02-09-T",
        "kitle": "ydt",
        "seviye": "temel",
-       "durum": "planli"
+       "durum": "uretimde",
+       "proje": "present-perfect-cont-temel"
       },
       {
        "kimlik": "02-09-ydt-ileri",
        "kod": "ING-YDT-GR-02-09-I",
        "kitle": "ydt",
        "seviye": "ileri",
-       "durum": "planli"
+       "durum": "uretimde",
+       "proje": "present-perfect-cont-ileri"
       },
       {
        "kimlik": "02-09-maarif-temel",
@@ -1821,14 +1828,16 @@
        "kod": "ING-YDT-GR-02-10-T",
        "kitle": "ydt",
        "seviye": "temel",
-       "durum": "planli"
+       "durum": "uretimde",
+       "proje": "simple-past-temel"
       },
       {
        "kimlik": "02-10-ydt-ileri",
        "kod": "ING-YDT-GR-02-10-I",
        "kitle": "ydt",
        "seviye": "ileri",
-       "durum": "planli"
+       "durum": "uretimde",
+       "proje": "simple-past-ileri"
       },
       {
        "kimlik": "02-10-maarif-temel",
@@ -8168,5 +8177,5 @@
    ]
   }
  ],
- "imza": "a39a429a0f"
+ "imza": "aec36b7437"
 }
