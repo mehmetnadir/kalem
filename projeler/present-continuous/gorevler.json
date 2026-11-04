@@ -393,7 +393,8 @@
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T14:21:23.975Z",
-    "bagimli": []
+    "bagimli": [],
+    "guncelleme": "2026-11-04T18:34:00.894Z"
   },
   {
     "kimlik": "g-26",
@@ -408,7 +409,8 @@
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T14:21:23.976Z",
-    "bagimli": []
+    "bagimli": [],
+    "guncelleme": "2026-11-04T18:34:00.897Z"
   },
   {
     "kimlik": "g-27",
@@ -418,13 +420,13 @@
     "baslik": "Öğrenci balonu: kadro figürünün başı",
     "aciklama": "K22; motor balon olayı kadro başı çizer; pilotlar yeniden derlenir",
     "grup": "motor",
-    "durum": "onay",
+    "durum": "uretimde",
     "atanan": "ajan",
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T14:21:23.978Z",
     "bagimli": [],
-    "guncelleme": "2026-11-04T14:33:56.776Z"
+    "guncelleme": "2026-11-04T18:34:00.899Z"
   },
   {
     "kimlik": "g-28",
@@ -434,12 +436,12 @@
     "baslik": "Efekt sesi: yalnız kalem hışırtısı izi (motor + oynatıcı)",
     "aciklama": "ses-efekt --katman hisirti; motor ses/efekt.wav; oynatıcı ikinci iz −18 dB",
     "grup": "motor",
-    "durum": "onay",
+    "durum": "uretimde",
     "atanan": "ajan",
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T14:21:23.979Z",
     "bagimli": [],
-    "guncelleme": "2026-11-04T14:33:56.778Z"
+    "guncelleme": "2026-11-04T18:34:00.902Z"
   }
 ]

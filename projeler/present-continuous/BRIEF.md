@@ -167,8 +167,8 @@ Karar (Nadir 04.11, K23): giriş 3 sn, ilk söz ≤ 1 sn, kalem sesi 0. kareden,
 ### 06 Soru + Form (HyperFrames, 766 kare, t_bas 62,81; tablo eski çerçevede (+6 sn); cümle 6 öğrenci, cümle 7 öğretmen)
 | sn | Hareket |
 |---|---|
-| 68,81–72,17 | Künye sağ üst `Question`. Sol: oturan öğrenci figürü (sitting-6, SVG stroke-dash) + el çizimi konuşma balonu; Fredoka 600 44 krem sözcük sözcük: `Hocam, üçünde de -ing var. Neden hep -ing?` Sağ: `sitt-ing` · `tak-ing` · `climb-ing` dikey, -ing sarı (69,5 / 70,2 / 70,9, tik) |
-| 72,72–77,28 | Künye `Form`. Üç `-ing` tek büyük `-ing`'e toplanır (Fredoka 160 sarı, sağ orta; vurus); altında el çizimi `in progress →` bandı; balon solar, figür küçülür sol alta (künyeye değmez) |
+| 68,81–72,17 | Künye sağ üst `Question`. Sol: öğrenci BAŞI (peeps-kit ogrenci-bas.svg, 3 yol stroke-dash, 0,4 sn, balonla birlikte; K22 kadın ses = kadın çizim) + el çizimi konuşma balonu; Fredoka 600 44 krem sözcük sözcük: `Hocam, üçünde de -ing var. Neden hep -ing?` Sağ: `sitt-ing` · `tak-ing` · `climb-ing` dikey, -ing sarı (69,5 / 70,2 / 70,9, tik) |
+| 72,72–77,28 | Künye `Form`. Üç `-ing` tek büyük `-ing`'e toplanır (Fredoka 160 sarı, sağ orta; vurus); altında el çizimi `in progress →` bandı; balon ve baş birlikte küçülür, yukarı kayar, soluklaşır (alfa 0,45) (künyeye değmez) |
 | 77,43–83,19 | Sol sütun `be` kolonu: `am` · `is` · `are` Fredoka 72 krem, sözcük zamanlarında; Caveat `now` sarı yanında |
 | 83,34–87,10 | Altında soluk `was · were` ikincil + Caveat `past`, kırmızı tek çizgi üstünden |
 | 87,25–91,73 | Alt: Caveat 56 `koşu-yor  =  runn-ing`, `-yor` ve `-ing` sarı; `=` kalemle çizilir |

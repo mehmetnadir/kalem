@@ -53,3 +53,11 @@ Olay: 67 (cizgi 45, tik 19, vurus 2, parilti 1); aynı karede en çok 3; en uzun
 
 ## Tur 4
 - Künyede sol alt logo eksikti: sahne 06 index.html'de logo öğesi hiç yoktu (sahne 01'de uçuşla geliyordu). `<image href="assets/logo.svg" x=56 y=1002 w=137,04 h=34>` eklendi (kare 0'dan sabit, künye üstünde). Ölçüm k/51, 336, 696: logo içeriği x 61–187 / y 1007–1029; figür tabanı y 985, ayaklar logoyla çakışmaz. Render yeniden: 766 kare; k/*.png ve kontrol.png yenilendi.
+
+## Tur 5 (kadro öğrenci başı, K22)
+- `sitting-6` figürü kalktı; yerine `ortak/cizim/peeps-kit/ogrenci-bas.svg` (3 yol: saç, yüz, gözlük) stroke-dash ile çizilir, mürekkep rengi, çizgi 2,8 px (4 px'te yüz ayrıntısı tıkanıyordu; ilk tur 4 px, tur 2 2,8 px).
+- Baş: x ≈ 103–240, y 208–398 (190 px = balon yüksekliğinin %90'ı), yüz merkezi (198, 280) balon ortasına hizalı; balonla (x 362) ve künyeyle çakışmaz. Çizim kare 0–10 (3 `cizgi` olayı), balon çizimiyle aynı anda.
+- 72,72'de (tf+0,5) baş balonla birlikte küçülür/kayar/solar (alfa 0,45); `be` sütunuyla boşluk ≈ 100 px (k/336).
+- Figür küçülme hareketi ve `fign` solunumu kalktı. Olay 40 (cizgi 18).
+- Kontrol: 766 kare, yuv420p 1920×1080 30 fps; k/30, k/75, k/110 (balon anı), k/51, k/336, k/696, kontrol.png görsel incelendi: baş balon yanında, yüz okunur, çakışma yok.
+- Açık: (1) Peeps yüzünde gözlük ve saç kâkülü üst üste yoğun; 190 px'te okunur ama sade. (2) Olay sayısı 67 → 40 (BRIEF 20–80 içinde). (3) `koyu` tema koşulmadı (K19).

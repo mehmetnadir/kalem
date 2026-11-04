@@ -2,6 +2,7 @@
 Tek kaynak: zamanlar.json (küresel sn) -> yerel sn = t - t_bas. Komut listesi veri olarak JS'e gömülür,
 olaylar aynı çağrılardan toplanır (olay.py yalnız bu modülü içe alır)."""
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -95,16 +96,19 @@ def el_kutu(x, y, w, h):
 
 def uret():
     s = Sahne()
-    # ---------------- öğrenci figürü ----------------
-    gf, hf, fig = Y.peeps("sitting-6", 30)
-    FS, FX, FY = 0.9, 90.0, 440.0
-    figs = "".join('<path id="f%d" transform="translate(%.2f %.2f)" d="%s" style="opacity:0"/>'
-                   % (i, p["tx"], p["ty"], p["d"]) for i, p in enumerate(fig))
-    fz = Y.cizgi_zamanlari([p["uz"] for p in fig], 0.1, 1.5)
-    for i, (b, d) in enumerate(fz):
-        s.cmd.append({"m": "draw", "id": "f%d" % i, "t": b, "d": d, "a": 1})
-        uz = fig[i]["uz"]
-        s.olay(b, "cizgi", 0.7 if uz > 300 else round(0.4 + 0.3 * uz / 300, 2))
+    # ---------------- öğrenci başı (peeps-kit: LongBangs + Smile + GlassRound) ----------------
+    kit = (Y.ORTAK / "cizim" / "peeps-kit" / "ogrenci-bas.svg").read_text()
+    bd = re.findall(r'<path id="ogrbas-\d+"\s+d="([^"]+)"', kit)
+    assert len(bd) == 3, "ogrenci-bas.svg: 3 path beklenir"
+    BS, BTX, BTY = 0.59, 128.0, 206.0   # saç dahil boy ≈ 190 px; yüz merkezi (118,126) -> (198, 280)
+    sw = 2.8 / BS
+    bas = '<g id="bas" transform="translate(%.1f %.1f) scale(%.2f)" fill="none" stroke="%s" stroke-width="%.2f" ' \
+          'stroke-linecap="round" stroke-linejoin="round">%s</g>' % (BTX, BTY, BS, KRE, sw, "".join(
+              '<path id="bas%d" d="%s" style="opacity:0"/>' % (i, d) for i, d in enumerate(bd)))
+    s.svg.append(bas)
+    for i in range(3):
+        s.cmd.append({"m": "draw", "id": "bas%d" % i, "t": round(0.04 * i, 4), "d": 0.32, "a": 1})
+        s.olay(0.04 * i, "cizgi", 0.55)
     # ---------------- konuşma balonu ----------------
     bal = ("M402 196 C520 182 700 190 880 184 C960 181 1030 186 1052 190 C1076 196 1082 222 1080 262 "
            "C1078 300 1082 332 1078 352 C1074 378 1056 386 1030 386 C900 392 760 384 640 388 "
@@ -172,13 +176,9 @@ def uret():
         ipx + ipw + 14, BYB + 118, ipx + ipw + 50, BYB + 110, ipx + ipw + 74, BYB + 120, ipx + ipw + 98, BYB + 114,
         ipx + ipw + 84, BYB + 102, ipx + ipw + 98, BYB + 114, ipx + ipw + 82, BYB + 128),
         tp + 1.45, 0.4, IKN, 4, 1, "cizgi", 0.5)
-    # balon solar, figür küçülür sol alta
+    # balon ve baş birlikte küçülür, yukarı kayar, soluklaşır
     s.to("#balg", tf + 0.5, {"svgOrigin": "362 182", "x": 300, "y": -40, "scale": 0.55, "opacity": 0.45,
                              "duration": 0.8, "ease": "power3.inOut"})
-    s.to("#figw", tf + 0.5, {"svgOrigin": "90 959", "x": -30, "y": 26, "scale": 0.578, "duration": 0.9,
-                             "ease": "power3.inOut"})
-    s.to("#fign", tf + 1.5, {"svgOrigin": "60 985", "scale": 1.012, "duration": 3.0, "ease": "sine.inOut",
-                             "repeat": 5, "yoyo": True})
     s.to("#bigw", tp + 0.5, {"svgOrigin": "%.1f %.1f" % (BXB + bigw / 2, BYB - 62), "scale": 1.025, "duration": 2.6,
                              "ease": "sine.inOut", "repeat": 6, "yoyo": True})
     # ---------------- be kolonu ----------------
@@ -250,8 +250,8 @@ def uret():
         'font-weight="700" font-size="24" fill="%s" style="opacity:0">Form</text><circle id="ku-nokta"' % SAR)
     govde = "".join(s.svg)
     # figür ve balon grupları: balon parçaları balg içine taşınır
-    bal_ids = ["bal", "bm3", "bm7"] + ["bw%d" % i for i in range(8)]
-    return s, {"fig": figs, "kun": kun, "bal_ids": bal_ids, "govde": govde}
+    bal_ids = ["bal", "bas", "bm3", "bm7"] + ["bw%d" % i for i in range(8)]
+    return s, {"kun": kun, "bal_ids": bal_ids, "govde": govde}
 
 
 def html(s, parca):
@@ -276,7 +276,6 @@ def html(s, parca):
 {Y.zemin_html()}
 <svg id="sahne" width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
 <defs>{''.join(s.defs)}</defs>
-<g id="figw"><g id="fign"><g transform="translate(90 440) scale(0.9)" fill="none" stroke="{R['murekkep']}" stroke-width="{3.6 / 0.9:.2f}" stroke-linecap="round" stroke-linejoin="round">{parca['fig']}</g></g></g>
 <g id="balg">{sec}</g>
 {''.join(diger)}
 {parca['kun']}

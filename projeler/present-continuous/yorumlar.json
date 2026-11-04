@@ -94,5 +94,77 @@
     "yazar": "Nadir",
     "tarih": "2026-11-04T14:47:49.358Z",
     "durum": "acik"
+  },
+  {
+    "kimlik": "y-9",
+    "gorev": "g-25",
+    "surum": "dikey",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Şef: dikey güvenli alan yerleşimi sonrası kare kapısı geçti (11,5 / 50 sn). Kalan: cümle 7 sesi kulak onayı, Nadir gözü.",
+    "yazar": "Nadir",
+    "tarih": "2026-11-04T14:58:53.141Z",
+    "durum": "acik"
+  },
+  {
+    "kimlik": "y-10",
+    "gorev": "g-26",
+    "surum": "shorts",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Şef: kapak 1,95 sn (başlık %19–30, figür %50–70, çip gizli), CTA kartı 20,5 sn görünür. Nadir gözü bekler.",
+    "yazar": "Nadir",
+    "tarih": "2026-11-04T14:58:53.142Z",
+    "durum": "acik"
+  },
+  {
+    "kimlik": "y-11",
+    "gorev": "g-25",
+    "surum": "dikey",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Şef: ANA HAT = kalem fork'u (Nadir 04.11 akşam). D1 kalem hattında yeniden üretiliyor (projeler/present-continuous-d1, 9:16, ses hazır). Motor sürümü deneme.",
+    "yazar": "Nadir",
+    "tarih": "2026-11-04T18:34:00.895Z",
+    "durum": "acik"
+  },
+  {
+    "kimlik": "y-12",
+    "gorev": "g-26",
+    "surum": "shorts",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Şef: ANA HAT = kalem fork'u. S1 kalem hattında yeniden (projeler/present-continuous-s1, kapak BU AKŞAM = I AM GOING).",
+    "yazar": "Nadir",
+    "tarih": "2026-11-04T18:34:00.898Z",
+    "durum": "acik"
+  },
+  {
+    "kimlik": "y-13",
+    "gorev": "g-27",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Şef: ANA HAT = kalem fork'u. Balon başı sahne 06'da (peeps-kit ogrenci-bas.svg) uygulanıyor; motor sürümü deneme.",
+    "yazar": "Nadir",
+    "tarih": "2026-11-04T18:34:00.901Z",
+    "durum": "acik"
+  },
+  {
+    "kimlik": "y-14",
+    "gorev": "g-28",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Şef: ANA HAT = kalem fork'u. Yalnız hışırtı: birlestir.py --efekt hisirti (varsayılan) uygulanıyor.",
+    "yazar": "Nadir",
+    "tarih": "2026-11-04T18:34:00.903Z",
+    "durum": "acik"
   }
 ]
