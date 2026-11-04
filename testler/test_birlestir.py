@@ -138,6 +138,28 @@ class Tema(unittest.TestCase):
         self.assertEqual(b.tema_oku(z), "acik")
 
 
+OLAYLAR = [{"kare": 1, "tur": "cizgi"}, {"kare": 2, "tur": "tik"}, {"kare": 3, "tur": "vurus"},
+           {"kare": 4, "tur": "cizgi"}, {"kare": 5, "tur": "sayfa"}]
+
+
+class Efekt(unittest.TestCase):
+    def test_hisirti_yalniz_cizgi(self):
+        r = b.olaylari_suz(OLAYLAR, "hisirti")
+        self.assertEqual([o["kare"] for o in r], [1, 4])
+        self.assertTrue(all(o["tur"] == "cizgi" for o in r))
+
+    def test_tam_hepsi(self):
+        self.assertEqual(b.olaylari_suz(OLAYLAR, "tam"), OLAYLAR)
+
+    def test_sayfa_hisirti_kipinde_eklenmez(self):
+        self.assertEqual(b.olaylari_suz([{"kare": 9, "tur": "sayfa", "guc": 0.8}], "hisirti"), [])
+
+    def test_efekt_oku_oncelik(self):
+        self.assertEqual(b.efekt_oku({}), "hisirti")
+        self.assertEqual(b.efekt_oku({"efekt": "tam"}), "tam")
+        self.assertEqual(b.efekt_oku({"efekt": "tam"}, "hisirti"), "hisirti")
+
+
 class Yol(unittest.TestCase):
     def test_mutlak_ve_goreli(self):
         self.assertEqual(b.yol_coz("/a/b.wav", "/x"), "/a/b.wav")
@@ -148,3 +170,11 @@ class Yol(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class HisirtiHacim(unittest.TestCase):
+    def test_hisirti_kipinde_hacim_yuksek(self):
+        import birlestir as b
+        h = b.karisim_filtre(True, 10.0, "hisirti")[0]
+        self.assertIn(f"volume={b.EFEKT_VOLUME_HISIRTI}", h)
+        self.assertIn(f"volume={b.EFEKT_VOLUME}", b.karisim_filtre(True, 10.0, "tam")[0])
