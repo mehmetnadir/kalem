@@ -70,7 +70,7 @@ export async function kur(P) {
   not("z z z", fr(18.7));
   parilti(1640, 190, { bas: fr(19.9), r: 22 });
 
-  // --- 22,30–25,14: Türkçe çeviri (Caveat 48 ikincil, y 620), sözcük zamanlı
+  // --- 22,30–25,14: Türkçe çeviri (el yazısı 48 ikincil, y 620), sözcük zamanlı
   // 22,30–25,10 sn «Bebek uyuyor, ben telefonda konuşuyorum.»: her sözcük kendi penceresinde;
   // "ben" penceresi (0,12 sn) sonraki sözcüğün başına (23,78) dek uzatıldı
   const tr = S.sozcukler(3).slice(20, 25);

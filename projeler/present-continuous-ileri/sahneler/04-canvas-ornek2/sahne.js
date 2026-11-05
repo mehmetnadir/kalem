@@ -73,7 +73,7 @@ async function kur() {
   S.koy(S.cizim({ svg: kiz, ad: "kiz", kutu: { x: 1690, y: 435, w: 160, h: 210 }, esik: 0.004,
     enCok: 60, w: 3.2, tb: 34.0, sure: 1.3, olayEnCok: 6 }));
 
-  // 35,75–38,87 Türkçe çeviri (Caveat 48 ikincil, y 620)
+  // 35,75–38,83 Türkçe çeviri (el yazısı 48 ikincil, y 620)
   const ytr = 620;
   // 35,75–38,83 «Çatı aktığı için bu hafta amcamlarda kalıyoruz.» (7 sözcük penceresi);
   // "bu" penceresi (0,08 sn) sonraki sözcüğün başına (37,15) dek uzatıldı

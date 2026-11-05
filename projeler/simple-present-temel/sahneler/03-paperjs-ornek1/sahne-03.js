@@ -54,7 +54,7 @@ export async function kur(P) {
     not("east etiketi", bitis(o) - 4);
   }
 
-  // --- 19,86–21,94: Türkçe çeviri (Caveat 48 ikincil, y 520) + doğa kanunu etiketi (el kutusu)
+  // --- 19,86–21,94: Türkçe çeviri (el yazısı 48 ikincil, y 520) + doğa kanunu etiketi (el kutusu)
   {   // pencere: Güneş 19,86–20,26 · doğudan 20,34–20,74 · doğar. 20,86–21,22
     const tr = S.sozcukler(3), i0 = tr.findIndex((w) => w.s === "Güneş");
     elYazisi("Güneş doğudan doğar.", { x: 140, y: 520, boyut: 48, renk: IKI,

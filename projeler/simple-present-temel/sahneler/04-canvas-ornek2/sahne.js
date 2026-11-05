@@ -37,7 +37,7 @@ async function kur() {
   // usually ayrıca sarı daire (söylendikten hemen sonra)
   S.koy(S.halka(kel("usually"), 30.55, 0.35, 11));
 
-  // 32,74–38,53 Türkçe çeviri (Caveat 48)
+  // 32,74–38,53 Türkçe çeviri (el yazısı 48)
   const ytr = sonSatir + 78;
   // pencere: Kardeşim 32,74–33,30 · genellikle 33,38–33,94 · okula 34,02–34,26 · otobüsle
   // 34,34–34,82 ·
