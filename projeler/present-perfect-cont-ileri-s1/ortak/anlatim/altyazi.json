@@ -1,0 +1,50 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 4.36,
+"metin": "Sınav tek şey sorar: süreç mi, sonuç mu?",
+"konusan": "ogretmen"
+},
+{
+"cumle": 1,
+"dil": "en",
+"t0": 4.61,
+"t1": 7.33,
+"metin": "Have been plus the -ing form.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 7.8,
+"t1": 12.44,
+"metin": "I have been reading this novel all week, but I have only finished two chapters.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 12.69,
+"t1": 16.77,
+"metin": "Süreç, been reading. Sonuç, have finished.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 17.24,
+"t1": 21.0,
+"metin": "Tam ders: Present Perfect Continuous, 6 dakika.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 21.15,
+"t1": 22.99,
+"metin": "Tam dersi kanalda izle.",
+"konusan": "ogretmen"
+}
+]
