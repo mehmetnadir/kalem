@@ -1,11 +1,14 @@
 // Sahne 03 — Örnek 1 (Simple Past, 448 kare, t_bas 14,80; cümle 3). Zamanlar BRIEF §4; yerel kare = round((t − 14,80) × 30).
-import { sahneKur, RT, renkCoz } from "/projeler/simple-past-temel/sahneler/03-paperjs-ornek1/kalem-paper.js";
+// elYazisi: 03 kopyası da taşır (05.11 motor taşıması 96b0651).
+import { sahneKur, RT, renkCoz }
+  from "/projeler/simple-past-temel/sahneler/03-paperjs-ornek1/kalem-paper.js";
 
 export const KARE = 448, T_BAS = 14.8;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1, kayma: 0 });
-  const { fr, ciz, daire, ok, yazi, cumle, altCizgi, tik, parilti, olay, not, bitis, genislik } = S;
+  const { fr, ciz, daire, ok, yazi, elYazisi, cumle, altCizgi, tik, parilti, olay, not, bitis,
+    genislik } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil;
   const GB = 12;                                                   // geçiş karesi: çizimler bundan sonra başlar
   const FF = { aile: "Fredoka", agirlik: 700 };
@@ -38,12 +41,18 @@ export async function kur(P) {
     const a = cz[4], b = cz[5], cx = (a.x0 + b.x1) / 2, w = b.x1 - a.x0;
     const d = daire(cx, a.y - 20, w / 2 + 12, 44, { bas: fr(17.37), sure: 16, a0: -2.2 });
     olay(bitis(d), "tik", 0.5); not("last night daire", d.bas);
-    yazi("LAST NIGHT", { x: b.x1 + 80, y: a.y + 4, boyut: 56, renk: SARI, bas: bitis(d) + 2, sure: 12, olcek: true, ses: true });
+    elYazisi("LAST NIGHT", { x: b.x1 + 80, y: a.y + 4, boyut: 56, renk: SARI, bas: bitis(d) + 2,
+      sure: 14, ses: true });                   // etiket: anlatımsız, 17,97–18,43 sn
   }
 
   // --- 18,34–20,0: Dün gece bir film izledim. (Caveat 48 ikincil, y 495)
-  yazi("Dün gece bir film izledim.", { x: 140, y: 495, boyut: 48, renk: IKI, bas: fr(18.34), sure: 24, ses: true });
-  not("Türkçe çeviri", fr(18.34));
+  {   // el yazısı: her sözcük kendi konuşma penceresinde (Dün 18,34 · gece 18,58 · bir 18,82 ·
+    // film 19,10 · izledim. 19,30–20,18 sn; kaynak cümle 3: "Dün gece bir film izledim.")
+    const tr = S.sozcukler(3), i0 = tr.findIndex((w) => w.s === "Dün");
+    elYazisi("Dün gece bir film izledim.", { x: 140, y: 495, boyut: 48, renk: IKI, ses: true,
+      sozcukler: tr.slice(i0, i0 + 5).map((w) => ({ f0: w.f, f1: w.f1 })) });
+    not("Türkçe çeviri", fr(18.34));
+  }
 
   // --- 20,22–22,90: zaman çizgisi: bitti kutusu, belli tik, last night noktası, now
   {
@@ -53,8 +62,14 @@ export async function kur(P) {
     ciz([[935, yT - 17], [966, yT - 1], [935, yT + 14]], { w: 4.2, renk: IKI, alfa: 0.9, bas: bitis(tl) - 2, sure: 7, duz: true,
       uc0: 5, uc1: 5, ses: false });
     const kt = S.kutu(330, 560, 480, 66, { bas: fr(20.63) - 4, sure: 22, w: 3.6 }); not("bitti kutusu", fr(20.63) - 4);
-    yazi("bitti", { x: 570, y: 610, hizala: "orta", boyut: 52, renk: SARI, bas: fr(20.63), sure: 10, olcek: true, ses: true });
-    const b = yazi("belli", { x: 520, y: 722, boyut: 52, bas: fr(21.78), sure: 10, olcek: true, ses: true }); not("belli", b.bas);
+    // el yazısı, konuşma penceresinde: bitti, 20,63–21,14 sn · belli: 21,78–22,42 sn (cümle 3)
+    const tr3 = S.sozcukler(3);
+    const pen = (ad) => { const q = tr3.find((w) => w.s === ad); return { f0: q.f, f1: q.f1 }; };
+    elYazisi("bitti", { x: 570 - S.genislik("bitti", "700 52px Caveat") / 2, y: 610, boyut: 52,
+      renk: SARI, sozcukler: [pen("bitti,")], ses: true });
+    const b = elYazisi("belli", { x: 520, y: 722, boyut: 52, sozcukler: [pen("belli:")],
+      ses: true });
+    not("belli", b.bas);
     tik(b.x1 + 36, 706, { bas: fr(21.78) + 10 });
     const f0 = fr(22.5);
     S.dinamik((f, g) => {
@@ -89,7 +104,9 @@ export async function kur(P) {
     const x2 = a.x1 + 130;
     const w1 = yazi("watch", { ...F2, x: x2, y: y2, bas: fr(28.3), sure: 9, olcek: true });
     yazi("-ed", { ...F2, x: w1.x1 + 2, y: y2, bas: fr(28.3) + 4, sure: 9, olcek: true, renk: SARI, ses: true }); not("watch-ed", fr(28.3));
-    yazi("izle-di", { x: 960, y: y2, boyut: 56, renk: IKI, bas: fr(28.5), sure: 12, ses: true }); not("izle-di", fr(28.5));
+    elYazisi("izle-di", { x: 960, y: y2, boyut: 56, renk: IKI, bas: fr(28.5), sure: 11,
+      ses: true });
+    not("izle-di", fr(28.5));                       // sure 11: cümle 3 sonu 28,88 sn
     parilti(880, 790, { bas: fr(28.65), r: 22 });
   }
   return S;

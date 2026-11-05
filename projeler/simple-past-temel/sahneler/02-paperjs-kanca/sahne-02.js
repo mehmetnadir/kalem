@@ -6,7 +6,8 @@ export const KARE = 366, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook", etkin: 0 });
-  const { fr, ciz, daire, ok, yazi, cumle, altCizgi, tik, parilti, olay, not, bitis, kutu, genislik } = S;
+  const { fr, ciz, daire, ok, yazi, elYazisi, cumle, altCizgi, tik, parilti, olay, not, bitis, kutu,
+    genislik } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil;
   const GB = 12;                                                    // geçiş karesi: çizimler bundan sonra
 
@@ -31,16 +32,23 @@ export async function kur(P) {
   }
 
   // --- 3,39–5,87: gittim sarı daire; -di sarı kutu (4,83); ok → biten iş; ok → takvim + dün
+  // El yazısı (K26, 05.11): Caveat notlar kalemle yazılır; "-di" konuşma penceresinde
+  // (4,83–5,07 sn; kaynak cümle 2: "Türkçede biten işe -di ekleriz.").
+  const sz2 = S.sozcukler(2);
+  const pen = (ad) => { const w = sz2.find((q) => q.s === ad); return { f0: w.f, f1: w.f1 }; };
   {
     const g = c1[3], d = daire((g.x0 + g.x1) / 2 + 3, g.y - 24, g.w / 2 + 6, 36, { bas: fr(3.39), sure: 24, egim: -0.04 });
     olay(bitis(d), "tik", 0.5); not("gittim daire", d.bas);
-    const y1 = 392, a = yazi("-di", { x: 150, y: y1, boyut: 56, renk: RT.murekkep, bas: fr(4.83), sure: 8, ses: true });
+    const y1 = 392, a = elYazisi("-di", { x: 150, y: y1, boyut: 56, renk: RT.murekkep,
+      sozcukler: [pen("-di")], ses: true });
     kutu(a.x0 - 14, y1 - 46, a.w + 28, 66, { bas: fr(4.83) + 6, sure: 14, w: 5, renk: SARI }); not("-di sarı kutu", fr(4.83));
     const o1 = ok([a.x1 + 28, y1 - 14], [a.x1 + 108, y1 - 14], { bas: fr(4.83) + 20, sure: 10, w: 5, uzun: 16, bukum: 0.08 });
-    const b = yazi("biten iş", { x: a.x1 + 124, y: y1, boyut: 48, renk: IKI, bas: bitis(o1) + 2, sure: 12 }); not("biten iş", b.bas);
+    const b = elYazisi("biten iş", { x: a.x1 + 124, y: y1, boyut: 48, renk: IKI, bas: bitis(o1) + 2,
+      sure: 14 }); not("biten iş", b.bas);                         // etiket, kare 87–101
     const o2 = ok([b.x1 + 26, y1 - 12], [b.x1 + 108, y1 - 6], { bas: fr(5.45), sure: 10, w: 5, uzun: 18, bukum: 0.1 });
     await S.svgCiz("tabler/calendar.svg", { kutu: [b.x1 + 124, y1 - 62, 84, 84], bas: bitis(o2), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
-    yazi("dün", { x: b.x1 + 226, y: y1, boyut: 48, renk: SARI, bas: bitis(o2) + 16, sure: 10, ses: true });
+    elYazisi("dün", { x: b.x1 + 226, y: y1, boyut: 48, renk: SARI, bas: bitis(o2) + 16, sure: 12,
+      ses: true });
     not("takvim + dün", bitis(o2));
   }
 
@@ -52,16 +60,19 @@ export async function kur(P) {
     const v = e[1], font = "700 56px Fredoka", wv = genislik("visit", font), we = genislik("ed", font);
     const d = daire(v.x0 + wv + we / 2, v.y - 20, we / 2 + 7, 32, { bas: fr(6.90) - 6, sure: 18, a0: -2.0 });
     olay(bitis(d), "tik", 0.5); not("-ed daire", d.bas);
-    const y = 630, a = yazi("-di", { x: 140, y, boyut: 52, renk: IKI, bas: fr(7.14), sure: 8 });
+    const y = 630, a = elYazisi("-di", { x: 140, y, boyut: 52, renk: IKI, bas: fr(7.14),
+      sure: 12 });
     const ar = ok([a.x1 + 22, y - 16], [a.x1 + 132, y - 16], { bas: fr(7.14) + 5, sure: 18, w: 6.5, cift: true, uzun: 20, bukum: 0.05 });
-    yazi("-ed", { x: a.x1 + 156, y, boyut: 52, renk: SARI, bas: bitis(ar) + 4, sure: 8, ses: true }); not("ok -di ⇄ -ed", ar.bas);
+    elYazisi("-ed", { x: a.x1 + 156, y, boyut: 52, renk: SARI, bas: bitis(ar) + 4, sure: 12,
+      ses: true }); not("ok -di ⇄ -ed", ar.bas);
   }
 
   // --- 8,25–14,25: el kutusu, saat (6 min), 3 madde
   {
     kutu(1060, 690, 760, 280, { bas: fr(8.25) - 4, sure: 36 }); not("kutu çizimi", fr(8.25) - 4);
     await S.svgCiz("tabler/clock.svg", { kutu: [1096, 712, 76, 76], bas: fr(8.57), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
-    yazi("6 min", { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(8.57) + 14, sure: 12 }); not("saat + 6 min", fr(8.57));
+    elYazisi("6 min", { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(8.57) + 14,
+      sure: 14 }); not("saat + 6 min", fr(8.57));
     parilti(1176, 714, { bas: fr(9.6), r: 22, periyot: 170, adet: 3 });
     const m = [["form", 10.17, 835], ["time expressions", 11.29, 890], ["irregular verbs", 13.01, 945]];
     for (const [s, t, y] of m) {

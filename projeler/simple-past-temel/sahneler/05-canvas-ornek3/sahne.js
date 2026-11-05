@@ -30,9 +30,11 @@ async function kur() {
     50.8, 0.22, 0.6));
   S.koy(S.parilti(1470, 480, 50.1, 24));
 
-  // 51,52–53,0 Türkçe çeviri
+  // 51,52–53,12 Türkçe çeviri (el yazısı; sözcük penceresi: Dün 51,52 · futbol 51,84 ·
+  // oynamadık. 52,20–53,12 sn; kaynak cümle 5)
   const ytr = sonSatir + 78;
-  S.koy(S.not({ parca: [["Dün futbol oynamadık.", IKINCIL]], x: 140, y: ytr, tb: 51.52, sure: 0.55 }));
+  S.koy(S.elYazisi({ metin: "Dün futbol oynamadık.", x: 140, y: ytr, renk: IKINCIL,
+    sozcukler: S.dizi("Dün", 51.52, 3).map((w) => ({ t0: w.t0, t1: w.t1 })) }));
 
   // 53,44–54,80 didn't sarı daire; formül kartı did + not + V1
   S.koy(S.halka(kel("didn't"), 53.44, 0.3, 31));
@@ -53,7 +55,8 @@ async function kur() {
     55.51, 0.25, 0.55));
   S.koy(S.darbeler([[[fx + 1, fy + 2], [fx + 74, fy + 22], [fx + 2, fy + 46]]], { duz: true, w: 4, renk: SARI, uc0: 4, uc1: 8 },
     55.75, 0.3, 0.1, 0.5));
-  S.koy(S.not({ parca: [["geçmiş", IKINCIL]], x: fx + 96, y: fy + 80, font: "700 48px Caveat", tb: 56.07, sure: 0.4 }));
+  S.koy(S.elYazisi({ metin: "geçmiş", x: fx + 96, y: fy + 80, boy: 48, renk: IKINCIL, tb: 56.07,
+    sure: 0.45 }));                                 // etiket, 56,07–56,52 sn
 
   // 59,43 play sarı daire; yanında played kırmızı çizili (59,7)
   S.koy(S.halka(kel("play"), 59.43, 0.3, 32));
@@ -64,7 +67,8 @@ async function kur() {
 
   // 60,30–61,74 Soruda Did başa: sarı kalem oku soru satırının başına
   const qy = 975;
-  S.koy(S.not({ parca: [["did başa", SARI]], x: 230, y: py + 56, font: "700 48px Caveat", tb: 60.6, sure: 0.4, ses: false }));
+  S.koy(S.elYazisi({ metin: "did başa", x: 230, y: py + 56, boy: 48, renk: SARI, tb: 60.6,
+    sure: 0.55, ses: false }));                     // etiket, 60,60–61,15 sn
   S.koy(S.darbeler(ok([100, py + 28], [100, qy - 78], 6), { w: 6.5, renk: SARI, uc0: 10, uc1: 14 }, 60.3, 0.4, 0.2, 0.55));
 
   // 62,87–64,23 soru cümlesi

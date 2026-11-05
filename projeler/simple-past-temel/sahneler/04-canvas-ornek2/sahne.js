@@ -7,7 +7,8 @@ const KOKDIZ = "/projeler/simple-past-temel/ortak/cizim";
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: 0, bolum: "Example 2 / 3", cumle: 4 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
-const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+const FF = (b) => `700 ${b}px Fredoka`;
+const pencere = (ad, yakin, adet) => S.dizi(ad, yakin, adet).map((w) => ({ t0: w.t0, t1: w.t1 }));
 
 async function kur() {
   await S.kur();
@@ -35,13 +36,16 @@ async function kur() {
   // 32,64 ago sarı daire
   S.koy(S.halka(kel("ago"), 32.64, 0.3, 11));
 
-  // 33,85–35,57 Türkçe çeviri (Caveat 48 ikincil)
+  // 33,85–36,65 Türkçe çeviri (el yazısı 48 ikincil; sözcük penceresi: Amcam 33,85 · iki 34,41 ·
+  // yıl 34,62 · önce 34,77 · Londra'ya 35,09 · gitti. 35,57–36,65 sn; kaynak cümle 4)
   const ytr = sonSatir + 80;
-  S.koy(S.not({ parca: [["Amcam iki yıl önce Londra'ya gitti.", IKINCIL]], x: 140, y: ytr, tb: 33.85, sure: 0.9, font: CV(48) }));
+  S.koy(S.elYazisi({ metin: "Amcam iki yıl önce Londra'ya gitti.", x: 140, y: ytr, renk: IKINCIL,
+    sozcukler: pencere("Amcam", 33.85, 6) }));
 
   // 36,73–39,13 takvim şeridi: 4 el kutusu `two years ago`, sağda now noktası, sola giden ok `ago = önce`, tik
   const yKutu = 590, kh = 80, xs = 140;
-  S.koy(S.not({ parca: [["two years ago", SARI]], x: xs, y: yKutu - 22, tb: 36.73, sure: 0.5, font: CV(52) }));
+  S.koy(S.elYazisi({ metin: "two years ago", x: xs, y: yKutu - 22, boy: 52, renk: SARI, tb: 36.73,
+    sure: 0.5 }));                                  // etiket, 36,73–37,23 sn
   for (let i = 0; i < 4; i++) {
     S.koy(S.darbeler(kutu(xs + 154 * i, yKutu, 140, kh, 20 + i), { w: 3.4, renk: KREM, uc0: 8, uc1: 14 }, 36.85 + i * 0.2, 0.12, 0.07, 0.45));
   }
@@ -53,15 +57,22 @@ async function kur() {
     ctx.save(); ctx.fillStyle = renkCoz(SARI); ctx.beginPath(); ctx.arc(nx, ny, 13 * u, 0, Math.PI * 2); ctx.fill(); ctx.restore();
   } });
   S.koy(S.nabiz(nx, ny, 13, 38.7));
-  S.koy(S.not({ parca: [["now", SARI]], x: nx - 30, y: ny + 60, tb: 38.85, sure: 0.3, font: CV(44), ses: false }));
+  S.koy(S.elYazisi({ metin: "now", x: nx - 30, y: ny + 60, boy: 44, renk: SARI, tb: 38.85,
+    sure: 0.45, ses: false }));                     // etiket, 38,85–39,30 sn
   const okY = yKutu + kh + 62;
   S.koy(S.darbeler(ok([nx, okY], [xs + 20, okY], 3), { w: 6, renk: SARI, uc0: 10, uc1: 14 }, 37.2, 0.2, 0.12, 0.5));
-  const aW = olc(CV(56), "ago = ");
-  S.koy(S.not({ parca: [["ago = ", SARI]], x: xs + 120, y: okY + 70, tb: 37.49, sure: 0.4, font: CV(56) }));
-  S.koy(S.not({ parca: [["önce", KREM]], x: xs + 120 + aW, y: okY + 70, tb: 38.01, sure: 0.4, font: CV(56) }));
-  S.koy(S.not({ parca: [["zaman belli", KREM]], x: 660, y: okY + 70, tb: 38.77, sure: 0.6, font: CV(56) }));
-  S.koy(S.darbeler([[[660 + olc(CV(56), "zaman belli") + 24, okY + 50], [660 + olc(CV(56), "zaman belli") + 38, okY + 66],
-    [660 + olc(CV(56), "zaman belli") + 66, okY + 28]]], { w: 7, renk: SARI, uc0: 5, uc1: 8, duz: true }, 39.13, 0.25, 0.3, 0.5));
+  // el yazısı, sözcük pencereleri (kaynak: "Ago, yani önce: zaman belli."): ago = →
+  // Ago, 36,73–37,45 · yani 37,49–37,85 sn; önce → önce: 38,01–38,73 sn;
+  // zaman belli → zaman 38,77 · belli. 39,13–39,93 sn
+  const ago = S.koy(S.elYazisi({ metin: "ago =", x: xs + 120, y: okY + 70, boy: 56, renk: SARI,
+    sozcukler: pencere("Ago,", 36.73, 2) }));
+  S.koy(S.elYazisi({ metin: "önce", x: xs + 120 + ago.w + 17, y: okY + 70, boy: 56, renk: KREM,
+    sozcukler: pencere("önce:", 38.01, 1) }));
+  const zb = S.koy(S.elYazisi({ metin: "zaman belli", x: 660, y: okY + 70, boy: 56, renk: KREM,
+    sozcukler: pencere("zaman", 38.77, 2) }));
+  S.koy(S.darbeler([[[660 + zb.w + 24, okY + 50], [660 + zb.w + 38, okY + 66],
+    [660 + zb.w + 66, okY + 28]]], { w: 7, renk: SARI, uc0: 5, uc1: 8, duz: true },
+    39.13, 0.25, 0.3, 0.5));
 
   // 40,08–42,24 -ed (40,56) kırmızı çizgiyle yok; go (41,84) sarı daire — alt satır, taban y 930
   const R = 930, ed = olc(FF(90), "-ed");
@@ -78,7 +89,8 @@ async function kur() {
   S.koy(S.metinPop({ parca: [["went", SARI]], x: wx, y: R + 4, font: FF(110), tb: 44.71, sure: 0.35, ses: 0.8, turu: "vurus" }));
 
   // 45,59–46,39 ezberle + küçük kitap; go -> went kutuya alınır
-  S.koy(S.not({ parca: [["ezberle", KREM]], x: 1170, y: R, tb: 45.59, sure: 0.5, font: CV(64) }));
+  S.koy(S.elYazisi({ metin: "ezberle", x: 1170, y: R, boy: 64, renk: KREM, tb: 45.59,
+    sure: 0.6 }));                                  // etiket, 45,59–46,19 sn
   S.koy(S.cizim({ svg: kitap, kutu: { x: 1390, y: 830, w: 150, h: 150 }, ad: "kitap", enCok: 8, w: 3.6, tb: 45.85, sure: 0.5, olayEnCok: 2, nefes: false }));
   S.koy(S.parilti(1545, 850, 46.3, 22));
   S.koy(S.darbeler(kutu(gx - 40, R - 105, wx + olc(FF(110), "went") - gx + 80, 150, 77), { w: 3.6, renk: IKINCIL, uc0: 10, uc1: 18 },
