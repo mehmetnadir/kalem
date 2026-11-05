@@ -1,0 +1,10 @@
+<!doctype html><meta charset="utf-8"><body style="margin:0;background:#1b1a17">
+<canvas id="cv" width="1080" height="1920" hidpi="off"></canvas>
+<script src="/motorlar/paperjs/node_modules/paper/dist/paper-core.js"></script>
+<script type="module">
+// SAHNE 03 (DİKEY) — Örnek 1: Paper.js, 1080x1920, 30 fps, 379 kare. Ortak kalem modülü: kalem-paper.js; içerik: sahne-03.js.
+import { surucu } from "/ortak/surucu.js";
+import { kur, KARE } from "/projeler/simple-present-temel-dikey/sahneler/03-paperjs-ornek1/sahne-03.js";
+let S;
+surucu(async () => { S = await kur(paper); }, (f) => S.kare(f), KARE);
+</script>
