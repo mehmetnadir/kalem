@@ -8,7 +8,8 @@ export const KARE = 297, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Trap" });
-  const { fr, ciz, daire, yazi, cumle, kutu, olay, not, bitis, genislik, kis, oge, parilti } = S;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, kutu, olay, not, bitis, genislik, kis, oge,
+    parilti } = S;
   const SARI = RT.vurgu, DOLGU = RT.vurguDolgu, IKI = RT.ikincil, KIRMIZI = RT.kirmizi;
   const sol = (f0, f1) => (f) => 1 - kis((f - f0) / (f1 - f0));     // oge: [f0, f1] arası söner
   const s1 = S.sozcukler(1), s2 = S.sozcukler(2);
@@ -51,11 +52,23 @@ export async function kur(P) {
     const g = e[6], d = daire((g.x0 + g.x1) / 2, g.y - 26, g.w / 2 + 8, 44, { bas: g.bas + 3, sure: 16, oge: gB });
     olay(bitis(d), "tik", 0.5); not("tomorrow daire", d.bas);
   }
-  // TR çeviri (5,96–8,60) Caveat 80 mürekkep
-  const tr = cumle(s2.slice(7, 11).map((k, i) => ({ s: k.s, f: k.f, satir: i < 2 ? 0 : 1 })),
-    { x: 72, y: 735, boyut: 80, aile: "Caveat", agirlik: 700, aralik: 90, son: bSon });
+  // TR çeviri (5,96–8,60 sn; kare 89–168): her sözcük kendi penceresinde, el yazısı Caveat 80;
+  // sözcük arası 0,3 × boyut (motor aralığı); satır 1 = Uçuşumuz yarın, satır 2 = dokuzda kalkar.
+  // "kalkar." penceresi 7,28–8,60 sn; sözcük sonu sessizliği: yazı 24 karede (8,08 sn) biter,
+  // kart 8,60'ta söner. Altı çizgi yazı bitişinden önce başlar.
+  const tr = [];
+  {
+    let tx = 72;
+    s2.slice(7, 11).forEach((k, i) => {
+      if (i === 2) tx = 72;
+      tr.push(elYazisi(k.s, { x: tx, y: 735 + (i < 2 ? 0 : 90), boyut: 80, oge: gB,
+        sozcukler: [{ f0: k.f, f1: i === 3 ? Math.min(k.f1, k.f + 24) : k.f1 }] }));
+      tx = tr[i].x1 + 0.3 * 80;
+    });
+  }
   not("TR çeviri başı", tr[0].bas);
-  altCiz(tr[3], tr[3].bas + 4, { oge: gB }); not("kalkar altı çizgi", tr[3].bas + 4);
+  altCiz(tr[3], Math.min(tr[3].bit - 6, B0 - 12), { oge: gB });
+  not("kalkar altı çizgi", Math.min(tr[3].bit - 6, B0 - 12));
 
   // nesneler (alt bölge 920–1392, üç sütun; sütun ortaları 200 / 540 / 870) — sahne sonuna kadar kalır
   const LB = 1342, ETIKET = 64;
@@ -84,10 +97,17 @@ export async function kur(P) {
     bas: fr(5.07) + 8, sure: 8, olcek: true, ses: "tik" });
 
   // ---------- Faz C (8,75–12,51): Tarife kesin: tomorrow ≠ will → Simple Present ----------
-  const lab = cumle(s2.slice(11, 13).map((k) => ({ s: k.s, f: k.f })),
-    { x: SOL, y: 480, boyut: 88, aile: "Caveat", agirlik: 700 });
+  // "Tarife kesin:" 8,75–10,03 sn (kare 172–211): her sözcük kendi penceresinde, Caveat 88
+  const lab = [];
+  {
+    let tx = SOL;
+    s2.slice(11, 13).forEach((k, i) => {
+      lab.push(elYazisi(k.s, { x: tx, y: 480, boyut: 88, sozcukler: [{ f0: k.f, f1: k.f1 }] }));
+      tx = lab[i].x1 + 0.3 * 88;
+    });
+  }
   not("Tarife kesin", lab[0].bas);
-  altCiz(lab[1], lab[1].bas + 4, { w: 10 }); not("kesin altı çizgi", lab[1].bas + 4);
+  altCiz(lab[1], lab[1].bit - 6, { w: 10 }); not("kesin altı çizgi", lab[1].bit - 6);
   {
     const F = "700 120px Fredoka", gT = genislik("tomorrow", F), gW = genislik("will", F), gE = 96, bos = 36;
     const x0 = (1080 - (gT + bos + gE + bos + gW)) / 2, y = 690;
