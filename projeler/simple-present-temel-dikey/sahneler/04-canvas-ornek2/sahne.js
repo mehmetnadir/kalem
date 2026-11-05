@@ -29,15 +29,15 @@ async function kur() {
   S.koy(S.not({ parca: [["Kardeşim genellikle okula otobüsle gider.", KREM]], x: 64, y: yTR, font: CV(64),
     tb: 32.74, sure: 1.6 }));
 
-  // ORTA: oturan figür (440 px) + otobüs (460 px) tek ufuk çizgisinde; bant yTR+30 → 1215
-  const yZ = 1222, fUst = Math.min(yTR + 32, 780);
+  // ORTA: oturan figür (440 px) + otobüs (kutu 474×420) tek ufuk çizgisinde; bant yTR+30 → 1215
+  const yZ = 1222;
   S.koy(S.darbe([[48, yZ], [330, yZ - 3], [700, yZ + 2], [1032, yZ - 1]],
     { duz: true, w: 4, renk: IKI, alfa: 0.8, uc0: 10, uc1: 30 }, 29.7, 0.8, 0.4));
-  S.koy(S.cizim({ svg: kardes, kutu: { x: 70, y: fUst, w: 440, h: yZ - 8 - fUst }, ad: "kardes", esik: 0.004,
+  S.koy(S.cizim({ svg: kardes, kutu: { x: 70, y: yZ - 8 - 440, w: 440, h: 440 }, ad: "kardes", esik: 0.004,
     enCok: 60, w: 4.4, tb: 29.6, sure: 1.7, olayEnCok: 7 }));
-  S.koy(S.cizim({ svg: otobus, kutu: { x: 560, y: yZ - 8 - 350, w: 460, h: 350 }, ad: "otobus", enCok: 25, w: 4,
+  S.koy(S.cizim({ svg: otobus, kutu: { x: 552, y: 901, w: 474, h: 420 }, ad: "otobus", enCok: 25, w: 4,
     tb: 31.3, sure: 1.1, olayEnCok: 5 }));
-  S.koy(S.parilti(980, yZ - 380, 32.5, 26));
+  S.koy(S.parilti(980, 1040, 32.5, 26));
 
   // 35,53–37,69 alışkanlık listesi (otobüsün üstünde, sağ sütun): usually · always · every day (Caveat 72, sarı tik)
   const fN = CV(72), xN = 600, TIK = (cx, cy) => [[cx - 16, cy + 2], [cx - 4, cy + 14], [cx + 20, cy - 16]];

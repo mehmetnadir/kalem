@@ -181,8 +181,8 @@ def uret():
         s.cmd.append({"m": "draw", "id": "bas%d" % i, "t": round(0.04 * i, 4), "d": 0.32, "a": 1})
         s.olay(0.04 * i, "cizgi", 0.55)
     bal_ids = ["bas"]
-    # ---------------- konuşma balonu (Caveat 68; en çok 660 px satır) ----------------
-    BF, BXL, BY0, MAXW = 68, 340, 380, 660
+    # ---------------- konuşma balonu (Caveat 72; en çok 670 px satır) ----------------
+    BF, BXL, BY0, MAXW = 72, 336, 380, 670
     sp = gen("Caveat", 700, " ", BF)
     satirlar, cur, curw = [], [], 0.0
     for i, (m, t) in enumerate(Z["balon_kelime"]):
@@ -193,7 +193,7 @@ def uret():
         cur.append((i, m, t, w))
         curw += (sp if len(cur) > 1 else 0) + w
     satirlar.append(cur)
-    SH = 82
+    SH = 78
     bh = len(satirlar) * SH + 34
     bw = max(sum(k[3] for k in sat) + sp * (len(sat) - 1) for sat in satirlar) + 76
     s.yol("bal", konusma_balonu(296, BY0, bw, bh, 520), 0.0, 0.5, KRE, 4.4, 1, "cizgi", 0.7)
@@ -253,8 +253,8 @@ def uret():
     s.yol("band", el_cizgi(BXB - 8, BYB + 34, BXB + bigw + 10, BYB + 30), tp + 0.4, 0.4, SAR, 11, 0.85, "cizgi", 0.55)
     ipx, ipw = s.yazi("ip", 560, BYB + 150, [("3. tekil kişi", IKN)], "Caveat", 700, 76, S(Z["uc_tekil"]), 0.6)
     solacak = ["#band", "#ip"] + ["#ok%d" % i for i in range(3)] + ["#row%d" % i for i in range(3)]
-    # balon ve baş: 0.75 ölçek (yazı ≥ 48 px) üstte toplanır
-    s.to("#balg", tf + 0.5, {"svgOrigin": "48 352", "scale": 0.75, "opacity": 0.6, "duration": 0.8,
+    # balon ve baş: 0.80 ölçek (yazı ≥ 56 px) üstte toplanır
+    s.to("#balg", tf + 0.5, {"svgOrigin": "48 352", "scale": 0.80, "opacity": 0.6, "duration": 0.8,
                              "ease": "power3.inOut"})
     # ---------------- 68,2: sütunlar söner, tablo iskeleti çizilir ----------------
     tb = S(Z["he"])
@@ -390,15 +390,24 @@ def uret():
         xm = x0 + (sepw if k else 0)
         s.yol("fu%d" % k, el_cizgi(xm, CYL + 12, xm + wm, CYL + 9), S(t) + 0.25, 0.25, SAR, 9, 0.85, "cizgi", 0.45)
         x += W
-    SF = 80
+    SF = 64
     spw = gen("Fredoka", 700, "Simple Present", SF)
-    sx0 = 540 - spw / 2 + 40
-    SYL = 1386
+    sx0 = 140
+    SYL = 1384
     s.yol("fok", "M%.1f %.1f C%.1f %.1f %.1f %.1f %.1f %.1f M%.1f %.1f L%.1f %.1f L%.1f %.1f" % (
-        sx0 - 150, SYL - 30, sx0 - 110, SYL - 40, sx0 - 80, SYL - 24, sx0 - 36, SYL - 28,
-        sx0 - 54, SYL - 42, sx0 - 36, SYL - 28, sx0 - 56, SYL - 14), S(Z["simple"]) - 0.45, 0.4, IKN, 5, 1, "cizgi", 0.5)
+        sx0 - 92, SYL - 24, sx0 - 64, SYL - 32, sx0 - 40, SYL - 18, sx0 - 16, SYL - 22,
+        sx0 - 30, SYL - 32, sx0 - 16, SYL - 22, sx0 - 32, SYL - 10), S(Z["simple"]) - 0.45, 0.4, IKN, 4.5, 1, "cizgi", 0.5)
     s.yazi("fsp", sx0, SYL, [("Simple Present", SAR)], "Fredoka", 700, SF, S(Z["simple"]), 0.6, tur="tik", guc=0.6)
     s.olay(S(Z["present"]), "vurus", 0.8)
+    # ---------------- 92,60: Next lesson → (Lexend 64 px + el oku) ----------------
+    tn2 = S(Z["sonraki"])
+    NF = 64
+    nw = gen("Lexend", 700, "Next lesson", NF)
+    nx_x = 1032 - nw - 52
+    s.yazi("nx", nx_x, SYL, [("Next lesson", IKN)], "Lexend", 700, NF, tn2, 0.3, tur="tik", guc=0.4)
+    s.yol("nxok", "M%.1f %.1f L%.1f %.1f M%.1f %.1f L%.1f %.1f L%.1f %.1f" % (
+        1032 - 40, SYL - 16, 1032 - 6, SYL - 16, 1032 - 18, SYL - 26, 1032 - 6, SYL - 16,
+        1032 - 18, SYL - 6), tn2 + 0.25, 0.25, IKN, 4, 1, "cizgi", 0.4)
     # ---------------- altyazı dilimleri (opaklık anahtarları) ----------------
     dil = altyazi_dilimleri()
     s.altyazi = ["%s" % d[2] for d in dil]

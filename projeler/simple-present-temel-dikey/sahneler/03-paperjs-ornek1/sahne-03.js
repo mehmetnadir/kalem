@@ -34,13 +34,13 @@ export async function kur(P) {
     not("doğa kanunu", k.bit - 6);
   }
 
-  // --- ORTA: güneş (430 px) + ufuk çizgisi + ok east (17,21–19,45)
-  const yUfuk = 1196;
+  // --- ORTA: güneş (kutu 460 px) + ufuk çizgisi + ok east (17,21–19,45)
+  const yUfuk = 1214;
   const uf = ciz([[56, yUfuk + 2], [330, yUfuk - 2], [700, yUfuk + 1], [1024, yUfuk - 1]],
     { w: 4.4, renk: IKI, alfa: 0.9, bas: fr(17.21), sure: 24, uc0: 10, uc1: 30 });
   not("ufuk çizgisi", uf.bas);
-  const gunOge = S.oge({ nefes: { bas: fr(19.5), cx: 285, cy: yUfuk } });
-  await S.svgCiz("coco/sun.svg", { kutu: [70, 760, 430, 430], bas: fr(17.4), sure: fr(19.2) - fr(17.4), azami: 30,
+  const gunOge = S.oge({ nefes: { bas: fr(19.5), cx: 290, cy: yUfuk } });
+  await S.svgCiz("coco/sun.svg", { kutu: [60, 752, 460, 460], bas: fr(17.4), sure: fr(19.2) - fr(17.4), azami: 30,
     w: 4.2, oge: gunOge, sesAralik: 3 });
   not("güneş çizimi başı", fr(17.4));
   parilti(520, 790, { bas: fr(19.3), r: 30, periyot: 150, adet: 2 });
@@ -64,7 +64,7 @@ export async function kur(P) {
 
   // --- alt formül (Fredoka 100): satır A `it + rise-s` (26,80), satır B `V + s` (27,01); kare 366'dan sonra durgun
   {
-    const boy = 96, yA = 1294, yB = 1390, F = `700 ${boy}px Fredoka`;
+    const boy = 96, yA = 1306, yB = 1392, F = `700 ${boy}px Fredoka`;
     const topla = (p, G) => p.reduce((t, m) => t + genislik(m, F), 0) + G.reduce((a, b) => a + b, 0);
     const sat = (p, y, t, renkler, G) => {
       let x = 600 - topla(p, G) / 2; const out = [];
