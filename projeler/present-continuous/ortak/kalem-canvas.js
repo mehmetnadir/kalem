@@ -128,6 +128,52 @@ export function basUcu(c, t) {
 
 // ---------- SVG yolları ----------
 const SVG_NS = "http://www.w3.org/2000/svg";
+const PAPER_YOL = globalThis.KALEM_PAPER_YOL                       // başka projede sayfa ezer
+  || "/motorlar/paperjs/node_modules/paper/dist/paper-core.js";
+
+// Yol örnekleme Paper.js eğri geometrisiyle (yalnız geometri; çizim motoru düz canvas kalır).
+// Ölçüm 05.11: Blink getPointAtLength her çağrıda yolu baştan yürür; Open Peeps figüründe tek iş
+// 1,7–2,5 s → editörde sonraki sahne yüklenirken (3 s önce) takılma. Paper Curve#getPointAt eğri
+// başına sabit maliyet (~0,1 s). Sayfada paper yoksa burada yüklenir; modül üst düzey await: sahne
+// betiği paper hazır olmadan başlamaz. Node testinde document yok, adım atlanır; yükleme düşerse
+// uyarı yazılır, DOM örnekleyici kullanılır.
+if (typeof document !== "undefined" && !globalThis.paper) {
+  await new Promise((ok, hata) => {
+    const s = document.createElement("script"); s.src = PAPER_YOL; s.onload = ok;
+    s.onerror = () => hata(new Error("paper-core yüklenemedi: " + PAPER_YOL));
+    document.head.appendChild(s);
+  }).catch((e) => console.warn(e.message + " — DOM örnekleyici (yavaş) kullanılır"));
+}
+
+// Tek <path> öğesini kaynak koordinatta ~adimK yay aralığıyla örnekler; alt yol başına dizi.
+function yolOrnekle(yol, adimK) {
+  const P = globalThis.paper;
+  if (P) {
+    if (!P.project) P.setup(new P.Size(2, 2));
+    const cp = new P.CompoundPath({ pathData: yol.getAttribute("d"), insert: false });
+    const altYollar = cp.children && cp.children.length ? cp.children : [cp], dizi = [];
+    for (const py of altYollar) {
+      const pts = [];
+      for (const c of py.curves || []) {
+        const L = c.length; if (!(L > 1e-6)) continue;
+        const n = Math.max(1, Math.ceil(L / adimK));
+        for (let j = 0; j < n; j++) { const q = c.getPointAt(L * j / n); pts.push([q.x, q.y]); }
+      }
+      if (py.segments && py.segments.length) {
+        const q = py.closed ? py.firstSegment.point : py.lastSegment.point; pts.push([q.x, q.y]);
+      }
+      if (pts.length >= 2) dizi.push(pts);
+    }
+    cp.remove();
+    return dizi;
+  }
+  const len = yol.getTotalLength(), N = Math.min(6000, Math.max(2, Math.ceil(len / adimK) + 1));
+  const pts = [];
+  for (let i = 0; i < N; i++) {
+    const q = yol.getPointAtLength(len * i / (N - 1)); pts.push([q.x, q.y]);
+  }
+  return [pts];
+}
 
 // SVG metnini çözer; yolları örnekler, viewBox'ı kutuya (x,y,w,h; oran korunur) oturtur; uzun→kısa nokta dizileri döner.
 export function svgYollari(svgMetin, kutuHedef, { enCok = 60, esik = 0.02, adim = 5 } = {}) {
@@ -154,17 +200,18 @@ export function svgYollari(svgMetin, kutuHedef, { enCok = 60, esik = 0.02, adim 
       if (tr) M = M.multiply(new DOMMatrix([tr.matrix.a, tr.matrix.b, tr.matrix.c, tr.matrix.d, tr.matrix.e, tr.matrix.f]));
     }
     const msc = Math.sqrt(Math.abs(M.a * M.d - M.b * M.c)) || 1, len = yol.getTotalLength();
-    const N = Math.min(6000, Math.max(2, Math.ceil(len * msc * s / adim) + 1));
-    let parca = [], onceki = null;
-    const bitir = () => { if (parca.length >= 2) dizgi.push(parca); parca = []; };
-    for (let i = 0; i < N; i++) {
-      const q = yol.getPointAtLength(len * i / (N - 1));
-      const X = M.a * q.x + M.c * q.y + M.e, Y = M.b * q.x + M.d * q.y + M.f;
-      const pt = [X * s + ox, Y * s + oy];
-      if (onceki && Math.hypot(pt[0] - onceki[0], pt[1] - onceki[1]) > adim * 2.2) bitir();
-      parca.push(pt); onceki = pt;
+    const adimK = Math.max(adim / (msc * s), len / 5999);   // çıktı px'te adim; ≤ 6000 nokta/yol
+    for (const ham of yolOrnekle(yol, adimK)) {
+      let parca = [], onceki = null;
+      const bitir = () => { if (parca.length >= 2) dizgi.push(parca); parca = []; };
+      for (const q of ham) {
+        const X = M.a * q[0] + M.c * q[1] + M.e, Y = M.b * q[0] + M.d * q[1] + M.f;
+        const pt = [X * s + ox, Y * s + oy];
+        if (onceki && Math.hypot(pt[0] - onceki[0], pt[1] - onceki[1]) > adim * 2.2) bitir();
+        parca.push(pt); onceki = pt;
+      }
+      bitir();
     }
-    bitir();
   }
   document.body.removeChild(kap);
   const uz = (a) => { let L = 0; for (let i = 1; i < a.length; i++) L += Math.hypot(a[i][0] - a[i - 1][0], a[i][1] - a[i - 1][1]); return L; };
