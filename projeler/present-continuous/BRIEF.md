@@ -71,6 +71,12 @@ Renk krem; figür ve nesne kalınlığı w 3,2–4,0; belirteç (altını çizme
 eğik elips/çizgi (mükemmel geometri YASAK). Düz canvas sahneleri aynı geometriyi `ortak/kalem-canvas.js`'e taşır
 (A3 yazar: polyline örnekleme + normal sapma + kalınlık → dolgu çokgen; Paper.js'siz).
 
+El yazısı notu (pilot 05.11, karar 5–6; sahne 04 Türkçe çeviri): Caveat 700 Türkçe tegaki darbeleri
+(`ortak/tegaki/caveat-tr/`) kendi kalemimizle yazılır (`S.elYazisi`, `kalem-canvas.js yaziDarbeleri/yaziCiz`);
+i/ö/ü noktaları ve noktalama nib damgasından gelir. Hız kuralı: her sözcük kendi konuşma penceresinde
+(`sozcukler: S.dizi(...)`); anlatımsız notta `sure` hedef saniyedir. Öteki notlar (`S.not`) Nadir değerlendirmesine
+kadar kırpma-belirme ile kalır.
+
 ### 2.4 Figür ve nesne (hazır çizimler, kalemle çizilir)
 `ortak/cizim/open-peeps/*.svg` (CC0; sitting-1..7, standing-1..6), `ortak/cizim/tabler/*.svg` (MIT; camera, piano,
 cat, tree, home, calendar, clock, music …). SVG dosyası METİN olarak okunur (fetch + DOMParser); `<path d>` yolları
