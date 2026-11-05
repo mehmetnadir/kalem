@@ -205,6 +205,10 @@ button.yt{height:20px;padding:0 7px;font-size:11px;border-radius:9px;background:
 .pc{height:24px;padding:0 8px;font-size:11px;display:inline-flex;gap:5px;align-items:center}
 .pc small{font-size:10px;opacity:.75}
 .pc.sabit{cursor:default;outline:1px dashed rgba(255,255,255,.4);outline-offset:-1px}
+.pc.baska{border-color:#6b5a2a}.pc.baska.on{background:#d9a441;border-color:#d9a441}
+.yg{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--dm);margin-left:6px;padding-left:8px;
+  border-left:1px solid var(--ln);white-space:nowrap}
+.pz b.sev{color:var(--parilti);font-weight:700;margin-left:4px}
 #yy select{width:120px;margin:0;height:24px;font-size:11px}
 body.yan #zoomE{opacity:.5}
 .pz{position:absolute;left:0;right:0;bottom:0;height:20px;z-index:5;display:none;gap:6px;align-items:center;

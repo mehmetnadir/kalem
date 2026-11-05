@@ -95,7 +95,7 @@ function url(p, i) {
   return p.yol + "sahneler/" + s.klasor + (s.motor === "HyperFrames" ? "/proje/index.html" : "/sayfa.html") +
     "?canli=1&mesaj=1&tbas=" + s.t_bas + (p.tema === "acik" ? "&tema=acik" : "");
 }
-function slotYukle(p, s, i) { s.no = i; s.hazir = false; s.goster = false; s.sonT = null; s.f.src = url(p, i); }
+function slotYukle(p, s, i) { s.no = i; s.hazir = false; s.goster = false; s.sonT = null; s.sonF = -1; s.f.src = url(p, i); }
 function slotBul(p, i, goster) {
   for (var k = 0; k < p.slot.length; k++) if (p.slot[k].no === i && (!goster || p.slot[k].goster)) return p.slot[k];
   return null;
@@ -117,8 +117,17 @@ function sahneYonet(p, x) {
     } else if (s.idx === p.gosterilen) { z = 2; op = 1; }
     if (s.op !== op) { s.f.style.opacity = op; s.op = op; }
     if (s.z !== z) { s.f.style.zIndex = z; s.z = z; }
-    if (s.hazir && s.sonT !== x) { try { s.f.contentWindow.postMessage({ tip: "zaman", t: x }, "*");
-      } catch (er) {} s.sonT = x; }
+    // Mesaj bütçesi (05.11): bütün pencereler tek ana iş parçacığını paylaşır. Sayfa karesi değişmeden mesaj yok;
+    // arka tampon tek konum mesajı alır, görünene dek çizmez; ikincil pencereler oynarken tek karede bir (15 fps).
+    if (s.hazir && s.no >= 0) {
+      var fr = Math.floor((x - L[s.no].t_bas) * FPS + 1e-4);
+      var gorunur = s === cur || s === onceki || (!cur && s.idx === p.gosterilen);
+      var seyrek = p.k > 0 && calma !== "dur" && (fr & 1) === 1;
+      if (s.sonT === null || (gorunur && fr !== s.sonF && !seyrek)) {
+        try { s.f.contentWindow.postMessage({ tip: "zaman", t: x }, "*"); } catch (er) {}
+        s.sonT = x; s.sonF = fr;
+      }
+    }
   });
   if (p.k === 0) $("#bekle").style.display = p.gosterilen >= 0 ? "none" : "flex";
   return { i: i, cur: !!cur, sonraki: i + 1 < L.length ? slotBul(p, i + 1, true) : null };
@@ -145,14 +154,17 @@ var KISA = { "ana-yatay": "Yatay", "dikey-tam": "Dikey", shorts: "Shorts", dikey
 function anaProje() { return PROJE.replace(/-(dikey|s1|d1)$/, ""); }
 function suaBul(k) { return SUA.filter(function (x) { return x.kimlik === k; })[0]; }
 function projeSeviye(ad) { var m = /-(temel|orta|ileri)(-|$)/.exec(ad || ""); return m ? m[1] : ""; }
-function surumKisa(k) {                         // hedef projenin adından: biçim (Yatay/Dikey/Shorts/D1) + farklı seviye
-  var s = suaBul(k), a = s ? KalemYol.yeniAdres(surumAdres(s)) : "", proje = a ? KalemYol.projeAdi(a.split("?")[0]) : "";
-  if (!proje && k === HOSTK) proje = PROJE;
-  if (!proje) return KISA[k] || (s && TURAD[s.tur]) || k || PROJE;
-  var bicim = /-d1$/.test(proje) ? "D1" : /-dikey$/.test(proje) ? "Dikey" : /-s1$/.test(proje) ? "Shorts" : "Yatay";
-  var sev = projeSeviye(proje);
-  return bicim + (sev && sev !== projeSeviye(PROJE) ? " " + sev : "");
+function surumProje(k) {                        // sürüm kimliği → önizlediği proje adı
+  var s = suaBul(k), a = s ? KalemYol.yeniAdres(surumAdres(s)) : "";
+  return (a && KalemYol.projeAdi(a.split("?")[0])) || (k === HOSTK ? PROJE : "");
 }
+function surumSeviye(k) { var p = surumProje(k), sv = p ? projeSeviye(p) : ""; return sv === projeSeviye(PROJE) ? "" : sv; }
+function surumBicim(k) {
+  var proje = surumProje(k), s = suaBul(k);
+  if (!proje) return KISA[k] || (s && TURAD[s.tur]) || k || PROJE;
+  return /-d1$/.test(proje) ? "D1" : /-dikey$/.test(proje) ? "Dikey" : /-s1$/.test(proje) ? "Shorts" : "Yatay";
+}
+function surumKisa(k) { var sv = surumSeviye(k); return surumBicim(k) + (sv ? " " + sv : ""); }
 function suaYukle() {                            // sürüm listesi ana projeden (dikey/s1 projede surumler.json yok)
   if (anaProje() === PROJE) { SUA = SU; return Promise.resolve(); }
   return getJ("/api/" + encodeURIComponent(anaProje()) + "/surumler")
@@ -182,7 +194,7 @@ function paneOlustur(k, S0, yol0) {
   var ic = e("div", "pane", null, el);
   var slot = [0, 1].map(function (m) {
     var f = e("iframe", null, null, ic); f.title = "pencere " + k + " tampon " + (m + 1);
-    return { idx: m, f: f, no: -1, hazir: false, goster: false, sonT: null, op: -1, z: -1 };
+    return { idx: m, f: f, no: -1, hazir: false, goster: false, sonT: null, sonF: -1, op: -1, z: -1 };
   });
   var pl = e("div", "pz", null, el);
   var p = { k: k, el: el, ic: ic, pl: pl, S: S0 || [], yol: yol0 || "", tema: TEMA, surum: "", kimlik: HOSTK,
@@ -259,13 +271,21 @@ function pencereYaz() {
 }
 function pencereCiz() {                          // çipler: sürüm × tema; açık pencereler vurgulu
   var kok = $("#yyc"); if (!kok) return; kok.innerHTML = "";
-  var host = paneAnahtar(panes[0]);
-  pencereAdaylari().forEach(function (x) {
-    ["koyu", "acik"].forEach(function (tm) {
-      var key = x.kimlik + ":" + tm, on = key === host || paneBul(key) > 0;
-      var b = e("button", "pc" + (on ? " on" : "") + (key === host ? " sabit" : ""),
-        ec(x.ad) + "<small>" + (tm === "acik" ? "açık" : "koyu") + "</small>", kok);
-      b.dataset.pk = key; b.title = key === host ? "Ana pencere (tema üstten)" : (on ? "Pencereyi kapat" : "Pencere aç");
+  var host = paneAnahtar(panes[0]), grup = {}, sira = [];
+  pencereAdaylari().forEach(function (x) {                 // bu videonun sürümleri önce; başka seviye ayrı küme
+    var g = surumSeviye(x.kimlik); if (!grup[g]) { grup[g] = []; sira.push(g); } grup[g].push(x);
+  });
+  sira.sort(function (a, b) { return (a ? 1 : 0) - (b ? 1 : 0); });
+  sira.forEach(function (g) {
+    e("span", "yg", g ? ec(g) + " seviye (başka video)" : "bu video", kok);
+    grup[g].forEach(function (x) {
+      ["koyu", "acik"].forEach(function (tm) {
+        var key = x.kimlik + ":" + tm, on = key === host || paneBul(key) > 0;
+        var b = e("button", "pc" + (on ? " on" : "") + (key === host ? " sabit" : "") + (g ? " baska" : ""),
+          ec(surumBicim(x.kimlik)) + "<small>" + (tm === "acik" ? "açık" : "koyu") + "</small>", kok);
+        b.dataset.pk = key; b.title = (g ? g + " seviye · " : "") + (key === host ? "Ana pencere (tema üstten)"
+          : (on ? "Pencereyi kapat" : "Pencere aç"));
+      });
     });
   });
   sesSecenek();
@@ -285,11 +305,13 @@ function paneEtiketYenile() {                    // pencere rozeti: sürüm · t
   panes.forEach(function (p) {
     if (!p.S.length) return;
     var i = sahneNo(p, t), s = p.S[i];
-    var tx = surumKisa(p.kimlik || HOSTK) + " · " + (p.tema === "acik" ? "açık" : "koyu") + " · " + pad(s.no) + " "
-      + s.klasor.replace(/^\d+-[a-z]+-/, "") + " · " + motorKisa(s.motor);
+    var sv = surumSeviye(p.kimlik || HOSTK);
+    var tx = ec(surumBicim(p.kimlik || HOSTK)) + (sv ? " <b class='sev'>" + ec(sv) + " seviye</b>" : "") + " · "
+      + (p.tema === "acik" ? "açık" : "koyu") + " · " + pad(s.no) + " " + ec(s.klasor.replace(/^\d+-[a-z]+-/, ""))
+      + " · " + ec(motorKisa(s.motor));
     if (p.etT !== tx) {
-      p.pl.innerHTML = "<i class='md' style='--m:" + motorRenk(s.motor) + "'></i>" + ec(tx)
-        + "<span class='ac' title='Bu sürümün editörünü bu anda aç'>↗</span>";
+      p.pl.innerHTML = "<i class='md' style='--m:" + motorRenk(s.motor) + "'></i>" + tx
+        + "<span class='ac' title='Bu sürümün editörünü bu anda aç'>\u2197</span>";
       p.etT = tx;
     }
   });
@@ -326,7 +348,7 @@ function olc() {                                 // pencereleri 1–3 satıra pa
 function paneKaynak(p, yol, L) {
   p.yol = yol; p.S = L; p.gosterilen = -1;
   p.slot.forEach(function (s) {
-    s.no = -1; s.hazir = false; s.goster = false; s.sonT = null; s.op = -1; s.z = -1; s.f.style.opacity = 0;
+    s.no = -1; s.hazir = false; s.goster = false; s.sonT = null; s.sonF = -1; s.op = -1; s.z = -1; s.f.style.opacity = 0;
     s.f.src = "about:blank";
   });
 }
