@@ -2,12 +2,19 @@
 // Kök: "Mike owns two cars, but he usually takes the bus because parking costs so much." (durum fiili, araba + otobüs).
 import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, ok, kutu, altCizgi, olc } from "./sahne-ortak.js";
+import { yaziNoktalari } from "/projeler/simple-present-ileri/ortak/kalem-canvas.js";
 
 const KARE = 487, TBAS = 32.45, ICERIK = 475;
 const KOKDIZ = "/projeler/simple-present-ileri/ortak/cizim";
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Example 2 / 3", cumle: 4 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
+// El yazısı (Caveat 700 tegaki, dalga 5b / K26): ortalı yazının x'i için genişlik glif verisinden
+const eyGen = (m, b) => yaziNoktalari(m, S.EY.G, { upm: S.EY.M.unitsPerEm, asc: S.EY.M.ascender,
+  boy: b, x: 0, taban: 0 }).gen;
+// Sözcük penceresi: < 0,2 sn kısa pencere sonraki sözcüğün başına dek uzar (2–3 harflik sözcük)
+const pen = (w) => w.map((q, i) => ({ t0: q.t0,
+  t1: q.t1 - q.t0 < 0.2 && w[i + 1] ? w[i + 1].t0 : q.t1 }));
 
 async function kur() {
   await S.kur();
@@ -31,13 +38,21 @@ async function kur() {
   S.koy(S.cizim({ svg: araba, ad: "araba", kutu: { x: 1030, y: 190, w: 300, h: 300 }, enCok: 12, w: 3.8, tb: 34.6, sure: 1.0, olayEnCok: 5 }));
   S.koy(S.cizim({ svg: otobus, ad: "otobus", kutu: { x: 1520, y: 190, w: 300, h: 300 }, enCok: 14, w: 3.8, tb: 37.4, sure: 1.2, olayEnCok: 5 }));
   S.koy(S.darbeler(ok([1345, 340], [1500, 340], 4), { w: 7, renk: SARI, uc0: 10, uc1: 14 }, 36.4, 0.2, 0.14, 0.5));
-  S.koy(S.metinPop({ parca: [["sahip", SARI]], x: 1180, y: 490, font: "700 48px Caveat", hiza: "orta", tb: 35.2, sure: 0.35, ses: 0.5 }));
-  S.koy(S.metinPop({ parca: [["genellikle", SARI]], x: 1670, y: 490, font: "700 48px Caveat", hiza: "orta", tb: 37.9, sure: 0.35, ses: 0.5 }));
+  // 35,20 `sahip` ve 37,90 `genellikle`: anlatımsız etiket, hedef 0,5 / 0,6 sn;
+  // x 1180 / 1670 ortalı
+  S.koy(S.elYazisi({ metin: "sahip", x: 1180 - eyGen("sahip", 48) / 2, y: 490, renk: SARI,
+    tb: 35.2, sure: 0.5, ses: 0.5 }));
+  S.koy(S.elYazisi({ metin: "genellikle", x: 1670 - eyGen("genellikle", 48) / 2, y: 490,
+    renk: SARI, tb: 37.9, sure: 0.6, ses: 0.5 }));
   S.koy(S.parilti(1680, 215, 39.4));
 
-  // 39,90–42,94 Türkçe çeviri (Caveat 48 ikincil, 2 satır)
-  S.koy(S.not({ parca: [["Mike'ın iki arabası var,", IKINCIL]], x: 140, y: 590, tb: 39.9, sure: 1.1 }));
-  S.koy(S.not({ parca: [["ama genellikle otobüse biner.", IKINCIL]], x: 140, y: 650, tb: 41.62, sure: 1.3 }));
+  // 39,90–44,14 Türkçe çeviri (Caveat 48 ikincil, 2 satır), her sözcük kendi konuşma penceresinde
+  // (Mike'ın 39,90 · iki 40,38 · arabası 40,62 · var, 41,14 |
+  // ama 41,62 · genellikle 41,90 · otobüse 42,46 · biner. 42,94)
+  S.koy(S.elYazisi({ metin: "Mike'ın iki arabası var,", x: 140, y: 590, renk: IKINCIL,
+    sozcukler: pen(S.dizi("Mike'ın", 39.9, 4)) }));
+  S.koy(S.elYazisi({ metin: "ama genellikle otobüse biner.", x: 140, y: 650, renk: IKINCIL,
+    sozcukler: pen(S.dizi("ama", 41.62, 4)) }));
 
   // 44,29–48,29 durum fiilleri: kart (owns · costs, is owning ✗), kutu "durum fiili: own · cost · know", ing silinir
   {

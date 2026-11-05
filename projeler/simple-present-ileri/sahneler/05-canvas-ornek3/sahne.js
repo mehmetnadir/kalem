@@ -3,6 +3,7 @@
 // Zaman yalnız kare numarasından; sözcük zamanları ortak/anlatim/sozcukler.json (küresel sn).
 import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, olc } from "./sahne-ortak.js";
+import { yaziNoktalari } from "/projeler/simple-present-ileri/ortak/kalem-canvas.js";
 
 const KARE = 406, TBAS = 48.29, ICERIK = 394;
 const KOKDIZ = "/projeler/simple-present-ileri/ortak/cizim";
@@ -10,6 +11,12 @@ const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Example 3 
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
 const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+// El yazısı (Caveat 700 tegaki, dalga 5b / K26): ortalı yazının x'i için genişlik glif verisinden
+const eyGen = (m, b) => yaziNoktalari(m, S.EY.G, { upm: S.EY.M.unitsPerEm, asc: S.EY.M.ascender,
+  boy: b, x: 0, taban: 0 }).gen;
+// Sözcük penceresi: < 0,2 sn kısa pencere sonraki sözcüğün başına dek uzar (2–3 harflik sözcük)
+const pen = (w) => w.map((q, i) => ({ t0: q.t0,
+  t1: q.t1 - q.t0 < 0.2 && w[i + 1] ? w[i + 1].t0 : q.t1 }));
 
 async function kur() {
   await S.kur();
@@ -40,16 +47,21 @@ async function kur() {
     ses: 0.5 }));
   S.koy(S.cizim({ svg: takvim, ad: "takvim", kutu: { x: 1230, y: 150, w: 200, h: 200 }, enCok: 8, w: 4, tb: 51.7,
     sure: 0.8, olayEnCok: 3 }));
-  S.koy(S.not({ parca: [["yarın", KREM]], x: 1330 - olc(CV(64), "yarın") / 2, y: 418, font: CV(64), tb: 52.4,
-    sure: 0.4 }));
+  // 52,40 `yarın` etiketi: anlatımsız, hedef 0,5 sn; x 1330 ortalı (takvim altı)
+  S.koy(S.elYazisi({ metin: "yarın", x: 1330 - eyGen("yarın", 64) / 2, y: 418, boy: 64,
+    renk: KREM, tb: 52.4, sure: 0.5 }));
   S.koy(S.darbe([[1215, 880], [1500, 884], [1810, 879]], { duz: true, w: 3.4, renk: IKINCIL, alfa: 0.8, uc0: 6,
     uc1: 10, tohum: 77 }, 53.0, 0.45, 0.45));
   S.koy(S.parilti(1700, 600, 53.9, 26));
 
-  // 54,94–56,38 Türkçe çeviri
+  // 54,94–57,34 Türkçe çeviri: her sözcük kendi penceresinde (Uçuşumuz 54,94 · yarın 55,58 ·
+  // on 55,98 · birde 56,14 · kalkıyor. 56,38–57,34). `sabah` anlatım verisinde yok:
+  // yarın penceresi ikiye bölünür (yarın 55,58–55,74 · sabah 55,74–55,98)
   const yTR = sonSatir + 80;
-  S.koy(S.not({ parca: [["Uçuşumuz yarın sabah on birde kalkıyor.", IKINCIL]], x: 140, y: yTR, font: CV(48),
-    tb: 54.94, sure: 1.4 }));
+  const tr = S.dizi("Uçuşumuz", 54.94, 5), ya = tr[1];
+  const trSoz = pen([tr[0], { t0: ya.t0, t1: 55.74 }, { t0: 55.74, t1: tr[2].t0 }, ...tr.slice(2)]);
+  S.koy(S.elYazisi({ metin: "Uçuşumuz yarın sabah on birde kalkıyor.", x: 140, y: yTR,
+    renk: IKINCIL, sozcukler: trSoz }));
 
   // 57,41–61,41 tarife tablosu: kutu + başlık + "11:00 takes off"; tomorrow kırmızı çizgi ≠ will
   const kx = 140, ky = 660, kw = 1000, kh = 310;

@@ -1,15 +1,23 @@
 // Sahne 03 (İLERİ) — Örnek 1 (456 kare, t_bas 17,65; cümle 3). Zamanlar BRIEF §4; yerel kare = round((t − 17,65) × 30).
 // Kök: "Although the sun looks small from here, it gives plants the energy they need." (güneş + ağaç, bağlaç).
 import { sahneKur, RT } from "/projeler/simple-present-ileri/sahneler/03-paperjs-ornek1/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/simple-present-ileri/ortak/kalem-canvas.js";
 
 export const KARE = 456, T_BAS = 17.65;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1, kayma: 0 });
-  const { fr, ciz, daire, ok, kutu, yazi, cumle, altCizgi, parilti, olay, not, bitis } = S;
+  const { fr, ciz, daire, ok, kutu, yazi, elYazisi, cumle, altCizgi, parilti, olay, not,
+    bitis } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil;
   const GB = 12;                                                   // geçiş karesi: çizimler bundan sonra başlar
   const f0 = (t) => Math.max(GB, fr(t));
+  // El yazısı (Caveat 700 tegaki, dalga 5b / K26): ortalı yazının x'i için genişlik glif verisinden
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm, asc: EY.M.ascender,
+    boy: boyut, x: 0, taban: 0 }).gen;
 
   // --- 18,20–19,41: büyük el çizimi daire içinde 1
   const d1 = daire(200, 168, 64, 58, { bas: f0(18.20), sure: 22, a0: -2.6 }); olay(bitis(d1), "tik", 0.5);
@@ -39,14 +47,21 @@ export async function kur(P) {
     oge: ogeAgac, sesAralik: 5 });
   not("ağaç çizimi başı", f0(22.0));
   const a1 = ok([1385, 352], [1478, 352], { bas: fr(21.80), sure: 14, w: 7, uzun: 20, bukum: 0.1 }); not("enerji oku", a1.bas);
-  yazi("enerji", { x: 1432, y: 322, hizala: "orta", boyut: 44, aile: "Caveat", agirlik: 700, renk: SARI, bas: fr(22.75), sure: 9, ses: true });
+  // 22,75 anlatımsız etiket `enerji`: hedef 14 kare (0,47 sn) → 23,22; x 1432 ortalı
+  elYazisi("enerji", { x: 1432 - eyGen("enerji", 44) / 2, y: 322, boyut: 44, renk: SARI,
+    bas: fr(22.75), sure: 14 });
   parilti(1190, 210, { bas: fr(23.0), r: 24 });
 
-  // --- 24,30–27,34: Türkçe çeviri (Caveat 48 ikincil, 2 satır), sözcük zamanlı
+  // --- 24,30–28,78: Türkçe çeviri (Caveat 48 ikincil, 2 satır), her sözcük kendi penceresinde
+  // (cümle 3: Güneş 24,30 · küçük 24,70 · görünse 25,02 · de 25,50 |
+  // bitkilere 25,94 · gereken 26,38 · enerjiyi 26,94 · verir. 27,34–28,78)
   const tr = S.sozcukler(3).slice(16, 24);                         // Güneş küçük görünse de bitkilere gereken enerjiyi verir.
-  const tz = cumle(tr.map((k, i) => ({ s: k.s, f: k.f, satir: i < 4 ? 0 : 1 })),
-    { x: 140, y: 560, boyut: 48, aile: "Caveat", agirlik: 700, aralik: 60, renk: IKI });
-  not("Türkçe çeviri", tz[0].bas);
+  const pen = (w) => w.map((k) => ({ f0: k.f, f1: k.f1 }));
+  const tz = elYazisi("Güneş küçük görünse de", { x: 140, y: 560, boyut: 48, renk: IKI,
+    sozcukler: pen(tr.slice(0, 4)) });
+  elYazisi("bitkilere gereken enerjiyi verir.", { x: 140, y: 620, boyut: 48, renk: IKI,
+    sozcukler: pen(tr.slice(4)) });
+  not("Türkçe çeviri", tz.bas);
   parilti(1250, 480, { bas: fr(26.9), r: 20 });
 
   // --- 28,93–32,45: Although kutu -> ok "zaman değişmez" -> gives daire ; formül kartı it gives (V-s)
@@ -59,8 +74,10 @@ export async function kur(P) {
     const o1 = ok([485, 777], [585, 777], { bas: fr(29.55), sure: 12, w: 7, uzun: 20, bukum: 0.08 });
     not("ok bağlaç -> zaman", o1.bas);
     const zy = S.sozcukler(3).filter((q) => ["zaman", "değişmez:"].includes(q.s));
-    const zz = cumle(zy.map((q) => ({ s: q.s, f: q.f, satir: 0 })), { x: 610, y: 792, boyut: 56, aile: "Caveat", agirlik: 700, renk: SARI });
-    not("zaman değişmez", zz[0].bas);
+    // 29,97–31,57 «zaman değişmez:» (pencere: zaman 29,97–30,29 · değişmez: 30,37–31,57)
+    const zz = elYazisi("zaman değişmez:", { x: 610, y: 792, boyut: 56, renk: SARI,
+      sozcukler: zy.map((q) => ({ f0: q.f, f1: q.f1 })) });
+    not("zaman değişmez", zz.bas);
     // gives (31,65): sarı daire cümlede + formül
     const g = cz[8];
     const dg = daire((g.x0 + g.x1) / 2, g.y - 20, (g.x1 - g.x0) / 2 + 7, 40, { bas: fr(31.62), sure: 18, a0: -2.6, egim: -0.03 });

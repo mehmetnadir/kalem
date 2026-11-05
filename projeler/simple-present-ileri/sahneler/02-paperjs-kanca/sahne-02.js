@@ -1,13 +1,26 @@
 // Sahne 02 İLERİ (Simple Present) — Kanca + kural (451 kare, t_bas 3,00; cümle 2). Yerel kare = round((t − 3,00) × 30).
 // Cümle 1 yazısı 0. karede yerinde (sahne 01 ile aynı yer, x 140 y 300); içerik 17,25 sn'de biter.
-import { sahneKur, RT } from "/projeler/simple-present-ileri/sahneler/02-paperjs-kanca/kalem-paper.js";
+import { sahneKur, RT, renkCoz }
+  from "/projeler/simple-present-ileri/sahneler/02-paperjs-kanca/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/simple-present-ileri/ortak/kalem-canvas.js";
 
 export const KARE = 451, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook", etkin: 0, kayma: 0 });
-  const { fr, daire, yazi, cumle, tik, parilti, olay, not, bitis, kutu, svgCiz } = S;
+  const { P: PP, fr, daire, yazi, elYazisi, dinamik, cumle, tik, parilti, olay, not, bitis, kutu,
+    svgCiz } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil, KRE = RT.murekkep;
+  // El yazısı (Caveat 700 tegaki, dalga 5b / K26): ortalı yazının x'i için genişlik glif verisinden
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  // etiket önü dolu nokta (`·` Caveat paketinde yok): r 4, zamanı gelince görünür
+  const nokta = (cx, cy, renk, bas) => dinamik((f, gr) => { if (f < bas) return;
+    gr.addChild(new PP.Path.Circle({ center: [cx, cy], radius: 4, fillColor: renkCoz(renk),
+      opacity: 0.9, insert: false })); });
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm, asc: EY.M.ascender,
+    boy: boyut, x: 0, taban: 0 }).gen;
 
   // --- cümle 1: "Uçak yarın dokuzda kalkıyor." (Caveat 64, x 140, y 300); 0. karede hazır
   const c1 = cumle(["Uçak", "yarın", "dokuzda", "kalkıyor."].map((s) => ({ s, f: -10 })),
@@ -23,7 +36,10 @@ export async function kur(P) {
   not("uçak çizimi", fr(3.12));
 
   // --- 3,95–6,0: büyük ? ve iki kutu: will / Simple Present
-  yazi("?", { x: 540, y: 575, boyut: 210, aile: "Caveat", agirlik: 700, hizala: "orta", renk: SARI, bas: fr(3.95), sure: 12, olcek: true, ses: "vurus" });
+  // 3,95 anlatımsız büyük `?`: hedef 14 kare (0,47 sn) → 4,42 (kutu will 4,51'de başlar);
+  // x 540 ortalı
+  elYazisi("?", { x: 540 - eyGen("?", 210) / 2, y: 575, boyut: 210, renk: SARI, bas: fr(3.95),
+    sure: 14 });
   not("büyük ?", fr(3.95));
   kutu(140, 430, 300, 150, { bas: fr(4.51), sure: 26, w: 4 });
   yazi("will", { x: 290, y: 535, boyut: 84, aile: "Fredoka", agirlik: 700, hizala: "orta", renk: KRE, bas: fr(4.79), sure: 8, olcek: true, ses: true });
@@ -33,12 +49,17 @@ export async function kur(P) {
   not("kutu Simple Present", fr(5.0));
 
   // --- 6,19: "Önce kural" etiketi
-  const k1 = yazi("ÖNCE KURAL", { x: 140, y: 690, boyut: 48, renk: IKI, bas: fr(6.19), sure: 10, ses: true }); not("ÖNCE KURAL", fr(6.19));
+  const k1 = elYazisi("ÖNCE KURAL", { x: 140, y: 690, boyut: 48, renk: IKI, bas: fr(6.19),
+    sure: 12 });
+  not("ÖNCE KURAL", fr(6.19));
   parilti(1320, 400, { bas: fr(6.5), r: 26, periyot: 0, adet: 1 });
 
   // --- 7,24–10,60: pozitif kural: he · she · it → V-s (Fredoka 72, taban y 735)
   {
-    yazi("· Positive", { x: k1.x1 + 14, y: 690, boyut: 48, renk: SARI, bas: fr(7.24), sure: 10, ses: true }); not("Positive etiketi", fr(7.24));
+    nokta(k1.x1 + 18, 690 - 0.22 * 48, SARI, fr(7.24));
+    elYazisi("Positive", { x: k1.x1 + 36, y: 690, boyut: 48, renk: SARI, bas: fr(7.24),
+      sure: 12 });
+    not("Positive etiketi", fr(7.24));
     const Y = 795; let x = 140; const gap = 22;
     const koy = (s, t, o = {}) => { const y = yazi(s, { x, y: Y, boyut: 72, aile: "Fredoka", agirlik: 700, renk: o.renk || KRE,
       bas: fr(t), sure: 8, olcek: true, ses: o.ses !== false }); x = y.x1 + gap; return y; };
@@ -52,8 +73,12 @@ export async function kur(P) {
 
   // --- 10,60–13,97: olumsuz + soru: does + base verb (taban y 945)
   {
-    const e1 = yazi("Negative", { x: 140, y: 868, boyut: 48, renk: SARI, bas: fr(10.6), sure: 10, ses: true }); not("Negative etiketi", fr(10.6));
-    yazi("· Question", { x: e1.x1 + 14, y: 868, boyut: 48, renk: SARI, bas: fr(11.24), sure: 10, ses: true });
+    const e1 = elYazisi("Negative", { x: 140, y: 868, boyut: 48, renk: SARI, bas: fr(10.6),
+      sure: 12 });
+    not("Negative etiketi", fr(10.6));
+    nokta(e1.x1 + 18, 868 - 0.22 * 48, SARI, fr(11.24));
+    elYazisi("Question", { x: e1.x1 + 36, y: 868, boyut: 48, renk: SARI, bas: fr(11.24),
+      sure: 12 });
     const Y = 955; let x = 140; const gap = 22;
     const koy = (s, t, o = {}) => { const y = yazi(s, { x, y: Y, boyut: 72, aile: "Fredoka", agirlik: 700, renk: o.renk || KRE,
       bas: fr(t), sure: 8, olcek: true, ses: o.ses !== false }); x = y.x1 + gap; return y; };
@@ -66,7 +91,9 @@ export async function kur(P) {
   // --- 13,97–17,25: ajanda kutusu (sağ alt): form · time expressions · 3 YDT roots; saat 6 min
   kutu(1000, 650, 840, 340, { bas: fr(13.97), sure: 30, w: 4 }); not("ajanda kutusu", fr(13.97));
   await svgCiz("tabler/clock.svg", { kutu: [1640, 700, 160, 160], bas: fr(14.1), sure: 24, azami: 25, w: 4, sesAralik: 2 });
-  yazi("6 min", { x: 1720, y: 950, boyut: 64, hizala: "orta", renk: SARI, bas: fr(14.4), sure: 12, ses: true }); not("saat + 6 min", fr(14.1));
+  elYazisi("6 min", { x: 1720 - eyGen("6 min", 64) / 2, y: 950, boyut: 64, renk: SARI,
+    bas: fr(14.4), sure: 12 });
+  not("saat + 6 min", fr(14.1));
   [["form", 14.85, 745], ["time expressions", 15.41, 835], ["3 YDT roots", 16.05, 925]].forEach(([s, t, y]) => {
     const z = yazi(s, { x: 1040, y, boyut: 56, aile: "Fredoka", agirlik: 700, renk: KRE, bas: fr(t), sure: 8, olcek: true, ses: true });
     tik(z.x1 + 44, y - 20, { bas: fr(t) + 9 }); not("madde " + s, fr(t));
