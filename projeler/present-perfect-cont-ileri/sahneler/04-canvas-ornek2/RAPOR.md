@@ -1,6 +1,6 @@
 # Sahne 04 — Örnek 2 (düz canvas, yatay, ileri)
 
-Tema: acik + koyu (ikisi de koşuldu; `video-acik.mp4`, `video-koyu.mp4`, `video.mp4` = son koşu koyu).
+Tema: acik
 
 | Kalem | Değer |
 |---|---|
