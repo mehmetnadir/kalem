@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:"Fredoka";font-weight:700;font-display:block;src:url("assets/fonts/fredoka-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fredoka";font-weight:700;font-display:block;src:url("assets/fonts/fredoka-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Fredoka";font-weight:600;font-display:block;src:url("assets/fonts/fredoka-latin-600-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fredoka";font-weight:600;font-display:block;src:url("assets/fonts/fredoka-latin-ext-600-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Lexend";font-weight:500;font-display:block;src:url("assets/fonts/lexend-latin-500-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Lexend";font-weight:500;font-display:block;src:url("assets/fonts/lexend-latin-ext-500-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Lexend";font-weight:700;font-display:block;src:url("assets/fonts/lexend-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Lexend";font-weight:700;font-display:block;src:url("assets/fonts/lexend-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Caveat";font-weight:700;font-display:block;src:url("assets/fonts/caveat-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Caveat";font-weight:700;font-display:block;src:url("assets/fonts/caveat-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:var(--zemin);}#zemin{position:absolute;inset:0;background:var(--zemin);}#gren{position:absolute;left:0;top:0;opacity:var(--gren);mix-blend-mode:overlay;}#vinyet{position:absolute;inset:0;background:radial-gradient(circle 1026px at 50% 50%,rgba(0,0,0,0) 47.4%,rgba(0,0,0,var(--vin)) 100%);}.abs{position:absolute;}
+#sahne{position:absolute;left:0;top:0;}
+#root{--zemin:#1b1a17;--murekkep:#f3efe6;--ikincil:#c9c2b3;--vurgu:#f2a93b;--vurguDolgu:#f2a93b;--logoSari:#fece00;--logoMetin:#ffffff;--kirmizi:#e0473b;--pilMetin:#1b1a17;--gren:.045;--vin:.38;}
+#root.tema-acik{--zemin:#f7f3ea;--murekkep:#1b2440;--ikincil:#5a6275;--vurgu:#d9900f;--vurguDolgu:#ffe066;--logoMetin:#13204D;--kirmizi:#d6453a;--pilMetin:#1b2440;--gren:.03;--vin:.10;}
+#root [fill="#f3efe6"]{fill:var(--murekkep)}#root [stroke="#f3efe6"]{stroke:var(--murekkep)}
+#root [fill="#c9c2b3"]{fill:var(--ikincil)}#root [stroke="#c9c2b3"]{stroke:var(--ikincil)}
+#root [fill="#f2a93b"]{fill:var(--vurgu)}#root [stroke="#f2a93b"]{stroke:var(--vurgu)}
+#root rect[fill="#f2a93b"],#root circle[fill="#f2a93b"]:not(#ku-nokta){fill:var(--vurguDolgu)}
+#root [fill="#e0473b"]{fill:var(--kirmizi)}#root [stroke="#e0473b"]{stroke:var(--kirmizi)}
+#root [stroke="#1b1a17"]{stroke:var(--zemin)}#root text[fill="#1b1a17"]{fill:var(--pilMetin)}#root #rz1 text{fill:var(--zemin)}
+#root.tema-acik #t2{fill:var(--vurgu)}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="3.4" data-fps="30" data-width="1920" data-height="1080">
+<div id="zemin"></div><svg id="gren" width="1920" height="1080" xmlns="http://www.w3.org/2000/svg"><filter id="grenf" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1920" height="1080" filter="url(#grenf)"/></svg><div id="vinyet"></div>
+<svg id="sahne" width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+<defs><clipPath id="cp1"><rect id="cr1" x="84" y="236" width="0" height="151"/></clipPath><clipPath id="cp2"><rect id="cr2" x="84" y="366" width="0" height="151"/></clipPath><clipPath id="cp3"><rect id="cr3" x="84" y="576" width="0" height="96"/></clipPath><filter id="el" x="-5%" y="-5%" width="110%" height="110%">
+<feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="5" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/></filter></defs>
+<g id="eskiz" fill="none" stroke="#f3efe6" stroke-linecap="round" stroke-linejoin="round">
+<g id="fig" filter="url(#el)"><g transform="translate(1200.0 120.0) scale(18.0)" stroke-width="0.194"><path id="f0" transform="translate(0.00 0.00)" d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" style="opacity:0"/><path id="f1" transform="translate(0.00 0.00)" d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" style="opacity:0"/><path id="f2" transform="translate(0.00 0.00)" d="M3 6l0 13" style="opacity:0"/><path id="f3" transform="translate(0.00 0.00)" d="M12 6l0 13" style="opacity:0"/><path id="f4" transform="translate(0.00 0.00)" d="M21 6l0 13" style="opacity:0"/></g></g>
+<g id="kam" filter="url(#el)"><g transform="translate(1450.0 520.0) rotate(-4 168 168) scale(14.0)" stroke-width="0.250"><path id="k0" d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" style="opacity:0"/><path id="k1" d="M12 7v5l3 3" style="opacity:0"/></g></g>
+<g id="par" stroke="#f2a93b" stroke-width="5" style="opacity:0">
+<path d="M1690 330 l0 -46 M1667 307 l46 0 M1676 291 l28 32 M1704 291 l-28 32"/>
+<path d="M1800 600 l0 -34 M1783 583 l34 0"/><path d="M1400 480 l0 -30 M1385 465 l30 0"/></g>
+</g>
+<g id="rz0" style="opacity:0"><rect x="96.0" y="150" width="272.9" height="48" rx="24" fill="#f2a93b"/><text x="232.4" y="183.1" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#1b1a17">YDT · ADVANCED</text></g><g id="rz1" style="opacity:0"><rect x="380.9" y="150" width="182.6" height="48" rx="24" fill="#f3efe6"/><text x="472.2" y="183.1" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#1b1a17">GRAMMAR</text></g><text id="t1" x="96" y="340" fill="#f3efe6" clip-path="url(#cp1)" font-family="Fredoka" font-weight="700" font-size="112" stroke="#1b1a17" stroke-width="10" stroke-linejoin="round" style="paint-order:stroke fill">PRESENT PERFECT</text><text id="t2" x="96" y="470" fill="#fece00" clip-path="url(#cp2)" font-family="Fredoka" font-weight="700" font-size="112" stroke="#1b1a17" stroke-width="10" stroke-linejoin="round" style="paint-order:stroke fill">CONTINUOUS</text><g id="cg"><text id="cm" x="96" y="640" font-family="Caveat" font-weight="700" font-size="64" fill="#f3efe6" clip-path="url(#cp3)">Süreç mi, sonuç mu?</text><path id="halka" fill="none" stroke="#f2a93b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-3 371.8 618.0)" d="M 316.9 594.4 L 324.0 590.8 L 332.1 587.7 L 341.2 585.2 L 351.0 583.3 L 361.3 582.0 L 372.0 581.5 L 382.8 581.7 L 393.4 582.7 L 403.7 584.4 L 413.2 586.8 L 421.9 589.9 L 429.6 593.5 L 436.0 597.5 L 441.1 602.0 L 444.7 606.7 L 446.9 611.6 L 447.6 616.5 L 446.8 621.4 L 444.6 626.2 L 441.1 630.8 L 436.4 635.1 L 430.5 639.1 L 423.6 642.6 L 415.8 645.7 L 407.2 648.3 L 398.0 650.4 L 388.3 651.9 L 378.1 652.8 L 367.8 653.1 L 357.4 652.7 L 347.1 651.7 L 337.1 650.1 L 327.6 647.8 L 318.8 644.8 L 310.9 641.3 L 304.1 637.3 L 298.5 632.9 L 294.4 628.0 L 291.7 622.9 L 290.7 617.7 L 291.3 612.4 L 293.6 607.2 L 297.5 602.2 L 302.9 597.6 L 309.8 593.4 L 317.8 589.7 L 326.8 586.6 L 336.7 584.1" style="opacity:0"/></g>
+<g id="logo"><g id="lgs" style="opacity:0"><image id="logoimg" href="assets/logo.svg" x="80.30" y="880.0" width="443.42" height="110"/></g></g>
+<g id="kunye"><text id="ku-ders" x="56" y="72" font-family="Fredoka" font-weight="700" font-size="30" fill="#f3efe6">PRESENT PERFECT CONTINUOUS<tspan id="ku-sev" dx="14" font-family="Lexend" font-weight="500" font-size="22" fill="#c9c2b3">· YDT ADVANCED</tspan></text><text id="ku-bolum" x="1864" y="72" text-anchor="end" font-family="Lexend" font-weight="700" font-size="24" fill="#f2a93b">Hook</text><text id="ku-ajanda" x="1864" y="1030" text-anchor="end" font-family="Lexend" font-weight="500" font-size="20"><tspan id="ku-aj0" fill="#f2a93b">Hook</tspan><tspan id="ku-aj1" fill="#c9c2b3" dx="36">Examples</tspan><tspan id="ku-aj2" fill="#c9c2b3" dx="36">Form</tspan></text><circle id="ku-nokta" cx="1580.86" cy="1023" r="4" fill="#f2a93b"/></g>
+</svg>
+</div>
+<script src="lib/gsap.min.js"></script>
+<script>
+(function () {
+  var V = {"Z": {"fps": 30, "kare": 102, "sure": 3.4, "logo_damga": [0.0, 0.4], "rozet": [0.3, 0.1], "baslik": [[0.0, 1.1], [1.0, 1.2]], "figur": [0.2, 1.2], "kamera": [1.1, 2.0], "halka": [2.15, 0.35], "cumle_ucus": [2.25, 0.75], "ucus": [2.2, 0.8], "vurus_kare": 3}, "fz": [[0.2, 0.2], [0.4, 0.2], [0.6, 0.2], [0.8, 0.2], [1.0, 0.2]], "kz": [[1.1, 0.6353], [1.7353, 0.2647]], "nF": 5, "nK": 2, "hedef": {"t1": [56, 72, 0.26785714285714285], "t2": [326.4800000000001, 72, 0.26785714285714285], "logo": [56, 1002, 0.3090909090909091]}, "sol": 96, "t1y": 340, "t2y": 470, "tw": [1007.4720000000002, 716.6080000000002], "cw": [[1.0, 1.48, 226.496], [1.56, 1.96, 303.616], [2.12, 2.44, 440.448], [2.52, 2.92, 539.968]], "logo": [80.29561200923787, 880.0, 443.41801385681293, 110], "hc": [44, -340], "figs": 18.0, "sw": 3.5, "kams": 14.0};
+  var Z = V.Z, $ = function (s) { return document.querySelector(s); };
+  var tl = gsap.timeline({ paused: true });
+  var IR = { immediateRender: false };
+  function ac(o) { o.immediateRender = false; return o; }
+  // kalem darbesi: dash uzunluğu çalışma anında ölçülür
+  function darbe(id, bas, sure) {
+    var p = $("#" + id), L = p.getTotalLength();
+    p.style.strokeDasharray = L + " " + (L + 2); p.style.strokeDashoffset = L;
+    tl.set(p, ac({ opacity: 1 }), bas);
+    tl.to(p, ac({ strokeDashoffset: 0, duration: sure, ease: "none" }), bas);
+  }
+  for (var i = 0; i < V.nF; i++) darbe("f" + i, V.fz[i][0], V.fz[i][1]);
+  for (var j = 0; j < V.nK; j++) darbe("k" + j, V.kz[j][0], V.kz[j][1]);
+  gsap.set("#ku-ders,#ku-bolum,#ku-ajanda,#ku-nokta", { opacity: 0 });
+
+  // 0,0-0,4 logo damgası sol sütun altında (ölçek 1,18->1,0 + dönme -2 -> 0, alfa 0->1)
+  var lg = V.logo, bx = lg[0], by = lg[1], bw = lg[2], bh = lg[3];
+  gsap.set("#lgs", { svgOrigin: (bx + bw / 2) + " " + (by + bh / 2) });
+  gsap.set("#logo", { svgOrigin: bx + " " + by });
+  tl.fromTo("#lgs", { opacity: 0, scale: 1.18, rotation: -2 },
+    { opacity: 1, scale: 1, rotation: 0, duration: Z.logo_damga[1], ease: "power3.out", immediateRender: false }, Z.logo_damga[0]);
+
+  // 0,3-0,9 rozetler
+  [0, 1].forEach(function (i) {
+    tl.fromTo("#rz" + i, { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out", immediateRender: false }, Z.rozet[0] + i * Z.rozet[1]);
+  });
+  // 0,0-2,2 başlık kalemle çizilir: kırpma dikdörtgeni soldan sağa açılır (satır 1, sonra satır 2)
+  [0, 1].forEach(function (i) {
+    tl.fromTo("#cr" + (i + 1), { attr: { width: 0 } }, { attr: { width: V.tw[i] }, duration: Z.baslik[i][1], ease: "none", immediateRender: false }, Z.baslik[i][0]);
+  });
+  // 1,0-2,9 Caveat cümlesi konuşmayla yazılır: her sözcük kendi süresinde açılır
+  var onceki = 0;
+  V.cw.forEach(function (w) {
+    tl.fromTo("#cr3", { attr: { width: onceki } }, { attr: { width: w[2] - V.sol + 12 }, duration: w[1] - w[0], ease: "none", immediateRender: false }, w[0]);
+    onceki = w[2] - V.sol + 12;
+  });
+
+  gsap.set("#eskiz", { svgOrigin: "1500 540" });
+  // 1,80 sarı halka -ing üstünde (kalem darbesi); cümle grubu sahne 02 yerine (140,300) kayar
+  darbe("halka", Z.halka[0], Z.halka[1]);
+  tl.to("#cg", ac({ x: V.hc[0], y: V.hc[1], duration: Z.cumle_ucus[1], ease: "power3.inOut" }), Z.cumle_ucus[0]);
+
+  // 2,2-3,0 uçuş
+  var u0 = Z.ucus[0], ud = Z.ucus[1], u1 = u0 + ud, H = V.hedef;
+  function uc2(id, ox, oy, h, ex) {
+    tl.to(id, ac({ svgOrigin: ox + " " + oy, x: h[0] - ox, duration: ud, ease: ex }), u0);
+    tl.to(id, ac({ svgOrigin: ox + " " + oy, y: h[1] - oy, duration: ud, ease: "power3.inOut" }), u0);
+    tl.to(id, ac({ svgOrigin: ox + " " + oy, scale: h[2], duration: ud * 0.8, ease: "power3.out" }), u0);
+  }
+  uc2("#t1", V.sol, V.t1y, H.t1, "power3.inOut"); uc2("#t2", V.sol, V.t2y, H.t2, "power2.out");
+  tl.to("#logo", ac({ x: H.logo[0] - bx, y: H.logo[1] - by, scale: H.logo[2], duration: ud, ease: "power3.inOut" }), u0);
+  tl.to("#t2", ac({ fill: "#f3efe6", duration: ud * 0.6, ease: "power1.inOut" }), u0);
+  ["#rz0", "#rz1"].forEach(function (s, k) {
+    tl.to(s, ac({ opacity: 0, duration: 0.3, ease: "power1.in" }), u0 + k * 0.04);
+  });
+  tl.to("#eskiz", ac({ opacity: 0, scale: 1.06, duration: 0.4, ease: "power1.in" }), u0 + 0.1);
+  tl.fromTo("#par", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power3.out", immediateRender: false, svgOrigin: "1500 540" }, u0);
+  tl.to("#par", ac({ opacity: 0, duration: 0.3, ease: "power1.in" }), u0 + 0.25);
+  var son = u1 - 0.25;   // künye gerçek metinleri son 0,25 sn'de belirir
+  ["#t1", "#t2"].forEach(function (s) { tl.to(s, ac({ opacity: 0, duration: 0.25, ease: "power1.in" }), son); });
+  tl.to("#ku-ders,#ku-bolum,#ku-ajanda,#ku-nokta", ac({ opacity: 1, duration: 0.25, ease: "power1.out" }), son);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["main"] = tl;
+})();
+</script><script>/* kalem-tema */(function () {  /* canlı önizleme (?canli=1): ?tema=acik ya da message {tip:"tema", ad}; sorgu yoksa koyu. Render sırasında çalışmaz, tema dosyaya gömülüdür */
+  if (!/[?&]canli=1/.test(location.search)) return;
+  var R = document.getElementById("root"), L = document.getElementById("logoimg") || document.getElementById("logo");
+  function t(a) { R.classList.toggle("tema-acik", a === "acik");
+    if (L) L.setAttribute("href", "/projeler/present-continuous/ortak/logo/" + (a === "acik" ? "yds-publishing-lacivert.svg" : "yds-publishing-seffaf.svg")); }
+  t(new URLSearchParams(location.search).get("tema") || "koyu");
+  addEventListener("message", function (e) { if (e.data && e.data.tip === "tema") t(e.data.ad); });
+  var tl = window.__timelines && window.__timelines.main;  /* canlı sürücü: zaman çizelgesi kare sayacına/editör mesajına bağlanır (hazir mesajı) */
+  if (tl) import("/ortak/surucu.js").then(function (m) { m.canliHF(tl, +R.dataset.fps || 30); });
+})();</script>
+</body></html>
