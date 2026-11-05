@@ -1,0 +1,14 @@
+{
+  "fps": 30, "kare": 681, "sure": 22.7, "t_bas": 61.51,
+  "balon_kelime": [["Hocam,", 62.06], ["üçünde", 62.86], ["de", 63.34], ["been", 63.46], ["var.", 63.74],
+                   ["Neden", 64.38], ["hep", 64.7], ["been?", 64.98]],
+  "satir_been": [62.95, 63.5, 64.05],
+  "form": 65.97,
+  "past": 66.69, "now": 67.25,
+  "been_kutu": 68.61, "ing": 69.17, "band": 69.9, "in_progress": 70.3,
+  "dir": 72.12, "yor": 72.96, "satir_b": 73.55, "cift_ok": 73.85, "toplan": 74.2,
+  "cumle": [["I", 74.53], ["have", 74.73], ["been", 74.85], ["working", 75.21], ["for", 75.53], ["two", 75.77],
+            ["hours.", 75.97]],
+  "tr_saat": 77.42, "tr_calis": 77.9, "alt_for": 77.55, "alt_havebeen": 78.2, "alt_ing": 78.5,
+  "kart": 79.14, "kart_have": 79.98, "kart_arti": 80.94, "kart_ing": 81.46, "bitis_icerik": 82.3
+}
