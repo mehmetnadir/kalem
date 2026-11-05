@@ -101,7 +101,7 @@ async function kur() {
   );
   S.koy(S.parilti(740, 750, 49.9, 34));
 
-  // 46,80 takvim (Tabler, 210 px) + "tomorrow" (Caveat 64, vurgu)
+  // 46,80 takvim (Tabler, 210 px) + "tomorrow" (el yazısı 64, vurgu)
   S.koy(S.cizim({
     svg: takvim, kutu: { x: 810, y: 750, w: 210, h: 210 }, ad: "takvim", esik: 0.003, enCok: 12,
     w: 4.4, tb: 46.8, sure: 0.9, olayEnCok: 3, nefes: false,
