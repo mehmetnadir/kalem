@@ -1,6 +1,6 @@
 # Sahne 01-hyperframes-giris (present-perfect-cont-ileri-dikey, dikey) RAPOR
 
-Tema: acik ve koyu (ikisi de koşuldu; video-acik.mp4 + video-koyu.mp4; video.mp4 son koşu = koyu).
+Tema: acik
 Kare: 102 (zaman.json ile birebir; ffprobe yuv420p, 30 fps). Olay: 17 (olaylar.json).
 Kapı: editör başsız, konsol hatası 0; slot hazir:true, goster:true (t=1,5 sahne 01; t=9 sahne 02).
 Bakılan kareler: k/36.png, k/60.png, k/87.png, k/telefon-01.png, kontrol.png
