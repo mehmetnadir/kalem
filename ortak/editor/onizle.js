@@ -321,7 +321,9 @@ function paneEtiketYenile() {                    // pencere rozeti: sürüm · t
 }
 function olc() {                                 // pencereleri 1–3 satıra paketler, en büyük ortak yüksekliği seçer
   var o = $("#orta"), sh = $("#sahne"), n = panes.length; if (!n) return;
-  var ust = yyAcik ? (Math.min(72, $("#yy").offsetHeight) + 10) : 0, W = o.clientWidth - 24, Hh = o.clientHeight - 24 - ust;
+  var ust = yyAcik ? (Math.min(72, $("#yy").offsetHeight) + 10) : 0;
+  var kn = panelHepsiGizli() ? 8 : 24;
+  var W = o.clientWidth - kn, Hh = o.clientHeight - kn - ust;
   var en = null, ETK = yan ? 22 : 0;             // karşılaştırmada her pencerenin altında rozet satırı
   for (var r = 1; r <= Math.min(3, n); r++) {
     var per = Math.ceil(n / r), sat = [], h = (Hh - (r - 1) * ARA - r * ETK) / r;
@@ -752,6 +754,29 @@ document.addEventListener("mousemove", function (ev) {
   ip.style.left = Math.min(innerWidth - ip.offsetWidth - 8, ev.clientX + 12) + "px"; ip.style.top = (ev.clientY - 34)
     + "px";
 });
+// ---------- Paneller: gizle / göster; odak = hepsi gizli, sahne bütün alanı alır ----------
+var PANEL = { sol: true, sag: true, zp: true };
+try {
+  var pk0 = JSON.parse(localStorage.getItem("kalem.editor.paneller") || "null");
+  if (pk0) Object.keys(PANEL).forEach(function (k) { if (k in pk0) PANEL[k] = !!pk0[k]; });
+} catch (er) {}
+function panelHepsiGizli() { return !PANEL.sol && !PANEL.sag && !PANEL.zp; }
+function panelUygula(kaydet) {
+  var ed = $("#ed");
+  Object.keys(PANEL).forEach(function (k) {
+    ed.classList.toggle(k + "-gizli", !PANEL[k]);
+    var b = $("#panel [data-pn=" + k + "]"); if (b) b.classList.toggle("on", PANEL[k]);
+  });
+  $("#odak").classList.toggle("on", panelHepsiGizli());
+  if (kaydet) { try { localStorage.setItem("kalem.editor.paneller", JSON.stringify(PANEL)); } catch (er) {} }
+  if (panes.length) { olc(); zoomUygula(false); }
+}
+function panelToggle(k) { PANEL[k] = !PANEL[k]; panelUygula(true); }
+function odakToggle() {                          // hepsi gizliyse geri aç, değilse hepsini gizle
+  var ac = panelHepsiGizli(); PANEL.sol = PANEL.sag = PANEL.zp = ac; panelUygula(true);
+}
+panelUygula(false);
+
 addEventListener("keydown", function (ev) {
   if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
   if (/^(INPUT|TEXTAREA|SELECT)$/.test(ev.target.tagName)) return;
@@ -765,7 +790,8 @@ addEventListener("keydown", function (ev) {
   else if (k === "k") { dur(); karePng(); }
   else if (k === "K") dur();
   else if (k === "l" || k === "L") { if (calma !== "ileri") oyna(); }
-  else if (k === "Escape") { if (!kirintiUst()) ok = false; }
+  else if (k === "h" || k === "H") odakToggle();
+  else if (k === "Escape") { if (panelHepsiGizli()) odakToggle(); else if (!kirintiUst()) ok = false; }
   else ok = false;
   if (ok) ev.preventDefault();
 });
@@ -783,6 +809,9 @@ $("#tema").addEventListener("click", function (ev) { var b = ev.target.closest("
   if (b) temaSec(b.dataset.t); });
 $("#png").onclick = karePng;
 $("#yyb").onclick = function () { yanSec(!yyAcik); };
+$("#panel").addEventListener("click", function (ev) { var b = ev.target.closest("[data-pn]");
+  if (b) panelToggle(b.dataset.pn); });
+$("#odak").onclick = odakToggle;
 $("#yyc").onclick = function (ev) { var b = ev.target.closest("[data-pk]"); if (b) pencereToggle(b.dataset.pk); };
 $("#yss").onchange = function (ev) { sesSec(ev.target.value); };
 $("#sahne").onclick = function () { oyna(); };
@@ -1103,7 +1132,8 @@ veriYukle().then(function (v) {
     function (s) { return { no: s.no, hazir: s.hazir, goster: s.goster, op: s.op }; }),
     pencereler: panes.map(function (p) { var i = p.S.length ? sahneNo(p, t) : -1; return { kimlik: p.kimlik || HOSTK,
       tema: p.tema, sahne: i, hazir: !!(i >= 0 && slotBul(p, i, true)), gen: p.gen, yuk: p.yuk }; }) }; },
-    oyna: oyna, dur: dur, zoom: zoomSec, yan: yanSec, pencere: pencereToggle };
+    oyna: oyna, dur: dur, zoom: zoomSec, yan: yanSec, pencere: pencereToggle, panel: panelToggle,
+    odak: odakToggle };
   requestAnimationFrame(dongu);
   return haritaVeri;
 }).then(function (a) {

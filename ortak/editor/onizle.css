@@ -20,8 +20,13 @@ button:focus-visible{outline:2px solid var(--vur);outline-offset:1px}
 button.on{background:var(--vur);border-color:var(--vur);color:#0b1624;font-weight:700}
 svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 button.ik{width:34px;padding:0;display:inline-flex;align-items:center;justify-content:center}
-#ed{display:grid;height:100vh;grid-template-columns:250px 1fr 360px;grid-template-rows:52px 1fr 276px 26px;
+#ed{display:grid;height:100vh;--sol:250px;--sag:360px;--zp:276px;--alt:26px;
+  grid-template-columns:var(--sol) 1fr var(--sag);grid-template-rows:52px 1fr var(--zp) var(--alt);
   grid-template-areas:"ust ust ust" "sol orta sag" "zp zp zp" "alt alt alt"}
+#ed.sol-gizli{--sol:0px}#ed.sol-gizli #sol{display:none}
+#ed.sag-gizli{--sag:0px}#ed.sag-gizli #sag{display:none}
+#ed.zp-gizli{--zp:0px;--alt:0px}#ed.zp-gizli #zp,#ed.zp-gizli #alt{display:none}
+#panel button{min-width:44px}
 #ust{grid-area:ust;display:flex;align-items:center;gap:14px;padding:0 14px;background:var(--p1);
   border-bottom:1px solid var(--ln)}
 #kirinti{display:flex;align-items:center;gap:6px;font-size:12px;white-space:nowrap;
