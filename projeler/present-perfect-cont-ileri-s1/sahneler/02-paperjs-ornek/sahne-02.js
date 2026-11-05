@@ -3,18 +3,27 @@
 // (Sınav tek şey sorar: / süreç + figür + kitap). Dikey v2 bantları:
 // içerik 352–1392, alt bölge (940–1392) figür + nesne, üst bölge (392–900) yazı, altyazı 1400–1536.
 import { sahneKur, RT } from "/projeler/present-perfect-cont-ileri-s1/sahneler/02-paperjs-ornek/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/present-perfect-cont-ileri-s1/ortak/kalem-canvas.js";
 
 export const KARE = 423, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Süreç / Sonuç" });
-  const { fr, ciz, daire, yazi, cumle, kutu, parilti, olay, not, bitis, kis, oge, svgCiz } = S;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, kutu, parilti, olay, not, bitis, kis, oge,
+    svgCiz } = S;
   const SARI = RT.vurgu, DOLGU = RT.vurguDolgu, IKI = RT.ikincil;
   const sol = (f0, f1) => (f) => 1 - kis((f - f0) / (f1 - f0));     // oge: [f0, f1] arası söner
   const s1 = S.sozcukler(1), s2 = S.sozcukler(2);
   const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],
     { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
   const SOL = 72;
+  // El yazısı (Caveat 700 tegaki, dalga 5 / K26): ortalı yazının genişliği
+  // tegaki verisinden ölçülür
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm, asc: EY.M.ascender,
+    boy: boyut, x: 0, taban: 0 }).gen;
 
   // ---------- Faz A (3,0–7,75): cümle 1 sonu + kalıp (Have been plus the -ing form.) + figür + kitap ----------
   const A0 = fr(7.5), A1 = fr(7.75);
@@ -24,9 +33,19 @@ export async function kur(P) {
   // satır 1–2 sahne 01'den hazır (f −30): Sınav tek şey sorar: / süreç; kalanı sözcük zamanlı
   cumle([{ s: "Sınav", f: -30 }, { s: "tek", f: -30 }, { s: "şey", f: -30 }, { s: "sorar:", f: -30 }],
     { x: SOL, y: 470, boyut: 88, aile: "Caveat", agirlik: 700, son: fSon });
-  const t2 = cumle([{ s: "süreç", f: -30 }, { s: "mi,", f: s1[5].f }, { s: "sonuç", f: s1[6].f },
-    { s: "mu?", f: s1[7].f }], { x: SOL, y: 620, boyut: 88, aile: "Caveat", agirlik: 700, son: fSon });
-  not("mi, sonuç mu? yazılır", t2[1].bas);
+  // "süreç" 01'den devralınır (kare 0'da hazır, Caveat kalır);
+  // "mi, sonuç mu?" 3,16–4,36 sn: her sözcük kendi penceresinde
+  // (mi, 3,16–3,56 · sonuç 3,64–3,96 · mu? 4,04–4,36)
+  const t2 = cumle([{ s: "süreç", f: -30 }], { x: SOL, y: 620, boyut: 88, aile: "Caveat",
+    agirlik: 700, son: fSon });
+  let tx2 = t2[0].x1 + 0.3 * 88, m1 = null;
+  ["mi,", "sonuç", "mu?"].forEach((k, i) => {
+    const w = s1[5 + i];
+    const q = elYazisi(k, { x: tx2, y: 620, boyut: 88, oge: gA,
+      sozcukler: [{ f0: w.f, f1: w.f1 }] });
+    tx2 = q.x1 + 0.3 * 88; if (i === 0) m1 = q;
+  });
+  not("mi, sonuç mu? yazılır", m1.bas);
   // kalıp: Have been plus / the -ing form. (Fredoka 88, iki satır)
   const kal = cumle(s1.slice(8).map((w, i) => ({ s: w.s, f: w.f, satir: i < 3 ? 0 : 1 })),
     { x: SOL, y: 780, boyut: 88, aile: "Fredoka", agirlik: 700, aralik: 110, son: fSon });
@@ -77,10 +96,11 @@ export async function kur(P) {
     sure: 8, ses: "tik" });
   yazi("RESULT", { x: RX, y: CY + 110, boyut: 80, aile: "Fredoka", agirlik: 700, hizala: "orta", bas: C0 + 12,
     sure: 8 });
-  const trL = yazi("Süreç,", { x: LX, y: CY + 205, boyut: 88, aile: "Caveat", agirlik: 700, hizala: "orta",
-    bas: s2[15].f, sure: 10 });
-  const trR = yazi("Sonuç,", { x: RX, y: CY + 205, boyut: 88, aile: "Caveat", agirlik: 700, hizala: "orta",
-    bas: s2[18].f, sure: 10 });
+  // 12,69–13,49 "Süreç," ve 14,85–15,65 "Sonuç,": sözcük penceresi; orta eksen LX / RX
+  const trL = elYazisi("Süreç,", { x: LX - eyGen("Süreç,", 88) / 2, y: CY + 205, boyut: 88,
+    sozcukler: [{ f0: s2[15].f, f1: s2[15].f1 }] });
+  const trR = elYazisi("Sonuç,", { x: RX - eyGen("Sonuç,", 88) / 2, y: CY + 205, boyut: 88,
+    sozcukler: [{ f0: s2[18].f, f1: s2[18].f1 }] });
   not("Süreç, yazılır", trL.bas); not("Sonuç, yazılır", trR.bas);
   // sol: kitap simgesi + been / reading
   await svgCiz("tabler/book.svg", { kutu: [LX - 200, 650, 400, 400], bas: fr(13.45), sure: 30, azami: 25, w: 4,
