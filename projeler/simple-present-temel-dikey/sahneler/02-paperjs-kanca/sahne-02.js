@@ -7,16 +7,32 @@ import {
   sahneKur,
   RT,
 } from "/projeler/simple-present-temel-dikey/sahneler/02-paperjs-kanca/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/simple-present-temel-dikey/ortak/kalem-canvas.js";
 
 export const KARE = 386, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook" });
   const {
-    fr, ciz, daire, ok, yazi, cumle, tik, parilti, olay, not, bitis, kutu, genislik, oge,
+    fr, ciz, daire, ok, yazi, elYazisi, cumle, tik, parilti, olay, not, bitis, kutu, genislik,
+    oge,
   } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil, MUR = RT.murekkep;
   const GB = 12; // geçiş karesi: çizimler bundan sonra
+
+  // El yazısı (Caveat 700 tegaki, dalga 5b / K26): not ve etiketler kalemle yazılır. Ortalı
+  // yazıda genişlik tegaki verisinden ölçülür; sözcük pencereleri anlatımın f/f1 karelerinden
+  // gelir.
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm,
+    asc: EY.M.ascender, boy: boyut, x: 0, taban: 0 }).gen;
+  const CS = S.sozcukler(2); // cümle 2 sözcükleri (f0 / f1 yerel kare)
+  const pen = (ilk, adet, t) => {
+    const i = CS.findIndex((w) => w.s === ilk && w.t >= t - 0.01);
+    return CS.slice(i, i + adet).map((w) => ({ f0: w.f, f1: w.f1 }));
+  };
 
   // --- cümle 1 (sahne 01'in son hali): Caveat 80, x 72, y 440 / 524, kare 0'da hazır
   const c80 = { boyut: 80, aile: "Caveat", agirlik: 700 };
@@ -90,7 +106,8 @@ export async function kur(P) {
       g1 = genislik("geniş zaman", f1),
       g2 = genislik("Simple Present", f2), ar = 104, bos = 24;
     const x0 = (1080 - (g1 + ar + g2 + 2 * bos)) / 2;
-    const a = yazi("geniş zaman", { x: x0, y, boyut: 64, renk: MUR, bas: fr(7.78), sure: 14 });
+    // 7,78 anlatımsız etiket `geniş zaman` (anlatım 4,27'de geçti): hedef 18 kare (0,6 sn) → 8,38
+    const a = elYazisi("geniş zaman", { x: x0, y, boyut: 64, renk: MUR, bas: fr(7.78), sure: 18 });
     not("not geniş zaman", a.bas);
     const o = ok([a.x1 + bos, y - 22], [a.x1 + bos + ar, y - 22], {
       bas: fr(8.7), sure: 18, w: 9, cift: true, uzun: 24, bukum: 0.06,
@@ -107,15 +124,19 @@ export async function kur(P) {
   // --- 10,65–15,45: ajanda: form · zaman ifadeleri · kullanımlar (üç kutu, sırayla tik),
   // y 1262-1382
   {
-    const ad = [["form", 11.61], ["zaman ifadeleri", 12.41], ["kullanımlar", 13.77]];
+    // pencere: formunu, 11,61–12,37 · zaman 12,41–12,65 + ifadelerini 12,73–13,53 ·
+    // kullanımlarını 13,77–14,41
+    const ad = [["form", 11.61, pen("formunu,", 1, 11.6)],
+      ["zaman ifadeleri", 12.41, pen("zaman", 2, 12.4)],
+      ["kullanımlar", 13.77, pen("kullanımlarını", 1, 13.7)]];
     const f = "700 64px Caveat", pad = 56, bos = 16;
     const gw = ad.map(([s]) => genislik(s, f) + pad), top = gw.reduce((s, w) => s + w, 0) + bos * 2;
     let x = (1080 - top) / 2;
-    ad.forEach(([s, t], i) => {
+    ad.forEach(([s, t, pz], i) => {
       const w = gw[i], y = 1262, h = 120;
       kutu(x, y, w, h, { bas: fr(10.65) + i * 8, sure: 26, renk: IKI, w: 4.2 });
-      const k = yazi(s, {
-        x: x + w / 2, y: y + 82, boyut: 64, renk: MUR, hizala: "orta", bas: fr(t), sure: 8,
+      const k = elYazisi(s, {
+        x: x + w / 2 - eyGen(s, 64) / 2, y: y + 82, boyut: 64, renk: MUR, sozcukler: pz,
       });
       tik(x + w - 22, y + 14, { bas: fr(t) + 4 }); not("madde " + s, k.bas);
       x += w + bos;

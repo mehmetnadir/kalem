@@ -5,13 +5,24 @@ import {
   sahneKur,
   RT,
 } from "/projeler/simple-present-temel-dikey/sahneler/03-paperjs-ornek1/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/simple-present-temel-dikey/ortak/kalem-canvas.js";
 
 export const KARE = 379, T_BAS = 15.45;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1 });
-  const { fr, ciz, daire, yazi, cumle, altCizgi, parilti, olay, not, bitis, genislik, kutu } = S;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, altCizgi, parilti, olay, not, bitis, genislik,
+    kutu } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil;
+
+  // El yazısı (Caveat 700 tegaki, dalga 5b / K26): not ve etiketler kalemle yazılır. Ortalı
+  // yazıda genişlik tegaki verisinden ölçülür; sözcük pencereleri anlatımın f/f1 karelerinden
+  // gelir.
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm,
+    asc: EY.M.ascender, boy: boyut, x: 0, taban: 0 }).gen;
 
   // --- kart: tam genişlik (984), Fredoka 72, sözcük zamanlı; satır kırılımı ölçülür
   const sz = S.sozcukler(3).slice(2, 8); // The sun rises in the east.
@@ -27,16 +38,20 @@ export async function kur(P) {
 
   // --- 19,86 TR çeviri (Caveat 64, mürekkep) + 21,70 doğa kanunu etiketi (el kutusu, sağda)
   const yTR = kartAlt + 86;
-  yazi("Güneş doğudan doğar.", {
-    x: 64, y: yTR, boyut: 64, aile: "Caveat", agirlik: 700, renk: RT.murekkep, bas: fr(19.86),
-    sure: 18,
-  });
+  {   // 19,86–21,22 «Güneş doğudan doğar.» (pencere: 19,86–20,26 · 20,34–20,74 · 20,86–21,22)
+    const tr = S.sozcukler(3), i0 = tr.findIndex((w) => w.s === "Güneş");
+    elYazisi("Güneş doğudan doğar.", {
+      x: 64, y: yTR, boyut: 64, renk: RT.murekkep,
+      sozcukler: tr.slice(i0, i0 + 3).map((w) => ({ f0: w.f, f1: w.f1 })),
+    });
+  }
   not("Türkçe çeviri", fr(19.86));
   {
     const kb = fr(21.7), k = kutu(610, yTR - 54, 420, 92, { bas: kb, sure: 22 });
     not("doğa kanunu kutusu", kb);
-    yazi("doğa kanunu", {
-      x: 820, y: yTR + 4, hizala: "orta", boyut: 64, aile: "Caveat", agirlik: 700, renk: SARI,
+    // 21,70 `Doğa kanunu:` anlatım kutu çizimiyle eş; yazı kutu bitmeden başlar, hedef 14 kare
+    elYazisi("doğa kanunu", {
+      x: 820 - eyGen("doğa kanunu", 64) / 2, y: yTR + 4, boyut: 64, renk: SARI,
       bas: k.bit - 6, sure: 14, ses: true,
     });
     not("doğa kanunu", k.bit - 6);
@@ -66,9 +81,10 @@ export async function kur(P) {
       bas: fr(18.65), sure: 24, w: 8, bukum: 0.03, uzun: 28,
     });
     not("ok east", o.bas);
-    yazi("east", {
-      x: 795, y: 960, hizala: "orta", boyut: 96, aile: "Caveat", agirlik: 700, renk: SARI,
-      bas: bitis(o) - 4, sure: 12, olcek: true, ses: true,
+    // ok ucu 19,32: `east.` penceresi 18,65–19,61 okla eş; hedef 14 kare → 19,79 (< 19,86 Güneş)
+    elYazisi("east", {
+      x: 795 - eyGen("east", 96) / 2, y: 960, boyut: 96, renk: SARI,
+      bas: bitis(o) - 4, sure: 14, ses: true,
     });
     not("east etiketi", bitis(o) - 4);
   }

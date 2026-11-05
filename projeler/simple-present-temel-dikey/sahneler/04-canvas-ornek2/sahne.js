@@ -11,7 +11,9 @@ const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Example 2 
 const KOKDIZ = "/projeler/simple-present-temel-dikey/ortak/cizim";
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKI = RT.ikincil, SARI = RT.vurgu;
-const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+const FF = (b) => `700 ${b}px Fredoka`;
+// El yazısı (tegaki Caveat, dalga 5b / K26): sözcük penceresi = anlatım t0/t1 (küresel sn)
+const pen = (ad, t, n) => S.dizi(ad, t, n).map((w) => ({ t0: w.t0, t1: w.t1 }));
 
 async function kur() {
   await S.kur();
@@ -39,9 +41,10 @@ async function kur() {
 
   // 32,74 Türkçe çeviri (Caveat 64, mürekkep, tek satır)
   const yTR = kartAlt + 72;
-  S.koy(S.not({
-    parca: [["Kardeşim genellikle okula otobüsle gider.", KREM]],
-    x: 64, y: yTR, font: CV(64), tb: 32.74, sure: 1.6,
+  // 32,74–35,38 «Kardeşim genellikle okula otobüsle gider.» (pencere: 5 sözcük)
+  S.koy(S.elYazisi({
+    metin: "Kardeşim genellikle okula otobüsle gider.", x: 64, y: yTR, boy: 64, renk: KREM,
+    sozcukler: pen("Kardeşim", 32.74, 5),
   }));
 
   // ORTA: oturan figür (440 px) + otobüs (kutu 474×420) tek ufuk çizgisinde;
@@ -66,15 +69,20 @@ async function kur() {
 
   // 35,53–37,69 alışkanlık listesi (otobüsün üstünde, sağ sütun):
   // usually · always · every day (Caveat 72, sarı tik)
-  const fN = CV(72), xN = 600,
+  // pencere: usually, 35,53–36,41 · always, 36,73–37,29 · every 37,45 + day: –38,41;
+  // tik yazı bitince (pencere sonu + 0,04 sn)
+  const xN = 600,
     TIK = (cx, cy) => [[cx - 16, cy + 2], [cx - 4, cy + 14], [cx + 20, cy - 16]];
-  [["usually", 35.53, 762], ["always", 36.73, 840], ["every day", 37.45, 918]].forEach(
-    ([m, tb, y]) => {
-      S.koy(S.not({ parca: [[m, KREM]], x: xN, y, font: fN, tb, sure: 0.4 }));
+  [["usually", 35.53, 762, "Usually,", 1], ["always", 36.73, 840, "always,", 1],
+    ["every day", 37.45, 918, "every", 2]].forEach(
+    ([m, tb, y, ilk, n]) => {
+      const sz = pen(ilk, tb, n);
+      const e = S.elYazisi({ metin: m, x: xN, y, boy: 72, renk: KREM, sozcukler: sz });
+      S.koy(e);
       S.koy(S.darbe(
-        TIK(xN + olc(fN, m) + 44, y - 20),
+        TIK(xN + e.w + 44, y - 20),
         { w: 8, renk: SARI, alfa: 0.9, uc0: 5, uc1: 8 },
-        tb + 0.5,
+        sz[sz.length - 1].t1 + 0.04,
         0.16,
         0.5
       ));

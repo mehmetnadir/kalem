@@ -13,7 +13,9 @@ const S = new Sahne({
 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu;
-const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+const FF = (b) => `700 ${b}px Fredoka`;
+// El yazısı (tegaki Caveat, dalga 5b / K26): sözcük penceresi = anlatım t0/t1 (küresel sn)
+const pen = (ad, t, n) => S.dizi(ad, t, n).map((w) => ({ t0: w.t0, t1: w.t1 }));
 
 // Kalkış yayı: ikinci derece Bezier (başlangıç, kontrol, bitiş) — uçak merkezi.
 const P0 = [260, 935], P1 = [430, 935], P2 = [640, 855];
@@ -45,9 +47,10 @@ async function kur() {
   S.koy(S.halka(kel("tomorrow"), 46.9, 0.35, 32));
 
   // 48,01 Türkçe çeviri (Caveat 64, mürekkep)
-  S.koy(S.not({
-    parca: [["Uçağımız yarın dokuzda kalkar.", KREM]],
-    x: 48, y: 683, font: CV(64), tb: 48.01, sure: 0.8,
+  // 48,01–50,25 «Uçağımız yarın dokuzda kalkar.» (pencere: 4 sözcük)
+  S.koy(S.elYazisi({
+    metin: "Uçağımız yarın dokuzda kalkar.", x: 48, y: 683, boy: 64, renk: KREM,
+    sozcukler: pen("Uçağımız", 48.01, 4),
   }));
 
   // 45,20–47,60 pist + uçak (Coco, 440 px) + kalkış yayı; 47,60'ta uçak yay boyunca kalkar
@@ -103,8 +106,9 @@ async function kur() {
     svg: takvim, kutu: { x: 810, y: 750, w: 210, h: 210 }, ad: "takvim", esik: 0.003, enCok: 12,
     w: 4.4, tb: 46.8, sure: 0.9, olayEnCok: 3, nefes: false,
   }));
-  S.koy(S.not({
-    parca: [["tomorrow", SARI]], x: 800, y: 1022, font: CV(64), tb: 47.2, sure: 0.5,
+  // 46,80–47,84 «tomorrow.» (pencere: 1 sözcük; eski belirme 47,20)
+  S.koy(S.elYazisi({
+    metin: "tomorrow", x: 800, y: 1022, boy: 64, renk: SARI, sozcukler: pen("tomorrow.", 46.8, 1),
   }));
 
   // 52,88–56,32 tarife kutusu: 09:00 | takes off ; etiketler tik ; "= geniş zaman"
@@ -125,23 +129,29 @@ async function kur() {
   S.koy(S.metinPop({
     parca: [["takes off", KREM]], x: 292, y: ty + 66, font: tf, tb: 53.45, sure: 0.35, ses: 0.5,
   }));
-  S.koy(S.not({
-    parca: [["= geniş zaman", SARI]], x: 680, y: ty + 66, font: CV(64), tb: 56.32, sure: 0.6,
+  // 55,56–57,20 «= geniş zaman.» (pencere: `=` gibi 55,56–56,00 · geniş 56,00–56,24 ·
+  // zaman 56,32–57,20)
+  const [g0, g1, g2] = pen("gibi", 55.56, 3), gz = [{ t0: g0.t0, t1: g1.t0 }, g1, g2];
+  S.koy(S.elYazisi({
+    metin: "= geniş zaman", x: 680, y: ty + 66, boy: 64, renk: SARI, sozcukler: gz,
   }));
-  const yb = ty + 112, bh = 72, lfn = CV(64);
+  const yb = ty + 112, bh = 72;
   let xx = 48;
-  [["tarife", 52.88], ["program", 53.88], ["takvim", 54.36]].forEach(([m, tb], i) => {
-    const w = olc(lfn, m) + 56 + 44;
+  // pencere: Tarife, 52,88–53,60 · program, 53,88–54,32 · takvim: 54,36–55,20;
+  // tik yazı bitince (pencere sonu + 0,03 sn)
+  [["tarife", 52.88, "Tarife,"], ["program", 53.88, "program,"],
+    ["takvim", 54.36, "takvim:"]].forEach(([m, tb, ad], i) => {
+    const sz = pen(ad, tb, 1);
+    const e = S.elYazisi({ metin: m, x: xx + 28, y: yb + 54, boy: 64, renk: KREM, sozcukler: sz });
+    const w = Math.ceil(e.w) + 56 + 44;
     S.koy(S.darbeler(
       kutu(xx, yb, w, bh, 30 + i), { w: 4, renk: KREM, uc0: 8, uc1: 14 }, tb, 0.1, 0.06, false
     ));
-    S.koy(S.metinPop({
-      parca: [[m, KREM]], x: xx + 28, y: yb + 54, font: lfn, tb: tb + 0.22, sure: 0.3, ses: 0.5,
-    }));
+    S.koy(e);
     S.koy(S.darbe(
       [[xx + w - 58, yb + 38], [xx + w - 46, yb + 52], [xx + w - 20, yb + 20]],
       { w: 8, renk: SARI, alfa: 0.9, uc0: 4, uc1: 8, tohum: 140 + i },
-      tb + 0.45,
+      Math.max(tb + 0.45, sz[0].t1 + 0.03),
       0.2,
       0.45
     ));
