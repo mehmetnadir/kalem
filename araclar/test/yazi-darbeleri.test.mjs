@@ -11,6 +11,8 @@ const ORTAK = path.join(KOK, "projeler", "present-continuous", "ortak");
 const { yaziDarbeleri, yaziCiz, yaziUcu } = await import(path.join(ORTAK, "kalem-canvas.js"));
 const G = JSON.parse(fs.readFileSync(path.join(KOK, "ortak", "tegaki", "caveat-tr", "glyphData-700.json")));
 const M = JSON.parse(fs.readFileSync(path.join(KOK, "ortak", "tegaki", "caveat-tr", "metrik.json")));
+// Node'da Path2D yok: darbeCiz biten darbeyi Path2D önbelleğinden çizer (708f7d4); taslak yeter.
+globalThis.Path2D ??= class { moveTo() {} lineTo() {} closePath() {} };
 const SEC = { upm: M.unitsPerEm, asc: M.ascender, boy: 48, x: 10, taban: 100, renk: "@ikincil" };
 const sonZaman = (Y) => Math.max(...Y.darbeler.map((d) => d.bas + d.sure));
 
@@ -64,8 +66,9 @@ test("eksik glif hata verir (sessiz yedek yok)", () => {
 test("nokta darbesi (i noktası, nokta) yazının rengini alır (05.11: sarı yazıda koyu nokta)", () => {
   const Y = yaziDarbeleri("i.", G, { ...SEC, renk: "#ffcc00", hedefSure: 1 });
   const renkler = new Set();
-  const ctx = { save() {}, restore() {}, beginPath() {}, moveTo() {}, lineTo() {}, closePath() {},
-    ellipse() {}, fill() { renkler.add(this.fillStyle); }, globalAlpha: 1, fillStyle: "" };
+  const ctx = { save() {}, restore() {}, beginPath() {}, moveTo() {}, lineTo() {},
+    closePath() {}, ellipse() {}, fill() { renkler.add(this.fillStyle); }, globalAlpha: 1,
+    fillStyle: "" };
   yaziCiz(ctx, Y, 1);
   assert.ok(Y.darbeler.some((d) => !d.c), "nokta darbesi yok");
   assert.deepEqual([...renkler], ["#ffcc00"]);
