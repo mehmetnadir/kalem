@@ -61,6 +61,16 @@ test("eksik glif hata verir (sessiz yedek yok)", () => {
   assert.throws(() => yaziDarbeleri("a → b", G, SEC), /glif yok: →/);
 });
 
+test("nokta darbesi (i noktası, nokta) yazının rengini alır (05.11: sarı yazıda koyu nokta)", () => {
+  const Y = yaziDarbeleri("i.", G, { ...SEC, renk: "#ffcc00", hedefSure: 1 });
+  const renkler = new Set();
+  const ctx = { save() {}, restore() {}, beginPath() {}, moveTo() {}, lineTo() {}, closePath() {},
+    ellipse() {}, fill() { renkler.add(this.fillStyle); }, globalAlpha: 1, fillStyle: "" };
+  yaziCiz(ctx, Y, 1);
+  assert.ok(Y.darbeler.some((d) => !d.c), "nokta darbesi yok");
+  assert.deepEqual([...renkler], ["#ffcc00"]);
+});
+
 test("yaziCiz yazarken dolgu yapar, yaziUcu yazan darbenin ucunu verir", () => {
   const Y = yaziDarbeleri("bu", G, { ...SEC, hedefSure: 1 });
   let dolgu = 0;

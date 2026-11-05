@@ -329,6 +329,7 @@ export function yaziDarbeleri(metin, G, o = {}) {
     c: d.nokta ? null : kalemCizgi(d.pts, { w: Math.max(1.4, d.gen), duz: true, amp: 0.25,
       uc0: 2.5, uc1: 3, aralik: 1.6, renk: o.renk, alfa: o.alfa, tohum: sd + i }),
   }));
+  Y.renk = o.renk || "@murekkep"; Y.alfa = o.alfa == null ? 0.9 : o.alfa;   // nokta darbeleri (c yok)
   return Y;
 }
 
@@ -338,7 +339,8 @@ export function yaziCiz(ctx, Y, t, carpan = 1) {
   for (const d of Y.darbeler) {
     const u = kis((t - d.bas) / d.sure); if (u <= 0) continue;
     if (d.c) darbeCiz(ctx, d.c, u, carpan);
-    const renk = d.c ? d.c.renk : "@murekkep", alfa = d.c ? d.c.alfa : 0.9;
+    const renk = d.c ? d.c.renk : (Y.renk || "@murekkep");          // 05.11: nokta yazının rengini alır
+    const alfa = d.c ? d.c.alfa : (Y.alfa == null ? 0.9 : Y.alfa);
     for (const m of d.nib) {
       if (m.u > u) continue;
       ctx.save(); ctx.globalAlpha = alfa * carpan; ctx.fillStyle = renkCoz(renk);
