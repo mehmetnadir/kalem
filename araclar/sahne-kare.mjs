@@ -40,17 +40,21 @@ const zamanlar = tListe.split(",").map(Number).filter((x) => !Number.isNaN(x));
 fs.mkdirSync(cikti, { recursive: true });
 
 const v = await (await fetch(`http://127.0.0.1:${port}/json/version`)).json();
-const ws = new WebSocket(v.webSocketDebuggerUrl); let n = 0; const bk = new Map();
+const ws = new WebSocket(v.webSocketDebuggerUrl); let n = 0;
+const bk = new Map(), ISTEK = new Map();
 const g = (method, params = {}, sessionId) => new Promise((ok, hata) => {
   const i = ++n; bk.set(i, { ok, hata });
   ws.send(JSON.stringify({ id: i, method, params, ...(sessionId ? { sessionId } : {}) }));
 });
 ws.onmessage = (e) => {
   const m = JSON.parse(e.data);
-  if (sec.dbg && m.method && m.method.startsWith("Network.")) {
-    const p = m.params, u = (p.request && p.request.url) || (p.response && p.response.url) || "";
+  if (sec.dbg && m.method === "Network.requestWillBeSent") {
+    ISTEK.set(m.params.requestId, m.params.request.url);
+  }
+  if (sec.dbg && /^Network\.(responseReceived|loadingFailed)$/.test(m.method || "")) {
+    const p = m.params, u = ISTEK.get(p.requestId) || "";
     console.error(m.method.slice(8), p.response ? p.response.status : "", p.errorText || "",
-      u.slice(-70));
+      u.slice(-80));
   }
   if (!m.id || !bk.has(m.id)) return;
   const p = bk.get(m.id); bk.delete(m.id);
