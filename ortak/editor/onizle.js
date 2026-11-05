@@ -15,7 +15,7 @@ var au = $("#au"), zk = $("#zk"), zi = $("#zi");
 var D = null, S = [], T = 94.33, GEN = 1920, YUK = 1080, t = 0, calma = "dur", hiz = 1, zoom = 1;
 var TEMA = "koyu", H = {};
 var sessiz = false, panes = [], yan = false, yyAcik = false, sonMs = 0, wave = null, sonOlay = -1;
-var SUA = [], HOSTK = "", ARA = 8, MAXP = 6;      // karşılaştırma: ana projenin sürümleri, ana pencere kimliği
+var SUA = [], HOSTK = "", ARA = 8, MAXP = 8;      // karşılaştırma: ana projenin sürümleri, ana pencere kimliği
 
 function e(tag, cls, html, ust) {
   var n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html;
@@ -162,7 +162,7 @@ function surumSeviye(k) { var p = surumProje(k), sv = p ? projeSeviye(p) : ""; r
 function surumBicim(k) {
   var proje = surumProje(k), s = suaBul(k);
   if (!proje) return KISA[k] || (s && TURAD[s.tur]) || k || PROJE;
-  return /-d1$/.test(proje) ? "D1" : /-dikey$/.test(proje) ? "Dikey" : /-s1$/.test(proje) ? "Shorts" : "Yatay";
+  return /-d1$/.test(proje) ? "D1 parça" : /-dikey$/.test(proje) ? "Dikey" : /-s1$/.test(proje) ? "Shorts" : "Yatay";
 }
 function surumKisa(k) { var sv = surumSeviye(k); return surumBicim(k) + (sv ? " " + sv : ""); }
 function suaYukle() {                            // sürüm listesi ana projeden (dikey/s1 projede surumler.json yok)
@@ -200,6 +200,7 @@ function paneOlustur(k, S0, yol0) {
   var p = { k: k, el: el, ic: ic, pl: pl, S: S0 || [], yol: yol0 || "", tema: TEMA, surum: "", kimlik: HOSTK,
     gosterilen: -1, gen: GEN, yuk: YUK, slot: slot, etT: "" };
   pl.onclick = function (ev) { ev.stopPropagation(); paneEditorAc(p); };
+  el.addEventListener("mouseenter", function () { if (panes.length > 1) sesSec(p.yol || YOL); });  // imleç = ses
   return p;
 }
 function paneEditorAc(p) {                       // pencerenin kendi editörünü aynı anda yeni sekmede aç
@@ -271,7 +272,8 @@ function pencereYaz() {
 }
 function pencereCiz() {                          // çipler: sürüm × tema; açık pencereler vurgulu
   var kok = $("#yyc"); if (!kok) return; kok.innerHTML = "";
-  var host = paneAnahtar(panes[0]), grup = {}, sira = [];
+  var host = paneAnahtar(panes[0]), grup = {}, sira = [], dolu = panes.length >= MAXP;
+  var sayac = document.querySelector("#yy > .yl"); if (sayac) sayac.textContent = "Pencereler " + panes.length + "/" + MAXP;
   pencereAdaylari().forEach(function (x) {                 // bu videonun sürümleri önce; başka seviye ayrı küme
     var g = surumSeviye(x.kimlik); if (!grup[g]) { grup[g] = []; sira.push(g); } grup[g].push(x);
   });
@@ -281,10 +283,11 @@ function pencereCiz() {                          // çipler: sürüm × tema; a�
     grup[g].forEach(function (x) {
       ["koyu", "acik"].forEach(function (tm) {
         var key = x.kimlik + ":" + tm, on = key === host || paneBul(key) > 0;
-        var b = e("button", "pc" + (on ? " on" : "") + (key === host ? " sabit" : "") + (g ? " baska" : ""),
+        var b = e("button", "pc" + (on ? " on" : "") + (key === host ? " sabit" : "") + (g ? " baska" : "")
+          + (!on && dolu ? " dolu" : ""),
           ec(surumBicim(x.kimlik)) + "<small>" + (tm === "acik" ? "açık" : "koyu") + "</small>", kok);
         b.dataset.pk = key; b.title = (g ? g + " seviye · " : "") + (key === host ? "Ana pencere (tema üstten)"
-          : (on ? "Pencereyi kapat" : "Pencere aç"));
+          : (on ? "Pencereyi kapat" : (dolu ? "En çok " + MAXP + " pencere: önce birini kapat" : "Pencere aç")));
       });
     });
   });
@@ -300,7 +303,7 @@ function sesSecenek() {
   });
   sel.innerHTML = o;
 }
-function sesSec(y) { if (y === sesYol) return; sesYol = y; sesYukle(y); }
+function sesSec(y) { if (!y || y === sesYol) return; sesYol = y; sesYukle(y); }
 function paneEtiketYenile() {                    // pencere rozeti: sürüm · tema · sahne · motor (motor rengi)
   panes.forEach(function (p) {
     if (!p.S.length) return;
@@ -522,14 +525,14 @@ function dalgaCiz() {
   }
 }
 // wav bir kez indirilir: <audio> blob'dan çalar, dalga aynı veriden çözülür
-function sesYukle(yol) {                        // yol: ses kaynağı projesi (karşılaştırmada seçilir)
-  var oynuyor = calma === "ileri", t0 = t; if (yol) dur();
-  return fetch((yol || YOL) + "ortak/anlatim/anlatim.wav").then(function (r) { return r.arrayBuffer(); })
-    .then(function (buf) {
-    au.src = URL.createObjectURL(new Blob([buf], { type: "audio/wav" }));
-    if (yol) au.addEventListener("loadedmetadata", function () { git(t0); if (oynuyor) oyna(); }, { once: true });
-    return new OfflineAudioContext(1, 1, 44100).decodeAudioData(buf);
-  }).then(function (ab) {
+var sesOnbellek = {}, sesImzaSimdi = "";       // yol → {src, wave, imza}; aynı dosya (dikey = yatay sesi) yeniden yüklenmez
+function sesImza(buf) {
+  var u = new Uint8Array(buf), h = 7;
+  for (var i = 44; i < Math.min(u.length, 262144); i += 61) h = (h * 31 + u[i]) >>> 0;
+  return buf.byteLength + ":" + h;
+}
+function dalgaCoz(buf) {
+  return new OfflineAudioContext(1, 1, 44100).decodeAudioData(buf).then(function (ab) {
     var d = ab.getChannelData(0), bps = 200, n = Math.ceil(ab.duration * bps), per = Math.floor(ab.sampleRate / bps);
     var mn = new Float32Array(n), mx = new Float32Array(n);
     for (var i = 0; i < n; i++) {
@@ -537,8 +540,30 @@ function sesYukle(yol) {                        // yol: ses kaynağı projesi (k
       for (var j = e0; j < e1; j++) { var v = d[j]; if (v < lo) lo = v; if (v > hi) hi = v; }
       mn[i] = lo; mx[i] = hi;
     }
-    wave = { min: mn, max: mx, bps: bps }; dalgaCiz();
-  }).catch(function (er) { durumMesaj("Ses yüklenemedi: " + er); });
+    return { min: mn, max: mx, bps: bps };
+  });
+}
+function sesUygula(k, yol) {                    // k: önbellek kaydı; aynı imza = aynı dosya, kaynak değişmez (kesinti yok)
+  var sel = $("#yss"); if (sel && sel.value !== yol) sel.value = yol;
+  if (k.imza === sesImzaSimdi) return;
+  var oynuyor = calma === "ileri", t0 = t; dur();
+  sesImzaSimdi = k.imza; au.src = k.src;
+  au.addEventListener("loadedmetadata", function () { git(t0); if (oynuyor) oyna(); }, { once: true });
+  wave = k.wave; dalgaCiz();
+}
+function sesYukle(yol) {                        // yol: ses kaynağı projesi; karşılaştırmada seçici ya da imleç seçer
+  yol = yol || YOL; var k = sesOnbellek[yol];
+  if (k && !k.then) { sesUygula(k, yol); return Promise.resolve(); }
+  if (k) return k.then(function (x) { if (sesYol === yol) sesUygula(x, yol); });
+  var p = fetch(yol + "ortak/anlatim/anlatim.wav").then(function (r) {
+    if (!r.ok) throw new Error(r.status); return r.arrayBuffer();
+  }).then(function (buf) {
+    var kayit = { src: URL.createObjectURL(new Blob([buf], { type: "audio/wav" })), imza: sesImza(buf), wave: null };
+    return dalgaCoz(buf).then(function (w) { kayit.wave = w; return kayit; });
+  });
+  sesOnbellek[yol] = p;
+  return p.then(function (x) { sesOnbellek[yol] = x; if (sesYol === yol) sesUygula(x, yol); })
+    .catch(function (er) { delete sesOnbellek[yol]; durumMesaj("Ses yüklenemedi: " + er.message); });
 }
 var dalgaBekle = 0;
 zk.addEventListener("scroll", function () {
