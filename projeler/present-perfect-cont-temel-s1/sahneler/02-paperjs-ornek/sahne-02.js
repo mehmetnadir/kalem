@@ -8,7 +8,8 @@ const CIP = "= HAVE BEEN";
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: CIP });
-  const { fr, ciz, daire, ok, yazi, cumle, tik, parilti, olay, not, bitis, kutu, genislik, oge, kis } = S;
+  const { fr, ciz, daire, ok, yazi, elYazisi, cumle, tik, parilti, olay, not, bitis, kutu,
+    genislik, oge, kis } = S;
   const SARI = RT.vurgu, DOLGU = RT.vurguDolgu, IKI = RT.ikincil, MUR = RT.murekkep;
   const s1 = S.sozcukler(1), s2 = S.sozcukler(2);
   const solma = (t0, t1) => (f) => 1 - kis((f - fr(t0)) / (fr(t1) - fr(t0)));   // 1 -> 0
@@ -41,9 +42,15 @@ export async function kur(P) {
   // --- cümle 1 (sahne 01'in son hali + devamı): Caveat 80, x 72, y 440 / 530
   // satır 1: İki saattir çalışıyorum.   satır 2: İngilizcede kalıp tek:
   const c80 = { x: 72, y: 440, boyut: 80, aile: "Caveat", agirlik: 700, aralik: 90, oge: ust };
-  const e1 = cumle(s1.slice(0, 6).map((w, i) => ({ s: w.s, f: i < 3 ? -30 : i === 3 ? 2 : w.f,
-    satir: i < 3 ? 0 : 1 })), c80);
+  // satır 1 (sözcük 0–2): 01'den devralınan son görünüm, kare 0'da hazır (01 dokunulmaz);
+  // Caveat yazi kalır
+  const e1 = cumle(s1.slice(0, 3).map((w) => ({ s: w.s, f: -30, satir: 0 })), c80);
   altCiz(e1[1], fr(3.0) + 6, { oge: ust }); not("saattir altı çizgi (cümle 1)", fr(3.0) + 6);
+  // satır 2 (kare 2–48 = 3,07–4,59 sn; "İngilizcede kalıp tek:" 2,83–4,59): sözcük penceresi,
+  // eski belirme anı kare 2 (İngilizcede), sağ uç x1 = 72 + 555 = 627 px
+  elYazisi("İngilizcede kalıp tek:", { x: c80.x, y: c80.y + c80.aralik, boyut: c80.boyut, renk: MUR,
+    oge: ust, sozcukler: s1.slice(3, 6).map((w, i) => ({ f0: i === 0 ? Math.max(2, w.f) : w.f,
+      f1: w.f1 })) });
 
   // --- eskiz (sahne 01'den hazır): figür 480 px + dizüstü (kutu 460) + saat (kutu 330) + zemin çizgisi, y 900-1384
   await S.svgCiz("open-peeps/standing-2.svg", { kutu: [100, 900, 146, 480], bas: -200, sure: 2, azami: 60,
@@ -76,10 +83,20 @@ export async function kur(P) {
     not("EN cümle başı", e[0].bas);
     const g = e[3], d = daire((g.x0 + g.x1) / 2, g.y - 26, g.w / 2 + 14, 38, { bas: g.bas + 4, sure: 20, a0: -2.0 });
     olay(bitis(d), "tik", 0.5); not("been daire", d.bas);
-    const tr = s2.slice(10, 15);
-    const t = cumle(tr.map((k, i) => ({ s: k.s, f: k.f, satir: i < 3 ? 0 : 1 })),
-      { x: 88, y: 748, boyut: 64, aile: "Caveat", agirlik: 700, renk: MUR, aralik: 70 });
-    altCiz(t[1], t[1].bas + 4, { w: 8 }); not("sabahtan altı çizgi", t[1].bas + 4);
+    // 11,07–13,79 sn (kare 242–324; "Kardeşim sabahtan beri gitar çalıyor."): her sözcük kendi
+    // penceresinde; sözcük arası 0,3 × boyut (motor aralığı); satır 1 = Kardeşim sabahtan beri,
+    // satır 2 = gitar çalıyor.
+    const tr = s2.slice(10, 15), t = [];
+    let tx = 88;
+    tr.forEach((k, i) => {
+      const sat = i < 3 ? 0 : 1; if (i === 0 || i === 3) tx = 88;
+      // "beri" penceresi 4 kare (0,13 sn): okunur kalsın diye 10 kareye uzatıldı
+      // (bitiş 288 < cümle sonu 324)
+      const q = elYazisi(k.s, { x: tx, y: 748 + sat * 70, boyut: 64, renk: MUR,
+        sozcukler: [{ f0: k.f, f1: Math.max(k.f1, k.f + 10) }] });
+      tx = q.x1 + 0.3 * 64; t.push(q);
+    });
+    altCiz(t[1], t[1].bit - 6, { w: 8 }); not("sabahtan altı çizgi", t[1].bit - 6);
   }
 
   // --- 8,75–11,9: kardeş + gitar (alt bant 900-1392), güneş + "sabahtan beri" yayı (9,78)
@@ -95,10 +112,13 @@ export async function kur(P) {
   ok([790, 985], [360, 985], { bas: fr(10.2), sure: 26, bukum: 0.2, yon: [0, -1], w: 8, oge: alt2 });
   not("since yayı", fr(10.2));
   {
-    const a = yazi("sabahtan", { x: 885, y: 1255, boyut: 72, renk: SARI, hizala: "orta", bas: s2[11].f, sure: 12,
-      ses: "tik", oge: alt2 });
-    yazi("beri", { x: 885, y: 1330, boyut: 72, renk: SARI, hizala: "orta", bas: s2[12].f, sure: 10,
-      ses: "tik", oge: alt2 });
+    // 11,71–12,39 sn (kare 261–282; "sabahtan beri"): orta eksen x 885; tegaki genişliği ölçüldü:
+    // sabahtan 244,4 px (x0 762,8 → x1 1007,2), beri 96,0 px (x0 837 → x1 933);
+    // "beri" penceresi 10 kareye uzatıldı
+    const a = elYazisi("sabahtan", { x: 885 - 244.4 / 2, y: 1255, boyut: 72, renk: SARI,
+      sozcukler: [{ f0: s2[11].f, f1: s2[11].f1 }], oge: alt2 });
+    elYazisi("beri", { x: 885 - 96 / 2, y: 1330, boyut: 72, renk: SARI,
+      sozcukler: [{ f0: s2[12].f, f1: Math.max(s2[12].f1, s2[12].f + 10) }], oge: alt2 });
     not("sabahtan beri", a.bas);
     parilti(960, 930, { bas: fr(11.0), r: 22, periyot: 130, adet: 1, oge: alt2 });
   }
