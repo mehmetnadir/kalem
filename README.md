@@ -69,6 +69,18 @@ python3 birlestir.py projeler/<ad> [--gecis BookFlip] [--etiket] [--anlatim ses.
 
 Tema: render varsayılanı açıktır (zemin `#f7f3ea`, mürekkep `#1b2440`, vurgu `#d9900f`). Her sahnenin `calistir.sh` dosyası `--tema acik|koyu` alır. `zaman.json["tema"]` ve `--tema` birleştirmenin temasını seçer. Açık çıktı `cikti.mp4`, koyu çıktı `cikti-koyu.mp4` olur. Sahne videoları ve birleştirme aynı temayla koşar.
 
+### Başsız kare kanıtı ve el yazısı (05.11)
+
+```bash
+export PATH=/opt/homebrew/bin:$PATH
+node araclar/sahne-kare.mjs <paket> <sahne-klasörü> <t1,t2,…> <çıktı-dizini> [--tema acik|koyu] [--olc "<js>"]
+node --test araclar/test/          # el yazısı birim testleri (yaziDarbeleri / yaziCiz / yaziUcu)
+```
+
+`sahne-kare.mjs` sahneyi editör protokolüyle ortak başsız Chrome'da (CDP 9333, 3012 sunucusu) açar ve verilen
+anlatım saniyelerinde PNG alır; tarayıcı açmaz, mp4 üretmez (`--dbg 1` ağ izini yazar). El yazısı denemesi:
+`http://127.0.0.1:3012/araclar/tegaki-deneme.html?metin=…&t=<sn>` (veri `projeler/present-continuous/ortak/tegaki/`).
+
 ### Canlı önizleme (render öncesi)
 
 Render almadan sahneleri tarayıcıda gerçek zamanlı izle. Sahne sayfasına `?canli=1` ekle; sürücü kareleri
