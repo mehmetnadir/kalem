@@ -50,9 +50,10 @@ export async function kur(P) {
   // --- 3,4-5,4: "Türkçede biten işe -di ekleriz." (Caveat 72, y 580), -di sarı kutu 4,35
   {
     // 3,0-5,43 sn (kare 12-73; "Türkçede biten işe -di ekleriz."): Türkçede penceresi
-    // (-3 → 12) 12 → 19, biten 19 → 26 (sözcük başına ≥ 7 kare)
+    // (-3 → 12) 12 → 19; biten kendi anında (s1[5].f = 14) başlar, 26'da biter (eski belirme
+    // anından geç başlamaz — inceleme DÜZELT; Türkçede ile 5 kare üst üste biner)
     const e = satir([
-      { s: "Türkçede", f0: 12, f1: 19 }, { s: "biten", f0: 19, f1: 26 },
+      { s: "Türkçede", f0: 12, f1: 19 }, { s: "biten", f0: s1[5].f, f1: 26 },
       { s: "işe", f0: s1[6].f, f1: s1[6].f1 }, { s: "-di", f0: s1[7].f, f1: s1[7].f1 },
       { s: "ekleriz.", f0: s1[8].f, f1: s1[8].f1 }],
     { x: 72, y: 580, boyut: 72, renk: MUR, oge: ust });
