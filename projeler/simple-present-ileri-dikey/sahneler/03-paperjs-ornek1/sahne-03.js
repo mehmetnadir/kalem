@@ -141,7 +141,7 @@ export async function kur(P) {
   // --- 24,30–27,34: Türkçe çeviri (Caveat 64 mürekkep, 2 satır, ≤ 34 k/satır)
   // Güneş küçük görünse de bitkilere gereken enerjiyi verir.
   // 24,30–27,34 «Güneş küçük görünse de / bitkilere gereken enerjiyi verir.»
-  // (pencere: sözcük başına f–f1; `de` 0,2 sn altı → bitkilere başına dek)
+  // (pencere: sözcük başına f–f1; `de` 0,32 sn, satır 1'in son sözcüğü; uzatma yok)
   const tr = S.sozcukler(3).slice(16, 24);
   const trSatir = (a, b, y) => elYazisi(
     tr.slice(a, b).map((k) => k.s).join(" "),

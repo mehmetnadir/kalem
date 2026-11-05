@@ -74,16 +74,20 @@ async function kur() {
   // tomorrow: kırmızı daire (tuzak)
   S.koy(S.halka(kel("tomorrow"), 51.72, 0.4, 33, 8, KIRMIZI, 9));
 
-  // 54,94–57,34 Türkçe çeviri (Caveat 64, mürekkep, tek satır; pencere:
-  // 5 sözcük, `on` 0,2 sn altı → birde başına dek)
+  // 54,94–57,34 Türkçe çeviri (Caveat 64, mürekkep, tek satır): her sözcük kendi
+  // penceresinde; `sabah` anlatım verisinde yok → yarın penceresi ikiye bölünür
+  // (yarın 55,58–55,74 · sabah 55,74–55,98); `on` 0,2 sn altı → birde başına dek.
+  // Yatay kardeşle aynı yol (simple-present-ileri 05). İnceleme DÜZELT 2.
   const yTR = kartAlt + 62;
+  const tr = pen("Uçuşumuz", 54.94, 5), ya = tr[1];
+  const trSoz = [tr[0], { t0: ya.t0, t1: 55.74 }, { t0: 55.74, t1: tr[2].t0 }, ...tr.slice(2)];
   S.koy(S.elYazisi({
     metin: "Uçuşumuz yarın sabah on birde kalkıyor.",
     x: 64,
     y: yTR,
     boy: 64,
     renk: KREM,
-    sozcukler: pen("Uçuşumuz", 54.94, 5)
+    sozcukler: trSoz
   }));
 
   // ORTA bant: solda uçak (660 px), sağda takvim (yarın) + saat (11:00)
