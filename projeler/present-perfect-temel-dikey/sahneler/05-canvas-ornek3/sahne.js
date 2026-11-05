@@ -9,6 +9,8 @@ const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: 0, bolum: "
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu;
 const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+// El yazısı (tegaki Caveat, dalga 5 / K26): sözcük penceresi = anlatım t0/t1 (küresel sn)
+const pen = (ad, t, n) => S.dizi(ad, t, n).map((w) => ({ t0: w.t0, t1: w.t1 }));
 
 async function kur() {
   await S.kur();
@@ -25,9 +27,10 @@ async function kur() {
   S.koy(S.halka(kel("never"), 53.28, 0.3, 31));
 
   // Türkçe çeviri (Caveat 64, mürekkep) 55,37
-  S.koy(S.not({
-    parca: [["Hayatımda hiç uçağa binmedim.", KREM]], x: 88, y: 646, font: CV(64),
-    tb: 55.37, sure: 0.6
+  // 55,37–57,42 «Hayatımda hiç uçağa binmedim.» (pencere: 4 sözcük)
+  S.koy(S.elYazisi({
+    metin: "Hayatımda hiç uçağa binmedim.", x: 88, y: 646, boy: 64, renk: KREM,
+    sozcukler: pen("Hayatımda", 55.37, 4)
   }));
 
   // ORTA: uçak (788 x 420, kutu ≥ 420) 53,0; sarı çarpı 56,9
@@ -47,16 +50,21 @@ async function kur() {
   const ly = 1181, bx = 110, nx = 970, ey = ly - 34;
   S.koy(S.darbe(elips(bx, ly, 10, 10, 0, 33), { w: 18, uc0: 3, uc1: 3, tohum: 33 },
     57.48, 0.2, 0.5));
-  S.koy(S.not({ parca: [["birth", KREM]], x: 56, y: ey, font: CV(64), tb: 57.55, sure: 0.3, ses: false }));
+  // 57,55 anlatımsız etiket `birth`: hedef 0,45 sn → 58,00
+  S.koy(S.elYazisi({ metin: "birth", x: 56, y: ey, boy: 64, renk: KREM, tb: 57.55, sure: 0.45,
+    ses: false }));
   S.koy(S.darbe([[bx + 16, ly], [(bx + nx) / 2, ly - 3], [nx - 16, ly + 1]],
     { duz: true, w: 5, uc0: 8, uc1: 14, tohum: 34 }, 57.73, 0.5, 0.55));
   S.koy(S.darbe(elips(nx, ly, 10, 10, 0, 35), { w: 18, uc0: 3, uc1: 3, tohum: 35 },
     58.09, 0.2, 0.5));
-  S.koy(S.not({ parca: [["now", SARI]], x: 892, y: ey, font: CV(64), tb: 58.15, sure: 0.3, ses: false }));
+  // 58,15 anlatımsız etiket `now`: hedef 0,45 sn → 58,60
+  S.koy(S.elYazisi({ metin: "now", x: 892, y: ey, boy: 64, renk: SARI, tb: 58.15, sure: 0.45,
+    ses: false }));
   const mf = CV(64), mw = olc(mf, "bugüne kadar hiç");
-  S.koy(S.not({
-    parca: [["bugüne kadar hiç", KREM]], x: 540 - mw / 2 - 10, y: ey, font: mf,
-    tb: 58.1, sure: 0.5
+  // 57,48–58,29 «Bugüne kadar hiç» (pencere: 57,48–57,69 · 57,73–58,01 · 58,09–58,29)
+  S.koy(S.elYazisi({
+    metin: "bugüne kadar hiç", x: 540 - mw / 2 - 10, y: ey, boy: 64, renk: KREM,
+    sozcukler: pen("Bugüne", 57.48, 3)
   }));
   S.koy(S.darbe([[bx - 16, ly + 1], [(bx + nx) / 2, ly - 2], [nx + 16, ly]],
     { duz: true, w: 30, renk: SARI, alfa: 0.3, uc0: 24, uc1: 36, tohum: 36 }, 58.4, 1.0, 0.5));
@@ -70,8 +78,9 @@ async function kur() {
     const w = gen[i];
     S.koy(S.darbeler(kutu(xx, yb, w, bh, 30 + i), { w: 4, renk: KREM, uc0: 8, uc1: 14 },
       tb, 0.1, 0.06, false));
-    S.koy(S.metinPop({
-      parca: [[m, KREM]], x: xx + 28, y: yb + 52, font: lfn, tb: tb + 0.22, sure: 0.3, ses: 0.5
+    // anlatımsız etiket (kutudan 0,22 sn sonra): hedef 0,45 sn
+    S.koy(S.elYazisi({
+      metin: m, x: xx + 28, y: yb + 52, boy: 64, renk: KREM, tb: tb + 0.22, sure: 0.45
     }));
     xx += w + 24;
   });

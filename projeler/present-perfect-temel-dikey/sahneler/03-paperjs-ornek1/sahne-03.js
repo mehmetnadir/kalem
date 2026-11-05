@@ -3,6 +3,7 @@
 // Yerleşim sıfırdan dikey: kart (tam genişlik) → TR çeviri → ORTA telefon (sol) + zaman çizgisi ve notlar (sağ)
 // → alt formül (iki satır).
 import { sahneKur, RT, renkCoz } from "/projeler/present-perfect-temel-dikey/sahneler/03-paperjs-ornek1/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/present-perfect-temel-dikey/ortak/kalem-canvas.js";
 
 export const KARE = 475, T_BAS = 18.73;
 
@@ -19,10 +20,21 @@ function yuvarlakKutu(x, y, w, h, r) {
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1, kayma: 0 });
-  const { fr, ciz, daire, yazi, cumle, altCizgi, parilti, olay, not, bitis, dinamik, genislik } = S;
+  const { fr, ciz, daire, yazi, cumle, altCizgi, parilti, olay, not, bitis, dinamik, genislik,
+    elYazisi } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil, MUR = RT.murekkep;
   const GB = 12;                                                   // ilk 12 kare geçiş altında: yalnız künye
-  const CV = (b) => ({ boyut: b, aile: "Caveat", agirlik: 700 });
+
+  // --- el yazısı: S.elYazisi (03 kalem-paper.js, motor taşıması 96b0651). Sağa/ortaya hizalı x
+  // çizimden önce hesaplanır; genişlik için glif verisi burada da okunur (02 sahnesiyle aynı yol).
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const CS = S.sozcukler(3);                                       // cümle 3: f / f1 yerel kare
+  const pen = (ilk, adet) => { const i = CS.findIndex((w) => w.s === ilk);
+    return CS.slice(i, i + adet).map((w) => ({ f0: w.f, f1: w.f1 })); };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm, asc: EY.M.ascender,
+    boy: boyut, x: 0, taban: 0 }).gen;
 
   // --- kart: tam genişlik (984), Fredoka 72, sözcük zamanlı; satır kırılımı ölçülür
   const sz = S.sozcukler(3).slice(2, 7);                           // I have broken my phone.
@@ -43,7 +55,9 @@ export async function kur(P) {
 
   // --- TR çeviri (Caveat 64, mürekkep) 22,66
   const yTR = kartAlt + 66;
-  yazi("Telefonumu kırdım.", { x: 64, y: yTR, ...CV(64), renk: MUR, bas: fr(22.66), sure: 17 });
+  // 22,66–24,10 «Telefonumu kırdım.» (pencere: 22,66–23,22 · 23,30–24,10)
+  elYazisi("Telefonumu kırdım.", { x: 64, y: yTR, boyut: 64, renk: MUR,
+    sozcukler: pen("Telefonumu", 2) });
   not("Türkçe çeviri", fr(22.66));
 
   // --- ORTA sol: akıllı telefon (≥ 420 px), el çizgisiyle; 25,2 ekranda 3 çatlak
@@ -86,12 +100,21 @@ export async function kur(P) {
         strokeColor: renkCoz(SARI), strokeWidth: 5, opacity: 0.75 * (1 - u) * a, insert: false }));
     });
     olay(fp, "tik", 0.5); olay(fn, "tik", 0.5); not("past noktası", fp); not("now noktası (nabız)", fn);
-    yazi("past", { x: xP, y: yT - 44, hizala: "orta", ...CV(72), renk: MUR, bas: fp + 2, sure: 8 });
-    yazi("now", { x: xN, y: yT - 44, hizala: "orta", ...CV(72), renk: SARI, bas: fn + 2, sure: 8 });
-    yazi("geçmişte oldu", { x: xA + 4, y: yT + 104, ...CV(64), renk: MUR, bas: fr(24.74), sure: 17 });
+    // 24,76 `past` ve 26,57 `now`: anlatımsız etiket, hedef 14 kare (0,47 sn); xP / xN ortalı
+    elYazisi("past", { x: xP - eyGen("past", 72) / 2, y: yT - 44, boyut: 72, renk: MUR, bas: fp + 2,
+      sure: 14 });
+    elYazisi("now", { x: xN - eyGen("now", 72) / 2, y: yT - 44, boyut: 72, renk: SARI, bas: fn + 2,
+      sure: 14 });
+    // 24,74–25,66 «geçmişte oldu,» (pencere: 24,74–25,14 · 25,22–25,66)
+    elYazisi("geçmişte oldu", { x: xA + 4, y: yT + 104, boyut: 64, renk: MUR,
+      sozcukler: pen("geçmişte", 2) });
     not("geçmişte oldu notu", fr(24.74));
-    yazi("ekran şimdi", { x: xB, y: yT + 190, hizala: "sag", ...CV(72), renk: SARI, bas: fr(26.1), sure: 14, ses: true });
-    yazi("de kırık", { x: xB, y: yT + 266, hizala: "sag", ...CV(72), renk: SARI, bas: fr(26.74), sure: 12 });
+    // 26,10–26,66 «ekran şimdi» (26,10–26,42 · 26,50–26,66) ve 26,74–27,94 «de kırık.»
+    // (26,74–26,82 · 26,90–27,94); sağ uç xB
+    elYazisi("ekran şimdi", { x: xB - eyGen("ekran şimdi", 72), y: yT + 190, boyut: 72, renk: SARI,
+      sozcukler: pen("ekran", 2) });
+    elYazisi("de kırık", { x: xB - eyGen("de kırık", 72), y: yT + 266, boyut: 72, renk: SARI,
+      sozcukler: pen("de", 2) });
     not("ekran şimdi de kırık notu", fr(26.1));
     S.ok([xN, yT + 56], [xN, yT + 100], { bas: fr(26.7), sure: 12, w: 8, uzun: 22, bukum: 0.05 });
   }

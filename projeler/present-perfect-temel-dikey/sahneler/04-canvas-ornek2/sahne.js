@@ -11,6 +11,8 @@ const KOKDIZ = "/projeler/present-perfect-temel-dikey/ortak/cizim";
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKI = RT.ikincil, SARI = RT.vurgu;
 const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+// El yazısı (tegaki Caveat, dalga 5 / K26): sözcük penceresi = anlatım t0/t1 (küresel sn)
+const pen = (ad, t, n) => S.dizi(ad, t, n).map((w) => ({ t0: w.t0, t1: w.t1 }));
 
 async function kur() {
   await S.kur();
@@ -27,8 +29,9 @@ async function kur() {
 
   // 39,37 Türkçe çeviri (Caveat 64, mürekkep)
   const yTR = kartAlt + 58;
-  S.koy(S.not({ parca: [["Kardeşim beş yıldır gitar çalıyor.", KREM]], x: 64, y: yTR, font: CV(64), tb: 39.37,
-    sure: 0.7 }));
+  // 39,37–41,45 «Kardeşim beş yıldır gitar çalıyor.» (pencere: 5 sözcük)
+  S.koy(S.elYazisi({ metin: "Kardeşim beş yıldır gitar çalıyor.", x: 64, y: yTR, boy: 64,
+    renk: KREM, sozcukler: pen("Kardeşim", 39.37, 5) }));
 
   // ORTA sol: figür (sitting-6) + gitar, ≥ 420 px; sağ sütunda 3 nota
   const fUst = yTR + 28, fAlt = fUst + 430;
@@ -49,7 +52,9 @@ async function kur() {
 
   // sağ sütun notları: başladı / hâlâ sürüyor (41,77 / 42,65); for → süre (43,84); since → başlangıç (47,12)
   const xS = 600, y0 = fUst + 160;
-  S.koy(S.not({ parca: [["başladı,", KREM]], x: xS, y: y0, font: CV(64), tb: 41.77, sure: 0.45 }));
+  // 41,77–42,25 «Başladı» (pencere: 1 sözcük)
+  S.koy(S.elYazisi({ metin: "başladı,", x: xS, y: y0, boy: 64, renk: KREM,
+    sozcukler: pen("Başladı", 41.77, 1) }));
   S.koy(S.not({ parca: [["hâlâ sürüyor", SARI]], x: xS, y: y0 + 72, font: CV(64), tb: 42.65, sure: 0.55 }));
   S.koy(S.not({ parca: [["for → süre", SARI]], x: xS, y: y0 + 170, font: CV(72), tb: 43.84, sure: 0.55 }));
   S.koy(S.not({ parca: [["since → başlangıç", IKI]], x: xS - 40, y: y0 + 246, font: CV(72), tb: 47.12, sure: 0.7 }));
@@ -60,7 +65,9 @@ async function kur() {
     S.koy(S.darbeler(kutu(kx(i), yK, 150, kh, 20 + i), { w: 4, renk: KREM, uc0: 8, uc1: 14 },
       41.77 + i * 0.2, 0.12, 0.07, 0.45));
   }
-  S.koy(S.metinPop({ parca: [["5 years", SARI]], x: 70, y: yB - 14, font: CV(64), tb: 42.1, sure: 0.35, ses: 0.5 }));
+  // 42,10 anlatımsız etiket `5 years`: hedef 0,45 sn → 42,55
+  S.koy(S.elYazisi({ metin: "5 years", x: 70, y: yB - 14, boy: 64, renk: SARI, tb: 42.1,
+    sure: 0.45 }));
   S.koy(S.darbe([[70, yB + 16], [70, yB], [940, yB], [940, yB + 16]],
     { duz: true, w: 9, renk: SARI, alfa: 0.85, uc0: 12, uc1: 24 }, 42.15, 0.5, 0.6));
   const nx = 985, ny = yK + kh / 2, nf = S.fr(42.65);
@@ -73,7 +80,9 @@ async function kur() {
   S.koy(S.darbe([[948, ny], [nx - 26, ny]], { duz: true, w: 6, renk: SARI, alfa: 0.85, uc0: 6, uc1: 10 }, 42.5, 0.2,
     false));
   S.koy(S.nabiz(nx, ny, 15, 42.65));
-  S.koy(S.not({ parca: [["now", SARI]], x: nx - 40, y: yB, font: CV(64), tb: 42.8, sure: 0.3, ses: false }));
+  // 42,80 anlatımsız etiket `now`: hedef 0,45 sn → 43,25
+  S.koy(S.elYazisi({ metin: "now", x: nx - 40, y: yB, boy: 64, renk: SARI, tb: 42.8, sure: 0.45,
+    ses: false }));
 
   // 48,88 has sarı daire; alt formül (Fredoka 110): has + played (48,88 / 49,6 / 50,4)
   S.koy(S.halka(kel("has"), 48.88, 0.35, 12, 4));

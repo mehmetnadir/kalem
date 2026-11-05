@@ -4,15 +4,27 @@
 // Bant yerleşimi (BRIEF-DIKEY §2): cümle 380–470 · zaman çizgisi + notlar 490–640 · sahne 645–1084 ·
 // ajanda kartı 1096–1392. Hiçbir öğe kaybolmaz; sağ sütun (x 780–1032) `-dı ⇄ have + V3` yığınıdır.
 import { sahneKur, RT } from "/projeler/present-perfect-temel-dikey/sahneler/02-paperjs-kanca/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/present-perfect-temel-dikey/ortak/kalem-canvas.js";
 
 export const KARE = 484, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook", etkin: 0, kayma: 0 });
-  const { fr, ciz, daire, ok, yazi, cumle, tik, parilti, olay, not, bitis } = S;
+  const { fr, ciz, daire, ok, yazi, elYazisi, cumle, tik, parilti, olay, not, bitis } = S;
   const SARI = RT.vurgu, KRE = RT.murekkep, IKI = RT.ikincil;
   const GB = 12;                                                   // geçiş karesi: çizimler bundan sonra başlar
   const FR = { aile: "Fredoka", agirlik: 700 };
+  // El yazısı (Caveat 700 tegaki, dalga 5 / K26): not ve etiketler kalemle yazılır. Sağa hizada
+  // genişlik tegaki verisinden ölçülür (yaziNoktalari.gen); sözcük pencereleri anlatımın t0/t1
+  // karelerinden gelir.
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm, asc: EY.M.ascender,
+    boy: boyut, x: 0, taban: 0 }).gen;
+  const CS = S.sozcukler(2);                                  // cümle 2 sözcükleri (f0 / f1 kare)
+  const pen = (ilk, adet) => { const i = CS.findIndex((w) => w.s === ilk);
+    return CS.slice(i, i + adet).map((w) => ({ f0: w.f, f1: w.f1 })); };
 
   // --- cümle 1: Caveat 96 tek satır; kare 0'da hazır
   const c1 = cumle(["Kaybettim,", "kapıda", "kaldım."].map((s) => ({ s, f: -8 })),
@@ -44,23 +56,31 @@ export async function kur(P) {
   {
     const g = c1[0], d = daire((g.x0 + g.x1) / 2 + 2, g.y - 32, g.w / 2 + 12, 56, { bas: fr(4.27), sure: 24, egim: -0.04 });
     olay(bitis(d), "tik", 0.5); not("kaybettim daire", d.bas);
-    const a = yazi("geçmişte oldu", { x: 48, y: 625, boyut: 64, renk: KRE, bas: fr(5.39), sure: 14, ses: true });
+    // 5,39–6,51 «geçmişte oldu,» (sözcük penceresi: geçmişte 5,39–5,79 · oldu 5,87–6,51)
+    const a = elYazisi("geçmişte oldu", { x: 48, y: 625, boyut: 64, renk: KRE,
+      sozcukler: pen("geçmişte", 2) });
     not("not geçmişte oldu", a.bas);
   }
 
   // --- 6,91–8,35: zaman çizgisi past ● ━━ ● now; now daire; `sonucu şimdi bizimle`
   {
     const Y0 = 535, XA = 205, XB = 880;
-    yazi("past", { x: 48, y: Y0 + 17, boyut: 64, renk: KRE, bas: fr(6.91), sure: 8 });
+    // 6,91 anlatımsız etiket `past`: hedef 14 kare (0,47 sn) → 7,38'de biter
+    elYazisi("past", { x: 48, y: Y0 + 17, boyut: 64, renk: KRE, bas: fr(6.91), sure: 14 });
     const p = nokta(XA, Y0, fr(6.91));
     const l = ciz([[XA + 14, Y0], [XA + 230, Y0 - 3], [XA + 450, Y0 + 2], [XB - 14, Y0 - 1]],
       { w: 5, bas: fr(6.91) + 4, sure: 26, uc0: 6, uc1: 8, renk: KRE });
     const n = nokta(XB, Y0, bitis(l));
-    const nw = yazi("now", { x: XB + 30, y: Y0 + 17, boyut: 64, renk: SARI, bas: fr(7.3), sure: 8, ses: true });
+    // 7,30 anlatımsız etiket `now`: hedef 14 kare (0,47 sn) → 7,77
+    const nw = elYazisi("now", { x: XB + 30, y: Y0 + 17, boyut: 64, renk: SARI, bas: fr(7.3),
+      sure: 14 });
     const d = daire((nw.x0 + nw.x1) / 2, nw.y - 22, nw.w / 2 + 16, 40, { bas: fr(7.39), sure: 22, egim: -0.06 });
     olay(bitis(d), "tik", 0.5); not("şimdi daire (now)", d.bas);
     parilti(XB, Y0 - 4, { bas: bitis(n) + 6, r: 30, periyot: 60, adet: 4 });
-    const b = yazi("sonucu şimdi bizimle", { x: 1024, y: 625, boyut: 64, renk: SARI, bas: fr(7.0), sure: 18, hizala: "sag" });
+    // 6,91–8,35 «sonucu şimdi bizimle.» (pencere: 6,91–7,31 · 7,39–7,63 · 7,71–8,35); sağ uç 1024
+    const bm = "sonucu şimdi bizimle";
+    const b = elYazisi(bm, { x: 1024 - eyGen(bm, 64), y: 625, boyut: 64, renk: SARI,
+      sozcukler: pen("sonucu", 3) });
     not("zaman çizgisi başı", p.bas); not("not sonucu şimdi bizimle", b.bas);
   }
 
@@ -71,7 +91,12 @@ export async function kur(P) {
     const h = yazi("have", { x: X, y: 925, boyut: 80, ...FR, renk: SARI, bas: bitis(ar) + 4, sure: 10, ses: true });
     yazi("+ V3", { x: X, y: 1005, boyut: 80, ...FR, renk: SARI, bas: bitis(ar) + 12, sure: 10 });
     not("ok -dı ⇅ have + V3", ar.bas);
-    const n = yazi("ayrı zaman", { x: X, y: 1075, boyut: 64, renk: KRE, bas: fr(9.86), sure: 16 });
+    // 9,86–10,50 «ayrı bir zaman»: ayrı penceresi `bir` sonuna dek (9,86–10,18), zaman 10,22–10,50.
+    // Tegaki genişliği 248 px: x = 790 → sağ uç 1038 > 1032 olurdu; satır kırılamaz (kart 1096) →
+    // sağ uç 1032'ye hizalı (x = 784, sütun sol sınırı 780'in içinde)
+    const az = pen("ayrı", 3);
+    const n = elYazisi("ayrı zaman", { x: 1032 - eyGen("ayrı zaman", 64), y: 1075, boyut: 64,
+      renk: KRE, sozcukler: [{ f0: az[0].f0, f1: az[1].f1 }, az[2]] });
     not("not ayrı zaman", n.bas);
   }
 
