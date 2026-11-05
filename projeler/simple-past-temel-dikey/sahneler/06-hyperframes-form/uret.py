@@ -204,13 +204,14 @@ def uret():
     tf = S(Z["form"])
     s.to("#ku-bolum", tf, {"opacity": 0, "duration": 0.2, "ease": "power1.in"})
     s.to("#ku-bolum2", tf, {"opacity": 1, "duration": 0.2, "ease": "power1.out"})
-    s.to("#balg", tf + 0.1, {"svgOrigin": "48 352", "scale": 0.72, "opacity": 0.5, "duration": 0.8,
+    s.to("#balg", tf + 0.1, {"svgOrigin": "48 352", "scale": 0.83, "y": -16, "opacity": 0.5,
+                             "duration": 0.8,
                              "ease": "power3.inOut"})
     cx = 48.0
-    for i in range(3):   # satır -> şerit çipi: ölçek 0,5 (110 -> 55 px), taban y 608
-        wi = genrow[i] * 0.5
+    for i in range(3):   # satır -> şerit çipi: ölçek 0,52 (110 -> 57,2 px), taban y 618
+        wi = genrow[i] * 0.52
         s.to("#row%d" % i, tf + 0.1 + 0.06 * i, {"svgOrigin": "%.1f %d" % (RX, RY[i]), "x": round(cx - RX, 1),
-                                                "y": 608 - RY[i], "scale": 0.5, "opacity": 0.6, "duration": 0.8,
+                                                "y": 618 - RY[i], "scale": 0.52, "opacity": 0.6, "duration": 0.8,
                                                 "ease": "power3.inOut"})
         cx += wi + 44
     s.olay(tf + 0.1, "parilti", 0.5)
