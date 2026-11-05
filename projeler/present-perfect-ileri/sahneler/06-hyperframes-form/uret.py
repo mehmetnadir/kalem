@@ -43,11 +43,11 @@ def kelimeler(s, kimlik, x, y, idx, c, aile, agr, boy, renk=KRE, metin=None):
     return yer
 
 
-def yasak(s, kimlik, cx, cy, r, t):
-    """Yasak işareti: kırmızı daire + çapraz çizgi (iki darbe)."""
-    s.yol(kimlik + "c", Y.el_daire(cx, cy, r, r, 0.6), t, 0.3, KIR, 7, 0.95, "cizgi", 0.5)
+def yasak(s, kimlik, cx, cy, r, t, renk=IKN):
+    """Yasak işareti: daire + çapraz çizgi (iki darbe)."""
+    s.yol(kimlik + "c", Y.el_daire(cx, cy, r, r, 0.6), t, 0.3, renk, 7, 0.95, "cizgi", 0.5)
     s.yol(kimlik + "s", "M%.1f %.1f L%.1f %.1f" % (cx - r * 0.72, cy + r * 0.72, cx + r * 0.72, cy - r * 0.72),
-          t + 0.28, 0.2, KIR, 7, 0.95, "cizgi", 0.6)
+          t + 0.28, 0.2, renk, 7, 0.95, "cizgi", 0.6)
 
 
 def uret():
@@ -123,9 +123,9 @@ def uret():
     pp = kelimeler(s, "pp", AX, A2, (5, 6), 7, "Fredoka", 700, 80, metin=("Present", "Perfect"))
     pe = pp[1][0] + pp[1][1]
     ty_ = S(T(7, 7))
-    s.yol("pst", Y.el_cizgi(AX - 10, A2 - 30, pe + 10, A2 - 36, 2), ty_, 0.4, KIR, 10, 0.95, "cizgi", 0.7)
+    s.yol("pst", Y.el_cizgi(AX - 10, A2 - 30, pe + 10, A2 - 36, 2), ty_, 0.4, IKN, 10, 0.95, "cizgi", 0.7)
     s.olay(ty_ + 0.3, "vurus", 0.8)
-    s.yazi("yas", pe + 50, A2, [("yasak", KIR)], "Caveat", 700, 76, ty_ + 0.3, 0.4, tur="tik", guc=0.5)
+    s.yazi("yas", pe + 50, A2, [("yasak", IKN)], "Caveat", 700, 76, ty_ + 0.3, 0.4, tur="tik", guc=0.5)
 
     # ---------------- B (sağ): kırmızı etiketler el kutusunda (78,35–81,47) ----------------
     BXX, BY0, BW, BH = 1080.0, 330.0, 700.0, 290.0
@@ -133,9 +133,9 @@ def uret():
     LF = 68
     for n, (i, m, yy) in enumerate(((8, "ago", 420.0), (9, "yesterday", 505.0), (10, "last year", 590.0))):
         t = S(T(7, i))
-        s.yazi("e%d" % n, BXX + 56, yy, [(m, KIR)], "Fredoka", 700, LF, t, 0.3, tur="tik", guc=0.55)
+        s.yazi("e%d" % n, BXX + 56, yy, [(m, IKN)], "Fredoka", 700, LF, t, 0.3, tur="tik", guc=0.55)
         w = Y.genislik("Fredoka", 700, m, LF)
-        yasak(s, "ey%d" % n, BXX + 56 + w + 70, yy - 24, 32, t + 0.45)
+        yasak(s, "ey%d" % n, BXX + 56 + w + 70, yy - 24, 32, t + 0.45, renk=IKN)
 
     # ---------------- C: iki sütun Finished -> Simple Past / Unfinished -> Present Perfect (81,72–86,84) ----------------
     CY, CH = 660.0, 170.0
@@ -154,8 +154,8 @@ def uret():
     s.yol("kart", Y.el_kutu(DX, DY, DW, DH), tf, 0.5, KRE, 4.5, 1, "cizgi", 0.7)
     KFZ = 52
     aw = Y.genislik("Fredoka", 700, "ago", KFZ)
-    s.yazi("k1a", DX + 40, DY + 60, [("ago", KIR)], "Fredoka", 700, KFZ, S(T(7, 23)), 0.3, tur="tik", guc=0.6)
-    s.yol("k1o", Y.el_ok(DX + 40 + aw + 24, DY + 44, DX + 40 + aw + 100, DY + 42), S(T(7, 24)), 0.3, KIR, 7, 0.95,
+    s.yazi("k1a", DX + 40, DY + 60, [("ago", IKN)], "Fredoka", 700, KFZ, S(T(7, 23)), 0.3, tur="tik", guc=0.6)
+    s.yol("k1o", Y.el_ok(DX + 40 + aw + 24, DY + 44, DX + 40 + aw + 100, DY + 42), S(T(7, 24)), 0.3, IKN, 7, 0.95,
           "cizgi", 0.55)
     s.yazi("k1b", DX + 40 + aw + 124, DY + 60, [("Simple Past", KRE)], "Fredoka", 700, KFZ, S(T(7, 25)), 0.35,
            tur="tik", guc=0.6)
