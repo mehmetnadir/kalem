@@ -264,7 +264,8 @@ def uret():
            guc=0.5)
     nw = Y.genislik("Caveat", 700, "Next lesson", 72)
     nx = 980 - nw - 86
-    s.yazi("nx", nx, 1350, [("Next lesson", IKN)], "Caveat", 700, 72, S(Z["sonraki"]), 0.4, tur="tik", guc=0.4)
+    s.yazi("nx", nx, 1350, [("Next lesson", IKN)], "Caveat", 700, 72, S(Z["sonraki"]), 0.4,
+           tur="tik", guc=0.4)
     ok_yol(s, "nxok", 980 - 70, 1334, 70, S(Z["sonraki"]) + 0.35, 6.0, IKN, 0.25)
     # ---------------- altyazı parçaları (opaklık anahtarları) ----------------
     dil = altyazi_parcalari()
