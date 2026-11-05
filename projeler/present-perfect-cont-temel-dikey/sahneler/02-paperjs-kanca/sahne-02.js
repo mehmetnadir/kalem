@@ -93,9 +93,10 @@ export async function kur(P) {
     not("not -dir → süre", fr(5.2));
   }
   {   // 6,91: -ıyor sarı daire; -yor → iş sürüyor
-    // 6,20 `çalış` (8 kare) · `-ıyor` (8) · `-um` (6) → 6,93 biter; -ıyor daire 6,91 başlar
-    const yB = 600, [b1, b2, b3] = parca([["çalış", null, 8], ["-ıyor", null, 8], ["-um", null, 6]],
-      48, yB, fr(6.2));
+    // 6,03 `çalış` (9 kare) · `-ıyor` (9) · `-um` (9) → 6,93 biter; -ıyor daire 6,91 başlar.
+    // Etiket alt sınırı 0,3 sn (inceleme: 8/8/6 kare 0,27/0,27/0,20 sn idi; bitiş aynı kaldı)
+    const yB = 600, [b1, b2, b3] = parca([["çalış", null, 9], ["-ıyor", null, 9], ["-um", null, 9]],
+      48, yB, fr(6.03));
     const d = daire((b2.x0 + b2.x1) / 2, yB - 26, b2.w / 2 + 14, 36,
       { bas: fr(6.91), sure: 16, egim: 0.04, w: 10 });
     olay(bitis(d), "tik", 0.5); not("-yor daire", d.bas);
