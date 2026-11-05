@@ -1,6 +1,11 @@
 """Sahne 06 DİKEY (HyperFrames 1080x1920, 766 kare, t_bas 62,81): cümle 6 (öğrenci balonu) + cümle 7 (form).
-Yerleşim BRIEF-DIKEY §4. Tek kaynak: zamanlar.json (küresel sn) -> yerel sn = t - t_bas.
-Komut listesi veri olarak JS'e gömülür; olaylar aynı çağrılardan toplanır (olay.py yalnız bu modülü içe alır)."""
+Yerleşim BRIEF-DIKEY §4 + 05.11 kararları. Tek kaynak: zamanlar.json (küresel sn) -> yerel sn = t - t_bas.
+Komut listesi veri olarak JS'e gömülür; olaylar aynı çağrılardan toplanır (olay.py yalnız bu modülü içe alır).
+- t≈66 s -ing örtüşmesi düzeltildi (satır ve toplanma yerleşimi ayrıldı).
+- t 71–74 s içerik bandı boş kalması düzeltildi (tablo satırları erken getirildi, boşluk kapatıldı).
+- Bu pakette Next lesson öğesi yok (anlatım 85,09 s'de biter).
+- Tüm Caveat etiketleri ≥ 56 px.
+"""
 import json
 import re
 import sys
@@ -133,6 +138,7 @@ def uret():
     for i in range(3):
         s.cmd.append({"m": "draw", "id": "bas%d" % i, "t": round(0.04 * i, 4), "d": 0.32, "a": 1})
         s.olay(0.04 * i, "cizgi", 0.55)
+
     # ---------------- konuşma balonu (y 416-650) ----------------
     bal = ("M300 424 C420 414 700 422 1000 416 C1032 415 1048 428 1048 458 C1046 520 1050 580 1046 610 "
            "C1044 638 1026 648 998 648 C800 652 560 646 330 650 C304 651 288 638 288 610 L288 590 L232 562 "
@@ -154,14 +160,16 @@ def uret():
         x, w, base = pos[i]
         s.yol("bm%d" % i, el_cizgi(x - 2, base + 14, x + w + 2, base + 10), S(Z["balon_kelime"][i][1]), 0.28,
               SAR, 9, 0.85, "cizgi", 0.5)
-    # ---------------- 3 satır: sitt-ing / tak-ing / climb-ing (y 830/940/1050) ----------------
-    RF, RX, RY = 112, 100.0, [950, 1080, 1210]
+
+    # ---------------- 3 satır: sitt-ing / tak-ing / climb-ing ----------------
+    # y hiza: 880, 990, 1100
+    RF, RX, RY = 96, 90.0, [880, 990, 1100]
     stems = ["sitt", "tak", "climb"]
     swd = [Y.genislik("Fredoka", 700, m, RF) for m in stems]
     ingw = Y.genislik("Fredoka", 700, "-ing", RF)
-    BIG = 190
+    BIG = 150
     bigw = Y.genislik("Fredoka", 700, "-ing", BIG)
-    BXB, BYB = 650.0, 1090.0
+    BXB, BYB = 620.0, 990.0
     solacak = []
     for i in range(3):
         t = S(Z["satir_ing"][i])
@@ -171,64 +179,76 @@ def uret():
                      % (i, RF, i, RX, RY[i], KRE, stems[i], i, RX + swd[i], RY[i], SAR))
         s.goster("#row%d" % i, t, 0.3, dx=30)
         s.olay(t, "tik", 0.5)
-        solacak.append("#stem%d" % i)
-    # ---------------- 66,72: toplanma ----------------
+        solacak.append("#row%d" % i)
+
+    # ---------------- 66,72: toplanma (form) ----------------
     tf = S(Z["form"])
     s.to("#ku-bolum", tf, {"opacity": 0, "duration": 0.2, "ease": "power1.in"})
     s.to("#ku-bolum2", tf, {"opacity": 1, "duration": 0.2, "ease": "power1.out"})
     for i in range(3):
-        x0, y0 = RX + swd[i] + ingw + 14, RY[i] - 34
-        x1, y1 = BXB - 14, BYB - 70 + 20 * i
+        x0, y0 = RX + swd[i] + ingw + 14, RY[i] - 30
+        x1, y1 = BXB - 16, BYB - 60 + 24 * i
         s.yol("ok%d" % i, "M%.1f %.1f C%.1f %.1f %.1f %.1f %.1f %.1f" % (
-            x0, y0, x0 + (x1 - x0) * 0.5, y0, x1 - 70, y1 - 4 * (i - 1), x1, y1),
+            x0, y0, x0 + (x1 - x0) * 0.5, y0, x1 - 60, y1 - 4 * (i - 1), x1, y1),
             tf + 0.04 * i, 0.45, IKN, 4, 1, "cizgi", 0.45)
         solacak.append("#ok%d" % i)
+
     for i in range(3):
         ox, oy = RX + swd[i], RY[i]
         ta = tf + 0.35 + 0.08 * i
         s.to("#ri%d" % i, ta, {"svgOrigin": "%.1f %d" % (ox, oy), "x": round(BXB - ox, 1), "y": round(BYB - oy, 1),
-                               "scale": round(BIG / RF, 3), "duration": 0.55, "ease": "power3.inOut"})
-        s.to("#ri%d" % i, ta + 0.5, {"opacity": 0, "duration": 0.08})
-    tp = tf + 0.9
+                               "scale": round(BIG / RF, 3), "duration": 0.45, "ease": "power3.inOut"})
+        s.to("#ri%d" % i, ta + 0.45, {"opacity": 0, "duration": 0.08})
+
+    tp = tf + 0.8
     s.svg.append('<g id="bigw"><text id="big" x="%.1f" y="%.1f" fill="%s" font-family="Fredoka" font-weight="700" '
                  'font-size="%d" style="opacity:0">-ing</text></g>' % (BXB, BYB, SAR, BIG))
-    s.fromto("#big", tp, {"opacity": 0, "scale": 0.92, "svgOrigin": "%.1f %.1f" % (BXB + bigw / 2, BYB - 70)},
+    s.fromto("#big", tp, {"opacity": 0, "scale": 0.92, "svgOrigin": "%.1f %.1f" % (BXB + bigw / 2, BYB - 50)},
              {"opacity": 1, "scale": 1, "duration": 0.35, "ease": "power3.out"})
     s.olay(tp, "vurus", 0.85)
-    s.yol("band", el_cizgi(BXB - 6, BYB + 34, BXB + bigw + 8, BYB + 30), tp + 0.4, 0.4, SAR, 11, 0.85, "cizgi", 0.55)
-    ipx, ipw = s.yazi("ip", BXB - 20, BYB + 130, [("in progress", IKN)], "Caveat", 700, 80, tp + 0.9, 0.45)
+    s.yol("band", el_cizgi(BXB - 6, BYB + 28, BXB + bigw + 8, BYB + 24), tp + 0.35, 0.4, SAR, 11, 0.85, "cizgi", 0.55)
+    ipx, ipw = s.yazi("ip", BXB - 10, BYB + 105, [("in progress", IKN)], "Caveat", 700, 72, tp + 0.7, 0.45)
     s.yol("ipok", "M%.1f %.1f C%.1f %.1f %.1f %.1f %.1f %.1f M%.1f %.1f L%.1f %.1f L%.1f %.1f" % (
-        ipx + ipw + 14, BYB + 116, ipx + ipw + 44, BYB + 108, ipx + ipw + 62, BYB + 118, ipx + ipw + 86, BYB + 112,
-        ipx + ipw + 72, BYB + 100, ipx + ipw + 86, BYB + 112, ipx + ipw + 70, BYB + 126),
-        tp + 1.45, 0.4, IKN, 4.5, 1, "cizgi", 0.5)
+        ipx + ipw + 14, BYB + 90, ipx + ipw + 44, BYB + 82, ipx + ipw + 62, BYB + 92, ipx + ipw + 86, BYB + 86,
+        ipx + ipw + 72, BYB + 74, ipx + ipw + 86, BYB + 86, ipx + ipw + 70, BYB + 100),
+        tp + 1.15, 0.4, IKN, 4.5, 1, "cizgi", 0.5)
     solacak += ["#band", "#ip", "#ipok"]
-    s.to("#balg", tf + 0.5, {"opacity": 0.55, "duration": 0.8, "ease": "power3.inOut"})
-    s.to("#bigw", tp + 0.5, {"svgOrigin": "%.1f %.1f" % (BXB + bigw / 2, BYB - 70), "scale": 1.025, "duration": 1.3,
-                             "ease": "sine.inOut", "repeat": 1, "yoyo": True})
-    # ---------------- 71,43: tablo (be kolonu | V-ing) ----------------
+    s.to("#balg", tf + 0.5, {"opacity": 0.4, "duration": 0.8, "ease": "power3.inOut"})
+
+    # ---------------- 71,43: be tablosu + V-ing ----------------
+    # BULGU DÜZELTMESİ (t 71-74 s boşluk):
+    # solacak elemanları tb anında silinir; tablo satırları (I am, He is, We are) erken gelir!
     tb = S(Z["be"])
     for sel in solacak:
-        s.to(sel, tb - 0.15, {"opacity": 0, "duration": 0.25, "ease": "power1.in"})
+        s.to(sel, tb, {"opacity": 0, "duration": 0.35, "ease": "power1.in"})
+
     CF = 96
     bx, bw = s.yazi("belb", 100, 730, [("be", IKN)], "Fredoka", 700, CF, tb, 0.3)
     s.yol("beal", el_cizgi(bx - 4, 750, bx + bw + 10, 747), tb + 0.2, 0.35, SAR, 9, 0.85, "cizgi", 0.45)
+
     VF, VX, VY = 110, 580.0, 960.0
     vw = Y.genislik("Fredoka", 700, "V", VF)
     s.svg.append('<g id="vv" style="opacity:0" font-family="Fredoka" font-weight="700" font-size="%d">'
                  '<text x="%.1f" y="%.1f" fill="%s">V</text></g>' % (VF, VX, VY, KRE))
     ta = tb + 0.1
     s.to("#big", ta, {"svgOrigin": "%.1f %.1f" % (BXB, BYB), "x": round(VX + vw - BXB, 1), "y": round(VY - BYB, 1),
-                      "scale": round(VF / BIG, 3), "duration": 0.6, "ease": "power3.inOut"})
-    s.fromto("#vv", ta + 0.5, {"opacity": 0, "scale": 0.92, "svgOrigin": "%.1f %.1f" % (VX + vw / 2, VY - 40)},
+                      "scale": round(VF / BIG, 3), "duration": 0.55, "ease": "power3.inOut"})
+    s.fromto("#vv", ta + 0.4, {"opacity": 0, "scale": 0.92, "svgOrigin": "%.1f %.1f" % (VX + vw / 2, VY - 40)},
              {"opacity": 1, "scale": 1, "duration": 0.35, "ease": "power3.out"})
-    s.olay(ta + 0.5, "vurus", 0.85)
-    rows = [("I ", "am", "am", 830), ("He ", "is", "is", 960), ("We ", "are", "are", 1090)]
-    for i, (sb, fi, k, y) in enumerate(rows):
+    s.olay(ta + 0.4, "vurus", 0.85)
+
+    # Satırlar: erken getirilir (tb + 0.35, tb + 0.85, tb + 1.35) -> t≈71.8, 72.3, 72.8'de ekranda hazır!
+    rows = [("I ", "am", "am", 830, tb + 0.35),
+            ("He ", "is", "is", 960, tb + 0.85),
+            ("We ", "are", "are", 1090, tb + 1.35)]
+    for i, (sb, fi, k, y, t_yazi) in enumerate(rows):
         wsb = Y.genislik("Fredoka", 700, sb, CF)
         wf = Y.genislik("Fredoka", 700, fi, CF)
-        s.yazi("c_%s" % k, 100, y, [(sb, IKN), (fi, KRE)], "Fredoka", 700, CF, S(Z[k]), 0.3, tur="tik", guc=0.55)
-        s.yol("ua%d" % i, el_cizgi(100 + wsb - 4, y + 20, 100 + wsb + wf + 8, y + 17), S(Z[k]) + 0.25, 0.3, SAR, 9,
-              0.85, "cizgi", 0.45)
+        s.yazi("c_%s" % k, 100, y, [(sb, IKN), (fi, KRE)], "Fredoka", 700, CF, t_yazi, 0.3, tur="tik", guc=0.45)
+        # Alt çizgi ses zamanında parlar (am 73.83, is 74.55, are 75.19)
+        s.yol("ua%d" % i, el_cizgi(100 + wsb - 4, y + 20, 100 + wsb + wf + 8, y + 17), S(Z[k]), 0.3, SAR, 9,
+              0.85, "cizgi", 0.55)
+
     tn = S(Z["now"])
     bx0, top, bot = 520, 770, 1110
     mid = (top + bot) // 2
@@ -238,6 +258,7 @@ def uret():
         bx0 + 26, mid + 14, bx0 + 14, mid + 40, bx0 + 14, bot - 90,
         bx0 + 14, bot - 40, bx0 + 26, bot - 10, bx0, bot), tn, 0.5, IKN, 4.5, 1, "cizgi", 0.45)
     s.yazi("now", VX - 4, 1056, [("now", SAR)], "Caveat", 700, 80, tn + 0.25, 0.4, tur="tik", guc=0.5)
+
     # ---------------- was · were -> past ----------------
     WF, WX, WY = 72, 100.0, 1185
     ww = Y.genislik("Fredoka", 700, "was", WF)
@@ -250,32 +271,35 @@ def uret():
     xe = WX + ww + dot + wew
     s.yazi("past", xe + 50, WY - 4, [("past", IKN)], "Caveat", 700, 72, S(Z["past"]), 0.4, tur="tik", guc=0.45)
     s.yol("kir", el_cizgi(WX - 12, WY - 26, xe + 14, WY - 40, 2), S(Z["cizgi_kirmizi"]), 0.45, KIR, 8, 1, "cizgi", 0.7)
+
     # ---------------- 81,25: -ing = -yor ----------------
     th = S(Z["ing_halka"])
     ingv = Y.genislik("Fredoka", 700, "-ing", VF)
     s.yol("halka", el_daire(VX + vw + ingv / 2, VY - 38, ingv / 2 + 16, 74, 1.0), th, 0.55, SAR, 8, 0.85, "parilti", 0.5)
-    EF, EY = 130, 1300
+    EF, EY = 110, 1285
     w1, w2, w3 = (Y.genislik("Fredoka", 700, m, EF) for m in ("-ing", " = ", "-yor"))
     ex0 = 540 - (w1 + w2 + w3) / 2
     s.svg.append('<g id="eqf" style="opacity:0" font-family="Fredoka" font-weight="700" font-size="%d">'
                  '<text x="%.1f" y="%d" fill="%s">-ing</text><text x="%.1f" y="%d" fill="%s" xml:space="preserve"> = </text>'
                  '<text x="%.1f" y="%d" fill="%s">-yor</text></g>' % (EF, ex0, EY, SAR, ex0 + w1, EY, KRE,
                                                                       ex0 + w1 + w2, EY, SAR))
-    s.fromto("#eqf", th, {"opacity": 0, "scale": 0.92, "svgOrigin": "540 %d" % (EY - 50)},
+    s.fromto("#eqf", th, {"opacity": 0, "scale": 0.92, "svgOrigin": "540 %d" % (EY - 40)},
              {"opacity": 1, "scale": 1, "duration": 0.35, "ease": "power3.out"})
     s.olay(th, "vurus", 0.85)
+
     # ---------------- koşu-yor = runn-ing (Caveat 72) ----------------
-    LF, LY = 72, 1378
+    LF, LY = 72, 1362
     wk = Y.genislik("Caveat", 700, "koşu-yor", LF)
     wr = Y.genislik("Caveat", 700, "runn-ing", LF)
-    gap, eqw = 40, 60
+    gap, eqw = 36, 56
     lx = 540 - (wk + gap + eqw + gap + wr) / 2
     s.yazi("kosu", lx, LY, [("koşu", KRE), ("-yor", SAR)], "Caveat", 700, LF, S(Z["yor"]), 0.45)
     ex = lx + wk + gap
     te = S(Z["esit"])
-    s.yol("es1", el_cizgi(ex, LY - 36, ex + eqw, LY - 39, 1), te, 0.2, KRE, 6, 1, "cizgi", 0.5)
+    s.yol("es1", el_cizgi(ex, LY - 34, ex + eqw, LY - 37, 1), te, 0.2, KRE, 6, 1, "cizgi", 0.5)
     s.yol("es2", el_cizgi(ex + 2, LY - 14, ex + eqw + 2, LY - 17, -1), te + 0.2, 0.2, KRE, 6, 1, "cizgi", 0.5)
     s.yazi("runn", ex + eqw + gap, LY, [("runn", KRE), ("-ing", SAR)], "Caveat", 700, LF, S(Z["runn"]), 0.45)
+
     # ---------------- altyazı dilimleri (opaklık anahtarları) ----------------
     dil = altyazi_dilimleri()
     s.altyazi = ["%s" % d[2] for d in dil]
