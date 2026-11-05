@@ -171,11 +171,11 @@ def uret():
     s.yol("tot", Y.tik_yolu(X0 + tw_ + 40, PY + 150 - 120, 100), tkk + 0.35, 0.3, KRE, 14, 1, "cizgi", 0.55)
     s.olay(tkk + 0.4, "vurus", 0.8)
     g1 = kimlikler(s, i1)
-    C1, C2, C3 = 676, 748, 820
+    C1, C2, C3 = 660, 732, 804
     tc1 = S(70.95)
-    topla(s, "s1", tc1, 540, 1000, 360, C1 - 16, 0.35)
+    topla(s, "s1", tc1, 540, 1000, 360, C1 - 18, 0.35)
     c1 = [("tarife = ", KRE), ("Simple Present", SAR)]
-    s.yazi("c1", X0, C1, c1, "Fredoka", 700, 48, tc1 + 0.2, 0.4, tur="tik", guc=0.5)
+    s.yazi("c1", X0, C1, c1, "Fredoka", 700, 56, tc1 + 0.2, 0.4, tur="tik", guc=0.5)
 
     # ---------------- bölüm B2: will = predictions · sudden decisions (71,24–74,55) ----------------
     i2 = len(s.svg)
@@ -187,9 +187,9 @@ def uret():
     etiket(s, "e2", X0, 1225, "sudden decisions", S(T(7, 12, "sudden")))
     g2 = kimlikler(s, i2)
     tc2 = S(74.55)
-    topla(s, "s2", tc2, 540, 1080, 360, C2 - 16, 0.35)
+    topla(s, "s2", tc2, 540, 1080, 360, C2 - 18, 0.35)
     c2 = [("will = ", KRE), ("predictions", SAR), (" · sudden decisions", KRE)]
-    s.yazi("c2", X0, C2, c2, "Fredoka", 700, 48, tc2 + 0.2, 0.4, tur="tik", guc=0.5)
+    s.yazi("c2", X0, C2, c2, "Fredoka", 700, 56, tc2 + 0.2, 0.4, tur="tik", guc=0.5)
 
     # ---------------- bölüm B3: durum fiilleri (75,01–84,40) ----------------
     i3 = len(s.svg)
@@ -245,9 +245,9 @@ def uret():
     s.olay(tr + 0.7, "vurus", 0.85)
     g3 = kimlikler(s, i3)
     tc3 = S(84.4)
-    topla(s, "s3", tc3, 540, 1100, 360, C3 - 16, 0.35)
+    topla(s, "s3", tc3, 540, 1100, 360, C3 - 18, 0.35)
     c3 = [("know · own · cost = no ", KRE), ("-ing", SAR)]
-    s.yazi("c3", X0, C3, c3, "Fredoka", 700, 48, tc3 + 0.2, 0.4, tur="tik", guc=0.5)
+    s.yazi("c3", X0, C3, c3, "Fredoka", 700, 56, tc3 + 0.2, 0.4, tur="tik", guc=0.5)
 
     # ---------------- bölüm C: Kod: tarife → Simple Present / tahmin → will (84,87–89,43) ----------------
     tk = S(T(7, 32, "Kod"))
@@ -266,11 +266,11 @@ def uret():
           "cizgi", 0.5)
     s.yazi("k2b", X0, B2, [("will", SAR)], "Fredoka", 700, KF, S(T(7, 39, "will")), 0.35, tur="tik", guc=0.7)
     tn2 = S(89.0)
-    nw = Y.genislik("Lexend", 700, "Next lesson", 36)
-    s.yazi("nx", 1032 - nw - 56, 1384, [("Next lesson", KRE)], "Lexend", 700, 36, tn2, 0.3, tur="tik", guc=0.4)
-    s.yol("nxok", "M%.1f 1372 L%.1f 1372 M%.1f 1362 L%.1f 1372 L%.1f 1382" % (1032 - 46, 1032 - 6, 1032 - 18,
-                                                                                1032 - 6, 1032 - 18), tn2 + 0.3,
-          0.25, KRE, 4, 1, "cizgi", 0.4)
+    nw = Y.genislik("Lexend", 700, "Next lesson", 56)
+    s.yazi("nx", 1032 - nw - 62, 1376, [("Next lesson", KRE)], "Lexend", 700, 56, tn2, 0.3, tur="tik", guc=0.4)
+    s.yol("nxok", "M%.1f 1356 L%.1f 1356 M%.1f 1344 L%.1f 1356 L%.1f 1368" % (
+        1032 - 48, 1032 - 6, 1032 - 20, 1032 - 6, 1032 - 20), tn2 + 0.3,
+          0.25, KRE, 4.5, 1, "cizgi", 0.4)
     # ---------------- altyazı: konuşulan parça (kunye.js altyaziMetin ile aynı pencere) ----------------
     parcalar = [{"id": "alt%d" % i, "metin": a["metin"]} for i, a in enumerate(ALT)]
     for i, a in enumerate(ALT):
