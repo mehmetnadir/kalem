@@ -61,7 +61,7 @@ export async function kur(P) {
   not("çatlaklar (3 çizgi)", fr(25.2));
   parilti(PX + PW - 20, PY + 40, { bas: fr(25.2) + 36, r: 26 });
 
-  // --- 22,66–23,6: Telefonumu kırdım. (Caveat 48, y 470)
+  // --- 22,66–23,6: Telefonumu kırdım. (el yazısı 48, y 470)
   // 22,66–24,10 «Telefonumu kırdım.» (pencere: 22,66–23,22 · 23,30–24,10)
   elYazisi("Telefonumu kırdım.", { x: 140, y: 470, boyut: 48, renk: IKI,
     sozcukler: pen("Telefonumu", 2) });

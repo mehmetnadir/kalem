@@ -75,7 +75,7 @@ export async function kur(P) {
     not("zaman çizgisi başı", p.bas); not("not sonucu şimdi bizimle", b.bas);
   }
 
-  // --- 8,50–11,62: iki yönlü kalem oku `-dı ⇄ have + V3`; Caveat `İngilizce ayrı zaman`
+  // --- 8,50–11,62: iki yönlü kalem oku `-dı ⇄ have + V3`; el yazısı `İngilizce ayrı zaman`
   {
     const y = 805, a = yazi("-dı", { x: 140, y, boyut: 56, aile: "Fredoka", agirlik: 700, renk: KRE, bas: fr(8.5), sure: 8, ses: true });
     const ar = ok([a.x1 + 22, y - 18], [a.x1 + 142, y - 18], { bas: fr(8.5) + 5, sure: 18, w: 6.5, cift: true, uzun: 22, bukum: 0.05 });
