@@ -4,12 +4,21 @@
 // içerik 352–1392, üst bölge (392–900) yazı, alt bölge (912–1392) nesneler, altyazı 1400–1536.
 // Kırmızı yalnız `Has moved` çarpısında kullanılır (tuzak çarpısı).
 import { sahneKur, RT } from "/projeler/present-perfect-ileri-s1/sahneler/02-paperjs-ornek/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/present-perfect-ileri-s1/ortak/kalem-canvas.js";
 
 export const KARE = 383, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Trap" });
-  const { fr, ciz, daire, yazi, cumle, kutu, olay, not, bitis, genislik, kis, oge, parilti } = S;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, kutu, olay, not, bitis, genislik, kis, oge,
+    parilti } = S;
+  // El yazısı (Caveat 700 tegaki, dalga 5b / K26): Caveat notlar kalemle yazılır; ortalı yazının
+  // genişliği tegaki verisinden ölçülür (yaziNoktalari.gen); pencereler anlatımın kare aralığıdır.
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm, asc: EY.M.ascender,
+    boy: boyut, x: 0, taban: 0 }).gen;
   const SARI = RT.vurgu, DOLGU = RT.vurguDolgu, IKI = RT.ikincil, KIRMIZI = RT.kirmizi;
   const sol = (f0, f1) => (f) => 1 - kis((f - f0) / (f1 - f0));     // oge: [f0, f1] arası söner
   const s1 = S.sozcukler(1), s2 = S.sozcukler(2);
@@ -24,9 +33,13 @@ export async function kur(P) {
     { x: SOL, y: 500, boyut: 88, aile: "Caveat", agirlik: 700, son: fSon });
   cumle(s1.slice(3, 5).map((w) => ({ s: w.s, f: -30 })),
     { x: SOL, y: 640, boyut: 88, aile: "Fredoka", agirlik: 700, son: fSon });
-  cumle([{ s: s1[5].s, f: s1[5].f }], { x: SOL, y: 770, boyut: 88, aile: "Caveat", agirlik: 700, son: fSon });
-  cumle(s1.slice(6, 10).map((w) => ({ s: w.s, f: w.f })),
-    { x: SOL, y: 890, boyut: 88, aile: "Caveat", agirlik: 700, son: fSon });
+  // 3,48–4,12 sn (kare 14–34) «elenir.»: tek sözcük penceresi; eski belirme kare 14
+  elYazisi("elenir.", { x: SOL, y: 770, boyut: 88, oge: gA,
+    sozcukler: [{ f0: s1[5].f, f1: s1[5].f1 }] });
+  // 4,27–5,87 sn (kare 38–86) «Bu sınav tuzağına düşme.»: `Bu` penceresi (0,08 sn) `sınav` başına
+  // dek uzatıldı
+  elYazisi("Bu sınav tuzağına düşme.", { x: SOL, y: 890, boyut: 88, oge: gA,
+    sozcukler: s1.slice(6, 10).map((w, i) => ({ f0: w.f, f1: i === 0 ? s1[7].f : w.f1 })) });
   // figür (standing-2) + saat + zemin çizgisi: sahne 01 ile aynı kutular, hazır çizili
   await S.svgCiz("open-peeps/standing-2.svg", { kutu: [190, 940, 213 * 0.6, 733 * 0.6], bas: -400,
     sure: 100, azami: 60, yuz: 3, w: 4.4, oge: gA, sessiz: true });
@@ -44,10 +57,15 @@ export async function kur(P) {
   const e = cumle(en, { x: 88, y: B1Y, boyut: 72, aile: "Fredoka", agirlik: 700, aralik: SH, son: bSon });
   not("EN cümle başı", e[0].bas);
   altCiz(e[6], fr(8.02) + 4, { oge: gB }); not("ago altı çizgi", fr(8.02) + 4);
-  // TR çeviri (8,75–10,91) Caveat 80 mürekkep
-  const tr = cumle(s2.slice(7, 12).map((k, i) => ({ s: k.s, f: k.f, satir: i < 3 ? 0 : 1 })),
-    { x: 72, y: 735, boyut: 80, aile: "Caveat", agirlik: 700, aralik: 90, son: bSon });
-  not("TR çeviri başı", tr[0].bas);
+  // TR çeviri 8,75–10,91 sn (kare 172–237): satır 1 «İki yıl önce», satır 2 «Berlin'e taşındı.»;
+  // `İki` (0,16 sn) ve `yıl` (0,08 sn) penceresi sonraki sözcüğün başına dek uzatıldı
+  const t2 = s2.slice(7, 12);
+  const tr1 = elYazisi("İki yıl önce", { x: 72, y: 735, boyut: 80, oge: gB,
+    sozcukler: [{ f0: t2[0].f, f1: t2[1].f }, { f0: t2[1].f, f1: t2[2].f },
+      { f0: t2[2].f, f1: t2[2].f1 }] });
+  elYazisi("Berlin'e taşındı.", { x: 72, y: 825, boyut: 80, oge: gB,
+    sozcukler: t2.slice(3).map((k) => ({ f0: k.f, f1: k.f1 })) });
+  not("TR çeviri başı", tr1.bas);
 
   // nesneler (alt bölge 912–1392, üç sütun; ev 200 / figür 540 / takvim 870) — sahne sonuna kadar kalır
   const LB = 1342, ETIKET = 64;
@@ -66,9 +84,10 @@ export async function kur(P) {
     bas: fr(7.78), sure: 8, olcek: true, ses: "tik" });
 
   // ---------- Faz C (11,06–15,38): Ago var → Simple Past; Has moved yanlış ----------
-  const lab = cumle(s2.slice(12, 15).map((k) => ({ s: k.s, f: k.f })),
-    { x: SOL, y: 455, boyut: 88, aile: "Caveat", agirlik: 700 });
-  not("Ago var yani", lab[0].bas);
+  // 11,06–12,26 sn (kare 241–278) «Ago var, yani»: üç sözcük penceresi
+  const lab = elYazisi("Ago var, yani", { x: SOL, y: 455, boyut: 88,
+    sozcukler: s2.slice(12, 15).map((k) => ({ f0: k.f, f1: k.f1 })) });
+  not("Ago var yani", lab.bas);
   {   // Simple Past (12,34 / 12,66): büyük, sarı daire
     const y = 625, x0 = (1080 - genislik("Simple Past", "700 130px Fredoka")) / 2;
     const sp = cumle([{ s: "Simple", f: s2[15].f }, { s: "Past", f: s2[16].f }],
@@ -89,9 +108,12 @@ export async function kur(P) {
     ciz([[xa, ust], [xb, alt]], o);
     ciz([[xb, ust], [xa, alt]], { ...o, bas: fr(14.50) + 6 });
     not("Has moved kırmızı çarpı", fr(14.50));
-    const yo = 880, wy = genislik("yanlış olurdu.", "700 80px Caveat");
-    cumle([{ s: "yanlış", f: s2[19].f }, { s: "olurdu.", f: s2[20].f }],
-      { x: (1080 - wy) / 2, y: yo, boyut: 80, aile: "Caveat", agirlik: 700 });
+    // 14,50–15,27 sn (kare 345–368) «yanlış olurdu.»: ortalı, genişlik tegaki verisinden.
+    // Son 12 kare donar (kalem-paper SON = KARE − 13 = 370): `olurdu.` penceresi 374'te
+    // bitiyordu, son iki darbe (u, nokta) hiç çizilmiyordu → pencere KARE − 15'e kısılır.
+    const yo = 880, yol = "yanlış olurdu.";
+    elYazisi(yol, { x: (1080 - eyGen(yol, 80)) / 2, y: yo, boyut: 80,
+      sozcukler: s2.slice(19, 21).map((k) => ({ f0: k.f, f1: Math.min(k.f1, KARE - 15) })) });
   }
   return S;
 }
