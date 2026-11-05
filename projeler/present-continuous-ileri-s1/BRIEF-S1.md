@@ -10,12 +10,9 @@ Ana BRIEF biçimi dikeye uyarlandı; stil, kalem darbesi, olay sesi kuralları `
 Kapak başlığı (2 satır, 4 sözcük): `I AM KNOWING` / `= YANLIŞ`. Can alıcı: "I am knowing diyemezsin; know -ing almaz."
 
 ## Dikey yerleşim (px) — dikey v2 bantları
-| Bant | y | İçerik |
-|---|---|---|
-| HUD | 0–320 | logo sol üst (96 px), ders adı (56), rozet `YDT · ADVANCED` (72), çip sağ üst |
-| İçerik | 352–1392 | kapak / örnek / CTA |
-| Altyazı | 1400–1536 | konuşulan parça (`ortak/anlatim/altyazi.json`, 7 parça), Lexend 500 44 |
-| Platform | 1536–1920 | BOŞ |
+Yerleşim ve ölçek: ../present-continuous-s1/BRIEF-S1.md '05.11 düzeltme' bölümü +
+../present-continuous-dikey/BRIEF-DIKEY.md §2–§3
+(tek kaynak, 05.11 karar 6b); 04.11 tablosu geçersiz.
 
 ## Sahneler (zaman.json ile birebir)
 | # | Klasör | Motor | Küresel sn | Kare |

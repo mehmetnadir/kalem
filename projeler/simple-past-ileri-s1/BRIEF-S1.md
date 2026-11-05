@@ -6,13 +6,9 @@ Kaynaklar: ses `ortak/anlatim/` (cümle başları 1,00 · 6,02 · 14,65; toplam 
 Kod `ING-YDT-GR-02-10-I-S1`; HUD sayıları dikey v2 (`ortak/kunye.js`).
 
 ## Dikey yerleşim (px)
-| Bant | y | İçerik |
-|---|---|---|
-| HUD | 0–288 | ders adı sol üst (`SIMPLE PAST`), rozetler `YDT · ADVANCED` + `GRAMMAR`, çip sağ üst |
-| İçerik | 288–1344 | kapak / örnek / CTA |
-| Altyazı | 1344–1536 | boş (bu sürümde altyazı bandı yok; cümleler ekranda yazılı) |
-| Logo | 1440–1536 sol | y 1464, yükseklik 48 |
-| Platform | 1536–1920 | BOŞ |
+Yerleşim ve ölçek: ../present-continuous-s1/BRIEF-S1.md '05.11 düzeltme' bölümü +
+../present-continuous-dikey/BRIEF-DIKEY.md §2–§3
+(tek kaynak, 05.11 karar 6b); 04.11 tablosu geçersiz.
 
 ## Sahneler (zaman.json ile birebir)
 | # | Klasör | Motor | Küresel sn | Kare |

@@ -6,14 +6,7 @@ Yatay öğelerin döndürülmüş/responsive hâli YASAK. İzleyici telefondan b
 ses olayları, kabul (§7) oradan aynen; yerleşim ve ölçek burada.
 
 ## 0. Nadir'in 04.11 gece dikey bulguları (D1/S1 kare incelemesi, şef gözü — bunlar düzeltilmiş olmalı)
-| Sorun (D1/S1) | Kural (bu projede) |
-|---|---|
-| İçerik üst %55'e yığılı, alt yarı boş | içerik bandı 352–1392 (1040 px) DOLDURULUR; her sahne bitiminde bandın ≥ %85'i kullanılmış |
-| Logo 48 px, boşlukta yüzüyor (y 1464) | logo HUD sol üst, 96 px yüksek (en 387); alt bantta logo yok |
-| Ders adı 36, rozet 24, çip 26 px → telefonda 9–13 CSS px, okunmaz | ders adı 56 · rozet yazısı 36 (hap 72) · çip yazısı 40 (hap 80) |
-| Caveat notlar 56–60 px gri (`ikincil`) → soluk | içerik yazısı en az 64 px; `ikincil` renk yalnız ≥ 72 px'te; TR çeviri Caveat 64 `murekkep` |
-| Figür + nesne küçük (≈ 250 px), köşede | figür 420–560 px yüksek, nesneyle birlikte bant ortasında tek sahne; kalınlık w 4,0–4,8 |
-| Altyazı bandı boş | 1400–1536 bandında konuşulan parça (altyazi.json), Lexend 500 44, ≤ 2 satır, ortalı |
+Kaynak: ../present-continuous-dikey/BRIEF-DIKEY.md §0 (tek kaynak, 05.11 karar 6b).
 
 ## 1. Teknik çerçeve
 `zaman.json` hazır: 6 sahne, ana ileri projeyle AYNI t_bas/t_son/kare (01 102 · 02 380 · 03 442 · 04 387 · 05 372 · 06 956), 1080×1920,
@@ -27,22 +20,7 @@ ses olayları, kabul (§7) oradan aynen; yerleşim ve ölçek burada.
 aynı; YERLEŞİM ve ÖLÇEK oradan alınmaz (o sürüm hatalı).
 
 ## 2. Bantlar ve HUD (px, 1080×1920)
-```
-y    0 ┌──────────────────────────────┐
-       │ [logo 387×96]        [çip 80] │  HUD 0–320: logo sol üst y48 · ders adı Fredoka 700 56 taban y212
-       │ PRESENT CONTINUOUS            │  rozet hapı y236 h72 (Lexend 700 36) · "şu an" çipi sağ üst y48 h80 (Lexend 700 40)
-  320  ├──────────────────────────────┤
-       │        İÇERİK 352–1392        │  tek sütun, kenar 48, genişlik 984; kart + çizim + not üst üste;
-       │   (1040 px, DOLU kullanılır)  │  figür + nesne tek sahnede bant ortasında; kartlar tam genişlik
- 1392  ├──────────────────────────────┤
- 1400  │   ALTYAZI 1400–1536 (2 satır) │  konuşulan parça, Lexend 500 44, satır 56, ortalı, renk mürekkep
- 1536  ├──────────────────────────────┤
-       │   PLATFORM 1536–1920  BOŞ     │  hiçbir öğe girmez (Shorts/Reels arayüzü)
- 1920  └──────────────────────────────┘
-```
-Çip metinleri (ana BRIEF §3 ile aynı): `Hook` · `Example 1 / 3` · `Example 2 / 3` · `Example 3 / 3` · `Question` → `Form`.
-Sahne 01 künyeyi uçuşla kurar (kapak kalıbı); 02–06 kare 0'dan sabit çizer. HyperFrames sahneleri aynı sayıları CSS'te
-uygular (logo `<img>` 387×96 sol üst; ders adı; rozet; çip; altyazı `div` 1400–1536).
+Kaynak: ../present-continuous-dikey/BRIEF-DIKEY.md §2 (tek kaynak, 05.11 karar 6b).
 
 ## 3. Ölçek (telefon kuralı — altına inilmez)
 | Rol | Yazı | Boy (px) | Renk |

@@ -82,3 +82,5 @@ yukarı toplanır ve küçülür, ama küçülünce de ≥ 48 px kalır).
    içerik bandı dolu (alt yarı boş DEĞİL), ≥ 64 px yazı, figür ≥ 420 px, altyazı bandında metin, platform bandı boş,
    çakışma 0. Uymayan kare → düzelt → yeniden yakala (raporda "neden yeniden" satırı).
 4. RAPOR.md: kare sayısı, tema ikisi de, olay sayısı, kapı sonuçları (eval çıktısı, kontrol/telefon kare adları), açık sorular.
+> TEK KAYNAK (05.11 karar 6b): öteki 9 paketin kopyası buraya işaret eder;
+> kuralı yalnız burada değiştir.

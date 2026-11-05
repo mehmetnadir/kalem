@@ -6,12 +6,9 @@ Kaynaklar: ses `ortak/anlatim/` (cümle başları 1.00 · 3.55 · 13.06; toplam 
 HUD sayıları dikey v2 (`../present-continuous-dikey/BRIEF-DIKEY.md` §2–3) ile aynı; `ortak/kunye.js` iki rozetli (`YDT · ADVANCED` + `GRAMMAR`).
 
 ## Dikey yerleşim (px)
-| Bant | y | İçerik |
-|---|---|---|
-| HUD | 0–320 | logo sol üst 96 px, ders adı `SIMPLE PRESENT`, rozetler `YDT · ADVANCED` + `GRAMMAR`, çip sağ üst |
-| İçerik | 352–1392 | kapak / örnek / CTA |
-| Altyazı | 1400–1536 | konuşulan parça (altyazi.json), Lexend 500 44 |
-| Platform | 1536–1920 | BOŞ |
+Yerleşim ve ölçek: ../present-continuous-s1/BRIEF-S1.md '05.11 düzeltme' bölümü +
+../present-continuous-dikey/BRIEF-DIKEY.md §2–§3
+(tek kaynak, 05.11 karar 6b); 04.11 tablosu geçersiz.
 
 ## Sahneler (zaman.json ile birebir)
 | # | Klasör | Motor | Küresel sn | Kare |

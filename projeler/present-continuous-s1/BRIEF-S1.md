@@ -22,7 +22,7 @@ Kaynaklar: ses `ortak/anlatim/` (cümle başları 1,00 · 8,21 · 18,52; toplam 
 
 Kapak: başlık 0,65–1,45; Türkçe cümle 1,00'dan sözcük zamanlı; uçuş 2,0–3,0 (başlık → çip, cümleler yukarı, eskiz solar).
 Örnek: `going` altı çizgi, `şimdiki` / `gelecek` belirteç, figür + ev + hilal 8,3'ten, kart 8,0'dan, `go + -ing` 12,77–13,73, `am · is · are` 15,41 / 16,05 / 17,09.
-CTA: `Tam ders:` 0,45 · `Present Continuous` bant 1,0 / 1,44 · saat + `Tam ders kanalda · 6 dk` 2,4 / 3,51 · 1 sn durgun kuyruk.
+CTA: `Tam ders:` 0,45 · `Present Continuous` bant 1,0 / 1,44 · saat + `@ydspublishing · 6 dk` (karar A 05.11) 2,4 / 3,51 · 1 sn durgun kuyruk.
 
 ## Çalıştırma
 Her sahne `calistir.sh --tema acik`; sonra paket kökünden
@@ -39,6 +39,8 @@ Yukarıdaki "Dikey yerleşim" tablosu bu bölümle DEĞİŞTİ (eski satırlar t
 | Platform | 1536-1920 | BOŞ |
 Sahne 01: `BU AKŞAM` 180 / `= I AM GOING` 160 (190 px'te 1136 px, 984'e sığmaz) ortalı, Caveat 80 TR (y765) + EN (y855), eskiz figür 480 + ev + zemin y 900-1384; uçuşta eskiz solmaz; çip uçuş bitene kadar gizli; kapak = kare 59 (t 1,97, açık tema).
 Sahne 02: kare 0 = sahne 01 son hali (cümleler y440/530); not Caveat 64 2 satır; 8,0'da cümle 1 + not solar; kart y372-704 Fredoka 72; `go + -ing` Fredoka 110 y735-885; 14,45'te eskiz solar; `am · is · are` Fredoka 96 kutuları y1110-1310.
-Sahne 03: `Tam ders:` Caveat 72 y460, bant y510-1070 Fredoka 150, saat + `Tam ders kanalda · 6 dk` Lexend 64 y1240.
+Sahne 03: `Tam ders:` Caveat 72 y460, bant y510-1070 Fredoka 150, saat + `@ydspublishing · 6 dk` (karar A 05.11) Lexend 64 y1240.
 Çıktı: `cikti.mp4` + `cikti-koyu.mp4` (792 kare, 26,4 sn), `kapak.png`, `kontrol.png`, `kontrol-koyu.png`; telefon kontak `k/telefon-*.png`.
 Çalıştırma: her sahne `calistir.sh --tema acik` sonra `--tema koyu`; `birlestir.py ... --tema acik|koyu --gecis BookFlip --efekt hisirti`.
+> TEK KAYNAK (05.11 karar 6b): öteki 9 paketin kopyası buraya işaret eder;
+> kuralı yalnız burada değiştir.

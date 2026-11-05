@@ -6,13 +6,9 @@ HUD sayıları dikey v2 (`ortak/kunye.js`, BRIEF-DIKEY.md §2–3). Kaynaklar: s
 toplam 23,91 = konuşma sonu + 1,0), kalıp `dikey-senaryo-kalibi.md` §4–5. Kapak başlığı: `SÜREÇ Mİ?` / `SONUÇ MU?`. Rozetler `YDT · ADVANCED` + `GRAMMAR`.
 
 ## Dikey yerleşim (px)
-| Bant | y | İçerik |
-|---|---|---|
-| HUD | 0–288 | ders adı sol üst (`PRESENT PERFECT CONTINUOUS`; sığmazsa `PRES. PERFECT CONT.`), rozetler, çip sağ üst |
-| İçerik | 288–1344 | kapak / örnek / CTA |
-| Altyazı | 1344–1536 | boş (bu sürümde altyazı bandı yok; cümleler ekranda yazılı) |
-| Logo | 1440–1536 sol | y 1464, yükseklik 48 |
-| Platform | 1536–1920 | BOŞ |
+Yerleşim ve ölçek: ../present-continuous-s1/BRIEF-S1.md '05.11 düzeltme' bölümü +
+../present-continuous-dikey/BRIEF-DIKEY.md §2–§3
+(tek kaynak, 05.11 karar 6b); 04.11 tablosu geçersiz.
 
 ## Sahneler (zaman.json ile birebir)
 | # | Klasör | Motor | Küresel sn | Kare |

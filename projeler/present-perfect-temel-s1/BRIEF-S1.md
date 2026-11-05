@@ -7,13 +7,9 @@ Kaynaklar: ses `ortak/anlatim/` (cümle başları 1,00 · 7,70 · 16,33; toplam 
 Cümleler: 3 (kanca · tek örnek EN + TR · "Tam ders kanalda · 6 dk" çağrısı). `ortak/anlatim/altyazi.json` veri olarak var; bu sürümde altyazı bandı YOK (cümleler ekranda yazılı).
 
 ## Dikey yerleşim (px)
-| Bant | y | İçerik |
-|---|---|---|
-| HUD | 0–288 | ders adı sol üst, rozetler `YDT · BASIC` + `GRAMMAR`, çip sağ üst |
-| İçerik | 288–1344 | kapak / örnek / CTA |
-| Altyazı | 1344–1536 | boş |
-| Logo | 1440–1536 sol | y 1464, yükseklik 48 |
-| Platform | 1536–1920 | BOŞ |
+Yerleşim ve ölçek: ../present-continuous-s1/BRIEF-S1.md '05.11 düzeltme' bölümü +
+../present-continuous-dikey/BRIEF-DIKEY.md §2–§3
+(tek kaynak, 05.11 karar 6b); 04.11 tablosu geçersiz.
 
 ## Sahneler (zaman.json ile birebir)
 | # | Klasör | Motor | Küresel sn | Kare |
