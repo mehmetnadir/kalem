@@ -22,7 +22,7 @@ try { temaSec(new URLSearchParams(location.search).get("tema") || "koyu"); } cat
 // HUD: logo sol üst (96 px), ders adı altında (56 px), rozet hapı (72 px); "şu an" çipi sağ üst (80 px).
 export const KUNYE = { kenar: 48, logoY: 48, logoYuk: 96, dersTaban: 212, dersYazi: 56, rozetY: 236, rozetH: 72,
   rozetYazi: 36, cipY: 48, cipH: 80, cipYazi: 40, hudSon: 320, icerikBas: 352, icerikSon: 1392, altyaziBas: 1400,
-  altyaziSon: 1536, altyaziYazi: 44, altyaziSatir: 56, ders: "PRESENT PERFECT CONTINUOUS", rozet: ["YDT · BASIC", "GRAMMAR"], cipDolgu: 48 };
+  altyaziSon: 1536, altyaziYazi: 44, altyaziSatir: 56, ders: "PRESENT PERFECT CONTINUOUS", rozet: ["YDT · ADVANCED", "GRAMMAR"], cipDolgu: 48 };
 const W = 1080, H = 1920;
 export const GEN = W, YUK = H;
 
