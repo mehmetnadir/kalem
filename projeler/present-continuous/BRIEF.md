@@ -92,6 +92,8 @@ yalnız yer açmak için küçülüp köşeye toplanır · ses olayı görsel an
 
 ## 3. Künye (HUD) — her sahnede aynı px (sahne 01 uçuşla kurar, 02–06 kare 0'dan sabit)
 
+Ayrılmış kimlik (05.11 karar 6a): `t2` yalnız başlık 2. satırıdır; açık tema kuralı `#root.tema-acik #t2{fill:var(--vurgu)}` (hf_tema.py) kalır. Başka öğeye `t2` kimliği verilmez.
+
 | Köşe | İçerik | Konum / boy | Renk |
 |---|---|---|---|
 | Sol üst | `PRESENT CONTINUOUS` + ` · YDT BASIC` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
