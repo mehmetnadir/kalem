@@ -41,8 +41,8 @@ def uret():
     y3 = y2 + adim
     cav = "Tam ders:"
     cav_w = Y.genislik("Caveat", 700, cav, CAV_BOY) + 24
-    # alt satır: saat simgesi + "Tam ders kanalda · 6 dk"
-    t_a, t_b = "Tam ders kanalda · ", "6 dk"
+    # alt satır: saat simgesi + "@ydspublishing · 6 dk"
+    t_a, t_b = "@ydspublishing", " · 6 dk"   # karar A 05.11: tek kimlik
     wa = Y.genislik("Lexend", 700, t_a, L_BOY)
     wb = Y.genislik("Lexend", 700, t_b, L_BOY)
     ic = 108 + 28                   # saat çapı + boşluk
@@ -75,7 +75,7 @@ def uret():
 <text id="p3" x="{cx}" y="{y3:.1f}" text-anchor="middle" font-family="Fredoka" font-weight="700" font-size="{boy}" fill="{R['zemin']}" style="opacity:0">Continuous</text>
 </g>
 <g id="saat" fill="none" stroke="{R['vurgu']}" stroke-linecap="round" stroke-linejoin="round" stroke-width="{6 / SAAT_S:.2f}"><g transform="translate({saat_cx - 12 * SAAT_S:.1f} {SAAT_MERKEZ_Y - 12 * SAAT_S:.1f}) scale({SAAT_S})">{saats}</g></g>
-<text id="lin" x="{tx:.1f}" y="{L_Y}" font-family="Lexend" font-weight="700" font-size="{L_BOY}" fill="{R['murekkep']}" clip-path="url(#cpl)">{t_a}<tspan fill="{R['vurgu']}">{t_b}</tspan></text>
+<text id="lin" x="{tx:.1f}" y="{L_Y}" font-family="Lexend" font-weight="700" font-size="{L_BOY}" fill="{R['murekkep']}" clip-path="url(#cpl)"><tspan fill="{R['vurgu']}">{t_a}</tspan>{t_b}</text>
 <g id="par" stroke="{R['vurgu']}" stroke-width="5" style="opacity:0">
 <path d="M1000 590 l0 -44 M978 568 l44 0 M986 552 l28 32 M1014 552 l-28 32"/>
 <path d="M84 1150 l0 -34 M67 1133 l34 0"/></g>

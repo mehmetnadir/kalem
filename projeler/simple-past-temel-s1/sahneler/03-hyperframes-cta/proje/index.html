@@ -23,12 +23,12 @@ html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1080px;heig
 #root [stroke="#1b1a17"]{stroke:var(--zemin)}#root text[fill="#1b1a17"]{fill:var(--pilMetin)}#root #rz1 text{fill:var(--zemin)}
 #root.tema-acik #t2{fill:var(--vurgu)}
 </style></head><body>
-<div id="root" data-composition-id="main" data-start="0" data-duration="7.4333" data-fps="30" data-width="1080" data-height="1920">
+<div id="root" class="tema-acik" data-composition-id="main" data-start="0" data-duration="7.4333" data-fps="30" data-width="1080" data-height="1920">
 <div id="zemin"></div><svg id="gren" width="1080" height="1920" xmlns="http://www.w3.org/2000/svg"><filter id="grenf" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1080" height="1920" filter="url(#grenf)"/></svg><div id="vinyet"></div>
 <svg id="sahne" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
 <defs><clipPath id="cpc"><rect id="crc" x="393.6" y="400" width="0" height="120"/></clipPath>
 <clipPath id="cpd"><rect id="crd" x="499.7" y="1102" width="0" height="180"/></clipPath>
-<clipPath id="cpl"><rect id="crl" x="193.1" y="1248" width="0" height="115"/></clipPath></defs>
+<clipPath id="cpl"><rect id="crl" x="237.5" y="1248" width="0" height="115"/></clipPath></defs>
 <text id="cav" x="540.0" y="480" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="80" fill="#f3efe6" clip-path="url(#cpc)">Tam ders:</text>
 <g id="bantg" style="opacity:0">
 <rect id="bant" x="48" y="540" width="984" height="520" rx="44" fill="#f2a93b"/>
@@ -37,7 +37,7 @@ html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1080px;heig
 </g>
 <g id="saat" fill="none" stroke="#f2a93b" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.86"><g transform="translate(328.7 1096.0) scale(7.0)"><path id="s0" d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" style="opacity:0"/><path id="s1" d="M12 7v5l3 3" style="opacity:0"/></g></g>
 <text id="dk" x="511.7" y="1222" font-family="Fredoka" font-weight="700" font-size="120" fill="#f2a93b" clip-path="url(#cpd)">6 dk</text>
-<text id="lin" x="205.1" y="1330" font-family="Lexend" font-weight="700" font-size="72" fill="#f3efe6" clip-path="url(#cpl)">Tam ders kanalda</text>
+<text id="lin" x="249.5" y="1330" font-family="Lexend" font-weight="700" font-size="72" fill="#f2a93b" clip-path="url(#cpl)">@ydspublishing</text>
 <g id="par" stroke="#f2a93b" stroke-width="5" style="opacity:0">
 <path d="M1000 600 l0 -44 M978 578 l44 0 M986 562 l28 32 M1014 562 l-28 32"/>
 <path d="M84 1120 l0 -34 M67 1103 l34 0"/></g>
@@ -47,7 +47,7 @@ html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1080px;heig
 <script src="lib/gsap.min.js"></script>
 <script>
 (function () {
-  var V = {"Z": {"fps": 30, "kare": 223, "sure": 7.4333, "tam_ders": [0.4, 0.45], "bant": [1.12, 0.35], "satir2": [1.52, 0.35], "saat": [2.4, 0.6], "dk": [2.5, 0.5], "satir": [3.51, 1.5], "vurus_kare": 34, "parilti": 5.0}, "sz": [[2.4, 0.5385], [2.9385, 0.0615]], "nS": 2, "cav": 292.71999999999997, "lw": 709.7439999999999, "dkw": 258.64, "cx": 540.0, "cy": 800.0, "bw": 984, "alt": [["al5", 0.0, 3.46], ["al6", 3.46, 5.78]]};
+  var V = {"Z": {"fps": 30, "kare": 223, "sure": 7.4333, "tam_ders": [0.4, 0.45], "bant": [1.12, 0.35], "satir2": [1.52, 0.35], "saat": [2.4, 0.6], "dk": [2.5, 0.5], "satir": [3.51, 1.5], "vurus_kare": 34, "parilti": 5.0}, "sz": [[2.4, 0.5385], [2.9385, 0.0615]], "nS": 2, "cav": 292.71999999999997, "lw": 620.9680000000001, "dkw": 258.64, "cx": 540.0, "cy": 800.0, "bw": 984, "alt": [["al5", 0.0, 3.46], ["al6", 3.46, 5.78]]};
   var Z = V.Z, $ = function (s) { return document.querySelector(s); };
   var tl = gsap.timeline({ paused: true });
   function ac(o) { o.immediateRender = false; return o; }

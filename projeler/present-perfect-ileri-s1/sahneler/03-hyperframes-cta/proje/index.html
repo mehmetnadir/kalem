@@ -23,10 +23,10 @@ html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1080px;heig
 #root [stroke="#1b1a17"]{stroke:var(--zemin)}#root text[fill="#1b1a17"]{fill:var(--pilMetin)}#root #rz1 text{fill:var(--zemin)}
 #root.tema-acik #t2{fill:var(--vurgu)}
 </style></head><body>
-<div id="root" data-composition-id="main" data-start="0" data-duration="7.7333" data-fps="30" data-width="1080" data-height="1920">
+<div id="root" class="tema-acik" data-composition-id="main" data-start="0" data-duration="7.7333" data-fps="30" data-width="1080" data-height="1920">
 <div id="zemin"></div><svg id="gren" width="1080" height="1920" xmlns="http://www.w3.org/2000/svg"><filter id="grenf" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1080" height="1920" filter="url(#grenf)"/></svg><div id="vinyet"></div>
 <svg id="sahne" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
-<defs><clipPath id="cpc"><rect id="crc" x="380.2" y="392" width="0" height="132"/></clipPath><clipPath id="cpd"><rect id="crd" x="413.6" y="976" width="0" height="195"/></clipPath><clipPath id="cpl"><rect id="crl" x="190.0" y="1273" width="0" height="96"/></clipPath></defs>
+<defs><clipPath id="cpc"><rect id="crc" x="380.2" y="392" width="0" height="132"/></clipPath><clipPath id="cpd"><rect id="crd" x="413.6" y="976" width="0" height="195"/></clipPath><clipPath id="cpl"><rect id="crl" x="222.4" y="1273" width="0" height="96"/></clipPath></defs>
 <text id="cav" x="540" y="480" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="88" fill="#f3efe6" clip-path="url(#cpc)">Tam ders:</text>
 <path id="bk" d="M104 530 H976 a44 44 0 0 1 44 44 V866 a44 44 0 0 1 -44 44 H104 a44 44 0 0 1 -44 -44 V574 a44 44 0 0 1 44 -44 Z" fill="none" stroke="#f2a93b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0"/>
 <g id="bantg" style="opacity:0">
@@ -38,7 +38,7 @@ html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1080px;heig
 <text id="dk" x="425.56499999999994" y="1106" font-family="Fredoka" font-weight="700" font-size="130" fill="#f3efe6" clip-path="url(#cpd)">6 dakika</text>
 <g id="pilg" style="opacity:0">
 <rect id="pill" x="120" y="1255" width="840" height="120" rx="60" fill="#f2a93b"/>
-<text id="lin" x="202.0" y="1337" font-family="Fredoka" font-weight="700" font-size="64" fill="#1b1a17" clip-path="url(#cpl)">Tam ders kanalda · 6 dk</text>
+<text id="lin" x="234.4" y="1337" font-family="Fredoka" font-weight="700" font-size="64" fill="#1b1a17" clip-path="url(#cpl)">@ydspublishing · 6 dk</text>
 </g>
 <g id="kunye"><text id="ku-ders" x="48" y="212" font-family="Fredoka" font-weight="700" font-size="56" fill="#f3efe6">PRESENT PERFECT</text><g id="rz0"><rect x="48.0" y="236" width="372.9" height="72" rx="36" fill="#f2a93b"/><text x="234.5" y="285.0" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="36" fill="#1b1a17">YDT · ADVANCED</text></g><g id="rz1"><rect x="432.9" y="236" width="247.9" height="72" rx="36" fill="#f3efe6"/><text x="556.8" y="285.0" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="36" fill="#1b1a17">GRAMMAR</text></g><g id="ku-cip"><rect id="ku-cipr" x="770.2" y="48" width="261.8" height="80" rx="40" fill="none" stroke="#f2a93b" stroke-width="4"/><text id="ku-cipt" x="901.1" y="102.0" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="40" fill="#f2a93b">Full lesson</text></g><g id="ku-logo"><image id="logoimg" href="assets/logo.svg" x="48.00" y="48" width="386.98" height="96"/></g></g><g id="altyazi"><g id="al5" style="opacity:0"><text x="540" y="1484" text-anchor="middle" font-family="Lexend" font-weight="500" font-size="44" fill="#f3efe6">Has moved yanlış olurdu.</text></g><g id="al6" style="opacity:0"><text x="540" y="1484" text-anchor="middle" font-family="Lexend" font-weight="500" font-size="44" fill="#f3efe6">Tam ders: Present Perfect, altı dakika.</text></g><g id="al7" style="opacity:0"><text x="540" y="1484" text-anchor="middle" font-family="Lexend" font-weight="500" font-size="44" fill="#f3efe6">Tam dersi kanalda izle.</text></g></g>
 </svg>
@@ -46,7 +46,7 @@ html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1080px;heig
 <script src="lib/gsap.min.js"></script>
 <script>
 (function () {
-  var V = {"Z": {"fps": 30, "kare": 232, "sure": 7.7333, "tam_ders": [0.55, 0.8], "bant_kontur": [0.85, 0.7], "bant": [1.55, 0.35], "satir2": [1.99, 0.35], "saat": [2.87, 0.6], "dakika": [2.87, 0.85], "pill": [3.84, 0.3], "cta": [3.98, 1.4], "parilti": 5.8, "vurus_kare": 47}, "sz": [[2.87, 0.5262], [3.3962, 0.0738]], "nS": 2, "cav": 319.592, "dk": 504.87000000000006, "lw": 699.9680000000001, "cx": 540, "cy": 720.0, "pcx": 540.0, "pcy": 1315.0, "alt": [["al5", 0.0, 0.35], ["al6", 0.5, 3.93], ["al7", 3.93, 6.09]]};
+  var V = {"Z": {"fps": 30, "kare": 232, "sure": 7.7333, "tam_ders": [0.55, 0.8], "bant_kontur": [0.85, 0.7], "bant": [1.55, 0.35], "satir2": [1.99, 0.35], "saat": [2.87, 0.6], "dakika": [2.87, 0.85], "pill": [3.84, 0.3], "cta": [3.98, 1.4], "parilti": 5.8, "vurus_kare": 47}, "sz": [[2.87, 0.5262], [3.3962, 0.0738]], "nS": 2, "cav": 319.592, "dk": 504.87000000000006, "lw": 635.264, "cx": 540, "cy": 720.0, "pcx": 540.0, "pcy": 1315.0, "alt": [["al5", 0.0, 0.35], ["al6", 0.5, 3.93], ["al7", 3.93, 6.09]]};
   var Z = V.Z, $ = function (s) { return document.querySelector(s); };
   var tl = gsap.timeline({ paused: true });
   function ac(o) { o.immediateRender = false; return o; }

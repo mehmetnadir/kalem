@@ -23,19 +23,19 @@ html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1080px;heig
 #root [stroke="#1b1a17"]{stroke:var(--zemin)}#root text[fill="#1b1a17"]{fill:var(--pilMetin)}#root #rz1 text{fill:var(--zemin)}
 #root.tema-acik #t2{fill:var(--vurgu)}
 </style></head><body>
-<div id="root" data-composition-id="main" data-start="0" data-duration="7.7333" data-fps="30" data-width="1080" data-height="1920">
+<div id="root" class="tema-acik" data-composition-id="main" data-start="0" data-duration="7.7333" data-fps="30" data-width="1080" data-height="1920">
 <div id="zemin"></div><svg id="gren" width="1080" height="1920" xmlns="http://www.w3.org/2000/svg"><filter id="grenf" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1080" height="1920" filter="url(#grenf)"/></svg><div id="vinyet"></div>
 <svg id="sahne" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
 <defs><clipPath id="cpc"><rect id="crc" x="407.1" y="388" width="0" height="108"/></clipPath>
-<clipPath id="cpl"><rect id="crl" x="199.9" y="1189" width="0" height="102"/></clipPath></defs>
+<clipPath id="cpl"><rect id="crl" x="239.4" y="1189" width="0" height="102"/></clipPath></defs>
 <text id="cav" x="540.0" y="460" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="72" fill="#f3efe6" clip-path="url(#cpc)">Tam ders:</text>
 <g id="bantg" style="opacity:0">
 <rect id="bant" x="48" y="510" width="984" height="560" rx="44" fill="#f2a93b"/>
 <text id="p1" x="540.0" y="773.0" text-anchor="middle" font-family="Fredoka" font-weight="700" font-size="150" fill="#1b1a17" style="opacity:0">Simple</text>
 <text id="p2" x="540.0" y="915.5" text-anchor="middle" font-family="Fredoka" font-weight="700" font-size="150" fill="#1b1a17" style="opacity:0">Present</text>
 </g>
-<g id="saat" fill="none" stroke="#f2a93b" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.00"><g transform="translate(57.9 1168.0) scale(6.0)"><path id="s0" d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" style="opacity:0"/><path id="s1" d="M12 7v5l3 3" style="opacity:0"/></g></g>
-<text id="lin" x="211.9" y="1263" font-family="Lexend" font-weight="700" font-size="64" fill="#f3efe6" clip-path="url(#cpl)">Tam ders kanalda · <tspan fill="#f2a93b">6 dk</tspan></text>
+<g id="saat" fill="none" stroke="#f2a93b" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.00"><g transform="translate(97.4 1168.0) scale(6.0)"><path id="s0" d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" style="opacity:0"/><path id="s1" d="M12 7v5l3 3" style="opacity:0"/></g></g>
+<text id="lin" x="251.4" y="1263" font-family="Lexend" font-weight="700" font-size="64" fill="#f3efe6" clip-path="url(#cpl)"><tspan fill="#f2a93b">@ydspublishing</tspan> · 6 dk</text>
 <g id="par" stroke="#f2a93b" stroke-width="5" style="opacity:0">
 <path d="M1000 590 l0 -44 M978 568 l44 0 M986 552 l28 32 M1014 552 l-28 32"/>
 <path d="M84 1150 l0 -34 M67 1133 l34 0"/></g>
@@ -45,7 +45,7 @@ html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1080px;heig
 <script src="lib/gsap.min.js"></script>
 <script>
 (function () {
-  var V = {"Z": {"fps": 30, "kare": 232, "sure": 7.7333, "tam_ders": [0.55, 0.4], "bant": [1.59, 0.35], "satir2": [1.99, 0.35], "saat": [3.9, 0.6], "satir": [3.98, 1.6], "vurus_kare": 48, "parilti": 2.9}, "sz": [[3.9, 0.5385], [4.4385, 0.0615]], "nS": 2, "cav": 265.84799999999996, "lw": 832.1920000000001, "lx": 199.90399999999994, "cx": 540.0, "cy": 790.0, "bw": 984, "alt": [["al3", 0.0, 0.35], ["al4", 0.5, 3.93], ["al5", 3.93, 6.09]]};
+  var V = {"Z": {"fps": 30, "kare": 232, "sure": 7.7333, "tam_ders": [0.55, 0.4], "bant": [1.59, 0.35], "satir2": [1.99, 0.35], "saat": [3.9, 0.6], "satir": [3.98, 1.6], "vurus_kare": 48, "parilti": 2.9}, "sz": [[3.9, 0.5385], [4.4385, 0.0615]], "nS": 2, "cav": 265.84799999999996, "lw": 753.2800000000001, "lx": 239.35999999999996, "cx": 540.0, "cy": 790.0, "bw": 984, "alt": [["al3", 0.0, 0.35], ["al4", 0.5, 3.93], ["al5", 3.93, 6.09]]};
   var Z = V.Z, $ = function (s) { return document.querySelector(s); };
   var tl = gsap.timeline({ paused: true });
   function ac(o) { o.immediateRender = false; return o; }

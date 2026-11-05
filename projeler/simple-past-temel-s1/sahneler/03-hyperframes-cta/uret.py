@@ -1,7 +1,7 @@
 """Sahne 03 CTA index.html üretici (DİKEY 1080x1920; 6,43 sn içerik + 1 sn durgun kuyruk = 223 kare).
 Küresel t = 15,29 + yerel sn. Künye hazır (ilk 12 kare geçiş altında durgun), içerik 0,4 sn'den başlar.
 Yerleşim (içerik bandı 352-1392): `Tam ders:` Caveat 80 (y 480) · sarı bant 540-1060 (Simple / Past)
-· saat + `6 dk` (y 1180) · `Tam ders kanalda` Lexend 72 (y 1330)."""
+· saat + `6 dk` (y 1180) · `@ydspublishing` Lexend 72 (y 1330; karar A 05.11)."""
 import json
 import sys
 from pathlib import Path
@@ -20,7 +20,7 @@ CAV_Y, CAV_BOY = 480, 80
 BOY = 210
 DK_BOY, DK_Y = 120, 1222            # "6 dk" Fredoka 120, taban y 1222 (saat merkezi y 1180)
 SAAT_S, SAAT_MERKEZ_Y = 7.0, 1180   # saat simgesi: görünür çap 126 px
-L_BOY, L_Y = 72, 1330               # "Tam ders kanalda" Lexend 700 72
+L_BOY, L_Y = 72, 1330               # "@ydspublishing" Lexend 700 72 (karar A 05.11)
 
 
 def yapi():
@@ -40,13 +40,13 @@ def uret():
     y2 = y1 + boy * 0.95
     cav = "Tam ders:"
     cav_w = Y.genislik("Caveat", 700, cav, CAV_BOY) + 24
-    # satır A: saat simgesi + "6 dk"; satır B: "Tam ders kanalda"
+    # satır A: saat simgesi + "6 dk"; satır B: "@ydspublishing" (tek kimlik, bütün platformlar)
     dk_w = Y.genislik("Fredoka", 700, "6 dk", DK_BOY)
     ic = 126 + 36                   # saat çapı + boşluk
     x0 = (1080 - (ic + dk_w)) / 2
     saat_cx = x0 + 63
     dk_x = x0 + ic
-    lw = Y.genislik("Lexend", 700, "Tam ders kanalda", L_BOY)
+    lw = Y.genislik("Lexend", 700, "@ydspublishing", L_BOY)
     lx = (1080 - lw) / 2
     kunye = Y.kunye_svg(CIP)
     alt_svg, alt_zaman = Y.altyazi_svg(T_BAS, Z["sure"], ALT)
@@ -74,7 +74,7 @@ def uret():
 </g>
 <g id="saat" fill="none" stroke="{R['vurgu']}" stroke-linecap="round" stroke-linejoin="round" stroke-width="{6 / SAAT_S:.2f}"><g transform="translate({saat_cx - 12 * SAAT_S:.1f} {SAAT_MERKEZ_Y - 12 * SAAT_S:.1f}) scale({SAAT_S})">{saats}</g></g>
 <text id="dk" x="{dk_x:.1f}" y="{DK_Y}" font-family="Fredoka" font-weight="700" font-size="{DK_BOY}" fill="{R['vurgu']}" clip-path="url(#cpd)">6 dk</text>
-<text id="lin" x="{lx:.1f}" y="{L_Y}" font-family="Lexend" font-weight="700" font-size="{L_BOY}" fill="{R['murekkep']}" clip-path="url(#cpl)">Tam ders kanalda</text>
+<text id="lin" x="{lx:.1f}" y="{L_Y}" font-family="Lexend" font-weight="700" font-size="{L_BOY}" fill="{R['vurgu']}" clip-path="url(#cpl)">@ydspublishing</text>
 <g id="par" stroke="{R['vurgu']}" stroke-width="5" style="opacity:0">
 <path d="M1000 600 l0 -44 M978 578 l44 0 M986 562 l28 32 M1014 562 l-28 32"/>
 <path d="M84 1120 l0 -34 M67 1103 l34 0"/></g>

@@ -1,7 +1,7 @@
 """Sahne 03 CTA index.html üretici (simple-present-ileri-s1; DİKEY 1080x1920; 232 kare = 7,73 sn).
 Küresel t = 12,51 + yerel sn. HUD hazır (ilk 12 kare geçiş altında durgun); içerik bandı 352-1392:
 `Tam ders:` (Caveat 88) -> `Simple / Present` bandı (Fredoka 160) -> saat + `6 dakika` (130) ->
-`Tam ders kanalda · 6 dk` hapı (64). Altyazı bandı 1400-1536."""
+`@ydspublishing · 6 dk` hapı (karar A 05.11) (64). Altyazı bandı 1400-1536."""
 import json
 import sys
 from pathlib import Path
@@ -42,7 +42,7 @@ def uret():
     cav_w = Y.genislik("Caveat", 700, cav, CAV_BOY) + 24
     dk = "6 dakika"
     dk_w = Y.genislik("Fredoka", 700, dk, DK_BOY) + 24
-    t_a, t_b = "Tam ders kanalda · ", "6 dk"
+    t_a, t_b = "@ydspublishing", " · 6 dk"   # karar A 05.11: tek kimlik
     wa = Y.genislik("Fredoka", 700, t_a, L_BOY)
     wb = Y.genislik("Fredoka", 700, t_b, L_BOY)
     lx = CX - (wa + wb) / 2
