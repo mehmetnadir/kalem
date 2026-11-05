@@ -42,8 +42,9 @@ export async function kur(P) {
     { x: SOL, y: 500, boyut: 88, aile: "Caveat", agirlik: 700, son: fSon });
   const pp = cumle(s1.slice(2, 4).map((w) => ({ s: w.s, f: -30 })),
     { x: SOL, y: 650, boyut: 88, aile: "Fredoka", agirlik: 700, son: fSon });
-  // 3,04–3,56 «yazma.» (kare 1–17); 3,50'de sönme başlar, yazı sönmeden önce biter (kare 17 < 20)
-  elYazisi(s1[4].s, { x: SOL, y: 800, boyut: 88, sozcukler: [{ f0: s1[4].f, f1: s1[4].f1 }],
+  // 3,04–3,50 «yazma.» (kare 1–15): sönme A0 = 15'te başlar, yazı sönme başlamadan biter
+  // (konuşma 3,56'ya dek sürer; pencere A0'a kısılır — inceleme DÜZELT)
+  elYazisi(s1[4].s, { x: SOL, y: 800, boyut: 88, sozcukler: [{ f0: s1[4].f, f1: A0 }],
     oge: sonKay(A0, A1) });
   {   // Perfect üstünde kırmızı çizgi (3,04): tek hızlı çizgi, hafif eğik
     const pf = pp[1];
