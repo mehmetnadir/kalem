@@ -27,6 +27,8 @@ button.ik{width:34px;padding:0;display:inline-flex;align-items:center;justify-co
 #ed.sag-gizli{--sag:0px}#ed.sag-gizli #sag{display:none}
 #ed.zp-gizli{--zp:0px;--alt:0px}#ed.zp-gizli #zp,#ed.zp-gizli #alt{display:none}
 #panel button{min-width:44px}
+#klv{white-space:nowrap}
+@media (max-width:1500px){#klv{display:none}}
 #ust{grid-area:ust;display:flex;align-items:center;gap:14px;padding:0 14px;background:var(--p1);
   border-bottom:1px solid var(--ln)}
 #kirinti{display:flex;align-items:center;gap:6px;font-size:12px;white-space:nowrap;
