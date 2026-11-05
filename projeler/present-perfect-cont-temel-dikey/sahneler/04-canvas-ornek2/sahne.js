@@ -18,9 +18,9 @@ async function kur() {
     svgOku("coco/guitar.svg"), svgOku("tabler/music.svg"), svgOku("coco/sun.svg")]);
 
   // kart: tam genişlik 984, Fredoka 72, 3 satır, sözcük zamanlı (ilk 12 kare boş; kutu 32,83'ten çizilir)
-  const cum = S.koy(S.cumleYaz({ sozcukler: S.dizi("My", 34.12, 10), x: 88, y: 446, maxGen: 904, font: FF(72),
-    satirH: 84 }));
-  const sonTaban = Math.max(...cum.kel.map((k) => k.y)), kartAlt = sonTaban + 46;
+  const cum = S.koy(S.cumleYaz({ sozcukler: S.dizi("My", 34.12, 10), x: 88, y: 442, maxGen: 904, font: FF(72),
+    satirH: 82 }));
+  const sonTaban = Math.max(...cum.kel.map((k) => k.y)), kartAlt = sonTaban + 42;
   S.koy(S.darbeler(kutu(48, 360, 984, kartAlt - 360, 7), { w: 4, renk: IKI, uc0: 10, uc1: 18 }, 32.83, 0.2,
     0.12, 0.55));
   const kel = (ad) => cum.kel.find((k) => k.m === ad);
@@ -30,8 +30,8 @@ async function kur() {
   S.koy(S.not({ parca: [["Kardeşim sabahtan beri gitar çalıyor.", KREM]], x: 56, y: yTR, font: CV(64),
     tb: 37.73, sure: 0.7 }));
 
-  // ORTA (yTR+20 → +420): kardeş (sitting-2) + gitar solda; sağ sütun: nota, güneş → now
-  const fUst = yTR + 20, fYuk = 420;
+  // ORTA (yTR+14 → +436; figür kutusu ≥ 420): kardeş + gitar solda; sağ sütun: nota, güneş → now
+  const fUst = yTR + 14, fYuk = 436;
   S.koy(S.cizim({ svg: kardes, kutu: { x: 48, y: fUst, w: 340, h: fYuk }, ad: "kardes", esik: 0.004, enCok: 60,
     w: 4.4, tb: 34.2, sure: 1.8, olayEnCok: 7 }));
   S.koy(S.cizim({ svg: gitar, ad: "gitar", kutu: { x: 400, y: fUst, w: 330, h: fYuk }, enCok: 24, w: 4,
@@ -45,7 +45,7 @@ async function kur() {
   });
   // 35,96–37,48 güneş (sabah) → kalem oku → now (sağ sütun, aşağı doğru)
   {
-    const sx = 740, sy = fUst + 120, nx = 800, ny = fUst + 380, nf = S.fr(37.1);
+    const sx = 740, sy = fUst + 120, nx = 800, ny = fUst + 396, nf = S.fr(37.1);
     S.koy(S.cizim({ svg: gunes, ad: "gunes", kutu: { x: sx, y: sy, w: 120, h: 120 }, enCok: 24, w: 4,
       tb: 35.96, sure: 0.6, olayEnCok: 3, nefes: false }));
     S.koy(S.not({ parca: [["sabah", KREM]], x: sx + 132, y: sy + 78, font: CV(64), tb: 36.28, sure: 0.4 }));

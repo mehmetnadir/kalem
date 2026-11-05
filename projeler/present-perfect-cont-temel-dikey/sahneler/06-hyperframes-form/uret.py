@@ -184,7 +184,7 @@ def uret():
            "C1036 604 1020 618 996 618 C800 626 520 616 296 620 C268 620 256 612 240 598 C234 590 234 578 234 572 "
            "L204 546 L234 520 C232 470 230 420 240 400 C246 390 252 386 262 384 Z")
     s.yol("bal", bal, B0, 0.5, KRE, 5.0, 1, "cizgi", 0.7, g="bal")
-    BF, BX = 68, 276
+    BF, BX = 80, 258   # balon Caveat 78; form anında 0,72 ölçek -> etkin 56,2 px
     sp = Y.genislik("Caveat", 700, " ", BF)
     pos = {}
     for idx, base in ((range(0, 5), 472), (range(5, 8), 568)):
@@ -241,14 +241,15 @@ def uret():
              {"opacity": 1, "scale": 1, "duration": 0.35, "ease": "power3.out"})
     s.olay(tp, "vurus", 0.85)
     # past → now oku (have geçmişi bugüne bağlar): sağ, taban 860
-    PY = 860
-    pw = Y.genislik("Caveat", 700, "past", 64)
-    nw = Y.genislik("Caveat", 700, "now", 64)
-    PX = 1032 - (pw + 24 + 200 + 24 + nw)
-    s.yazi("pst", PX, PY, [("past", IKN)], "Caveat", 700, 64, S(Z["past"]), 0.35, tur="tik", guc=0.45, g="recap")
-    s.yol("pnok", el_ok(PX + pw + 24, PY - 20, PX + pw + 224, PY - 22, 18), S(Z["now"]) - 0.1, 0.4, IKN, 5, 1,
+    # Caveat etiketler 94 px: "toplan" anında recap grubu 0,6 ölçeğe iner -> etkin 56,4 px (>= 56)
+    PY, LB = 880, 94
+    pw = Y.genislik("Caveat", 700, "past", LB)
+    nw = Y.genislik("Caveat", 700, "now", LB)
+    PX = 1016 - (pw + 24 + 120 + 24 + nw)   # "now" eğik ucu +8 taşar: sağ uç <= 1032
+    s.yazi("pst", PX, PY, [("past", IKN)], "Caveat", 700, LB, S(Z["past"]), 0.35, tur="tik", guc=0.45, g="recap")
+    s.yol("pnok", el_ok(PX + pw + 24, PY - 30, PX + pw + 144, PY - 32, 18), S(Z["now"]) - 0.1, 0.4, IKN, 5, 1,
           "cizgi", 0.5, g="recap")
-    s.yazi("nw", PX + pw + 248, PY, [("now", SAR)], "Caveat", 700, 64, S(Z["now"]) + 0.2, 0.35, tur="tik", guc=0.45,
+    s.yazi("nw", PX + pw + 168, PY, [("now", SAR)], "Caveat", 700, LB, S(Z["now"]) + 0.2, 0.35, tur="tik", guc=0.45,
            g="recap")
     # ---------------- 68,61: been kutusu + -ing (sarı) + in progress bandı ----------------
     ex = BXB + bigw + 26
@@ -257,14 +258,14 @@ def uret():
     s.pop("ingg", ex, BYB, [("-ing", SAR)], FF, 700, BIG, S(Z["ing"]), 0.35, "vurus", 0.85, g="recap")
     s.yol("band", el_cizgi(BXB, BYB + 50, ex + ingw, BYB + 46), S(Z["band"]), 0.45, SAR, 10, 0.85, "cizgi", 0.55,
           g="recap")
-    ipx, ipw = s.yazi("ip", 48, PY, [("in progress", IKN)], "Caveat", 700, 64, S(Z["in_progress"]), 0.45, tur="tik",
+    ipx, ipw = s.yazi("ip", 48, PY, [("in progress", IKN)], "Caveat", 700, LB, S(Z["in_progress"]), 0.45, tur="tik",
                       guc=0.5, g="recap")
-    s.yol("ipok", el_ok(ipx + ipw + 20, PY - 20, ipx + ipw + 110, PY - 22, 16), S(Z["in_progress"]) + 0.55, 0.35, IKN,
+    s.yol("ipok", el_ok(ipx + ipw + 20, PY - 30, ipx + ipw + 90, PY - 32, 16), S(Z["in_progress"]) + 0.55, 0.35, IKN,
           5, 1, "cizgi", 0.45, g="recap")
     s.to("#bigw", tp + 0.5, {"svgOrigin": "%.1f %.1f" % (BXB + bigw / 2, BYB - 52), "scale": 1.025, "duration": 2.6,
                              "ease": "sine.inOut", "repeat": 5, "yoyo": True})
-    # ---------------- -dir … -yor ⇄ have been … -ing (Fredoka 96): grup "recap" ----------------
-    AF, AX, AY, BY2 = 96, 80.0, 1030, 1190
+    # ---------------- -dir … -yor ⇄ have been … -ing (Fredoka 107): grup "recap" ----------------
+    AF, AX, AY, BY2 = 107, 80.0, 1030, 1190   # 0,6 ölçekle etkin 64,2 px
     wd = Y.genislik(FF, 700, "-dir", AF)
     wm = Y.genislik(FF, 700, " … ", AF)
     s.yazi("a1", AX, AY, [("-dir", SAR)], FF, 700, AF, S(Z["dir"]), 0.3, tur="tik", guc=0.55, g="recap")

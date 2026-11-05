@@ -12,7 +12,7 @@ export async function kur(P) {
 
   // --- kart: tam genişlik (984), Fredoka 72, 3 satır (anlam sınırında kırılır), sözcük zamanlı
   const sz = S.sozcukler(3).slice(2, 12);                          // I … minutes.
-  const SATIR = [0, 0, 0, 0, 1, 1, 1, 2, 2, 2], SH = 84, B1 = 360 + 34 + 54;
+  const SATIR = [0, 0, 0, 0, 1, 1, 1, 2, 2, 2], SH = 82, B1 = 360 + 30 + 52;
   const kartAlt = B1 + 2 * SH + 46;
   S.kutu(48, 360, 984, kartAlt - 360, { bas: fr(17.68), sure: 36, w: 4, renk: IKI });
   not("kart kutusu çizimi", fr(17.68));
@@ -38,21 +38,21 @@ export async function kur(P) {
   not("Türkçe çeviri", fr(22.1));
 
   // --- ORTA: bekleyen figür + otobüs + küçük saat (bant: TR altı → for satırı üstü)
-  const fUst = yTR + 20, fAlt = fUst + 420;
+  const fUst = yTR + 14, fAlt = fUst + 440;   // figür kutusu ≥ 420
   const figOge = S.oge({ nefes: { bas: fr(22.0), cx: 215, cy: fAlt } });
-  await S.svgCiz("open-peeps/sitting-4.svg", { kutu: [48, fUst, 340, 420], bas: fr(18.9),
+  await S.svgCiz("open-peeps/sitting-4.svg", { kutu: [48, fUst, 340, 440], bas: fr(18.9),
     sure: fr(20.7) - fr(18.9), azami: 60, yuz: 3, w: 4.4, oge: figOge, sesAralik: 5 });
   not("figür çizimi başı", fr(18.9));
-  await S.svgCiz("tabler/bus.svg", { kutu: [400, fUst, 460, 420], bas: fr(20.1), sure: 30, azami: 25, w: 4,
+  await S.svgCiz("tabler/bus.svg", { kutu: [400, fUst + 10, 460, 420], bas: fr(20.1), sure: 30, azami: 25, w: 4,
     sesAralik: 2 });
   not("otobüs çizimi", fr(20.1));
-  await S.svgCiz("tabler/clock.svg", { kutu: [880, fUst + 150, 140, 140], bas: fr(21.2), sure: 22, azami: 25,
+  await S.svgCiz("tabler/clock.svg", { kutu: [880, fUst + 160, 140, 140], bas: fr(21.2), sure: 22, azami: 25,
     w: 4, sesAralik: 2 });
   not("saat çizimi", fr(21.2));
-  parilti(1000, fUst + 140, { bas: fr(21.9), r: 26, periyot: 170, adet: 3 });
+  parilti(1000, fUst + 150, { bas: fr(21.9), r: 26, periyot: 170, adet: 3 });
 
   // --- 25,87–28,28: for (Fredoka 130 sarı, vurus) + Caveat süre uzunluğu
-  const yFor = 1262;
+  const yFor = 1270;
   {
     const f0 = fr(25.87);
     const fo = yazi("for", { x: 56, y: yFor, boyut: 130, aile: "Fredoka", agirlik: 700, renk: SARI, bas: f0,
