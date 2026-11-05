@@ -30,25 +30,22 @@
     <span class="bos"></span>
     <span id="klv" style="color:var(--dm);font-size:11px">J geri · K durdur · L ileri · H odak</span>
     <div class="seg" id="tema"><button data-t="koyu">Koyu</button><button data-t="acik">Açık</button></div>
-    <div class="seg" id="panel" title="Panelleri gizle / göster (mavi = açık)">
-      <button data-pn="sol" class="on" title="Sol panel (sahne listesi) gizle / göster">Sol</button>
-      <button data-pn="sag" class="on" title="Sağ panel (altyazı, nesneler, olaylar) gizle / göster">Sağ</button>
-      <button data-pn="zp" class="on" title="Alt panel (zaman çizgisi + durum satırı) gizle / göster">Zaman</button></div>
     <button id="odak" title="Odak: bütün panelleri gizle, sahneyi büyüt (H; Esc geri)">Odak</button>
     <button id="yyb" title="Sürümleri aynı ekranda tek saatle izle: yatay · dikey · shorts × açık · koyu">Karşılaştır</button>
     <button id="png" title="Kare PNG (k)">Kare PNG</button>
   </header>
   <aside id="sol">
     <div id="sek2"><button data-l="sahneler" class="on">Sahneler</button><button data-l="ilgili">İlgililer</button>
-    </div>
+      <button class="daralt" data-pn="sol" title="Paneli daralt">‹</button></div>
     <div id="sahneler" class="lp on"></div><div id="ilgili" class="lp"></div>
+    <div class="ray"><button data-pn="sol" title="Paneli aç">›</button></div>
   </aside>
   <main id="orta">
     <div id="yy" hidden><span class="yl">Pencereler</span><div id="yyc"></div>
       <label>Ses <select id="yss" title="Hangi sürümün anlatımı çalsın (imleç pencereye gelince de o sürümün sesi)"></select></label></div>
     <div id="sahne"><div id="bekle">Sahne yükleniyor</div></div></main>
   <aside id="sag">
-    <div id="sek"><button data-p="alt" class="on">Altyazı</button><button data-p="nes">Nesneler</button>
+    <div id="sek"><button class="daralt" data-pn="sag" title="Paneli daralt">›</button><button data-p="alt" class="on">Altyazı</button><button data-p="nes">Nesneler</button>
       <button data-p="ola">Olaylar</button><button data-p="sah">Sahne</button>
       <button data-p="gor">Görevler</button></div>
     <div class="pn on" id="p-alt"></div>
@@ -57,8 +54,11 @@
     <div class="pn" id="p-sah"></div>
     <div class="pn" id="p-gor"><div id="gk"><div id="gu"></div><div id="gl"></div><div id="yl"></div></div>
       <div id="yf"></div></div>
+    <div class="ray"><button data-pn="sag" title="Paneli aç">‹</button></div>
   </aside>
-  <section id="zp"><div id="zk"><div id="zi"></div></div></section>
+  <section id="zp"><button class="daralt zd" data-pn="zp" title="Zaman çizgisini daralt">⌄</button>
+    <div id="zk"><div id="zi"></div></div>
+    <div class="ray"><button data-pn="zp" title="Zaman çizgisini aç">⌃</button></div></section>
   <footer id="alt"></footer>
 </div>
 <div id="ip"></div>

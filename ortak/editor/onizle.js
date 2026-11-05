@@ -632,15 +632,15 @@ function sagKur() {
       + s.motor + " · " + sn(s.t_son - s.t_bas) + " sn</small></span>", sol);
     b.style.setProperty("--r", motorRenk(s.motor)); b.onclick = function () { git(s.t_bas); }; b.dataset.i = i;
   });
-  document.querySelectorAll("#sek2 button").forEach(function (b) {
+  document.querySelectorAll("#sek2 button[data-l]").forEach(function (b) {
     b.onclick = function () {
-      document.querySelectorAll("#sek2 button").forEach(function (x) { x.classList.toggle("on", x === b); });
+      document.querySelectorAll("#sek2 button[data-l]").forEach(function (x) { x.classList.toggle("on", x === b); });
       document.querySelectorAll(".lp").forEach(function (p) { p.classList.toggle("on", p.id === b.dataset.l); });
     };
   });
-  document.querySelectorAll("#sek button").forEach(function (b) {
+  document.querySelectorAll("#sek button[data-p]").forEach(function (b) {
     b.onclick = function () {
-      document.querySelectorAll("#sek button").forEach(function (x) { x.classList.toggle("on", x === b); });
+      document.querySelectorAll("#sek button[data-p]").forEach(function (x) { x.classList.toggle("on", x === b); });
       document.querySelectorAll(".pn").forEach(function (p) { p.classList.toggle("on", p.id === "p-" + b.dataset.p); });
     };
   });
@@ -765,8 +765,8 @@ function panelUygula(kaydet) {
   var ed = $("#ed");
   Object.keys(PANEL).forEach(function (k) {
     ed.classList.toggle(k + "-gizli", !PANEL[k]);
-    var b = $("#panel [data-pn=" + k + "]"); if (b) b.classList.toggle("on", PANEL[k]);
   });
+  ed.classList.toggle("odak", panelHepsiGizli());         // odak: durum satırı da gizli
   $("#odak").classList.toggle("on", panelHepsiGizli());
   if (kaydet) { try { localStorage.setItem("kalem.editor.paneller", JSON.stringify(PANEL)); } catch (er) {} }
   if (panes.length) { olc(); zoomUygula(false); }
@@ -809,7 +809,7 @@ $("#tema").addEventListener("click", function (ev) { var b = ev.target.closest("
   if (b) temaSec(b.dataset.t); });
 $("#png").onclick = karePng;
 $("#yyb").onclick = function () { yanSec(!yyAcik); };
-$("#panel").addEventListener("click", function (ev) { var b = ev.target.closest("[data-pn]");
+document.addEventListener("click", function (ev) { var b = ev.target.closest("[data-pn]");   // daralt / ray
   if (b) panelToggle(b.dataset.pn); });
 $("#odak").onclick = odakToggle;
 $("#yyc").onclick = function (ev) { var b = ev.target.closest("[data-pk]"); if (b) pencereToggle(b.dataset.pk); };

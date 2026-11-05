@@ -23,10 +23,17 @@ button.ik{width:34px;padding:0;display:inline-flex;align-items:center;justify-co
 #ed{display:grid;height:100vh;--sol:250px;--sag:360px;--zp:276px;--alt:26px;
   grid-template-columns:var(--sol) 1fr var(--sag);grid-template-rows:52px 1fr var(--zp) var(--alt);
   grid-template-areas:"ust ust ust" "sol orta sag" "zp zp zp" "alt alt alt"}
-#ed.sol-gizli{--sol:0px}#ed.sol-gizli #sol{display:none}
-#ed.sag-gizli{--sag:0px}#ed.sag-gizli #sag{display:none}
-#ed.zp-gizli{--zp:0px;--alt:0px}#ed.zp-gizli #zp,#ed.zp-gizli #alt{display:none}
-#panel button{min-width:44px}
+.ray{display:none;width:100%;height:100%}
+.ray button{flex:1;border:0;border-radius:0;background:transparent;color:var(--dm);font-size:15px;padding:0}
+.ray button:hover{background:#383a41;color:#fff}
+#sek2 .daralt,#sek .daralt{flex:0 0 26px;font-size:16px;color:var(--dm)}
+#sek2 .daralt{border-left:1px solid var(--ln)}#sek .daralt{border-right:1px solid var(--ln)}
+#zp .zd{position:absolute;right:6px;top:2px;height:18px;width:24px;padding:0;z-index:9;font-size:13px;
+  line-height:1;color:var(--dm)}
+#ed.sol-gizli{--sol:22px}#ed.sol-gizli #sol>:not(.ray){display:none}#ed.sol-gizli #sol .ray{display:flex}
+#ed.sag-gizli{--sag:22px}#ed.sag-gizli #sag>:not(.ray){display:none}#ed.sag-gizli #sag .ray{display:flex}
+#ed.zp-gizli{--zp:22px}#ed.zp-gizli #zp>:not(.ray){display:none}#ed.zp-gizli #zp .ray{display:flex}
+#ed.odak{--alt:0px}#ed.odak #alt{display:none}
 #klv{white-space:nowrap}
 @media (max-width:1500px){#klv{display:none}}
 #ust{grid-area:ust;display:flex;align-items:center;gap:14px;padding:0 14px;background:var(--p1);
