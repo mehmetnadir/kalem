@@ -36,7 +36,12 @@ async function kur() {
 
   // 39,37–41,0 Türkçe çeviri
   const ytr = sonSatir + 78;
-  S.koy(S.not({ parca: [["Kardeşim beş yıldır gitar çalıyor.", IKINCIL]], x: 140, y: ytr, tb: 39.37, sure: 0.6 }));
+  // pencere: Kardeşim 39,37–39,93 · beş 40,09–40,25 (0,16 sn → 40,33'e uzar) · yıldır · gitar ·
+  // çalıyor. –41,45
+  const kd = S.dizi("Kardeşim", 39.37, 5).map((w) => ({ t0: w.t0, t1: w.t1 }));
+  kd[1].t1 = kd[2].t0;
+  S.koy(S.elYazisi({ metin: "Kardeşim beş yıldır gitar çalıyor.", x: 140, y: ytr, renk: IKINCIL,
+    sozcukler: kd }));
 
   // 41,77–43,69 takvim şeridi: 5 el kutusu (5 years), sarı ayraç, sağ uçta now noktası
   const yEtiket = ytr + 76, yBrk = yEtiket + 14, yKutu = yBrk + 30, kh = 90;
@@ -58,7 +63,8 @@ async function kur() {
   S.koy(S.darbe([[140 + 830 + 8, ny], [nx - 22, ny]], { duz: true, w: 5, renk: SARI, alfa: 0.85, uc0: 6, uc1: 10 },
     42.5, 0.2, false));
   S.koy(S.nabiz(nx, ny, 13, 42.65));
-  S.koy(S.not({ parca: [["now", SARI]], x: nx - 30, y: yKutu + kh + 52, tb: 42.8, sure: 0.3, ses: false }));
+  S.koy(S.elYazisi({ metin: "now", x: nx - 30, y: yKutu + kh + 52, renk: SARI, tb: 42.8, sure: 0.45,
+    ses: false }));
   S.koy(S.not({ parca: [["başladı, hâlâ sürüyor", IKINCIL]], x: 140, y: yKutu + kh + 62, tb: 43.05, sure: 0.6 }));
 
   // 43,84–47,9 for → süre (sarı); 47,12 soluk since → başlangıç

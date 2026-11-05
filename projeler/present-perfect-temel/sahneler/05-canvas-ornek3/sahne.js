@@ -30,7 +30,9 @@ async function kur() {
 
   // 55,37–58,6 Türkçe çeviri; uçak üstüne sarı çarpı 56,9
   const ytr = sonSatir + 78;
-  S.koy(S.not({ parca: [["Hayatımda hiç uçağa binmedim.", IKINCIL]], x: 140, y: ytr, tb: 55.37, sure: 0.6 }));
+  // pencere: Hayatımda 55,37–55,93 · hiç 56,01–56,21 · uçağa 56,25–56,57 · binmedim. –57,42
+  S.koy(S.elYazisi({ metin: "Hayatımda hiç uçağa binmedim.", x: 140, y: ytr, renk: IKINCIL,
+    sozcukler: S.dizi("Hayatımda", 55.37, 4).map((w) => ({ t0: w.t0, t1: w.t1 })) }));
   const cx0 = UX + UW / 2, cy0 = UY + UH / 2;
   S.koy(S.darbe([[cx0 - 190, cy0 - 120], [cx0, cy0], [cx0 + 190, cy0 + 120]],
     { duz: true, w: 8, renk: SARI, alfa: 0.9, uc0: 8, uc1: 14, tohum: 71 }, 56.9, 0.22, 0.7));
@@ -40,16 +42,18 @@ async function kur() {
   // 57,48–59,5 yaşam çizgisi: birth ●━━━━━● now, sarı bant kapatır
   const ly = ytr + 120, bx = 170, nx = 880;
   S.koy(S.darbe(elips(bx, ly, 9, 9, 0, 33), { w: 16, uc0: 3, uc1: 3, tohum: 33 }, 57.48, 0.2, 0.5));
-  S.koy(S.not({ parca: [["birth", IKINCIL]], x: bx - 30, y: ly - 28, font: "700 44px Caveat", tb: 57.55, sure: 0.3,
-    ses: false }));
+  S.koy(S.elYazisi({ metin: "birth", x: bx - 30, y: ly - 28, boy: 44, renk: IKINCIL, tb: 57.55,
+    sure: 0.45, ses: false }));
   S.koy(S.darbe([[bx + 14, ly], [(bx + nx) / 2, ly - 3], [nx - 14, ly + 1]],
     { duz: true, w: 4.2, uc0: 8, uc1: 14, tohum: 34 }, 57.73, 0.5, 0.55));
   S.koy(S.darbe(elips(nx, ly, 9, 9, 0, 35), { w: 16, uc0: 3, uc1: 3, tohum: 35 }, 58.09, 0.2, 0.5));
-  S.koy(S.not({ parca: [["now", SARI]], x: nx - 24, y: ly - 28, font: "700 44px Caveat", tb: 58.15, sure: 0.3,
-    ses: false }));
+  S.koy(S.elYazisi({ metin: "now", x: nx - 24, y: ly - 28, boy: 44, renk: SARI, tb: 58.15,
+    sure: 0.45, ses: false }));
   S.koy(S.darbe([[bx - 14, ly + 1], [(bx + nx) / 2, ly - 2], [nx + 14, ly]],
     { duz: true, w: 24, renk: SARI, alfa: 0.3, uc0: 20, uc1: 30, tohum: 36 }, 58.4, 1.0, 0.5));
-  S.koy(S.not({ parca: [["bugüne kadar hiç", KREM]], x: bx, y: ly + 62, tb: 58.1, sure: 0.5 }));
+  // pencere: Bugüne 57,48–57,69 · kadar 57,73–58,01 · hiç 58,09–58,29 (anlatımla eş zamanlı)
+  S.koy(S.elYazisi({ metin: "bugüne kadar hiç", x: bx, y: ly + 62, renk: KREM,
+    sozcukler: S.dizi("Bugüne", 57.48, 3).map((w) => ({ t0: w.t0, t1: w.t1 })) }));
 
   // 59,68–63,8 etiketler (el kutusu + tik): never 60,40 · ever 61,52 · just 62,48
   const yb = ly + 100, bh = 62, lfn = "700 34px Lexend";

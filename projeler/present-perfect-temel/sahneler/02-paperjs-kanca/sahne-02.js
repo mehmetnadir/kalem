@@ -8,9 +8,13 @@ export const KARE = 484, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook", etkin: 0, kayma: 0 });
-  const { fr, ciz, daire, ok, yazi, cumle, tik, parilti, olay, not, bitis } = S;
+  const { fr, ciz, daire, ok, yazi, elYazisi, cumle, tik, parilti, olay, not, bitis } = S;
   const SARI = RT.vurgu, KRE = RT.murekkep, IKI = RT.ikincil;
   const GB = 12;                                                   // geçiş karesi: çizimler bundan sonra başlar
+  // el yazısı sözcük pencereleri (cümle 2, yerel kare)
+  const CS = S.sozcukler(2);
+  const pen = (ilk, adet) => { const i = CS.findIndex((w) => w.s === ilk);
+    return CS.slice(i, i + adet).map((w) => ({ f0: w.f, f1: w.f1 })); };
 
   // --- cümle 1: Caveat 64 (x 140, y 300); kare 0'da hazır (bas −8: maske açık, tam görünür)
   const c1 = cumle(["Kaybettim,", "kapıda", "kaldım."].map((s) => ({ s, f: -8 })),
@@ -41,7 +45,9 @@ export async function kur(P) {
   {
     const g = c1[0], d = daire((g.x0 + g.x1) / 2 + 2, g.y - 22, g.w / 2 + 8, 34, { bas: fr(4.27), sure: 24, egim: -0.04 });
     olay(bitis(d), "tik", 0.5); not("kaybettim daire", d.bas);
-    const a = yazi("geçmişte oldu", { x: 140, y: 372, boyut: 48, renk: IKI, bas: fr(5.39), sure: 14, ses: true });
+    // 5,39–6,51 «geçmişte oldu,» (pencere: 5,39–5,79 · 5,87–6,51)
+    const a = elYazisi("geçmişte oldu", { x: 140, y: 372, boyut: 48, renk: IKI,
+      sozcukler: pen("geçmişte", 2) });
     not("not geçmişte oldu", a.bas);
   }
 
@@ -51,16 +57,20 @@ export async function kur(P) {
     const halka = (x, y, r, w, bas, ses) => ciz(Array.from({ length: 17 }, (_, i) => [x + r * Math.cos(i * Math.PI / 8 - 1.2),
       y + r * Math.sin(i * Math.PI / 8 - 1.2)]), { w, bas, sure: 6, uc0: 1, uc1: 1, amp: 0.05, ses });
     const nokta = (x, y, bas) => { halka(x, y, 3.2, 6, bas + 4, false); return halka(x, y, 7, 7.5, bas, "tik"); };
-    yazi("past", { x: 140, y: Y0 + 12, boyut: 44, renk: IKI, bas: fr(6.91), sure: 8 });
+    // 6,91 `past` ve 7,30 `now`: anlatımsız etiket, hedef 14 kare (0,47 sn)
+    elYazisi("past", { x: 140, y: Y0 + 12, boyut: 44, renk: IKI, bas: fr(6.91), sure: 14 });
     const p = nokta(XA, Y0, fr(6.91));
     const l = ciz([[XA + 12, Y0], [XA + 190, Y0 - 3], [XA + 390, Y0 + 2], [XB - 12, Y0 - 1]],
       { w: 4.4, bas: fr(6.91) + 4, sure: 26, uc0: 6, uc1: 8, renk: KRE });
     const n = nokta(XB, Y0, bitis(l));
-    const nw = yazi("now", { x: XB + 30, y: Y0 + 12, boyut: 44, renk: SARI, bas: fr(7.3), sure: 8, ses: true });
+    const nw = elYazisi("now", { x: XB + 30, y: Y0 + 12, boyut: 44, renk: SARI, bas: fr(7.3),
+      sure: 14 });
     const d = daire((nw.x0 + nw.x1) / 2, nw.y - 16, nw.w / 2 + 14, 28, { bas: fr(7.39), sure: 22, egim: -0.06 });
     olay(bitis(d), "tik", 0.5); not("şimdi daire (now)", d.bas);
     parilti(XB, Y0, { bas: bitis(n) + 6, r: 26, periyot: 60, adet: 4 });
-    const b = yazi("sonucu şimdi bizimle", { x: 330, y: 572, boyut: 48, renk: SARI, bas: fr(6.91) + 6, sure: 18 });
+    // 6,91–8,35 «sonucu şimdi bizimle.» (pencere: 6,91–7,31 · 7,39–7,63 · 7,71–8,35)
+    const b = elYazisi("sonucu şimdi bizimle", { x: 330, y: 572, boyut: 48, renk: SARI,
+      sozcukler: pen("sonucu", 3) });
     ok([b.x1 + 18, 556], [XB - 30, Y0 + 26], { bas: fr(7.71), sure: 14, w: 6, uzun: 18, bukum: 0.12 });
     not("zaman çizgisi başı", p.bas); not("not sonucu şimdi bizimle", b.bas);
   }
@@ -71,7 +81,12 @@ export async function kur(P) {
     const ar = ok([a.x1 + 22, y - 18], [a.x1 + 142, y - 18], { bas: fr(8.5) + 5, sure: 18, w: 6.5, cift: true, uzun: 22, bukum: 0.05 });
     yazi("have + V3", { x: a.x1 + 166, y, boyut: 56, aile: "Fredoka", agirlik: 700, renk: SARI, bas: bitis(ar) + 4, sure: 10, ses: true });
     not("ok -dı ⇄ have + V3", ar.bas);
-    const n = yazi("İngilizce ayrı zaman", { x: 140, y: 905, boyut: 48, renk: IKI, bas: fr(9.86), sure: 16 });
+    // 8,50–10,50 «İngilizce … ayrı bir zaman» (pencere: 8,50–9,14 · 9,86–10,22 · 10,22–10,50;
+    // 'ayrı' 0,16 sn → 10,22'ye uzar)
+    const iz = pen("İngilizce", 1), ay = pen("ayrı", 1), za = pen("zaman", 1);
+    ay[0].f1 = za[0].f0;
+    const n = elYazisi("İngilizce ayrı zaman", { x: 140, y: 905, boyut: 48, renk: IKI,
+      sozcukler: [...iz, ...ay, ...za] });
     not("not İngilizce ayrı zaman", n.bas);
   }
 
@@ -79,7 +94,9 @@ export async function kur(P) {
   {
     S.kutu(1060, 690, 760, 300, { bas: fr(11.77) - 8, sure: 38 }); not("kutu çizimi", fr(11.77) - 8);
     await S.svgCiz("tabler/clock.svg", { kutu: [1096, 712, 76, 76], bas: fr(12.05), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
-    yazi("6 min", { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(12.05) + 14, sure: 12 }); not("saat + 6 min", fr(12.05));
+    // 12,52: saatin yanında anlatımsız etiket, hedef 16 kare (0,53 sn; bitiş 13,05 < 13,85)
+    elYazisi("6 min", { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(12.05) + 14, sure: 16 });
+    not("saat + 6 min", fr(12.05));
     parilti(1176, 714, { bas: fr(12.9), r: 22, periyot: 170, adet: 3 });
     const m = [["form", 13.85, 842], ["since / for", 15.17, 900], ["sinyal sözcükleri", 16.89, 958]];
     for (const [s, t, y] of m) {

@@ -1,5 +1,6 @@
 // Sahne 03 — Örnek 1 (475 kare, t_bas 18,73; cümle 3). Zamanlar BRIEF §4; yerel kare = round((t − 18,73) × 30).
 import { sahneKur, RT, renkCoz } from "/projeler/present-perfect-temel/sahneler/03-paperjs-ornek1/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/present-perfect-temel/ortak/kalem-canvas.js";
 
 export const KARE = 475, T_BAS = 18.73;
 
@@ -16,8 +17,17 @@ function yuvarlakKutu(x, y, w, h, r) {
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1 });
-  const { fr, ciz, daire, yazi, cumle, altCizgi, parilti, olay, not, bitis, dinamik } = S;
+  // el yazısı genişliği (ortalı yazı için): glif verisi 02 sahnesiyle aynı yoldan okunur
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm, asc: EY.M.ascender,
+    boy: boyut, x: 0, taban: 0 }).gen;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, altCizgi, parilti, olay, not, bitis, dinamik } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil;
+  const CS = S.sozcukler(3);                                       // cümle 3: f / f1 yerel kare
+  const pen = (ilk, adet) => { const i = CS.findIndex((w) => w.s === ilk);
+    return CS.slice(i, i + adet).map((w) => ({ f0: w.f, f1: w.f1 })); };
 
   // --- 19,28–19,9: büyük el çizimi daire içinde 1 (x 200, y 190)
   const d1 = daire(200, 190, 66, 62, { bas: fr(19.28), sure: 20, a0: -2.6 }); olay(bitis(d1), "tik", 0.5);
@@ -52,7 +62,9 @@ export async function kur(P) {
   parilti(PX + PW - 20, PY + 40, { bas: fr(25.2) + 36, r: 26 });
 
   // --- 22,66–23,6: Telefonumu kırdım. (Caveat 48, y 470)
-  yazi("Telefonumu kırdım.", { x: 140, y: 470, boyut: 48, renk: IKI, bas: fr(22.66), sure: 17 });
+  // 22,66–24,10 «Telefonumu kırdım.» (pencere: 22,66–23,22 · 23,30–24,10)
+  elYazisi("Telefonumu kırdım.", { x: 140, y: 470, boyut: 48, renk: IKI,
+    sozcukler: pen("Telefonumu", 2) });
   not("Türkçe çeviri", fr(22.66));
 
   // --- 24,18–27,86: zaman çizgisi (y 620): past noktası (24,74) → now noktası (26,5) nabız atar
@@ -78,8 +90,13 @@ export async function kur(P) {
       bas: fp + 2, sure: 8 });
     yazi("now", { x: xN, y: yT + 68, hizala: "orta", boyut: 28, aile: "Lexend", agirlik: 500, renk: IKI,
       bas: fn + 2, sure: 8 });
-    yazi("ekran şimdi de kırık", { x: 430, y: yT - 36, hizala: "orta", boyut: 48, renk: SARI, bas: fr(26.1),
-      sure: 17, ses: true });
+    // 26,10–27,94 «ekran şimdi de kırık.» (pencere: 26,10–26,42 · 26,50–26,66 · 26,74–26,82 ·
+    // 26,90–27,94); 'şimdi' (0,16 sn) ve 'de' (0,08 sn) sonraki sözcüğün başına uzar;
+    // ortalı: x = 430 − genişlik / 2
+    const ez = pen("ekran", 4);
+    ez[1].f1 = ez[2].f0; ez[2].f1 = ez[3].f0;
+    elYazisi("ekran şimdi de kırık", { x: 430 - eyGen("ekran şimdi de kırık", 48) / 2, y: yT - 36,
+      boyut: 48, renk: SARI, sozcukler: ez });
   }
 
   // --- 29,37 have ve 30,33 broken: sarı daire
