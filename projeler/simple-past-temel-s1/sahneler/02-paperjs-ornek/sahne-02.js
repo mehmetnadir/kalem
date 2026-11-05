@@ -10,7 +10,8 @@ const CIP = "-Dİ = -ED";
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: CIP });
-  const { fr, ciz, daire, yazi, cumle, tik, parilti, olay, not, bitis, kutu, genislik, oge, kis, ok } = S;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, tik, parilti, olay, not, bitis, kutu, genislik,
+    oge, kis, ok } = S;
   const SARI = RT.vurgu, DOLGU = RT.vurguDolgu, IKI = RT.ikincil, MUR = RT.murekkep;
   const s1 = S.sozcukler(1), s2 = S.sozcukler(2);
   const solma = (t0, t1) => (f) => 1 - kis((f - fr(t0)) / (fr(t1) - fr(t0)));   // 1 -> 0
@@ -22,8 +23,17 @@ export async function kur(P) {
   const tvOge = oge({});
   const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],
     { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
-  // geçiş altındaki ilk 12 kare durgun: yazı en erken 12. karede başlar
-  const gec = (w) => ({ s: w.s, f: Math.max(12, w.f) });
+  // Caveat satırı el yazısıyla: her sözcük kendi penceresinde [{ s, f0, f1 }];
+  // sözcük arası 0,3 × boyut. Geçiş altındaki ilk 12 kare durgun: yazı en erken 12. karede başlar
+  const satir = (kel, o) => {
+    let x = o.x;
+    return kel.map((k) => {
+      const q = elYazisi(k.s, { x, y: o.y, boyut: o.boyut, renk: o.renk, oge: o.oge,
+        sozcukler: [{ f0: k.f0, f1: k.f1 }] });
+      x = q.x1 + 0.3 * o.boyut;
+      return q;
+    });
+  };
 
   // --- cümle 1 (sahne 01'in son hali, hazır): Caveat 80, x 72, y 440
   cumle(s1.slice(0, 4).map((w) => ({ s: w.s, f: -30 })),
@@ -39,8 +49,13 @@ export async function kur(P) {
 
   // --- 3,4-5,4: "Türkçede biten işe -di ekleriz." (Caveat 72, y 580), -di sarı kutu 4,35
   {
-    const e = cumle(s1.slice(4, 9).map(gec), { x: 72, y: 580, boyut: 72, aile: "Caveat",
-      agirlik: 700, renk: MUR, oge: ust });
+    // 3,0-5,43 sn (kare 12-73; "Türkçede biten işe -di ekleriz."): Türkçede penceresi
+    // (-3 → 12) 12 → 19, biten 19 → 26 (sözcük başına ≥ 7 kare)
+    const e = satir([
+      { s: "Türkçede", f0: 12, f1: 19 }, { s: "biten", f0: 19, f1: 26 },
+      { s: "işe", f0: s1[6].f, f1: s1[6].f1 }, { s: "-di", f0: s1[7].f, f1: s1[7].f1 },
+      { s: "ekleriz.", f0: s1[8].f, f1: s1[8].f1 }],
+    { x: 72, y: 580, boyut: 72, renk: MUR, oge: ust });
     not("TR satırı başı", e[0].bas);
     const d = e[3];
     kutu(d.x0 - 7, 580 - 62, d.w + 14, 88, { bas: d.bas + 4, sure: 22, renk: SARI, w: 7, oge: ust });
@@ -48,8 +63,12 @@ export async function kur(P) {
   }
   // --- 5,6-7,6: "İngilizce de -ed ekler." (y 700), -ed sarı kutu 6,59
   {
-    const e = cumle(s1.slice(9, 13).map(gec), { x: 72, y: 700, boyut: 72, aile: "Caveat",
-      agirlik: 700, renk: MUR, oge: ust });
+    // 5,63-7,63 sn (kare 79-139; "İngilizce de -ed ekler."): "de" penceresi 2 kare →
+    // -ed başına (108) kadar uzatıldı
+    const e = satir([
+      { s: "İngilizce", f0: s1[9].f, f1: s1[9].f1 }, { s: "de", f0: s1[10].f, f1: s1[11].f },
+      { s: "-ed", f0: s1[11].f, f1: s1[11].f1 }, { s: "ekler.", f0: s1[12].f, f1: s1[12].f1 }],
+    { x: 72, y: 700, boyut: 72, renk: MUR, oge: ust });
     not("EN satırı başı", e[0].bas);
     const d = e[2];
     kutu(d.x0 - 7, 700 - 62, d.w + 14, 88, { bas: d.bas + 4, sure: 22, renk: SARI, w: 7, oge: ust });
@@ -74,9 +93,13 @@ export async function kur(P) {
     not("EN cümle başı", en[0].bas);
     const g = en[1], d = daire((g.x0 + g.x1) / 2, g.y - 26, g.w / 2 + 8, 36, { bas: g.bas + 6, sure: 20, a0: -2.0 });
     olay(bitis(d), "tik", 0.5); not("watched daire", d.bas);
-    const t = cumle(s2.slice(6, 10).map((k) => ({ s: k.s, f: k.f })),
-      { x: 88, y: 672, boyut: 72, aile: "Caveat", agirlik: 700, renk: MUR });
-    altCiz(t[3], t[3].bas + 4); not("izledim altı çizgi", t[3].bas + 4);
+    // 10,03-11,39 sn (kare 211-252; "Dün gece film izledim."): "Dün" 5 → 7,
+    // "film" 3 → 6 kare; sonraki sözcüğün başına dek uzatıldı
+    const t = satir([
+      { s: "Dün", f0: s2[6].f, f1: s2[7].f }, { s: "gece", f0: s2[7].f, f1: s2[7].f1 },
+      { s: "film", f0: s2[8].f, f1: s2[9].f }, { s: "izledim.", f0: s2[9].f, f1: s2[9].f1 }],
+    { x: 88, y: 672, boyut: 72, renk: MUR });
+    altCiz(t[3], t[3].bit - 6); not("izledim altı çizgi", t[3].bit - 6);
   }
 
   // --- 8,3-: oturan figür (430 px) + televizyon (kutu 520), y 760-1190
