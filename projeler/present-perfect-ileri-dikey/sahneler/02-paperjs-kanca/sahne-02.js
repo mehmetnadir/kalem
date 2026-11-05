@@ -6,7 +6,7 @@ export const KARE = 461, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Rule", etkin: 1, kayma: 0 });
-  const { fr, daire, yazi, cumle, tik, parilti, olay, not, kutu, svgCiz, ciz } = S;
+  const { fr, daire, yazi, elYazisi, cumle, tik, parilti, olay, not, kutu, svgCiz, ciz } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil, KRE = RT.murekkep, KIR = RT.kirmizi;
 
   // --- cümle 1: iki satır Caveat 80 (x 64, taban 450 / 540); 0. karede hazır; `Ago` kırmızı alt çizgi
@@ -21,7 +21,9 @@ export async function kur(P) {
 
   // --- 4,03–9,71: saat (230 px) + `6 min`; sol kutu: 3 madde (tik zamanlı), Fredoka 64
   await svgCiz("tabler/clock.svg", { kutu: [800, 372, 190, 190], bas: fr(4.2), sure: 26, azami: 25, w: 4.4, sesAralik: 2 });
-  yazi("6 min", { x: 800, y: 622, boyut: 72, renk: SARI, bas: fr(4.7), sure: 12, ses: true }); not("saat + 6 min", fr(4.2));
+  // 4,70 anlatımsız etiket `6 min` (Altı dakikada 4,03–4,83): hedef 14 kare (0,47 sn) → 5,17
+  elYazisi("6 min", { x: 800, y: 622, boyut: 72, renk: SARI, bas: fr(4.7), sure: 14 });
+  not("saat + 6 min", fr(4.2));
   parilti(990, 385, { bas: fr(5.2), r: 28, periyot: 0, adet: 1 });
   kutu(48, 650, 984, 345, { bas: fr(4.03), sure: 36, w: 4.4 }); not("sol kutu", fr(4.03));
   [["formula", 4.91], ["since / for", 6.19], ["Simple Past trap", 7.79]].forEach(([s, t], i) => {
@@ -46,7 +48,9 @@ export async function kur(P) {
     not("formül S + have / has", fr(11.24));
     const p2 = koy("+", 96, Y2, 13.56, { renk: IKI });
     v3 = koy("V3", p2.x1 + gap, Y2, 13.80, { ses: true }); not("V3", fr(13.80));
-    yazi("V3 = past participle", { x: v3.x1 + 44, y: Y2 - 6, boyut: 64, renk: SARI, bas: fr(14.45), sure: 14, ses: true });
+    // 14,45 anlatımsız etiket (past participle. 14,12–15,32): hedef 20 kare (0,67 sn) → 15,12
+    elYazisi("V3 = past participle", { x: v3.x1 + 44, y: Y2 - 6, boyut: 64, renk: SARI,
+      bas: fr(14.45), sure: 20 });
     not("V3 = past participle", fr(14.45));
   }
   daire((hv.x0 + hv.x1) / 2, 1112 - 34, hv.w / 2 + 10, 50, { bas: fr(12.28) + 6, sure: 18, w: 10 }); not("have daire", fr(12.28));

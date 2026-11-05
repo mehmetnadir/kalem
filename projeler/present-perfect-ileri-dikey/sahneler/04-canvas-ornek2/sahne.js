@@ -10,6 +10,11 @@ const KOKDIZ = "/projeler/present-perfect-ileri-dikey/ortak/cizim";
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Exam Q 2 / 3", cumle: 4 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu;
+// El yazısı (tegaki Caveat, dalga 5 / K26): sözcük penceresi = anlatım t0/t1 (küresel sn);
+// 0,2 sn'den kısa pencere sonraki sözcüğün başına dek uzar
+const pen = (ad, t, n) => { const d = S.dizi(ad, t, n + 1);
+  return d.slice(0, n).map((w, i) => ({ t0: w.t0,
+    t1: w.t1 - w.t0 < 0.2 && d[i + 1] ? d[i + 1].t0 : w.t1 })); };
 
 async function kur() {
   await S.kur();
@@ -42,10 +47,12 @@ async function kur() {
   S.koy(S.cizim({ svg: laptop, ad: "dizustu", kutu: { x: 385, y: 990, w: 180, h: 135 }, enCok: 25, w: 4.2, tb: 37.8, sure: 1.0, olayEnCok: 4 }));
   S.koy(S.parilti(560, 980, 39.0, 26));
 
-  // 40,70–45,74 Sağ sütun üst: Türkçe çeviri (Caveat 64 mürekkep, 4 satır, x 480)
-  [["Selim bu bankada", 40.70, 760, 0.9], ["otuz yıldır çalışıyor,", 41.74, 826, 1.4], ["bu yüzden her", 43.22, 892, 0.6],
-    ["müşteriyi tanıyor.", 43.98, 958, 1.0]]
-    .forEach(([m, tb, y, sure]) => S.koy(S.not({ parca: [[m, KREM]], x: 480, y, font: "700 64px Caveat", tb, sure })));
+  // 40,70–45,74 Sağ sütun üst: Türkçe çeviri (Caveat 64 mürekkep, 4 satır, x 480), el yazısı;
+  // pencere = satırın sözcükleri (bu 43,22–43,34 · her 43,82–43,98 uzatıldı); sağ uç ≤ 902 px
+  [["Selim bu bankada", "Selim", 40.70, 3, 760], ["otuz yıldır çalışıyor,", "otuz", 41.74, 3, 826],
+    ["bu yüzden her", "bu", 43.22, 3, 892], ["müşteriyi tanıyor.", "müşteriyi", 43.98, 2, 958]]
+    .forEach(([m, ilk, tb, n, y]) => S.koy(S.elYazisi({ metin: m, x: 480, y, boy: 64, renk: KREM,
+      sozcukler: pen(ilk, tb, n) })));
 
   // 41,3–44,5 Sağ sütun alt: takvim şeridi (zaman çizgisi, y 1032–1160, x 580–1005):
   // işaretler, sarı köşeli ayraç `30 years`, sol uçta 1995, sağ uçta `now` (nabız). Caveat 64.
@@ -58,10 +65,17 @@ async function kur() {
     }
     S.koy(S.darbe([[x0 - 4, y - 26], [x0 - 4, y - 44], [x1 + 4, y - 44], [x1 + 4, y - 26]],
       { duz: true, w: 8, renk: SARI, alfa: 0.85, uc0: 10, uc1: 20 }, 42.4, 0.5, 0.55));
-    S.koy(S.metinPop({ parca: [["30 years", SARI]], x: (x0 + x1) / 2, y: y - 56, font: "700 64px Caveat", hiza: "orta", tb: 43.0, sure: 0.35, ses: 0.5 }));
-    S.koy(S.metinPop({ parca: [["1995", KREM]], x: x0, y: y + 54, font: "700 64px Caveat", tb: 43.5, sure: 0.3, ses: false }));
+    // 43,00 anlatımsız etiket `30 years` (tegaki genişliği 194 px, ortalı): hedef 0,45 sn → 43,45
+    S.koy(S.elYazisi({ metin: "30 years", x: (x0 + x1) / 2 - 97, y: y - 56, boy: 64, renk: SARI,
+      tb: 43.0, sure: 0.45, ses: 0.5 }));
+    // 43,50 anlatımsız etiket `1995`: hedef 0,45 sn → 43,95
+    S.koy(S.elYazisi({ metin: "1995", x: x0, y: y + 54, boy: 64, renk: KREM, tb: 43.5, sure: 0.45,
+      ses: false }));
     S.koy(S.nabiz(x1, y, 14, 44.2));
-    S.koy(S.metinPop({ parca: [["now", SARI]], x: x1 - 20, y: y + 54, font: "700 64px Caveat", hiza: "orta", tb: 44.2, sure: 0.3, ses: 0.4 }));
+    // 44,20 anlatımsız etiket `now` (tegaki genişliği 86 px, ortalı x1 − 20; sağ uç 1024):
+    // hedef 0,45 sn → 44,65
+    S.koy(S.elYazisi({ metin: "now", x: x1 - 20 - 47, y: y + 54, boy: 64, renk: SARI, tb: 44.2,
+      sure: 0.45, ses: 0.4 }));
   }
 
   // 45,89–51,25 Tek satır formül kartı (1260–1385, el kutusu): for + süre  ·  since + başlangıç (Fredoka 64)

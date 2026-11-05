@@ -11,6 +11,11 @@ const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Trap 3 / 3
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKI = RT.ikincil, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
 const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+// El yazısı (tegaki Caveat, dalga 5 / K26): sözcük penceresi = anlatım t0/t1 (küresel sn);
+// 0,2 sn'den kısa pencere sonraki sözcüğün başına dek uzar
+const pen = (ad, t, n) => { const d = S.dizi(ad, t, n + 1);
+  return d.slice(0, n).map((w, i) => ({ t0: w.t0,
+    t1: w.t1 - w.t0 < 0.2 && d[i + 1] ? d[i + 1].t0 : w.t1 })); };
 
 async function kur() {
   await S.kur();
@@ -19,7 +24,9 @@ async function kur() {
   // kart (tam genişlik 984): 12. kareden çizilir; içinde rozet 3 + TUZAK + cümle
   S.koy(S.darbeler(kutu(48, 372, 984, 306, 9), { w: 4, renk: IKI, uc0: 10, uc1: 18 }, S.zm(12), 0.2, 0.12, 0.55));
   S.koy(S.daireSayi(3, 120, 446, 51.82));
-  S.koy(S.not({ parca: [["TUZAK", KIRMIZI]], x: 760, y: 464, font: CV(88), tb: 53.0, sure: 0.5, ses: 0.6 }));
+  // 53,00–53,40 «Tuzak» (pencere 53,00–53,32, `burada` başına dek 53,40 uzatıldı); sağ uç 978 px
+  S.koy(S.elYazisi({ metin: "TUZAK", x: 760, y: 464, boy: 88, renk: KIRMIZI,
+    sozcukler: [{ t0: 53.0, t1: 53.4 }] }));
 
   // 54,21–58,05 cümle (Fredoka 64, 3 satır 4 / 5 / 3 sözcük, sözcük zamanlı)
   const cum = S.koy(S.cumleYaz({ sozcukler: S.dizi("The", 54.21, 12), x: 214, y: 452, maxGen: 800, font: FF(64),
@@ -33,8 +40,13 @@ async function kur() {
     { w: 9, renk: SARI, alfa: 0.85, uc0: 14, uc1: 30 }, 56.61, 0.5, 0.55));
 
   // 58,30 Türkçe çeviri (Caveat 64, mürekkep, 2 satır)
-  S.koy(S.not({ parca: [["Uçak iki saat önce kalktı, ama", KREM]], x: 64, y: 744, font: CV(64), tb: 58.3, sure: 1.2 }));
-  S.koy(S.not({ parca: [["henüz inmedi.", KREM]], x: 64, y: 816, font: CV(64), tb: 59.55, sure: 0.6 }));
+  // 58,30–61,58 (pencere: satır 1 = 6 sözcük 58,30–60,30 · satır 2 = henüz 60,30 ·
+  // inmedi. 60,54–61,58);
+  // iki ve ama 0,2 sn'den kısaydı, sonraki sözcüğün başına dek uzadı; sağ uç 740 px
+  S.koy(S.elYazisi({ metin: "Uçak iki saat önce kalktı, ama", x: 64, y: 744, boy: 64, renk: KREM,
+    sozcukler: pen("Uçak", 58.3, 6) }));
+  S.koy(S.elYazisi({ metin: "henüz inmedi.", x: 64, y: 816, boy: 64, renk: KREM,
+    sozcukler: pen("henüz", 60.3, 2) }));
 
   // 54,3–58,0 sağ sütun: uçak (450 px) + kalkış eğrisi + zemin çizgisi; sol: saat + 2 saat
   S.koy(S.darbe([[570, 1190], [650, 1182], [720, 1160], [790, 1118], [830, 1080]], { w: 4, renk: IKI, alfa: 0.85,
@@ -45,7 +57,8 @@ async function kur() {
     tohum: 77 }, 55.0, 0.5, 0.4));
   S.koy(S.cizim({ svg: saat, ad: "saat", kutu: { x: 60, y: 832, w: 160, h: 160 }, enCok: 4, w: 4.4, tb: 55.1,
     sure: 0.7, olayEnCok: 3 }));
-  S.koy(S.not({ parca: [["2 saat", KREM]], x: 250, y: 944, font: CV(72), tb: 55.9, sure: 0.4 }));
+  // 55,90 anlatımsız etiket `2 saat`: hedef 0,45 sn → 56,35
+  S.koy(S.elYazisi({ metin: "2 saat", x: 250, y: 944, boy: 72, renk: KREM, tb: 55.9, sure: 0.45 }));
   S.koy(S.parilti(1000, 880, 57.5, 26));
 
   // 59,0–61,5 zaman çizgisi (sol sütun, 480 px): took off · now · unfinished
@@ -54,19 +67,27 @@ async function kur() {
     59.0, 0.6, 0.5));
   S.koy(S.darbe([[xTook, ty - 18], [xTook + 1, ty + 18]], { duz: true, w: 5, renk: KREM, uc0: 4, uc1: 6 }, 59.46,
     0.15, 0.5));
-  S.koy(S.not({ parca: [["took off", KREM]], x: xTook - 54, y: ty - 36, font: CV(64), tb: 59.5, sure: 0.35 }));
+  // 59,50 anlatımsız etiket `took off`: hedef 0,45 sn → 59,95
+  S.koy(S.elYazisi({ metin: "took off", x: xTook - 54, y: ty - 36, boy: 64, renk: KREM, tb: 59.5,
+    sure: 0.45 }));
   S.koy(S.darbe([[x0, ty + 44], [x0, ty + 60], [xNow, ty + 60], [xNow, ty + 44]], { duz: true, w: 5, renk: KREM,
     uc0: 8, uc1: 10 }, 59.7, 0.5, 0.5));
-  S.koy(S.not({ parca: [["finished", KREM]], x: 74, y: ty + 126, font: CV(64), tb: 59.9, sure: 0.4 }));
+  // 59,90 anlatımsız etiket `finished`: hedef 0,45 sn → 60,35
+  S.koy(S.elYazisi({ metin: "finished", x: 74, y: ty + 126, boy: 64, renk: KREM, tb: 59.9,
+    sure: 0.45 }));
   S.koy(S.darbe([[xNow, ty - 26], [xNow + 1, ty + 26]], { duz: true, w: 8, renk: SARI, alfa: 0.9, uc0: 4, uc1: 6 },
     60.3, 0.15, 0.5));
-  S.koy(S.not({ parca: [["now", SARI]], x: xNow - 34, y: ty - 42, font: CV(72), tb: 60.4, sure: 0.3 }));
+  // 60,40 anlatımsız etiket `now`: hedef 0,45 sn → 60,85
+  S.koy(S.elYazisi({ metin: "now", x: xNow - 34, y: ty - 42, boy: 72, renk: SARI, tb: 60.4,
+    sure: 0.45 }));
   for (let i = 0; i < 2; i++) {
     const xa = xNow + 14 + i * 64;
     S.koy(S.darbe([[xa, ty], [xa + 38, ty + 1]], { duz: true, w: 5, renk: SARI, alfa: 0.9, uc0: 6, uc1: 8 },
       60.54 + i * 0.2, 0.18, i === 0 ? 0.4 : false));
   }
-  S.koy(S.not({ parca: [["unfinished", SARI]], x: 296, y: ty + 126, font: CV(64), tb: 60.8, sure: 0.5 }));
+  // 60,80 anlatımsız etiket `unfinished` (10 harf): hedef 0,8 sn → 61,60; sağ uç 523 px
+  S.koy(S.elYazisi({ metin: "unfinished", x: 296, y: ty + 126, boy: 64, renk: SARI, tb: 60.8,
+    sure: 0.8 }));
 
   // 61,65–65,33 kırmızı etiket (tuzak): ago → Simple Past · 65,48–68,60 sarı etiket: yet → Present Perfect
   const f64 = FF(64), bh = 70;

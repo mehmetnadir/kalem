@@ -8,7 +8,8 @@ export const KARE = 490, T_BAS = 17.97;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Exam Q 1 / 3", etkin: 2, kayma: 0 });
-  const { fr, ciz, daire, ok, kutu, yazi, cumle, altCizgi, parilti, olay, not, bitis } = S;
+  const { fr, ciz, daire, ok, kutu, yazi, elYazisi, cumle, altCizgi, parilti, olay, not,
+    bitis } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil, KRE = RT.murekkep;
   const GB = 12;
   const f0 = (t) => Math.max(GB, fr(t));
@@ -34,11 +35,17 @@ export async function kur(P) {
   cevre(1, 1, fr(20.01), -0.03, "since daire", 10);
   cevre(4, 4, fr(20.69), -0.025, "launched daire", 10);
 
-  // --- 24,46–29,58: Türkçe çeviri (Caveat 64 mürekkep, 2 satır), sözcük zamanlı
+  // --- 24,46–29,58: Türkçe çeviri (Caveat 64 mürekkep, 2 satır), el yazısı, sözcük penceresi.
+  // Satır 1 tegaki genişliği 949 px: x = 88 → sağ uç 1037 > 1032; x = 76 → 1025 (iki satır aynı x).
+  // 0,2 sn'den kısa pencere (yeni 25,02–25,18 · ama gibi) sonraki sözcüğün başına dek uzar.
   const tr = S.sozcukler(3).slice(16, 25);                          // Şirket … katlandı.
-  const tz = cumle(tr.map((k, i) => ({ s: k.s, f: k.f, satir: i < 5 ? 0 : 1 })),
-    { x: 88, y: 720, boyut: 64, aile: "Caveat", agirlik: 700, aralik: 65, renk: KRE });
-  not("Türkçe çeviri", tz[0].bas);
+  const pen = (i0, n) => tr.slice(i0, i0 + n).map((w, i) => ({ f0: w.f,
+    f1: w.f1 - w.f < 6 && tr[i0 + i + 1] ? tr[i0 + i + 1].f : w.f1 }));
+  elYazisi("Şirket yeni uygulamasını çıkardığından beri", { x: 76, y: 720, boyut: 64, renk: KRE,
+    sozcukler: pen(0, 5) });
+  const tz = elYazisi("kullanıcı sayısı ikiye katlandı.", { x: 76, y: 785, boyut: 64, renk: KRE,
+    sozcukler: pen(5, 4) });
+  not("Türkçe çeviri", tz.bas);
 
   // --- 20,0–23,5: ORTA sahne (816–1236, 420 px): telefon (420 px) + 3 sütunlu grafik, sayı ikiye katlanır
   await S.svgCiz("tabler/phone.svg", { kutu: [50, 816, 380, 420], bas: f0(20.0), sure: fr(21.0) - f0(20.0), azami: 12, yuz: 1,
