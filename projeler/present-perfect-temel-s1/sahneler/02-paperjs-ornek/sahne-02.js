@@ -9,7 +9,8 @@ const CIP = "I HAVE LOST";
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: CIP });
-  const { fr, ciz, daire, yazi, cumle, tik, parilti, olay, not, bitis, kutu, oge, kis } = S;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, tik, parilti, olay, not, bitis, kutu, oge,
+    kis } = S;
   const SARI = RT.vurgu, DOLGU = RT.vurguDolgu, IKI = RT.ikincil, MUR = RT.murekkep;
   const s1 = S.sozcukler(1), s2 = S.sozcukler(2);
   const solma = (t0, t1) => (f) => 1 - kis((f - fr(t0)) / (fr(t1) - fr(t0)));   // 1 -> 0
@@ -20,6 +21,20 @@ export async function kur(P) {
   const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],
     { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
 
+  // Caveat el yazısı cümlesi: sözcük başına kendi konuşma penceresi {f0, f1}; satır başı x'e döner,
+  // sözcük arası 0,3 × boyut (motor aralığı). k.dis: Caveat glifi pakette yok → eski yazi() kalır.
+  const elCumle = (kel, o) => {
+    const sat = {};
+    return kel.map((k) => {
+      const s = k.satir || 0, x = sat[s] == null ? o.x : sat[s], y = o.y + s * o.aralik;
+      const q = k.dis ? yazi(k.s, { x, y, boyut: o.boyut, aile: "Caveat", agirlik: 700,
+        renk: o.renk, bas: k.f0, sure: 4, oge: o.oge })
+        : elYazisi(k.s, { x, y, boyut: o.boyut, renk: o.renk, oge: o.oge,
+          sozcukler: [{ f0: k.f0, f1: k.f1 }] });
+      sat[s] = q.x1 + 0.3 * o.boyut; return q;
+    });
+  };
+
   // --- cümle 1 parça 1 (sahne 01'in son hali): Caveat 80, x 72, y 440 / 530
   const c80 = { x: 72, y: 440, boyut: 80, aile: "Caveat", agirlik: 700, aralik: 90, oge: ust };
   cumle(s1.slice(0, 4).map((w, i) => ({ s: w.s, f: -30, satir: i < 2 ? 0 : 1 })), c80);
@@ -27,13 +42,17 @@ export async function kur(P) {
   // --- cümle 1 parça 2 (3,63-7,15): Caveat 64, x 72, y 650 / 726; "şimdi" sarı daire
   {
     const p2 = s1.slice(4);
-    const e = cumle(p2.map((w, i) => ({ s: w.s, f: w.f, satir: i < 4 ? 0 : 1 })),
-      { x: 72, y: 650, boyut: 64, aile: "Caveat", agirlik: 700, aralik: 76, oge: ust });
-    altCiz(e[1], e[1].bas + 4, { oge: ust, w: 8 }); not("geçmiş altı çizgi", e[1].bas + 4);
-    const s = e[6], d = daire((s.x0 + s.x1) / 2, s.y - 20, s.w / 2 + 16, 32,
-      { bas: s.bas + 3, sure: 20, egim: -0.05, oge: ust });
+    // 3,63-7,23 sn (kare 19-127; "Türkçede geçmiş gibi durur, ama etkisi şimdi sürer."):
+    // her sözcük kendi penceresinde; "gibi" (0,11 sn) ve "ama" (0,16 sn) penceresi
+    // sonraki sözcüğün başına dek uzatıldı; "şimdi" dairesi payı 16 → 6 px (sözcük arası 19 px)
+    const e = elCumle(p2.map((w, i) => ({ s: w.s, satir: i < 4 ? 0 : 1, f0: w.f,
+      f1: w.f1 - w.f < 6 ? p2[i + 1].f : w.f1 })),
+    { x: 72, y: 650, boyut: 64, aralik: 76, oge: ust });
+    altCiz(e[1], e[1].bit - 6, { oge: ust, w: 8 }); not("geçmiş altı çizgi", e[1].bit - 6);
+    const s = e[6], d = daire((s.x0 + s.x1) / 2, s.y - 20, s.w / 2 + 6, 32,
+      { bas: s.bit - 6, sure: 20, egim: -0.05, oge: ust });
     olay(bitis(d), "tik", 0.5); not("şimdi daire", d.bas);
-    parilti(s.x1 + 26, s.y - 60, { bas: s.bas + 8, r: 22, periyot: 130, adet: 1, oge: ust });
+    parilti(s.x1 + 26, s.y - 60, { bas: s.bit - 1, r: 22, periyot: 130, adet: 1, oge: ust });
   }
 
   // --- eskiz (sahne 01'den hazır): figür 470 px + ev (kutu 460) + zemin çizgisi, y 910-1384
@@ -56,9 +75,11 @@ export async function kur(P) {
       olay(bitis(d), "tik", 0.5); not(g.str + " daire", d.bas);
     });
     const tr = s2.slice(5, 9);
-    const t = cumle(tr.map((k, i) => ({ s: k.s, f: k.f, satir: i < 2 ? 0 : 1 })),
-      { x: 88, y: 590, boyut: 64, aile: "Caveat", agirlik: 700, renk: MUR, aralik: 76 });
-    altCiz(t[3], t[3].bas + 4, { w: 8 }); not("bulamadım altı çizgi", t[3].bas + 4);
+    // 9,71-12,99 sn (kare 201-300): her sözcük kendi penceresinde; "hâlâ" (â) Caveat glifi yok →
+    // kapsam dışı, yazi() kalır; satır 1 = Anahtarlarımı kaybettim, satır 2 = hâlâ bulamadım.
+    const t = elCumle(tr.map((k, i) => ({ s: k.s, satir: i < 2 ? 0 : 1, f0: k.f, f1: k.f1,
+      dis: i === 2 })), { x: 88, y: 590, boyut: 64, renk: MUR, aralik: 76 });
+    altCiz(t[3], t[3].bit - 6, { w: 8 }); not("bulamadım altı çizgi", t[3].bit - 6);
   }
 
   // --- 8,94: anahtar işareti (halka + gövde + iki diş) eskizin solunda; 11,71: "?"
