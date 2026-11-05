@@ -9,7 +9,7 @@ const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: 0, bolum: "
 const KOKDIZ = "/projeler/present-continuous-ileri-dikey/ortak/cizim";
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKI = RT.ikincil, SARI = RT.vurgu;
-const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+const FF = (b) => `700 ${b}px Fredoka`;
 
 async function kur() {
   await S.kur();
@@ -38,8 +38,8 @@ async function kur() {
 
   // 49,04 Türkçe çeviri (Caveat 64, mürekkep)
   const yTR = kartAlt + 62;
-  S.koy(S.not({ parca: [["Yarın sabah İzmir'e gidiyoruz.", KREM]], x: 64, y: yTR, font: CV(64), tb: 49.04,
-    sure: 0.8 }));
+  S.koy(S.elYazisi({ metin: "Yarın sabah İzmir'e gidiyoruz.", x: 64, y: yTR, boy: 64, renk: KREM,
+    sozcukler: S.dizi("Yarın", 49.04, 4).map((k) => ({ t0: k.t0, t1: k.t1 })) }));
 
   // ORTA bant: yolcu (standing-4) + otobüs + takvim; sağ sütun: yarın → PLAN, bilet ✓, saat ✓
   const B0 = yTR + 34, B1 = 1190, BH = B1 - B0;
@@ -53,14 +53,18 @@ async function kur() {
     uc1: 10, tohum: 77 }, 46.7, 0.45, 0.45));
   S.koy(S.parilti(540, B0 + 16, 47.4, 28));
 
-  const yw = olc(CV(64), "yarın"), yx = 600, yy = B0 + 80;       // "yarın" etiketi (takvimin sağında)
-  S.koy(S.not({ parca: [["yarın", KREM]], x: yx, y: yy, font: CV(64), tb: 49.4, sure: 0.4 }));
+  const yx = 600, yy = B0 + 80;                    // "yarın" etiketi (takvimin sağında)
+  const yz = S.elYazisi({ metin: "yarın", x: yx, y: yy, boy: 64, renk: KREM, tb: 49.4,
+    sure: 0.45 });
+  S.koy(yz);
+  const yw = yz.w;                                 // tegaki genişliği (115 px)
   // 51,12 yarın sarı daire → ok → PLAN
   S.koy(S.darbe(elips(yx + yw / 2, yy - 22, yw / 2 + 28, 48, -0.04, 41), { w: 9, renk: SARI, alfa: 0.85, uc0: 14,
     uc1: 30 }, 51.14, 0.4, 0.55));
   S.koy(S.darbeler(ok([yx + yw + 36, yy - 26], [yx + yw + 112, yy - 26], 4), { w: 9, renk: SARI, uc0: 10, uc1: 14 },
     51.5, 0.3, 0.2, 0.5));
-  S.koy(S.not({ parca: [["PLAN", SARI]], x: yx + yw + 130, y: yy - 2, font: CV(88), tb: 51.8, sure: 0.4 }));
+  S.koy(S.elYazisi({ metin: "PLAN", x: yx + yw + 130, y: yy - 2, boy: 88, renk: SARI, tb: 51.8,
+    sure: 0.4 }));
 
   // 52,20 sağ sütun: bilet ✓ (52,40), saat (53,04) ✓
   const bx = 720, by = B0 + 150, bw = 310, bh = 100, fb = FF(56);

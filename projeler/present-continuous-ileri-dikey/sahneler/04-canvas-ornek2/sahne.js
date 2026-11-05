@@ -4,6 +4,7 @@
 // (1040–1170) · formül (1182–1380).
 import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, elips, ok, kutu, yavasla } from "./sahne-ortak.js";
+import { yaziNoktalari } from "/projeler/present-continuous-ileri-dikey/ortak/kalem-canvas.js";
 
 const KARE = 387, TBAS = 29.58, ICERIK = 375;
 const KOKDIZ = "/projeler/present-continuous-ileri-dikey/ortak/cizim";
@@ -46,7 +47,16 @@ async function kur() {
   sahne.push(...S.darbeler(ok([480, 1040], [560, 1020], 3), { w: 9, renk: SARI, uc0: 10, uc1: 14 }, 33.3, 0.16, 0.12, 0.5));
   sahne.push(S.cizim({ svg: ev, ad: "kucuk-ev", kutu: { x: 575, y: 910, w: 230, h: 230 }, enCok: 6, w: 4.4, tb: 33.5, sure: 0.7, olayEnCok: 3 }));
   const TOP = { f0: S.fr(38.5), f1: S.fr(39.2), ax: 540, ay: 830, olcek: 0.42, dy: 0 };
-  const etiket = S.metinPop({ parca: [["uncle's", SARI]], x: 690, y: 890, font: "700 64px Caveat", hiza: "orta", tb: 33.82, sure: 0.35, ses: 0.5 });
+  // 33,82–34,06 `uncle's` el yazısı (sözcük penceresi), orta hiza x 690 → sol uç 690 − w / 2
+  const eyGen = (m, boy) => yaziNoktalari(m, S.EY.G, { upm: S.EY.M.unitsPerEm,
+    asc: S.EY.M.ascender, boy, x: 0, taban: 0 }).gen;
+  const pen = (ilk, yakin, adet) => {   // 2–3 harfli sözcük < 0,2 sn ise sonrakinin başına dek
+    const sz = S.sozc;
+    return S.dizi(ilk, yakin, adet).map((k) => { const n = sz[sz.indexOf(k) + 1];
+      return { t0: k.t0, t1: k.sozcuk.length <= 3 && k.t1 - k.t0 < 0.2 && n ? n.t0 : k.t1 }; });
+  };
+  const etiket = S.elYazisi({ metin: "uncle's", x: 690 - eyGen("uncle's", 64) / 2, y: 890,
+    boy: 64, renk: SARI, sozcukler: pen("uncle's", 33.82, 1) });
   S.koy({ ciz: (ctx, f) => {                                         // yazı küçülmez (≥ 64 px): toplanan evin üstüne taşınır, 48 px sola kayar (figürün saçına değmesin)
     const u = yavasla((Math.min(f, ICERIK) - TOP.f0) / (TOP.f1 - TOP.f0)), k = 1 + (TOP.olcek - 1) * u;
     ctx.save(); ctx.translate((TOP.ax + (690 - TOP.ax) * k) - 690 - 48 * u, (TOP.ay + (890 - TOP.ay) * k) - 890); etiket.ciz(ctx, f); ctx.restore();
@@ -55,15 +65,20 @@ async function kur() {
   S.koy(S.grup(sahne, TOP));
 
   // 35,75–38,87 Türkçe çeviri (Caveat 64 mürekkep, 2 satır)
-  const tz = [["Çatı aktığı için bu hafta", 35.75, 722], ["amcamlarda kalıyoruz.", 37.43, 788]];
-  tz.forEach(([m, tb, y]) => S.koy(S.not({ parca: [[m, KREM]], x: 88, y, font: "700 64px Caveat", tb, sure: tb === 35.75 ? 1.5 : 0.9 })));
+  S.koy(S.elYazisi({ metin: "Çatı aktığı için bu hafta", x: 88, y: 722, boy: 64, renk: KREM,
+    sozcukler: pen("Çatı", 35.75, 5) }));
+  S.koy(S.elYazisi({ metin: "amcamlarda kalıyoruz.", x: 88, y: 788, boy: 64, renk: KREM,
+    sozcukler: pen("amcamlarda", 37.43, 2) }));
 
   // 38,87–40,27 geçici durum: not "geçici -> this week" + 7 günlük takvim şeridi
   {
     const gun = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], kw = 124, ad = 140, x0 = 58, ky = 1090, kh = 58;
-    S.koy(S.not({ parca: [["geçici", SARI]], x: 88, y: 1062, font: "700 64px Caveat", tb: 38.87, sure: 0.45, ses: 0.5 }));
+    S.koy(S.elYazisi({ metin: "geçici", x: 88, y: 1062, boy: 64, renk: SARI,
+      sozcukler: pen("Geçici", 38.87, 1) }));
     S.koy(S.darbeler(ok([300, 1042], [380, 1042], 3), { w: 8, renk: SARI, uc0: 10, uc1: 14 }, 39.3, 0.16, 0.12, 0.5));
-    S.koy(S.metinPop({ parca: [["this week", SARI]], x: 410, y: 1062, font: "700 64px Caveat", tb: 39.5, sure: 0.35, ses: 0.5 }));
+    // sol uç 400: eski orta hiza (410) oku (300–380) kesiyordu; ok ucundan 20 px pay
+    S.koy(S.elYazisi({ metin: "this week", x: 400, y: 1062, boy: 64, renk: SARI, tb: 39.5,
+      sure: 0.5 }));
     gun.forEach((g, i) => {
       S.koy(S.darbeler(kutu(x0 + ad * i, ky, kw, kh, 30 + i), { w: 3.6, renk: KREM, uc0: 8, uc1: 14 }, 39.1 + i * 0.07, 0.1, 0.07, i === 0 ? 0.45 : false));
     });

@@ -7,7 +7,7 @@ export const KARE = 442, T_BAS = 15.25;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1, kayma: 0 });
-  const { fr, ciz, daire, kutu, yazi, cumle, altCizgi, parilti, olay, not, bitis } = S;
+  const { fr, ciz, daire, kutu, yazi, elYazisi, cumle, altCizgi, parilti, olay, not, bitis } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil, KRE = RT.murekkep;
   const GB = 12;
   const f0 = (t) => Math.max(GB, fr(t));
@@ -52,13 +52,22 @@ export async function kur(P) {
   });
   not("z z z", fr(18.7));
 
-  // --- 22,30–26,18: Türkçe çeviri (Caveat 64 mürekkep, ≤ 24 karakter/satır) + "iki iş de sürüyor" (sarı, aynı blok)
-  const tr = S.sozcukler(3).slice(20, 25);                          // Bebek uyuyor, ben telefonda konuşuyorum.
-  const tz = cumle(tr.map((k, i) => ({ s: k.s, f: k.f, satir: i < 2 ? 0 : 1 })), { x: 88, y: 772, boyut: 64, aile: "Caveat", agirlik: 700, aralik: 66, renk: KRE });
-  not("Türkçe çeviri", tz[0].bas);
-  const it = S.sozcukler(3).slice(25, 31).filter((k) => ["İki", "iş", "de", "sürüyor."].includes(k.s));
-  const iz = cumle(it.map((k) => ({ s: k.s, f: k.f, satir: 2 })), { x: 88, y: 772, boyut: 64, aile: "Caveat", agirlik: 700, aralik: 66, renk: SARI });
-  not("iki iş de sürüyor", iz[0].bas);
+  // --- 22,30–27,42: Türkçe çeviri (Caveat 64, 2 satır) + "iki iş de sürüyor" (sarı, 3. satır);
+  // el yazısı, her sözcük kendi konuşma penceresinde. Kısa sözcük (< 0,2 sn) penceresi sonraki
+  // sözcüğün başına dek uzar.
+  const CS = S.sozcukler(3);
+  const pen = (ilk, adet) => { const i = CS.findIndex((w) => w.s === ilk);
+    return CS.slice(i, i + adet).map((w, k) => ({ f0: w.f,
+      f1: w.s.length <= 3 && w.f1 - w.f < 6 && CS[i + k + 1] ? CS[i + k + 1].f : w.f1 })); };
+  elYazisi("Bebek uyuyor,", { x: 88, y: 772, boyut: 64, renk: KRE, sozcukler: pen("Bebek", 2) });
+  not("Türkçe çeviri", pen("Bebek", 1)[0].f0);
+  elYazisi("ben telefonda konuşuyorum.", { x: 88, y: 838, boyut: 64, renk: KRE,
+    sozcukler: pen("ben", 3) });
+  {   // İki 25,14 · iş 25,34 · de 25,58 (şu anda 25,74–26,14 yazılmaz) · sürüyor. 26,18–27,42
+    const w = [...pen("İki", 3), ...pen("sürüyor.", 1)];
+    elYazisi("İki iş de sürüyor.", { x: 88, y: 904, boyut: 64, renk: SARI, sozcukler: w });
+    not("iki iş de sürüyor", w[0].f0);
+  }
 
   // --- 27,66: While vurgusu (kutu yerinde kalır, parıltı) ; 27,9–28,7 sahne toplanır
   olay(fr(27.66), "vurus", 0.8);
