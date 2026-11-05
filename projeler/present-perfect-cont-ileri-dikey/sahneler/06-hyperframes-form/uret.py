@@ -163,10 +163,10 @@ def uret():
     s.yol("k2t", Y.tik_yolu(X0 + 40 + w2 + 36 + w2b + 24, K2 - 60, 52), S(T1(7, 31)), 0.3, SAR, 10, 0.9, "cizgi",
           0.55)
     s.olay(S(T1(7, 31)), "vurus", 0.8)
-    nw = Y.genislik("Lexend", 700, "Next lesson", 36)
+    nw = Y.genislik("Lexend", 700, "Next lesson", 56)
     tn2 = S(T1(7, 31)) - 0.3
-    s.yazi("nx", 1032 - nw - 76, 944, [("Next lesson", KRE)], "Lexend", 700, 36, tn2, 0.3, tur="tik", guc=0.4)
-    s.yol("nxok", "M%.1f 932 L%.1f 932 M%.1f 922 L%.1f 932 L%.1f 942" % (1032 - 66, 1032 - 30, 1032 - 42,
+    s.yazi("nx", 1032 - nw - 76, 944, [("Next lesson", KRE)], "Lexend", 700, 56, tn2, 0.3, tur="tik", guc=0.4)
+    s.yol("nxok", "M%.1f 925 L%.1f 925 M%.1f 915 L%.1f 925 L%.1f 935" % (1032 - 66, 1032 - 30, 1032 - 42,
                                                                           1032 - 30, 1032 - 42), tn2 + 0.3,
           0.25, KRE, 4, 1, "cizgi", 0.4)
     # ---------------- altyazı: konuşulan parça ----------------
