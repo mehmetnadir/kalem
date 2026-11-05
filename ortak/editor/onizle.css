@@ -7,6 +7,7 @@
   --cizgi:#8fb4ff;--tik:#9be28e;--vurus:#ff7a66;--parilti:#f2c14b;
   --n-cizim:#52b69a;--n-metin:#d9a441;--n-kart:#9a82e0;--n-isaret:#e0708f;
   --et:104px;
+  --m-hf:#4fc3f7;--m-paper:#81c784;--m-canvas:#f2b84b;
 }
 body.acik{--sahne-bg:#ece6d6}
 *{box-sizing:border-box}
@@ -50,7 +51,8 @@ button.ik{width:34px;padding:0;display:inline-flex;align-items:center;justify-co
 #orta{grid-area:orta;display:flex;align-items:center;justify-content:center;background:#101113;min-width:0;min-height:0;
   position:relative}
 #sahne{position:relative;cursor:pointer}
-.pane{position:absolute;top:0;overflow:hidden;background:#15140f;box-shadow:0 0 0 1px var(--ln)}
+.pw{position:absolute;top:0}
+.pane{position:absolute;left:0;top:0;width:100%;overflow:hidden;background:#15140f;box-shadow:0 0 0 1px var(--ln)}
 .pane.acik{background:#ece6d6}
 #sahne iframe{position:absolute;left:0;top:0;width:1920px;height:1080px;border:0;transform-origin:0 0;
   pointer-events:none;opacity:0;background:inherit}
@@ -193,15 +195,27 @@ button.yt{height:20px;padding:0 7px;font-size:11px;border-radius:9px;background:
 .ym{position:absolute;top:3px;bottom:3px;width:8px;margin-left:-4px;cursor:pointer;background:var(--parilti);
   clip-path:polygon(0 0,100% 0,100% 62%,50% 100%,0 62%);opacity:.85}
 .ym.cz{background:#6b6f78}.ym.on,.ym:hover{opacity:1;outline:0;background:#fff}
-/* yan yana */
-#yy{position:absolute;top:6px;left:12px;right:12px;height:32px;display:flex;gap:16px;justify-content:center;
-  align-items:center;z-index:3}
+/* karşılaştırma: pencere çipleri + ses kaynağı */
+#yy{position:absolute;top:6px;left:12px;right:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;z-index:3;
+  max-height:72px;overflow:auto;padding:4px 8px;background:var(--p1);border:1px solid var(--ln);border-radius:6px}
 #yy[hidden]{display:none}
-#yy label{display:flex;gap:8px;align-items:center;color:var(--dm);font-size:11px;letter-spacing:.06em;
-  text-transform:uppercase}
-#yy select{width:220px;margin:0;height:28px}
-body.yan #tema{opacity:.4;pointer-events:none}
+#yy .yl,#yy label{display:flex;gap:6px;align-items:center;color:var(--dm);font-size:11px;letter-spacing:.06em;
+  text-transform:uppercase;white-space:nowrap}
+#yyc{display:flex;gap:4px;flex-wrap:wrap;flex:1}
+.pc{height:24px;padding:0 8px;font-size:11px;display:inline-flex;gap:5px;align-items:center}
+.pc small{font-size:10px;opacity:.75}
+.pc.sabit{cursor:default;outline:1px dashed rgba(255,255,255,.4);outline-offset:-1px}
+#yy select{width:120px;margin:0;height:24px;font-size:11px}
 body.yan #zoomE{opacity:.5}
+.pz{position:absolute;left:0;right:0;bottom:0;height:20px;z-index:5;display:none;gap:6px;align-items:center;
+  font-size:11px;color:var(--tx);padding:0 6px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pz:hover{color:#fff;background:var(--p3)}
+body.yan .pz{display:flex}
+.pz .md,#motorl i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--m);flex:none}
+.pz .ac{margin-left:4px;color:var(--vur);font-weight:700}
+#motorl{display:flex;gap:10px;padding:8px 12px 4px;font-size:11px;color:var(--dm);flex-wrap:wrap;
+  border-bottom:1px solid var(--ln)}
+#motorl i{margin-right:4px;vertical-align:middle}
 /* video meta kartı */
 .meta{margin:8px;padding:8px 10px;background:var(--p2);border:1px solid var(--ln);border-radius:6px;font-size:12px}
 .meta>b{display:block;font-size:13px}.meta>span{display:block;margin-top:2px}.meta>small{color:var(--dm);font-size:11px}

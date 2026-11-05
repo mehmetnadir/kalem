@@ -2,7 +2,6 @@
 // Sahneler iframe'de ?canli=1&mesaj=1 ile yalnız mesaj zamanıyla çizer.
 "use strict";
 var PROJE = KalemYol.projeAdi() || "present-continuous", YOL = KalemYol.projeYolu(PROJE), FPS = 30, GECIS = 0.4, ONYUKLE = 3, ET = 104;
-var RENK = ["var(--s0)", "var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)"];
 var BOLUM = ["Giriş", "Hook", "Example 1 / 3", "Example 2 / 3", "Example 3 / 3", "Question"];
 function bolumAd(i) {
   var s = S[i]; if (!s) return "";
@@ -15,7 +14,8 @@ var $ = function (s) { return document.querySelector(s); };
 var au = $("#au"), zk = $("#zk"), zi = $("#zi");
 var D = null, S = [], T = 94.33, GEN = 1920, YUK = 1080, t = 0, calma = "dur", hiz = 1, zoom = 1;
 var TEMA = "koyu", H = {};
-var sessiz = false, panes = [], yan = false, sonMs = 0, wave = null, sonOlay = -1;
+var sessiz = false, panes = [], yan = false, yyAcik = false, sonMs = 0, wave = null, sonOlay = -1;
+var SUA = [], HOSTK = "", ARA = 8, MAXP = 6;      // karşılaştırma: ana projenin sürümleri, ana pencere kimliği
 
 function e(tag, cls, html, ust) {
   var n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html;
@@ -133,19 +133,192 @@ window.addEventListener("message", function (ev) {
     });
   });
 });
-function olc() {
-  var o = $("#orta"), n = yan ? 2 : 1, ara = yan ? 8 : 0, ust = yan ? 44 : 0, sh = $("#sahne");
-  if (!panes.length) return;
-  var P = panes.slice(0, n), oran = P.reduce(function (a, p) { return a + p.gen / p.yuk; }, 0);
-  var h = Math.min(o.clientHeight - 24 - ust, (o.clientWidth - 24 - ara) / oran), x = 0;
-  sh.style.width = (h * oran + ara) + "px"; sh.style.height = h + "px";
-  panes.forEach(function (p, k) {
-    var w = h * p.gen / p.yuk;
-    p.el.style.display = k < n ? "block" : "none"; p.el.style.left = x + "px";
-    p.el.style.width = w + "px"; p.el.style.height = h + "px"; if (k < n) x += w + ara;
-    p.slot.forEach(function (s) {
-      s.f.style.width = p.gen + "px"; s.f.style.height = p.yuk + "px";
-      s.f.style.transform = "scale(" + (w / p.gen) + ")";
+function motorRenk(m) {
+  return /hyper/i.test(m) ? "var(--m-hf)" : /paper/i.test(m) ? "var(--m-paper)" : /canvas/i.test(m)
+    ? "var(--m-canvas)" : "var(--s5)";
+}
+function motorKisa(m) {
+  return /hyper/i.test(m) ? "HyperFrames" : /paper/i.test(m) ? "Paper.js" : /canvas/i.test(m) ? "Canvas" : m;
+}
+// ---------- Karşılaştırma: N pencere (sürüm × tema), tek saat, tek ses ----------
+var KISA = { "ana-yatay": "Yatay", "dikey-tam": "Dikey", shorts: "Shorts", dikey: "D1" };
+function anaProje() { return PROJE.replace(/-(dikey|s1|d1)$/, ""); }
+function suaBul(k) { return SUA.filter(function (x) { return x.kimlik === k; })[0]; }
+function projeSeviye(ad) { var m = /-(temel|orta|ileri)(-|$)/.exec(ad || ""); return m ? m[1] : ""; }
+function surumKisa(k) {                         // hedef projenin adından: biçim (Yatay/Dikey/Shorts/D1) + farklı seviye
+  var s = suaBul(k), a = s ? KalemYol.yeniAdres(surumAdres(s)) : "", proje = a ? KalemYol.projeAdi(a.split("?")[0]) : "";
+  if (!proje && k === HOSTK) proje = PROJE;
+  if (!proje) return KISA[k] || (s && TURAD[s.tur]) || k || PROJE;
+  var bicim = /-d1$/.test(proje) ? "D1" : /-dikey$/.test(proje) ? "Dikey" : /-s1$/.test(proje) ? "Shorts" : "Yatay";
+  var sev = projeSeviye(proje);
+  return bicim + (sev && sev !== projeSeviye(PROJE) ? " " + sev : "");
+}
+function suaYukle() {                            // sürüm listesi ana projeden (dikey/s1 projede surumler.json yok)
+  if (anaProje() === PROJE) { SUA = SU; return Promise.resolve(); }
+  return getJ("/api/" + encodeURIComponent(anaProje()) + "/surumler")
+    .then(function (x) { SUA = Array.isArray(x) ? x : (x.surumler || x.liste || []); })
+    .catch(function () { SUA = SU; });
+}
+function hostKimlik() {                          // bu projeyi önizleyen sürümün kimliği
+  for (var i = 0; i < SUA.length; i++) {
+    var a = KalemYol.yeniAdres(surumAdres(SUA[i])) || "";
+    if (a && KalemYol.projeAdi(a.split("?")[0]) === PROJE) return SUA[i].kimlik;
+  }
+  return SK;
+}
+function pencereAdaylari() {                     // [{kimlik, ad, adres}] pencere açılabilen sürümler
+  var L = [];
+  SUA.forEach(function (s) {
+    var a = KalemYol.yeniAdres(surumAdres(s)); if (!a || !KalemYol.projeAdi(a.split("?")[0])) return;
+    L.push({ kimlik: s.kimlik, ad: surumKisa(s.kimlik), adres: a });
+  });
+  if (!L.some(function (x) { return x.kimlik === HOSTK; })) {
+    L.unshift({ kimlik: HOSTK, ad: surumKisa(HOSTK), adres: KalemYol.editorYolu("onizle.html", "", PROJE) });
+  }
+  return L;
+}
+function paneOlustur(k, S0, yol0) {
+  var el = e("div", "pw", null, $("#sahne")); el.id = "pn" + k;
+  var ic = e("div", "pane", null, el);
+  var slot = [0, 1].map(function (m) {
+    var f = e("iframe", null, null, ic); f.title = "pencere " + k + " tampon " + (m + 1);
+    return { idx: m, f: f, no: -1, hazir: false, goster: false, sonT: null, op: -1, z: -1 };
+  });
+  var pl = e("div", "pz", null, el);
+  var p = { k: k, el: el, ic: ic, pl: pl, S: S0 || [], yol: yol0 || "", tema: TEMA, surum: "", kimlik: HOSTK,
+    gosterilen: -1, gen: GEN, yuk: YUK, slot: slot, etT: "" };
+  pl.onclick = function (ev) { ev.stopPropagation(); paneEditorAc(p); };
+  return p;
+}
+function paneEditorAc(p) {                       // pencerenin kendi editörünü aynı anda yeni sekmede aç
+  var ad = pencereAdaylari().filter(function (x) { return x.kimlik === (p.kimlik || HOSTK); })[0];
+  var a = ad ? ad.adres : KalemYol.editorYolu("onizle.html", "", PROJE);
+  var q = "surum=" + encodeURIComponent(p.kimlik || HOSTK) + "&tema=" + p.tema + "&t=" + (Math.round(t * 100) / 100);
+  window.open(a + (a.indexOf("?") < 0 ? "?" : "&") + q, "_blank");
+}
+function paneAnahtar(p) { return (p.kimlik || HOSTK) + ":" + p.tema; }
+function paneBul(key) { for (var k = 1; k < panes.length; k++) if (paneAnahtar(panes[k]) === key) return k; return -1; }
+function paneKapat(k) {
+  if (k <= 0 || k >= panes.length) return;
+  var p = panes[k]; p.slot.forEach(function (s) { s.f.src = "about:blank"; }); p.el.remove();
+  panes.splice(k, 1); panes.forEach(function (q, i) { q.k = i; q.el.id = "pn" + i; });
+}
+function paneAc(kimlik, tema) {
+  if (panes.length >= MAXP) { durumMesaj("En çok " + MAXP + " pencere"); return Promise.resolve(null); }
+  var p = paneOlustur(panes.length); p.tema = tema; p.kimlik = kimlik; panes.push(p);
+  if (kimlik === HOSTK) { paneKaynak(p, YOL, S); paneTema(p); olc(); return Promise.resolve(p); }
+  var ad = pencereAdaylari().filter(function (x) { return x.kimlik === kimlik; })[0];
+  var proje = ad ? KalemYol.projeAdi(ad.adres.split("?")[0]) : null;
+  if (!proje) { paneKapat(p.k); durumMesaj("Sürümün projesi yok: " + kimlik); return Promise.resolve(null); }
+  var yol = KalemYol.projeYolu(proje);
+  return getJ(yol + "zaman.json").then(function (z) {
+    p.gen = z.genislik || 1920; p.yuk = z.yukseklik || 1080; paneKaynak(p, yol, z.sahneler); paneTema(p); olc();
+    return p;
+  }).catch(function () { paneKapat(p.k); olc(); durumMesaj("Sürümün sahneleri yüklenemedi: " + kimlik); return null; });
+}
+function yanDurum() {                            // ≥2 pencere = karşılaştırma yerleşimi
+  var a = panes.length > 1;
+  if (a !== yan) {
+    yan = a; if (a) zoomSec(1);
+    document.body.classList.toggle("yan", a);
+  }
+  $("#yyb").classList.toggle("on", yyAcik); $("#yy").hidden = !yyAcik; olc();
+}
+function pencereToggle(key) {
+  if (key === paneAnahtar(panes[0])) return durumMesaj("Ana pencere kapanmaz; temasını üstten değiştir");
+  var k = paneBul(key), is = k > 0 ? (paneKapat(k), Promise.resolve())
+    : paneAc(key.split(":")[0], key.split(":")[1] || "koyu");
+  is.then(function () { yanDurum(); pencereCiz(); pencereYaz(); });
+}
+function pencereAc(keys) {                       // adresten: ?pencere=kimlik:tema,...
+  var L = keys.filter(function (k) { return k && paneBul(k) < 0 && k !== paneAnahtar(panes[0]); });
+  yyAcik = true;
+  Promise.all(L.map(function (k) { return paneAc(k.split(":")[0], k.split(":")[1] || "koyu"); }))
+    .then(function () { yanDurum(); pencereCiz(); pencereYaz(); });
+  yanDurum(); pencereCiz();
+}
+function yanSec(a) {
+  yyAcik = a;
+  if (a && panes.length === 1) {
+    var L = pencereAdaylari().filter(function (x) { return x.kimlik !== HOSTK; }).slice(0, MAXP - 1);
+    Promise.all(L.map(function (x) { return paneAc(x.kimlik, TEMA); }))
+      .then(function () { yanDurum(); pencereCiz(); pencereYaz(); });
+  } else if (!a) { while (panes.length > 1) paneKapat(panes.length - 1); }
+  yanDurum(); pencereCiz(); pencereYaz();
+}
+function hostCiftKapat() {                       // ana pencere temayı alınca aynı anahtarlı ek pencere kapanır
+  var k = paneBul(paneAnahtar(panes[0])); if (k > 0) { paneKapat(k); yanDurum(); pencereYaz(); }
+}
+function pencereYaz() {
+  try {
+    var q = new URLSearchParams(location.search), L = panes.slice(1).map(paneAnahtar);
+    if (L.length) q.set("pencere", L.join(",")); else q.delete("pencere");
+    q.delete("yan");
+    history.replaceState(null, "", q.toString() ? "?" + q.toString() : location.pathname);
+  } catch (er) {}
+}
+function pencereCiz() {                          // çipler: sürüm × tema; açık pencereler vurgulu
+  var kok = $("#yyc"); if (!kok) return; kok.innerHTML = "";
+  var host = paneAnahtar(panes[0]);
+  pencereAdaylari().forEach(function (x) {
+    ["koyu", "acik"].forEach(function (tm) {
+      var key = x.kimlik + ":" + tm, on = key === host || paneBul(key) > 0;
+      var b = e("button", "pc" + (on ? " on" : "") + (key === host ? " sabit" : ""),
+        ec(x.ad) + "<small>" + (tm === "acik" ? "açık" : "koyu") + "</small>", kok);
+      b.dataset.pk = key; b.title = key === host ? "Ana pencere (tema üstten)" : (on ? "Pencereyi kapat" : "Pencere aç");
+    });
+  });
+  sesSecenek();
+}
+var sesYol = YOL;
+function sesSecenek() {
+  var sel = $("#yss"); if (!sel) return; var o = "", gor = {};
+  panes.forEach(function (p) {
+    var y = p.yol || YOL; if (gor[y]) return; gor[y] = 1;
+    o += "<option value='" + ec(y) + "'" + (y === sesYol ? " selected" : "") + ">" + ec(surumKisa(p.kimlik || HOSTK))
+      + "</option>";
+  });
+  sel.innerHTML = o;
+}
+function sesSec(y) { if (y === sesYol) return; sesYol = y; sesYukle(y); }
+function paneEtiketYenile() {                    // pencere rozeti: sürüm · tema · sahne · motor (motor rengi)
+  panes.forEach(function (p) {
+    if (!p.S.length) return;
+    var i = sahneNo(p, t), s = p.S[i];
+    var tx = surumKisa(p.kimlik || HOSTK) + " · " + (p.tema === "acik" ? "açık" : "koyu") + " · " + pad(s.no) + " "
+      + s.klasor.replace(/^\d+-[a-z]+-/, "") + " · " + motorKisa(s.motor);
+    if (p.etT !== tx) {
+      p.pl.innerHTML = "<i class='md' style='--m:" + motorRenk(s.motor) + "'></i>" + ec(tx)
+        + "<span class='ac' title='Bu sürümün editörünü bu anda aç'>↗</span>";
+      p.etT = tx;
+    }
+  });
+}
+function olc() {                                 // pencereleri 1–3 satıra paketler, en büyük ortak yüksekliği seçer
+  var o = $("#orta"), sh = $("#sahne"), n = panes.length; if (!n) return;
+  var ust = yyAcik ? (Math.min(72, $("#yy").offsetHeight) + 10) : 0, W = o.clientWidth - 24, Hh = o.clientHeight - 24 - ust;
+  var en = null, ETK = yan ? 22 : 0;             // karşılaştırmada her pencerenin altında rozet satırı
+  for (var r = 1; r <= Math.min(3, n); r++) {
+    var per = Math.ceil(n / r), sat = [], h = (Hh - (r - 1) * ARA - r * ETK) / r;
+    for (var i = 0; i < n; i += per) {
+      var g = panes.slice(i, i + per), or = g.reduce(function (a, p) { return a + p.gen / p.yuk; }, 0);
+      sat.push({ g: g, or: or }); h = Math.min(h, (W - (g.length - 1) * ARA) / or);
+    }
+    if (!en || h > en.h) en = { h: h, sat: sat, r: r };
+  }
+  var h = en.h, gen = 0;
+  en.sat.forEach(function (s) { s.w = h * s.or + (s.g.length - 1) * ARA; gen = Math.max(gen, s.w); });
+  sh.style.width = gen + "px"; sh.style.height = (en.r * (h + ETK) + (en.r - 1) * ARA) + "px";
+  sh.style.marginTop = ust + "px";
+  en.sat.forEach(function (s, ri) {
+    var x = (gen - s.w) / 2;
+    s.g.forEach(function (p) {
+      var w = h * p.gen / p.yuk;
+      p.el.style.display = "block"; p.el.style.left = x + "px"; p.el.style.top = (ri * (h + ETK + ARA)) + "px";
+      p.el.style.width = w + "px"; p.el.style.height = (h + ETK) + "px"; p.ic.style.height = h + "px"; x += w + ARA;
+      p.slot.forEach(function (sl) {
+        sl.f.style.width = p.gen + "px"; sl.f.style.height = p.yuk + "px"; sl.f.style.transform = "scale(" + (w / p.gen) + ")";
+      });
     });
   });
 }
@@ -158,44 +331,9 @@ function paneKaynak(p, yol, L) {
   });
 }
 function paneTema(p) {
-  p.el.classList.toggle("acik", p.tema === "acik");
+  p.ic.classList.toggle("acik", p.tema === "acik");
   p.slot.forEach(function (s) {
     try { s.f.contentWindow.postMessage({ tip: "tema", ad: p.tema }, "*"); } catch (er) {}
-  });
-}
-function surumTaban(a) { return a.split("?")[0].replace(/[^\/]*$/, ""); }
-function paneAyarla(p, v) {                            // v: "t:koyu" | "t:acik" | "s:<sürüm kimliği>"
-  if (v.indexOf("t:") === 0) {
-    p.tema = v.slice(2);
-    if (p.surum) { p.surum = ""; p.gen = GEN; p.yuk = YUK; paneKaynak(p, YOL, S); olc(); }
-    paneTema(p); return;
-  }
-  var kid = v.slice(2), s = surumBul(kid), taban = s ? surumTaban(surumAdres(s)) : "";
-  getJ(taban + "zaman.json").then(function (z) {
-    p.surum = kid; p.gen = z.genislik || 1920; p.yuk = z.yukseklik || 1080;
-    paneKaynak(p, taban, z.sahneler); paneTema(p); olc();
-  })
-    .catch(function () { durumMesaj("Sürümün sahneleri yüklenemedi"); paneSecenek(); });
-}
-function yanSec(a) {
-  if (a === yan) return;
-  if (a) zoomSec(1);
-  yan = a; $("#yyb").classList.toggle("on", a); $("#yy").hidden = !a; document.body.classList.toggle("yan", a);
-  if (a) {
-    var p1 = panes[1]; p1.tema = panes[0].tema === "koyu" ? "acik" : "koyu"; p1.surum = "";
-    paneKaynak(p1, YOL, S); paneTema(p1);
-  }
-  paneSecenek(); olc();
-}
-function paneSecenek() {
-  [0, 1].forEach(function (k) {
-    var sel = $("#ys" + k), p = panes[k]; if (!sel || !p) return;
-    var o = "<option value='t:koyu'>Koyu tema</option><option value='t:acik'>Açık tema</option>";
-    SU.forEach(function (s) {
-      if (!surumAdres(s) || s.kimlik === SK) return;
-      o += "<option value='s:" + ec(s.kimlik) + "'>Sürüm: " + ec(s.ad || s.kimlik) + "</option>";
-    });
-    sel.innerHTML = o; sel.value = p.surum ? "s:" + p.surum : "t:" + p.tema;
   });
 }
 
@@ -225,7 +363,7 @@ function hizSec(h) {
 function temaSec(a) {
   TEMA = a; document.body.classList.toggle("acik", a === "acik");
   document.querySelectorAll("#tema button").forEach(function (b) { b.classList.toggle("on", b.dataset.t === a); });
-  if (panes[0]) { panes[0].tema = a; paneTema(panes[0]); paneSecenek(); }
+  if (panes[0]) { panes[0].tema = a; paneTema(panes[0]); hostCiftKapat(); pencereCiz(); }
   try {
     var q = new URLSearchParams(location.search);
     if (a === "acik") q.set("tema", "acik"); else q.delete("tema");
@@ -277,7 +415,7 @@ function zamanCizgisiKur() {
   var sr = satir("Sahne", 26); H.sbl = [];
   S.forEach(function (s, i) {
     var n = blok(sr.ic, s.t_bas, s.t_son, "b", pad(s.no) + " " + s.klasor.slice(3), s.klasor + " · " + s.motor);
-    n.style.setProperty("--r", RENK[i]); n.onclick = function (ev) { ev.stopPropagation(); git(s.t_bas); };
+    n.style.setProperty("--r", motorRenk(s.motor)); n.onclick = function (ev) { ev.stopPropagation(); git(s.t_bas); };
       H.sbl.push(n);
   });
   // ses dalgası
@@ -362,9 +500,12 @@ function dalgaCiz() {
   }
 }
 // wav bir kez indirilir: <audio> blob'dan çalar, dalga aynı veriden çözülür
-function sesYukle() {
-  return fetch(YOL + "ortak/anlatim/anlatim.wav").then(function (r) { return r.arrayBuffer(); }).then(function (buf) {
+function sesYukle(yol) {                        // yol: ses kaynağı projesi (karşılaştırmada seçilir)
+  var oynuyor = calma === "ileri", t0 = t; if (yol) dur();
+  return fetch((yol || YOL) + "ortak/anlatim/anlatim.wav").then(function (r) { return r.arrayBuffer(); })
+    .then(function (buf) {
     au.src = URL.createObjectURL(new Blob([buf], { type: "audio/wav" }));
+    if (yol) au.addEventListener("loadedmetadata", function () { git(t0); if (oynuyor) oyna(); }, { once: true });
     return new OfflineAudioContext(1, 1, 44100).decodeAudioData(buf);
   }).then(function (ab) {
     var d = ab.getChannelData(0), bps = 200, n = Math.ceil(ab.duration * bps), per = Math.floor(ab.sampleRate / bps);
@@ -433,11 +574,14 @@ function sagKur() {
       sn(o.guc) + "</span><span class='chip'>" + pad(S[o.sahne].no) + "</span>", po);
     n.style.setProperty("--c", "var(--" + o.tur + ")"); n._o = o; n.onclick = function () { git(o.t); }; H.ol.push(n);
   });
-  var sol = $("#sahneler");
+  var sol = $("#sahneler"), lg = e("div", null, null, sol); lg.id = "motorl";
+  [["HyperFrames", "var(--m-hf)"], ["Paper.js", "var(--m-paper)"], ["Canvas", "var(--m-canvas)"]].forEach(function (m) {
+    e("span", null, "<i style='--m:" + m[1] + "'></i>" + m[0], lg);
+  });
   S.forEach(function (s, i) {
     var b = e("button", "sl", "<i></i><span><b>" + pad(s.no) + " " + bolumAd(i) + "</b><small>"
       + s.motor + " · " + sn(s.t_son - s.t_bas) + " sn</small></span>", sol);
-    b.style.setProperty("--r", RENK[i]); b.onclick = function () { git(s.t_bas); }; b.dataset.i = i;
+    b.style.setProperty("--r", motorRenk(s.motor)); b.onclick = function () { git(s.t_bas); }; b.dataset.i = i;
   });
   document.querySelectorAll("#sek2 button").forEach(function (b) {
     b.onclick = function () {
@@ -545,7 +689,8 @@ function dongu(ms) {
     dur(); } }
   else if (calma === "geri") { t -= dt * hiz; if (t <= 0) { t = 0; dur(); } }
   var y = sahneYonet(panes[0], t);
-  if (yan) sahneYonet(panes[1], t);
+  for (var k = 1; k < panes.length; k++) if (panes[k].S.length) sahneYonet(panes[k], t);
+  if (yan) paneEtiketYenile();
   if (panes[0].S !== S) y = { i: sahneNo({ S: S }, t), cur: true, sonraki: {} };
   arayuz(t, y);
   requestAnimationFrame(dongu);
@@ -590,9 +735,11 @@ $("#hiz").addEventListener("click", function (ev) { var b = ev.target.closest("[
 $("#tema").addEventListener("click", function (ev) { var b = ev.target.closest("[data-t]");
   if (b) temaSec(b.dataset.t); });
 $("#png").onclick = karePng;
-$("#yyb").onclick = function () { yanSec(!yan); };
-[0, 1].forEach(function (k) { $("#ys" + k).onchange = function (ev) { paneAyarla(panes[k], ev.target.value); }; });
+$("#yyb").onclick = function () { yanSec(!yyAcik); };
+$("#yyc").onclick = function (ev) { var b = ev.target.closest("[data-pk]"); if (b) pencereToggle(b.dataset.pk); };
+$("#yss").onchange = function (ev) { sesSec(ev.target.value); };
 $("#sahne").onclick = function () { oyna(); };
+au.addEventListener("ended", function () { if (calma === "ileri") dur(); });   // kısa ses kaynağı (shorts) bitince dur
 addEventListener("resize", function () { olc(); zoomUygula(false); });
 
 // ---------- Görev haritası verisi: API varsa yazılır, yoksa dosyadan salt okunur ----------
@@ -656,7 +803,7 @@ function yenile() {
     listeAl("yorumlar", "yorumlar.json")]).then(function (a) { SU = a[0]; GO = a[1]; YO = a[2]; return metaYukle(); })
     .then(hepsiCiz);
 }
-function hepsiCiz() { agacCiz(); gorevCiz(); yorumCiz(); yorumSeritCiz(); paneSecenek(); }
+function hepsiCiz() { agacCiz(); gorevCiz(); yorumCiz(); yorumSeritCiz(); pencereCiz(); }
 function uyariHtml() {
   return apiVar ? "" : "<div class='uy'>Sunucu API'si kapalı: kayıtlar salt okunur; ekleme ve durum değişimi "
     + "yok.</div>";
@@ -903,16 +1050,13 @@ veriYukle().then(function (v) {
   D = v; S = v.z.sahneler; FPS = v.z.fps; T = S[S.length - 1].t_son;
   GEN = v.z.genislik || 1920; YUK = v.z.yukseklik || 1080;
   TEMA = QS.get("tema") === "acik" ? "acik" : "koyu";
-  panes = [0, 1].map(function (k) {
-    return { k: k, el: $("#pn" + k), S: S, yol: YOL, tema: TEMA, surum: "", gosterilen: -1,
-      gen: GEN, yuk: YUK,
-      slot: [0, 1].map(function (m) { return { idx: m, f: $("#f" + k + m), no: -1, hazir: false, goster: false,
-        sonT: null, op: -1, z: -1 }; }) };
-  });
+  panes = [paneOlustur(0, S, YOL)];
   sagKur(); gorevKur(); zamanCizgisiKur(); temaSec(TEMA); hizSec(1); olc();
   window.EDITOR = { git: git, durum: function () { return { t: t, calma: calma, yan: yan, slot: panes[0].slot.map(
-    function (s) { return { no: s.no, hazir: s.hazir, goster: s.goster, op: s.op }; }) }; }, oyna: oyna, dur: dur,
-    zoom: zoomSec, yan: yanSec };
+    function (s) { return { no: s.no, hazir: s.hazir, goster: s.goster, op: s.op }; }),
+    pencereler: panes.map(function (p) { var i = p.S.length ? sahneNo(p, t) : -1; return { kimlik: p.kimlik || HOSTK,
+      tema: p.tema, sahne: i, hazir: !!(i >= 0 && slotBul(p, i, true)), gen: p.gen, yuk: p.yuk }; }) }; },
+    oyna: oyna, dur: dur, zoom: zoomSec, yan: yanSec, pencere: pencereToggle };
   requestAnimationFrame(dongu);
   return haritaVeri;
 }).then(function (a) {
@@ -925,5 +1069,9 @@ veriYukle().then(function (v) {
   kirintiKur(s ? (s.ad || s.kimlik) : SK);
   hepsiCiz(); yorumMetaYaz();
   if (QS.get("t")) git(+QS.get("t") || 0);
-  if (QS.get("yan") === "1") yanSec(true);
+  return suaYukle();
+}).then(function () {
+  HOSTK = hostKimlik(); panes[0].kimlik = HOSTK;
+  var pk = QS.get("pencere");
+  if (pk) pencereAc(pk.split(",")); else if (QS.get("yan") === "1") yanSec(true); else pencereCiz();
 }).catch(function (er) { $("#bekle").textContent = "Veri yüklenemedi: " + er; });
