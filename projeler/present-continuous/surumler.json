@@ -42,21 +42,6 @@
       "tarih": "2026-11-04T09:00:00Z"
     },
     {
-      "kimlik": "dikey",
-      "video": "present-continuous",
-      "tur": "dikey",
-      "ad": "D1 dikey parça: -yor = -ing (54 sn)",
-      "senaryo": "../present-continuous-d1/BRIEF-D1.md",
-      "kapak": "-YOR = -ING",
-      "seviye": "temel",
-      "kaynak": "ana-yatay",
-      "durum": "inceleme",
-      "onizleme": "/p/present-continuous-d1/onizle.html",
-      "tarih": "2026-11-04T19:05:00Z",
-      "kapak_canalici": 1,
-      "proje": "present-continuous-d1"
-    },
-    {
       "kimlik": "shorts",
       "video": "present-continuous",
       "tur": "shorts",
