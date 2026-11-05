@@ -1,0 +1,10 @@
+<!doctype html><meta charset="utf-8"><body style="margin:0;background:#1b1a17">
+<canvas id="cv" width="1080" height="1920" hidpi="off"></canvas>
+<script src="/motorlar/paperjs/node_modules/paper/dist/paper-core.js"></script>
+<script type="module">
+// SAHNE 02 İLERİ DİKEY — Kural: Paper.js, 1080x1920, 30 fps, 461 kare. Ortak kalem modülü: kalem-paper.js.
+import { surucu } from "/ortak/surucu.js";
+import { kur, KARE } from "/projeler/present-perfect-ileri-dikey/sahneler/02-paperjs-kanca/sahne-02.js";
+let S;
+surucu(async () => { S = await kur(paper); }, (f) => S.kare(f), KARE);
+</script>
