@@ -1,13 +1,26 @@
 // Sahne 03 — Örnek 1 (PPC temel, 467 kare, t_bas 17,13; cümle 3). Zamanlar BRIEF §4 (küresel sn);
 // yerel kare = round((t − 17,13) × 30). Sözcük zamanları sozcukler.json'dan, kayma yok.
 import { sahneKur, RT, renkCoz } from "/projeler/present-perfect-cont-temel/sahneler/03-paperjs-ornek1/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/present-perfect-cont-temel/ortak/kalem-canvas.js";
 
 export const KARE = 467, T_BAS = 17.13;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1 });
-  const { fr, ciz, daire, yazi, cumle, altCizgi, parilti, olay, not, bitis, dinamik, genislik } = S;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, altCizgi, parilti, olay, not, bitis, dinamik,
+    genislik } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil;
+
+  // El yazısı (Caveat 700 tegaki, dalga 5b-2 / K26): ortalı etiketin genişliği tegaki verisinden
+  // ölçülür; sözcük pencereleri anlatımın f / f1 karelerinden gelir.
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm, asc: EY.M.ascender,
+    boy: boyut, x: 0, taban: 0 }).gen;
+  const CS = S.sozcukler(3);                                       // cümle 3: f / f1 yerel kare
+  const pen = (ilk, adet) => { const i = CS.findIndex((w) => w.s === ilk);
+    return CS.slice(i, i + adet).map((w) => ({ f0: w.f, f1: w.f1 })); };
 
   // --- 17,68–18,64: büyük el çizimi daire içinde 1 (x 200, y 190)
   const d1 = daire(200, 190, 66, 62, { bas: fr(17.68), sure: 20, a0: -2.6 }); olay(bitis(d1), "tik", 0.5);
@@ -40,12 +53,16 @@ export async function kur(P) {
     const yay = ciz([[a.x0, y0 - 8], [xm - 120, y0 + 10], [xm + 120, y0 + 10], [b.x1, y0 - 8]],
       { w: 8, renk: SARI, alfa: 0.85, bas: fr(20.41), sure: 26, uc0: 14, uc1: 30, amp: 0.7 });
     not("for twenty minutes yayı", yay.bas);
-    yazi("20 dk", { x: b.x1 - 170, y: a.y + 82, boyut: 52, renk: SARI, bas: bitis(yay) - 4,
-      sure: 12, ses: true });
+    // yay bitişi − 4 kare ≈ 21,1; anlatımsız etiket `20 dk`: hedef 14 kare
+    elYazisi("20 dk", { x: b.x1 - 170, y: a.y + 82, boyut: 52, renk: SARI, bas: bitis(yay) - 4,
+      sure: 14, ses: true });
   }
 
   // --- 22,10–24,26: Yirmi dakikadır otobüs bekliyorum. (Caveat 48 ikincil, y 505)
-  yazi("Yirmi dakikadır otobüs bekliyorum.", { x: 140, y: 505, boyut: 48, renk: IKI, bas: fr(22.1), sure: 22 });
+  // 22,10–24,26 (pencere: Yirmi 22,10–22,38 · dakikadır 22,42–22,98 · otobüs 23,06–23,38 ·
+  // bekliyorum. 23,50–24,26)
+  elYazisi("Yirmi dakikadır otobüs bekliyorum.", { x: 140, y: 505, boyut: 48, renk: IKI,
+    sozcukler: pen("Yirmi", 4) });
   not("Türkçe çeviri", fr(22.1));
 
   // --- 24,30–25,62: zaman çizgisi (y 640), 20 dk önce noktası, nabız atan now, dalgalı in progress bandı
@@ -76,8 +93,9 @@ export async function kur(P) {
     const w = ciz(dalga, { w: 7.5, renk: SARI, alfa: 0.85, bas: fr(25.08), sure: 22, duz: true, uc0: 12, uc1: 24,
       amp: 0.5 });
     not("in progress bandı", w.bas);
-    yazi("in progress", { x: (xP + xN) / 2, y: yT - 82, hizala: "orta", boyut: 44, renk: SARI,
-      bas: bitis(w) - 6, sure: 12, ses: true });
+    // dalga bitişi − 6 kare ≈ 25,6; anlatımsız etiket `in progress`: hedef 14 kare → 26,1
+    elYazisi("in progress", { x: (xP + xN) / 2 - eyGen("in progress", 44) / 2, y: yT - 82,
+      boyut: 44, renk: SARI, bas: bitis(w) - 6, sure: 14, ses: true });
   }
 
   // --- 25,87–28,28: for (Fredoka 130 sarı, vurus) + Caveat süre uzunluğu
@@ -86,7 +104,9 @@ export async function kur(P) {
     yazi("for", { x: 1010, y: 870, boyut: 130, aile: "Fredoka", agirlik: 700, renk: SARI, bas: f0, sure: 10,
       olcek: true, ses: "vurus" });
     olay(f0, "vurus", 0.85); not("for (vurgu)", f0);
-    yazi("süre uzunluğu", { x: 1010, y: 950, boyut: 56, renk: IKI, bas: fr(27.64), sure: 14, ses: true });
+    // 27,64–28,24 «Süre bu.» (27,64–28,28): hedef 18 kare
+    elYazisi("süre uzunluğu", { x: 1010, y: 950, boyut: 56, renk: IKI, bas: fr(27.64), sure: 18,
+      ses: true });
     not("süre uzunluğu", fr(27.64));
     parilti(1190, 780, { bas: f0 + 8, r: 24 });
   }

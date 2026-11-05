@@ -7,6 +7,9 @@ const KARE = 439, TBAS = 47.27, ICERIK = 427;
 const KOKDIZ = "/projeler/present-perfect-cont-temel/ortak/cizim";
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: 0, bolum: "Example 3 / 3", cumle: 5 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
+// t1 < 0,2 sn olan sözcük penceresi sonraki sözcüğün başına dek uzar (karar 6)
+const pencere = (liste) => liste.map((w, i, a) => ({ t0: w.t0,
+  t1: w.t1 - w.t0 < 0.2 && a[i + 1] ? a[i + 1].t0 : w.t1 }));
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
 
 async function kur() {
@@ -55,12 +58,18 @@ async function kur() {
 
   // 53,12–56,40 Türkçe çeviri (Caveat 48): iki cümle alt alta
   const ytr = sonSatir + 78;
-  S.koy(S.not({ parca: [["Bak, sokak ıslak.", IKINCIL]], x: 140, y: ytr, tb: 53.12, sure: 0.5 }));
-  S.koy(S.not({ parca: [["Yağmur bir süredir yağıyor.", IKINCIL]], x: 140, y: ytr + 56, tb: 54.88, sure: 0.7 }));
+  // pencere: Bak, 53,12–53,68 · sokak 53,72–54,00 · ıslak. 54,08–54,68
+  S.koy(S.elYazisi({ metin: "Bak, sokak ıslak.", x: 140, y: ytr, renk: IKINCIL,
+    sozcukler: pencere(S.dizi("Bak,", 53.12, 3)) }));
+  // pencere: Yağmur 54,88–55,20 · bir 55,28→55,40 · süredir 55,40–55,68 · yağıyor. 55,76–56,40
+  S.koy(S.elYazisi({ metin: "Yağmur bir süredir yağıyor.", x: 140, y: ytr + 56, renk: IKINCIL,
+    sozcukler: pencere(S.dizi("Yağmur", 54.88, 4)) }));
 
   // 56,56–57,76 sarı ok ıslak sokağa + Caveat vurgu (sonuç ipucu)
   const yn = ytr + 56 + 74;
-  S.koy(S.not({ parca: [["izi şimdi görünüyor", SARI]], x: 140, y: yn, font: "700 56px Caveat", tb: 56.56, sure: 0.6 }));
+  // pencere: İzi 56,56→56,80 · şimdi 56,80–57,04 · görünüyor. 57,08–57,76
+  S.koy(S.elYazisi({ metin: "izi şimdi görünüyor", x: 140, y: yn, boy: 56, renk: SARI,
+    sozcukler: pencere(S.dizi("İzi", 56.56, 3)) }));
   S.koy(S.darbeler(ok([560, yn - 18], [1000, 884], 5), { w: 6.5, renk: SARI, uc0: 10, uc1: 14 }, 57.1, 0.4, 0.2, 0.55));
 
   // 57,91–61,51 formül kartı: has been + V-ing / has been / rain-ing; halka has been (59,51) ve raining (60,79)
