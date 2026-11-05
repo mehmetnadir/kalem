@@ -13,6 +13,12 @@ const S = new Sahne({
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
 const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+// El yazısı (tegaki Caveat, dalga 5 / K26): sözcük penceresi = anlatım t0/t1 (küresel sn);
+// <0,2 sn pencere sonraki sözcüğün başına uzar.
+const pen = (ad, t, n) => {
+  const q = S.dizi(ad, t, n + 1);
+  return q.slice(0, n).map((w, k) => ({ t0: w.t0, t1: w.t1 - w.t0 < 0.2 ? q[k + 1].t0 : w.t1 }));
+};
 
 async function kur() {
   await S.kur();
@@ -50,10 +56,9 @@ async function kur() {
 
   // 50,32 Türkçe çeviri (Caveat 64, mürekkep)
   const ytr = sonSatir + 100;
-  S.koy(S.not({
-    parca: [["Bak, kedi ağaca tırmanıyor.", KREM]], x: 88, y: ytr, font: CV(64),
-    tb: 50.32, sure: 0.55
-  }));
+  // 50,32–52,80 «Bak, kedi ağaca tırmanıyor.» (pencere: 4 sözcük)
+  S.koy(S.elYazisi({ metin: "Bak, kedi ağaca tırmanıyor.", x: 88, y: ytr, boy: 64, renk: KREM,
+    sozcukler: pen("Bak,", 50.32, 4) }));
 
   // 47,3–48,6 ağaç (460 px); 48,4 kedi (150 px) gövde boyunca aşağıdan ortaya tırmanır
   const TX = 80, TY = 810, TB = 460;
@@ -96,19 +101,24 @@ async function kur() {
   // 52,88–54,52 etiket sütunu (sağ): Look! / Listen! / Watch out! el kutusunda;
   // 57,12 "= şimdi"
   const RX = 610, bh = 80, lfn = CV(64);
-  [["Look!", 52.88, 830], ["Listen!", 53.6, 925], ["Watch out!", 54.52, 1020]]
-    .forEach(([m, tb, yy], i) => {
+  // pencereler: Look! 52,88–53,52 · Listen! 53,60–54,40 ·
+  // Watch 54,52–54,72 (uzatıldı) · out 54,72–55,04
+  [["Look!", 52.88, 830, pen("Look,", 52.88, 1)], ["Listen!", 53.6, 925, pen("listen,", 53.6, 1)],
+    ["Watch out!", 54.52, 1020, pen("watch", 54.52, 2)]]
+    .forEach(([m, tb, yy, soz], i) => {
     const w = olc(lfn, m) + 56;
     S.koy(S.darbeler(
       kutu(RX, yy, w, bh, 30 + i), { w: 4, renk: KREM, uc0: 8, uc1: 14 },
       tb, 0.1, 0.06, false
     ));
-    S.koy(S.metinPop({
-      parca: [[m, KREM]], x: RX + 28, y: yy + 58, font: lfn, tb: tb + 0.22, sure: 0.3, ses: 0.5
-    }));
+    S.koy(S.elYazisi({ metin: m, x: RX + 28, y: yy + 58, boy: 64, renk: KREM, sozcukler: soz }));
   });
-  const sx = RX + 30, sy = 1170, sf = CV(84), sw = olc(sf, "= şimdi");
-  S.koy(S.not({ parca: [["= şimdi", SARI]], x: sx, y: sy, font: sf, tb: 57.12, sure: 0.5 }));
+  // 57,12 anlatımsız formül etiketi `= şimdi`: hedef 0,5 sn → 57,62; alt çizgi 57,70
+  const sx = RX + 30, sy = 1170;
+  const ey = S.elYazisi({ metin: "= şimdi", x: sx, y: sy, boy: 84, renk: SARI, tb: 57.12,
+    sure: 0.5 });
+  S.koy(ey);
+  const sw = ey.w;
   S.koy(S.darbe([[sx, sy + 18], [sx + sw * 0.5, sy + 14], [sx + sw, sy + 19]],
     { w: 8, renk: RT.vurguDolgu, alfa: 0.85, uc0: 8, uc1: 14, duz: true }, 57.7, 0.3, 0.55));
   S.koy(S.parilti(sx + sw + 40, sy - 60, 58.0, 30));
@@ -120,9 +130,9 @@ async function kur() {
     parca: [["is", KREM], [" + ", IKINCIL], ["climb", KREM], ["-ing", SARI]],
     x: 540, y: 1364,
     font: FF(110), hiza: "orta", tb: 60.0, sure: 0.4, ses: 0.8, turu: "vurus" }));
-  S.koy(S.not({
-    parca: [["be + V-ing", IKINCIL]], x: RX + 30, y: 1255, font: CV(72), tb: 61.14, sure: 0.5
-  }));
+  // 61,14 anlatımsız formül etiketi `be + V-ing`: hedef 0,7 sn → 61,84
+  S.koy(S.elYazisi({ metin: "be + V-ing", x: RX + 30, y: 1255, boy: 72, renk: IKINCIL,
+    tb: 61.14, sure: 0.7 }));
 }
 
 surucu(kur, (f) => S.kare(f), KARE);

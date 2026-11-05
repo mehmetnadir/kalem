@@ -5,6 +5,8 @@
 // kart (tam genişlik) → TR çeviri → not → ORTA figür + piyano → alt formül.
 import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, ok, kutu, olc } from "./sahne-ortak.js";
+import { yaziNoktalari }
+  from "/projeler/present-continuous-dikey/ortak/kalem-canvas.js";
 
 const KARE = 487, TBAS = 30.15, ICERIK = 475;
 const S = new Sahne({
@@ -13,7 +15,15 @@ const S = new Sahne({
 const KOKDIZ = "/projeler/present-continuous-dikey/ortak/cizim";
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKI = RT.ikincil, SARI = RT.vurgu;
-const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+const FF = (b) => `700 ${b}px Fredoka`;
+// El yazısı (tegaki Caveat, dalga 5 / K26): sözcük penceresi = anlatım t0/t1 (küresel sn);
+// <0,2 sn pencere sonraki sözcüğün başına uzar. Genişlik tegaki verisinden ölçülür.
+const pen = (ad, t, n) => {
+  const q = S.dizi(ad, t, n + 1);
+  return q.slice(0, n).map((w, k) => ({ t0: w.t0, t1: w.t1 - w.t0 < 0.2 ? q[k + 1].t0 : w.t1 }));
+};
+const eyGen = (m, b) => yaziNoktalari(m, S.EY.G, { upm: S.EY.M.unitsPerEm,
+  asc: S.EY.M.ascender, boy: b, x: 0, taban: 0 }).gen;
 
 async function kur() {
   await S.kur();
@@ -31,26 +41,24 @@ async function kur() {
     0.12, 0.55));
   const kel = (ad) => cum.kel.find((k) => k.m === ad);
 
-  // 34,89 Türkçe çeviri (Caveat 64, mürekkep)
+  // 34,89–37,37 «Kardeşim bu dönem piyano dersi alıyor.» (pencere: 6 sözcük)
   const yTR = kartAlt + 58;
-  S.koy(S.not({
-    parca: [["Kardeşim bu dönem piyano dersi alıyor.", KREM]],
-    x: 64, y: yTR, font: CV(64), tb: 34.89,
-    sure: 0.7 }));
+  S.koy(S.elYazisi({ metin: "Kardeşim bu dönem piyano dersi alıyor.", x: 64, y: yTR, boy: 64,
+    renk: KREM, sozcukler: pen("Kardeşim", 34.89, 6) }));
 
   // 37,41 not: şu anda değil → bu günlerde (Caveat 64, ok kalemle)
-  const yN = yTR + 70, fN = CV(64), w1 = olc(fN, "şu anda değil"), w2 = olc(fN, "bu günlerde");
+  const yN = yTR + 70, w1 = eyGen("şu anda değil", 64), w2 = eyGen("bu günlerde", 64);
   const xN = Math.max(64, (1080 - (w1 + w2 + 190)) / 2);
-  S.koy(S.not({
-    parca: [["şu anda değil", KREM]], x: xN, y: yN, font: fN, tb: 37.41, sure: 0.55
-  }));
+  // 37,41–39,13 «şu anda (piyanonun başında) değil» (pencere: şu 37,41 · anda 37,65 · değil 38,65)
+  S.koy(S.elYazisi({ metin: "şu anda değil", x: xN, y: yN, boy: 64, renk: KREM,
+    sozcukler: [...pen("Şu", 37.41, 2), ...pen("değil.", 38.65, 1)] }));
   S.koy(S.darbeler(
     ok([xN + w1 + 22, yN - 20], [xN + w1 + 150, yN - 20], 3),
     { w: 7, renk: SARI, uc0: 10, uc1: 14 },
     38.9, 0.18, 0.12, 0.5));
-  S.koy(S.not({
-    parca: [["bu günlerde", SARI]], x: xN + w1 + 172, y: yN, font: fN, tb: 39.69, sure: 0.5
-  }));
+  // 39,53–40,01 «bu günlerde» (pencere: bu 39,53 → günlerde başına · günlerde 39,69–40,01)
+  S.koy(S.elYazisi({ metin: "bu günlerde", x: xN + w1 + 172, y: yN, boy: 64, renk: SARI,
+    sozcukler: pen("bu", 39.53, 2) }));
 
   // ORTA: kız kardeş (sitting-2) + piyano + 3 nota; bant yN+36 → 1150
   const fUst = yN + 22, fAlt = 1180, fYuk = fAlt - fUst;

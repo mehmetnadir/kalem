@@ -12,9 +12,15 @@ export const KARE = 385, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook", etkin: 0, kayma: 0 });
-  const { fr, ciz, daire, ok, yazi, cumle, altCizgi, tik, parilti, olay, not, bitis } = S;
+  const { fr, ciz, daire, ok, yazi, elYazisi, cumle, altCizgi, tik, parilti, olay, not, bitis } = S;
   const SARI = RT.vurgu, KRE = RT.murekkep, IKI = RT.ikincil;
   const GB = 12; // geçiş karesi: çizimler bundan sonra başlar
+  // El yazısı (Caveat 700 tegaki, dalga 5 / K26): not ve etiketler kalemle yazılır.
+  // Sözcük pencereleri cümle 2 anlatımından (f0 / f1 kare); <6 kare pencere sonraki sözcüğe uzar.
+  const CS = S.sozcukler(2);
+  const pen = (ilk, adet) => { const i = CS.findIndex((w) => w.s === ilk);
+    return CS.slice(i, i + adet).map((w, k) => ({ f0: w.f,
+      f1: w.f1 - w.f < 6 && CS[i + k + 1] ? CS[i + k + 1].f : w.f1 })); };
 
   // --- Cümle 1: kart tek satır (kutu 48..1032, y 364..464, h 100 px); Caveat 76 tek satır
   S.kutu(48, 364, 984, 100, { bas: -8, sure: 1, w: 4, renk: IKI });
@@ -64,13 +70,15 @@ export async function kur(P) {
       });
     olay(bitis(d), "tik", 0.5); not("gidiyorum daire", d.bas);
     const y1 = 524,
-      a = yazi("-yor", { x: 74, y: y1, boyut: 64, renk: SARI, bas: fr(4.19), sure: 8, ses: true });
+      // 4,19 anlatımsız etiket `-yor`: hedef 10 kare (0,33 sn) → 4,52
+      a = elYazisi("-yor", { x: 74, y: y1, boyut: 64, renk: SARI, bas: fr(4.19), sure: 10 });
     not("-yor notu", a.bas);
     ok([a.x1 + 18, y1 - 24], [a.x1 + 110, y1 - 24], {
       bas: fr(4.19) + 6, sure: 12, w: 6, uzun: 20, bukum: 0.08
     });
-    const b = yazi("şimdiki zaman", {
-      x: a.x1 + 130, y: y1, boyut: 64, renk: KRE, bas: fr(4.19) + 16, sure: 14
+    // 4,19–5,07 «şimdiki zamanla» (pencere: şimdiki 4,19–4,59 · zaman 4,63–5,07)
+    const b = elYazisi("şimdiki zaman", {
+      x: a.x1 + 130, y: y1, boyut: 64, renk: KRE, sozcukler: pen("şimdiki", 2)
     });
     not("şimdiki zaman", b.bas);
     await S.svgCiz("tabler/clock.svg", {
@@ -82,12 +90,15 @@ export async function kur(P) {
       kutu: [760, y2 - 62, 76, 76], bas: fr(5.15), sure: 24, azami: 25, w: 4, sesAralik: 3
     });
     not("takvim çizimi", fr(5.15));
-    const n1 = yazi("bu akşam", { x: 74, y: y2, boyut: 64, renk: KRE, bas: fr(5.63), sure: 10 });
+    // 5,63 anlatımsız etiket `bu akşam`: hedef 14 kare (0,47 sn) → 6,10
+    const n1 = elYazisi("bu akşam", { x: 74, y: y2, boyut: 64, renk: KRE, bas: fr(5.63),
+      sure: 14 });
     ok([n1.x1 + 18, y2 - 24], [n1.x1 + 110, y2 - 24], {
       bas: fr(5.63) + 6, sure: 10, w: 6, uzun: 20, bukum: 0.08
     });
-    yazi("gelecek", {
-      x: n1.x1 + 130, y: y2, boyut: 64, renk: SARI, bas: fr(5.63) + 18, sure: 12, ses: true
+    // 6,23 anlatımsız etiket `gelecek`: hedef 12 kare (0,4 sn) → 6,63 (eski belirme ile aynı)
+    elYazisi("gelecek", {
+      x: n1.x1 + 130, y: y2, boyut: 64, renk: SARI, bas: fr(5.63) + 18, sure: 12
     });
     not("bu akşam → gelecek", n1.bas);
   }
@@ -133,7 +144,8 @@ export async function kur(P) {
     await S.svgCiz("tabler/clock.svg", {
       kutu: [405, 868, 110, 110], bas: fr(8.73), sure: 22, azami: 25, w: 4, sesAralik: 3
     });
-    yazi("6 dakikada:", { x: 535, y: 940, boyut: 64, renk: SARI, bas: fr(8.73) + 14, sure: 12 });
+    // 8,73–9,61 «Altı dakikada» (pencere: altı 8,73–9,01 · dakikada 9,05–9,61)
+    elYazisi("6 dakikada:", { x: 535, y: 940, boyut: 64, renk: SARI, sozcukler: pen("Altı", 2) });
     parilti(510, 885, { bas: fr(9.6), r: 24, periyot: 170, adet: 3 });
     const m = [
       ["Form", 10.97, 1060], ["Zaman ifadeleri", 11.65, 1155], ["6 kullanım", 13.29, 1250]

@@ -5,14 +5,28 @@
 // ORTA figür + kamera → alt formül.
 import { sahneKur, RT, renkCoz }
   from "/projeler/present-continuous-dikey/sahneler/03-paperjs-ornek1/kalem-paper.js";
+import { yaziNoktalari }
+  from "/projeler/present-continuous-dikey/ortak/kalem-canvas.js";
 
 export const KARE = 453, T_BAS = 15.44;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1, kayma: 0 });
-  const { fr, ciz, daire, yazi, cumle, altCizgi, parilti, olay, not, bitis, dinamik, genislik } = S;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, altCizgi, parilti, olay, not, bitis, dinamik,
+    genislik } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil;
   const GB = 12; // ilk 12 kare geçiş altında: yalnız künye
+  // El yazısı (Caveat 700 tegaki, dalga 5 / K26): not ve etiketler kalemle yazılır. Ortalı yazıda
+  // genişlik tegaki verisinden ölçülür; sözcük pencereleri anlatımdan (<6 kare → sonrakine uzar).
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm,
+    asc: EY.M.ascender, boy: boyut, x: 0, taban: 0 }).gen;
+  const CS = S.sozcukler(3);
+  const pen = (ilk, adet) => { const i = CS.findIndex((w) => w.s === ilk);
+    return CS.slice(i, i + adet).map((w, k) => ({ f0: w.f,
+      f1: w.f1 - w.f < 6 && CS[i + k + 1] ? CS[i + k + 1].f : w.f1 })); };
 
   // --- kart: tam genişlik (984), Fredoka 72, sözcük zamanlı; satır kırılımı ölçülür
   const sz = S.sozcukler(3).slice(2, 11);                          // I … now.
@@ -34,8 +48,10 @@ export async function kur(P) {
 
   // --- TR çeviri (Caveat 64, mürekkep) 19,30 + in progress bandı
   const yTR = kartAlt + 66;
-  const tr = yazi("Şu anda oturuyorum.", { x: 64, y: yTR, boyut: 64, aile: "Caveat", agirlik: 700,
-    renk: RT.murekkep, bas: fr(19.3), sure: 17 });
+  // 19,30–20,74 «Şu anda oturuyorum.» (pencere: şu 19,30–19,58 · anda 19,58–19,78 ·
+  // oturuyorum 19,78–20,74; kısa pencereler sonraki sözcüğün başına uzatıldı)
+  const tr = elYazisi("Şu anda oturuyorum.", { x: 64, y: yTR, boyut: 64, renk: RT.murekkep,
+    sozcukler: pen("Şu", 3) });
   not("Türkçe çeviri", fr(19.3));
 
   // --- ORTA: oturan figür + kamera + sehpa (bant: TR altı → formül üstü)
@@ -63,8 +79,8 @@ export async function kur(P) {
     const g = cz[8];
     const d = daire((g.x0 + g.x1) / 2, g.y - 26, g.w / 2 + 2, 40, { bas: fr(18.65), sure: 16 });
     olay(bitis(d), "tik", 0.5); not("now daire", d.bas);
-    yazi("NOW", { x: g.x1 + 50, y: g.y, boyut: 72, aile: "Caveat", agirlik: 700, renk: SARI,
-      bas: bitis(d) + 2, sure: 10, olcek: true });
+    // daire sonrası anlatımsız etiket `NOW`: hedef 14 kare (0,47 sn) → ≈ 19,72
+    elYazisi("NOW", { x: g.x1 + 50, y: g.y, boyut: 72, renk: SARI, bas: bitis(d) + 2, sure: 14 });
   }
 
   // --- 20,78: in progress (dalgalı sarı bant, TR çevirinin sağında) + nabız noktası
@@ -78,9 +94,10 @@ export async function kur(P) {
       w: 9, renk: SARI, alfa: 0.85, bas: fr(20.78), sure: 24, duz: true, uc0: 12, uc1: 24, amp: 0.5
     });
     not("in progress bandı", w.bas);
-    yazi("in progress", {
-      x: (x0 + x1) / 2, y: yb - 6, hizala: "orta", boyut: 64, aile: "Caveat", agirlik: 700,
-      renk: SARI, bas: bitis(w) - 6, sure: 14, ses: true });
+    // 21,38 anlatımsız etiket `in progress`: hedef 16 kare (0,53 sn) → 21,91; ortalı (x = orta −
+    // gen/2)
+    elYazisi("in progress", { x: (x0 + x1) / 2 - eyGen("in progress", 64) / 2, y: yb - 6,
+      boyut: 64, renk: SARI, bas: bitis(w) - 6, sure: 16 });
     const f0 = fr(21.5), nx = x0 + 30, ny = yb + 20;
     dinamik((f, g) => {
       if (f < f0) return;
