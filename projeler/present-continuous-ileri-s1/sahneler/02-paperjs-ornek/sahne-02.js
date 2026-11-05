@@ -3,15 +3,30 @@
 // (Biliyorum / I am knowing + kırmızı çarpı / diyemezsin. + figür + kitap). Dikey v2 bantları:
 // içerik 352–1392, alt bölge (940–1392) figür + nesne, üst bölge (392–900) yazı, altyazı 1400–1536.
 import { sahneKur, RT } from "/projeler/present-continuous-ileri-s1/sahneler/02-paperjs-ornek/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/present-continuous-ileri-s1/ortak/kalem-canvas.js";
 
 export const KARE = 397, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Trap" });
-  const { fr, ciz, daire, yazi, cumle, kutu, tik, parilti, olay, not, bitis, genislik, kis, oge } = S;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, kutu, tik, parilti, olay, not, bitis,
+    genislik, kis, oge } = S;
   const SARI = RT.vurgu, DOLGU = RT.vurguDolgu, IKI = RT.ikincil, KIRMIZI = RT.kirmizi;
   const sol = (f0, f1) => (f) => 1 - kis((f - f0) / (f1 - f0));     // oge: [f0, f1] arası söner
   const s1 = S.sozcukler(1), s2 = S.sozcukler(2);
+  // El yazısı (Caveat 700 tegaki, dalga 5b / K26): notlar kalemle yazılır; sözcük ofseti ve
+  // genişlik tegaki verisinden ölçülür, sözcük pencereleri anlatımın t0/t1 karelerinden gelir.
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm, asc: EY.M.ascender,
+    boy: boyut, x: 0, taban: 0 }).gen;
+  const pen = (ws) => ws.map((w, i) => ({ f0: w.f,
+    f1: w.f1 - w.f < 6 && ws[i + 1] ? ws[i + 1].f : w.f1 }));
+  // satır(sözcükler, pencereler, {x, y, boyut, renk, oge}) -> sözcük başına elYazisi sonucu
+  const satir = (soz, pn, o) => soz.map((k, i) => elYazisi(k, { ...o,
+    x: o.x + eyGen(soz.join(" "), o.boyut) - eyGen(soz.slice(i).join(" "), o.boyut),
+    sozcukler: [pn[i]] }));
   const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],
     { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
 
@@ -31,11 +46,14 @@ export async function kur(P) {
     ciz([[x0, ust], [x1, alt]], o); ciz([[x1, ust], [x0, alt]], o);
   }
   // satır 4: YDT tam burada tuzak kurar. (4,14–5,90, sözcük zamanlı) + tuzak sarı daire
-  const tz = cumle(s1.slice(5).map((w) => ({ s: w.s, f: w.f })),
-    { x: SOL, y: 915, boyut: 80, aile: "Caveat", agirlik: 700, son: fSon });
+  // 4,14–6,46 sn (kare 34–133): sözcük penceresi; tam (0,16 sn) kurar'a kadar uzar;
+  // sağ uç ölçülür
+  const tz = satir(s1.slice(5).map((w) => w.s), pen(s1.slice(5)),
+    { x: SOL, y: 915, boyut: 80, renk: RT.murekkep, oge: gA });
   not("YDT satırı başı", tz[0].bas);
   {
-    const g = tz[3], d = daire((g.x0 + g.x1) / 2, g.y - 26, g.w / 2 + 8, 44, { bas: g.bas + 2, sure: 16, oge: gA });
+    const g = tz[3], d = daire((g.x0 + g.x1) / 2, g.y - 26, g.w / 2 + 8, 44,
+      { bas: g.bit - 6, sure: 16, oge: gA });
     olay(bitis(d), "tik", 0.5); not("tuzak daire", d.bas);
   }
   // figür (standing-3) + kitap + zemin çizgisi: sahne 01 ile aynı kutular, hazır çizili
@@ -61,11 +79,16 @@ export async function kur(P) {
     const d2 = daire(cx, a.y - 26, (t.x1 - a.x0) / 2 + 14, 46, { bas: a.bas, sure: 24, a0: -2.6, oge: gB });
     olay(bitis(d2), "tik", 0.5); not("am not telling oval", d2.bas);
   }
-  // TR çeviri (10,70–12,62) Caveat 80 mürekkep
-  const tr = cumle(s2.slice(10, 15).map((k, i) => ({ s: k.s, f: k.f, satir: i < 3 ? 0 : 1 })),
-    { x: 72, y: 735, boyut: 80, aile: "Caveat", agirlik: 700, aralik: 90, son: bSon });
+  // TR çeviri (10,70–13,74 sn) Caveat 80 mürekkep: satır 1 Cevabı biliyorum ama /
+  // satır 2 kimseye söylemiyorum. Sözcük penceresi; söylemiyorum. 13,25'te biter
+  // (13,5 sönme başlamadan önce)
+  const ts = s2.slice(10, 15), tp = pen(ts);
+  tp[4].f1 = Math.min(tp[4].f1, fr(13.25));
+  const TRO = { x: 72, boyut: 80, renk: RT.murekkep, oge: gB };
+  const tr = [...satir(ts.slice(0, 3).map((k) => k.s), tp.slice(0, 3), { ...TRO, y: 735 }),
+    ...satir(ts.slice(3).map((k) => k.s), tp.slice(3), { ...TRO, y: 825 })];
   not("TR çeviri başı", tr[0].bas);
-  altCiz(tr[4], tr[4].bas + 4, { oge: gB }); not("söylemiyorum altı çizgi", tr[4].bas + 4);
+  altCiz(tr[4], tr[4].bit - 6, { oge: gB }); not("söylemiyorum altı çizgi", tr[4].bit - 6);
   // figür + telefon (7,4–9,6): alt bölge 930–1390
   await S.svgCiz("open-peeps/sitting-4.svg", { kutu: [100, 930, 340, 460], bas: fr(7.4), sure: fr(8.9) - fr(7.4),
     azami: 60, yuz: 3, w: 4.4, sesAralik: 5 });
@@ -77,8 +100,9 @@ export async function kur(P) {
   parilti(930, 960, { bas: fr(9.7), r: 28, periyot: 150, adet: 3 });
 
   // ---------- Faz C (13,78–15,82): Bilmek durumdur, → I know + -ing çizilip kalemle çizilir ----------
-  const lab = cumle(s2.slice(15, 17).map((k) => ({ s: k.s, f: k.f })),
-    { x: SOL, y: 480, boyut: 84, aile: "Caveat", agirlik: 700 });
+  // 13,78–14,94 sn (kare 323–358): Bilmek durumdur, sözcük penceresi
+  const lab = satir(s2.slice(15, 17).map((k) => k.s), pen(s2.slice(15, 17)),
+    { x: SOL, y: 480, boyut: 84, renk: RT.murekkep });
   not("Bilmek durumdur", lab[0].bas);
   {
     const F = "700 170px Fredoka", gI = genislik("I ", F), gK = genislik("know", F), gN = genislik("-ing", F);
@@ -94,10 +118,13 @@ export async function kur(P) {
     const st = ciz([[ing.x0 - 16, y - 46], [(ing.x0 + ing.x1) / 2, y - 50], [ing.x1 + 16, y - 54]],
       { w: 15, renk: KIRMIZI, alfa: 0.92, bas: fr(15.2), sure: 8, uc0: 6, uc1: 8, amp: 0.4 });
     not("-ing çizilir (kalem)", st.bas);
-    const nt = cumle(s2.slice(17).map((w) => ({ s: w.s, f: w.f })),
-      { x: (1080 - genislik("-ing almaz.", "700 92px Caveat")) / 2, y: 850, boyut: 92, aile: "Caveat", agirlik: 700 });
+    // 15,06–15,90 sn: -ing (0,12 sn) almaz.'a kadar uzar; almaz. 15,60'ta biter
+    // (son 12 kare durgun)
+    const np = pen(s2.slice(17)); np[1].f1 = Math.min(np[1].f1, fr(15.6));
+    const nt = satir(s2.slice(17).map((w) => w.s), np,
+      { x: (1080 - eyGen("-ing almaz.", 92)) / 2, y: 850, boyut: 92, renk: RT.murekkep });
     not("-ing almaz.", nt[0].bas);
-    altCiz(nt[1], nt[1].bas + 4, { w: 10 });
+    altCiz(nt[1], nt[1].bit - 6, { w: 10 });
   }
   void tik;
   return S;
