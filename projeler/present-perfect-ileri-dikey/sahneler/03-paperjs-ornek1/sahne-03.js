@@ -41,11 +41,11 @@ export async function kur(P) {
   const tr = S.sozcukler(3).slice(16, 25);                          // Şirket … katlandı.
   const pen = (i0, n) => tr.slice(i0, i0 + n).map((w, i) => ({ f0: w.f,
     f1: w.f1 - w.f < 6 && tr[i0 + i + 1] ? tr[i0 + i + 1].f : w.f1 }));
-  elYazisi("Şirket yeni uygulamasını çıkardığından beri", { x: 76, y: 720, boyut: 64, renk: KRE,
-    sozcukler: pen(0, 5) });
-  const tz = elYazisi("kullanıcı sayısı ikiye katlandı.", { x: 76, y: 785, boyut: 64, renk: KRE,
+  const tz1 = elYazisi("Şirket yeni uygulamasını çıkardığından beri", { x: 76, y: 720, boyut: 64,
+    renk: KRE, sozcukler: pen(0, 5) });
+  elYazisi("kullanıcı sayısı ikiye katlandı.", { x: 76, y: 785, boyut: 64, renk: KRE,
     sozcukler: pen(5, 4) });
-  not("Türkçe çeviri", tz.bas);
+  not("Türkçe çeviri", tz1.bas);                                   // 1. satırın başı (inceleme R2)
 
   // --- 20,0–23,5: ORTA sahne (816–1236, 420 px): telefon (420 px) + 3 sütunlu grafik, sayı ikiye katlanır
   await S.svgCiz("tabler/phone.svg", { kutu: [50, 816, 380, 420], bas: f0(20.0), sure: fr(21.0) - f0(20.0), azami: 12, yuz: 1,
