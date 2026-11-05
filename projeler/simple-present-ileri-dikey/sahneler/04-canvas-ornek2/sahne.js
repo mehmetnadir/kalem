@@ -20,6 +20,15 @@ const S = new Sahne({
   cumle: 4
 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
+// El yazısı (tegaki Caveat, dalga 5b / K26): sözcük penceresi = anlatım t0/t1
+// (küresel sn); 2-3 harflik kısa pencere sonraki sözcüğün başına dek uzar.
+const pen = (ad, t, n) => {
+  const L = S.dizi(ad, t, n);
+  return L.map((w, i) => ({
+    t0: w.t0,
+    t1: w.t1 - w.t0 < 0.2 && L[i + 1] ? L[i + 1].t0 : w.t1
+  }));
+};
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
 
 async function kur() {
@@ -111,31 +120,32 @@ async function kur() {
   }));
   S.koy(S.parilti(1000, 1000, 39.4, 26));
 
-  // 39,90–42,94 SOL ÜST SÜTUN: Türkçe çeviri (Caveat 64 mürekkep, 3 satır,
-  // ≤ 24 karakter)
-  S.koy(S.not({
-    parca: [["Mike'ın iki arabası var,", KREM]],
+  // 39,90–44,14 SOL ÜST SÜTUN: Türkçe çeviri (Caveat 64 mürekkep, 3 satır,
+  // ≤ 24 karakter); 3 satır = 4 / 2 / 2 sözcük penceresi (39,90–41,50 ·
+  // 41,62–42,38 · 42,46–44,14)
+  S.koy(S.elYazisi({
+    metin: "Mike'ın iki arabası var,",
     x: 88,
     y: TR0,
-    font: "700 64px Caveat",
-    tb: 39.9,
-    sure: 1.1
+    boy: 64,
+    renk: KREM,
+    sozcukler: pen("Mike'ın", 39.9, 4)
   }));
-  S.koy(S.not({
-    parca: [["ama genellikle", KREM]],
+  S.koy(S.elYazisi({
+    metin: "ama genellikle",
     x: 88,
     y: TR0 + TRA,
-    font: "700 64px Caveat",
-    tb: 41.62,
-    sure: 0.8
+    boy: 64,
+    renk: KREM,
+    sozcukler: pen("ama", 41.62, 2)
   }));
-  S.koy(S.not({
-    parca: [["otobüse biner.", KREM]],
+  S.koy(S.elYazisi({
+    metin: "otobüse biner.",
     x: 88,
     y: TR0 + 2 * TRA,
-    font: "700 64px Caveat",
-    tb: 42.46,
-    sure: 0.7
+    boy: 64,
+    renk: KREM,
+    sozcukler: pen("otobüse", 42.46, 2)
   }));
 
   // 46,05–48,29 SAĞ ÜST SÜTUN: durum fiili kutusu (412 px)
@@ -147,13 +157,14 @@ async function kur() {
     0.08,
     0.5
   ));
-  S.koy(S.not({
-    parca: [["durum fiili:", SARI]],
+  // 46,05–47,17 «durum fiilidir:» (pencere: durum 46,05–46,29 · fiilidir 46,37–47,17)
+  S.koy(S.elYazisi({
+    metin: "durum fiili:",
     x: 642,
     y: DB0 + 60,
-    font: "700 64px Caveat",
-    tb: 46.3,
-    sure: 0.5,
+    boy: 64,
+    renk: SARI,
+    sozcukler: pen("durum", 46.05, 2),
     ses: 0.5
   }));
   S.koy(S.not({

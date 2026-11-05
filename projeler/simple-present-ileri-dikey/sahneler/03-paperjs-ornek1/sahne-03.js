@@ -9,6 +9,9 @@ import {
   sahneKur,
   RT
 } from "/projeler/simple-present-ileri-dikey/sahneler/03-paperjs-ornek1/kalem-paper.js";
+import {
+  yaziNoktalari
+} from "/projeler/simple-present-ileri-dikey/ortak/kalem-canvas.js";
 
 export const KARE = 456, T_BAS = 17.65;
 
@@ -27,6 +30,7 @@ export async function kur(P) {
     ok,
     kutu,
     yazi,
+    elYazisi,
     cumle,
     altCizgi,
     parilti,
@@ -37,6 +41,26 @@ export async function kur(P) {
   const SARI = RT.vurgu, IKI = RT.ikincil, KRE = RT.murekkep;
   const GB = 12;
   const f0 = (t) => Math.max(GB, fr(t));
+  // El yazısı (Caveat 700 tegaki, dalga 5b / K26): not ve etiketler kalemle
+  // yazılır. Ortaya hizada genişlik tegaki verisinden ölçülür; sözcük
+  // pencereleri anlatımın f/f1 karelerinden gelir (2-3 harflik kısa pencere
+  // sonraki sözcüğün başına dek uzar).
+  const [eyM, eyG] = await Promise.all([
+    fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")
+  ]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, {
+    upm: EY.M.unitsPerEm,
+    asc: EY.M.ascender,
+    boy: boyut,
+    x: 0,
+    taban: 0
+  }).gen;
+  const pen = (liste) => liste.map((w, i) => ({
+    f0: w.f,
+    f1: w.f1 - w.f < 6 && liste[i + 1] ? liste[i + 1].f : w.f1
+  }));
 
   // --- 18,20: kart çerçevesi (el kutusu, 4 px) — içerik bandı 352–1392'nin
   // üst parçası
@@ -104,35 +128,28 @@ export async function kur(P) {
     bukum: 0.1
   });
   not("enerji oku", a1.bas);
-  yazi("enerji", {
-    x: 541,
+  // 22,75 anlatımsız etiket `enerji`: hedef 14 kare (0,47 sn) → 23,22; orta x 541
+  elYazisi("enerji", {
+    x: 541 - eyGen("enerji", 64) / 2,
     y: 1260,
-    hizala: "orta",
     boyut: 64,
-    aile: "Caveat",
-    agirlik: 700,
     renk: SARI,
     bas: fr(22.75),
-    sure: 9,
-    ses: true
+    sure: 14
   });
 
   // --- 24,30–27,34: Türkçe çeviri (Caveat 64 mürekkep, 2 satır, ≤ 34 k/satır)
   // Güneş küçük görünse de bitkilere gereken enerjiyi verir.
+  // 24,30–27,34 «Güneş küçük görünse de / bitkilere gereken enerjiyi verir.»
+  // (pencere: sözcük başına f–f1; `de` 0,2 sn altı → bitkilere başına dek)
   const tr = S.sozcukler(3).slice(16, 24);
-  const tz = cumle(
-    tr.map((k, i) => ({ s: k.s, f: k.f, satir: i < 4 ? 0 : 1 })),
-    {
-      x: 88,
-      y: 758,
-      boyut: 64,
-      aile: "Caveat",
-      agirlik: 700,
-      aralik: 56,
-      renk: KRE
-    }
+  const trSatir = (a, b, y) => elYazisi(
+    tr.slice(a, b).map((k) => k.s).join(" "),
+    { x: 88, y, boyut: 64, renk: KRE, sozcukler: pen(tr.slice(a, b)) }
   );
-  not("Türkçe çeviri", tz[0].bas);
+  const tz1 = trSatir(0, 4, 758);
+  trSatir(4, 8, 814);
+  not("Türkçe çeviri", tz1.bas);
 
   // --- 28,40–32,45: formül kartı tek satır (835–945):
   // zaman değişmez · it gives (V-s)
@@ -211,16 +228,14 @@ export async function kur(P) {
       renk: SARI,
       ses: true
     });
-    yazi("(V-s)", {
+    // 31,90 anlatımsız etiket `(V-s)`: hedef 14 kare (0,47 sn) → 32,37
+    elYazisi("(V-s)", {
       x: s2.x1 + 24,
       y: YK,
       boyut: 72,
-      aile: "Caveat",
-      agirlik: 700,
       renk: SARI,
       bas: fr(31.9),
-      sure: 9,
-      ses: true
+      sure: 14
     });
     not("it gives (V-s)", fr(31.66));
     parilti(1008, 880, { bas: fr(32.0), r: 18 });

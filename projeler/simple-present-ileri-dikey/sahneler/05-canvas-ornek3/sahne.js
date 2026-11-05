@@ -7,6 +7,7 @@
 // Yerleşim sıfırdan dikey: kart (tam genişlik) → TR çeviri →
 // ORTA uçak + takvim/saat → alt tarife (2 satır).
 import { surucu } from "/ortak/surucu.js";
+import { yaziNoktalari } from "/projeler/simple-present-ileri-dikey/ortak/kalem-canvas.js";
 import { Sahne, RT, kutu, olc } from "./sahne-ortak.js";
 
 const KARE = 406, TBAS = 48.29, ICERIK = 394;
@@ -21,6 +22,15 @@ const KOKDIZ = "/projeler/simple-present-ileri-dikey/ortak/cizim";
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKI = RT.ikincil, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
 const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+// El yazısı (tegaki Caveat, dalga 5b / K26): sözcük penceresi = anlatım t0/t1
+// (küresel sn); 2-3 harflik kısa pencere sonraki sözcüğün başına dek uzar.
+const pen = (ad, t, n) => {
+  const L = S.dizi(ad, t, n);
+  return L.map((w, i) => ({
+    t0: w.t0,
+    t1: w.t1 - w.t0 < 0.2 && L[i + 1] ? L[i + 1].t0 : w.t1
+  }));
+};
 
 async function kur() {
   await S.kur();
@@ -64,15 +74,16 @@ async function kur() {
   // tomorrow: kırmızı daire (tuzak)
   S.koy(S.halka(kel("tomorrow"), 51.72, 0.4, 33, 8, KIRMIZI, 9));
 
-  // 54,94 Türkçe çeviri (Caveat 64, mürekkep, tek satır)
+  // 54,94–57,34 Türkçe çeviri (Caveat 64, mürekkep, tek satır; pencere:
+  // 5 sözcük, `on` 0,2 sn altı → birde başına dek)
   const yTR = kartAlt + 62;
-  S.koy(S.not({
-    parca: [["Uçuşumuz yarın sabah on birde kalkıyor.", KREM]],
+  S.koy(S.elYazisi({
+    metin: "Uçuşumuz yarın sabah on birde kalkıyor.",
     x: 64,
     y: yTR,
-    font: CV(64),
-    tb: 54.94,
-    sure: 1.4
+    boy: 64,
+    renk: KREM,
+    sozcukler: pen("Uçuşumuz", 54.94, 5)
   }));
 
   // ORTA bant: solda uçak (660 px), sağda takvim (yarın) + saat (11:00)
@@ -104,13 +115,22 @@ async function kur() {
     sure: 0.8,
     olayEnCok: 3
   }));
-  S.koy(S.not({
-    parca: [["yarın", KREM]],
-    x: 797 - olc(CV(64), "yarın") / 2,
+  // 52,40 anlatımsız etiket `yarın`: hedef 0,45 sn → 52,85; orta x 797
+  const eyGen = (str, boy) => yaziNoktalari(str, S.EY.G, {
+    upm: S.EY.M.unitsPerEm,
+    asc: S.EY.M.ascender,
+    boy,
+    x: 0,
+    taban: 0
+  }).gen;
+  S.koy(S.elYazisi({
+    metin: "yarın",
+    x: 797 - eyGen("yarın", 64) / 2,
     y: B0 + 238,
-    font: CV(64),
+    boy: 64,
+    renk: KREM,
     tb: 52.4,
-    sure: 0.4
+    sure: 0.45
   }));
   S.koy(S.cizim({
     svg: saat,
