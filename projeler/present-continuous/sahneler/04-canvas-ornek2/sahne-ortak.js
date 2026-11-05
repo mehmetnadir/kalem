@@ -34,8 +34,8 @@ export class Sahne {
     this.sozc = (await r.json()).filter((s) => s.cumle === this.cumle)
       .map((s) => ({ ...s, t0: s.t0 + this.kayma, t1: s.t1 + this.kayma }));
     // El yazısı verisi (tegaki, Caveat 700 Türkçe; ortak/tegaki/caveat-tr/KAYNAK.md)
-    const [M, G] = await Promise.all([fetch(`${KOK}/tegaki/caveat-tr/metrik.json`),
-      fetch(`${KOK}/tegaki/caveat-tr/glyphData-700.json`)]);
+    const [M, G] = await Promise.all([fetch(`/ortak/tegaki/caveat-tr/metrik.json`),
+      fetch(`/ortak/tegaki/caveat-tr/glyphData-700.json`)]);
     this.EY = { M: await M.json(), G: await G.json() };
   }
 

@@ -2,7 +2,7 @@
 // Her öğe {ciz(ctx, f)} taşır; zaman yalnız kare numarasından gelir (Math.random ve Date yok).
 import { kunyeHazirla, zeminCiz, kunyeCiz, RENK, RT, renkCoz } from "/projeler/simple-present-temel/ortak/kunye.js";
 import { kalemCizgi, darbeCiz, svgYollari, elips, ok, kutu, altCizgi, kis, lerp, yavasla, geriTasma, hash,
-  tohumSifirla } from "/projeler/simple-present-temel/ortak/kalem-canvas.js";
+  tohumSifirla, yaziDarbeleri, yaziCiz } from "/projeler/simple-present-temel/ortak/kalem-canvas.js";
 
 export { RENK, RT, renkCoz, elips, ok, kutu, altCizgi, kis, lerp, yavasla, geriTasma, hash };
 const KOK = "/projeler/simple-present-temel/ortak";
@@ -33,6 +33,10 @@ export class Sahne {
     const r = await fetch(`${KOK}/anlatim/sozcukler.json`);
     this.sozc = (await r.json()).filter((s) => s.cumle === this.cumle)
       .map((s) => ({ ...s, t0: s.t0 + this.kayma, t1: s.t1 + this.kayma }));
+    // El yazısı verisi (tegaki, Caveat 700 Türkçe; ortak/tegaki/caveat-tr/KAYNAK.md)
+    const [M, G] = await Promise.all([fetch(`/ortak/tegaki/caveat-tr/metrik.json`),
+      fetch(`/ortak/tegaki/caveat-tr/glyphData-700.json`)]);
+    this.EY = { M: await M.json(), G: await G.json() };
   }
 
   // Küresel saniyeyi yerel (kesirli) kareye çevirir.
@@ -82,6 +86,25 @@ export class Sahne {
   // Birden çok nokta dizisini sırayla darbeler olarak çizer; öğe dizisi döner.
   darbeler(liste, o, tb, sure, aralik, ses) {
     return liste.map((p, i) => this.darbe(p, { ...o }, tb + i * aralik, sure, i === 0 ? ses : false));
+  }
+
+  // El yazısı notu (Caveat, tegaki darbeleri): kalem gerçekten yazar. a: {metin, x, y (taban çizgisi),
+  // boy (px, varsayılan FONT.not), renk, tb, sure (hedef sn; yoksa doğal), sozcukler ([{t0,t1}] sahne
+  // çerçevesi: her sözcük kendi konuşma penceresinde yazılır — hız kuralı 05.11 karar 6), ses}.
+  elYazisi(a) {
+    const boy = a.boy || boyOku(FONT.not), M = this.EY.M;
+    const Y = yaziDarbeleri(a.metin, this.EY.G, { upm: M.unitsPerEm, asc: M.ascender, boy, x: a.x,
+      taban: a.y, renk: a.renk, sozcukler: a.sozcukler, hedefSure: a.sure, tohum: a.tohum });
+    const mutlak = !!a.sozcukler, fb = mutlak ? this.fr(a.sozcukler[0].t0) : this.fr(a.tb);
+    this.bas(fb);
+    if (a.ses !== false) {
+      const baslar = mutlak ? a.sozcukler.map((s) => this.fr(s.t0)) : [fb];
+      baslar.forEach((f) => this.olay(f, "cizgi", a.ses || 0.35));
+    }
+    return { x: a.x, w: Y.gen, Y, sure: Y.sure, ciz: (ctx, f) => {
+      const t = mutlak ? this.zm(f) : (f - fb) / 30; if (t <= (mutlak ? a.sozcukler[0].t0 : 0)) return;
+      yaziCiz(ctx, Y, t, 1);
+    } };
   }
 
   // Kalem çizimi grubu (SVG yollarından): figür/nesne. a: {svg, kutu, enCok, w, renk, tb, sure, olayEnCok, nefes}.

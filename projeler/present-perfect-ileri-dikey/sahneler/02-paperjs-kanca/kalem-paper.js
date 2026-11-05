@@ -2,6 +2,7 @@
 // Zaman yalnız kare numarasından gelir; Math.random / Date yok (tohumlu hash).
 // Kullanım: const S = await sahneKur(paper, { KARE, tBas, bolum, etkin }); ...içerik...; S.kare(f) -> canvas
 import { kunyeHazirla, zeminCiz, kunyeCiz, altyaziMetin, altyaziCiz, RENK, RT, renkCoz, temaSurum, KOK } from "/projeler/present-perfect-ileri-dikey/ortak/kunye.js";
+import { yaziNoktalari } from "/projeler/present-perfect-ileri-dikey/ortak/kalem-canvas.js";
 
 const W = 1080, H = 1920, CANLI = /[?&]canli=1/.test(location.search);
 export { RENK, RT, renkCoz };
@@ -17,6 +18,10 @@ const gurul = (x, s) => { const i = Math.floor(x), f = x - i, u = f * f * (3 - 2
 export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   // kayma: sözcüklerin eski çerçeveye çevrilmesi (sn)
   const K = await kunyeHazirla();
   const sozcukJson = await (await fetch(`${KOK}/anlatim/sozcukler.json`)).json();
+  // El yazısı verisi (tegaki, Caveat 700 Türkçe; ortak/tegaki/caveat-tr/KAYNAK.md)
+  const [eyM, eyG] = await Promise.all([fetch(`/ortak/tegaki/caveat-tr/metrik.json`),
+    fetch(`/ortak/tegaki/caveat-tr/glyphData-700.json`)]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
   P.setup(document.getElementById("cv")); P.view.autoUpdate = false;
   const out = document.createElement("canvas"); out.width = W; out.height = H;
   const oc = out.getContext("2d");
@@ -238,8 +243,41 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
     });
   }
 
+  // ---------- el yazısı (tegaki Caveat darbeleri, kendi kalemimizle; pilot 05.11, karar 5–6) ----------
+  // elYazisi(str, {x, y (taban), boyut, renk, alfa, bas (kare), sure (kare, hedef), sozcukler ([{f0, f1}] kare:
+  //   her sözcük kendi konuşma penceresinde), oge, ses}) -> {x0, x1, y, boyut, bas, bit, w, g}
+  function elYazisi(str, o) {
+    const boyut = o.boyut || 48, renk = o.renk || RT.murekkep, alfa = o.alfa == null ? 0.9 : o.alfa;
+    const soz = o.sozcukler ? o.sozcukler.map((q) => ({ t0: q.f0 / 30, t1: q.f1 / 30 })) : null;
+    const Y = yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm, asc: EY.M.ascender, boy: boyut, x: o.x, taban: o.y,
+      sozcukler: soz, hedefSure: o.sure ? o.sure / 30 : undefined });
+    const bas0 = soz ? 0 : (o.bas || 0);                             // sözcük penceresi: zamanlar mutlak kare
+    const darbeler = Y.darbeler.map((d) => {
+      const fb = bas0 + d.bas * 30, fs = Math.max(2, d.sure * 30);
+      const c = d.nokta ? null : ciz(d.pts, { duz: true, w: Math.max(1.4, d.gen), amp: 0.25, uc0: 2.5,
+        uc1: 3, aralik: 1.6, renk, alfa, bas: fb, sure: fs, oge: o.oge, ses: false });
+      return { c, fb, fs, nib: d.nib };
+    });
+    if (o.ses !== false) (soz ? soz.map((q) => q.t0 * 30) : [bas0]).forEach((f) => olay(f, "cizgi", 0.35));
+    const g = dinamik((f, gr) => {                                   // nib damgaları: kalem noktayı geçince
+      for (const d of darbeler) {
+        const t = d.c ? ilerle(d.c, f) : kis((f - d.fb) / d.fs); if (t <= 0) continue;
+        for (const m of d.nib) {
+          if (m.u > t) continue;
+          const e = new P.Path.Ellipse({ center: [m.x, m.y], radius: [Math.max(0.8, m.rx), Math.max(0.8, m.ry)],
+            fillColor: renkCoz(renk), opacity: alfa, insert: false });
+          e.rotate(m.a * 180 / Math.PI); gr.addChild(e);
+        }
+      }
+    });
+    if (o.oge) o.oge.g.addChild(g);
+    const bas = Math.min(...darbeler.map((d) => d.fb)), bit = Math.max(...darbeler.map((d) => d.fb + d.fs));
+    return { x0: o.x, x1: o.x + Y.gen, y: o.y, boyut, bas, bit, w: Y.gen, g };
+  }
+
   // ---------- sözcük zamanları ----------
-  const sozcukler = (cumleNo) => sozcukJson.filter((s) => s.cumle === cumleNo).map((s) => ({ s: s.sozcuk, t: s.t0 + kayma, f: fr(s.t0 + kayma) }));
+  const sozcukler = (cumleNo) => sozcukJson.filter((s) => s.cumle === cumleNo).map((s) => ({ s: s.sozcuk, t: s.t0 + kayma, f: fr(s.t0 + kayma),
+    t1: s.t1 + kayma, f1: fr(s.t1 + kayma) }));
 
   // ---------- kare ----------
   function matrisUygula(e, f) {
@@ -274,6 +312,6 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
     }
     return out;
   }
-  return { P, K, kalemGeo, cokgen, fr, not, olay, ciz, daire, egri, ok, kutu, tik, svgCiz, yazi, cumle, altCizgi, dinamik, parilti, sozcukler, oge, kok,
+  return { P, K, kalemGeo, cokgen, fr, not, olay, ciz, daire, egri, ok, kutu, tik, svgCiz, yazi, elYazisi, cumle, altCizgi, dinamik, parilti, sozcukler, oge, kok,
     kare, bitis, ilerle, genislik, hash, gurul, kis, yumus, cikis, lerp };
 }

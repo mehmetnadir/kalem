@@ -1,5 +1,5 @@
 // El yazısı darbeleri (kalem-canvas.js yaziDarbeleri / yaziCiz / yaziUcu) — node --test araclar/test/
-// Veri: projeler/present-continuous/ortak/tegaki/caveat-tr (Caveat 700 Türkçe tegaki glif verisi).
+// Veri: ortak/tegaki/caveat-tr (Caveat 700 Türkçe tegaki glif verisi).
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -9,8 +9,8 @@ import { fileURLToPath } from "node:url";
 const KOK = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const ORTAK = path.join(KOK, "projeler", "present-continuous", "ortak");
 const { yaziDarbeleri, yaziCiz, yaziUcu } = await import(path.join(ORTAK, "kalem-canvas.js"));
-const G = JSON.parse(fs.readFileSync(path.join(ORTAK, "tegaki", "caveat-tr", "glyphData-700.json")));
-const M = JSON.parse(fs.readFileSync(path.join(ORTAK, "tegaki", "caveat-tr", "metrik.json")));
+const G = JSON.parse(fs.readFileSync(path.join(KOK, "ortak", "tegaki", "caveat-tr", "glyphData-700.json")));
+const M = JSON.parse(fs.readFileSync(path.join(KOK, "ortak", "tegaki", "caveat-tr", "metrik.json")));
 const SEC = { upm: M.unitsPerEm, asc: M.ascender, boy: 48, x: 10, taban: 100, renk: "@ikincil" };
 const sonZaman = (Y) => Math.max(...Y.darbeler.map((d) => d.bas + d.sure));
 

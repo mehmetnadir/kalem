@@ -19,8 +19,8 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
   const K = await kunyeHazirla();
   const sozcukJson = await (await fetch(`${KOK}/anlatim/sozcukler.json`)).json();
   // El yazısı verisi (tegaki, Caveat 700 Türkçe; ortak/tegaki/caveat-tr/KAYNAK.md)
-  const [eyM, eyG] = await Promise.all([fetch(`${KOK}/tegaki/caveat-tr/metrik.json`),
-    fetch(`${KOK}/tegaki/caveat-tr/glyphData-700.json`)]);
+  const [eyM, eyG] = await Promise.all([fetch(`/ortak/tegaki/caveat-tr/metrik.json`),
+    fetch(`/ortak/tegaki/caveat-tr/glyphData-700.json`)]);
   const EY = { M: await eyM.json(), G: await eyG.json() };
   P.setup(document.getElementById("cv")); P.view.autoUpdate = false;
   const out = document.createElement("canvas"); out.width = W; out.height = H;
