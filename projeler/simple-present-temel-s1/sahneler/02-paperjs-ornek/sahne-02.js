@@ -8,7 +8,8 @@ const CIP = "GİDER = GOES";
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: CIP });
-  const { fr, ciz, daire, yazi, cumle, tik, parilti, olay, not, bitis, kutu, genislik, oge, kis } = S;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, tik, parilti, olay, not, bitis, kutu, genislik,
+    oge, kis } = S;
   const SARI = RT.vurgu, DOLGU = RT.vurguDolgu, IKI = RT.ikincil, MUR = RT.murekkep;
   const s1 = S.sozcukler(1), s2 = S.sozcukler(2);
   const solma = (t0, t1) => (f) => 1 - kis((f - fr(t0)) / (fr(t1) - fr(t0)));   // 1 -> 0
@@ -24,11 +25,24 @@ export async function kur(P) {
   // --- cümle 1 (sahne 01'in son hali + devamı): Caveat 80, x 72, y 440 / 530
   // satır 1: Gider, İngilizcede goes olur:   satır 2: fiilin sonuna s gelir.
   const c80 = { x: 72, y: 440, boyut: 80, aile: "Caveat", agirlik: 700, aralik: 90, oge: ust };
-  const e1 = cumle(s1.map((w, i) => ({ s: w.s, f: i < 3 ? -30 : w.f, satir: i < 4 ? 0 : 1 })), c80);
+  // sözcük 0–2 (Gider, İngilizcede goes): 01'den devralınan son görünüm, kare 0'da hazır
+  // (01 dokunulmaz); Caveat yazi kalır
+  const e1 = cumle(s1.slice(0, 3).map((w) => ({ s: w.s, f: -30, satir: 0 })), c80);
   altCiz(e1[2], fr(3.0) + 6, { oge: ust }); not("goes altı çizgi (cümle 1)", fr(3.0) + 6);
   {
-    const s = e1[6], d = daire((s.x0 + s.x1) / 2, s.y - 22, Math.max(34, s.w / 2 + 18), 36,
-      { bas: s.bas + 3, sure: 20, egim: -0.05, oge: ust });
+    // sözcük 3–7 (3,32–5,88 sn, kare 10–86): her sözcük kendi konuşma penceresinde;
+    // "olur:" satır 1'de goes'un sağında (x1 = 72 + 744 = 816 px),
+    // satır 2 y 530 (x1 = 72 + 548 = 620 px); sözcük arası 0,3 × boyut (motor aralığı)
+    const gap = 0.3 * c80.boyut, q = [];
+    let tx = e1[2].x1 + gap;
+    s1.slice(3).forEach((w, i) => {
+      const sat = i < 1 ? 0 : 1; if (i === 1) tx = c80.x;
+      const k = elYazisi(w.s, { x: tx, y: c80.y + sat * c80.aralik, boyut: c80.boyut, renk: MUR,
+        oge: ust, sozcukler: [{ f0: w.f, f1: w.f1 }] });
+      tx = k.x1 + gap; q.push(k);
+    });
+    const s = q[3], d = daire((s.x0 + s.x1) / 2, s.y - 22, Math.max(34, s.w / 2 + 18), 36,
+      { bas: s.bit - 4, sure: 20, egim: -0.05, oge: ust });
     olay(bitis(d), "tik", 0.5); not("s daire (cümle 1)", d.bas);
   }
 
@@ -69,10 +83,16 @@ export async function kur(P) {
     not("EN cümle başı", e[0].bas);
     const g = e[2], d = daire((g.x0 + g.x1) / 2, g.y - 26, g.w / 2 + 8, 36, { bas: g.bas + 6, sure: 20, a0: -2.0 });
     olay(bitis(d), "tik", 0.5); not("goes daire", d.bas);
-    const tr = s2.slice(7, 11);
-    const t = cumle(tr.map((k) => ({ s: k.s, f: k.f })),
-      { x: 88, y: 664, boyut: 64, aile: "Caveat", agirlik: 700, renk: MUR });
-    altCiz(t[3], t[3].bas + 4, { w: 8 }); not("gider altı çizgi", t[3].bas + 4);
+    // 8,76–11,24 sn (kare 173–247; "Kardeşim okula otobüsle gider."): her sözcük kendi
+    // penceresinde, tek satır x 88, y 664 (x1 = 88 + 664 = 752 px)
+    const t = [];
+    let tx = 88;
+    s2.slice(7, 11).forEach((k) => {
+      const q = elYazisi(k.s, { x: tx, y: 664, boyut: 64, renk: MUR,
+        sozcukler: [{ f0: k.f, f1: k.f1 }] });
+      tx = q.x1 + 0.3 * 64; t.push(q);
+    });
+    altCiz(t[3], t[3].bit - 6, { w: 8 }); not("gider altı çizgi", t[3].bit - 6);
   }
 
   // --- 10,39–11,6: formül: go + es  (Fiil artı es), Fredoka 120
@@ -93,7 +113,11 @@ export async function kur(P) {
 
   // --- 11,39–15,6: Özne: he · she · it (üç kutu, sırayla tik); altında "fiile + s"
   {
-    yazi("Özne:", { x: 72, y: 1030, boyut: 72, renk: MUR, bas: fr(11.39), sure: 12 }); not("Özne", fr(11.39));
+    // 11,39–12,03 sn (kare 252–271; "Özne"), "he" 273'te başlar; x1 = 72 + 130 = 202 px
+    const oz = s2[11];
+    elYazisi("Özne:", { x: 72, y: 1030, boyut: 72, renk: MUR,
+      sozcukler: [{ f0: oz.f, f1: oz.f1 }] });
+    not("Özne", oz.f);
     const pil = [["he", 12.11], ["she", 12.75], ["it", 13.75]];
     pil.forEach(([k, t], i) => {
       const w = 296, h = 160, x = 48 + i * (w + 48), y = 1070;
