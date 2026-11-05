@@ -1,15 +1,23 @@
 // Sahne 03 (İLERİ) — Örnek 1 (505 kare, t_bas 17,25; cümle 3). Zamanlar BRIEF §4; yerel kare = round((t − 17,25) × 30).
 // Kök: "Since the school changed the timetable, students have been complaining." (since + geçmiş yan cümle).
 import { sahneKur, RT, renkCoz } from "/projeler/present-perfect-cont-ileri/sahneler/03-paperjs-ornek1/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/present-perfect-cont-ileri/ortak/kalem-canvas.js";
 
 export const KARE = 505, T_BAS = 17.25;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1, kayma: 0 });
-  const { fr, ciz, daire, ok, kutu, yazi, cumle, altCizgi, parilti, olay, not, bitis, dinamik, tik } = S;
+  const { fr, ciz, daire, ok, kutu, yazi, elYazisi, cumle, altCizgi, parilti, olay, not, bitis,
+    dinamik, tik } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil;
   const GB = 12;                                                   // geçiş karesi: çizimler bundan sonra başlar
   const f0 = (t) => Math.max(GB, fr(t));
+  // El yazısı: ortalı etiketlerin x'i için genişlik tegaki verisinden ölçülür (yaziNoktalari.gen).
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm, asc: EY.M.ascender,
+    boy: boyut, x: 0, taban: 0 }).gen;
 
   // --- 17,80–18,84: büyük el çizimi daire içinde 1
   const d1 = daire(200, 190, 66, 62, { bas: f0(17.80), sure: 22, a0: -2.6 }); olay(bitis(d1), "tik", 0.5);
@@ -29,16 +37,18 @@ export async function kur(P) {
     const a = ciz([[x0, y - 12], [x0, y + 2], [x1, y + 2], [x1, y - 12]],
       { duz: true, w: 7, renk: SARI, alfa: 0.85, bas: fr(19.89), sure: 14, uc0: 12, uc1: 24 });
     not("Since … changed ayraç", a.bas); olay(bitis(a), "tik", 0.5);
-    yazi("geçmiş yan cümle", { x: 310, y: cz[0].y - 70, boyut: 44, aile: "Caveat", agirlik: 700, renk: SARI,
-      bas: fr(20.21), sure: 12, ses: true });
+    // 20,21–21,01 `geçmiş yan cümle` (anlatımsız etiket, sure 0,73 sn; yan cümle sonu 21,33)
+    elYazisi("geçmiş yan cümle", { x: 310, y: cz[0].y - 70, boyut: 44, renk: SARI, bas: fr(20.21),
+      sure: 22 });
   }
   // have been complaining (21,81–23,41): ikinci sarı daire + `ana cümle`
   {
     const x0 = cz[7].x0, x1 = cz[9].x1, y = cz[7].y - 20;
     const d = daire((x0 + x1) / 2, y, (x1 - x0) / 2 + 8, 42, { bas: fr(21.81), sure: 22, a0: -2.6, egim: -0.025 });
     olay(bitis(d), "tik", 0.5); not("have been complaining daire", d.bas);
-    yazi("ana cümle", { x: x1 + 40, y: cz[7].y - 10, boyut: 44, aile: "Caveat", agirlik: 700, renk: SARI,
-      bas: fr(22.6), sure: 12, ses: true });
+    // 22,60–23,13 `ana cümle` (anlatımsız etiket, sure 0,53 sn; "complaining." 22,17–23,41)
+    elYazisi("ana cümle", { x: x1 + 40, y: cz[7].y - 10, boyut: 44, renk: SARI, bas: fr(22.6),
+      sure: 16 });
   }
 
   // --- 19,09–23,41: sağ sahne. Okul (420 px) + oturan öğrenci (sitting-6) + takvim
@@ -56,8 +66,11 @@ export async function kur(P) {
 
   // --- 23,66–26,86: Türkçe çeviri (Caveat 48 ikincil, y 620), sözcük zamanlı
   const tr = S.sozcukler(3).slice(12, 17);                          // Program değişeli beri öğrenciler yakınıyor.
-  const tz = cumle(tr.map((k) => ({ s: k.s, f: k.f, satir: 0 })), { x: 140, y: 630, boyut: 48, aile: "Caveat", agirlik: 700, renk: IKI });
-  not("Türkçe çeviri", tz[0].bas);
+  // el yazısı, her sözcük kendi penceresinde (Program 23,66 · değişeli 24,10 · beri 24,54 ·
+  // öğrenciler 24,94 · yakınıyor. 25,50–26,86)
+  const tz = elYazisi("Program değişeli beri öğrenciler yakınıyor.", { x: 140, y: 630, boyut: 48,
+    renk: IKI, sozcukler: tr.map((w) => ({ f0: w.f, f1: w.f1 })) });
+  not("Türkçe çeviri", tz.bas);
 
   // --- 27,11–30,07: zaman çizgisi (y 760): changed noktası -> since yayı -> now (nabız)
   {
@@ -72,13 +85,16 @@ export async function kur(P) {
       g.addChild(new P.Path.Circle({ center: [xC, yT], radius: 11 * a, fillColor: renkCoz(SARI), insert: false }));
     });
     olay(fc, "tik", 0.5); not("changed noktası", fc);
-    yazi("changed", { x: xC, y: yT + 52, hizala: "orta", boyut: 44, aile: "Caveat", agirlik: 700, renk: IKI, bas: fc + 2, sure: 10 });
+    // 27,80–28,27 `changed` (anlatımsız etiket, sure 0,47 sn); xC ortalı
+    elYazisi("changed", { x: xC - eyGen("changed", 44) / 2, y: yT + 52, boyut: 44, renk: IKI,
+      bas: fc + 2, sure: 14 });
     const yay = Array.from({ length: 24 }, (_, i) => { const u = i / 23;
       return [xC + 20 + u * (xN - xC - 40), yT - 18 - 56 * Math.sin(u * Math.PI)]; });
     const ya = ciz(yay, { w: 7.5, renk: SARI, alfa: 0.85, bas: fr(28.07), sure: 26, duz: true, uc0: 12, uc1: 24, amp: 0.5 });
     not("since yayı", ya.bas);
-    yazi("since", { x: (xC + xN) / 2, y: yT - 92, hizala: "orta", boyut: 52, aile: "Caveat", agirlik: 700, renk: SARI,
-      bas: fr(28.45), sure: 10, ses: true });
+    // 28,45–28,92 `since` (anlatımsız etiket, sure 0,47 sn); yayın ortasında ortalı
+    elYazisi("since", { x: (xC + xN) / 2 - eyGen("since", 52) / 2, y: yT - 92, boyut: 52,
+      renk: SARI, bas: fr(28.45), sure: 14 });
     const fn = fr(29.1);
     dinamik((f, g) => {
       if (f < fn) return;
@@ -87,8 +103,12 @@ export async function kur(P) {
       g.addChild(new P.Path.Circle({ center: [xN, yT], radius: 13 + 30 * (1 - Math.pow(1 - u, 3)), strokeColor: renkCoz(SARI), strokeWidth: 4, opacity: 0.75 * (1 - u) * a, insert: false }));
     });
     olay(fn, "tik", 0.5); not("now noktası (nabız)", fn);
-    yazi("now", { x: xN, y: yT + 52, hizala: "orta", boyut: 44, aile: "Caveat", agirlik: 700, renk: IKI, bas: fn + 2, sure: 8 });
-    yazi("past simple", { x: xC + 190, y: yT + 52, boyut: 44, aile: "Caveat", agirlik: 700, renk: SARI, bas: fr(29.3), sure: 10, ses: true });
+    // 29,17–29,64 `now` (anlatımsız etiket, sure 0,47 sn); xN ortalı
+    elYazisi("now", { x: xN - eyGen("now", 44) / 2, y: yT + 52, boyut: 44, renk: IKI, bas: fn + 2,
+      sure: 14 });
+    // 29,30–29,90 `past simple` ("clause." 29,11–30,07; sure 0,6 sn)
+    elYazisi("past simple", { x: xC + 190, y: yT + 52, boyut: 44, renk: SARI, bas: fr(29.3),
+      sure: 18 });
     not("past simple etiketi", fr(29.3));
   }
 

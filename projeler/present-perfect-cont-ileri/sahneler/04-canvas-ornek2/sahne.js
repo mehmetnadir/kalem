@@ -35,7 +35,9 @@ async function kur() {
   {
     const A = kel(1), B = kel(3), mx = (A.x + B.x + B.w) / 2;
     S.koy(S.darbeler(ok([mx + 90, 262], [mx + 18, 296], 3), { w: 6, renk: SARI, uc0: 10, uc1: 14 }, 36.5, 0.16, 0.12, 0.5));
-    S.koy(S.not({ parca: [["process", SARI]], x: mx + 100, y: 262, font: "700 52px Caveat", tb: 36.8, sure: 0.4, ses: 0.5 }));
+    // 36,80–37,25 `process` (anlatımsız etiket, sure 0,45 sn)
+    S.koy(S.elYazisi({ metin: "process", x: mx + 100, y: 262, boy: 52, renk: SARI, tb: 36.8,
+      sure: 0.45, ses: 0.5 }));
   }
 
   // 35,5–39,5 sağ sahne: okuyan figür (sitting-1) + roman (440 px)
@@ -46,10 +48,17 @@ async function kur() {
   // 38,56–40,24 have only finished two chapters: ikinci daire (tik) -> Caveat `result`
   cevre(10, 14, 38.56, -0.02, 13);
   S.koy(S.darbeler(ok([700, 572], [700, 534], 3), { w: 6, renk: SARI, uc0: 10, uc1: 14 }, 39.3, 0.16, 0.12, 0.5));
-  S.koy(S.not({ parca: [["result", SARI]], x: 640, y: 618, font: "700 52px Caveat", tb: 39.55, sure: 0.4, ses: 0.5 }));
+  // 39,55–40,00 `result` (anlatımsız etiket, sure 0,45 sn; "chapters." 39,20–40,24)
+  S.koy(S.elYazisi({ metin: "result", x: 640, y: 618, boy: 52, renk: SARI, tb: 39.55, sure: 0.45,
+    ses: 0.5 }));
 
   // 40,41–44,57 Türkçe çeviri (Caveat 48 ikincil)
-  S.koy(S.not({ parca: [["Bütün hafta okuyorum, ama yalnızca iki bölümü bitirdim.", IKINCIL]], x: 140, y: 690, tb: 40.41, sure: 3.0 }));
+  // el yazısı, her sözcük kendi penceresinde (Bütün 40,41 … bitirdim. 43,29–44,57); 0,2 sn'den kısa
+  // pencereler (ama 0,16 · iki 0,08) sonraki sözcüğün başına dek uzatıldı
+  const trSoz = S.dizi("Bütün", 40.41, 9);
+  S.koy(S.elYazisi({ metin: "Bütün hafta okuyorum, ama yalnızca iki bölümü bitirdim.", x: 140,
+    y: 690, renk: IKINCIL, sozcukler: trSoz.map((w, i) => ({ t0: w.t0,
+      t1: w.t1 - w.t0 < 0.2 && trSoz[i + 1] ? trSoz[i + 1].t0 : w.t1 })) }));
 
   // 44,72–49,20 iki sütunlu el kartı: PROCESS been reading · RESULT have finished + sayı
   {
@@ -59,7 +68,9 @@ async function kur() {
     S.koy(S.metinPop({ parca: [["been reading", KREM]], x: 190, y: 905, font: F, tb: 45.6, sure: 0.35, ses: 0.6 }));
     S.koy(S.darbeler(kutu(960, 740, 800, 250, 42), { w: 4.2, renk: KREM, uc0: 8, uc1: 14 }, 46.96, 0.1, 0.08, 0.5));
     S.koy(S.metinPop({ parca: [["RESULT", SARI]], x: 1010, y: 800, font: E, tb: 47.2, sure: 0.3, ses: 0.5 }));
-    S.koy(S.not({ parca: [["+ sayı (two)", SARI]], x: 1010, y: 862, font: "700 48px Caveat", tb: 47.52, sure: 0.5, ses: 0.4 }));
+    // 47,52–48,04 `+ sayı (two)` ("sayı," 47,52–48,04; sure 0,52 sn)
+    S.koy(S.elYazisi({ metin: "+ sayı (two)", x: 1010, y: 862, boy: 48, renk: SARI, tb: 47.52,
+      sure: 0.52, ses: 0.4 }));
     S.koy(S.metinPop({ parca: [["have finished", KREM]], x: 1010, y: 950, font: F, tb: 48.24, sure: 0.35, ses: 0.6 }));
     S.koy(S.parilti(1700, 770, 48.9, 22));
   }

@@ -1,6 +1,7 @@
 // SAHNE 05 (İLERİ) — Örnek 3: tuzak, durum fiili (düz canvas, 392 kare, t_bas 49,20; cümle 5; çıkış fade).
 // Kök: "We have known each other since we were at primary school." Zaman yalnız kare numarasından.
 import { surucu } from "/ortak/surucu.js";
+import { yaziNoktalari } from "/projeler/present-perfect-cont-ileri/ortak/kalem-canvas.js";
 import { Sahne, RT, ok, elips, kutu, olc } from "./sahne-ortak.js";
 
 const KARE = 392, TBAS = 49.20, ICERIK = 380;
@@ -8,7 +9,7 @@ const KOKDIZ = "/projeler/present-perfect-cont-ileri/ortak/cizim";
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Example 3 / 3", cumle: 5 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
-const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+const FF = (b) => `700 ${b}px Fredoka`;
 
 async function kur() {
   await S.kur();
@@ -17,7 +18,9 @@ async function kur() {
 
   // 49,75–50,79 daire içinde 3 + sarı TRAP etiketi (ilk 12 kare boş: künye hazır, tuval boş)
   S.koy(S.daireSayi(3, 200, 205, 49.75));
-  S.koy(S.not({ parca: [["TRAP", SARI]], x: 290, y: 236, font: CV(84), tb: 50.2, sure: 0.5, ses: 0.6 }));
+  // 50,20–50,70 `TRAP` (anlatımsız etiket, sure 0,5 sn; "Üçüncü örnek." 49,75–50,79)
+  S.koy(S.elYazisi({ metin: "TRAP", x: 290, y: 236, boy: 84, renk: SARI, tb: 50.2, sure: 0.5,
+    ses: 0.6 }));
   S.koy(S.darbe([[288, 262], [380, 256], [470, 262]], { w: 7, renk: SARI, alfa: 0.85, uc0: 8, uc1: 14, tohum: 91 },
     50.65, 0.4, 0.5));
 
@@ -30,10 +33,12 @@ async function kur() {
   // 51,44 known: sarı daire; altında Caveat `have known` + `have been knowing` değil
   S.koy(S.halka(kel(2), 51.44, 0.3, 31, 8));
   const yN = sonSatir + 86;
-  S.koy(S.not({ parca: [["have known", SARI]], x: 140, y: yN, font: CV(64), tb: 51.7, sure: 0.5 }));
-  const wN = olc(CV(64), "have known");
-  S.koy(S.not({ parca: [["have been knowing değil", IKINCIL]], x: 140 + wN + 36, y: yN, font: CV(52), tb: 52.6,
-    sure: 0.9 }));
+  // 51,70–52,20 `have known` (sure 0,5 sn) · 52,60–53,40 `have been knowing değil` (sure 0,8 sn);
+  // el yazısı, ikincisinin x'i birincinin tegaki genişliğinden (w) gelir
+  const hk = S.koy(S.elYazisi({ metin: "have known", x: 140, y: yN, boy: 64, renk: SARI, tb: 51.7,
+    sure: 0.5 }));
+  S.koy(S.elYazisi({ metin: "have been knowing değil", x: 140 + hk.w + 36, y: yN, boy: 52,
+    renk: IKINCIL, tb: 52.6, sure: 0.8 }));
 
   // sağ sahne (51,0–54,2): iki figür + okul (380 px) kalemle
   S.koy(S.cizim({ svg: kisi1, ad: "kisi1", kutu: { x: 1010, y: 190, w: 300, h: 420 }, esik: 0.004, enCok: 60, w: 3.4,
@@ -48,8 +53,12 @@ async function kur() {
 
   // 54,33–56,97 Türkçe çeviri (Caveat 48 ikincil)
   const yTR = yN + 70;
-  S.koy(S.not({ parca: [["İlkokuldan beri birbirimizi tanıyoruz.", IKINCIL]], x: 140, y: yTR, font: CV(52),
-    tb: 54.33, sure: 2.4 }));
+  // el yazısı, her sözcük kendi penceresinde (İlkokuldan 54,33 … tanıyoruz. 55,85–56,97);
+  // beri 0,16 sn → birbirimizi başına dek uzatıldı
+  const trSoz = S.dizi("İlkokuldan", 54.33, 4);
+  S.koy(S.elYazisi({ metin: "İlkokuldan beri birbirimizi tanıyoruz.", x: 140, y: yTR, boy: 52,
+    renk: IKINCIL, sozcukler: trSoz.map((w, i) => ({ t0: w.t0,
+      t1: w.t1 - w.t0 < 0.2 && trSoz[i + 1] ? trSoz[i + 1].t0 : w.t1 })) }));
 
   // 57,22–59,38 STATE VERB kartı: know-ing yazılır, kırmızı tek çizgiyle üstü çizilir
   const ky = yTR + 56, kh = 250;
@@ -63,8 +72,19 @@ async function kur() {
     { w: 10, renk: KIRMIZI, alfa: 0.95, uc0: 8, uc1: 14, tohum: 93 }, 58.78, 0.35, 0.7));
 
   // 59,63–61,87 Caveat `durum fiili: -ing yok`; Present Perfect etiketi tik
-  S.koy(S.not({ parca: [["durum fiili: ", KREM], ["-ing", SARI], [" yok", KREM]], x: 930, y: ky + 100, font: CV(72),
-    tb: 59.63, sure: 0.8 }));
+  // el yazısı, üç renkli parça üç çağrı; x'ler tegaki genişliğinden (önek = tam metin − parça):
+  // `durum fiili:` Durum 59,63 · fiili 60,03 · `-ing` 60,67–60,99 · `yok` "almaz." 61,15–61,95
+  const gx = (str) => yaziNoktalari(str, S.EY.G, { upm: S.EY.M.unitsPerEm, asc: S.EY.M.ascender,
+    boy: 72, x: 0, taban: 0 }).gen;
+  const dz = S.dizi("Durum", 59.63, 2).map((w) => ({ t0: w.t0, t1: w.t1 }));
+  const ing = S.dizi("-ing", 60.67, 1).map((w) => ({ t0: w.t0, t1: w.t1 }));
+  const alm = S.dizi("almaz.", 61.15, 1).map((w) => ({ t0: w.t0, t1: w.t1 }));
+  const yd = ky + 100;
+  S.koy(S.elYazisi({ metin: "durum fiili:", x: 930, y: yd, boy: 72, renk: KREM, sozcukler: dz }));
+  S.koy(S.elYazisi({ metin: "-ing", x: 930 + gx("durum fiili: -ing") - gx("-ing"), y: yd, boy: 72,
+    renk: SARI, sozcukler: ing }));
+  S.koy(S.elYazisi({ metin: "yok", x: 930 + gx("durum fiili: -ing yok") - gx("yok"), y: yd, boy: 72,
+    renk: KREM, sozcukler: alm }));
   S.koy(S.darbeler(ok([1010, ky + 140], [960, ky + 112], 5), { w: 6.5, renk: SARI, uc0: 10, uc1: 14 }, 59.9, 0.16,
     0.12, 0.5));
   const px = 930, py = ky + 150;
