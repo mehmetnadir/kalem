@@ -49,7 +49,7 @@ const g = (method, params = {}, sessionId) => new Promise((ok, hata) => {
 ws.onmessage = (e) => {
   const m = JSON.parse(e.data);
   if (sec.dbg && m.method === "Network.requestWillBeSent") {
-    ISTEK.set(m.params.requestId, m.params.request.url);
+    ISTEK.set(m.params.requestId, m.params.request.method + " " + m.params.request.url);
   }
   if (sec.dbg && /^Network\.(responseReceived|loadingFailed)$/.test(m.method || "")) {
     const p = m.params, u = ISTEK.get(p.requestId) || "";
