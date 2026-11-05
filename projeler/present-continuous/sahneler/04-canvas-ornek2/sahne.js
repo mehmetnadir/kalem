@@ -46,15 +46,15 @@ async function kur() {
     ctx.save(); ctx.fillStyle = renkCoz(SARI); ctx.beginPath(); ctx.arc(nx, ny, 13 * u, 0, Math.PI * 2); ctx.fill(); ctx.restore();
   } });
   S.koy(S.nabiz(nx, ny, 13, 44.65));
-  S.koy(S.not({ parca: [["now", SARI]], x: nx - 38, y: yKutu + kh + 52, tb: 44.8, sure: 0.3, ses: false }));
-  const n1 = S.not({ parca: [["not at this moment", IKINCIL]], x: 140, y: yKutu + kh + 112, tb: 44.9, sure: 0.5 });
+  S.koy(S.elYazisi({ metin: "now", x: nx - 38, y: yKutu + kh + 52, renk: SARI, tb: 44.8, sure: 0.45, ses: false }));
+  const n1 = S.elYazisi({ metin: "not at this moment", x: 140, y: yKutu + kh + 112, renk: IKINCIL, tb: 44.9, sure: 0.8 });
   S.koy(n1);
   S.koy(S.metinPop({ parca: [["this semester", SARI]], x: nx, y: yEtiket, font: "700 26px Lexend", hiza: "orta", tb: 45.53, sure: 0.35, ses: 0.5 }));
   S.koy(S.darbe([[140, yBrk + 18], [140, yBrk], [140 + 830, yBrk], [140 + 830, yBrk + 18]],
     { duz: true, w: 7, renk: SARI, alfa: 0.85, uc0: 12, uc1: 24 }, 45.55, 0.5, 0.6));
   const ax = 140 + n1.w + 22, ay = yKutu + kh + 112 - 16;
   S.koy(S.darbeler(ok([ax, ay], [ax + 62, ay], 3), { w: 6, renk: SARI, uc0: 10, uc1: 14 }, 46.0, 0.18, 0.12, 0.5));
-  S.koy(S.not({ parca: [["these days", SARI]], x: ax + 82, y: yKutu + kh + 112, tb: 46.15, sure: 0.4, ses: false }));
+  S.koy(S.elYazisi({ metin: "these days", x: ax + 82, y: yKutu + kh + 112, renk: SARI, tb: 46.15, sure: 0.6, ses: false }));
 
   // 47,12–47,92 is / taking daire (sözcük başlarında)
   S.koy(S.halka(kel("is"), 47.6, 0.3, 11));

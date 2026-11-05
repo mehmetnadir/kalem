@@ -71,11 +71,14 @@ Renk krem; figür ve nesne kalınlığı w 3,2–4,0; belirteç (altını çizme
 eğik elips/çizgi (mükemmel geometri YASAK). Düz canvas sahneleri aynı geometriyi `ortak/kalem-canvas.js`'e taşır
 (A3 yazar: polyline örnekleme + normal sapma + kalınlık → dolgu çokgen; Paper.js'siz).
 
-El yazısı notu (pilot 05.11, karar 5–6; sahne 04 Türkçe çeviri): Caveat 700 Türkçe tegaki darbeleri
-(`ortak/tegaki/caveat-tr/`) kendi kalemimizle yazılır (`S.elYazisi`, `kalem-canvas.js yaziDarbeleri/yaziCiz`);
-i/ö/ü noktaları ve noktalama nib damgasından gelir. Hız kuralı: her sözcük kendi konuşma penceresinde
-(`sozcukler: S.dizi(...)`); anlatımsız notta `sure` hedef saniyedir. Öteki notlar (`S.not`) Nadir değerlendirmesine
-kadar kırpma-belirme ile kalır.
+El yazısı (pilot 05.11, karar 5–6; Nadir "evet geç"): bütün Caveat notlar ve etiketler Caveat 700 Türkçe tegaki
+darbeleriyle (`ortak/tegaki/caveat-tr/`) kendi kalemimizle yazılır — düz canvas `S.elYazisi` (`sahne-ortak.js`,
+`kalem-canvas.js yaziNoktalari/yaziDarbeleri/yaziCiz`), Paper.js `S.elYazisi` (`kalem-paper.js`, ciz() darbeleri +
+nib elipsleri). Kapsam: 02 (-yor, şimdiki zaman, bu akşam, gelecek, -ing, 6 min), 03 (NOW, Şu anda oturuyorum.,
+in progress), 04 (Türkçe çeviri, now, not at this moment, these days), 05 (Bak, kedi ağaca tırmanıyor., NOW).
+i/ö/ü noktaları ve noktalama nib damgasından gelir. Hız kuralı: anlatımlı cümlede her sözcük kendi konuşma
+penceresinde (`sozcukler`); etikette `sure` hedef (0,3–0,8 sn; canvas sn, Paper.js kare). İngilizce cümleler Fredoka
++ karaoke; HyperFrames sahneleri (01 kapak, 06 balon) ayrı karar (TegakiEngine).
 
 ### 2.4 Figür ve nesne (hazır çizimler, kalemle çizilir)
 `ortak/cizim/open-peeps/*.svg` (CC0; sitting-1..7, standing-1..6), `ortak/cizim/tabler/*.svg` (MIT; camera, piano,

@@ -229,38 +229,40 @@ export function altCizgi(x0, x1, y, tohum = 1) {
 // hedefSure yok sayılır; sözcükler boşlukla ayrılır)}.
 // Döner: {darbeler: [{bas, sure, c, nib: [{u, x, y, rx, ry, a}]}], sure, gen, taban}; zamanlar
 // sn, yazının kendi başlangıcına göre (sözcük penceresi verilmişse mutlak anlatım sn).
-export function yaziDarbeleri(metin, G, o = {}) {
+// Saf geometri + zaman: darbeler [{bas, sure, pts (px), gen (kalınlık px), nib, soz, nokta}]; motor
+// bağımsız (kalem-canvas kalemCizgi'ye, kalem-paper kendi ciz()'ine verir).
+export function yaziNoktalari(metin, G, o = {}) {
   const upm = o.upm || 1000, asc = o.asc || 960, boy = o.boy || 48, k = boy / upm;
-  const taban = o.taban != null ? o.taban : (o.y || 0) + asc * k, kal = o.w == null ? 1 : o.w;
-  const sd = o.tohum == null ? 1 : o.tohum;
-  const sozler = metin.split(" "), darbeler = [];
+  const taban = o.taban != null ? o.taban : (o.y || 0) + asc * k;
+  const kal = o.w == null ? 1 : o.w, sozler = metin.split(" "), darbeler = [];
   let x = o.x || 0, t0 = 0, tSoz0 = 0;
   for (let si = 0; si < sozler.length; si++) {
     if (si > 0) x += (o.bosluk == null ? 0.3 : o.bosluk) * upm * k;
     const ilk = darbeler.length; tSoz0 = t0;
     for (const ch of sozler[si]) {
       const g = G[ch]; if (!g) throw new Error("glif yok: " + ch);
-      g.s.forEach((s, i) => {
-        const pts = s.p.map((p) => [x + p[0] * k, taban + p[1] * k]);
-        const gen = s.p.reduce((a, p) => a + (p[2] || 60), 0) / s.p.length * k * kal;
-        const uz = pts.slice(1).reduce((a, p, j) =>
-          a + Math.hypot(p[0] - pts[j][0], p[1] - pts[j][1]), 0);
-        const nib = (s.n || []).map((n) => ({ u: n[0] / Math.max(1, pts.length - 1),
+      g.s.forEach((st) => {
+        const pts = st.p.map((q) => [x + q[0] * k, taban + q[1] * k]);
+        const gen = st.p.reduce((a, q) => a + (q[2] || 60), 0) / st.p.length * k * kal;
+        const uz = pts.slice(1).reduce((a, q, m) =>
+          a + Math.hypot(q[0] - pts[m][0], q[1] - pts[m][1]), 0);
+        const nib = (st.n || []).map((n) => ({ u: n[0] / Math.max(1, pts.length - 1),
           x: pts[n[0]][0] + n[1] * k, y: pts[n[0]][1] + n[2] * k,
           rx: n[3] / 2 * k, ry: n[4] / 2 * k, a: n[5] }));
-        if (uz < 0.6) nib.push({ u: 0, x: pts[0][0], y: pts[0][1], rx: gen / 2, ry: gen / 2, a: 0 });
-        const c = uz < 0.6 ? null : kalemCizgi(pts, { w: Math.max(1.4, gen), duz: true, amp: 0.25,
-          uc0: 2.5, uc1: 3, aralik: 1.6, renk: o.renk, alfa: o.alfa,
-          tohum: sd + darbeler.length });
-        darbeler.push({ bas: t0 + s.d, sure: Math.max(0.02, s.a), c, nib, soz: si });
+        const nokta = uz < 0.6;
+        if (nokta) {
+          nib.push({ u: 0, x: pts[0][0], y: pts[0][1], rx: gen / 2, ry: gen / 2, a: 0 });
+        }
+        darbeler.push({ bas: t0 + st.d, sure: Math.max(0.02, st.a), pts, gen, nib, soz: si,
+          nokta });
       });
       x += g.w * k; t0 += g.t;
     }
     if (o.sozcukler && o.sozcukler[si]) {         // sözcük penceresi: [tSoz0, t0] → [t0_i, t1_i]
-      const p = o.sozcukler[si], dogal = Math.max(0.05, t0 - tSoz0);
-      const hiz = (p.t1 - p.t0) / dogal;
-      for (let j = ilk; j < darbeler.length; j++) {
-        darbeler[j].bas = p.t0 + (darbeler[j].bas - tSoz0) * hiz; darbeler[j].sure *= hiz;
+      const q = o.sozcukler[si], dogal = Math.max(0.05, t0 - tSoz0);
+      const hiz = (q.t1 - q.t0) / dogal;
+      for (let m = ilk; m < darbeler.length; m++) {
+        darbeler[m].bas = q.t0 + (darbeler[m].bas - tSoz0) * hiz; darbeler[m].sure *= hiz;
       }
     }
   }
@@ -271,6 +273,16 @@ export function yaziDarbeleri(metin, G, o = {}) {
     sure = o.hedefSure;
   } else if (o.sozcukler) sure = Math.max(...darbeler.map((d) => d.bas + d.sure));
   return { darbeler, sure, gen: x - (o.x || 0), taban };
+}
+
+// Düz canvas: darbeler kalemCizgi nesnesi (c) taşır; nokta darbesinde c yok, yalnız nib.
+export function yaziDarbeleri(metin, G, o = {}) {
+  const sd = o.tohum == null ? 1 : o.tohum, Y = yaziNoktalari(metin, G, o);
+  Y.darbeler = Y.darbeler.map((d, i) => ({ bas: d.bas, sure: d.sure, soz: d.soz, nib: d.nib,
+    c: d.nokta ? null : kalemCizgi(d.pts, { w: Math.max(1.4, d.gen), duz: true, amp: 0.25,
+      uc0: 2.5, uc1: 3, aralik: 1.6, renk: o.renk, alfa: o.alfa, tohum: sd + i }),
+  }));
+  return Y;
 }
 
 // El yazısını t anına (sn, yaziDarbeleri zaman ekseni) kadar çizer. Nib damgaları kalem noktayı

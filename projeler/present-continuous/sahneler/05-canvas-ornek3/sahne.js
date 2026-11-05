@@ -55,7 +55,8 @@ async function kur() {
 
   // 56,32–57,60 Türkçe çeviri
   const ytr = sonSatir + 78;
-  S.koy(S.not({ parca: [["Bak, kedi ağaca tırmanıyor.", IKINCIL]], x: 140, y: ytr, tb: 56.32, sure: 0.55 }));
+  S.koy(S.elYazisi({ metin: "Bak, kedi ağaca tırmanıyor.", x: 140, y: ytr, renk: IKINCIL,
+    sozcukler: S.dizi("Bak,", 56.32, 4) }));   // el yazısı, sözcük penceresi (pilot 05.11)
 
   // 58,88–63,96 etiketler (el kutusu + tik): Look! / Listen! / Watch out!
   const yb = ytr + 56, bh = 62, lfn = "700 34px Lexend";
@@ -71,7 +72,7 @@ async function kur() {
   const nxx = 830, ay = 802;
   S.koy(S.darbe(elips(nxx, ay, 8, 8, 0, 9), { w: 17, renk: SARI, alfa: 0.9, uc0: 3, uc1: 3, tohum: 91 }, 63.5, 0.25, 0.5));
   S.koy(S.nabiz(nxx, ay, 12, 63.8));
-  S.koy(S.not({ parca: [["NOW", SARI]], x: nxx + 28, y: ay + 18, font: "700 56px Caveat", tb: 63.6, sure: 0.35, ses: false }));
+  S.koy(S.elYazisi({ metin: "NOW", x: nxx + 28, y: ay + 18, boy: 56, renk: SARI, tb: 63.6, sure: 0.4, ses: false }));
 
   // 65,37–65,69 is / climbing daire
   S.koy(S.halka(kel("is"), 65.37, 0.3, 21));

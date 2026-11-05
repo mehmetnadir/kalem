@@ -6,7 +6,7 @@ export const FIGUR_AYNA = false;                                   // sitting-4 
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1, kayma: KAYMA });
-  const { fr, ciz, daire, yazi, cumle, altCizgi, parilti, olay, not, bitis, dinamik } = S;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, altCizgi, parilti, olay, not, bitis, dinamik } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil;
   const GB = 12;
 
@@ -35,11 +35,16 @@ export async function kur(P) {
   {
     const g = cz[8], d = daire((g.x0 + g.x1) / 2, g.y - 22, g.w / 2 + 3, 38, { bas: fr(24.65), sure: 16 });
     olay(bitis(d), "tik", 0.5); not("now daire", d.bas);
-    yazi("NOW", { x: g.x1 + 56, y: g.y + 4, boyut: 56, renk: SARI, bas: bitis(d) + 2, sure: 10, olcek: true });
+    elYazisi("NOW", { x: g.x1 + 56, y: g.y + 4, boyut: 56, renk: SARI, bas: bitis(d) + 2, sure: 12 });
   }
 
   // --- 25,30–25,78: Şu anda oturuyorum. (Caveat 48 ikincil, y 490)
-  yazi("Şu anda oturuyorum.", { x: 140, y: 490, boyut: 48, renk: IKI, bas: fr(25.3), sure: 17 }); not("Türkçe çeviri", fr(25.3));
+  {   // el yazısı: her sözcük kendi konuşma penceresinde (cümle 3: Şu 25,30 · anda 25,58 · oturuyorum. 25,78–26,74)
+    const tr = S.sozcukler(3), i0 = tr.findIndex((w) => w.s === "Şu");
+    elYazisi("Şu anda oturuyorum.", { x: 140, y: 490, boyut: 48, renk: IKI,
+      sozcukler: tr.slice(i0, i0 + 3).map((w) => ({ f0: w.f, f1: w.f1 })) });
+    not("Türkçe çeviri", fr(25.3));
+  }
 
   // --- 26,78–28,26: zaman çizgisi, nabız atan now noktası, dalgalı in progress bandı
   {
@@ -57,7 +62,7 @@ export async function kur(P) {
     yazi("now", { x: xN, y: yT + 52, hizala: "orta", boyut: 28, aile: "Lexend", agirlik: 500, renk: IKI, bas: f0 + 2, sure: 8 });
     const dalga = Array.from({ length: 40 }, (_, i) => { const u = i / 39, x = 330 + u * 380; return [x, 592 + 11 * Math.sin(u * 7.5 * Math.PI) * (0.55 + 0.45 * Math.sin(u * Math.PI))]; });
     const w = ciz(dalga, { w: 7.5, renk: SARI, alfa: 0.85, bas: fr(27.5) + 8, sure: 24, duz: true, uc0: 12, uc1: 24, amp: 0.5 }); not("in progress bandı", w.bas);
-    yazi("in progress", { x: 520, y: 566, hizala: "orta", boyut: 44, renk: SARI, bas: bitis(w) - 6, sure: 14, ses: true });
+    elYazisi("in progress", { x: 520 - S.genislik("in progress", "700 44px Caveat") / 2, y: 566, boyut: 44, renk: SARI, bas: bitis(w) - 6, sure: 16, ses: true });
   }
 
   // --- 29,29–31,85: am (30,73) ve sitting (31,85) sarı daire

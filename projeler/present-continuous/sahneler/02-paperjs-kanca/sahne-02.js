@@ -6,7 +6,7 @@ export const KARE = 385, T_BAS = 7.0, KAYMA = 6.0;   // T_BAS: eski çerçeve; z
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook", etkin: 0, kayma: KAYMA });
-  const { fr: fr0, ciz, daire, ok, yazi, cumle, altCizgi, tik, parilti, olay, not, bitis } = S;
+  const { fr: fr0, ciz, daire, ok, yazi, elYazisi, cumle, altCizgi, tik, parilti, olay, not, bitis } = S;
   const fr = (t) => fr0(t) - 60;                                    // cümle 2 sonrası: 2,0 sn öne
   const SARI = RT.vurgu, IKI = RT.ikincil;
   const GB = 12;                                                    // geçiş karesi: çizimler bundan sonra başlar
@@ -36,15 +36,15 @@ export async function kur(P) {
   {
     const g = c1[3], d = daire((g.x0 + g.x1) / 2 + 3, g.y - 24, g.w / 2 + 6, 36, { bas: fr(9.39), sure: 24, egim: -0.04 });
     olay(bitis(d), "tik", 0.5); not("gidiyorum daire", d.bas);
-    const y1 = 372, a = yazi("-yor", { x: 140, y: y1, boyut: 48, renk: IKI, bas: fr(10.19), sure: 8 });
+    const y1 = 372, a = elYazisi("-yor", { x: 140, y: y1, boyut: 48, renk: IKI, bas: fr(10.19), sure: 10 });
     ok([a.x1 + 14, y1 - 14], [a.x1 + 84, y1 - 14], { bas: fr(10.19) + 4, sure: 10, w: 5, uzun: 16, bukum: 0.08 });
-    const b = yazi("şimdiki zaman", { x: a.x1 + 100, y: y1, boyut: 48, renk: IKI, bas: fr(10.19) + 16, sure: 14 }); not("not -yor → şimdiki zaman", a.bas);
+    const b = elYazisi("şimdiki zaman", { x: a.x1 + 100, y: y1, boyut: 48, renk: IKI, bas: fr(10.19) + 16, sure: 20 }); not("not -yor → şimdiki zaman", a.bas);
     ok([b.x1 + 26, y1 - 12], [b.x1 + 112, y1 - 6], { bas: fr(11.0), sure: 12, w: 5, uzun: 18, bukum: 0.1 });
     await S.svgCiz("tabler/calendar.svg", { kutu: [b.x1 + 130, 336, 88, 88], bas: fr(11.15), sure: 24, azami: 25, w: 3.4, sesAralik: 3 });
     not("takvim çizimi", fr(11.15));
-    const y2 = 470, n1 = yazi("bu akşam", { x: 520, y: y2, boyut: 48, renk: IKI, bas: fr(11.63), sure: 10 });
+    const y2 = 470, n1 = elYazisi("bu akşam", { x: 520, y: y2, boyut: 48, renk: IKI, bas: fr(11.63), sure: 14 });
     ok([n1.x1 + 14, y2 - 14], [n1.x1 + 84, y2 - 14], { bas: fr(11.63) + 6, sure: 10, w: 5, uzun: 16, bukum: 0.08 });
-    yazi("gelecek", { x: n1.x1 + 100, y: y2, boyut: 48, renk: SARI, bas: fr(11.63) + 18, sure: 12, ses: true }); not("not bu akşam → gelecek", n1.bas);
+    elYazisi("gelecek", { x: n1.x1 + 100, y: y2, boyut: 48, renk: SARI, bas: fr(11.63) + 18, sure: 14, ses: true }); not("not bu akşam → gelecek", n1.bas);
   }
 
   // --- 12,50–14,58: I'm going to my uncle's tonight. (Fredoka 56 krem)
@@ -54,16 +54,16 @@ export async function kur(P) {
     altCizgi(e, { tut: 30 }); not("İngilizce cümle başı", e[0].bas);
     const g = e[1], d = daire((g.x0 + g.x1) / 2, g.y - 20, g.w / 2 + 3, 33, { bas: fr(13.62) - 8, sure: 22, a0: -2.0 });
     olay(bitis(d), "tik", 0.5); not("going daire", d.bas);
-    const y = 668, a = yazi("-yor", { x: 140, y, boyut: 52, renk: IKI, bas: fr(13.95), sure: 8 });
+    const y = 668, a = elYazisi("-yor", { x: 140, y, boyut: 52, renk: IKI, bas: fr(13.95), sure: 10 });
     const ar = ok([a.x1 + 22, y - 16], [a.x1 + 132, y - 16], { bas: fr(13.95) + 5, sure: 18, w: 6.5, cift: true, uzun: 20, bukum: 0.05 });
-    yazi("-ing", { x: a.x1 + 156, y, boyut: 52, renk: SARI, bas: bitis(ar) + 4, sure: 8, ses: true }); not("ok -yor ⇄ -ing", ar.bas);
+    elYazisi("-ing", { x: a.x1 + 156, y, boyut: 52, renk: SARI, bas: bitis(ar) + 4, sure: 10, ses: true }); not("ok -yor ⇄ -ing", ar.bas);
   }
 
   // --- 14,73–20,89: el kutusu, saat, 3 madde
   {
     S.kutu(1060, 690, 760, 280, { bas: fr(14.73) - 8, sure: 38 }); not("kutu çizimi", fr(14.73) - 8);
     await S.svgCiz("tabler/clock.svg", { kutu: [1096, 712, 76, 76], bas: fr(14.73), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
-    yazi("6 min", { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(14.73) + 14, sure: 12 }); not("saat + 6 min", fr(14.73));
+    elYazisi("6 min", { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(14.73) + 14, sure: 14 }); not("saat + 6 min", fr(14.73));
     parilti(1176, 714, { bas: fr(15.9), r: 22, periyot: 170, adet: 3 });
     const m = [["form", 16.97, 835], ["time expressions", 17.65, 890], ["6 uses", 19.29, 945]];
     for (const [s, t, y] of m) {
