@@ -84,3 +84,14 @@ yukarı toplanır ve küçülür, ama küçülünce de ≥ 48 px kalır).
 4. RAPOR.md: kare sayısı, tema ikisi de, olay sayısı, kapı sonuçları (eval çıktısı, kontrol/telefon kare adları), açık sorular.
 > TEK KAYNAK (05.11 karar 6b): öteki 9 paketin kopyası buraya işaret eder;
 > kuralı yalnız burada değiştir.
+
+## 6. El yazısı (K26, 05.11 — Nadir: "el yazısı her yerde olsun")
+
+Caveat not / etiket / Türkçe çeviri yazıları kalemle harf harf yazılır: Paper.js `S.elYazisi(str, {x, y (taban),
+boyut, renk, bas | sozcukler, sure})`, düz canvas `S.elYazisi({metin, x, y (taban), boy, renk, tb | sozcukler, sure})`;
+veri kök `ortak/tegaki/caveat-tr/` (tek otorite). Kural kaynağı ana BRIEF "El yazısı" paragrafı
+(`../present-continuous/BRIEF.md`): hız kuralı (anlatımlı yazı → sözcük penceresi; etiket → `sure` 0,3–0,8 sn),
+i/ö/ü ve noktalama nib damgası, glif kapsam kapısı (`~/.claude/skills/el-yazisi-efekti/scripts/glif-kapsam.py`
+çıkış 0; kapsam dışı metin Caveat `yazi` olarak kalır ve rapora girer). Dikey ek: boyut ≥ 56 (§3), sağ uç ≤ 1032 px
+(§2), taşarsa satır kır (küçültme yok). Kanıt: her yazı için 3 kare (başı / ortası / sonu, `araclar/sahne-kare.mjs`);
+sahne yükü `araclar/sahne-profil.mjs` uzun iş yok. HyperFrames sahneleri (01, 06) ayrı karar (TegakiEngine).

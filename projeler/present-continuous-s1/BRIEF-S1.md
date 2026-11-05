@@ -44,3 +44,10 @@ Sahne 03: `Tam ders:` Caveat 72 y460, bant y510-1070 Fredoka 150, saat + `@ydspu
 Çalıştırma: her sahne `calistir.sh --tema acik` sonra `--tema koyu`; `birlestir.py ... --tema acik|koyu --gecis BookFlip --efekt hisirti`.
 > TEK KAYNAK (05.11 karar 6b): öteki 9 paketin kopyası buraya işaret eder;
 > kuralı yalnız burada değiştir.
+
+## El yazısı (K26, 05.11)
+
+Caveat yazılar kalemle yazılır (`02-paperjs-ornek`: `S.elYazisi(str, {x, y (taban), boyut, renk, bas | sozcukler,
+sure})`; veri kök `ortak/tegaki/caveat-tr/`). Kural kaynağı `../present-continuous-dikey/BRIEF-DIKEY.md` §6: hız
+kuralı, nib noktaları, glif kapsam kapısı, sağ uç ≤ 1032 px, boyut ≥ 56, 3 kare kanıt. HyperFrames (01 kapak,
+03 CTA) ayrı karar.
