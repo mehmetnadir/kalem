@@ -261,7 +261,7 @@ export class Sahne {
     const ctx = this.ctx;
     zeminCiz(ctx, f, this.K);
     for (const e of this.ogeler) e.ciz(ctx, f);
-    kunyeCiz(ctx, { bolum: this.bolum, etkin: 2, logo: this.K.logo });
+    kunyeCiz(ctx, { bolum: this.bolum, etkin: 1, logo: this.K.logo });
     if (f === this.kareSay - 1) {
       await gunluk({ method: "POST", body: `ILKBAS ${Math.round(this.ilkBas)}` });
       await gunluk({ method: "POST", body: "OLAYLAR " + JSON.stringify(this.olayListe()) });
