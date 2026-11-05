@@ -12,7 +12,9 @@ const S = new Sahne({
 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
-const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+const FF = (b) => `700 ${b}px Fredoka`;
+// El yazısı (tegaki Caveat, dalga 5b / K26): sözcük penceresi = anlatım t0/t1 (küresel sn)
+const pen = (ad, t, n) => S.dizi(ad, t, n).map((w) => ({ t0: w.t0, t1: w.t1 }));
 
 async function kur() {
   await S.kur();
@@ -34,9 +36,10 @@ async function kur() {
   }));
   const kel = (ad) => cum.kel.find((k) => k.m === ad);
 
-  // C bandı: Türkçe çeviri Caveat 64 (51,52)
-  S.koy(S.not({
-    parca: [["Dün futbol oynamadık.", KREM]], x: 56, y: 806, font: CV(64), tb: 51.52, sure: 0.55
+  // C bandı: Türkçe çeviri Caveat 64, 51,52–53,12 (pencere: 3 sözcük)
+  S.koy(S.elYazisi({
+    metin: "Dün futbol oynamadık.", x: 56, y: 806, boy: 64, renk: KREM,
+    sozcukler: pen("Dün", 51.52, 3)
   }));
 
   // D bandı (830–1270): ayakta figür 440 px + futbol topu 400 px;
@@ -85,8 +88,9 @@ async function kur() {
     { duz: true, w: 5, renk: SARI, uc0: 4, uc1: 8 },
     55.75, 0.3, 0.1, 0.5
   ));
-  S.koy(S.not({
-    parca: [["geçmiş", KREM]], x: fx + 24, y: by + 170, font: CV(64), tb: 56.07, sure: 0.4
+  // 56,07 anlatımsız etiket `geçmiş` (zaten 56,07 · geçmişi 56,55–56,95): hedef 0,5 sn
+  S.koy(S.elYazisi({
+    metin: "geçmiş", x: fx + 24, y: by + 170, boy: 64, renk: KREM, tb: 56.07, sure: 0.5
   }));
 
   // 59,43 play sarı daire; played kırmızı çizili (59,7)
@@ -102,8 +106,9 @@ async function kur() {
   ));
 
   // 60,30–61,74 Soruda did başa: sarı kalem oku soru satırının başına
-  S.koy(S.not({
-    parca: [["did başa", SARI]], x: 790, y: 1240, font: CV(64), tb: 60.6, sure: 0.4, ses: false
+  // 60,60 anlatımsız etiket `did başa` (Soruda 60,30–60,78): hedef 0,5 sn → 61,10
+  S.koy(S.elYazisi({
+    metin: "did başa", x: 790, y: 1240, boy: 64, renk: SARI, tb: 60.6, sure: 0.5, ses: false
   }));
   S.koy(S.darbeler(
     ok([770, 1291], [60, 1291], 6), { w: 9, renk: SARI, uc0: 10, uc1: 14 },

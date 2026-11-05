@@ -6,17 +6,34 @@
 import {
   sahneKur, RT, renkCoz
 } from "/projeler/simple-past-temel-dikey/sahneler/03-paperjs-ornek1/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/simple-past-temel-dikey/ortak/kalem-canvas.js";
 
 export const KARE = 448, T_BAS = 14.8;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1, kayma: 0 });
   const {
-    fr, ciz, daire, ok, yazi, cumle, altCizgi, tik, parilti, olay, not, bitis, genislik, kutu
+    fr, ciz, daire, ok, yazi, elYazisi, cumle, altCizgi, tik, parilti, olay, not, bitis, genislik,
+    kutu
   } = S;
   const SARI = RT.vurgu, KRE = RT.murekkep;
   const GB = 12; // geçiş karesi: çizimler bundan sonra başlar
-  const FF = { aile: "Fredoka", agirlik: 700 }, CV = { aile: "Caveat", agirlik: 700 };
+  const FF = { aile: "Fredoka", agirlik: 700 };
+
+  // --- el yazısı (Caveat 700 tegaki, dalga 5b / K26): not ve etiketler kalemle yazılır.
+  // Ortaya/sağa hizalı x çizimden önce hesaplanır (yaziNoktalari.gen); sözcük pencereleri
+  // anlatımın f / f1 karelerinden gelir.
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm,
+    asc: EY.M.ascender, boy: boyut, x: 0, taban: 0 }).gen;
+  const CS = S.sozcukler(3); // cümle 3: f / f1 yerel kare
+  const norm = (s) => s.replace(/[.,:;?!]/g, "");
+  const pen = (ilk, adet, tMin = 0) => {
+    const i = CS.findIndex((w) => norm(w.s) === ilk && w.f >= fr(tMin));
+    return CS.slice(i, i + adet).map((w) => ({ f0: w.f, f1: w.f1 }));
+  };
 
   // --- kart (tam genişlik 984, kenar 4 px kalem çizgisi) + daire içinde 1 (sağ üst köşe)
   kutu(48, 372, 984, 308, { bas: GB, sure: 26, w: 4, renk: KRE }); not("kart kutusu", GB);
@@ -42,15 +59,16 @@ export async function kur(P) {
       bas: fr(17.37), sure: 16, a0: -2.2, w: 10
     });
     olay(bitis(d), "tik", 0.5); not("last night daire", d.bas);
-    yazi("LAST NIGHT", {
-      x: b.x1 + 90, y: a.y + 2, boyut: 64, ...CV, renk: SARI, bas: bitis(d) + 2,
-      sure: 12, olcek: true, ses: true
+    // anlatımsız etiket `LAST NIGHT` (daire biterken başlar): hedef 14 kare (0,47 sn) → 18,23
+    elYazisi("LAST NIGHT", {
+      x: b.x1 + 90, y: a.y + 2, boyut: 64, renk: SARI, bas: bitis(d) - 4, sure: 14
     });
   }
 
   // --- 18,34–20,0: Dün gece bir film izledim. (Caveat 64 murekkep, y 650)
-  yazi("Dün gece bir film izledim.", {
-    x: 96, y: 650, boyut: 64, ...CV, bas: fr(18.34), sure: 24, ses: true
+  // 18,34–20,18 «Dün gece bir film izledim.» (pencere: her sözcük kendi konuşmasında)
+  elYazisi("Dün gece bir film izledim.", {
+    x: 96, y: 650, boyut: 64, renk: KRE, sozcukler: pen("Dün", 5)
   });
   not("Türkçe çeviri", fr(18.34));
 
@@ -88,12 +106,14 @@ export async function kur(P) {
     kutu(250, 718, 500, 84, {
       bas: fr(20.63) - 4, sure: 22, w: 4
     }); not("bitti kutusu", fr(20.63) - 4);
-    yazi("bitti", { x: 500, y: 778, hizala: "orta", boyut: 64, ...CV, renk: SARI, bas: fr(20.63),
-      sure: 10, olcek: true, ses: true });
-    const b = yazi("belli", {
-      x: 790, y: 778, boyut: 64, ...CV, bas: fr(21.78), sure: 10, olcek: true, ses: true
+    // 20,63–21,14 «bitti» (ortalı x = 500; pencere 20,63–21,14)
+    elYazisi("bitti", { x: 500 - eyGen("bitti", 64) / 2, y: 778, boyut: 64, renk: SARI,
+      sozcukler: pen("bitti", 1) });
+    // 21,78–22,42 «belli» (pencere 21,78–22,42); tik yazı bitince
+    const b = elYazisi("belli", {
+      x: 790, y: 778, boyut: 64, renk: KRE, sozcukler: pen("belli", 1)
     }); not("belli", b.bas);
-    tik(b.x1 + 36, 758, { bas: fr(21.78) + 10 });
+    tik(b.x1 + 36, 758, { bas: b.bit });
     const f0 = fr(22.5);
     S.dinamik((f, g) => {
       if (f < f0) return;
@@ -101,11 +121,15 @@ export async function kur(P) {
         fillColor: renkCoz(SARI), insert: false }));
     });
     olay(f0, "tik", 0.5); not("last night noktası", f0);
-    yazi("last night", { x: 48, y: yT + 72, boyut: 64, ...CV, bas: f0 + 2, sure: 10 });
+    // 22,50–23,70 «last night» (pencere: last 22,50–22,82 · night 22,90–23,70)
+    elYazisi("last night", { x: 48, y: yT + 72, boyut: 64, renk: KRE,
+      sozcukler: pen("last", 2, 22) });
     const dn = daire(930, yT, 19, 19, {
       bas: fr(22.7), sure: 10, w: 6, tur: 1.05
     }); not("now noktası", dn.bas);
-    yazi("now", { x: 1032, y: yT + 72, hizala: "sag", boyut: 64, ...CV, bas: fr(22.8), sure: 10 });
+    // 22,80 anlatımsız etiket `now`: hedef 14 kare (0,47 sn); sağ uç 1026 (+4 px çizgi payı)
+    elYazisi("now", { x: 1026 - eyGen("now", 64), y: yT + 72, boyut: 64, renk: KRE,
+      bas: fr(22.8), sure: 14 });
   }
 
   // --- 25,21 / 26,17: watched içinde watch ve -ed sarı daire
@@ -144,8 +168,9 @@ export async function kur(P) {
     const w1 = yazi("watch", { ...F2, x: a.x1 + GAP, y: y2, bas: fr(28.3), sure: 9, olcek: true });
     yazi("-ed", { ...F2, x: w1.x1 + 2, y: y2, renk: SARI, bas: fr(28.3) + 4, sure: 9, olcek: true,
       ses: true }); not("watch-ed", fr(28.3));
-    yazi("izle-di", {
-      x: e.x1 + 40, y: y1 - 4, boyut: 72, ...CV, bas: fr(28.5), sure: 12, ses: true
+    // 28,40 anlatımsız etiket `izle-di` (eklersin 28,00–28,88): hedef 14 kare → 28,87
+    elYazisi("izle-di", {
+      x: e.x1 + 40, y: y1 - 4, boyut: 72, renk: KRE, bas: fr(28.4), sure: 14
     });
     not("izle-di", fr(28.5));
     parilti(1000, 1030, { bas: fr(28.65), r: 26 });

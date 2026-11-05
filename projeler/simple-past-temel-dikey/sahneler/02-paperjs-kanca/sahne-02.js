@@ -12,10 +12,17 @@ export const KARE = 366, T_BAS = 3.0;
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook" });
   const {
-    fr, ciz, daire, ok, yazi, cumle, altCizgi, tik, parilti, olay, not, bitis, kutu, genislik
+    fr, ciz, daire, ok, yazi, elYazisi, cumle, altCizgi, tik, parilti, olay, not, bitis, kutu,
+    genislik
   } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil, MUR = RT.murekkep;
   const GB = 12; // geçiş karesi: çizimler bundan sonra
+  // El yazısı (Caveat 700 tegaki, dalga 5b / K26): not ve etiketler kalemle yazılır
+  const CS = S.sozcukler(2); // cümle 2 sözcükleri (f / f1 yerel kare)
+  const pen = (ilk, adet) => {
+    const i = CS.findIndex((w) => w.s === ilk);
+    return CS.slice(i, i + adet).map((w) => ({ f0: w.f, f1: w.f1 }));
+  };
 
   // --- cümle 1 (Caveat 80, iki satır, taban y 450 / 540): sahne 01'den devam;
   // 0–0,4 sn'de hazır belirir
@@ -70,14 +77,16 @@ export async function kur(P) {
     const g = c1[3], d = daire((g.x0 + g.x1) / 2 + 3, g.y - 28, g.w / 2 + 10, 46,
       { bas: fr(3.39), sure: 24, egim: -0.04, w: 10 });
     olay(bitis(d), "tik", 0.5); not("gittim daire", d.bas);
-    const y1 = 650, a = yazi("-di", {
-      x: 76, y: y1, boyut: 72, renk: MUR, bas: fr(4.83), sure: 8, ses: true
+    // 4,83–5,15 «-di» (pencere: -di 4,83–5,07; sonraki sözcüğün başına dek uzatıldı: 5,15)
+    const y1 = 650, a = elYazisi("-di", {
+      x: 76, y: y1, boyut: 72, renk: MUR, sozcukler: [{ f0: fr(4.83), f1: fr(5.15) }]
     });
     kutu(a.x0 - 18, y1 - 60, a.w + 36, 84, { bas: fr(4.83) + 6, sure: 14, w: 8, renk: SARI });
     not("-di sarı kutu", fr(4.83));
     const o1 = ok([a.x1 + 30, y1 - 20], [a.x1 + 112, y1 - 20],
       { bas: fr(4.83) + 20, sure: 10, w: 9, uzun: 22, bukum: 0.08 });
-    const b = yazi("biten iş", {
+    // anlatımsız etiket `biten iş` (okun ardından): hedef 12 kare (0,4 sn)
+    const b = elYazisi("biten iş", {
       x: a.x1 + 130, y: y1, boyut: 64, renk: MUR, bas: bitis(o1) + 2, sure: 12
     });
     not("biten iş", b.bas);
@@ -85,8 +94,9 @@ export async function kur(P) {
       { bas: fr(5.45), sure: 10, w: 9, uzun: 22, bukum: 0.1 });
     await S.svgCiz("tabler/calendar.svg", { kutu: [b.x1 + 122, y1 - 84, 100, 100], bas: bitis(o2),
       sure: 20, azami: 25, w: 4, sesAralik: 3 });
-    yazi("dün", {
-      x: b.x1 + 244, y: y1, boyut: 64, renk: SARI, bas: bitis(o2) + 16, sure: 10, ses: true
+    // anlatımsız etiket `dün` (takvimden sonra): hedef 10 kare (0,33 sn)
+    elYazisi("dün", {
+      x: b.x1 + 244, y: y1, boyut: 64, renk: SARI, bas: bitis(o2) + 16, sure: 10
     });
     not("takvim + dün", bitis(o2));
   }
@@ -105,11 +115,14 @@ export async function kur(P) {
       bas: fr(6.90) - 6, sure: 18, a0: -2.0, w: 9
     });
     olay(bitis(d), "tik", 0.5); not("-ed daire", d.bas);
-    const y = 1376, a = yazi("-di", { x: 540, y, boyut: 64, renk: MUR, bas: fr(7.14), sure: 8 });
+    // 7,14 anlatımsız etiketler `-di` / `-ed`: hedef 12 kare (0,4 sn); ok -di biterken başlar
+    const y = 1376, a = elYazisi("-di", {
+      x: 540, y, boyut: 64, renk: MUR, bas: fr(7.14), sure: 12
+    });
     const ar = ok([a.x1 + 24, y - 20], [a.x1 + 130, y - 20],
-      { bas: fr(7.14) + 5, sure: 18, w: 9, cift: true, uzun: 24, bukum: 0.05 });
-    yazi("-ed", {
-      x: a.x1 + 154, y, boyut: 64, renk: SARI, bas: bitis(ar) + 4, sure: 8, ses: true
+      { bas: fr(7.14) + 8, sure: 18, w: 9, cift: true, uzun: 24, bukum: 0.05 });
+    elYazisi("-ed", {
+      x: a.x1 + 154, y, boyut: 64, renk: SARI, bas: bitis(ar) + 2, sure: 12
     });
     not("ok -di ⇄ -ed", ar.bas);
   }
@@ -119,7 +132,8 @@ export async function kur(P) {
   {
     await S.svgCiz("tabler/clock.svg", { kutu: [380, 750, 110, 110], bas: fr(8.57), sure: 20,
       azami: 25, w: 4.4, sesAralik: 3 });
-    yazi("6 min", { x: 510, y: 835, boyut: 84, renk: SARI, bas: fr(8.57) + 14, sure: 12 });
+    // 8,57 anlatımsız etiket `6 min` (dakikada 8,57–9,21): hedef 14 kare (0,47 sn)
+    elYazisi("6 min", { x: 510, y: 835, boyut: 84, renk: SARI, bas: fr(8.57) + 14, sure: 14 });
     not("saat + 6 min", fr(8.57));
     parilti(680, 750, { bas: fr(9.6), r: 26, periyot: 170, adet: 3 });
     kutu(360, 880, 672, 330, { bas: fr(9.7), sure: 30, w: 4 }); not("kart çizimi", fr(9.7));

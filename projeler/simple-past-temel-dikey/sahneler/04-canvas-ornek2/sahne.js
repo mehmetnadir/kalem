@@ -12,7 +12,9 @@ const S = new Sahne({
 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, SARI = RT.vurgu, KIRMIZI = RT.kirmizi, IKINCIL = RT.ikincil;
-const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+const FF = (b) => `700 ${b}px Fredoka`;
+// El yazısı (tegaki Caveat, dalga 5b / K26): sözcük penceresi = anlatım t0/t1 (küresel sn)
+const pen = (ad, t, n) => S.dizi(ad, t, n).map((w) => ({ t0: w.t0, t1: w.t1 }));
 
 // Öğeleri tek grupta toplar;
 // f0–f1 arası dy kadar aşağı iner (boyut korunur) ve alfa 1 → a1 olur.
@@ -50,10 +52,10 @@ async function kur() {
   const kel = (ad) => cum.kel.find((k) => k.m.replace(/[.,?!:]/g, "") === ad);
   S.koy(S.halka(kel("ago"), 32.64, 0.3, 11, 8));
 
-  // 33,85–35,57 Türkçe çeviri (Caveat 64 murekkep, kart içi)
-  S.koy(S.not({
-    parca: [["Amcam iki yıl önce Londra'ya gitti.", KREM]],
-    x: 96, y: 610, tb: 33.85, sure: 0.9, font: CV(64)
+  // 33,85–36,65 Türkçe çeviri (Caveat 64 murekkep, kart içi; pencere: 6 sözcük)
+  S.koy(S.elYazisi({
+    metin: "Amcam iki yıl önce Londra'ya gitti.", x: 96, y: 610, boy: 64, renk: KREM,
+    sozcukler: pen("Amcam", 33.85, 6)
   }));
 
   // 30,8–33,0 orta: ayakta figür (430 px) + uçak, 3 hız çizgisi;
@@ -84,8 +86,9 @@ async function kur() {
   // 36,73–39,13 takvim şeridi (y 925–1200):
   // `two years ago`, 4 kutu, sağda now noktası, sola giden ok `ago = önce`, tik
   const yKutu = 735, kh = 80, xs = 48, yOk = yKutu + 125;
-  S.koy(S.not({
-    parca: [["two years ago", SARI]], x: xs, y: yKutu - 22, tb: 36.73, sure: 0.5, font: CV(64)
+  // 36,73 anlatımsız etiket `two years ago` (Ago, 36,73–37,45): hedef 0,7 sn → 37,43
+  S.koy(S.elYazisi({
+    metin: "two years ago", x: xs, y: yKutu - 22, boy: 64, renk: SARI, tb: 36.73, sure: 0.7
   }));
   for (let i = 0; i < 4; i++) {
     S.koy(S.darbeler(
@@ -109,27 +112,36 @@ async function kur() {
     ctx.restore();
   } });
   S.koy(S.nabiz(nx, ny, 17, 38.7));
-  S.koy(S.not({
-    parca: [["now", SARI]], x: nx - 36, y: yKutu - 22, tb: 38.85, sure: 0.3,
-    font: CV(64), ses: false
+  // 38,85 anlatımsız etiket `now`: hedef 0,45 sn → 39,30
+  S.koy(S.elYazisi({
+    metin: "now", x: nx - 36, y: yKutu - 22, boy: 64, renk: SARI, tb: 38.85, sure: 0.45,
+    ses: false
   }));
   S.koy(S.darbeler(
     ok([nx + 10, yOk], [xs + 20, yOk], 3),
     { w: 9, renk: SARI, uc0: 10, uc1: 14 }, 37.2, 0.2, 0.12, 0.5
   ));
-  const aW = olc(CV(64), "ago = ");
-  S.koy(S.not({
-    parca: [["ago = ", SARI]], x: xs, y: yOk + 78, tb: 37.49, sure: 0.4, font: CV(64)
+  // 37,49–37,89 `ago =` (yani 37,49–37,85): hedef 0,4 sn; `önce` 38,01–38,73 (pencere);
+  // `önce` x = `ago =` genişliği + boşluk (0,3 em)
+  const agoYaz = S.elYazisi({
+    metin: "ago =", x: xs, y: yOk + 78, boy: 64, renk: SARI, tb: 37.49, sure: 0.4
+  });
+  S.koy(agoYaz);
+  S.koy(S.elYazisi({
+    metin: "önce", x: xs + agoYaz.w + 0.3 * 64, y: yOk + 78, boy: 64, renk: KREM,
+    sozcukler: pen("önce:", 38.01, 1)
   }));
-  S.koy(S.not({
-    parca: [["önce", KREM]], x: xs + aW, y: yOk + 78, tb: 38.01, sure: 0.4, font: CV(64)
-  }));
-  const zx = 520, zw = olc(CV(64), "zaman belli");
-  S.koy(S.not({
-    parca: [["zaman belli", KREM]], x: zx, y: yOk + 78, tb: 38.77, sure: 0.6, font: CV(64)
-  }));
+  // 38,77–39,93 `zaman belli` (pencere: zaman 38,77–39,05 · belli 39,13–39,93);
+  // tik yazı bitince
+  const zx = 520;
+  const zYaz = S.elYazisi({
+    metin: "zaman belli", x: zx, y: yOk + 78, boy: 64, renk: KREM,
+    sozcukler: pen("zaman", 38.77, 2)
+  });
+  S.koy(zYaz);
+  const zw = zYaz.w;
   S.koy(S.darbeler([[[zx + zw + 22, yOk + 50], [zx + zw + 40, yOk + 70], [zx + zw + 76, yOk + 22]]],
-    { w: 9, renk: SARI, uc0: 5, uc1: 8, duz: true }, 39.13, 0.25, 0.3, 0.5));
+    { w: 9, renk: SARI, uc0: 5, uc1: 8, duz: true }, 39.8, 0.25, 0.3, 0.5));
 
   // 40,08–42,24 -ed (40,56) kırmızı çizgiyle yok; go (41,84) sarı daire
   // alt bölge sağ sütun (x 470–1032),
@@ -163,8 +175,9 @@ async function kur() {
     svg: kitap, kutu: { x: 870, y: 975, w: 140, h: 140 }, ad: "kitap", enCok: 8, w: 4,
     tb: 45.85, sure: 0.5, olayEnCok: 2, nefes: false
   }));
-  S.koy(S.not({
-    parca: [["ezberle", KREM]], x: 836, y: 1180, tb: 45.59, sure: 0.5, font: CV(64)
+  // 45,59 anlatımsız etiket `ezberle` (ezberlersin 46,39–47,35): hedef 0,6 sn → 46,19
+  S.koy(S.elYazisi({
+    metin: "ezberle", x: 836, y: 1180, boy: 64, renk: KREM, tb: 45.59, sure: 0.6
   }));
   S.koy(S.parilti(1010, 975, 46.3, 24));
   S.koy(S.darbeler(kutu(gx - 28, R2 - 100, wx + ww - gx + 56, 130, 77), {
