@@ -3,14 +3,26 @@
 // Üstten alta: kart (372–672) · ORTA bölge M (690–950: zaman çizgisi + Simple Past) · alt bölge B (960–1392):
 // solda figür 430 px (20,5'te aşağı iner, hiç küçülmez), sağda sütun (kitap → rows → tuzak).
 import { sahneKur, RT, renkCoz } from "/projeler/simple-past-ileri-dikey/sahneler/03-paperjs-ornek1/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/simple-past-ileri-dikey/ortak/kalem-canvas.js";
 
 export const KARE = 602, T_BAS = 13.47;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1, kayma: 0 });
-  const { fr, ciz, daire, ok, kutu, yazi, cumle, altCizgi, parilti, olay, not, bitis, dinamik } = S;
+  const { fr, ciz, daire, ok, kutu, yazi, elYazisi, cumle, altCizgi, parilti, olay, not, bitis,
+    dinamik } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil, KRE = RT.murekkep, KIR = RT.kirmizi;
   const GB = 12;
+  // El yazısı (Caveat 700 tegaki, K26): ortalı etiketin genişliği glif verisinden ölçülür;
+  // sözcük pencereleri anlatımın t0/t1 karelerinden gelir (cümle 3).
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm, asc: EY.M.ascender,
+    boy: boyut, x: 0, taban: 0 }).gen;
+  const CS = S.sozcukler(3);
+  const pen = (ilk, adet) => { const i = CS.findIndex((w) => w.s === ilk);
+    return CS.slice(i, i + adet).map((w) => ({ f0: w.f, f1: w.f1 })); };
   const f0 = (t) => Math.max(GB, fr(t));
 
   // --- 13,47: kart çerçevesi (el kutusu, 4 px) — içerik bandının üst parçası
@@ -71,9 +83,13 @@ export async function kur(P) {
     // 3 years köprüsü (çizginin üstünde, sarı ayraç)
     ciz([[x1911, yT - 40], [x1911, yT - 62], [xWar, yT - 62], [xWar, yT - 40]], { w: 9, renk: SARI, alfa: 0.85, bas: fr(21.8), sure: 24, duz: true, uc0: 10, uc1: 14 });
     not("3 years köprüsü", fr(21.8));
-    yazi("3 years", { x: (x1911 + xWar) / 2, y: yT - 86, hizala: "orta", boyut: 64, aile: "Caveat", agirlik: 700, renk: KRE, bas: fr(22.0), sure: 10 });
+    // 22,00 anlatımsız etiket `3 years` (ortalı, genişlik 165 px): hedef 14 kare (0,47 sn) → 22,47
+    elYazisi("3 years", { x: (x1911 + xWar) / 2 - eyGen("3 years", 64) / 2, y: yT - 86, boyut: 64,
+      renk: KRE, bas: fr(22.0), sure: 14 });
     // sağ blok: belirli zaman (Caveat 64) -> Simple Past kutusu (iki satır)
-    yazi("belirli zaman", { x: 700, y: 752, boyut: 64, aile: "Caveat", agirlik: 700, renk: SARI, bas: fr(22.21), sure: 20, ses: true });
+    // 22,21–23,17 «belirli zaman,» (belirli 22,21–22,53 · zaman 22,61–23,17); sağ uç 983
+    elYazisi("belirli zaman", { x: 700, y: 752, boyut: 64, renk: SARI,
+      sozcukler: pen("belirli", 2) });
     not("belirli zaman", fr(22.21));
     const a = ok([860, 774], [860, 806], { bas: fr(23.3), sure: 12, w: 8, uzun: 20, bukum: 0.06 });
     kutu(700, 820, 330, 130, { bas: fr(23.5), sure: 24, w: 5, renk: KRE });
@@ -92,14 +108,16 @@ export async function kur(P) {
     const w2 = yazi("begin", { ...F, x: X, y: y2, bas: fr(25.65), sure: 8, olcek: true });
     ok([w2.x1 + 20, y2 - 28], [w2.x1 + 96, y2 - 28], { bas: fr(25.72), sure: 12, w: 8, uzun: 18, bukum: 0.05 });
     yazi("began", { ...F, x: w2.x1 + 116, y: y2, bas: fr(25.88), sure: 8, olcek: true, renk: SARI, ses: true }); not("begin → began", fr(25.65));
-    yazi("düzensiz", { x: X, y: 1218, boyut: 64, aile: "Caveat", agirlik: 700, renk: SARI, bas: fr(26.37), sure: 14, ses: true });
+    // 26,37–27,25 «düzensiz.» tek sözcük penceresi
+    elYazisi("düzensiz", { x: X, y: 1218, boyut: 64, renk: SARI, sozcukler: pen("düzensiz.", 1) });
     not("düzensiz", fr(26.37));
   }
 
   // --- 27,40–32,20: tuzak: begin · began · begun; began sarı daire, begun kırmızı çarpı
   {
     const yR = 1366, F = { boyut: 64, aile: "Fredoka", agirlik: 700 }, X = 442;
-    yazi("Tuzak:", { x: X, y: 1296, boyut: 72, aile: "Caveat", agirlik: 700, renk: KIR, bas: fr(27.40), sure: 14, ses: true });
+    // 27,40–28,28 «Tuzak:» tek sözcük penceresi (kırmızı)
+    elYazisi("Tuzak:", { x: X, y: 1296, boyut: 72, renk: KIR, sozcukler: pen("Tuzak:", 1) });
     not("Tuzak: (kırmızı)", fr(27.40));
     const b1 = yazi("begin", { ...F, x: X, y: yR, bas: fr(28.52), sure: 8, olcek: true, ses: true }); not("begin", fr(28.52));
     const n1 = yazi("·", { ...F, x: b1.x1 + 6, y: yR, bas: fr(29.04), sure: 4 });

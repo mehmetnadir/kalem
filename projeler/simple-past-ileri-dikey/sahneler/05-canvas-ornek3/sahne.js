@@ -36,7 +36,9 @@ async function kur() {
     tb: 56.6, sure: 0.8, olayEnCok: 4 }));
   S.koy(S.halka(kel(5), 57.65, 0.35, 13));
   S.koy(S.darbe(elips(338, 922, 12, 12, 0, 3), { w: 22, renk: KREM, alfa: 0.95, uc0: 4, uc1: 4 }, 57.5, 0.15, 0.6));
-  S.koy(S.not({ parca: [["two weeks ago", KREM]], x: 380, y: 945, font: CV(72), tb: 57.9, sure: 0.5 }));
+  // 57,90 anlatımsız etiket `two weeks ago` (Caveat 72; sağ uç 732): hedef 0,8 sn → 58,70
+  S.koy(S.elYazisi({ metin: "two weeks ago", x: 380, y: 945, boy: 72, renk: KREM, tb: 57.9,
+    sure: 0.8 }));
   S.koy(S.darbeler(ok([420, 975], [420, 1020], 15), { w: 8, renk: SARI, uc0: 10, uc1: 14 }, 59.1, 0.25, 0.12, 0.5));
   S.koy(S.metinPop({ parca: [["Simple Past", SARI]], x: 370, y: 1100, font: FF(88), tb: 59.49, sure: 0.4,
     ses: 0.8, turu: "vurus" }));
@@ -47,10 +49,13 @@ async function kur() {
   S.koy(S.halka(kel(11), 61.16, 0.3, 23));    // found
   S.koy(S.cizim({ svg: saat, ad: "saat", kutu: { x: 60, y: 1150, w: 240, h: 240 }, enCok: 6, w: 4.4,
     tb: 61.0, sure: 0.8, olayEnCok: 4 }));
-  S.koy(S.not({ parca: [["yet = belirsiz", KREM]], x: 370, y: 1215, font: CV(72), tb: 62.0, sure: 0.7 }));
+  // 62,00 anlatımsız etiket `yet = belirsiz` (sağ uç 689): hedef 0,8 sn → 62,80
+  S.koy(S.elYazisi({ metin: "yet = belirsiz", x: 370, y: 1215, boy: 72, renk: KREM, tb: 62.0,
+    sure: 0.8 }));
   S.koy(S.halka(kel(14), 62.6, 0.35, 19));
   S.koy(S.darbeler(ok([830, 1190], [980, 1190], 17), { w: 8, renk: SARI, uc0: 10, uc1: 14 }, 63.3, 0.3, 0.15, 0.5));
-  S.koy(S.not({ parca: [["now", KREM]], x: 900, y: 1170, font: CV(64), tb: 63.5, sure: 0.4 }));
+  // 63,50 anlatımsız etiket `now` (sağ uç 986): hedef 0,45 sn → 63,95
+  S.koy(S.elYazisi({ metin: "now", x: 900, y: 1170, boy: 64, renk: KREM, tb: 63.5, sure: 0.45 }));
   const fPP = FF(80);
   S.koy(S.darbeler(ok([420, 1245], [420, 1285], 25), { w: 8, renk: SARI, uc0: 10, uc1: 14 }, 64.5, 0.25, 0.12, 0.5));
   S.koy(S.metinPop({ parca: [["Present Perfect", SARI]], x: 370, y: 1355, font: fPP, tb: 64.76, sure: 0.4,

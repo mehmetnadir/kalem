@@ -8,7 +8,7 @@ export const KARE = 326, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook", etkin: 0, kayma: 0 });
-  const { fr, ciz, daire, yazi, cumle, tik, parilti, olay, not, bitis, kutu, svgCiz } = S;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, tik, parilti, olay, not, bitis, kutu, svgCiz } = S;
   const SARI = RT.vurgu, KRE = RT.murekkep, KIR = RT.kirmizi;
 
   // --- cümle 1: iki satır Caveat 80 (x 64, taban 450 / 540); 0. karede hazır (sahne 01 ile aynı yer)
@@ -26,7 +26,8 @@ export async function kur(P) {
   await svgCiz("tabler/calendar.svg", { kutu: [48, 585, 270, 270], bas: 6, sure: 30, azami: 25, w: 4.4, sesAralik: 1 });
   not("takvim eskizi", 6);
   await svgCiz("tabler/clock.svg", { kutu: [370, 585, 270, 270], bas: fr(4.03), sure: 24, azami: 25, w: 4.4, sesAralik: 1 });
-  yazi("6 min", { x: 700, y: 765, boyut: 104, renk: SARI, bas: fr(4.03) + 20, sure: 12, ses: true });
+  // 4,70 anlatımsız etiket `6 min` (Caveat 104; sağ uç 907): hedef 20 kare (0,67 sn) → 5,37
+  elYazisi("6 min", { x: 700, y: 765, boyut: 104, renk: SARI, bas: fr(4.03) + 20, sure: 20 });
   not("saat + 6 min", fr(4.03));
   parilti(650, 598, { bas: fr(5.2), r: 28, periyot: 0, adet: 1 });
   parilti(335, 590, { bas: 40, r: 26, periyot: 0, adet: 1 });

@@ -59,18 +59,25 @@ async function kur() {
   const p1 = [];
   p1.push(S.metinPop({ parca: [["used to", KREM]], x: 70, y: 840, font: F80, tb: 39.01, sure: 0.35, ses: 0.5 }));
   p1.push(...S.darbeler(ok([330, 812], [418, 774], 3), { w: 8, renk: SARI, uc0: 10, uc1: 14 }, 39.6, 0.16, 0.12, 0.5));
-  p1.push(S.not({ parca: [["durum", SARI]], x: 440, y: 790, font: C64, tb: 39.81, sure: 0.4, ses: 0.4 }));
+  // 39,81–40,21 «durumu» · 40,61–41,25 «alışkanlığı» (sözcük penceresi)
+  p1.push(S.elYazisi({ metin: "durum", x: 440, y: 790, boy: 64, renk: SARI,
+    sozcukler: S.dizi("durumu", 39.81, 1).map((w) => ({ t0: w.t0, t1: w.t1 })), ses: 0.4 }));
   p1.push(...S.darbeler(ok([330, 856], [418, 896], 5), { w: 8, renk: SARI, uc0: 10, uc1: 14 }, 40.7, 0.16, 0.12, 0.5));
-  p1.push(S.not({ parca: [["alışkanlık", SARI]], x: 440, y: 925, font: C64, tb: 40.93, sure: 0.5, ses: 0.4 }));
+  p1.push(S.elYazisi({ metin: "alışkanlık", x: 440, y: 925, boy: 64, renk: SARI,
+    sozcukler: S.dizi("alışkanlığı", 40.61, 1).map((w) => ({ t0: w.t0, t1: w.t1 })), ses: 0.4 }));
   p1.push(...S.darbeler(ok([735, 900], [800, 860], 7), { w: 8, renk: SARI, uc0: 10, uc1: 14 }, 41.2, 0.16, 0.12, 0.5));
   p1.push(S.cizim({ svg: takvim, ad: "takvim", kutu: { x: 815, y: 705, w: 160, h: 160 }, enCok: 8, w: 4.4, tb: 41.3, sure: 0.4, olayEnCok: 3, nefes: false }));
   p1.push(S.darbe([[800, 880], [895, 790], [990, 700]], { duz: true, w: 9, renk: KREM, alfa: 0.9, uc0: 6, uc1: 10 }, 41.5, 0.2, 0.6));
-  p1.push(S.not({ parca: [["artık yok", KREM]], x: 790, y: 940, font: C64, tb: 41.6, sure: 0.3, ses: 0.4 }));
+  // 41,60 anlatımsız etiket `artık yok`: hedef 0,6 sn → 42,20 (kaydırma 42,2'de başlar)
+  p1.push(S.elYazisi({ metin: "artık yok", x: 790, y: 940, boy: 64, renk: KREM, tb: 41.6, sure: 0.6,
+    ses: 0.4 }));
   S.koy(kaydir(p1, 42.2, 42.7));
 
   // 42,44–47,72 would yalnız tekrarlanan eylem: would + walk ✓ (45,44–46,04), would + live ✗ (46,92–47,72)
   S.koy(S.metinPop({ parca: [["would", SARI]], x: 70, y: 770, font: F80, tb: 42.44, sure: 0.35, ses: 0.5 }));
-  S.koy(S.not({ parca: [["= tekrarlanan eylem", KREM]], x: 330, y: 770, font: C64, tb: 43.64, sure: 1.2, ses: 0.4 }));
+  // 43,64–44,60 «tekrarlanan eylemde»: `=` sözcüksüz, tek pencere (0,96 sn); sağ uç 778
+  S.koy(S.elYazisi({ metin: "= tekrarlanan eylem", x: 330, y: 770, boy: 64, renk: KREM, tb: 43.64,
+    sure: 0.96, ses: 0.4 }));
   const F64 = "700 64px Fredoka", g1 = olc(F64, "would + walk"), g2 = olc(F64, "would + live");
   S.koy(S.darbeler(kutu(48, 805, g1 + 104, 92, 41), { w: 4.2, renk: KREM, uc0: 8, uc1: 14 }, 45.44, 0.12, 0.09, 0.45));
   S.koy(S.metinPop({ parca: [["would + walk", KREM]], x: 70, y: 872, font: F64, tb: 45.5, sure: 0.3, ses: 0.5 }));
@@ -80,9 +87,13 @@ async function kur() {
   S.koy(S.metinPop({ parca: [["would + live", KREM]], x: x2 + 22, y: 872, font: F64, tb: 46.98, sure: 0.3, ses: 0.5 }));
   S.koy(S.darbe([[x2 + g2 + 32, 826], [x2 + g2 + 76, 878]], { duz: true, w: 10, renk: KIR, alfa: 0.95, uc0: 5, uc1: 8 }, 47.2, 0.14, 0.7));
   S.koy(S.darbe([[x2 + g2 + 76, 826], [x2 + g2 + 32, 878]], { duz: true, w: 10, renk: KIR, alfa: 0.95, uc0: 5, uc1: 8 }, 47.34, 0.14, false));
-  S.koy(S.not({ parca: [["durum fiili", KREM]], x: 70, y: 945, font: C64, tb: 47.45, sure: 0.3, ses: 0.4 }));
+  // 47,45 anlatımsız etiket `durum fiili`: hedef 0,6 sn → 48,05
+  S.koy(S.elYazisi({ metin: "durum fiili", x: 70, y: 945, boy: 64, renk: KREM, tb: 47.45, sure: 0.6,
+    ses: 0.4 }));
   S.koy(S.darbeler(ok([390, 925], [470, 925], 9), { w: 8, renk: SARI, uc0: 10, uc1: 14 }, 47.55, 0.12, 0.1, false));
-  S.koy(S.not({ parca: [["used to", SARI]], x: 500, y: 945, font: C64, tb: 47.7, sure: 0.3, ses: 0.4 }));
+  // 47,70 anlatımsız etiket `used to` (sarı): hedef 0,5 sn → 48,20
+  S.koy(S.elYazisi({ metin: "used to", x: 500, y: 945, boy: 64, renk: SARI, tb: 47.7, sure: 0.5,
+    ses: 0.4 }));
   S.koy(S.parilti(960, 930, 47.9, 28));
 }
 
