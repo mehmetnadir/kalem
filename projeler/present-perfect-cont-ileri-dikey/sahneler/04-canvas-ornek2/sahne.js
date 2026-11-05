@@ -10,6 +10,8 @@ const KOKDIZ = "/projeler/present-perfect-cont-ileri-dikey/ortak/cizim";
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Example 2 / 3", cumle: 4 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu;
+// El yazısı (tegaki Caveat, dalga 5b-2 / K26): sözcük penceresi = anlatım t0/t1 (küresel sn)
+const pen = (ad, t, n) => S.dizi(ad, t, n).map((w) => ({ t0: w.t0, t1: w.t1 }));
 
 async function kur() {
   await S.kur();
@@ -46,9 +48,16 @@ async function kur() {
   S.koy(S.cizim({ svg: roman, ad: "roman", kutu: { x: 470, y: 960, w: 400, h: 230 }, enCok: 25, w: 4.2, tb: 36.9, sure: 1.0, olayEnCok: 4 }));
   S.koy(S.parilti(900, 990, 38.2, 28));
 
-  // 40,41–44,57 Türkçe çeviri (Caveat 64 mürekkep, 3 satır, sağ sütun x 430)
-  [["Bütün hafta okuyorum,", 40.41, 800, 1.2], ["ama yalnızca iki", 41.93, 866, 0.8], ["bölümü bitirdim.", 42.81, 932, 0.9]]
-    .forEach(([m, tb, y, sure]) => S.koy(S.not({ parca: [[m, KREM]], x: 430, y, font: "700 64px Caveat", tb, sure })));
+  // 40,41–44,57 Türkçe çeviri (el yazısı Caveat 64, 3 satır, sağ sütun x 430; sağ uç 939)
+  // satır 1: Bütün 40,41–40,65 · hafta 40,73–41,01 · okuyorum, 41,05–41,77
+  // satır 2: ama 41,93–42,17 (pencere 0,16 sn → sonrakinin başına uzatıldı) ·
+  //   yalnızca 42,17–42,73 ·
+  //   iki 42,81–42,97 (0,08 sn → uzatıldı) · satır 3: bölümü 42,97–43,21 · bitirdim. 43,29–44,57
+  const s2 = pen("ama", 41.93, 3);
+  s2[0].t1 = s2[1].t0; s2[2].t1 = 42.97;
+  [["Bütün hafta okuyorum,", 800, pen("Bütün", 40.41, 3)], ["ama yalnızca iki", 866, s2],
+    ["bölümü bitirdim.", 932, pen("bölümü", 42.97, 2)]].forEach(([m, y, sozcukler]) =>
+    S.koy(S.elYazisi({ metin: m, x: 430, y, boy: 64, renk: KREM, sozcukler })));
 
   // 44,72–49,20 süreç / sonuç kartı (Fredoka 72): PROCESS been reading (45,6) · RESULT have finished + sayı (48,24)
   S.koy(S.darbeler(kutu(48, 1205, 984, 187, 51), { w: 4.2, renk: IKINCIL, uc0: 8, uc1: 14 }, 44.72, 0.1, 0.08, 0.5));
@@ -56,7 +65,9 @@ async function kur() {
   S.koy(S.metinPop({ parca: [["been reading", KREM]], x: 300, y: 1280, font: "700 72px Fredoka", tb: 45.6, sure: 0.35, ses: 0.6 }));
   S.koy(S.metinPop({ parca: [["RESULT", SARI]], x: 80, y: 1362, font: "700 36px Lexend", tb: 46.96, sure: 0.3, ses: 0.5 }));
   S.koy(S.metinPop({ parca: [["have finished", KREM]], x: 300, y: 1370, font: "700 72px Fredoka", tb: 48.24, sure: 0.35, ses: 0.6 }));
-  S.koy(S.not({ parca: [["+ sayı", SARI]], x: 840, y: 1370, font: "700 64px Caveat", tb: 47.52, sure: 0.5, ses: 0.4 }));
+  // 47,52 «sayı,» anında etiket `+ sayı`: hedef 0,5 sn → 48,02 (sağ uç 972)
+  S.koy(S.elYazisi({ metin: "+ sayı", x: 840, y: 1370, boy: 64, renk: SARI, tb: 47.52,
+    sure: 0.5 }));
   S.koy(S.parilti(970, 1245, 48.9, 28));
 }
 

@@ -10,7 +10,9 @@ const KOKDIZ = "/projeler/present-perfect-cont-ileri-dikey/ortak/cizim";
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Example 3 / 3", cumle: 5 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
-const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+const FF = (b) => `700 ${b}px Fredoka`;
+// El yazısı (tegaki Caveat, dalga 5b-2 / K26): sözcük penceresi = anlatım t0/t1 (küresel sn)
+const pen = (ad, t, n) => S.dizi(ad, t, n).map((w) => ({ t0: w.t0, t1: w.t1 }));
 
 async function kur() {
   await S.kur();
@@ -24,7 +26,9 @@ async function kur() {
   S.koy(S.metinPop({ parca: [["3", KREM]], x: 962, y: 474, font: FF(78), hiza: "orta", tb: 50.05, sure: 0.35,
     olcek0: 0.7, ses: 0.8, turu: "vurus" }));
   // 50,2 sarı TRAP etiketi (kartın sağ alt köşesi)
-  S.koy(S.not({ parca: [["TRAP", SARI]], x: 780, y: 622, font: CV(88), tb: 50.2, sure: 0.5, ses: 0.6 }));
+  // anlatımsız etiket `TRAP`: hedef 0,45 sn → 50,65 (alt çizgi 50,65'te başlar; sağ uç 954)
+  S.koy(S.elYazisi({ metin: "TRAP", x: 780, y: 622, boy: 88, renk: SARI, tb: 50.2, sure: 0.45,
+    ses: 0.6 }));
   S.koy(S.darbe([[772, 636], [880, 630], [1000, 637]], { w: 9, renk: SARI, alfa: 0.85, uc0: 8, uc1: 14, tohum: 91 },
     50.65, 0.4, 0.5));
 
@@ -35,10 +39,13 @@ async function kur() {
   S.koy(S.halka(kel(2), 51.44, 0.3, 31, 8));           // known (51,44–51,60)
 
   // 51,7 not satırı: `have known` (sarı) + `have been knowing değil`
-  const wN = olc(CV(72), "have known");
-  S.koy(S.not({ parca: [["have known", SARI]], x: 64, y: 735, font: CV(72), tb: 51.7, sure: 0.5 }));
-  S.koy(S.not({ parca: [["have been knowing değil", KREM]], x: 64 + wN + 34, y: 735, font: CV(64), tb: 52.6,
-    sure: 0.9 }));
+  // anlatımsız etiketler: `have known` 51,70 → 52,20 · `have been knowing değil` 52,60 → 53,40
+  // (hedef 0,8 sn; x tegaki genişliğinden: 64 + 292 + 34 = 390, sağ uç 918)
+  const nHK = S.elYazisi({ metin: "have known", x: 64, y: 735, boy: 72, renk: SARI, tb: 51.7,
+    sure: 0.5 });
+  S.koy(nHK);
+  S.koy(S.elYazisi({ metin: "have been knowing değil", x: 64 + nHK.w + 34, y: 735, boy: 64,
+    renk: KREM, tb: 52.6, sure: 0.8 }));
 
   // 51,2–54,2 sahne (770–1198): iki oturan figür (420 px) + okul; 56,9'da sola alta toplanır
   const sahne = [];
@@ -54,8 +61,13 @@ async function kur() {
   S.koy(S.parilti(980, 800, 54.0, 28));
 
   // 54,33–56,97 Türkçe çeviri (Caveat 64, mürekkep; sağ alt, 3 satır)
-  [["İlkokuldan", 54.33, 1250, 0.6], ["beri birbirimizi", 55.05, 1310, 0.8], ["tanıyoruz.", 55.85, 1370, 0.7]]
-    .forEach(([m, tb, y, sure]) => S.koy(S.not({ parca: [[m, KREM]], x: 560, y, font: CV(64), tb, sure })));
+  // pencere: İlkokuldan 54,33–54,97 · beri 55,05–55,29 (0,16 sn → birbirimizi başına uzatıldı) ·
+  // birbirimizi 55,29–55,77 · tanıyoruz. 55,85–56,97; sağ uç 887
+  const bb = pen("beri", 55.05, 2);
+  bb[0].t1 = bb[1].t0;
+  [["İlkokuldan", 1250, pen("İlkokuldan", 54.33, 1)], ["beri birbirimizi", 1310, bb],
+    ["tanıyoruz.", 1370, pen("tanıyoruz.", 55.85, 1)]].forEach(([m, y, sozcukler]) =>
+    S.koy(S.elYazisi({ metin: m, x: 560, y, boy: 64, renk: KREM, sozcukler })));
 
   // 57,22–59,38 STATE VERB kartı: `know` + `-ing` yazılır, kırmızı tek çizgiyle üstü çizilir
   const ky = 790;
@@ -71,8 +83,15 @@ async function kur() {
 
   // 59,63–61,87 `durum fiili: -ing yok`; Present Perfect etiketi tik
   const nx = Math.max(88 + kw + iw + 50, 730);
-  S.koy(S.not({ parca: [["durum fiili:", KREM]], x: nx, y: ky + 235, font: CV(64), tb: 59.63, sure: 0.5 }));
-  S.koy(S.not({ parca: [["-ing", SARI], [" yok", KREM]], x: nx, y: ky + 305, font: CV(64), tb: 60.2, sure: 0.5 }));
+  // `durum fiili:` penceresi: Durum 59,63–59,95 · fiili 60,03–60,43 (x 730, sağ uç 963)
+  S.koy(S.elYazisi({ metin: "durum fiili:", x: nx, y: ky + 235, boy: 64, renk: KREM,
+    sozcukler: pen("Durum", 59.63, 2) }));
+  // `-ing yok` anlatımsız (eski belirme 60,20): `-ing` 60,20 → 60,50 · `yok` → 60,80; sağ uç 901
+  const nIng = S.elYazisi({ metin: "-ing", x: nx, y: ky + 305, boy: 64, renk: SARI, tb: 60.2,
+    sure: 0.3 });
+  S.koy(nIng);
+  S.koy(S.elYazisi({ metin: "yok", x: nx + nIng.w + 16, y: ky + 305, boy: 64, renk: KREM, tb: 60.5,
+    sure: 0.3 }));
   S.koy(S.darbeler(kutu(540, ky + 26, 460, 90, 63), { w: 4, renk: KREM, uc0: 8, uc1: 14 }, 60.67, 0.1, 0.07, 0.4));
   S.koy(S.metinPop({ parca: [["Present Perfect", KREM]], x: 568, y: ky + 88, font: FF(48), tb: 60.8, sure: 0.35,
     ses: 0.5 }));

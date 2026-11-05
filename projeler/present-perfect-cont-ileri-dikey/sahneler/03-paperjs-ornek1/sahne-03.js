@@ -8,9 +8,13 @@ export const KARE = 505, T_BAS = 17.25;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1, kayma: 0 });
-  const { fr, ciz, daire, kutu, yazi, cumle, altCizgi, parilti, olay, not, bitis, tik } = S;
+  const { fr, ciz, daire, kutu, yazi, elYazisi, cumle, altCizgi, parilti, olay, not, bitis,
+    tik } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil, KRE = RT.murekkep;
   const GB = 12;
+  const CS = S.sozcukler(3);                                       // cümle 3: f / f1 yerel kare
+  const pen = (ilk, adet) => { const i = CS.findIndex((w) => w.s === ilk);
+    return CS.slice(i, i + adet).map((w) => ({ f0: w.f, f1: w.f1 })); };
   const f0 = (t) => Math.max(GB, fr(t));
 
   // --- 17,80: kart çerçevesi (el kutusu, 4 px) + sağ üst köşede daire içinde 1
@@ -49,10 +53,12 @@ export async function kur(P) {
   await S.svgCiz("tabler/calendar.svg", { kutu: [890, 905, 140, 140], bas: fr(20.4), sure: 14, azami: 25, w: 4.6, sesAralik: 2 });
   not("takvim (timetable) çizimi başı", fr(20.4));
 
-  // --- 23,66–26,86: Türkçe çeviri (Caveat 64 mürekkep, ≤ 24 karakter/satır, 2 satır, sağ sütun x 430)
-  const tr = S.sozcukler(3).slice(12, 17);                          // Program değişeli beri öğrenciler yakınıyor.
-  const tz = cumle(tr.map((k, i) => ({ s: k.s, f: k.f, satir: i < 3 ? 0 : 1 })), { x: 430, y: 770, boyut: 64, aile: "Caveat",
-    agirlik: 700, aralik: 70, renk: KRE });
+  // --- 23,66–26,86: Türkçe çeviri (el yazısı Caveat 64, 2 satır, sağ sütun x 430; sağ uç ≤ 1032)
+  // satır 1 «Program değişeli beri» 23,66–24,86 · satır 2 «öğrenciler yakınıyor.» 24,94–26,86
+  const tz = [elYazisi("Program değişeli beri", { x: 430, y: 770, boyut: 64, renk: KRE,
+    sozcukler: pen("Program", 3) }),
+  elYazisi("öğrenciler yakınıyor.", { x: 430, y: 840, boyut: 64, renk: KRE,
+    sozcukler: pen("öğrenciler", 2) })];
   not("Türkçe çeviri", tz[0].bas);
 
   // --- 27,11–29,11 formül kartı (el kutusu 4 px): since + past simple ; since sözcüğü kökte yeniden daire
