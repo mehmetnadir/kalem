@@ -37,7 +37,7 @@
       "kapak": null,
       "seviye": "ileri",
       "kaynak": null,
-      "durum": "planli",
+      "durum": "hazir",
       "onizleme": "/p/simple-present-ileri/onizle.html",
       "tarih": "2026-11-05T01:30:00Z"
     },
@@ -50,7 +50,7 @@
       "kapak": "TARİFE = SIMPLE",
       "seviye": "ileri",
       "kaynak": "ana-yatay",
-      "durum": "planli",
+      "durum": "hazir",
       "onizleme": "/p/simple-present-ileri-dikey/onizle.html",
       "tarih": "2026-11-05T01:30:00Z",
       "proje": "simple-present-ileri-dikey"
