@@ -1,7 +1,7 @@
 """Sahne 06 DİKEY (SIMPLE PAST İLERİ, 1080x1920): öğrenci sorusu + kural + form + kod.
 Yerleşim BRIEF-DIKEY §2-§4: HUD 0-320, içerik 352-1392, altyazı 1400-1536, platform bandı boş.
 Soru evresi bandı doldurur (balon üstte, yanlış öneri `has resigned + ago` alt-orta büyük). 71,06'dan sonra:
-  üst blok = balon+baş (ölçek 0,75) · `Olmaz.` + öneri özeti (ölçek 0,44 → 48 px) · çipler (Fredoka 48):
+  üst blok = balon+baş (ölçek 0,80 → 57,6 px) · `Olmaz.` + öneri özeti · çipler (Fredoka 56):
   kart -> çip 1 · sütunlar -> çip 2, 3 · Did not resign -> çip 4 · kod (alt bölge) + formül kartı.
 Tek kaynak: ortak/anlatim/{sozcukler,altyazi}.json (küresel sn) + zamanlar.json. Yerel sn = t - t_bas."""
 import json
@@ -74,14 +74,14 @@ def uret():
     for i in range(3):
         s.cmd.append({"m": "draw", "id": "bas%d" % i, "t": round(t0 + 0.05 * i, 4), "d": 0.32, "a": 1})
         s.olay(t0 + 0.05 * i, "cizgi", 0.55)
-    # ---------------- konuşma balonu: 3 satır Caveat 64 ----------------
-    BF, BX, BASE = 64, 280.0, (456, 536, 616)
+    # ---------------- konuşma balonu: 3 satır Caveat 72 ----------------
+    BF, BX, BASE = 72, 280.0, (456, 540, 624)
     sp = Y.genislik("Caveat", 700, " ", BF)
     satir = ((0, 1, 2), (3, 4, 5), (6, 7))
     gens = [sum(Y.genislik("Caveat", 700, SOZ[6][i]["sozcuk"], BF) for i in sat) + sp * (len(sat) - 1)
             for sat in satir]
     x1b = min(1032.0, BX + max(gens) + 40)
-    s.yol("bal", Y.balon_sol(240, 372, x1b, 652, 176, 590), t0 + 0.1, 0.55, KRE, 4.6, 1, "cizgi", 0.7)
+    s.yol("bal", Y.balon_sol(240, 372, x1b, 658, 176, 590), t0 + 0.1, 0.55, KRE, 4.6, 1, "cizgi", 0.7)
     bal_ids.append("bal")
     pos = {}
     for sat, base in zip(satir, BASE):
@@ -114,11 +114,11 @@ def uret():
     tf0 = S(T(7, 0))
     s.to("#ku-bolum", tf0, {"opacity": 0, "duration": 0.2, "ease": "power1.in"})
     s.to("#ku-bolum2", tf0, {"opacity": 1, "duration": 0.2, "ease": "power1.out"})
-    # balon + baş yukarı toplanır (ölçek 0,75: Caveat 48 px)
-    s.to("#balg", tf0 + 0.25, {"svgOrigin": "48 372", "scale": 0.75, "opacity": 0.5, "duration": 0.7,
+    # balon + baş yukarı toplanır (ölçek 0,80: Caveat 57,6 px >= 56)
+    s.to("#balg", tf0 + 0.25, {"svgOrigin": "48 372", "scale": 0.80, "opacity": 0.65, "duration": 0.7,
                                "ease": "power3.inOut"})
-    # öneri bloğu ölçek 0,44 (Fredoka 48) ile Olmaz.'ın sağına taşınır; çarpı onunla gider
-    s.to("#cl", tf0 + 0.3, {"svgOrigin": "540 980", "x": 250, "y": -295, "scale": 0.44, "duration": 0.7,
+    # öneri bloğu ölçek 0,51 (Fredoka 56) ile Olmaz.'ın sağına taşınır; çarpı onunla gider
+    s.to("#cl", tf0 + 0.3, {"svgOrigin": "540 980", "x": 250, "y": -310, "scale": 0.51, "duration": 0.7,
                             "ease": "power3.inOut"})
     # ---------------- Olmaz. (71,06, vuruş) ----------------
     s.svg.append('<g id="olm" font-family="Fredoka" font-weight="700" font-size="140" style="opacity:0">'
@@ -136,10 +136,10 @@ def uret():
     s.yol("blk", Y.el_cizgi(k2[0][0] - 4, 1005 + 20, k2[0][0] + k2[0][1] + 4, 1005 + 18), S(T(7, 5)), 0.4, SAR, 10,
           0.9, "cizgi", 0.5)
     g1 = kimlikler(s, i0)
-    C = (850, 902, 954, 1006)    # çip taban çizgileri (Fredoka 48)
+    C = (820, 880, 940, 1000)    # çip taban çizgileri (Fredoka 56)
     tc1 = S(T(7, 8)) + 0.45
     topla(s, "s1", tc1, 540, 965, 400, C[0] - 16, 0.35)
-    s.yazi("c1", X0, C[0], [("definite time: ", KRE), ("no", KIR), (" Present Perfect", KRE)], "Fredoka", 700, 48,
+    s.yazi("c1", X0, C[0], [("definite time: ", KRE), ("no", KIR), (" Present Perfect", KRE)], "Fredoka", 700, 56,
            tc1 + 0.2, 0.4, tur="tik", guc=0.5)
 
     # ---------------- bölüm 2: sütunlar (75,56–83,12) ----------------
@@ -158,7 +158,7 @@ def uret():
     RX = 570.0
     tp = S(T(7, 16))
     s.yol("pk", Y.el_kutu(RX - 20, 900, 482, 92), tp, 0.5, KRE, 4.6, 1, "cizgi", 0.6)
-    s.yazi("pt", RX, 962, [("Present Perfect", SAR)], "Fredoka", 700, 52, tp + 0.2, 0.4, tur="tik", guc=0.55)
+    s.yazi("pt", RX, 962, [("Present Perfect", SAR)], "Fredoka", 700, 56, tp + 0.2, 0.4, tur="tik", guc=0.55)
     for n, (i, m) in enumerate(((18, "for"), (19, "since"), (20, "yet"))):
         s.yazi("sr%d" % n, RX, (1100, 1200, 1300)[n], [(m, KRE)], "Fredoka", 700, LF, S(T(7, i)), 0.3, tur="tik",
                guc=0.55)
@@ -168,9 +168,9 @@ def uret():
     g2 = kimlikler(s, i0)
     tc2 = S(83.62)
     topla(s, "s2", tc2, 540, 1140, 400, C[1] - 16, 0.3)
-    s.yazi("c2", X0, C[1], [("ago · last year · in 1911 = ", KRE), ("Past", SAR)], "Fredoka", 700, 48, tc2 + 0.2,
+    s.yazi("c2", X0, C[1], [("ago · last year · in 1911 = ", KRE), ("Past", SAR)], "Fredoka", 700, 56, tc2 + 0.2,
            0.3, tur="tik", guc=0.5)
-    s.yazi("c3", X0, C[2], [("for · since · yet = ", KRE), ("Perfect", SAR)], "Fredoka", 700, 48, tc2 + 0.3, 0.3,
+    s.yazi("c3", X0, C[2], [("for · since · yet = ", KRE), ("Perfect", SAR)], "Fredoka", 700, 56, tc2 + 0.3, 0.3,
            tur=None)
 
     # ---------------- bölüm 3: Did not resign. (83,97–85,2) ----------------
@@ -186,7 +186,7 @@ def uret():
     g3 = kimlikler(s, i0)
     tc3 = S(85.45)
     topla(s, "s3", tc3, 540, 1120, 300, C[3] - 16, 0.3)
-    s.yazi("c4", X0, C[3], [("Did", SAR), (" not resign.", KRE)], "Fredoka", 700, 48, tc3 + 0.2, 0.3, tur="tik",
+    s.yazi("c4", X0, C[3], [("Did", SAR), (" not resign.", KRE)], "Fredoka", 700, 56, tc3 + 0.2, 0.3, tur="tik",
            guc=0.5)
 
     # ---------------- bölüm 4: Kod: ago → Past, since → Perfect (85,90–90,54) ----------------
@@ -202,20 +202,19 @@ def uret():
         s.yazi("kb%d" % n, ox + 150 + 34, y, [(b, SAR)], "Fredoka", 700, KF, S(T(7, bi)), 0.35, tur="tik", guc=0.6)
     # formül kartı toplanır (90,54) + Next lesson
     tf = S(T1(7, 31))
-    CX, CY, CW, CH = X0, 1308, 600, 80
+    CX, CY, CW, CH = X0, 1308, 520, 80
     s.yol("kart", Y.el_kutu(CX, CY, CW, CH), tf, 0.5, KRE, 5, 1, "cizgi", 0.7)
     parc = [("V2", SAR), (" · ", IKN), ("did + V1", KRE)]
     tw = sum(Y.genislik("Fredoka", 700, p[0], 56) for p in parc)
-    cx0 = CX + (CW - tw - 60) / 2
+    cx0 = CX + (CW - tw - 56) / 2
     s.yazi("cf1", cx0, CY + 58, parc, "Fredoka", 700, 56, tf + 0.1, 0.4, tur="tik", guc=0.6)
-    s.yol("ctk", Y.tik_yolu(CX + CW - 66, CY + 20, 38), tf + 0.7, 0.3, SAR, 9, 0.9, "cizgi", 0.55)
+    s.yol("ctk", Y.tik_yolu(CX + CW - 62, CY + 20, 38), tf + 0.7, 0.3, SAR, 9, 0.9, "cizgi", 0.55)
     s.olay(tf + 0.7, "vurus", 0.8)
-    nw = Y.genislik("Lexend", 700, "Next lesson", 36)
+    nw = Y.genislik("Lexend", 700, "Next lesson", 56)
     tn2 = tf + 0.6
-    s.yazi("nx", 1032 - nw - 56, 1362, [("Next lesson", KRE)], "Lexend", 700, 36, tn2, 0.3, tur="tik", guc=0.4)
-    s.yol("nxok", "M%.1f 1350 L%.1f 1350 M%.1f 1340 L%.1f 1350 L%.1f 1360" % (1032 - 46, 1032 - 6, 1032 - 18,
-                                                                                1032 - 6, 1032 - 18), tn2 + 0.3,
-          0.25, KRE, 4, 1, "cizgi", 0.4)
+    s.yazi("nx", 962 - nw, 1366, [("Next lesson", KRE)], "Lexend", 700, 56, tn2, 0.3, tur="tik", guc=0.4)
+    s.yol("nxok", "M980 1348 L1024 1348 M1010 1336 L1024 1348 L1010 1360", tn2 + 0.3,
+          0.25, KRE, 4.6, 1, "cizgi", 0.4)
     # ---------------- altyazı: konuşulan parça ----------------
     parcalar = [{"id": "alt%d" % i, "metin": a["metin"]} for i, a in enumerate(ALT)]
     for i, a in enumerate(ALT):
