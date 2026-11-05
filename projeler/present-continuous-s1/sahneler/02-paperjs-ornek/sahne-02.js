@@ -8,7 +8,8 @@ const CIP = "BU AKŞAM = I AM GOING";
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: CIP });
-  const { fr, ciz, daire, yazi, cumle, tik, parilti, olay, not, bitis, kutu, genislik, oge, kis } = S;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, tik, parilti, olay, not, bitis, kutu, genislik,
+    oge, kis } = S;
   const SARI = RT.vurgu, DOLGU = RT.vurguDolgu, IKI = RT.ikincil, MUR = RT.murekkep;
   const s1 = S.sozcukler(1), s2 = S.sozcukler(2);
   const solma = (t0, t1) => (f) => 1 - kis((f - fr(t0)) / (fr(t1) - fr(t0)));   // 1 -> 0
@@ -21,6 +22,7 @@ export async function kur(P) {
     { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
 
   // --- cümle 1 (sahne 01'in son hali, hazır): Caveat 80, x 72, y 440 / 530
+  // 01'den devralındı, kare 0'da hazır (0. karede görünür): Caveat yazi kalır (pilot kararı)
   const c80 = { boyut: 80, aile: "Caveat", agirlik: 700, oge: ust };
   cumle(s1.slice(0, 3).map((w) => ({ s: w.s, f: -30 })), { x: 72, y: 440, ...c80 });
   const en1 = cumle(s1.slice(3, 7).map((w) => ({ s: w.s, f: -30 })), { x: 72, y: 530, ...c80 });
@@ -35,14 +37,25 @@ export async function kur(P) {
     uc1: 30, oge: evOge, ses: false });
 
   // --- 4,38–7,74: "İki dilde de şimdiki zaman, ama gelecek demek." (Caveat 64 mürekkep, 2 satır)
+  // el yazısı: her sözcük kendi penceresinde (4,38–7,74 sn); sözcük arası 0,3 x boyut
+  // (motor aralığı);
+  // satır 1 = İki dilde de şimdiki zaman,  satır 2 = ama gelecek demek.  "ama" penceresi 4 kare
+  // (6,49–6,62 sn) → sonraki sözcüğün başına dek (6,70 sn) uzatıldı
   {
-    const w = s1.slice(7);                                           // 8 sözcük
-    const e = cumle(w.map((k, i) => ({ s: k.s, f: k.f, satir: i < 5 ? 0 : 1 })),
-      { x: 72, y: 640, boyut: 64, aile: "Caveat", agirlik: 700, renk: MUR, aralik: 82, oge: ust });
-    not("TR not başı", e[0].bas);
-    altCiz(e[3], e[3].bas + 2, { w: 8, oge: ust }); not("şimdiki altı çizgi", e[3].bas + 2);   // şimdiki
-    const d = daire((e[6].x0 + e[6].x1) / 2, e[6].y - 18, e[6].w / 2 + 10, 34,
-      { bas: e[6].bas + 3, sure: 20, egim: -0.05, oge: ust });
+    const w = s1.slice(7), t = [];                                   // 8 sözcük
+    let tx = 72;
+    w.forEach((k, i) => {
+      if (i === 0 || i === 5) tx = 72;
+      const f1 = k.f1 - k.f < 6 && w[i + 1] ? w[i + 1].f : k.f1;
+      const q = elYazisi(k.s, { x: tx, y: 640 + (i < 5 ? 0 : 82), boyut: 64, renk: MUR, oge: ust,
+        sozcukler: [{ f0: k.f, f1 }] });
+      tx = q.x1 + 0.3 * 64; t.push(q);
+    });
+    not("TR not başı", t[0].bas);
+    altCiz(t[3], t[3].bit - 6, { w: 8, oge: ust });                  // şimdiki
+    not("şimdiki altı çizgi", t[3].bit - 6);
+    const d = daire((t[6].x0 + t[6].x1) / 2, t[6].y - 18, t[6].w / 2 + 10, 34,
+      { bas: t[6].bit - 6, sure: 20, egim: -0.05, oge: ust });
     olay(bitis(d), "tik", 0.5); not("gelecek daire", d.bas);
   }
 
@@ -66,10 +79,17 @@ export async function kur(P) {
     not("EN cümle başı", e[0].bas);
     const g = e[1], d = daire((g.x0 + g.x1) / 2, g.y - 26, g.w / 2 + 8, 36, { bas: g.bas + 6, sure: 20, a0: -2.0 });
     olay(bitis(d), "tik", 0.5); not("going daire", d.bas);
-    const tr = s2.slice(6, 10);
-    const t = cumle(tr.map((k) => ({ s: k.s, f: k.f })),
-      { x: 88, y: 664, boyut: 64, aile: "Caveat", agirlik: 700, renk: MUR });
-    altCiz(t[3], t[3].bas + 4, { w: 8 }); not("gidiyorum altı çizgi", t[3].bas + 4);
+    // 10,22–12,62 sn ("Bu akşam amcamlara gidiyorum."): her sözcük kendi penceresinde;
+    // "Bu" penceresi 2 kare (10,22–10,30 sn) → "akşam" başına dek (10,38 sn) uzatıldı
+    const tr = s2.slice(6, 10), t = [];
+    let tx = 88;
+    tr.forEach((k, i) => {
+      const f1 = k.f1 - k.f < 6 && tr[i + 1] ? tr[i + 1].f : k.f1;
+      const q = elYazisi(k.s, { x: tx, y: 664, boyut: 64, renk: MUR,
+        sozcukler: [{ f0: k.f, f1 }] });
+      tx = q.x1 + 0.3 * 64; t.push(q);
+    });
+    altCiz(t[3], t[3].bit - 6, { w: 8 }); not("gidiyorum altı çizgi", t[3].bit - 6);
   }
 
   // --- 12,77–14,6: formül: go + -ing  (Fiil artı -ing), Fredoka 110
@@ -89,7 +109,10 @@ export async function kur(P) {
 
   // --- 14,61–18,0: önüne am · is · are (üç kutu, sırayla tik); eskiz solmuş, bant alt yarısı kutularla dolar
   {
-    yazi("önüne gelir:", { x: 72, y: 1050, boyut: 72, renk: MUR, bas: fr(14.61), sure: 12 }); not("önüne gelir", fr(14.61));
+    // etiket 14,61 sn'de belirir (kare 348); anlatımla pencere uyuşmaz → sure 16 kare (0,53 sn),
+    // bitiş kare 364 < kutu am (15,41 sn)
+    elYazisi("önüne gelir:", { x: 72, y: 1050, boyut: 72, renk: MUR, bas: fr(14.61), sure: 16 });
+    not("önüne gelir", fr(14.61));
     const pil = [["am", 15.41], ["is", 16.05], ["are", 17.09]];
     pil.forEach(([s, t], i) => {
       const w = 296, h = 200, x = 48 + i * (w + 48), y = 1110;
