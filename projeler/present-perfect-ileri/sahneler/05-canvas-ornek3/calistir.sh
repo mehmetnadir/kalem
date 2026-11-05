@@ -1,0 +1,29 @@
+#!/bin/bash
+# Sahne 05 İLERİ (düz canvas, yatay 1920x1080, 532 kare): yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png
+# Tema: --tema acik|koyu (varsayılan acik). Geçici kareler ~/Silinecekler/2026-11-05-kalem-ppi/ altına taşınır (silme yok).
+set -eo pipefail
+export PATH=/opt/homebrew/bin:$PATH
+D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=532
+KLASOR=05-canvas-ornek3; PROJE=present-perfect-ileri; TBAS=51.25; GLOBAL_SN="56.5 60.5 66.5"
+. "$D/../../ortak/tema.sh" "$@"
+cd "$K"
+BAS=$(date +%s)
+for i in 1 2 3 4 5; do
+  Y=$(uptime | sed 's/.*averages*: *//' | awk '{gsub(",","",$1); print int($1)}')
+  [ "$Y" -le 24 ] && break; echo "yük $Y > 24, 60 sn bekle"; sleep 60
+done
+perl -e 'alarm 1500; exec @ARGV' /usr/bin/python3 ortak/yakala.py projeler/$PROJE/sahneler/$KLASOR/sayfa.html$SORGU "$KARE_DIR" | tee "$D/yakala.log"
+grep '^\[sayfa\] OLAYLAR ' "$D/yakala.log" | sed 's/^\[sayfa\] OLAYLAR //' > "$D/olaylar.json"
+[ -s "$D/olaylar.json" ] || { echo "olaylar.json boş"; exit 1; }
+C=$(ls "$KARE_DIR" | grep -c '\.png$'); [ "$C" -eq "$N" ] || { echo "kare sayısı $C ($N olmalı)"; exit 1; }
+ffmpeg -y -loglevel error -framerate 30 -i "$KARE_DIR/%04d.png" -frames:v "$N" -c:v libx264 -pix_fmt yuv420p -crf 16 -r 30 "$D/video.mp4"
+S=$((N - 13)); SEL="eq(n\,0)+eq(n\,$((N/5)))+eq(n\,$((N*2/5)))+eq(n\,$((N*3/5)))+eq(n\,$((N*4/5)))+eq(n\,$S)"
+ffmpeg -y -loglevel error -i "$D/video.mp4" -vf "select='$SEL',scale=640:-1,tile=3x2" -frames:v 1 "$D/kontrol.png"
+mkdir -p "$D/k"
+for T in $GLOBAL_SN; do F=$(perl -e "printf('%d', ($T-$TBAS)*30+0.5)"); cp "$KARE_DIR/$(printf '%04d' "$F").png" "$D/k/$(printf '%04d' "$F").png"; done
+cp "$KARE_DIR/$(printf '%04d' "$S").png" "$D/k/$(printf '%04d' "$S").png"
+if [ "${KAREYI_TUT:-0}" != "1" ]; then
+  H="$HOME/Silinecekler/2026-11-05-kalem-ppi"; mkdir -p "$H"; K2="$H/kareler-$KLASOR-$(date +%H%M%S)"; mv "$KARE_DIR" "$K2"; echo "$K2 — ppi $PROJE $KLASOR geçici kareler, 05.11" >> "$H/LISTE.md"
+fi
+tema_bitir "$D"
+echo "tamam: $(( $(date +%s) - BAS )) sn"
