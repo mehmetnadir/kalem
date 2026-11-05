@@ -43,9 +43,11 @@ async function kur() {
     uc1: 10, tohum: 77 }, 55.0, 0.5, 0.4));
   S.koy(S.cizim({ svg: saat, ad: "saat", kutu: { x: 1130, y: 160, w: 200, h: 200 }, enCok: 4, w: 4, tb: 55.1,
     sure: 0.7, olayEnCok: 3 }));
-  // 55,90–56,40 `2 saat` ("ago," 55,65–56,21) · 57,25–57,85 `not yet` ("yet." 57,25–58,13): el yazısı
+  // 55,90–56,40 `2 saat` ("ago," 55,65–56,21) · 57,25–57,85 `not yet` ("yet." 57,25–58,13):
+  // el yazısı
   S.koy(S.elYazisi({ metin: "2 saat", x: 1140, y: 420, boy: 60, renk: KREM, tb: 55.9, sure: 0.5 }));
-  S.koy(S.elYazisi({ metin: "not yet", x: 1560, y: 730, boy: 64, renk: SARI, tb: 57.25, sure: 0.6 }));
+  S.koy(S.elYazisi({ metin: "not yet", x: 1560, y: 730, boy: 64, renk: SARI,
+    tb: 57.25, sure: 0.6 }));
   S.koy(S.parilti(1830, 200, 57.5, 24));
 
   // 58,30–61,58 Türkçe çeviri (Caveat 48 ikincil; el yazısı, her sözcük kendi penceresinde:

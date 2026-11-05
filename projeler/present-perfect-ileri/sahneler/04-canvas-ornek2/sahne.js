@@ -55,10 +55,13 @@ async function kur() {
     }
     S.koy(S.darbe([[x0 - 4, y - 36], [x0 - 4, y - 52], [x1 + 4, y - 52], [x1 + 4, y - 36]],
       { duz: true, w: 7, renk: SARI, alfa: 0.85, uc0: 12, uc1: 24 }, 42.3, 0.7, 0.6));
-    // 42,90–43,40 `30 years` (taban y−80: ayraçla ≥ 10 px pay) ve 43,50–43,95 `1995`: el yazısı etiket (anlatımsız; sure 0,5 / 0,45 sn)
-    S.koy(S.elYazisi({ metin: "30 years", x: (x0 + x1) / 2 - gen("30 years", 52) / 2, y: y - 80, boy: 52,
+    // 42,90–43,40 `30 years` (taban y−80: ayraçla ≥ 10 px pay) ve 43,50–43,95 `1995`:
+    // el yazısı etiket (anlatımsız; sure 0,5 / 0,45 sn)
+    S.koy(S.elYazisi({ metin: "30 years", x: (x0 + x1) / 2 - gen("30 years", 52) / 2,
+      y: y - 80, boy: 52,
       renk: SARI, tb: 42.9, sure: 0.5, ses: 0.5 }));
-    S.koy(S.elYazisi({ metin: "1995", x: x0 - gen("1995", 40) / 2, y: y + 58, boy: 40, renk: IKINCIL,
+    S.koy(S.elYazisi({ metin: "1995", x: x0 - gen("1995", 40) / 2, y: y + 58, boy: 40,
+      renk: IKINCIL,
       tb: 43.5, sure: 0.45, ses: false }));
     S.koy(S.nabiz(x1, y, 11, 44.2));
     S.koy(S.metinPop({ parca: [["now", IKINCIL]], x: x1, y: y + 58, font: "500 28px Lexend", hiza: "orta", tb: 44.2, sure: 0.3, ses: 0.4 }));

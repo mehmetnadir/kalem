@@ -45,7 +45,7 @@ export async function kur(P) {
       sure: 14, ses: true });                   // etiket: anlatımsız, 17,97–18,43 sn
   }
 
-  // --- 18,34–20,0: Dün gece bir film izledim. (Caveat 48 ikincil, y 495)
+  // --- 18,34–20,0: Dün gece bir film izledim. (el yazısı 48 ikincil, y 495, 5 sözcük penceresi)
   {   // el yazısı: her sözcük kendi konuşma penceresinde (Dün 18,34 · gece 18,58 · bir 18,82 ·
     // film 19,10 · izledim. 19,30–20,18 sn; kaynak cümle 3: "Dün gece bir film izledim.")
     const tr = S.sozcukler(3), i0 = tr.findIndex((w) => w.s === "Dün");
@@ -92,7 +92,7 @@ export async function kur(P) {
     olay(bitis(d2), "tik", 0.5); not("-ed daire", d2.bas);
   }
 
-  // --- 27,04–28,80: formül kartı (el kutusu): V + -ed / watch → watch-ed, Caveat izle-di
+  // --- 27,04–28,80: formül kartı (el kutusu): V + -ed / watch → watch-ed, el yazısı izle-di
   {
     S.kutu(140, 745, 780, 220, { bas: fr(27.04) - 10, sure: 24 }); not("formül kartı kutusu", fr(27.04) - 10);
     const y1 = 835, y2 = 930, F = { boyut: 60, ...FF }, F2 = { boyut: 56, ...FF };
