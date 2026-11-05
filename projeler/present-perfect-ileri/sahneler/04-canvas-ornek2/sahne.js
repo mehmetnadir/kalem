@@ -2,12 +2,17 @@
 // Kök: "Selim has worked at this bank for thirty years, so he knows every customer." (for + süre).
 import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, elips, ok, kutu } from "./sahne-ortak.js";
+import { yaziDarbeleri } from "/projeler/present-perfect-ileri/ortak/kalem-canvas.js";
 
 const KARE = 533, TBAS = 33.89, ICERIK = 521;
 const KOKDIZ = "/projeler/present-perfect-ileri/ortak/cizim";
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Exam Q 2 / 3", cumle: 4 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu;
+
+// El yazısı genişliği (px): orta hizalı etiketlerin x'ini bulmak için saf geometri (çizim yok).
+const gen = (metin, boy) => yaziDarbeleri(metin, S.EY.G, { upm: S.EY.M.unitsPerEm,
+  asc: S.EY.M.ascender, boy, x: 0, taban: 0 }).gen;
 
 async function kur() {
   await S.kur();
@@ -33,9 +38,12 @@ async function kur() {
   S.koy(S.cizim({ svg: laptop, ad: "dizustu", kutu: { x: 1450, y: 300, w: 390, h: 340 }, enCok: 25, w: 4, tb: 37.8, sure: 1.0, olayEnCok: 4 }));
   S.koy(S.parilti(1760, 270, 39.0, 22));
 
-  // 40,70–45,74 Türkçe çeviri (Caveat 48 ikincil, 2 satır)
-  S.koy(S.not({ parca: [["Selim bu bankada otuz yıldır çalışıyor,", IKINCIL]], x: 140, y: 560, tb: 40.70, sure: 1.6 }));
-  S.koy(S.not({ parca: [["bu yüzden her müşteriyi tanıyor.", IKINCIL]], x: 140, y: 620, tb: 43.22, sure: 1.4 }));
+  // 40,70–45,74 Türkçe çeviri (Caveat 48 ikincil, 2 satır; el yazısı, sözcük penceresi:
+  // satır 1 Selim 40,70 … çalışıyor, –43,18 · satır 2 bu 43,22 … tanıyor. –45,74)
+  S.koy(S.elYazisi({ metin: "Selim bu bankada otuz yıldır çalışıyor,", x: 140, y: 560, boy: 48,
+    renk: IKINCIL, sozcukler: S.dizi("Selim", 40.70, 6).map((w) => ({ t0: w.t0, t1: w.t1 })) }));
+  S.koy(S.elYazisi({ metin: "bu yüzden her müşteriyi tanıyor.", x: 140, y: 620, boy: 48,
+    renk: IKINCIL, sozcukler: S.dizi("bu", 43.22, 5).map((w) => ({ t0: w.t0, t1: w.t1 })) }));
 
   // takvim şeridi (sağ alt): 12 işaret, sarı köşeli ayraç `30 years`, sağ uçta `now` (nabız)
   {
@@ -47,8 +55,11 @@ async function kur() {
     }
     S.koy(S.darbe([[x0 - 4, y - 36], [x0 - 4, y - 52], [x1 + 4, y - 52], [x1 + 4, y - 36]],
       { duz: true, w: 7, renk: SARI, alfa: 0.85, uc0: 12, uc1: 24 }, 42.3, 0.7, 0.6));
-    S.koy(S.metinPop({ parca: [["30 years", SARI]], x: (x0 + x1) / 2, y: y - 74, font: "700 52px Caveat", hiza: "orta", tb: 42.9, sure: 0.35, ses: 0.5 }));
-    S.koy(S.metinPop({ parca: [["1995", IKINCIL]], x: x0, y: y + 58, font: "700 40px Caveat", hiza: "orta", tb: 43.5, sure: 0.3, ses: false }));
+    // 42,90–43,40 `30 years` (taban y−80: ayraçla ≥ 10 px pay) ve 43,50–43,95 `1995`: el yazısı etiket (anlatımsız; sure 0,5 / 0,45 sn)
+    S.koy(S.elYazisi({ metin: "30 years", x: (x0 + x1) / 2 - gen("30 years", 52) / 2, y: y - 80, boy: 52,
+      renk: SARI, tb: 42.9, sure: 0.5, ses: 0.5 }));
+    S.koy(S.elYazisi({ metin: "1995", x: x0 - gen("1995", 40) / 2, y: y + 58, boy: 40, renk: IKINCIL,
+      tb: 43.5, sure: 0.45, ses: false }));
     S.koy(S.nabiz(x1, y, 11, 44.2));
     S.koy(S.metinPop({ parca: [["now", IKINCIL]], x: x1, y: y + 58, font: "500 28px Lexend", hiza: "orta", tb: 44.2, sure: 0.3, ses: 0.4 }));
   }
@@ -62,7 +73,9 @@ async function kur() {
     S.koy(S.darbeler(kutu(140, 860, 660, 120, 52), { w: 4.2, renk: KREM, uc0: 8, uc1: 14 }, 49.9, 0.1, 0.08, 0.5));
     S.koy(S.metinPop({ parca: [["since", SARI], ["  +  ", IKINCIL], ["başlangıç", KREM]], x: 180, y: 942, font: F, tb: 50.29, sure: 0.35, ses: 0.6 }));
     S.koy(S.darbeler(ok([830, 920], [940, 920], 3), { w: 6, renk: IKINCIL, uc0: 10, uc1: 14 }, 50.7, 0.16, 0.12, 0.5));
-    S.koy(S.not({ parca: [["since 1995", IKINCIL]], x: 970, y: 934, font: "700 48px Caveat", tb: 50.55, sure: 0.4, ses: 0.4 }));
+    // 50,55–51,15 `since 1995` (el yazısı; "gelirdi." 50,61–51,33 bitmeden yazılır, sure 0,6 sn)
+    S.koy(S.elYazisi({ metin: "since 1995", x: 970, y: 934, boy: 48, renk: IKINCIL, tb: 50.55,
+      sure: 0.6, ses: 0.4 }));
     S.koy(S.parilti(760, 860, 50.3, 22));
   }
 }

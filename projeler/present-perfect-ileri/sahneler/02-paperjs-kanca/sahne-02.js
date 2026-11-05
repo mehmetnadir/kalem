@@ -6,7 +6,7 @@ export const KARE = 461, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Rule", etkin: 1, kayma: 0 });
-  const { fr, daire, yazi, cumle, tik, parilti, olay, not, bitis, kutu, svgCiz, ciz } = S;
+  const { fr, daire, yazi, cumle, tik, parilti, olay, not, bitis, kutu, svgCiz, ciz, elYazisi } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil, KRE = RT.murekkep, KIR = RT.kirmizi;
   const FR = (t) => fr(t);
 
@@ -28,7 +28,9 @@ export async function kur(P) {
     tik(160, y - 20, { bas: FR(t) + 6 }); not("madde " + s, FR(t));
   });
   await svgCiz("tabler/clock.svg", { kutu: [1000, 120, 200, 200], bas: FR(4.2), sure: 26, azami: 25, w: 4, sesAralik: 2 });
-  yazi("6 min", { x: 1235, y: 250, boyut: 64, renk: SARI, bas: FR(4.6), sure: 12, ses: true }); not("saat + 6 min", FR(4.2));
+  // 4,60–5,07 el yazısı `6 min` (anlatımsız etiket; sure 14 kare = 0,47 sn)
+  elYazisi("6 min", { x: 1235, y: 250, boyut: 64, renk: SARI, bas: FR(4.6), sure: 14, ses: true });
+  not("saat + 6 min", FR(4.2));
   parilti(1215, 130, { bas: FR(5.2), r: 26, periyot: 0, adet: 1 });
 
   // --- 9,96–15,32: formül kartı (orta) + EN cümle sözcük zamanlı
@@ -41,7 +43,10 @@ export async function kur(P) {
     koy("have", 12.28, { ses: true }); koy("/", 12.68, { renk: IKI }); koy("has", 13.12, { ses: true });
     koy("+", 13.56, { renk: IKI }); const v = koy("V3", 13.80, { ses: true });
     not("formül S + have / has + V3", FR(11.24));
-    yazi("V3 = past participle", { x: 790, y: 625, boyut: 56, renk: SARI, bas: FR(14.45), sure: 14, ses: true });
+    // 14,45–15,25 el yazısı `V3 = past participle` (cümle 2 "participle." 14,12–;
+    // sure 24 kare = 0,8 sn)
+    elYazisi("V3 = past participle", { x: 790, y: 625, boyut: 56, renk: SARI, bas: FR(14.45),
+      sure: 24, ses: true });
     not("V3 = past participle", FR(14.45));
     void v;
   }
