@@ -1,0 +1,3 @@
+{"family": "Caveat", "unitsPerEm": 1000, "ascender": 960, "descender": -300, "lineCap": "round",
+ "agirliklar": {"400": "glyphData.json", "700": "glyphData-700.json"},
+ "koordinat": "font birimi, y asagi pozitif, 0 = taban cizgisi", "zaman": "sn (t, d, a)"}

@@ -29,9 +29,10 @@ async function kur() {
     S.koy(g); S.koy(S.parilti(x + 62, y + 52, tb + 0.45));
   });
 
-  // 40,89–42,65 Türkçe çeviri
+  // 40,89–43,37 Türkçe çeviri: el yazısı, her sözcük kendi konuşma penceresinde (pilot 05.11, karar 5–6)
   const ytr = sonSatir + 78;
-  S.koy(S.not({ parca: [["Kardeşim bu dönem piyano dersi alıyor.", IKINCIL]], x: 140, y: ytr, tb: 40.89, sure: 0.55 }));
+  S.koy(S.elYazisi({ metin: "Kardeşim bu dönem piyano dersi alıyor.", x: 140, y: ytr, renk: IKINCIL,
+    sozcukler: S.dizi("Kardeşim", 40.89, 6) }));
 
   // 43,41–46,65 takvim şeridi: 5 el kutusu, bracket, now noktası
   const yEtiket = ytr + 76, yBrk = yEtiket + 14, yKutu = yBrk + 30, kh = 90;

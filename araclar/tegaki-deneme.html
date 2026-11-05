@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>El yazısı denemesi — tegaki glif verisi, kendi kalem çizgimiz</title>
+<style>
+  body { margin: 0; background: #f6f1e7; font: 14px/1.4 -apple-system, sans-serif; color: #222; }
+  #bilgi { padding: 8px 12px; white-space: pre-wrap; font-family: ui-monospace, monospace; font-size: 12px; }
+  #ust { display: flex; gap: 10px; align-items: center; padding: 6px 12px; border-bottom: 1px solid #ddd3bf; }
+  #ust input { width: 420px; font: inherit; padding: 4px 6px; }
+  #ust label { color: #666; font-size: 12px; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<div id="ust">
+  <input id="metin" value=""><label>hız ×<input id="hiz" type="number" step="0.25" min="0.25" value="1" style="width:60px"></label>
+  <button id="tekrar">Baştan</button><label id="durum"></label>
+</div>
+<div id="bilgi">yükleniyor</div>
+<canvas id="c"></canvas>
+<script>
+// El yazısı denemesi (05.11): tegaki glif verisinden kendi kalem çizgimiz (skill el-yazisi-efekti §4-B).
+// Sorgu: ?fontlar=caveat-tr&agirlik=700&metin=...&boy=96&t=<sn>  (canlı: her paket bir satır; t: tek kare)
+//        ?veri=<glyphData.json>&upm=&asc=&metin=&ilerlemeler=0.25,0.5,1  (durağan satırlar, ölçüm için)
+//        ?kok=/baska/dizin/  (paket kökü; varsayılan depodaki Türkçe Caveat verisi)
+// Sunucu: 3012 editör sunucusu → http://127.0.0.1:3012/araclar/tegaki-deneme.html
+const Q = new URLSearchParams(location.search);
+const KOK = Q.get("kok") || "/projeler/present-continuous/ortak/tegaki/";
+const AGIRLIK = Q.get("agirlik") || "700";
+const RENK = ["#1b1b1b", "#c0392b", "#2471a3", "#1e8449", "#b9770e", "#7d3c98"];
+const BOY = +(Q.get("boy") || 96);
+let METIN = Q.get("metin") || "Bu akşam amcamlara gidiyorum";
+document.getElementById("metin").value = METIN;
+
+function yaziDarbeleri(metin, G, upm, asc, boy, sol, ust) {
+  // Veri y'si AŞAĞI pozitif, sıfır taban çizgisi → taban = ust + asc·k (ölçüldü 05.11)
+  const k = boy / upm, taban = ust + asc * k; let x = sol, t0 = 0; const out = [];
+  for (const ch of metin) {
+    if (ch === " ") { x += 0.3 * upm * k; continue; }
+    const g = G[ch]; if (!g) throw new Error("glif yok: " + ch);
+    g.s.forEach((s, i) => {
+      const pts = s.p.map((p) => [x + p[0] * k, taban + p[1] * k, (p[2] || 0) * k]);
+      // nib damgaları: [noktaIdx, dx, dy, çap (açı boyunca), çap (açıya dik), açı rad]; kalem noktaya gelince basılır
+      const nib = (s.n || []).map((n) => ({ i: n[0], x: pts[n[0]][0] + n[1] * k, y: pts[n[0]][1] + n[2] * k,
+        rx: n[3] / 2 * k, ry: n[4] / 2 * k, a: n[5] }));
+      out.push({ bas: t0 + s.d, sure: s.a, no: i, pts, nib });
+    });
+    x += g.w * k; t0 += g.t;
+  }
+  return { darbeler: out, sure: t0, gen: x - sol };
+}
+
+function nokta(ctx, p, renk) {                             // yuvarlak kalem izi (sıfır uzunluklu darbe, nokta)
+  ctx.fillStyle = renk; ctx.beginPath(); ctx.arc(p[0], p[1], Math.max(1.2, (p[2] || 4) / 2), 0, 7); ctx.fill();
+}
+function darbeCiz(ctx, d, iler, renk) {
+  if (iler <= 0) return null;
+  const L = d.pts.length, n = L < 2 ? 1 : Math.min(L, Math.max(2, Math.round(L * iler)));
+  const uzunluk = d.pts.slice(1, n).reduce((s, p, i) => s + Math.hypot(p[0] - d.pts[i][0], p[1] - d.pts[i][1]), 0);
+  if (uzunluk < 0.5) nokta(ctx, d.pts[0], renk);              // i noktası, ö/ü noktaları, nokta/iki nokta: tek yer
+  ctx.strokeStyle = renk; ctx.lineCap = "round"; ctx.lineJoin = "round";
+  for (let i = 1; i < n; i++) {
+    const a = d.pts[i - 1], b = d.pts[i];
+    ctx.lineWidth = Math.max(1.2, ((a[2] || 4) + (b[2] || 4)) / 2);
+    ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+  }
+  ctx.fillStyle = renk;                                      // kalemin geçtiği noktaların nib damgaları
+  (d.nib || []).forEach((m) => { if (m.i > n - 1) return;
+    ctx.beginPath(); ctx.ellipse(m.x, m.y, m.rx, m.ry, m.a, 0, Math.PI * 2); ctx.fill(); });
+  return d.pts[n - 1];
+}
+
+function satirCiz(ctx, darbeler, tSn, etiket, ust) {
+  let uc = null;
+  darbeler.forEach((d, i) => {
+    const p = Math.min(1, Math.max(0, (tSn - d.bas) / d.sure));
+    const son = darbeCiz(ctx, d, p, RENK[i % RENK.length]);
+    if (p > 0 && p < 1) uc = son;
+  });
+  if (uc) { ctx.fillStyle = "#e67e22"; ctx.beginPath(); ctx.arc(uc[0], uc[1], 5, 0, 7); ctx.fill(); }
+  ctx.fillStyle = "#666"; ctx.font = "12px monospace"; ctx.fillText(etiket, 40, ust + BOY * 1.45);
+}
+
+const c = document.getElementById("c"), ctx = c.getContext("2d"), bilgi = document.getElementById("bilgi");
+
+async function canli() {
+  const adlar = (Q.get("fontlar") || "caveat-tr").split(",");
+  const fontlar = [];
+  for (const ad of adlar) {           // paket: metrik.json (upm, asc, agirliklar) + glyphData[-700].json
+    const M = await (await fetch(KOK + ad + "/metrik.json")).json().catch(() => ({}));
+    const dosya = (M.agirliklar && M.agirliklar[AGIRLIK]) || (AGIRLIK === "700" ? "glyphData-700.json" : "glyphData.json");
+    const G = await (await fetch(KOK + ad + "/" + dosya)).json();
+    fontlar.push({ ad: ad + " " + AGIRLIK, G, upm: M.unitsPerEm || 1000, asc: M.ascender || 960 });
+  }
+  const satirY = BOY * 1.7; let t0 = performance.now(), satirlar = [];
+  function kur() {
+    METIN = document.getElementById("metin").value || METIN;
+    satirlar = fontlar.map((f, i) => {
+      try { return { f, ...yaziDarbeleri(METIN, f.G, f.upm, f.asc, BOY, 40, 20 + i * satirY) }; }
+      catch (e) { return { f, hata: e.message, darbeler: [], sure: 0, gen: 0 }; }
+    });
+    c.width = Math.max(900, 80 + Math.max(...satirlar.map((s) => s.gen))); c.height = 20 + fontlar.length * satirY;
+    const enUzun = Math.max(...satirlar.map((s) => s.sure));
+    bilgi.textContent = satirlar.map((s) => `${s.f.ad.padEnd(18)} ${s.hata ? "HATA " + s.hata : s.sure.toFixed(2) + " sn"}`).join("\n")
+      + `\nen uzun ${enUzun.toFixed(2)} sn · darbeler sırayla renkli · turuncu nokta = kalem ucu`;
+    t0 = performance.now(); return enUzun;
+  }
+  let enUzun = kur();
+  document.getElementById("tekrar").onclick = () => { enUzun = kur(); };
+  document.getElementById("metin").onchange = () => { enUzun = kur(); };
+  const SABIT = Q.get("t") !== null ? +Q.get("t") : null;   // ?t=sn → tek kare, döngü yok (ölçüm)
+  function kare() {
+    const hiz = +document.getElementById("hiz").value || 1;
+    const t = ((performance.now() - t0) / 1000) * hiz, dongu = enUzun + 1.5;
+    const tSn = SABIT !== null ? Math.min(SABIT, enUzun) : t % dongu;
+    ctx.clearRect(0, 0, c.width, c.height);
+    satirlar.forEach((s, i) => satirCiz(ctx, s.darbeler, tSn, `${s.f.ad} · ${Math.min(tSn, s.sure).toFixed(2)} / ${s.sure.toFixed(2)} sn`, 20 + i * satirY));
+    document.getElementById("durum").textContent = `t = ${tSn.toFixed(2)} sn`;
+    requestAnimationFrame(kare);
+  }
+  requestAnimationFrame(kare);
+}
+
+async function duragan() {
+  const VERI = Q.get("veri"), UPM = +(Q.get("upm") || 1000), ASC = +(Q.get("asc") || 960);
+  const ILER = (Q.get("ilerlemeler") || "0.25,0.5,0.75,1").split(",").map(Number);
+  const G = await (await fetch(VERI)).json();
+  const satirY = BOY * 1.6, W = 40 + yaziDarbeleri(METIN, G, UPM, ASC, BOY, 0, 0).gen + 40;
+  c.width = Math.max(W, 600); c.height = 20 + ILER.length * satirY;
+  const ozet = [];
+  ILER.forEach((iler, ri) => {
+    const ust = 20 + ri * satirY, { darbeler, sure } = yaziDarbeleri(METIN, G, UPM, ASC, BOY, 40, ust);
+    const tSn = iler * sure; satirCiz(ctx, darbeler, tSn, `ilerleme ${iler} · t=${tSn.toFixed(2)} sn`, ust);
+    ozet.push({ iler, tSn: +tSn.toFixed(2) });
+  });
+  const harfler = [...METIN].filter((ch) => ch !== " ").map((ch) => `${ch}:${G[ch] ? G[ch].s.length : "YOK"}`);
+  const { sure } = yaziDarbeleri(METIN, G, UPM, ASC, BOY, 0, 0);
+  const ys = [...METIN].filter((ch) => G[ch]).flatMap((ch) => G[ch].s.flatMap((s) => s.p.map((p) => p[1])));
+  bilgi.textContent = `veri ${VERI}\nmetin ${METIN} · toplam ${sure.toFixed(2)} sn · darbe/harf ${harfler.join(" ")}\n`
+    + `y aralığı ${Math.min(...ys).toFixed(0)} … ${Math.max(...ys).toFixed(0)} (0 = taban çizgisi, aşağı pozitif)`;
+  window.SONUC = { sure, harfler, ozet };
+}
+
+(Q.get("veri") ? duragan() : canli()).catch((e) => { bilgi.textContent = "HATA " + e.message; window.SONUC = { hata: e.message }; });
+</script>
+</body>
+</html>

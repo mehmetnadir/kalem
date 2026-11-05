@@ -219,3 +219,82 @@ export function altCizgi(x0, x1, y, tohum = 1) {
   const d = (k) => (hash(tohum, k, 17) - 0.5) * 5;
   return [[x0, y + d(1)], [(x0 + x1) / 2, y + d(2) * 0.6], [x1, y + d(3)]];
 }
+
+// ---------- el yazısı: tegaki glif verisi → kalem darbeleri ----------
+// G = tegaki glyphData (font birimi, y aşağı pozitif, 0 taban çizgisi; t/d/a sn; n nib
+// damgaları: [noktaIdx, dx, dy, çapA, çapB, açı]). o: {upm, asc, boy (px), x, y (sol üst),
+// ya da taban (taban çizgisi y), w (kalınlık çarpanı), renk, alfa, tohum, bosluk (em payı),
+// hedefSure (sn: bütün yazı bu
+// süreye sığar; yoksa doğal süre), sozcukler ([{t0,t1}]: i. sözcük [t0,t1] penceresine sığar,
+// hedefSure yok sayılır; sözcükler boşlukla ayrılır)}.
+// Döner: {darbeler: [{bas, sure, c, nib: [{u, x, y, rx, ry, a}]}], sure, gen, taban}; zamanlar
+// sn, yazının kendi başlangıcına göre (sözcük penceresi verilmişse mutlak anlatım sn).
+export function yaziDarbeleri(metin, G, o = {}) {
+  const upm = o.upm || 1000, asc = o.asc || 960, boy = o.boy || 48, k = boy / upm;
+  const taban = o.taban != null ? o.taban : (o.y || 0) + asc * k, kal = o.w == null ? 1 : o.w;
+  const sd = o.tohum == null ? 1 : o.tohum;
+  const sozler = metin.split(" "), darbeler = [];
+  let x = o.x || 0, t0 = 0, tSoz0 = 0;
+  for (let si = 0; si < sozler.length; si++) {
+    if (si > 0) x += (o.bosluk == null ? 0.3 : o.bosluk) * upm * k;
+    const ilk = darbeler.length; tSoz0 = t0;
+    for (const ch of sozler[si]) {
+      const g = G[ch]; if (!g) throw new Error("glif yok: " + ch);
+      g.s.forEach((s, i) => {
+        const pts = s.p.map((p) => [x + p[0] * k, taban + p[1] * k]);
+        const gen = s.p.reduce((a, p) => a + (p[2] || 60), 0) / s.p.length * k * kal;
+        const uz = pts.slice(1).reduce((a, p, j) =>
+          a + Math.hypot(p[0] - pts[j][0], p[1] - pts[j][1]), 0);
+        const nib = (s.n || []).map((n) => ({ u: n[0] / Math.max(1, pts.length - 1),
+          x: pts[n[0]][0] + n[1] * k, y: pts[n[0]][1] + n[2] * k,
+          rx: n[3] / 2 * k, ry: n[4] / 2 * k, a: n[5] }));
+        if (uz < 0.6) nib.push({ u: 0, x: pts[0][0], y: pts[0][1], rx: gen / 2, ry: gen / 2, a: 0 });
+        const c = uz < 0.6 ? null : kalemCizgi(pts, { w: Math.max(1.4, gen), duz: true, amp: 0.25,
+          uc0: 2.5, uc1: 3, aralik: 1.6, renk: o.renk, alfa: o.alfa,
+          tohum: sd + darbeler.length });
+        darbeler.push({ bas: t0 + s.d, sure: Math.max(0.02, s.a), c, nib, soz: si });
+      });
+      x += g.w * k; t0 += g.t;
+    }
+    if (o.sozcukler && o.sozcukler[si]) {         // sözcük penceresi: [tSoz0, t0] → [t0_i, t1_i]
+      const p = o.sozcukler[si], dogal = Math.max(0.05, t0 - tSoz0);
+      const hiz = (p.t1 - p.t0) / dogal;
+      for (let j = ilk; j < darbeler.length; j++) {
+        darbeler[j].bas = p.t0 + (darbeler[j].bas - tSoz0) * hiz; darbeler[j].sure *= hiz;
+      }
+    }
+  }
+  let sure = t0;
+  if (!o.sozcukler && o.hedefSure) {
+    const hiz = o.hedefSure / Math.max(0.05, t0);
+    for (const d of darbeler) { d.bas *= hiz; d.sure *= hiz; }
+    sure = o.hedefSure;
+  } else if (o.sozcukler) sure = Math.max(...darbeler.map((d) => d.bas + d.sure));
+  return { darbeler, sure, gen: x - (o.x || 0), taban };
+}
+
+// El yazısını t anına (sn, yaziDarbeleri zaman ekseni) kadar çizer. Nib damgaları kalem noktayı
+// geçince basılır.
+export function yaziCiz(ctx, Y, t, carpan = 1) {
+  for (const d of Y.darbeler) {
+    const u = kis((t - d.bas) / d.sure); if (u <= 0) continue;
+    if (d.c) darbeCiz(ctx, d.c, u, carpan);
+    const renk = d.c ? d.c.renk : "@murekkep", alfa = d.c ? d.c.alfa : 0.9;
+    for (const m of d.nib) {
+      if (m.u > u) continue;
+      ctx.save(); ctx.globalAlpha = alfa * carpan; ctx.fillStyle = renkCoz(renk);
+      ctx.beginPath();
+      ctx.ellipse(m.x, m.y, Math.max(0.8, m.rx), Math.max(0.8, m.ry), m.a, 0, Math.PI * 2);
+      ctx.fill(); ctx.restore();
+    }
+  }
+}
+
+// El yazısının t anındaki kalem ucu (yazan darbe yoksa null).
+export function yaziUcu(Y, t) {
+  for (const d of Y.darbeler) {
+    const u = (t - d.bas) / d.sure;
+    if (u > 0 && u < 1) return d.c ? basUcu(d.c, u) : [d.nib[0].x, d.nib[0].y];
+  }
+  return null;
+}
