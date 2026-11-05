@@ -8,18 +8,33 @@
 // (yazı ≥ 48 px).
 import { sahneKur, RT }
   from "/projeler/present-perfect-cont-temel-dikey/sahneler/02-paperjs-kanca/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/present-perfect-cont-temel-dikey/ortak/kalem-canvas.js";
 
 export const KARE = 436, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook" });
   const {
-    fr, ciz, daire, ok, yazi, cumle, altCizgi, tik, parilti, olay, not, bitis, kutu, genislik
+    fr, ciz, daire, ok, yazi, elYazisi, cumle, altCizgi, tik, parilti, olay, not, bitis, kutu,
+    genislik
   } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil, MUR = RT.murekkep;
   const GB = 12;                                                    // geçiş karesi: çizimler
                                                                     // bundan sonra
   const TOPLA0 = fr(10.6), TOPLA1 = fr(11.1);
+
+  // El yazısı (Caveat 700 tegaki, dalga 5 / K26): not ve etiketler kalemle yazılır. Sağa hizada
+  // genişlik tegaki verisinden ölçülür; sözcük pencereleri anlatımın f / f1 karelerinden gelir
+  // (6 kareden kısa pencere sonraki sözcüğün başına dek uzar).
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm,
+    asc: EY.M.ascender, boy: boyut, x: 0, taban: 0 }).gen;
+  const CS = S.sozcukler(2);                                        // cümle 2 (f / f1 yerel kare)
+  const pen = (ilk, adet) => { const i = CS.findIndex((w) => w.s === ilk);
+    return CS.slice(i, i + adet).map((w, k, a) => ({ f0: w.f,
+      f1: k < a.length - 1 && w.f1 - w.f < 6 ? a[k + 1].f : w.f1 })); };
 
   // --- cümle 1 (Caveat 80, tek satır, taban y 420): sahne 01'den devam;
   // 0–0,3 sn'de hazır belirir
@@ -55,36 +70,40 @@ export async function kur(P) {
   parilti(1000, 660, { bas: 92, r: 28, periyot: 150, adet: 3 });
 
   // --- iki not satırı (Caveat 72 + not 64): saat-tir / çalış-ıyor-um
+  // Parçalar art arda yazılır: her parça önceki bitince başlar (süre = hedef kare).
   const parca = (liste, x, y, bas) => {
-    let cx = x; const sonuc = [];
-    for (const [s, renk] of liste) {
-      const z = yazi(s, { x: cx, y, boyut: 72, renk: renk || MUR, bas, sure: 8 });
-      sonuc.push(z); cx = z.x1;
+    let cx = x, b = bas; const sonuc = [];
+    for (const [s, renk, sure] of liste) {
+      const z = elYazisi(s, { x: cx, y, boyut: 72, renk: renk || MUR, bas: b, sure });
+      sonuc.push(z); cx = z.x1; b += sure;
     }
     return sonuc;
   };
   {   // 4,91: -tir sarı daire; -dir → süre
-    const yA = 505, [a1, a2] = parca([["saat"], ["-tir"]], 48, yA, fr(4.6));
+    // 4,20 `saat` (10 kare → 4,53) · 4,53 `-tir` (10 kare → 4,87); anlatım: «süre için -dir»
+    // 4,19–5,43
+    const yA = 505, [a1, a2] = parca([["saat", null, 10], ["-tir", null, 10]], 48, yA, fr(4.2));
     const d = daire((a2.x0 + a2.x1) / 2, yA - 26, a2.w / 2 + 14, 36,
       { bas: fr(4.91), sure: 16, egim: -0.04, w: 10 });
     olay(bitis(d), "tik", 0.5); not("-dir daire", d.bas);
     const o1 = ok([a2.x1 + 40, yA - 22], [a2.x1 + 150, yA - 22],
       { bas: fr(5.2), sure: 12, w: 9, uzun: 24, bukum: 0.08 });
-    yazi("süre", {
-      x: a2.x1 + 170, y: yA, boyut: 72, renk: SARI, bas: bitis(o1) + 2, sure: 10, ses: true
-    });
+    // 5,63–6,03 «süren» penceresi (eski belirme 5,67)
+    elYazisi("süre", { x: a2.x1 + 170, y: yA, boyut: 72, renk: SARI, sozcukler: pen("süren", 1) });
     not("not -dir → süre", fr(5.2));
   }
   {   // 6,91: -ıyor sarı daire; -yor → iş sürüyor
-    const yB = 600, [b1, b2, b3] = parca([["çalış"], ["-ıyor"], ["-um"]], 48, yB, fr(6.6));
+    // 6,20 `çalış` (8 kare) · `-ıyor` (8) · `-um` (6) → 6,93 biter; -ıyor daire 6,91 başlar
+    const yB = 600, [b1, b2, b3] = parca([["çalış", null, 8], ["-ıyor", null, 8], ["-um", null, 6]],
+      48, yB, fr(6.2));
     const d = daire((b2.x0 + b2.x1) / 2, yB - 26, b2.w / 2 + 14, 36,
       { bas: fr(6.91), sure: 16, egim: 0.04, w: 10 });
     olay(bitis(d), "tik", 0.5); not("-yor daire", d.bas);
     const o2 = ok([b3.x1 + 30, yB - 22], [b3.x1 + 110, yB - 22],
       { bas: fr(7.2), sure: 12, w: 9, uzun: 24, bukum: 0.08 });
-    yazi("iş sürüyor", {
-      x: b3.x1 + 126, y: yB, boyut: 72, renk: SARI, bas: bitis(o2) + 2, sure: 10, ses: true
-    });
+    // 7,67 anlatımsız etiket `iş sürüyor`: hedef 16 kare (0,53 sn) → 8,20
+    elYazisi("iş sürüyor", { x: b3.x1 + 126, y: yB, boyut: 72, renk: SARI, bas: bitis(o2) + 2,
+      sure: 16 });
     not("not -yor → iş sürüyor", fr(7.2));
   }
   {   // 7,5–: zaman çizgisi `2 saat önce → now`
@@ -98,11 +117,12 @@ export async function kur(P) {
       w: 13, renk: SARI, alfa: 0.55, bas: b0 + 14, sure: 22, uc0: 10, uc1: 14, amp: 0.4, oge: sag
     });
     daire(1010, ty, 11, 11, { bas: b0 + 34, sure: 8, tur: 1.1, w: 6, oge: sag });
-    yazi("2 saat önce", { x: 450, y: 978, boyut: 88, renk: MUR, bas: b0 + 8, sure: 8, oge: sag });
-    yazi("now", {
-      x: 1018, y: 978, boyut: 88, hizala: "sag", renk: SARI, bas: b0 + 36, sure: 8, ses: true,
-      oge: sag
-    });
+    // 7,77 `2 saat önce` (16 kare → 8,30) · 8,70 `now` (14 kare → 9,17; sağ uç 1018);
+    // anlatımsız etiketler
+    elYazisi("2 saat önce", { x: 450, y: 978, boyut: 88, renk: MUR, bas: b0 + 8, sure: 16,
+      oge: sag });
+    elYazisi("now", { x: 1018 - eyGen("now", 88), y: 978, boyut: 88, renk: SARI, bas: b0 + 36,
+      sure: 14, oge: sag });
     not("zaman çizgisi", b0);
   }
 
@@ -127,8 +147,8 @@ export async function kur(P) {
   // --- 10,73–17,13: ajanda kartı (sağ üst): saat + "6 dakikada:" + 3 madde
   {
     kutu(430, 655, 602, 340, { bas: fr(10.73), sure: 30, w: 4.4 }); not("kart çizimi", fr(10.73));
-    yazi("6 dakikada:",
-      { x: 570, y: 740, boyut: 72, renk: SARI, bas: fr(11.05), sure: 12 });
+    // 10,73–11,61 «Altı dakikada» (pencere: 10,73–11,01 · 11,05–11,61)
+    elYazisi("6 dakikada:", { x: 570, y: 740, boyut: 72, renk: SARI, sozcukler: pen("Altı", 2) });
     not("6 dakikada", fr(11.05));
     parilti(520, 668, { bas: fr(12.2), r: 24, periyot: 170, adet: 3 });
     const m = [["form", 13.29, 825], ["time expressions", 14.17, 900], ["result clue", 15.61, 975]];

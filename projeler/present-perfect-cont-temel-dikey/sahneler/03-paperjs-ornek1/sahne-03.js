@@ -6,13 +6,28 @@
 // → for satırı → formül.
 import { sahneKur, RT }
   from "/projeler/present-perfect-cont-temel-dikey/sahneler/03-paperjs-ornek1/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/present-perfect-cont-temel-dikey/ortak/kalem-canvas.js";
 
 export const KARE = 467, T_BAS = 17.13;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1 });
-  const { fr, ciz, daire, yazi, cumle, altCizgi, parilti, olay, not, bitis, genislik } = S;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, altCizgi, parilti, olay, not, bitis,
+    genislik } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil;
+
+  // El yazısı (Caveat 700 tegaki, dalga 5 / K26): S.elYazisi (03 kalem-paper.js). Sağa hizalı x
+  // çizimden önce gerekir; genişlik için glif verisi burada okunur. Sözcük pencereleri anlatımın
+  // f / f1 karelerinden gelir (6 kareden kısa pencere sonraki sözcüğün başına dek uzar).
+  const [eyM, eyG] = await Promise.all([fetch("/ortak/tegaki/caveat-tr/metrik.json"),
+    fetch("/ortak/tegaki/caveat-tr/glyphData-700.json")]);
+  const EY = { M: await eyM.json(), G: await eyG.json() };
+  const eyGen = (str, boyut) => yaziNoktalari(str, EY.G, { upm: EY.M.unitsPerEm,
+    asc: EY.M.ascender, boy: boyut, x: 0, taban: 0 }).gen;
+  const CS = S.sozcukler(3);                                       // cümle 3 (f / f1 yerel kare)
+  const pen = (ilk, adet) => { const i = CS.findIndex((w) => w.s === ilk);
+    return CS.slice(i, i + adet).map((w, k, a) => ({ f0: w.f,
+      f1: k < a.length - 1 && w.f1 - w.f < 6 ? a[k + 1].f : w.f1 })); };
 
   // --- kart: tam genişlik (984), Fredoka 72, 3 satır (anlam sınırında kırılır),
   // sözcük zamanlı
@@ -31,17 +46,17 @@ export async function kur(P) {
     const yay = ciz([[a.x0, y0 - 8], [xm - 130, y0 + 9], [xm + 130, y0 + 9], [b.x1, y0 - 8]],
       { w: 10, renk: SARI, alfa: 0.85, bas: fr(20.41), sure: 26, uc0: 14, uc1: 30, amp: 0.7 });
     not("for twenty minutes yayı", yay.bas);
-    const gen = genislik("20 dk", "700 72px Caveat");
-    yazi("20 dk", { x: Math.min(b.x1 + 36, 1020 - gen), y: a.y - 6, boyut: 72, renk: SARI,
-      bas: bitis(yay) - 4, sure: 12, ses: true });
+    // 21,15 anlatımsız etiket `20 dk`: hedef 14 kare (0,47 sn) → 21,62 («minutes» 20,97–21,93)
+    const gen = eyGen("20 dk", 72);
+    elYazisi("20 dk", { x: Math.min(b.x1 + 36, 1020 - gen), y: a.y - 6, boyut: 72, renk: SARI,
+      bas: bitis(yay) - 4, sure: 14 });
   }
 
   // --- 22,10 Türkçe çeviri (Caveat 64, mürekkep)
   const yTR = kartAlt + 56;
-  yazi("Yirmi dakikadır otobüs bekliyorum.", {
-    x: 56, y: yTR, boyut: 64, aile: "Caveat", agirlik: 700,
-    renk: RT.murekkep, bas: fr(22.1), sure: 22
-  });
+  // 22,10–24,26 «Yirmi dakikadır otobüs bekliyorum.» (pencere: 4 sözcük)
+  elYazisi("Yirmi dakikadır otobüs bekliyorum.", { x: 56, y: yTR, boyut: 64,
+    renk: RT.murekkep, sozcukler: pen("Yirmi", 4) });
   not("Türkçe çeviri", fr(22.1));
 
   // --- ORTA: bekleyen figür + otobüs + küçük saat (bant: TR altı → for satırı üstü)
@@ -71,10 +86,9 @@ export async function kur(P) {
       sure: 10, olcek: true, ses: "vurus"
     });
     olay(f0, "vurus", 0.85); not("for (vurgu)", f0);
-    yazi("süre uzunluğu", {
-      x: fo.x1 + 40, y: yFor, boyut: 64, aile: "Caveat", agirlik: 700, renk: RT.murekkep,
-      bas: fr(27.64), sure: 14, ses: true
-    });
+    // 27,64 «Süre bu.» (27,64–28,28) ile eş zamanlı, sözcükler eşleşmez → hedef 16 kare → 28,17
+    elYazisi("süre uzunluğu", { x: fo.x1 + 40, y: yFor, boyut: 64, renk: RT.murekkep,
+      bas: fr(27.64), sure: 16 });
     not("süre uzunluğu", fr(27.64));
   }
 

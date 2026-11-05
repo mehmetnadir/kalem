@@ -14,7 +14,11 @@ const S = new Sahne({
 const KOKDIZ = "/projeler/present-perfect-cont-temel-dikey/ortak/cizim";
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKI = RT.ikincil, SARI = RT.vurgu;
-const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+const FF = (b) => `700 ${b}px Fredoka`;
+// El yazısı (tegaki Caveat, dalga 5 / K26): sözcük penceresi = anlatım t0/t1 (küresel sn);
+// 0,2 sn'den kısa pencere sonraki sözcüğün başına dek uzar
+const pen = (ad, t, n) => S.dizi(ad, t, n).map((w, k, a) => ({ t0: w.t0,
+  t1: k < a.length - 1 && w.t1 - w.t0 < 0.2 ? a[k + 1].t0 : w.t1 }));
 
 async function kur() {
   await S.kur();
@@ -33,11 +37,12 @@ async function kur() {
   ));
   const kel = (ad) => cum.kel.find((k) => k.m === ad);
 
-  // 37,73 Türkçe çeviri (Caveat 64, mürekkep)
+  // 37,73–40,37 Türkçe çeviri «Kardeşim sabahtan beri gitar çalıyor.» (Caveat 64, mürekkep;
+  // pencere: 5 sözcük, beri 38,85 → 39,05)
   const yTR = kartAlt + 56;
-  S.koy(S.not({
-    parca: [["Kardeşim sabahtan beri gitar çalıyor.", KREM]], x: 56, y: yTR, font: CV(64),
-    tb: 37.73, sure: 0.7
+  S.koy(S.elYazisi({
+    metin: "Kardeşim sabahtan beri gitar çalıyor.", x: 56, y: yTR, boy: 64, renk: KREM,
+    sozcukler: pen("Kardeşim", 37.73, 5)
   }));
 
   // ORTA (yTR+14 → +436; figür kutusu ≥ 420): kardeş + gitar solda;
@@ -73,8 +78,9 @@ async function kur() {
       svg: gunes, ad: "gunes", kutu: { x: sx, y: sy, w: 120, h: 120 }, enCok: 24, w: 4,
       tb: 35.96, sure: 0.6, olayEnCok: 3, nefes: false
     }));
-    S.koy(S.not({
-      parca: [["sabah", KREM]], x: sx + 132, y: sy + 78, font: CV(64), tb: 36.28, sure: 0.4
+    // 36,28 anlatımsız etiket `sabah`: hedef 0,45 sn → 36,73
+    S.koy(S.elYazisi({
+      metin: "sabah", x: sx + 132, y: sy + 78, boy: 64, renk: KREM, tb: 36.28, sure: 0.45
     }));
     S.koy(S.darbeler(
       ok([sx + 60, sy + 135], [nx, ny - 40], 3), { w: 7, renk: SARI, uc0: 10, uc1: 14 }, 36.6,
@@ -88,22 +94,23 @@ async function kur() {
       ctx.fill(); ctx.restore();
     } });
     S.koy(S.nabiz(nx, ny, 14, 37.1));
-    S.koy(S.not({
-      parca: [["now", SARI]], x: nx + 36, y: ny + 22, font: CV(64), tb: 37.2, sure: 0.3,
+    // 37,20 anlatımsız etiket `now`: hedef 0,45 sn → 37,65 («morning» 37,48; çeviri 37,73)
+    S.koy(S.elYazisi({
+      metin: "now", x: nx + 36, y: ny + 22, boy: 64, renk: SARI, tb: 37.2, sure: 0.45,
       ses: false
     }));
   }
 
-  // 40,62 since (Fredoka 150 sarı) + 42,47 başlangıç noktası (Caveat 64) —
+  // 40,62 since (Fredoka 150 sarı) + 42,47–44,15 başlangıç noktası (Caveat 64; pencere: 2 sözcük) —
   // ORTA ile formül arası satır
   const yS = 1262, wS = olc(FF(150), "since");
   S.koy(S.metinPop({
     parca: [["since", SARI]], x: 56, y: yS, font: FF(150), tb: 40.62, sure: 0.4, olcek0: 0.6,
     ses: 0.8, turu: "vurus"
   }));
-  S.koy(S.not({
-    parca: [["başlangıç noktası", KREM]], x: 56 + wS + 40, y: yS, font: CV(64), tb: 42.47,
-    sure: 0.6
+  S.koy(S.elYazisi({
+    metin: "başlangıç noktası", x: 56 + wS + 40, y: yS, boy: 64, renk: KREM,
+    sozcukler: pen("Başlangıç", 42.47, 2)
   }));
   S.koy(S.parilti(56 + wS + 10, yS - 120, 40.95, 26));
 

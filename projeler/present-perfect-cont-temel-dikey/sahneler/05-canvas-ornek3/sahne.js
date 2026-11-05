@@ -12,7 +12,11 @@ const S = new Sahne({
 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
-const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+const FF = (b) => `700 ${b}px Fredoka`;
+// El yazısı (tegaki Caveat, dalga 5 / K26): sözcük penceresi = anlatım t0/t1 (küresel sn);
+// 0,2 sn'den kısa pencere sonraki sözcüğün başına dek uzar
+const pen = (ad, t, n) => S.dizi(ad, t, n).map((w, k, a) => ({ t0: w.t0,
+  t1: k < a.length - 1 && w.t1 - w.t0 < 0.2 ? a[k + 1].t0 : w.t1 }));
 
 async function kur() {
   await S.kur();
@@ -54,14 +58,16 @@ async function kur() {
   }));
   const sonSatir = 646, kel = (ad) => c2.kel.find((k) => k.m === ad);
 
-  // 53,12 / 54,88 Türkçe çeviri (Caveat 64, mürekkep) iki satır
+  // 53,12–54,68 «Bak, sokak ıslak.» ve 54,88–56,40 «Yağmur bir süredir yağıyor.» Türkçe çeviri
+  // (Caveat 64, mürekkep) iki satır; pencere: 3 + 4 sözcük (bir 55,28 → 55,40)
   const ytr = sonSatir + 84;
-  S.koy(S.not({
-    parca: [["Bak, sokak ıslak.", KREM]], x: 88, y: ytr, font: CV(64), tb: 53.12, sure: 0.5
+  S.koy(S.elYazisi({
+    metin: "Bak, sokak ıslak.", x: 88, y: ytr, boy: 64, renk: KREM,
+    sozcukler: pen("Bak,", 53.12, 3)
   }));
-  S.koy(S.not({
-    parca: [["Yağmur bir süredir yağıyor.", KREM]], x: 88, y: ytr + 66, font: CV(64),
-    tb: 54.88, sure: 0.7
+  S.koy(S.elYazisi({
+    metin: "Yağmur bir süredir yağıyor.", x: 88, y: ytr + 66, boy: 64, renk: KREM,
+    sozcukler: pen("Yağmur", 54.88, 4)
   }));
 
   // ORTA (y 850–1290): şemsiye (sol) + yağmur bulutu (orta, 420 px) +
@@ -88,12 +94,15 @@ async function kur() {
     w: 4.2, tb: 51.23, sure: 0.8, olayEnCok: 4, nefes: false
   }));
 
-  // 56,56 sonuç ipucu: Caveat 64 (vurgu) + sarı ok ıslak sokağa
-  S.koy(S.not({
-    parca: [["izi şimdi", SARI]], x: 735, y: 760, font: CV(64), tb: 56.56, sure: 0.4
+  // 56,56–57,76 «İzi şimdi görünüyor.» sonuç ipucu: Caveat 64 (vurgu) + sarı ok ıslak sokağa.
+  // `izi şimdi` penceresi: 56,56–57,04 (izi 56,72 → 56,80); `görünüyor` eski belirme anında
+  // (56,90) başlar, anlatım 57,08–57,76 ile biter
+  S.koy(S.elYazisi({
+    metin: "izi şimdi", x: 735, y: 760, boy: 64, renk: SARI, sozcukler: pen("İzi", 56.56, 2)
   }));
-  S.koy(S.not({
-    parca: [["görünüyor", SARI]], x: 735, y: 826, font: CV(64), tb: 56.9, sure: 0.4
+  S.koy(S.elYazisi({
+    metin: "görünüyor", x: 735, y: 826, boy: 64, renk: SARI,
+    sozcukler: [{ t0: 56.9, t1: 57.76 }]
   }));
   S.koy(S.darbeler(
     ok([950, 850], [960, SY - 14], 5), { w: 9, renk: SARI, uc0: 10, uc1: 14 }, 57.3, 0.4, 0.2,
