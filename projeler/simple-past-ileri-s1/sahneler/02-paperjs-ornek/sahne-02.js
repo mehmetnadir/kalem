@@ -9,10 +9,28 @@ export const KARE = 362, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Trap" });
-  const { fr, ciz, daire, yazi, cumle, kutu, olay, not, bitis, genislik, kis, oge, parilti } = S;
+  const { fr, ciz, daire, yazi, elYazisi, cumle, kutu, olay, not, bitis, genislik, kis, oge,
+    parilti } = S;
   const SARI = RT.vurgu, DOLGU = RT.vurguDolgu, IKI = RT.ikincil, KIRMIZI = RT.kirmizi;
   const sol = (f0, f1) => (f) => 1 - kis((f - f0) / (f1 - f0));     // oge: [f0, f1] arası söner
   const s1 = S.sozcukler(1), s2 = S.sozcukler(2);
+  // El yazısı cümlesi (Caveat 700 tegaki, dalga 5 / K26): her sözcük kendi konuşma penceresinde;
+  // sözcük arası 0,3 × boyut (motor aralığı); pencere en az 10 kare, aynı satırdaki sonraki
+  // sözcüğün başını aşmaz. kel = [{s, f, f1, satir}] -> elYazisi dönüşleri.
+  const elCumle = (kel, o) => {
+    const sat = {};
+    return kel.map((k, i) => {
+      const s = k.satir || 0, x = sat[s] == null ? o.x : sat[s];
+      const n = kel.find((q, j) => j > i && (q.satir || 0) === s);
+      const f1 = Math.min(Math.max(k.f1, k.f + 10), n ? Math.max(n.f, k.f1) : 1e9);
+      const q = elYazisi(k.s, { x, y: o.y + s * (o.aralik || 80), boyut: o.boyut, oge: o.oge,
+        sozcukler: [{ f0: k.f, f1 }] });
+      sat[s] = q.x1 + 0.3 * o.boyut;
+      return q;
+    });
+  };
+  // söner + 36 px yukarı kayar (eski yazi `son` davranışı)
+  const sonKay = (f0, f1) => oge({ alfa: sol(f0, f1), kay: { f0, f1, dx: 0, dy: -36 } });
   const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],
     { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
 
@@ -24,8 +42,9 @@ export async function kur(P) {
     { x: SOL, y: 500, boyut: 88, aile: "Caveat", agirlik: 700, son: fSon });
   const pp = cumle(s1.slice(2, 4).map((w) => ({ s: w.s, f: -30 })),
     { x: SOL, y: 650, boyut: 88, aile: "Fredoka", agirlik: 700, son: fSon });
-  yazi(s1[4].s, { x: SOL, y: 800, boyut: 88, aile: "Caveat", agirlik: 700, bas: s1[4].f, sure: 10,
-    ses: "hisirti", son: fSon });
+  // 3,04–3,56 «yazma.» (kare 1–17); 3,50'de sönme başlar, yazı sönmeden önce biter (kare 17 < 20)
+  elYazisi(s1[4].s, { x: SOL, y: 800, boyut: 88, sozcukler: [{ f0: s1[4].f, f1: s1[4].f1 }],
+    oge: sonKay(A0, A1) });
   {   // Perfect üstünde kırmızı çizgi (3,04): tek hızlı çizgi, hafif eğik
     const pf = pp[1];
     ciz([[pf.x0 - 12, 650 - 20], [pf.x1 + 12, 650 - 42]], { w: 12, renk: KIRMIZI, alfa: 0.92,
@@ -43,10 +62,13 @@ export async function kur(P) {
   // ---------- Faz A2 (3,71–5,92): Sınav bu tuzağı sever ----------
   {
     const L0 = fr(5.75), L1 = fr(5.92), gL = oge({ alfa: sol(L0, L1) });
-    const e = cumle(s1.slice(5, 9).map((k, i) => ({ s: k.s, f: k.f, satir: i < 2 ? 0 : 1 })),
-      { x: SOL, y: 620, boyut: 120, aile: "Caveat", agirlik: 700, aralik: 150, son: [L0, L1] });
+    // 3,71–5,55 «Sınav bu tuzağı sever.» (kare 21–77): "bu" penceresi 2 → 10 kare (satır 1'de
+    // sonraki sözcük yok); altı çizgi tuzağı bitince (bit − 6)
+    const e = elCumle(s1.slice(5, 9).map((k, i) => ({ s: k.s, f: k.f, f1: k.f1,
+      satir: i < 2 ? 0 : 1 })), { x: SOL, y: 620, boyut: 120, aralik: 150, oge: sonKay(L0, L1) });
     not("Sınav bu tuzağı sever", e[0].bas);
-    altCiz(e[2], e[2].bas + 4, { w: 11, sure: 14, oge: gL }); not("tuzağı altı çizgi", e[2].bas + 4);
+    altCiz(e[2], e[2].bit - 6, { w: 11, sure: 14, oge: gL });
+    not("tuzağı altı çizgi", e[2].bit - 6);
   }
 
   // ---------- Faz B (5,96–11,0): EN kart + TR çeviri + figür + takvim ----------
@@ -62,12 +84,13 @@ export async function kur(P) {
     const g = e[5], d = daire((g.x0 + g.x1) / 2, g.y - 26, g.w / 2 + 8, 44, { bas: g.bas + 3, sure: 16, oge: gB });
     olay(bitis(d), "tik", 0.5); not("ago daire", d.bas);
   }
-  // TR çeviri (8,59–10,83) Caveat 80 mürekkep
-  const tr = cumle(s2.slice(6, 12).map((k, i) => ({ s: k.s, f: k.f, satir: i < 4 ? 0 : 1 })),
-    { x: 72, y: 735, boyut: 80, aile: "Caveat", agirlik: 700, aralik: 90, son: bSon });
+  // TR çeviri (8,59–10,83; kare 168–235) Caveat 80: "iki" penceresi 5 → 7 kare (hafta başına dek),
+  // "önce" 6 → 10 kare; altı çizgi önce bitince (bit − 6)
+  const tr = elCumle(s2.slice(6, 12).map((k, i) => ({ s: k.s, f: k.f, f1: k.f1,
+    satir: i < 4 ? 0 : 1 })), { x: 72, y: 735, boyut: 80, aralik: 90, oge: sonKay(B0, B1) });
   not("TR çeviri başı", tr[0].bas);
-  altCiz({ x0: tr[2].x0, x1: tr[3].x1, y: tr[3].y }, tr[3].bas + 4, { oge: gB });
-  not("hafta önce altı çizgi", tr[3].bas + 4);
+  altCiz({ x0: tr[2].x0, x1: tr[3].x1, y: tr[3].y }, tr[3].bit - 6, { oge: gB });
+  not("hafta önce altı çizgi", tr[3].bit - 6);
 
   // alt bölge (920–1392): yeni figür (standing-1) + takvim + geri ok + etiket; Faz C boyunca kalır
   const LB = 1360, ETIKET = 64;
@@ -83,11 +106,12 @@ export async function kur(P) {
   not("geri ok", fr(7.94) + 4);
 
   // ---------- Faz C (10,98–14,65): Ago belirli zaman, yani Simple Past ----------
-  const lab = cumle(s2.slice(12, 15).map((k) => ({ s: k.s, f: k.f })),
-    { x: SOL, y: 480, boyut: 88, aile: "Caveat", agirlik: 700 });
+  // 10,98–12,58 «Ago belirli zaman,» (kare 239–287); altı çizgi zaman, bitince (bit − 6)
+  const lab = elCumle(s2.slice(12, 15).map((k) => ({ s: k.s, f: k.f, f1: k.f1 })),
+    { x: SOL, y: 480, boyut: 88 });
   not("Ago belirli zaman", lab[0].bas);
-  altCiz({ x0: lab[1].x0, x1: lab[2].x1, y: lab[2].y }, lab[1].bas + 4, { w: 10 });
-  not("belirli zaman altı çizgi", lab[1].bas + 4);
+  altCiz({ x0: lab[1].x0, x1: lab[2].x1, y: lab[2].y }, lab[2].bit - 6, { w: 10 });
+  not("belirli zaman altı çizgi", lab[2].bit - 6);
   {
     const F = "700 120px Fredoka", gA2 = genislik("ago", F);
     const ox = (1080 - (gA2 + 36 + 158)) / 2;                       // "ago" + ok satırı ortalı
