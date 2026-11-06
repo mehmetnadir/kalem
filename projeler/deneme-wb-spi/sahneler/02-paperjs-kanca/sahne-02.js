@@ -140,17 +140,18 @@ export async function kur(P) {
 
   // --- kamera (anahtar: [t sn, x, y, zoom, varış eğrisi]); merkez = dünya noktası
   const m2 = [B2[0] + 720, B2[1] + 485], m3 = [B3[0] + 980, B3[1] + 610];   // R3: alt %12 boş
-  const it3 = [B3[0] + 1000, B3[1] + 650], tam = [2690, 985];
+  // 06.11 Nadir: ilk sürüm (zoom 1,4 · 0,33 sn savurma · %8 itiş · 0,34 tam tahta) abartılıydı.
+  // Sakin sürüm: geçişler >= 1,3 sn ve "io"; zoom 1,0–1,2; savurma ve itiş yok;
+  // kapanış 0,5 (R2 + R3).
+  const bakis = [3445, 1100];                                        // R2 + R3 ortası
   const kam = S.kameraKur([
     [3.0, 960, 540, 1, "l"], [3.3, 960, 540, 1, "l"],              // 3,00 = sahne 01'in son karesi
-    [3.95, m2[0], m2[1], 1.4, "io"],                               // çizgiyi izle → R2
-    [6.19, m2[0], m2[1], 1.4, "l"],                                // R2'de sabit
-    [6.52, m3[0], m3[1], 1.0, "w"],                                // tek savurma (0,33 sn) → R3
-    [13.55, m3[0], m3[1], 1.0, "l"],                               // R3'te sabit
-    [14.8, it3[0], it3[1], 1.08, "io"],                            // `6 min`e küçük itiş (%8)
-    [15.0, it3[0], it3[1], 1.08, "l"],
-    [17.0, tam[0], tam[1], 0.34, "io"],                            // geri çekilme: tam tahta
-    [17.65, tam[0], tam[1], 0.34, "l"]]);
+    [4.6, m2[0], m2[1], 1.2, "io"],                                // 1,3 sn: çizgiyi izle → R2
+    [5.6, m2[0], m2[1], 1.2, "l"],                                 // R2'de sabit
+    [7.2, m3[0], m3[1], 1.0, "io"],                                // 1,6 sn süzülme → R3
+    [16.0, m3[0], m3[1], 1.0, "l"],                                // R3'te sabit (itiş yok)
+    [17.4, bakis[0], bakis[1], 0.5, "io"],                         // 1,4 sn geri çekilme: R2 + R3
+    [17.8, bakis[0], bakis[1], 0.5, "l"]]);
   const kalem = S.kalemKur({ kam });
   window.__kalemOzet = { darbe: kalem.darbe, liste: kalem.liste };
   window.__kam = (t) => kam.at(t);
