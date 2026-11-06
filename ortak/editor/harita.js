@@ -9,7 +9,7 @@ const KAT = 'katalog';
 const ETIKET = {
   durum: { acik: 'Açık', planli: 'Planlı', hazirlik: 'Hazırlık', uretimde: 'Üretimde',
     inceleme: 'İnceleme',
-    onay: 'Onay', yayinda: 'Yayında', kapali: 'Kapalı' },
+    onay: 'Onay', yayinda: 'Yayında', kapali: 'Kapalı', hazir: 'Hazır', iptal: 'İptal' },
   grup: { motor: 'Motor', oynatici: 'Oynatıcı', senaryo: 'Senaryo',
     'tasarim-karar': 'Tasarım-karar',
     platform: 'Platform' },
@@ -401,6 +401,8 @@ function panel() {
     return panelVideo(v, ekle);
   }
   const ay = kalan.indexOf('/'); const pr = kalan.slice(0, ay); const kim = kalan.slice(ay + 1);
+  // Tanımsız `veri` ReferenceError atıyordu: sürüm ve görev paneli boş kalıyordu (06.11).
+  const veri = proje(pr);
   if (!veri) { p.hidden = true; return; }
   if (tur === 'g') panelGorev(pr, veri, kim, ekle); else panelSurum(pr, veri, kim, ekle);
 }
@@ -437,6 +439,17 @@ function panelGorev(pr, veri, kim, ekle) {
     yorumEkleme(pr, pr === KAT ? { gorev: g.kimlik, video: g.video } : { gorev: g.kimlik,
       surum: g.surum || undefined }));
 }
+// Üretilmiş mp4 (açık ve koyu tema) yeni sekmede açılır; dosya yoksa düğme görünmez.
+function videoDugmeleri(s) {
+  return [['Videoyu aç', false], ['Koyu tema video', true]].map(([ad, koyu]) => {
+    const a = Y.ciktiYolu(s.onizleme, koyu); if (!a) return null;
+    const n = e('a', { class: 'btn', href: a, target: '_blank', rel: 'noopener', hidden: true },
+      ad);
+    fetch(a, { method: 'HEAD' }).then((r) => { n.hidden = !r.ok; })
+      .catch((err) => console.warn('[harita] video denetlenemedi:', a, err));
+    return n;
+  });
+}
 function panelSurum(pr, veri, kim, ekle) {
   const s = veri.sv.surumler.find((x) => x.kimlik === kim); if (!s) { $('panel').hidden = true;
     return; }
@@ -452,7 +465,7 @@ function panelSurum(pr, veri, kim, ekle) {
     s.kapak_canalici ? e('p', {}, `Kapak: can alıcı #${s.kapak_canalici}'den — ${
       (veri.sv.video.canAlici || [])[s.kapak_canalici - 1] || ''}`) : null,
     e('div', { class: 'satir' }, ed ? e('a', { class: 'btn ana', href: ed }, 'Editörde aç')
-      : e('span', { class: 'btn pasif' }, 'Editörde aç (önizleme yok)')),
+      : e('span', { class: 'btn pasif' }, 'Editörde aç (önizleme yok)'), videoDugmeleri(s)),
     e('h3', {}, `Görevler (${gs.length})`), gorevLinkleri(pr, gs),
     e('h3', {}, `Yorumlar (${yor.length})`), yor.map((y) => yorumKutusu(pr, y)), yorumEkleme(pr,
       { surum: s.kimlik }));
@@ -503,7 +516,8 @@ function panelVideo(v, ekle) {
       ...listeBolumu('Kazanım (MEB)', pv.kazanim, false).flat(3)] : null,
     sv.length ? [e('h3', {}, `Sürümler (${sv.length})`), e('div', { class: 'liste' },
       sv.map((s) => e('a', {
-      onclick: () => sec(`s:${v.proje}/${s.kimlik}`) }, `${ETIKET.durum[s.durum]} · ${s.ad}`)))]
+      onclick: () => sec(`s:${v.proje}/${s.kimlik}`) },
+      `${ETIKET.durum[s.durum] || s.durum} · ${s.ad}`)))]
         : null,
     e('h3', {}, `Görevler (${gs.length})`), gs.length ? gorevLinkleri(pr, gs) : e('p', {}, 'Yok.'),
     v.proje ? [e('h3', {}, 'Durum özeti'), ...GOREV_DURUM.map((d) =>

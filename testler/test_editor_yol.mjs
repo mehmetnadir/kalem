@@ -30,6 +30,14 @@ test('editorYolu: ad verilmezse konumdan okunur', () => {
   } finally { delete globalThis.location; }
 });
 
+test('ciktiYolu: sürüm önizlemesinden proje videosu, önizlemesiz sürüm null', () => {
+  assert.equal(Y.ciktiYolu('/p/present-continuous-s1/onizle.html'),
+    '/projeler/present-continuous-s1/cikti.mp4');
+  assert.equal(Y.ciktiYolu('/projeler/x/onizle.html?t=3', true), '/projeler/x/cikti-koyu.mp4');
+  assert.equal(Y.ciktiYolu(null), null);
+  assert.equal(Y.ciktiYolu('/api/x/surumler'), null);
+});
+
 test('yeniAdres: eski editör adresi yeniye, diğerleri aynen', () => {
   assert.equal(Y.yeniAdres('/projeler/x/onizle.html?a=1'), '/p/x/onizle.html?a=1');
   assert.equal(Y.yeniAdres('/projeler/x/cikti.mp4'), '/projeler/x/cikti.mp4');

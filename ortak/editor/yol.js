@@ -16,6 +16,11 @@
       var q = sorgu ? (typeof sorgu === 'string' ? sorgu : new URLSearchParams(sorgu).toString()) : '';
       return '/p/' + encodeURIComponent(proje) + '/' + sayfa + (q ? '?' + q : '');
     },
+    // sürümün üretilmiş videosu: önizleme adresindeki projenin cikti.mp4 (koyu: cikti-koyu.mp4); yoksa null
+    ciktiYolu: function (onizleme, koyu) {
+      var ad = onizleme ? Y.projeAdi(String(onizleme).split('?')[0]) : null;
+      return ad ? Y.projeYolu(ad) + (koyu ? 'cikti-koyu.mp4' : 'cikti.mp4') : null;
+    },
     // veri dosyalarında kalan eski /projeler/<proje>/(harita|onizle).html adresini yeniye çevirir
     yeniAdres: function (a) {
       var m = /^\/projeler\/([^/]+)\/((?:harita|onizle)\.html)(.*)$/.exec(a || '');
