@@ -2,6 +2,7 @@
 // Kök: "Although the sun looks small from here, it gives plants the energy they need." (güneş + ağaç, bağlaç).
 import { sahneKur, RT } from "/projeler/simple-present-ileri/sahneler/03-paperjs-ornek1/kalem-paper.js";
 import { yaziNoktalari } from "/projeler/simple-present-ileri/ortak/kalem-canvas.js";
+import { karakter } from "../02-paperjs-kanca/stil/karakter.js";   // stil-dagit.sh kopyası
 
 export const KARE = 456, T_BAS = 17.65;
 
@@ -92,6 +93,21 @@ export async function kur(P) {
     const s1 = yazi("it give", { ...F, x: kx + 60, y: y2, bas: fr(31.66), sure: 10, olcek: true });
     yazi("s", { ...F, x: s1.x1 + 2, y: y2, bas: fr(31.72), sure: 10, olcek: true, renk: SARI, ses: true }); not("it gives", fr(31.66));
     parilti(kx + 600, ky + 40, { bas: fr(31.9), r: 22 });
+  }
+
+  // --- tepki figürü (Dalga 3 pilotu, K28): öğrenci kız 17 yaş, orta-alt boşluk
+  // (x 1007–1173, y 616–1030).
+  // Duygu değişimi = figürün kısa sürede yeniden çizilmesi; önceki figür oge.alfa ile gizlenir.
+  {
+    const FX = 1090, FY = 1030, FH = 112;
+    const TEPKI = [[18.95, "notr", 62], [21.70, "dikkat", 22], [31.30, "dogru", 20]];
+    TEPKI.forEach(([t, duygu, sure], i) => {
+      const b = f0(t), son = i + 1 < TEPKI.length ? f0(TEPKI[i + 1][0]) : 1e9;
+      const og = S.oge({ alfa: (f) => (f >= son ? 0 : 1) });
+      karakter(S, { x: FX, y: FY, yas: 17, duygu, kimlik: "ogrenci_kiz", h: FH, poz: "ayakta",
+        bas: b, sure, oge: og });
+      not("tepki: " + duygu, b);
+    });
   }
   return S;
 }

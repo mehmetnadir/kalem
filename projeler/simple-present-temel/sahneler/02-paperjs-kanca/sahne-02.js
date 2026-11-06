@@ -4,8 +4,13 @@
 // 0–9).
 import { sahneKur,
   RT } from "/projeler/simple-present-temel/sahneler/02-paperjs-kanca/kalem-paper.js";
+import { kupur, kadro } from "./stil/kupur.js";
 
 export const KARE = 386, T_BAS = 3.0;
+// Kâğıt küpür kadro (seri kimliği "simple-present"; FNV-1a 32 bit). Kadro tohumu sabit, YDT 16–18.
+const TOHUM = 2826477417, YAS = 17, BAS_H = 60;
+// Sol alt figürler: ayak tabanı künye bandının (y 1002) 60 px üstünde; boy %10 küçük.
+const AYAK = 940, BAS_K = 54;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook", etkin: 0 });
@@ -19,11 +24,19 @@ export async function kur(P) {
     { x: 140, y: 300, boyut: 64, aile: "Caveat", agirlik: 700 });
   not("cümle 1 başı (Her)", c1[0].bas); not("kalkarım.", c1[3].bas);
 
-  // --- sağ eskiz: yatak + duvar saati + ayakta figür (sabah kalkış)
-  const figOge = S.oge({ nefes: { bas: fr(5.2), cx: 1245, cy: 650 } });
-  await S.svgCiz("open-peeps/standing-1.svg", { kutu: [1110, 130, 270, 520], bas: GB, sure: 46,
-    azami: 60, yuz: 3, w: 3.2, oge: figOge, sesAralik: 5 });
-  not("figür çizimi başı", GB);
+  // --- küpür kadro: öğrenci (k9) sahne başında, öğretmen (sabit) cümle 2 başında,
+  // ikinci öğrenci (k11) "Altı dakikada" anında yapışır. Baş yüksekliği 60 px.
+  const K = kadro(12, TOHUM);
+  const OGRT = { ...K[1], ogretmen: true, sac: 5, aks: 0, etek: false, ten: 1, ust: 4, alt: 1,
+    sacRenk: 0 };
+  kupur(S, { x: 1245, y: 660, h: BAS_H, kimlik: K[9], yas: YAS, duygu: "notr", bas: GB,
+    sure: 46 });
+  not("öğrenci k9 (kalkış) yapışır", GB);
+  kupur(S, { x: 975, y: AYAK, h: BAS_K, kimlik: OGRT, duygu: "dogru", bas: 34, sure: 46 });
+  not("öğretmen yapışır", 34);
+  kupur(S, { x: 780, y: AYAK, h: BAS_K, kimlik: K[11], yas: YAS, duygu: "sevinc", bas: fr(10.65),
+    sure: 46 });
+  not("öğrenci k11 (6 dk) yapışır", fr(10.65));
   await S.svgCiz("coco/bed.svg", { kutu: [1410, 400, 420, 290], bas: GB + 20, sure: 44, azami: 30,
     w: 3.6, sesAralik: 4 });
   not("yatak çizimi başı", GB + 20);

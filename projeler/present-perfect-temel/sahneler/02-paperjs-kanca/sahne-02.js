@@ -2,7 +2,9 @@
 // Zamanlar KÜRESEL sn (sozcukler.json); yerel kare = round((t − 3,00) × 30).
 // Cümle 1 (Kaybettim, kapıda kaldım.) sahne 01'de söylenir (1,00–3,16); sahne 01 uçuşuyla (140, 300)'e taşınır,
 // burada 0. kareden hazır durur (sahne 01 sonundaki yerle aynı: Caveat 64), ilk 12 kare durgun.
-import { sahneKur, RT } from "/projeler/present-perfect-temel/sahneler/02-paperjs-kanca/kalem-paper.js";
+import { sahneKur, RT, renkCoz }
+  from "/projeler/present-perfect-temel/sahneler/02-paperjs-kanca/kalem-paper.js";
+import { zamanHatti, aralik, baslangic, tren } from "./stil/zamanhatti.js";
 
 export const KARE = 484, T_BAS = 3.0;
 
@@ -51,28 +53,33 @@ export async function kur(P) {
     not("not geçmişte oldu", a.bas);
   }
 
-  // --- 6,91–8,35: zaman çizgisi past ● ━━ ● now; şimdi daire; `sonucu şimdi bizimle`
+  // --- 6,60–8,35: metro hattı past ● ━━ ● now ┈ will (düz zaman çizgisinin yerine; aynı bilgi);
+  // `sonucu şimdi bizimle`; vagon «I» geçmişten şimdiye taşınır;
+  // since/for hattı 14,7 sn'de kullanır.
+  const HY = 590;
+  const hat = zamanHatti(S, { x: 380, y: HY, w: 700, t0: 0, t1: 10, bas: fr(6.6), sure: 32,
+    duraklar: [{ ad: "past", t: 2, tur: "gecmis" }, { ad: "now", t: 6, tur: "simdi" },
+      { ad: "will", t: 8.5, tur: "gelecek" }] });
   {
-    const Y0 = 486, XA = 232, XB = 800;
-    const halka = (x, y, r, w, bas, ses) => ciz(Array.from({ length: 17 }, (_, i) => [x + r * Math.cos(i * Math.PI / 8 - 1.2),
-      y + r * Math.sin(i * Math.PI / 8 - 1.2)]), { w, bas, sure: 6, uc0: 1, uc1: 1, amp: 0.05, ses });
-    const nokta = (x, y, bas) => { halka(x, y, 3.2, 6, bas + 4, false); return halka(x, y, 7, 7.5, bas, "tik"); };
-    // 6,91 `past` ve 7,30 `now`: anlatımsız etiket, hedef 14 kare (0,47 sn)
-    elYazisi("past", { x: 140, y: Y0 + 12, boyut: 44, renk: IKI, bas: fr(6.91), sure: 14 });
-    const p = nokta(XA, Y0, fr(6.91));
-    const l = ciz([[XA + 12, Y0], [XA + 190, Y0 - 3], [XA + 390, Y0 + 2], [XB - 12, Y0 - 1]],
-      { w: 4.4, bas: fr(6.91) + 4, sure: 26, uc0: 6, uc1: 8, renk: KRE });
-    const n = nokta(XB, Y0, bitis(l));
-    const nw = elYazisi("now", { x: XB + 30, y: Y0 + 12, boyut: 44, renk: SARI, bas: fr(7.3),
-      sure: 14 });
-    const d = daire((nw.x0 + nw.x1) / 2, nw.y - 16, nw.w / 2 + 14, 28, { bas: fr(7.39), sure: 22, egim: -0.06 });
-    olay(bitis(d), "tik", 0.5); not("şimdi daire (now)", d.bas);
-    parilti(XB, Y0, { bas: bitis(n) + 6, r: 26, periyot: 60, adet: 4 });
-    // 6,91–8,35 «sonucu şimdi bizimle.» (pencere: 6,91–7,31 · 7,39–7,63 · 7,71–8,35)
-    const b = elYazisi("sonucu şimdi bizimle", { x: 330, y: 572, boyut: 48, renk: SARI,
+    const pa = hat.durak("past"), no = hat.durak("now");
+    // 6,91–8,35 «sonucu şimdi bizimle.» (pencere: 6,91–7,31 · 7,39–7,63 · 7,71–8,35);
+    // hattın üstünde
+    const b = elYazisi("sonucu şimdi bizimle", { x: 760, y: 472, boyut: 48, renk: SARI,
       sozcukler: pen("sonucu", 3) });
-    ok([b.x1 + 18, 556], [XB - 30, Y0 + 26], { bas: fr(7.71), sure: 14, w: 6, uzun: 18, bukum: 0.12 });
-    not("zaman çizgisi başı", p.bas); not("not sonucu şimdi bizimle", b.bas);
+    ok([(b.x0 + b.x1) / 2 + 20, 490], [no.x, HY - 44], { bas: fr(7.71), sure: 14, w: 6, uzun: 18,
+      bukum: 0.12 });
+    not("not sonucu şimdi bizimle", b.bas);
+    // vagon: öznesi «I» (cümle: I have lost the key); 7,45'te geçmişten şimdiye
+    const bv = fr(7.45), sv = 36;
+    tren(hat, "past", "now", { bas: bv, sure: sv });
+    S.dinamik((f, g) => {
+      const u = (f - bv) / sv; if (u < 0) return;
+      const al = 1 - S.kis((f - bv - sv - 8) / 12); if (al <= 0) return;
+      g.opacity = al * S.kis((f - bv) / 6);
+      g.addChild(new S.P.PointText({ point: [pa.x + (no.x - pa.x) * S.yumus(u), HY + 11],
+        content: "I", justification: "center", fontFamily: "Caveat", fontWeight: "bold",
+        fontSize: 34, fillColor: renkCoz(KRE), insert: false }));
+    });
   }
 
   // --- 8,50–11,62: iki yönlü kalem oku `-dı ⇄ have + V3`; el yazısı `İngilizce ayrı zaman`
@@ -98,6 +105,9 @@ export async function kur(P) {
     elYazisi("6 min", { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(12.05) + 14, sure: 16 });
     not("saat + 6 min", fr(12.05));
     parilti(1176, 714, { bas: fr(12.9), r: 22, periyot: 170, adet: 3 });
+    // 14,73 since → başlangıç oku (past durağı); 15,45 for → süre bandı past→now (K26: yazı ≤ ses)
+    baslangic(hat, "past", { etiket: "since", bas: fr(14.73) - 10 });
+    aralik(hat, "past", "now", { etiket: "for", bas: fr(15.45) - 22, sure: 16 });
     const m = [["form", 13.85, 842], ["since / for", 15.17, 900], ["sinyal sözcükleri", 16.89, 958]];
     for (const [s, t, y] of m) {
       yazi(s, { x: 1140, y, boyut: 44, aile: "Fredoka", agirlik: 700, renk: KRE, bas: fr(t), sure: 8 });
