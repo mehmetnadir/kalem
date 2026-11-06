@@ -1,6 +1,6 @@
 // Sahne 02 İLERİ (Simple Present) — Kanca + kural (451 kare, t_bas 3,00; cümle 2). Yerel kare = round((t − 3,00) × 30).
-// DENEME 1 — WHITEBOARD: 'tahta = harita'. Dünya 5760×3240 (3×), üç bölge;
-// kamera + kalem (kalem-paper.js).
+// DENEME 1c — WHITEBOARD (06.11 Nadir: kalem yok, sağa sola hareket yok): eski tek ekran düzeni,
+// kamera yalnız hafif zoom (1,0 → 1,1 → 1,0). Bölge kökleri 0: yerel = ekran.
 // Cümle 1 yazısı 0. karede yerinde (sahne 01 ile aynı yer, x 140 y 300); içerik 17,25 sn'de biter.
 import { sahneKur, RT, renkCoz }
   from "/projeler/deneme-wb-spi/sahneler/02-paperjs-kanca/kalem-paper.js";
@@ -8,7 +8,7 @@ import { yaziNoktalari } from "/projeler/deneme-wb-spi/ortak/kalem-canvas.js";
 
 export const KARE = 451, T_BAS = 3.0;
 // Bölge kökleri (dünya px): R1 kanca (sol üst, 0. karede ekranla BİREBİR), R2 ? + kutular, R3 kural
-const B1 = [0, 0], B2 = [1650, 1150], B3 = [3400, 450];
+const B1 = [0, 0], B2 = [0, 0], B3 = [0, 0];
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook", etkin: 0, kayma: 0 });
@@ -49,19 +49,10 @@ export async function kur(P) {
       kutu: [o.kutu[0] + ox, o.kutu[1] + oy, o.kutu[2], o.kutu[3]] }) });
   const r2 = bolge(B2), r3 = bolge(B3);
 
-  // uçak (sağ üst), kalemle: kamera 3,30'da yola çıktığı için 44 → 14 kare (3,12–3,59);
-  // kalem modeli
-  // bu darbelere bakmaz (kalemsiz): kalem aynı anda bağlantı çizgisini çizer
-  await svgCiz("coco/plane.svg", { kutu: [1400, 330, 400, 213], bas: fr(3.12), sure: 14,
-    azami: 25, w: 4, sesAralik: 2, kalemsiz: true });
+  // uçak (sağ üst), kaynaktaki gibi 44 kare (3,12–4,59)
+  await svgCiz("coco/plane.svg", { kutu: [1400, 330, 400, 213], bas: fr(3.12), sure: 44,
+    azami: 25, w: 4, sesAralik: 2 });
   not("uçak çizimi", fr(3.12));
-
-  // --- 3,12–3,95: kalem R1'den R2'ye bir çizgi çizer (`?`ın üstüne iner); kamera çizgiyi izler
-  const cizgiNok = [[1100, 360], [1160, 560], [1450, 860], [1880, 1160], [2120, 1400],
-    [2190, 1520]];
-  ciz(cizgiNok, { w: 8, renk: KRE, alfa: 0.94, mult: true, bas: fr(3.12), sure: 25,
-    uc0: 14, uc1: 22, amp: 0.5 });
-  not("bağlantı çizgisi", fr(3.12));
 
   // --- 3,95–6,0 (R2): büyük ? ve iki kutu: will / Simple Present
   // 3,95 anlatımsız büyük `?`: hedef 14 kare (0,47 sn) → 4,42 (kutu will 4,51'de başlar);
@@ -139,21 +130,14 @@ export async function kur(P) {
   r3.parilti(1590, 690, { bas: fr(16.9), r: 28, periyot: 0, adet: 1 });
 
   // --- kamera (anahtar: [t sn, x, y, zoom, varış eğrisi]); merkez = dünya noktası
-  const m2 = [B2[0] + 720, B2[1] + 485], m3 = [B3[0] + 980, B3[1] + 610];   // R3: alt %12 boş
-  // 06.11 Nadir: ilk sürüm (zoom 1,4 · 0,33 sn savurma · %8 itiş · 0,34 tam tahta) abartılıydı.
-  // Sakin sürüm: geçişler >= 1,3 sn ve "io"; zoom 1,0–1,2; savurma ve itiş yok;
-  // kapanış 0,5 (R2 + R3).
-  const bakis = [3445, 1100];                                        // R2 + R3 ortası
+  // --- kamera 1c (06.11 Nadir): yalnız zoom; yanal kayma yok, dikey 50 px (uçak kadrajda).
+  // 1b (üç bölge, süzülme) ve 1a (savurma, tam tahta) git geçmişinde (7d8d015, d29916e).
   const kam = S.kameraKur([
     [3.0, 960, 540, 1, "l"], [3.3, 960, 540, 1, "l"],              // 3,00 = sahne 01'in son karesi
-    [4.6, m2[0], m2[1], 1.2, "io"],                                // 1,3 sn: çizgiyi izle → R2
-    [5.6, m2[0], m2[1], 1.2, "l"],                                 // R2'de sabit
-    [7.2, m3[0], m3[1], 1.0, "io"],                                // 1,6 sn süzülme → R3
-    [16.0, m3[0], m3[1], 1.0, "l"],                                // R3'te sabit (itiş yok)
-    [17.4, bakis[0], bakis[1], 0.5, "io"],                         // 1,4 sn geri çekilme: R2 + R3
-    [17.8, bakis[0], bakis[1], 0.5, "l"]]);
-  const kalem = S.kalemKur({ kam });
-  window.__kalemOzet = { darbe: kalem.darbe, liste: kalem.liste };
+    [4.6, 960, 590, 1.1, "io"],                 // 1,3 sn: ? + kutulara hafif zoom
+    [5.8, 960, 590, 1.1, "l"],
+    [7.4, 960, 540, 1.0, "io"],                                    // 1,6 sn: kural için tam ekran
+    [17.8, 960, 540, 1.0, "l"]]);
   window.__kam = (t) => kam.at(t);
   return S;
 }
