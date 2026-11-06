@@ -24,7 +24,8 @@ export function temaSec(ad) {
   if (dokuErken() === "kraft") Object.assign(RENK, KRAFT_RENK[ad]);
 }
 try { temaSec(new URLSearchParams(location.search).get("tema") || "koyu");
-// kraft'a özel koyu vurgu ve ikincil (kontrast.py: #5c2e00 4,7:1 · #2b3040 5,1:1).
+  if (dokuErken() === "kraft") Object.assign(RENK, KRAFT_RENK[temaAd]);
+} catch (e) { /* tarayıcı dışı */ }
 export const KUNYE = { kenar: 56, ustTaban: 72, altTaban: 1030, logoYuk: 34, dersYazi: 30, seviyeYazi: 22,
   bolumYazi: 24, ajandaYazi: 20, ders: "SIMPLE PRESENT", seviye: "YDT ADVANCED", ajanda: ["Hook", "Examples", "Form"] };
 const W = 1920, H = 1080;
