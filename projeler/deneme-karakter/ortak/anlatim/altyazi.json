@@ -1,0 +1,210 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 2.76,
+"metin": "Her sabah yedide kalkarım.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 3.31,
+"t1": 7.63,
+"metin": "Türkçede buna geniş zaman deriz: kalkar, gider, yapar.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 7.78,
+"t1": 10.5,
+"metin": "İngilizcedeki karşılığı Simple Present.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 10.65,
+"t1": 15.45,
+"metin": "Altı dakikada formunu, zaman ifadelerini ve kullanımlarını bitiriyoruz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 16.0,
+"t1": 16.96,
+"metin": "Birinci örnek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "en",
+"t0": 17.21,
+"t1": 19.61,
+"metin": "The sun rises in the east.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 19.86,
+"t1": 23.7,
+"metin": "Güneş doğudan doğar. Doğa kanunu: hep böyledir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 23.85,
+"t1": 27.69,
+"metin": "Fiile bak: rises. Sonunda s harfi var.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 28.24,
+"t1": 29.28,
+"metin": "İkinci örnek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "en",
+"t0": 29.53,
+"t1": 32.49,
+"metin": "My brother usually goes to school by bus.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 32.74,
+"t1": 35.38,
+"metin": "Kardeşim genellikle okula otobüsle gider.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 35.53,
+"t1": 40.17,
+"metin": "Usually, always, every day: alışkanlık işareti.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 40.32,
+"t1": 43.36,
+"metin": "Fiil goes. Yine s harfi var.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 43.91,
+"t1": 44.95,
+"metin": "Üçüncü örnek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "en",
+"t0": 45.2,
+"t1": 47.76,
+"metin": "Our plane takes off at nine tomorrow.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 48.01,
+"t1": 52.73,
+"metin": "Uçağımız yarın dokuzda kalkar. Gelecek, ama tarifede yazılı.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 52.88,
+"t1": 57.2,
+"metin": "Tarife, program, takvim: Türkçe gibi geniş zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 57.35,
+"t1": 60.47,
+"metin": "Fiil takes off. Yine s harfi.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 6,
+"dil": "tr",
+"t0": 61.02,
+"t1": 65.18,
+"metin": "Hocam, üçünde de fiilin sonunda s var. Neden hep s?",
+"konusan": "ogrenci"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 65.73,
+"t1": 68.21,
+"metin": "Çünkü özne üçüncü tekil kişi:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "en",
+"t0": 68.46,
+"t1": 70.62,
+"metin": "he, she, it.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 70.87,
+"t1": 76.23,
+"metin": "Fiile s gelir. I, you, we, they ile gelmez.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 76.38,
+"t1": 80.22,
+"metin": "Olumsuzda ve soruda does girer, s ona geçer.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "en",
+"t0": 80.47,
+"t1": 83.43,
+"metin": "He does not go. Does he go?",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 83.68,
+"t1": 87.6,
+"metin": "Türkçedeki er eki gibi: git-er, go-es.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 87.75,
+"t1": 92.47,
+"metin": "Kod: always, usually, every day, Simple Present.",
+"konusan": "ogretmen"
+}
+]

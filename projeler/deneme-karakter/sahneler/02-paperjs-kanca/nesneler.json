@@ -1,0 +1,110 @@
+[
+ {
+  "ad": "cümle 1 başı (Bu)",
+  "t0": 3.0,
+  "t1": 15.44,
+  "tur": "metin"
+ },
+ {
+  "ad": "gidiyorum",
+  "t0": 3.3,
+  "t1": 15.44,
+  "tur": "metin"
+ },
+ {
+  "ad": "ev çizimi başı",
+  "t0": 3.4,
+  "t1": 15.44,
+  "tur": "cizim"
+ },
+ {
+  "ad": "figür çizimi başı",
+  "t0": 3.4,
+  "t1": 15.44,
+  "tur": "cizim"
+ },
+ {
+  "ad": "figür yürüme biter",
+  "t0": 4.8,
+  "t1": 15.44,
+  "tur": "cizim"
+ },
+ {
+  "ad": "hilal çizimi başı",
+  "t0": 4.0,
+  "t1": 15.44,
+  "tur": "cizim"
+ },
+ {
+  "ad": "gidiyorum daire",
+  "t0": 3.4,
+  "t1": 15.44,
+  "tur": "isaret"
+ },
+ {
+  "ad": "not -yor → şimdiki zaman",
+  "t0": 4.2,
+  "t1": 15.44,
+  "tur": "metin"
+ },
+ {
+  "ad": "takvim çizimi",
+  "t0": 5.17,
+  "t1": 15.44,
+  "tur": "cizim"
+ },
+ {
+  "ad": "not bu akşam → gelecek",
+  "t0": 5.63,
+  "t1": 15.44,
+  "tur": "metin"
+ },
+ {
+  "ad": "İngilizce cümle başı",
+  "t0": 6.5,
+  "t1": 15.44,
+  "tur": "metin"
+ },
+ {
+  "ad": "going daire",
+  "t0": 7.37,
+  "t1": 15.44,
+  "tur": "isaret"
+ },
+ {
+  "ad": "ok -yor ⇄ -ing",
+  "t0": 8.1,
+  "t1": 15.44,
+  "tur": "kart"
+ },
+ {
+  "ad": "kutu çizimi",
+  "t0": 8.47,
+  "t1": 15.44,
+  "tur": "kart"
+ },
+ {
+  "ad": "saat + 6 min",
+  "t0": 8.73,
+  "t1": 15.44,
+  "tur": "cizim"
+ },
+ {
+  "ad": "madde form",
+  "t0": 10.97,
+  "t1": 15.44,
+  "tur": "metin"
+ },
+ {
+  "ad": "madde time expressions",
+  "t0": 11.63,
+  "t1": 15.44,
+  "tur": "metin"
+ },
+ {
+  "ad": "madde 6 uses",
+  "t0": 13.3,
+  "t1": 15.44,
+  "tur": "metin"
+ }
+]
