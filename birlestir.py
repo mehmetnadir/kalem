@@ -86,9 +86,12 @@ def gecis_turu(ad: str, gl_adlari: set[str]) -> str:
 
 def gl_adlari_oku(yol: str = GL_JSON) -> set[str]:
     try:
-        with open(yol) as f: return {t["name"] for t in json.load(f)}
+        with open(yol) as f: adlar = {t["name"] for t in json.load(f)}
     except (OSError, ValueError, KeyError):
-        return set()
+        adlar = set()
+    ozel = os.path.join(KOK, "ortak/gecis-ozel")   # kendi şaderlerimiz: <ad>.glsl
+    if os.path.isdir(ozel): adlar |= {f[:-5] for f in os.listdir(ozel) if f.endswith(".glsl")}
+    return adlar
 
 
 def xfade_filtre(ad: str, k: int, N: int, fps: int) -> str:

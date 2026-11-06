@@ -1,0 +1,57 @@
+<!doctype html><meta charset="utf-8"><title>Geçiş önizleme</title>
+<body style="margin:0;background:#111;overflow:hidden">
+<script type="module">
+// Canlı geçiş önizlemesi (mp4 yok). ?k=<klasör>&ad=<ad>&fps=30[&n=<kare>][&p=0..1]
+// <klasör>/a.png (A'nın son karesi) ve <klasör>/b.png (B'nin ilk karesi) okunur.
+// Döngü: 1 sn bekle -> A->B -> 1 sn bekle -> B->A. ?p=<0..1>: döngüsüz, o ilerlemede durağan kare
+// (window.gecisCiz(p) ile de çağrılır; window.__hazir doğru olunca hazır).
+import { trBul, fsKur, yavasla } from "/ortak/gecis-tr.js";
+const q = new URLSearchParams(location.search), K = q.get("k"), AD = q.get("ad") || "BookFlip";
+const FPS = +q.get("fps") || 30, W = +q.get("w") || 1920, H = +q.get("h") || 1080;
+const cv = Object.assign(document.createElement("canvas"), { width: W, height: H });
+cv.style.cssText = "width:100vw;height:100vh;object-fit:contain;display:block";
+document.body.appendChild(cv);
+const say = document.createElement("div");
+say.style.cssText = "position:fixed;right:8px;top:8px;padding:4px 10px;font:14px monospace;color:#fff;" +
+  "background:rgba(0,0,0,.5);border-radius:6px;z-index:9;pointer-events:none";
+document.body.appendChild(say);
+const g = cv.getContext("webgl", { preserveDrawingBuffer: true, antialias: false });
+const resim = (y) => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = y; });
+const tr = await trBul(AD), yum = yavasla(tr), N = +q.get("n") || tr.kare || 12;
+const mk = (t, s) => { const sh = g.createShader(t); g.shaderSource(sh, s); g.compileShader(sh);
+  if (!g.getShaderParameter(sh, g.COMPILE_STATUS)) { say.textContent = "HATA " + g.getShaderInfoLog(sh); throw new Error(g.getShaderInfoLog(sh)); } return sh; };
+const pr = g.createProgram();
+g.attachShader(pr, mk(g.VERTEX_SHADER, "attribute vec2 p; varying vec2 _uv; void main(){ _uv = p*0.5+0.5; gl_Position = vec4(p,0.,1.); }"));
+g.attachShader(pr, mk(g.FRAGMENT_SHADER, fsKur(tr))); g.linkProgram(pr); g.useProgram(pr);
+g.bindBuffer(g.ARRAY_BUFFER, g.createBuffer()); g.bufferData(g.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), g.STATIC_DRAW);
+const loc = g.getAttribLocation(pr, "p"); g.enableVertexAttribArray(loc); g.vertexAttribPointer(loc, 2, g.FLOAT, false, 0, 0);
+g.pixelStorei(g.UNPACK_FLIP_Y_WEBGL, true); g.viewport(0, 0, W, H);
+const tex = (im, n) => { const t = g.createTexture(); g.activeTexture(g.TEXTURE0 + n); g.bindTexture(g.TEXTURE_2D, t);
+  for (const [k, v] of [[g.TEXTURE_MIN_FILTER, g.LINEAR], [g.TEXTURE_MAG_FILTER, g.LINEAR], [g.TEXTURE_WRAP_S, g.CLAMP_TO_EDGE], [g.TEXTURE_WRAP_T, g.CLAMP_TO_EDGE]]) g.texParameteri(g.TEXTURE_2D, k, v);
+  g.texImage2D(g.TEXTURE_2D, 0, g.RGBA, g.RGBA, g.UNSIGNED_BYTE, im); return t; };
+const IA = await resim(`/${K}/a.png`), IB = await resim(`/${K}/b.png`);
+const TA = tex(IA, 0), TB = tex(IB, 1);
+g.uniform1f(g.getUniformLocation(pr, "ratio"), W / H);
+const uF = g.getUniformLocation(pr, "from"), uT = g.getUniformLocation(pr, "to"), uP = g.getUniformLocation(pr, "progress");
+// ters: true ise B->A (dokular yer değiştirir)
+function ciz(f, ters) {
+  g.activeTexture(g.TEXTURE0); g.bindTexture(g.TEXTURE_2D, ters ? TB : TA); g.uniform1i(uF, 0);
+  g.activeTexture(g.TEXTURE1); g.bindTexture(g.TEXTURE_2D, ters ? TA : TB); g.uniform1i(uT, 1);
+  g.uniform1f(uP, f < 0 ? 0 : f >= N ? 1 : yum((f + 1) / (N + 1)));
+  g.drawArrays(g.TRIANGLE_STRIP, 0, 4);
+  say.textContent = `${AD}  ${ters ? "B>A" : "A>B"}  kare ${Math.max(0, Math.min(N, f + 1))} / ${N}`;
+}
+window.gecisCiz = (p) => ciz(Math.round(p * (N - 1)), false);
+window.__N = N;
+if (q.get("p") !== null) { window.gecisCiz(+q.get("p")); }
+else {
+  const BEKLE = 1000, SURE = (N / FPS) * 1000, T = 2 * (BEKLE + SURE), t0 = performance.now();
+  const dongu = () => {
+    const t = (performance.now() - t0) % T, ters = t >= BEKLE + SURE, y = ters ? t - BEKLE - SURE : t;
+    if (y < BEKLE) ciz(-1, ters); else ciz(Math.min(N - 1, Math.floor(((y - BEKLE) / 1000) * FPS)), ters);
+    requestAnimationFrame(dongu);
+  };
+  dongu();
+}
+window.__hazir = true;
+</script>

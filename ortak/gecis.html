@@ -3,20 +3,15 @@
 // İki sahne arası gl-transitions geçişi. ?k=<klasör>&ad=<geçiş adı>&n=<kare>&w=&h=
 // <klasör>/a/0000.png.. (A'nın son n karesi) ve <klasör>/b/0000.png.. (B'nin ilk n karesi) okunur.
 import { surucu } from "/ortak/surucu.js";
+import { trBul, fsKur, yavasla } from "/ortak/gecis-tr.js";
 const q = new URLSearchParams(location.search), K = q.get("k"), AD = q.get("ad") || "BookFlip", N = +q.get("n"), W = +q.get("w") || 1920, H = +q.get("h") || 1080;
 const cv = Object.assign(document.createElement("canvas"), { width: W, height: H });
 const g = cv.getContext("webgl", { preserveDrawingBuffer: true, antialias: false });
 const resim = (y) => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = y; });
-let pr, t0, t1, A = [], B = [];
-const yum = (x) => x * x * (3 - 2 * x);
+let pr, t0, t1, A = [], B = [], yum = (x) => x * x * (3 - 2 * x);
 async function kur() {
-  const tr = (await (await fetch("/motorlar/yardimci/node_modules/gl-transitions/gl-transitions.json")).json()).find((t) => t.name === AD);
-  if (!tr) throw new Error("geçiş yok: " + AD);
-  const par = Object.entries(tr.paramsTypes || {}).map(([k, t]) => `uniform ${t} ${k};`).join("\n");
-  const fs = `precision highp float; varying vec2 _uv; uniform sampler2D from, to; uniform float progress, ratio; ${par}
-vec4 getFromColor(vec2 uv){ return texture2D(from, uv); } vec4 getToColor(vec2 uv){ return texture2D(to, uv); }
-${tr.glsl}
-void main(){ gl_FragColor = transition(_uv); }`;
+  const tr = await trBul(AD); yum = yavasla(tr);
+  const fs = fsKur(tr);
   const VS = "attribute vec2 p; varying vec2 _uv; void main(){ _uv = p*0.5+0.5; gl_Position = vec4(p,0.,1.); }";
   const mk = (t, s) => { const sh = g.createShader(t); g.shaderSource(sh, s); g.compileShader(sh); if (!g.getShaderParameter(sh, g.COMPILE_STATUS)) throw new Error(g.getShaderInfoLog(sh)); return sh; };
   pr = g.createProgram(); g.attachShader(pr, mk(g.VERTEX_SHADER, VS)); g.attachShader(pr, mk(g.FRAGMENT_SHADER, fs)); g.linkProgram(pr); g.useProgram(pr);
