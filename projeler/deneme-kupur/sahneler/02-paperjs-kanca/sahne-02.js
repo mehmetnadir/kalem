@@ -3,7 +3,7 @@
 // Son 64 kare (≈ 2 sn) tam sayfa durur. Yerel kare = round((t − 3,00) × 30).
 import { sahneKur,
   RT } from "/projeler/deneme-kupur/sahneler/02-paperjs-kanca/kalem-paper.js";
-import { kupur, kadro } from "/projeler/deneme-kupur/sahneler/02-paperjs-kanca/kupur.js";
+import { kupur, kadro } from "./stil/kupur.js";
 
 export const KARE = 492, T_BAS = 3.0;
 

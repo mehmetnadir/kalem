@@ -4,7 +4,7 @@
 // Yerel kare = round((t − 3,00) × 30).
 import { sahneKur,
   RT } from "/projeler/deneme-karakter/sahneler/02-paperjs-kanca/kalem-paper.js";
-import { karakter } from "/projeler/deneme-karakter/sahneler/02-paperjs-kanca/karakter.js";
+import { karakter } from "./stil/karakter.js";
 
 export const KARE = 492, T_BAS = 3.0;
 

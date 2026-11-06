@@ -2,7 +2,7 @@
 // Zamanlar yerel sn → kare: k(s) = round(s × 30). Kalem modeli ve kamera yok; sayfa sonunda durur.
 import { sahneKur, RT } from "/projeler/deneme-metro/sahneler/02-paperjs-kanca/kalem-paper.js";
 import { zamanHatti, aralik, baslangic, tren }
-  from "/projeler/deneme-metro/sahneler/02-paperjs-kanca/zamanhatti.js";
+  from "./stil/zamanhatti.js";
 
 export const KARE = 600, T_BAS = 3.0;
 const k = (s) => Math.round(s * 30);
