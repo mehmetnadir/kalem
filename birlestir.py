@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Sahneleri tek videoya birleştirir: sahneler arası geçiş + kareye kilitli Tone.js efekt sesi (+ isteğe bağlı anlatım).
-  python3 birlestir.py ornek/ucan-makine [--gecis BookFlip] [--etiket] [--anlatim ses.wav] [--plan] [--tema acik|koyu] [--efekt hisirti|tam]
+  python3 birlestir.py ornek/ucan-makine [--gecis YaprakKivrim] [--etiket] [--anlatim ses.wav]
+    [--plan] [--tema acik|koyu] [--efekt hisirti|tam]
 --efekt KIP: efekt sesi olayları. hisirti (varsayılan) = yalnız kalem hışırtısı (tur "cizgi"); tam = bütün olaylar
   (tık, vuruş, sayfa ...). zaman.json["efekt"] varsa o, bayrak üstün.
 --gecis ADI: varsayılan geçiş (sahnede "gecis" yoksa). Sahne başına: zaman.json sahneler[i]["gecis"] = i. ile i+1. sahne arası.
@@ -15,7 +16,13 @@ ilk geçişte "gecis_etiketi"). Anlatım/tanıtım videosu için; düz kullanım
   (sahnenin calistir.sh --tema ...). --plan ve --etiket tema adını yazar; çıktı adı: acik -> cikti.mp4, koyu -> cikti-koyu.mp4.
 Girdi: <proje>/zaman.json + her sahnenin <proje>/sahneler/<klasor>/video.mp4 ve olaylar.json. <proje> mutlak yol da olur.
 Çıktı: <proje>/cikti.mp4 (+ <proje>/_is/ ara dosyalar, <proje>/kontrol.png: 12 karo, her karoda zaman etiketi).
-Geçiş, A'nın son N karesiyle B'nin ilk N karesini üst üste bindirir; toplam süre = kareler toplamı - N x (sahne-1)."""
+Zaman çizelgesi: B sahnesi A'nın k - N. karesinde başlar (N = zaman.json gecis_kare);
+toplam süre = kareler toplamı - N x (sahne-1).
+Geçiş (gl) B'nin ilk n karesine biner (n = GECIS_KARE[ad], sahnede "gecis_kare" varsa o):
+A'nın son karesi dondurulmuş doku olarak kıvrılır, altında B'nin canlı ilk n karesi çizilir;
+B'nin gövdesi n. kareden sürer. Ofsetler ve ses hizası N ile aynıdır.
+--yalniz-gecis NO: yalnız NO. sahne ile sonrası arasındaki gl geçişini
+<proje>/_is/gecis-uretim/ altına n PNG olarak üretir."""
 from __future__ import annotations
 import contextlib, json, os, shutil, subprocess, sys, tempfile
 
@@ -24,22 +31,64 @@ GL_JSON = os.path.join(KOK, "motorlar/yardimci/node_modules/gl-transitions/gl-tr
 ARIAL, MENLO = "/System/Library/Fonts/Supplemental/Arial.ttf", "/System/Library/Fonts/Menlo.ttc"
 EFEKT_VOLUME = 0.35   # -9 dB (tam kip)
 EFEKT_VOLUME_HISIRTI = 3.0   # +9,5 dB: yalnız hışırtı -9 dB ile kısıktı (tepe -43 dB, 04.11)
+# Geçiş adı -> geçişin kapladığı kare (B'nin ilk n karesi;
+# A'nın son karesi dondurulmuş doku, 06.11).
+GECIS_KARE = {"YaprakKivrim": 32, "Silgi": 42, "BookFlip": 12}
+GECIS_VARSAYILAN = "YaprakKivrim"
+XFADE_ADLARI = {"fade", "fadeblack", "fadewhite", "dissolve", "wipeleft", "wiperight", "slideleft",
+                "slideright", "circleopen", "circleclose", "pixelize", "radial", "smoothleft"}
 TEMALAR = ("acik", "koyu")
 EFEKTLER = ("hisirti", "tam")
 
 
 # ---------- saf işlevler (ağ/ffmpeg yok; testler bunları sınar) ----------
 
-def planla(sahneler: list[dict], N: int, varsayilan: str = "BookFlip") -> list[dict]:
+def gecis_adi(ad: str | None) -> str:
+    """Geçiş adı: yok/"-"/BookFlip -> YaprakKivrim (Nadir 06.11); xfade adı aynen;
+    bilinmeyen -> varsayılan."""
+    if ad in (None, "", "-", "BookFlip"): return GECIS_VARSAYILAN
+    if ad in GECIS_KARE or ad in XFADE_ADLARI: return ad
+    print(f"uyarı: bilinmeyen geçiş {ad!r}, {GECIS_VARSAYILAN} kullanılır")
+    return GECIS_VARSAYILAN
+
+
+def gecis_kare_sayisi(ad: str, sahne: dict, N: int) -> int:
+    """Geçişin kapladığı kare: sahne["gecis_kare"] (açık) > GECIS_KARE[ad]
+    > N (xfade: ofset örtüşmesi N)."""
+    if sahne.get("gecis_kare"): return int(sahne["gecis_kare"])
+    return GECIS_KARE.get(ad, N)
+
+
+def gecis_kareleri(sahneler: list[dict], N: int, varsayilan: str = GECIS_VARSAYILAN) -> list[dict]:
+    """Her sahnenin SONRAKİ sahneye geçişi: {"ad", "n"}; son sahne için None.
+    N = zaman.json gecis_kare: ofset örtüşmesi (zaman çizelgesi, ses hizası).
+    n = geçişin B'nin ilk n karesine bindiği uzunluk."""
+    sonuc = []
+    for i, s in enumerate(sahneler):
+        if i == len(sahneler) - 1: sonuc.append(None); continue
+        ad = gecis_adi(s.get("gecis", varsayilan))
+        sonuc.append({"ad": ad, "n": gecis_kare_sayisi(ad, s, N)})
+    return sonuc
+
+
+def planla(sahneler: list[dict], N: int, varsayilan: str = "BookFlip",
+           gecisler: list[dict | None] | None = None) -> list[dict]:
     """Her sahne için gövde aralığı [bas, son), küresel ofset, sonraki sahneye geçiş adı ve kare sayısı.
-    Kare sayısı gerçek sayı (_k) varsa o, yoksa zaman.json'daki "kare". Son sahnenin geçişi None."""
+    Kare sayısı gerçek sayı (_k) varsa o, yoksa zaman.json'daki "kare". Son sahnenin geçişi None.
+    gecisler (gecis_kareleri çıktısı) verilirse: B'nin gövdesi geçişin n karesinden sonra
+    başlar (bas = n), A'nın gövdesi k - N'de biter (A'nın son N karesi geçişin altında
+    dondurulmuş). Ofsetler N ile aynı."""
     plan, ofs = [], 0
     for i, s in enumerate(sahneler):
         k = s.get("_k", s["kare"])
         son_sahne = i == len(sahneler) - 1
+        g = gecisler[i] if gecisler else None
+        onceki = gecisler[i - 1] if gecisler and i > 0 else None
         plan.append({"no": s.get("no", i + 1), "klasor": s.get("klasor", ""), "kare": k, "ofs": ofs,
-                     "bas": N if i > 0 else 0, "son": k if son_sahne else k - N,
-                     "gecis": None if son_sahne else s.get("gecis", varsayilan)})
+                     "bas": (onceki["n"] if onceki else N) if i > 0 else 0,
+                     "son": k if son_sahne else k - N,
+                     "gecis": None if son_sahne else (g["ad"] if g else s.get("gecis", varsayilan)),
+                     "n": None if son_sahne else (g["n"] if g else N)})
         ofs += k - N
     return plan
 
@@ -193,6 +242,22 @@ def ses_render(olaylar: str, wav: str) -> None:
         subprocess.run(["node", os.path.join(KOK, "ses/render.mjs"), os.path.relpath(os.path.join(d, "olaylar.json"), KOK), wav], check=True)
 
 
+def gecis_gl_uret(a_video: str, k_a: int, b_video: str, n: int, ad: str, girdi: str, cikis: str,
+                  W: int, H: int) -> None:
+    """gl geçişi: a/ = A'nın SON karesi n kez (dondurulmuş doku),
+    b/ = B'nin ilk n karesi (canlı). n kare PNG -> cikis."""
+    os.makedirs(girdi + "/a", exist_ok=True); os.makedirs(girdi + "/b", exist_ok=True)
+    ff("-i", a_video, "-vf", f"select=eq(n\\,{k_a - 1})", "-frames:v", "1",
+       "-fps_mode", "passthrough", girdi + "/a/0000.png")
+    for j in range(1, n): shutil.copy(girdi + "/a/0000.png", f"{girdi}/a/{j:04d}.png")
+    ff("-i", b_video, "-vf", f"select=lt(n\\,{n})", "-fps_mode", "passthrough",
+       "-start_number", "0", girdi + "/b/%04d.png")
+    rel = os.path.relpath(girdi, KOK)
+    sayfa = f"ortak/gecis.html?k={rel}&ad={ad}&n={n}&w={W}&h={H}"
+    subprocess.run([sys.executable, os.path.join(KOK, "ortak/yakala.py"), sayfa,
+                    cikis, str(W), str(H)], check=True)
+
+
 def kart(satirlar, yol):
     """Defter kağıdı rengi küçük kart: motor adı (Fell) + ne yaptığı (Garamond italik) + isteğe bağlı yardımcı satırı."""
     from PIL import Image, ImageDraw, ImageFont
@@ -238,9 +303,11 @@ def kontrol_yaz(cikti: str, hedef: str, toplam: int, fps: int, kunye: str = "") 
 # ---------- akış ----------
 
 def main(argv: list[str]) -> None:
-    pozisyonel = [a for i, a in enumerate(argv[1:], 1) if not a.startswith("--") and argv[i - 1] not in ("--gecis", "--anlatim", "--tema", "--efekt")]
+    degerli = ("--gecis", "--anlatim", "--tema", "--efekt", "--yalniz-gecis")
+    pozisyonel = [a for i, a in enumerate(argv[1:], 1)
+                  if not a.startswith("--") and argv[i - 1] not in degerli]
     proje = pozisyonel[0].rstrip("/")
-    GECIS = arg_degeri(argv, "--gecis") or "BookFlip"
+    GECIS = arg_degeri(argv, "--gecis") or GECIS_VARSAYILAN
     P = proje if os.path.isabs(proje) else os.path.join(KOK, proje)
     Z = json.load(open(os.path.join(P, "zaman.json")))
     FPS, W, H, N = Z["fps"], Z["genislik"], Z["yukseklik"], Z["gecis_kare"]
@@ -258,7 +325,8 @@ def main(argv: list[str]) -> None:
         for s in S:
             v = sahne_video(P, s, TEMA)
             gercek[s["klasor"]] = kare_say(v) if os.path.exists(v) else None
-        pl = planla([{**s, "_k": gercek[s["klasor"]]} if gercek[s["klasor"]] else s for s in S], N, GECIS)
+        ss = [{**s, "_k": gercek[s["klasor"]]} if gercek[s["klasor"]] else s for s in S]
+        pl = planla(ss, N, GECIS, gecis_kareleri(ss, N, GECIS))
         tum = []
         for i, (s, p) in enumerate(zip(S, pl)):
             oj = os.path.join(P, "sahneler", s["klasor"], "olaylar.json")
@@ -266,6 +334,18 @@ def main(argv: list[str]) -> None:
             if p["gecis"] and gecis_turu(p["gecis"], gl) == "gl": tum.append({"tur": "sayfa"})
         ek = efekt_kunyesi(EFEKT, len(olaylari_suz(tum, EFEKT)), len(tum))
         print(plan_tablosu(pl, N, FPS, gercek, gl, an_yol, sure_sn(an_yol) if an_yol else None, TEMA, ek)); return
+
+    GK = gecis_kareleri(S, N, GECIS)
+    if "--yalniz-gecis" in argv:
+        no = int(arg_degeri(argv, "--yalniz-gecis"))
+        i = next(j for j, s in enumerate(S) if s.get("no", j + 1) == no)
+        if GK[i] is None or gecis_turu(GK[i]["ad"], gl) != "gl":
+            sys.exit(f"sahne {no}: gl geçişi yok ({GK[i]})")
+        va, vb = sahne_video(P, S[i], TEMA), sahne_video(P, S[i + 1], TEMA)
+        ka, kb = kare_say(va), kare_say(vb)
+        d = os.path.join(P, "_is", "gecis-uretim"); g = os.path.join(P, "_is", "gecis-girdi")
+        gecis_gl_uret(va, ka, vb, GK[i]["n"], GK[i]["ad"], g, d, W, H)
+        print(f"tamam: {GK[i]['ad']} n={GK[i]['n']}, A {ka} kare, B {kb} kare -> {d}"); return
 
     IS = os.path.join(P, "_is"); shutil.rmtree(IS, ignore_errors=True); os.makedirs(IS)
     KOD = ["-c:v", "libx264", "-crf", "16", "-pix_fmt", "yuv420p", "-r", str(FPS)]
@@ -278,7 +358,10 @@ def main(argv: list[str]) -> None:
         if k != s["kare"]: print(f"uyarı: {s['klasor']} {k} kare, beklenen {s['kare']} (gerçek sayı kullanılır)")
         s["_v"], s["_k"] = v, k
 
-    PL = planla(S, N, GECIS)
+    PL = planla(S, N, GECIS, GK)
+    for p in PL:
+        if p["bas"] > p["son"]:
+            sys.exit(f"sahne {p['no']}: gövde bas {p['bas']} > son {p['son']} (geçiş çok uzun)")
     parca, olay = [], []
     for i, (s, p) in enumerate(zip(S, PL)):
         ofs = p["ofs"]
@@ -292,18 +375,16 @@ def main(argv: list[str]) -> None:
             ad = p["gecis"]; gv = os.path.join(IS, f"gecis{i}.mp4")
             if gecis_turu(ad, gl) == "gl":
                 with kok_ici(os.path.join(IS, f"gecis{i}")) as d:
-                    os.makedirs(d + "/a", exist_ok=True); os.makedirs(d + "/b", exist_ok=True)
-                    ff("-i", s["_v"], "-vf", f"select=gte(n\\,{s['_k'] - N})", "-fps_mode", "passthrough", "-start_number", "0", d + "/a/%04d.png")
-                    ff("-i", S[i + 1]["_v"], "-vf", f"select=lt(n\\,{N})", "-fps_mode", "passthrough", "-start_number", "0", d + "/b/%04d.png")
-                    rel = os.path.relpath(d, KOK)
-                    subprocess.run([sys.executable, os.path.join(KOK, "ortak/yakala.py"), f"ortak/gecis.html?k={rel}&ad={ad}&n={N}&w={W}&h={H}",
-                                    d + "/cikis", str(W), str(H)], check=True)
+                    gecis_gl_uret(s["_v"], s["_k"], S[i + 1]["_v"], p["n"], ad, d,
+                                  d + "/cikis", W, H)
                     ff("-framerate", str(FPS), "-i", d + "/cikis/%04d.png", *KOD, gv)
                 olay.append({"kare": ofs + s["_k"] - N, "tur": "sayfa", "guc": 0.8})
             else:
-                ff("-i", s["_v"], "-i", S[i + 1]["_v"], "-filter_complex", xfade_filtre(ad, s["_k"], N, FPS),
-                   "-frames:v", str(N), "-an", *KOD, gv)
-                if kare_say(gv) != N: sys.exit(f"xfade {ad}: {kare_say(gv)} kare, beklenen {N}")
+                ff("-i", s["_v"], "-i", S[i + 1]["_v"], "-filter_complex",
+                   xfade_filtre(ad, s["_k"], p["n"], FPS),
+                   "-frames:v", str(p["n"]), "-an", *KOD, gv)
+                if kare_say(gv) != p["n"]:
+                    sys.exit(f"xfade {ad}: {kare_say(gv)} kare, beklenen {p['n']}")
             parca.append(gv)
 
     TOPLAM = toplam_kare(PL, N)
