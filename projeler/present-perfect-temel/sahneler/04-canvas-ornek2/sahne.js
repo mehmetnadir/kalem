@@ -1,12 +1,26 @@
 // SAHNE 04 — Örnek 2 (düz canvas, 521 kare, t_bas 34,16; cümle 4). Kendini çizen kalem; zaman yalnız kare numarasından.
 import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, renkCoz, kutu, ok, geriTasma } from "./sahne-ortak.js";
+import { yaziNoktalari } from "/projeler/present-perfect-temel/ortak/kalem-canvas.js";
 
 const KARE = 521, TBAS = 34.16, ICERIK = 509;
 const KOKDIZ = "/projeler/present-perfect-temel/ortak/cizim";
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: 0, bolum: "Example 2 / 3", cumle: 4 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu;
+// El yazısı `sol → sağ` (06.11): `→` fontta yok; ok() darbesi. Süre: sol %40, ok %15, sağ %45
+const eyGen = (m, b) => yaziNoktalari(m, S.EY.G,
+  { upm: S.EY.M.unitsPerEm, asc: S.EY.M.ascender, boy: b, x: 0, taban: 0 }).gen;
+const okluYazi = (sol, sag, a) => {
+  const { x, y, boy: b, tb, sure: u } = a, bos = 0.3 * b;
+  const xo = x + eyGen(sol, b) + bos, yo = y - 0.25 * b;
+  const yz = (metin, xx, t, s, renk) =>
+    S.elYazisi({ metin, x: xx, y, boy: b, renk, tb: t, sure: s });
+  return [yz(sol, x, tb, u * 0.4, a.renk),
+    ...S.darbeler(ok([xo, yo], [xo + b, yo], a.tohum), { w: a.w, renk: a.renk, uc0: 8, uc1: 12 },
+      tb + u * 0.4, u * 0.05, u * 0.025, 0.3),
+    yz(sag, xo + b + bos, tb + u * 0.55, u * 0.45, a.sag || a.renk)];
+};
 
 async function kur() {
   await S.kur();
@@ -65,12 +79,15 @@ async function kur() {
   S.koy(S.nabiz(nx, ny, 13, 42.65));
   S.koy(S.elYazisi({ metin: "now", x: nx - 30, y: yKutu + kh + 52, renk: SARI, tb: 42.8, sure: 0.45,
     ses: false }));
-  S.koy(S.not({ parca: [["başladı, hâlâ sürüyor", IKINCIL]], x: 140, y: yKutu + kh + 62, tb: 43.05, sure: 0.6 }));
+  S.koy(S.elYazisi({ metin: "başladı, hâlâ sürüyor", x: 140, y: yKutu + kh + 62, renk: IKINCIL,
+    tb: 43.05, sure: 0.6 }));
 
   // 43,84–47,9 for → süre (sarı); 47,12 soluk since → başlangıç
   const yF = yKutu + kh + 150;
-  S.koy(S.not({ parca: [["for → süre", SARI]], x: 140, y: yF, tb: 43.84, sure: 0.5 }));
-  S.koy(S.not({ parca: [["since → başlangıç", IKINCIL]], x: 140, y: yF + 72, tb: 47.12, sure: 0.6 }));
+  S.koy(okluYazi("for", "süre",
+    { x: 140, y: yF, boy: 48, renk: SARI, w: 5, tb: 43.84, sure: 0.5, tohum: 6 }));
+  S.koy(okluYazi("since", "başlangıç",
+    { x: 140, y: yF + 72, boy: 48, renk: IKINCIL, w: 5, tb: 47.12, sure: 0.6, tohum: 7 }));
 
   // 36,0–39,12 for (37,6) sarı daire; 48,32–51,12 has sarı daire (48,88), formül kartı has + played
   S.koy(S.halka(kel("for"), 37.6, 0.3, 11));

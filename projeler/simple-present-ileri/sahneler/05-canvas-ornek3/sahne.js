@@ -2,7 +2,7 @@
 // Kök: "Our flight takes off at eleven tomorrow morning, so we have to leave home at nine." (tarife + tomorrow tuzağı).
 // Zaman yalnız kare numarasından; sözcük zamanları ortak/anlatim/sozcukler.json (küresel sn).
 import { surucu } from "/ortak/surucu.js";
-import { Sahne, RT, olc } from "./sahne-ortak.js";
+import { Sahne, RT, ok, olc } from "./sahne-ortak.js";
 import { yaziNoktalari } from "/projeler/simple-present-ileri/ortak/kalem-canvas.js";
 
 const KARE = 406, TBAS = 48.29, ICERIK = 394;
@@ -10,10 +10,21 @@ const KOKDIZ = "/projeler/simple-present-ileri/ortak/cizim";
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Example 3 / 3", cumle: 5 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
-const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+const FF = (b) => `700 ${b}px Fredoka`;
 // El yazısı (Caveat 700 tegaki, dalga 5b / K26): ortalı yazının x'i için genişlik glif verisinden
 const eyGen = (m, b) => yaziNoktalari(m, S.EY.G, { upm: S.EY.M.unitsPerEm, asc: S.EY.M.ascender,
   boy: b, x: 0, taban: 0 }).gen;
+// El yazısı `sol → sağ` (06.11): `→` fontta yok; ok() darbesi. Süre: sol %40, ok %15, sağ %45
+const okluYazi = (sol, sag, a) => {
+  const { x, y, boy: b, tb, sure: u } = a, bos = 0.3 * b;
+  const xo = x + eyGen(sol, b) + bos, yo = y - 0.25 * b;
+  const yz = (metin, xx, t, s, renk) =>
+    S.elYazisi({ metin, x: xx, y, boy: b, renk, tb: t, sure: s });
+  return [yz(sol, x, tb, u * 0.4, a.renk),
+    ...S.darbeler(ok([xo, yo], [xo + b, yo], a.tohum), { w: a.w, renk: a.renk, uc0: 8, uc1: 12 },
+      tb + u * 0.4, u * 0.05, u * 0.025, 0.3),
+    yz(sag, xo + b + bos, tb + u * 0.55, u * 0.45, a.sag || a.renk)];
+};
 // Sözcük penceresi: < 0,2 sn kısa pencere sonraki sözcüğün başına dek uzar (2–3 harflik sözcük)
 const pen = (w) => w.map((q, i) => ({ t0: q.t0,
   t1: q.t1 - q.t0 < 0.2 && w[i + 1] ? w[i + 1].t0 : q.t1 }));
@@ -65,10 +76,11 @@ async function kur() {
 
   // 57,41–61,41 tarife tablosu: kutu + başlık + "11:00 takes off"; tomorrow kırmızı çizgi ≠ will
   const kx = 140, ky = 660, kw = 1000, kh = 310;
-  S.koy(S.kart({ x: kx, y: ky, w: kw, h: kh, tb: 57.41, tohum: 5, kutuSure: 0.12, kutuAralik: 0.06, satirlar: [
-    { parca: [["tarife kesin → ", KREM], ["Simple Present", SARI]], x: kx + 50, y: ky + 80, font: CV(64), tb: 57.6,
-      sure: 0.4 },
-  ] }));
+  S.koy(S.kart({ x: kx, y: ky, w: kw, h: kh, tb: 57.41, tohum: 5, kutuSure: 0.12, kutuAralik: 0.06,
+    satirlar: [] }));
+  S.koy(okluYazi("tarife kesin", "Simple Present",
+    { x: kx + 50, y: ky + 80, boy: 64, renk: KREM, sag: SARI, w: 6, tb: 57.6, sure: 0.6,
+      tohum: 8 }));
   S.koy(S.metinPop({ parca: [["11:00", KREM]], x: kx + 50, y: ky + 185, font: FF(76), tb: 58.2, sure: 0.3, ses: 0.5 }));
   S.koy(S.metinPop({ parca: [["takes off", SARI]], x: kx + 340, y: ky + 185, font: FF(76), tb: 58.6, sure: 0.3,
     ses: 0.5 }));

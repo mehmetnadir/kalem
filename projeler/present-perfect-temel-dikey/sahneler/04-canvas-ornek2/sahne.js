@@ -3,14 +3,28 @@
 // Yerleşim sıfırdan dikey: kart (tam genişlik) → TR çeviri → ORTA figür + gitar (sol), notlar (sağ)
 // → takvim şeridi `5 years` → alt formül.
 import { surucu } from "/ortak/surucu.js";
-import { Sahne, RT, renkCoz, kutu, olc, geriTasma } from "./sahne-ortak.js";
+import { Sahne, RT, renkCoz, kutu, ok, olc, geriTasma } from "./sahne-ortak.js";
+import { yaziNoktalari } from "/projeler/present-perfect-temel-dikey/ortak/kalem-canvas.js";
 
 const KARE = 521, TBAS = 34.16, ICERIK = 509;
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: 0, bolum: "Example 2 / 3", cumle: 4 });
 const KOKDIZ = "/projeler/present-perfect-temel-dikey/ortak/cizim";
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKI = RT.ikincil, SARI = RT.vurgu;
-const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;
+const FF = (b) => `700 ${b}px Fredoka`;
+// El yazısı `sol → sağ` (06.11): `→` fontta yok; ok() darbesi. Süre: sol %40, ok %15, sağ %45
+const eyGen = (m, b) => yaziNoktalari(m, S.EY.G,
+  { upm: S.EY.M.unitsPerEm, asc: S.EY.M.ascender, boy: b, x: 0, taban: 0 }).gen;
+const okluYazi = (sol, sag, a) => {
+  const { x, y, boy: b, tb, sure: u } = a, bos = 0.3 * b;
+  const xo = x + eyGen(sol, b) + bos, yo = y - 0.25 * b;
+  const yz = (metin, xx, t, s, renk) =>
+    S.elYazisi({ metin, x: xx, y, boy: b, renk, tb: t, sure: s });
+  return [yz(sol, x, tb, u * 0.4, a.renk),
+    ...S.darbeler(ok([xo, yo], [xo + b, yo], a.tohum), { w: a.w, renk: a.renk, uc0: 8, uc1: 12 },
+      tb + u * 0.4, u * 0.05, u * 0.025, 0.3),
+    yz(sag, xo + b + bos, tb + u * 0.55, u * 0.45, a.sag || a.renk)];
+};
 // El yazısı (tegaki Caveat, dalga 5 / K26): sözcük penceresi = anlatım t0/t1 (küresel sn)
 const pen = (ad, t, n) => S.dizi(ad, t, n).map((w) => ({ t0: w.t0, t1: w.t1 }));
 
@@ -55,9 +69,12 @@ async function kur() {
   // 41,77–42,25 «Başladı» (pencere: 1 sözcük)
   S.koy(S.elYazisi({ metin: "başladı,", x: xS, y: y0, boy: 64, renk: KREM,
     sozcukler: pen("Başladı", 41.77, 1) }));
-  S.koy(S.not({ parca: [["hâlâ sürüyor", SARI]], x: xS, y: y0 + 72, font: CV(64), tb: 42.65, sure: 0.55 }));
-  S.koy(S.not({ parca: [["for → süre", SARI]], x: xS, y: y0 + 170, font: CV(72), tb: 43.84, sure: 0.55 }));
-  S.koy(S.not({ parca: [["since → başlangıç", IKI]], x: xS - 40, y: y0 + 246, font: CV(72), tb: 47.12, sure: 0.7 }));
+  S.koy(S.elYazisi({ metin: "hâlâ sürüyor", x: xS, y: y0 + 72, boy: 64, renk: SARI, tb: 42.65,
+    sure: 0.55 }));
+  S.koy(okluYazi("for", "süre",
+    { x: xS, y: y0 + 170, boy: 72, renk: SARI, w: 5, tb: 43.84, sure: 0.55, tohum: 6 }));
+  S.koy(okluYazi("since", "başlangıç",
+    { x: xS - 40, y: y0 + 246, boy: 72, renk: IKI, w: 5, tb: 47.12, sure: 0.7, tohum: 7 }));
 
   // takvim şeridi (41,77–42,9): 5 el kutusu, sarı ayraç `5 years`, sağ uçta now noktası (42,65)
   const yB = fAlt + 78, yK = yB + 24, kh = 70, kx = (i) => 70 + 180 * i;

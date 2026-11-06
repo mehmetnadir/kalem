@@ -10,3 +10,4 @@
   y AŞAĞI pozitif, 0 = taban çizgisi; t/d/a saniye; `n` nib damgaları `[noktaIdx, dx, dy, çapA, çapB, açı]`
   (noktalar ve i/ö/ü noktaları yalnız burada). Tarif: `~/.claude/skills/el-yazisi-efekti/SKILL.md` §4-B.
 - Kullanım: `kalem-canvas.js` `yaziDarbeleri()` + `yaziCiz()`; sahne öğesi `S.elYazisi()`.
+- 06.11: â Â eklendi (üretici aynı; komut: bun start generate Caveat -c "<anahtarlar>âÂ").

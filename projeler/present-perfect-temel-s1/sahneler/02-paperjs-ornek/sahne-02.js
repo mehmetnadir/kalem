@@ -3,12 +3,16 @@
 // kare 0'da hazır; zamanlar küresel sn, fr(t) = round((t - 3,00) x 30). Bantlar: HUD 0-320, içerik 352-1392,
 // altyazı 1400-1536.
 import { sahneKur, RT } from "/projeler/present-perfect-temel-s1/sahneler/02-paperjs-ornek/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/present-perfect-temel-s1/ortak/kalem-canvas.js";
 
 export const KARE = 395, T_BAS = 3.0;
 const CIP = "I HAVE LOST";
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: CIP });
+  const [eyM, eyG] = await Promise.all([fetch(`/ortak/tegaki/caveat-tr/metrik.json`),
+    fetch(`/ortak/tegaki/caveat-tr/glyphData-700.json`)]);   // yalnız sağa hizalı genişlik için
+  const EY = { M: await eyM.json(), G: await eyG.json() };
   const { fr, ciz, daire, yazi, elYazisi, cumle, tik, parilti, olay, not, bitis, kutu, oge,
     kis } = S;
   const SARI = RT.vurgu, DOLGU = RT.vurguDolgu, IKI = RT.ikincil, MUR = RT.murekkep;
@@ -22,15 +26,13 @@ export async function kur(P) {
     { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
 
   // Caveat el yazısı cümlesi: sözcük başına kendi konuşma penceresi {f0, f1}; satır başı x'e döner,
-  // sözcük arası 0,3 × boyut (motor aralığı). k.dis: Caveat glifi pakette yok → eski yazi() kalır.
+  // sözcük arası 0,3 × boyut (motor aralığı).
   const elCumle = (kel, o) => {
     const sat = {};
     return kel.map((k) => {
       const s = k.satir || 0, x = sat[s] == null ? o.x : sat[s], y = o.y + s * o.aralik;
-      const q = k.dis ? yazi(k.s, { x, y, boyut: o.boyut, aile: "Caveat", agirlik: 700,
-        renk: o.renk, bas: k.f0, sure: 4, oge: o.oge })
-        : elYazisi(k.s, { x, y, boyut: o.boyut, renk: o.renk, oge: o.oge,
-          sozcukler: [{ f0: k.f0, f1: k.f1 }] });
+      const q = elYazisi(k.s, { x, y, boyut: o.boyut, renk: o.renk, oge: o.oge,
+        sozcukler: [{ f0: k.f0, f1: k.f1 }] });
       sat[s] = q.x1 + 0.3 * o.boyut; return q;
     });
   };
@@ -75,10 +77,10 @@ export async function kur(P) {
       olay(bitis(d), "tik", 0.5); not(g.str + " daire", d.bas);
     });
     const tr = s2.slice(5, 9);
-    // 9,71-12,99 sn (kare 201-300): her sözcük kendi penceresinde; "hâlâ" (â) Caveat glifi yok →
-    // kapsam dışı, yazi() kalır; satır 1 = Anahtarlarımı kaybettim, satır 2 = hâlâ bulamadım.
-    const t = elCumle(tr.map((k, i) => ({ s: k.s, satir: i < 2 ? 0 : 1, f0: k.f, f1: k.f1,
-      dis: i === 2 })), { x: 88, y: 590, boyut: 64, renk: MUR, aralik: 76 });
+    // 9,71-12,99 sn (kare 201-300): her sözcük kendi penceresinde ("hâlâ" â glifi pakette, 06.11);
+    // satır 1 = Anahtarlarımı kaybettim, satır 2 = hâlâ bulamadım.
+    const t = elCumle(tr.map((k, i) => ({ s: k.s, satir: i < 2 ? 0 : 1, f0: k.f, f1: k.f1 })),
+      { x: 88, y: 590, boyut: 64, renk: MUR, aralik: 76 });
     altCiz(t[3], t[3].bit - 6, { w: 8 }); not("bulamadım altı çizgi", t[3].bit - 6);
   }
 
@@ -108,8 +110,10 @@ export async function kur(P) {
       bas: fr(14.82), sure: 8, olcek: true });
     olay(b.bas, "vurus", 0.8); not("have", a.bas); not("V3 (sarı)", b.bas);
     altCiz(b, b.bas + 8, { w: 11 }); parilti(b.x1 + 20, y - 100, { bas: b.bas + 10, r: 24, periyot: 130, adet: 1 });
-    const n = yazi("lost = lose'un 3. hâli", { x: 1020, y: 985, boyut: 64, aile: "Caveat", agirlik: 700,
-      renk: MUR, hizala: "sag", bas: fr(15.22), sure: 14 });
+    const nm = "lost = lose'un 3. hâli", nw = yaziNoktalari(nm, EY.G, { upm: EY.M.unitsPerEm,
+      asc: EY.M.ascender, boy: 64, x: 0, taban: 0 }).gen;           // sağa hizalı: x = 1020 − gen
+    const n = elYazisi(nm, { x: 1020 - nw, y: 985, boyut: 64, renk: MUR, bas: fr(15.22),
+      sure: 14 });
     not("lost notu", n.bas);
   }
   return S;
