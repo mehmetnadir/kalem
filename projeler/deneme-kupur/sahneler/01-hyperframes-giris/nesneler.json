@@ -1,0 +1,68 @@
+[
+ {
+  "ad": "logo damgası",
+  "t0": 0,
+  "t1": 0.4,
+  "tur": "cizim"
+ },
+ {
+  "ad": "logo (sol sütun)",
+  "t0": 0.4,
+  "t1": 2.2,
+  "tur": "cizim"
+ },
+ {
+  "ad": "rozet YDT · BASIC",
+  "t0": 0.3,
+  "t1": 2.2,
+  "tur": "kart"
+ },
+ {
+  "ad": "rozet GRAMMAR",
+  "t0": 0.4,
+  "t1": 2.2,
+  "tur": "kart"
+ },
+ {
+  "ad": "figür eskizi (standing-3)",
+  "t0": 0.2,
+  "t1": 2.3,
+  "tur": "cizim"
+ },
+ {
+  "ad": "saat eskizi (clock)",
+  "t0": 1.6,
+  "t1": 2.3,
+  "tur": "cizim"
+ },
+ {
+  "ad": "başlık SIMPLE",
+  "t0": 0,
+  "t1": 2.2,
+  "tur": "metin"
+ },
+ {
+  "ad": "başlık PRESENT",
+  "t0": 1.0,
+  "t1": 2.2,
+  "tur": "metin"
+ },
+ {
+  "ad": "cümle 1 (Caveat, konuşmayla yazılır)",
+  "t0": 1.0,
+  "t1": 3.0,
+  "tur": "metin"
+ },
+ {
+  "ad": "uçuş: başlık → künye",
+  "t0": 2.2,
+  "t1": 3.0,
+  "tur": "kart"
+ },
+ {
+  "ad": "künye (HUD)",
+  "t0": 3.0,
+  "t1": 3.4,
+  "tur": "kart"
+ }
+]

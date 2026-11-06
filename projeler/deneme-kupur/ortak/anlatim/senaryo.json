@@ -1,0 +1,238 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Simple Present",
+ "duzen": "konu",
+ "seviye": "temel",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
+  }
+ },
+ "kartlar": {
+  "k1": {
+   "tip": "ornek",
+   "en": "The sun rises in the east.",
+   "tr": "Güneş doğudan doğar."
+  },
+  "k2": {
+   "tip": "ornek",
+   "en": "My brother usually goes to school by bus.",
+   "tr": "Kardeşim genellikle okula otobüsle gider."
+  },
+  "k3": {
+   "tip": "ornek",
+   "en": "Our plane takes off at nine tomorrow.",
+   "tr": "Uçağımız yarın dokuzda kalkar."
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Her sabah yedide kalkarım."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Her sabah yedide kalkarım."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Türkçede buna geniş zaman deriz: kalkar, gider, yapar."
+    ],
+    [
+     "tr",
+     "İngilizcedeki karşılığı Simple Present."
+    ],
+    [
+     "tr",
+     "Altı dakikada formunu, zaman ifadelerini ve kullanımlarını bitiriyoruz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Türkçede buna geniş zaman deriz: kalkar, gider, yapar. İngilizcedeki karşılığı Simple Present. Altı dakikada formunu, zaman ifadelerini ve kullanımlarını bitiriyoruz."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Birinci örnek."
+    ],
+    [
+     "en",
+     "The sun rises in the east."
+    ],
+    [
+     "tr",
+     "Güneş doğudan doğar. Doğa kanunu: hep böyledir."
+    ],
+    [
+     "tr",
+     "Fiile bak: rises. Sonunda s harfi var."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Birinci örnek. The sun rises in the east. Güneş doğudan doğar. Doğa kanunu: hep böyledir. Fiile bak: rises. Sonunda s harfi var."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İkinci örnek."
+    ],
+    [
+     "en",
+     "My brother usually goes to school by bus."
+    ],
+    [
+     "tr",
+     "Kardeşim genellikle okula otobüsle gider."
+    ],
+    [
+     "tr",
+     "Usually, always, every day: alışkanlık işareti."
+    ],
+    [
+     "tr",
+     "Fiil goes. Yine s harfi var."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İkinci örnek. My brother usually goes to school by bus. Kardeşim genellikle okula otobüsle gider. Usually, always, every day: alışkanlık işareti. Fiil goes. Yine s harfi var."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Üçüncü örnek."
+    ],
+    [
+     "en",
+     "Our plane takes off at nine tomorrow."
+    ],
+    [
+     "tr",
+     "Uçağımız yarın dokuzda kalkar. Gelecek, ama tarifede yazılı."
+    ],
+    [
+     "tr",
+     "Tarife, program, takvim: Türkçe gibi geniş zaman."
+    ],
+    [
+     "tr",
+     "Fiil takes off. Yine s harfi."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Üçüncü örnek. Our plane takes off at nine tomorrow. Uçağımız yarın dokuzda kalkar. Gelecek, ama tarifede yazılı. Tarife, program, takvim: Türkçe gibi geniş zaman. Fiil takes off. Yine s harfi."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Hocam, üçünde de fiilin sonunda s var. Neden hep s?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Hocam, üçünde de fiilin sonunda s var. Neden hep s?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Çünkü özne üçüncü tekil kişi:"
+    ],
+    [
+     "en",
+     "he, she, it."
+    ],
+    [
+     "tr",
+     "Fiile s gelir. I, you, we, they ile gelmez."
+    ],
+    [
+     "tr",
+     "Olumsuzda ve soruda does girer, s ona geçer."
+    ],
+    [
+     "en",
+     "He does not go. Does he go?"
+    ],
+    [
+     "tr",
+     "Türkçedeki er eki gibi: git-er, go-es."
+    ],
+    [
+     "tr",
+     "Kod: always, usually, every day, Simple Present."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Çünkü özne üçüncü tekil kişi: he, she, it. Fiile s gelir. I, you, we, they ile gelmez. Olumsuzda ve soruda does girer, s ona geçer. He does not go. Does he go? Türkçedeki er eki gibi: git-er, go-es. Kod: always, usually, every day, Simple Present."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "SIMPLE",
+  "satir2": "PRESENT",
+  "rozetler": [
+   "YDT · BASIC",
+   "GRAMMAR"
+  ]
+ },
+ "meta": {
+  "kimlik": "02-04-ydt-temel",
+  "kod": "ING-YDT-GR-02-04-T",
+  "ders": "İngilizce",
+  "konu": "Simple Present",
+  "kitle": "ydt",
+  "seviye": "temel",
+  "amaclar": [
+   "Simple Present formunu kurmak (fiil, fiil + s, do / does)",
+   "zaman ifadelerini tanımak",
+   "genelleme, alışkanlık ve tarife kullanımlarını ayırt etmek",
+   "Türkçe geniş zaman eki ile köprü"
+  ],
+  "canAlici": [
+   "Türkçedeki geniş zaman eki = İngilizcedeki s: gider = goes",
+   "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
+   "usually, always, every day = tekrar eden iş sinyali",
+   "he, she, it fiile s alır; I, you, we, they almaz",
+   "3 örnek, 1 kural: üçünde de fiilin sonunda s"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "temel",
+   "gramer",
+   "Simple Present"
+  ],
+  "kancaKapak": "GİDER = GOES"
+ }
+}

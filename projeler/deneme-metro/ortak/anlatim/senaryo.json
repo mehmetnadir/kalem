@@ -1,0 +1,261 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Present Perfect",
+ "duzen": "konu",
+ "seviye": "temel",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
+  }
+ },
+ "kartlar": {
+  "kanca": {
+   "tip": "ornek",
+   "en": "I have lost my keys.",
+   "tr": "Anahtarımı kaybettim, kapıda kaldım."
+  },
+  "k1": {
+   "tip": "ornek",
+   "en": "I have broken my phone.",
+   "tr": "Telefonumu kırdım.",
+   "parcalar": {
+    "yardimci": "have",
+    "ek": "broken"
+   }
+  },
+  "k2": {
+   "tip": "ornek",
+   "en": "My brother has played the guitar for five years.",
+   "tr": "Kardeşim beş yıldır gitar çalıyor.",
+   "parcalar": {
+    "yardimci": "has",
+    "ek": "played"
+   }
+  },
+  "k3": {
+   "tip": "ornek",
+   "en": "I have never flown in a plane.",
+   "tr": "Hayatımda hiç uçağa binmedim.",
+   "parcalar": {
+    "yardimci": "have",
+    "ek": "flown"
+   }
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Kaybettim, kapıda kaldım."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Kaybettim, kapıda kaldım."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Anahtarı kaybettim: geçmişte oldu, ama sonucu şimdi bizimle."
+    ],
+    [
+     "tr",
+     "İngilizce bunun için ayrı bir zaman kullanır."
+    ],
+    [
+     "tr",
+     "Altı dakikada Present Perfect'in formunu, since ile for farkını ve sinyal sözcüklerini bitiriyoruz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Anahtarı kaybettim: geçmişte oldu, ama sonucu şimdi bizimle. İngilizce bunun için ayrı bir zaman kullanır. Altı dakikada Present Perfect'in formunu, since ile for farkını ve sinyal sözcüklerini bitiriyoruz."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Birinci örnek."
+    ],
+    [
+     "en",
+     "I have broken my phone."
+    ],
+    [
+     "tr",
+     "Telefonumu kırdım. Kırma işi geçmişte oldu, ama ekran şimdi de kırık."
+    ],
+    [
+     "tr",
+     "İki parça var: have ve broken."
+    ],
+    [
+     "tr",
+     "Have, artı fiilin üçüncü hâli."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Birinci örnek. I have broken my phone. Telefonumu kırdım. Kırma işi geçmişte oldu, ama ekran şimdi de kırık. İki parça var: have ve broken. Have, artı fiilin üçüncü hâli."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İkinci örnek."
+    ],
+    [
+     "en",
+     "My brother has played the guitar for five years."
+    ],
+    [
+     "tr",
+     "Kardeşim beş yıldır gitar çalıyor. Başladı ve hâlâ çalıyor."
+    ],
+    [
+     "tr",
+     "For süreyi söyler. Başlangıç olsaydı since derdik. Bu kez has, çünkü özne tek kişi."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İkinci örnek. My brother has played the guitar for five years. Kardeşim beş yıldır gitar çalıyor. Başladı ve hâlâ çalıyor. For süreyi söyler. Başlangıç olsaydı since derdik. Bu kez has, çünkü özne tek kişi."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Üçüncü örnek."
+    ],
+    [
+     "en",
+     "I have never flown in a plane."
+    ],
+    [
+     "tr",
+     "Hayatımda hiç uçağa binmedim. Bugüne kadar hiç olmadı."
+    ],
+    [
+     "tr",
+     "Never gibi sözcükler hayatın bugüne kadarki kısmını anlatır."
+    ],
+    [
+     "tr",
+     "Yine have, artı flown."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Üçüncü örnek. I have never flown in a plane. Hayatımda hiç uçağa binmedim. Bugüne kadar hiç olmadı. Never gibi sözcükler hayatın bugüne kadarki kısmını anlatır. Yine have, artı flown."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Hocam, üçünde de have var. Neden hep üçüncü hâl?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Hocam, üçünde de have var. Neden hep üçüncü hâl?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Çünkü iş geçmişte bitti, ama etkisi şimdiye uzanıyor."
+    ],
+    [
+     "tr",
+     "Have ya da has şimdiyi taşır, üçüncü hâl işi söyler."
+    ],
+    [
+     "tr",
+     "For ve since süre, never ve ever deneyim, just ve already yeni biten iş."
+    ],
+    [
+     "tr",
+     "Kod: have artı üçüncü hâl, geçmiş iş, şimdiki etki."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Çünkü iş geçmişte bitti, ama etkisi şimdiye uzanıyor. Have ya da has şimdiyi taşır, üçüncü hâl işi söyler. For ve since süre, never ve ever deneyim, just ve already yeni biten iş. Kod: have artı üçüncü hâl, geçmiş iş, şimdiki etki."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "PRESENT",
+  "satir2": "PERFECT",
+  "rozetler": [
+   "YDT · BASIC",
+   "GRAMMAR"
+  ],
+  "sahne": [
+   {
+    "ad": "home",
+    "x": 30,
+    "y": 55,
+    "olcek": 0.55
+   },
+   {
+    "ad": "clock",
+    "x": 72,
+    "y": 45,
+    "olcek": 0.45
+   }
+  ]
+ },
+ "meta": {
+  "kimlik": "02-06-ydt-temel",
+  "kod": "ING-YDT-GR-02-06-T",
+  "ders": "İngilizce",
+  "konu": "Present Perfect",
+  "kitle": "ydt",
+  "seviye": "temel",
+  "kapak": {
+   "satir1": "KAYBETTİM",
+   "satir2": "= I HAVE LOST",
+   "canAlici": "Türkçede -dı, İngilizcede sonucu şimdi olan geçmiş"
+  },
+  "amaclar": [
+   "Present Perfect formunu kurmak (have/has + üçüncü hâl)",
+   "for ile since farkını ayırt etmek",
+   "never, ever, just, already, yet sinyallerini tanımak",
+   "Türkçe -dı ama etkisi şimdi köprüsü"
+  ],
+  "canAlici": [
+   "'Kaybettim, kapıda kaldım' — geçmişte oldu, etkisi şimdi",
+   "have / has + fiilin üçüncü hâli",
+   "for = süre, since = başlangıç noktası",
+   "never · ever · just · already · yet = Present Perfect sinyalleri",
+   "3 örnek, 1 kural: üçünde de have + üçüncü hâl"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "temel",
+   "gramer",
+   "Present Perfect"
+  ]
+ }
+}
