@@ -576,7 +576,8 @@
     "kod": "ing-ydt-gr-02-06-t",
     "kok": "https://yds.tc/",
     "hedef": "https://ydspublishing.com/grammar/02-06-ydt-temel",
-    "durum": "planli"
+    "durum": "kayitli",
+    "kisa": "https://yds.tc/ing-ydt-gr-02-06-t"
   },
   "tutanak": {
     "on": "UT-20261108-4150",
@@ -588,11 +589,11 @@
   },
   "kaynak": {
     "repo": "kalem",
-    "commit": "235a4ebec9ae22c3f9db76ace7444e9d988aa987"
+    "commit": "ff465f3e3c84cc5707a4c57528355a2929663a56"
   },
-  "tarih": "2026-11-08T11:52:42Z",
+  "tarih": "2026-11-08T12:18:49Z",
   "imza": {
     "alg": "sha256",
-    "deger": "1f1c489a0ec69d169aec2cd63b3099cd73935ee6b200a75cd3acfe82375122cd"
+    "deger": "be44a43cba3192bb29bd2a6764d03fb340dc0770fff8849ef0b43189eac78358"
   }
 }
