@@ -1,0 +1,549 @@
+// Kalem ders oynatıcısı — prototip 0.1 (08.11.2026). Görüş sürümü; PRD: dijital-anlatim
+// .claude/docs/oynatici-prd-0811.md (K25, K33, K35, K36, K37). Tek saat: <audio>. Sahneler
+// iframe'de ?canli=1&mesaj=1 ile yalnız {tip:"zaman", t} mesajıyla çizer (ortak/editor/onizle.js
+// çekirdeğiyle aynı protokol, ortak/surucu.js). Oynatma sırasında sunucu ucu çağrılmaz.
+// Kullanım: monte(kok, { paket: "/projeler/present-perfect-temel/", tema, baslik, alt, olay })
+// Olaylar (olay(ad, detay)): hazir · oynuyor · durdu · bitti · zaman · bolum · tema · hata
+"use strict";
+export const SURUM = "0.1.0";
+const GECIS = 0.4, KIVRIM = 0.6, ONYUKLE = 3, GIZLE_MS = 3000, SAR = 10, OK = 5;
+const DEPO = "kalem.oynatici.", HIZLAR = [0.75, 1, 1.25, 1.5, 2];
+const ZEMIN = { acik: "#f7f3ea", koyu: "#1b1a17" };
+const IK = {
+  oynat: "<path d='M8 5l11 7-11 7z'/>",
+  dur: "<path d='M7 5h4v14H7zM13 5h4v14h-4z'/>",
+  geri: "<path d='M4 12a8 8 0 1 0 2.3-5.7M4 4v4.6h4.6'/><text x='12' y='15.5'>10</text>",
+  ileri: "<path d='M20 12a8 8 0 1 1-2.3-5.7M20 4v4.6h-4.6'/><text x='12' y='15.5'>10</text>",
+  ses: "<path d='M4 9v6h4l5 4V5L8 9zM16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11'/>",
+  sesAz: "<path d='M4 9v6h4l5 4V5L8 9zM16 9a4 4 0 0 1 0 6'/>",
+  sessiz: "<path d='M4 9v6h4l5 4V5L8 9zM17 9l4 6M21 9l-4 6'/>",
+  altyazi: "<rect x='3' y='5' width='18' height='14' rx='2'/>" +
+    "<path d='M7 12h3M12 12h5M7 15.5h5M14 15.5h3'/>",
+  bolum: "<path d='M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01'/>",
+  hiz: "<path d='M5 17a8 8 0 1 1 14 0M12 13l3.5-4'/>",
+  gunes: "<circle cx='12' cy='12' r='4'/><path d='M12 2v2M12 20v2M4.9 4.9l1.4 1.4" +
+    "M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4'/>",
+  ay: "<path d='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'/>",
+  tam: "<path d='M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5'/>",
+  tamKapat: "<path d='M9 4v5H4M15 4v5h5M20 15h-5v5M4 15h5v5'/>",
+  tekrar: "<path d='M3 12a9 9 0 1 0 3-6.7M3 4v5h5'/>",
+  uyari: "<path d='M12 3l10 18H2zM12 10v5M12 18h.01'/>",
+  ok: "<path d='M9 6l6 6-6 6'/>",
+};
+
+const pad = (n) => (n < 10 ? "0" : "") + n;
+const sinirla = (x, a, b) => Math.max(a, Math.min(b, x));
+const yumusak = (u) => u * u * (3 - 2 * u);
+function mmss(x) {
+  x = Math.max(0, Math.floor(x + 1e-6)); return Math.floor(x / 60) + ":" + pad(x % 60);
+}
+function el(tag, cls, ust, html) {
+  const n = document.createElement(tag); if (cls) n.className = cls;
+  if (html != null) n.innerHTML = html; if (ust) ust.appendChild(n); return n;
+}
+const svg = (ad) =>
+  "<svg viewBox='0 0 24 24' aria-hidden='true' focusable='false'>" + IK[ad] + "</svg>";
+function dugme(ust, cls, etiket, ad) {
+  const b = el("button", "ko-d " + cls, ust, svg(ad)); b.type = "button";
+  b.setAttribute("aria-label", etiket); b.title = etiket; return b;
+}
+function ikon(b, ad) { if (b.dataset.ik !== ad) { b.innerHTML = svg(ad); b.dataset.ik = ad; } }
+function etiket(b, m) { if (b.getAttribute("aria-label") !== m) { b.setAttribute("aria-label", m);
+  b.title = m; } }
+function depoAl(k, v) {
+  try { const x = localStorage.getItem(DEPO + k); return x == null ? v : JSON.parse(x); }
+  catch (e) { return v; /* depo kapalı (özel pencere): varsayılan */ }
+}
+function depoYaz(k, v) {
+  try { localStorage.setItem(DEPO + k, JSON.stringify(v)); }
+  catch (e) { /* depo kapalı: tercih bu oturumda kalır */ }
+}
+// Ardışık aynı ad = tek bölüm; `bolum` alanı (K37) öncelikli, yoksa sahne `ad`.
+function bolumListesi(S) {
+  const B = [];
+  S.forEach((s, i) => {
+    const ad = s.bolum || s.ad || s.klasor.replace(/^\d+-[a-z]+-/, ""), son = B[B.length - 1];
+    if (son && son.ad === ad) { son.t1 = s.t_son; son.sahneler.push(i); }
+    else B.push({ ad, t0: s.t_bas, t1: s.t_son, sahneler: [i] });
+  });
+  return B;
+}
+
+export function monte(kok, sec) {
+  sec = sec || {};
+  const paket = String(sec.paket || "").replace(/\/?$/, "/");
+  const d = {
+    paket, S: [], B: [], T: 0, FPS: 30, GEN: 1920, YUK: 1080, t: 0, oynuyor: false, bitti: false,
+    hiz: depoAl("hiz", 1), ses: depoAl("ses", 1), sessiz: depoAl("sessiz", false),
+    altyazi: depoAl("altyazi", true), tema: sec.tema || depoAl("tema", null) || "acik",
+    alt: [], slot: [], gosterilen: -1, hazir: false, basladi: false, gizleT: 0, gizliydi: false,
+    surukle: false, menu: "", kontrolUstunde: false, sonSn: -1, sonBolum: -1, sonAlt: "",
+    oynuyorduSurukle: false,
+    dokunma: matchMedia("(pointer: coarse)").matches,
+    azHareket: matchMedia("(prefers-reduced-motion: reduce)").matches,
+  };
+  const konsol = (e) => {
+    if (typeof console !== "undefined") console.error("[kalem-oynatici]", e);
+  };
+  const olay = (ad, detay) => { try { if (sec.olay) sec.olay(ad, detay || {}); }
+    catch (e) { konsol(e); } };
+
+  // ---------- Kurulum: DOM ----------
+  kok.classList.add("ko"); kok.tabIndex = 0; kok.dataset.tema = d.tema;
+  kok.setAttribute("role", "region"); kok.setAttribute("aria-label", sec.baslik || "Ders videosu");
+  kok.classList.toggle("ko-dokunma", d.dokunma); kok.innerHTML = "";
+  const sahne = el("div", "ko-sahne", kok), pane = el("div", "ko-pane", sahne);
+  d.slot = [0, 1].map((m) => {
+    const y = el("div", "ko-yaprak", pane), f = el("iframe", null, y);
+    f.title = "sahne tamponu " + (m + 1); f.setAttribute("aria-hidden", "true"); f.tabIndex = -1;
+    return { idx: m, y, f, no: -1, hazir: false, goster: false, sonT: null, sonF: -1, op: -1,
+      z: -1, tr: null };
+  });
+  const altyaziEl = el("div", "ko-altyazi", sahne); altyaziEl.setAttribute("aria-live", "off");
+  const orta = el("div", "ko-orta", sahne);
+  const oGeri = dugme(orta, "ko-geri", SAR + " saniye geri", "geri");
+  const oOynat = dugme(orta, "ko-oynat", "Oynat", "oynat");
+  const oIleri = dugme(orta, "ko-ileri", SAR + " saniye ileri", "ileri");
+  const poster = el("div", "ko-poster", sahne);
+  const posterUst = el("div", "ko-poster-ust", poster, "<b></b><small></small>");
+  posterUst.querySelector("b").textContent = sec.baslik || "";
+  posterUst.querySelector("small").textContent = sec.alt || "";
+  const buyuk = dugme(poster, "ko-buyuk", "Oynat", "oynat");
+  const posterNot = el("div", "ko-poster-not", poster, "Yükleniyor");
+  const hata = el("div", "ko-hata", sahne); hata.hidden = true; hata.setAttribute("role", "alert");
+  el("div", "ko-golge", kok);
+  const kontrol = el("div", "ko-kontrol", kok);
+  const cubuk = el("div", "ko-cubuk", kontrol); cubuk.tabIndex = 0;
+  cubuk.setAttribute("role", "slider"); cubuk.setAttribute("aria-label", "İlerleme");
+  cubuk.setAttribute("aria-valuemin", "0");
+  const ray = el("div", "ko-ray", cubuk), tutamac = el("div", "ko-tutamac", cubuk);
+  const ipucu = el("div", "ko-ipucu", cubuk, "<b></b><span></span>");
+  const sira = el("div", "ko-sira", kontrol);
+  const bOynat = dugme(sira, "ko-oynat", "Oynat", "oynat");
+  const bGeri = dugme(sira, "ko-geri", SAR + " saniye geri", "geri");
+  const bIleri = dugme(sira, "ko-ileri", SAR + " saniye ileri", "ileri");
+  const sesGrup = el("div", "ko-ses", sira);
+  const bSes = dugme(sesGrup, "ko-sesd", "Sessiz", "ses");
+  const sesKay = el("input", null, sesGrup); sesKay.type = "range"; sesKay.min = "0";
+  sesKay.max = "1"; sesKay.step = "0.05"; sesKay.setAttribute("aria-label", "Ses düzeyi");
+  const zamanEl = el("div", "ko-zaman", sira, "<b>0:00</b><span> / 0:00</span>");
+  const bBolum = el("button", "ko-bolum-ad", sira, "<i></i><b></b>" + svg("ok"));
+  bBolum.type = "button"; bBolum.title = "Bölümler"; bBolum.setAttribute("aria-haspopup", "menu");
+  el("span", "ko-bos", sira);
+  const bAlt = dugme(sira, "ko-altd", "Altyazı", "altyazi");
+  const bHiz = dugme(sira, "ko-hizd", "Oynatma hızı", "hiz");
+  const bBol = dugme(sira, "ko-bold", "Bölümler", "bolum");
+  const bTema = dugme(sira, "ko-temad", "Tema", "gunes");
+  const bTam = dugme(sira, "ko-tamd", "Tam ekran", "tam");
+  const menu = el("div", "ko-menu", kok); menu.hidden = true; menu.setAttribute("role", "menu");
+  const duyuru = el("div", "ko-duyuru", kok); duyuru.setAttribute("aria-live", "polite");
+  const au = el("audio", null, kok); au.preload = "auto";
+
+  // ---------- Sahne tamponları (onizle.js protokolü) ----------
+  function sahneNo(x) {
+    const L = d.S; for (let i = L.length - 1; i >= 0; i--) if (x >= L[i].t_bas) return i; return 0;
+  }
+  function bolumNo(x) {
+    for (let i = d.B.length - 1; i >= 0; i--) if (x >= d.B[i].t0) return i; return 0;
+  }
+  function sahneAdres(i) {
+    const s = d.S[i], sayfa = s.motor === "HyperFrames" ? "/proje/index.html" : "/sayfa.html";
+    return d.paket + "sahneler/" + s.klasor + sayfa + "?canli=1&mesaj=1&tbas=" + s.t_bas +
+      (d.tema === "acik" ? "&tema=acik" : "");
+  }
+  function slotYukle(s, i) {
+    s.no = i; s.hazir = false; s.goster = false; s.sonT = null; s.sonF = -1;
+    s.f.src = sahneAdres(i);
+  }
+  function slotBul(i, goster) {
+    return d.slot.find((s) => s.no === i && (!goster || s.goster)) || null;
+  }
+  function gecisTur(i) {                           // K37: bölüm geçişi kıvrım, bölüm içi fade
+    if (i <= 0 || d.azHareket) return "fade";
+    const a = d.S[i - 1], b = d.S[i];
+    if (a.bolum != null && b.bolum != null) return a.bolum === b.bolum ? "fade" : "kivrim";
+    return String(a.gecis || "").toLowerCase() === "fade" ? "fade" : "kivrim";   // zaman.json alanı
+  }
+  function sahneYonet(x) {
+    const i = sahneNo(x), L = d.S, cur = slotBul(i, true);
+    if (cur) d.gosterilen = cur.idx;
+    else if (!slotBul(i, false)) slotYukle(d.slot[d.gosterilen === 0 ? 1 : 0], i);
+    if (cur && i + 1 < L.length && x >= L[i + 1].t_bas - ONYUKLE && !slotBul(i + 1, false)) {
+      slotYukle(d.slot[1 - cur.idx], i + 1);
+    }
+    const tur = gecisTur(i), sure = tur === "kivrim" ? KIVRIM : GECIS;
+    const icinde = cur && i > 0 && x - L[i].t_bas < sure;
+    const onceki = icinde ? slotBul(i - 1, true) : null;
+    const u = onceki ? yumusak(sinirla((x - L[i].t_bas) / sure, 0, 1)) : 1;
+    d.slot.forEach((s) => {
+      let op = 0, z = 0, tr = "";
+      if (cur) {
+        if (s === cur) { z = 2; op = onceki && tur === "fade" ? u : 1; }
+        else if (s === onceki) {
+          op = 1; z = tur === "kivrim" ? 3 : 1;
+          if (tur === "kivrim") tr = "perspective(2400px) rotateY(" + (-90 * u).toFixed(2) + "deg)";
+        }
+      } else if (s.idx === d.gosterilen) { z = 2; op = 1; }
+      if (s.op !== op) { s.y.style.opacity = op; s.op = op; }
+      if (s.z !== z) { s.y.style.zIndex = z; s.z = z; }
+      if (s.tr !== tr) {
+        s.y.style.transform = tr; s.y.classList.toggle("ko-kivrim", !!tr); s.tr = tr;
+      }
+      if (s.hazir && s.no >= 0) {
+        const fr = Math.floor((x - L[s.no].t_bas) * d.FPS + 1e-4);
+        const gorunur = s === cur || s === onceki || (!cur && s.idx === d.gosterilen);
+        if (s.sonT === null || (gorunur && fr !== s.sonF)) {
+          try { s.f.contentWindow.postMessage({ tip: "zaman", t: x }, "*"); }
+          catch (e) { /* iframe henüz belge almadı: sonraki karede yeniden */ }
+          s.sonT = x; s.sonF = fr;
+        }
+      }
+    });
+    return { i, hazir: !!cur };
+  }
+  addEventListener("message", (ev) => {
+    const m = ev.data; if (!m || m.tip !== "hazir") return;
+    d.slot.forEach((s) => {
+      if (s.f.contentWindow !== ev.source) return;
+      s.hazir = true; s.sonT = null; if (m.zamanli) s.goster = true;
+      try { s.f.contentWindow.postMessage({ tip: "tema", ad: d.tema }, "*"); }
+      catch (e) { /* pencere kapandı */ }
+    });
+  });
+  function olc() {
+    const w = sahne.clientWidth, h = sahne.clientHeight; if (!w || !h) return;
+    const k = Math.min(w / d.GEN, h / d.YUK);
+    pane.style.width = (d.GEN * k) + "px"; pane.style.height = (d.YUK * k) + "px";
+    d.slot.forEach((s) => {
+      s.f.style.width = d.GEN + "px"; s.f.style.height = d.YUK + "px";
+      s.f.style.transform = "scale(" + k + ")";
+    });
+  }
+  if (typeof ResizeObserver !== "undefined") new ResizeObserver(olc).observe(sahne);
+  addEventListener("resize", olc);
+
+  // ---------- Oynatma ----------
+  function git(x) {
+    d.t = sinirla(x, 0, d.T - 1 / d.FPS); d.bitti = false;
+    try { au.currentTime = d.t; }
+    catch (e) { /* ses henüz yüklenmedi: t korunur, loadedmetadata eşitler */ }
+    goster();
+  }
+  function oyna() {
+    if (!d.hazir) return;
+    if (d.bitti || d.t >= d.T - 0.1) git(0);
+    au.playbackRate = d.hiz; au.volume = d.ses; au.muted = d.sessiz;
+    if (Math.abs(au.currentTime - d.t) > 0.05) {
+      try { au.currentTime = d.t; } catch (e) { /* yüklenince eşitlenir */ }
+    }
+    au.play().then(() => {
+      d.oynuyor = true; d.basladi = true; poster.classList.add("ko-yok");
+      kok.classList.add("ko-oynuyor"); posterNot.textContent = ""; goster();
+      duyur("Oynatılıyor"); olay("oynuyor", { t: d.t });
+    }).catch(() => {
+      d.oynuyor = false; poster.classList.remove("ko-yok");
+      posterNot.textContent = "Sesi açmak için dokun"; ikon(buyuk, "oynat");
+    });
+  }
+  function dur(sessizce) {
+    if (!d.oynuyor) return;
+    au.pause(); d.t = au.currentTime; d.oynuyor = false; kok.classList.remove("ko-oynuyor");
+    goster(); if (!sessizce) { duyur("Duraklatıldı"); olay("durdu", { t: d.t }); }
+  }
+  function bitir() {
+    au.pause(); d.oynuyor = false; d.bitti = true; kok.classList.remove("ko-oynuyor");
+    poster.classList.remove("ko-yok"); poster.classList.add("ko-bitti"); ikon(buyuk, "tekrar");
+    etiket(buyuk, "Tekrar izle"); posterNot.textContent = "Tekrar izle"; goster();
+    olay("bitti", { t: d.T });
+  }
+  function oynatDur() { if (d.oynuyor) dur(); else oyna(); }
+  function sar(k) { git(d.t + k); goster(); }
+  function bolumGit(i) { i = sinirla(i, 0, d.B.length - 1); git(d.B[i].t0 + 0.001); menuKapat(); }
+  const hizYazi = (h) => String(h).replace(".", ",") + "×";
+  function hizSec(h) {
+    d.hiz = h; au.playbackRate = h; depoYaz("hiz", h); menuKapat(); duyur("Hız " + hizYazi(h));
+  }
+  function sesUygula() {
+    au.volume = d.ses; au.muted = d.sessiz || d.ses === 0; sesKay.value = d.sessiz ? 0 : d.ses;
+    ikon(bSes, au.muted ? "sessiz" : d.ses < 0.5 ? "sesAz" : "ses");
+    etiket(bSes, au.muted ? "Sesi aç" : "Sessiz");
+    depoYaz("ses", d.ses); depoYaz("sessiz", d.sessiz);
+  }
+  function sessizSec(v) {
+    d.sessiz = v == null ? !d.sessiz : v; if (!d.sessiz && d.ses === 0) d.ses = 0.5; sesUygula();
+  }
+  function sesAyar(v) { d.ses = sinirla(v, 0, 1); d.sessiz = d.ses === 0; sesUygula(); }
+  function altyaziSec(v) {
+    d.altyazi = v == null ? !d.altyazi : v; bAlt.setAttribute("aria-pressed", String(d.altyazi));
+    altyaziEl.hidden = !d.altyazi; depoYaz("altyazi", d.altyazi); d.sonAlt = ""; altyaziYaz(d.t);
+  }
+  function temaSec(ad, sessizce) {
+    d.tema = ad === "koyu" ? "koyu" : "acik"; kok.dataset.tema = d.tema;
+    sahne.style.background = ZEMIN[d.tema]; ikon(bTema, d.tema === "acik" ? "gunes" : "ay");
+    etiket(bTema, d.tema === "acik" ? "Koyu tema" : "Açık tema");
+    d.slot.forEach((s) => {
+      try { s.f.contentWindow.postMessage({ tip: "tema", ad: d.tema }, "*"); }
+      catch (e) { /* boş tampon */ }
+    });
+    if (!sessizce) { depoYaz("tema", d.tema); olay("tema", { tema: d.tema }); }
+  }
+  // Tam ekran: gerçek; yoksa (iPhone Safari) sayfa içi sahte tam ekran. Yatay pakette yön kilidi.
+  function tamEkran() {
+    if (document.fullscreenElement === kok) return document.exitFullscreen();
+    if (kok.classList.contains("ko-tam-sahte")) return sahteKapat();
+    if (!kok.requestFullscreen) return sahteAc();
+    kok.requestFullscreen().then(() => {
+      if (d.GEN > d.YUK && screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock("landscape").catch(() => { /* masaüstü: kilit yok */ });
+      }
+    }).catch(sahteAc);
+  }
+  function sahteAc() {
+    kok.classList.add("ko-tam", "ko-tam-sahte"); document.documentElement.classList.add("ko-kilit");
+    tamYaz(true); olc();
+  }
+  function sahteKapat() {
+    kok.classList.remove("ko-tam", "ko-tam-sahte");
+    document.documentElement.classList.remove("ko-kilit"); tamYaz(false); olc();
+  }
+  function tamYaz(acik) {
+    ikon(bTam, acik ? "tamKapat" : "tam"); etiket(bTam, acik ? "Tam ekrandan çık" : "Tam ekran");
+  }
+  document.addEventListener("fullscreenchange", () => {
+    const acik = document.fullscreenElement === kok; kok.classList.toggle("ko-tam", acik);
+    tamYaz(acik); olc();
+  });
+  function duyur(m) { duyuru.textContent = m; }
+  function goster() { d.gizleT = performance.now() + GIZLE_MS; kok.classList.remove("ko-gizli"); }
+
+  // ---------- Menü (bölümler, hız) ----------
+  function menuKapat() {
+    d.menu = ""; menu.hidden = true;
+    [bBol, bHiz, bBolum].forEach((b) => b.setAttribute("aria-expanded", "false"));
+  }
+  function menuAc(tur, sag) {
+    if (d.menu === tur) return menuKapat();
+    d.menu = tur; menu.innerHTML = ""; menu.hidden = false; menu.classList.toggle("ko-sag", !!sag);
+    if (tur === "bolum") {
+      el("h4", null, menu, "Bölümler");
+      const bi = bolumNo(d.t);
+      d.B.forEach((b, i) => {
+        const x = el("button", i === bi ? "on" : "", menu); x.type = "button";
+        x.setAttribute("role", "menuitem");
+        x.innerHTML = "<span class='no'>" + (i + 1) + "</span><span class='ad'></span>" +
+          "<span class='zm'></span>";
+        x.querySelector(".ad").textContent = b.ad; x.querySelector(".zm").textContent = mmss(b.t0);
+        x.onclick = () => bolumGit(i);
+      });
+      bBol.setAttribute("aria-expanded", "true"); bBolum.setAttribute("aria-expanded", "true");
+    } else {
+      el("h4", null, menu, "Oynatma hızı");
+      HIZLAR.forEach((h) => {
+        const x = el("button", h === d.hiz ? "on" : "", menu); x.type = "button";
+        x.setAttribute("role", "menuitemradio");
+        x.setAttribute("aria-checked", String(h === d.hiz));
+        x.innerHTML = "<span class='ad'>" + (h === 1 ? "Normal" : hizYazi(h)) + "</span>" +
+          (h === d.hiz ? "<span class='zm'>✓</span>" : "");
+        x.onclick = () => hizSec(h);
+      });
+      bHiz.setAttribute("aria-expanded", "true");
+    }
+    const ilk = menu.querySelector("button.on") || menu.querySelector("button");
+    if (ilk) ilk.focus();
+  }
+  document.addEventListener("pointerdown", (ev) => {
+    if (!d.menu || menu.contains(ev.target)) return;
+    if (!ev.target.closest(".ko-bold, .ko-hizd, .ko-bolum-ad")) menuKapat();
+  });
+
+  // ---------- İlerleme çubuğu ----------
+  const parcalar = [];
+  function cubukKur() {
+    ray.innerHTML = ""; parcalar.length = 0;
+    d.B.forEach((b) => {
+      const p = el("div", "ko-parca", ray); p.style.setProperty("--f", String(b.t1 - b.t0));
+      parcalar.push({ b, p, tampon: el("div", "ko-tampon", p), oynanan: el("div", "ko-oynanan", p),
+        sT: -1, sB: -1 });
+    });
+    cubuk.setAttribute("aria-valuemax", String(Math.round(d.T)));
+  }
+  function cubukZaman(ev) {
+    const r = cubuk.getBoundingClientRect();
+    return sinirla((ev.clientX - r.left) / r.width, 0, 1) * d.T;
+  }
+  function ipucuYaz(ev) {
+    const x = cubukZaman(ev), r = cubuk.getBoundingClientRect(), b = d.B[bolumNo(x)];
+    ipucu.querySelector("b").textContent = b ? b.ad : "";
+    ipucu.querySelector("span").textContent = mmss(x);
+    const w = ipucu.offsetWidth / 2;
+    ipucu.style.left = sinirla(ev.clientX - r.left, w, r.width - w) + "px";
+  }
+  cubuk.addEventListener("pointerdown", (ev) => {
+    if (!d.hazir) return;
+    d.surukle = true; d.oynuyorduSurukle = d.oynuyor; cubuk.classList.add("ko-surukle");
+    cubuk.setPointerCapture(ev.pointerId); if (d.oynuyor) dur(true);
+    git(cubukZaman(ev)); ipucuYaz(ev);
+  });
+  cubuk.addEventListener("pointermove", (ev) => {
+    if (d.hazir) ipucuYaz(ev); if (d.surukle) git(cubukZaman(ev));
+  });
+  const surukleBitir = () => {
+    if (!d.surukle) return; d.surukle = false; cubuk.classList.remove("ko-surukle");
+    if (d.oynuyorduSurukle) oyna();
+  };
+  cubuk.addEventListener("pointerup", surukleBitir);
+  cubuk.addEventListener("pointercancel", surukleBitir);
+  cubuk.addEventListener("keydown", (ev) => {
+    if (ev.key === "ArrowLeft") { sar(-OK); ev.preventDefault(); }
+    else if (ev.key === "ArrowRight") { sar(OK); ev.preventDefault(); }
+  });
+
+  // ---------- Altyazı ----------
+  function altyaziYaz(x) {
+    if (!d.altyazi) return;
+    const a = d.alt.find((c) => x >= c.t0 && x < c.t1 + 0.35), m = a ? a.metin : "";
+    if (m === d.sonAlt) return; d.sonAlt = m; altyaziEl.innerHTML = "";
+    if (m) { const s = el("span", null, altyaziEl); s.lang = a.dil || "tr"; s.textContent = m; }
+  }
+
+  // ---------- Arayüz döngüsü (her karede yalnız değişen) ----------
+  function arayuz(x, y) {
+    if (!d.hazir && y.hazir) {
+      d.hazir = true; poster.classList.add("ko-hazir");
+      posterNot.textContent = d.dokunma ? "İzlemek için dokun" : "";
+      olay("hazir", { sure: d.T, bolumler: d.B.map((b) => ({ ad: b.ad, t0: b.t0, t1: b.t1 })) });
+    }
+    const sn = Math.floor(x);
+    if (sn !== d.sonSn) {
+      d.sonSn = sn; zamanEl.querySelector("b").textContent = mmss(x);
+      cubuk.setAttribute("aria-valuenow", String(sn));
+      cubuk.setAttribute("aria-valuetext", mmss(x) + " / " + mmss(d.T)); olay("zaman", { t: x });
+    }
+    const buf = au.buffered && au.buffered.length ? au.buffered.end(au.buffered.length - 1) : 0;
+    parcalar.forEach((p) => {
+      const n = p.b.t1 - p.b.t0, o = sinirla((x - p.b.t0) / n, 0, 1);
+      const t = sinirla((buf - p.b.t0) / n, 0, 1);
+      if (o !== p.sT) { p.oynanan.style.transform = "scaleX(" + o + ")"; p.sT = o; }
+      if (t !== p.sB) { p.tampon.style.transform = "scaleX(" + t + ")"; p.sB = t; }
+    });
+    tutamac.style.left = (x / d.T * 100) + "%";
+    const bi = bolumNo(x);
+    if (bi !== d.sonBolum) {
+      d.sonBolum = bi; bBolum.querySelector("b").textContent = d.B[bi] ? d.B[bi].ad : "";
+      if (d.basladi) duyur("Bölüm " + (bi + 1) + ": " + d.B[bi].ad);
+      olay("bolum", { no: bi, ad: d.B[bi] ? d.B[bi].ad : "", t0: d.B[bi] ? d.B[bi].t0 : 0 });
+    }
+    altyaziYaz(x);
+    const ik = d.oynuyor ? "dur" : "oynat", et = d.oynuyor ? "Duraklat" : "Oynat";
+    [bOynat, oOynat].forEach((b) => { ikon(b, ik); etiket(b, et); });
+    const gizli = d.oynuyor && !d.menu && !d.surukle && !d.kontrolUstunde &&
+      performance.now() > d.gizleT;
+    kok.classList.toggle("ko-gizli", gizli);
+  }
+  function dongu() {
+    if (d.oynuyor) {
+      d.t = au.currentTime; if (d.t >= d.T - 0.03) { d.t = d.T - 1 / d.FPS; bitir(); }
+    }
+    if (d.S.length) arayuz(d.t, sahneYonet(d.t));
+    requestAnimationFrame(dongu);
+  }
+
+  // ---------- Olaylar ----------
+  bOynat.onclick = oynatDur; oOynat.onclick = oynatDur; buyuk.onclick = oyna;
+  bGeri.onclick = () => sar(-SAR); oGeri.onclick = () => sar(-SAR);
+  bIleri.onclick = () => sar(SAR); oIleri.onclick = () => sar(SAR);
+  bSes.onclick = () => sessizSec(); sesKay.oninput = () => sesAyar(+sesKay.value);
+  bAlt.onclick = () => altyaziSec();
+  bTema.onclick = () => temaSec(d.tema === "acik" ? "koyu" : "acik");
+  bTam.onclick = tamEkran; bHiz.onclick = () => menuAc("hiz", true);
+  bBol.onclick = () => menuAc("bolum", true); bBolum.onclick = () => menuAc("bolum", false);
+  let sonTik = 0;
+  sahne.addEventListener("click", (ev) => {
+    if (ev.target.closest("button") || !d.hazir) return;
+    if (d.dokunma) { if (!d.gizliydi) d.gizleT = 0; return; }   // dokunma: kontrolleri aç / kapat
+    const simdi = performance.now();
+    if (simdi - sonTik < 300) { tamEkran(); sonTik = 0; return; }
+    sonTik = simdi; oynatDur();
+  });
+  kok.addEventListener("pointermove", goster);
+  kok.addEventListener("pointerdown", () => {
+    d.gizliydi = kok.classList.contains("ko-gizli"); goster();
+  });
+  kontrol.addEventListener("pointerenter", () => { d.kontrolUstunde = true; });
+  kontrol.addEventListener("pointerleave", () => { d.kontrolUstunde = false; goster(); });
+  document.addEventListener("keydown", (ev) => {
+    if (ev.ctrlKey || ev.metaKey || ev.altKey || !d.hazir) return;
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(ev.target.tagName) && ev.target !== sesKay) return;
+    if (!kok.contains(ev.target) && ev.target !== document.body) return;
+    const k = ev.key; let ok = true;
+    if (k === " " || k === "k" || k === "K") oynatDur();
+    else if (k === "j" || k === "J") sar(-SAR);
+    else if (k === "l" || k === "L") sar(SAR);
+    else if (k === "ArrowLeft") sar(-OK);
+    else if (k === "ArrowRight") sar(OK);
+    else if (k === "ArrowUp") sesAyar(d.ses + 0.1);
+    else if (k === "ArrowDown") sesAyar(d.ses - 0.1);
+    else if (k === "m" || k === "M") sessizSec();
+    else if (k === "c" || k === "C") altyaziSec();
+    else if (k === "f" || k === "F") tamEkran();
+    else if (k === "t" || k === "T") temaSec(d.tema === "acik" ? "koyu" : "acik");
+    else if (k === "[") { const bi = bolumNo(d.t); bolumGit(d.t - d.B[bi].t0 > 1.5 ? bi : bi - 1); }
+    else if (k === "]") bolumGit(bolumNo(d.t) + 1);
+    else if (k === "Home") git(0);
+    else if (k === "End") git(d.T);
+    else if (k === "Escape") {
+      if (d.menu) menuKapat(); else if (kok.classList.contains("ko-tam-sahte")) sahteKapat();
+      else ok = false;
+    }
+    else ok = false;
+    if (ok) { ev.preventDefault(); goster(); }
+  });
+  au.addEventListener("ended", () => { if (d.oynuyor) bitir(); });
+  au.addEventListener("loadedmetadata", () => {
+    if (Math.abs(au.currentTime - d.t) > 0.05) au.currentTime = d.t;
+  });
+  au.addEventListener("error", () => hataGoster("Ses dosyası yüklenemedi."));
+  au.addEventListener("waiting", () => kok.classList.add("ko-bekliyor"));
+  au.addEventListener("playing", () => kok.classList.remove("ko-bekliyor"));
+  au.addEventListener("canplay", () => kok.classList.remove("ko-bekliyor"));
+
+  // ---------- Hata paneli ve veri yükleme ----------
+  function hataGoster(m) {
+    hata.hidden = false; hata.innerHTML = "";
+    el("div", "ko-hata-ik", hata, svg("uyari")); el("p", null, hata).textContent = m;
+    const b = el("button", "ko-tekrar", hata, svg("tekrar") + "<span>Tekrar dene</span>");
+    b.type = "button"; b.onclick = yukle; olay("hata", { mesaj: m });
+  }
+  function yukle() {
+    hata.hidden = true; posterNot.textContent = "Yükleniyor"; kok.classList.add("ko-bekliyor");
+    fetch(d.paket + "zaman.json").then((r) => {
+      if (!r.ok) throw new Error("zaman.json " + r.status); return r.json();
+    }).then((z) => {
+      d.S = z.sahneler || []; if (!d.S.length) throw new Error("sahne yok");
+      d.FPS = z.fps || 30; d.GEN = z.genislik || 1920; d.YUK = z.yukseklik || 1080;
+      d.T = d.S[d.S.length - 1].t_son; d.B = bolumListesi(d.S);
+      if (!sec.tema && depoAl("tema", null) == null && z.tema) d.tema = z.tema;
+      kok.style.setProperty("--ar", d.GEN + " / " + d.YUK);
+      kok.dataset.yon = d.GEN >= d.YUK ? "yatay" : "dikey";
+      zamanEl.querySelector("span").textContent = " / " + mmss(d.T);
+      au.src = d.paket + (z.anlatim || "ortak/anlatim/anlatim.wav");
+      temaSec(d.tema, true); cubukKur(); olc(); kok.classList.remove("ko-bekliyor");
+      return fetch(d.paket + "ortak/anlatim/altyazi.json").then((r) => (r.ok ? r.json() : []))
+        .catch(() => []).then((a) => { d.alt = Array.isArray(a) ? a : []; });
+    }).catch((e) => {
+      kok.classList.remove("ko-bekliyor"); hataGoster("Video verisi yüklenemedi: " + e.message);
+    });
+  }
+
+  // ---------- Açılış ----------
+  sesUygula(); altyaziSec(d.altyazi); tamYaz(false);
+  ikon(bTema, d.tema === "acik" ? "gunes" : "ay"); sahne.style.background = ZEMIN[d.tema];
+  yukle(); requestAnimationFrame(dongu);
+
+  return {
+    oyna, dur, git, bolumGit, hiz: hizSec, tema: temaSec, tamEkran, altyazi: altyaziSec, kok,
+    durum: () => ({ t: d.t, sure: d.T, oynuyor: d.oynuyor, bolum: bolumNo(d.t), tema: d.tema,
+      hazir: d.hazir }),
+    bolumler: () => d.B.map((b) => ({ ad: b.ad, t0: b.t0, t1: b.t1 })),
+  };
+}

@@ -1,0 +1,198 @@
+/* Kalem ders oynatıcısı — prototip 0.1 (08.11.2026). Krom her zaman koyu kaplama (sahne üstünde);
+   sahne zemini paket temasından (acik/koyu). Renkler belirteçte, bileşende ham renk yok. */
+.ko{
+  --ko-metin:#fff;--ko-vurgu:#fece00;--ko-lacivert:#13204D;--ko-zemin:#f7f3ea;--ko-d:44px;
+  --ar:16 / 9;--ko-kaplama:rgba(0,0,0,.74);--ko-cam:rgba(20,22,30,.94);
+  --ko-ray:rgba(255,255,255,.28);
+  position:relative;background:var(--ko-zemin);color:var(--ko-metin);border-radius:12px;
+  overflow:hidden;outline:none;user-select:none;-webkit-user-select:none;
+  -webkit-tap-highlight-color:transparent;container-type:inline-size;
+  font:500 14px/1.3 Lexend,system-ui,sans-serif;font-variant-numeric:tabular-nums
+}
+.ko[data-tema=koyu]{--ko-zemin:#1b1a17}
+.ko:focus-visible{box-shadow:0 0 0 3px var(--ko-vurgu)}
+.ko *{box-sizing:border-box}
+.ko svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;
+  stroke-linejoin:round;display:block}
+.ko svg text{font:700 8px Lexend,system-ui,sans-serif;fill:currentColor;stroke:none;
+  text-anchor:middle}
+.ko .ko-oynat svg path,.ko-buyuk svg path{fill:currentColor}
+
+/* sahne ve tamponlar */
+.ko-sahne{position:relative;width:100%;aspect-ratio:var(--ar);display:flex;align-items:center;
+  justify-content:center;background:var(--ko-zemin);cursor:pointer;overflow:hidden}
+.ko.ko-gizli.ko-oynuyor .ko-sahne{cursor:none}
+.ko-pane{position:relative;overflow:hidden;perspective:2400px}
+.ko-yaprak{position:absolute;inset:0;opacity:0;transform-origin:left center;
+  backface-visibility:hidden;will-change:transform,opacity}
+.ko-yaprak.ko-kivrim{box-shadow:14px 0 42px rgba(0,0,0,.35)}
+.ko-yaprak iframe{position:absolute;left:0;top:0;border:0;transform-origin:0 0;
+  pointer-events:none;background:inherit}
+
+/* kaplama ve kontrol çubuğu */
+.ko-golge{position:absolute;left:0;right:0;bottom:0;height:160px;pointer-events:none;
+  background:linear-gradient(to top,rgba(0,0,0,.84) 0,var(--ko-kaplama) 52px,rgba(0,0,0,0) 100%);
+  transition:opacity .2s}
+.ko-kontrol{position:absolute;left:0;right:0;bottom:0;padding:0 10px 4px;transition:opacity .2s}
+.ko.ko-gizli.ko-oynuyor .ko-golge,.ko.ko-gizli.ko-oynuyor .ko-kontrol,
+.ko.ko-gizli.ko-oynuyor .ko-orta{opacity:0;pointer-events:none}
+.ko-sira{display:flex;align-items:center;gap:2px;height:44px;min-width:0}
+.ko-bos{flex:1}
+.ko-d{position:relative;width:var(--ko-d);height:var(--ko-d);display:inline-flex;align-items:center;
+  justify-content:center;border:0;background:transparent;color:inherit;border-radius:8px;
+  cursor:pointer;padding:0;flex:none;transition:background .12s,transform .12s}
+.ko-d:hover{background:rgba(255,255,255,.14)}
+.ko-d:active{transform:scale(.94)}
+.ko-d:focus-visible,.ko-bolum-ad:focus-visible,.ko-cubuk:focus-visible{
+  outline:2px solid var(--ko-vurgu);outline-offset:-2px}
+.ko-d[aria-pressed=true]::after{content:"";position:absolute;left:13px;right:13px;bottom:7px;
+  height:2px;border-radius:1px;background:var(--ko-vurgu)}
+.ko-ses{display:flex;align-items:center}
+.ko-ses input{width:0;opacity:0;height:var(--ko-d);margin:0;cursor:pointer;
+  accent-color:var(--ko-vurgu);transition:width .15s,opacity .15s}
+.ko-ses:hover input,.ko-ses:focus-within input{width:76px;opacity:1;margin-right:8px}
+.ko-zaman{font-size:13.5px;padding:0 8px;white-space:nowrap}
+.ko-zaman span{opacity:.75}
+.ko-bolum-ad{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 8px;border:0;
+  background:transparent;color:inherit;font:inherit;font-weight:700;border-radius:8px;
+  cursor:pointer;min-width:0}
+.ko-bolum-ad:hover{background:rgba(255,255,255,.14)}
+.ko-bolum-ad i{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.7;flex:none}
+.ko-bolum-ad b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ko-bolum-ad svg{width:16px;height:16px;flex:none;opacity:.8}
+
+/* ilerleme çubuğu: bölüm parçaları (YouTube düzeni), oynanan + tampon, tutamaç, ipucu */
+.ko-cubuk{position:relative;height:22px;display:flex;align-items:center;cursor:pointer;
+  touch-action:none;margin:0 2px}
+.ko-ray{display:flex;gap:3px;width:100%;height:4px;transition:height .12s}
+.ko-cubuk:hover .ko-ray,.ko-cubuk.ko-surukle .ko-ray,.ko-cubuk:focus-visible .ko-ray{height:6px}
+.ko-parca{position:relative;flex:var(--f) 1 0;height:100%;background:var(--ko-ray);
+  border-radius:2px;overflow:hidden}
+.ko-tampon,.ko-oynanan{position:absolute;inset:0;transform-origin:left;transform:scaleX(0)}
+.ko-tampon{background:rgba(255,255,255,.3)}
+.ko-oynanan{background:var(--ko-vurgu)}
+.ko-tutamac{position:absolute;top:50%;left:0;width:14px;height:14px;margin:-7px 0 0 -7px;
+  border-radius:50%;background:var(--ko-vurgu);box-shadow:0 0 0 2px rgba(0,0,0,.25);
+  transform:scale(0);transition:transform .12s;pointer-events:none}
+.ko-cubuk:hover .ko-tutamac,.ko-cubuk.ko-surukle .ko-tutamac,
+.ko-cubuk:focus-visible .ko-tutamac{transform:scale(1)}
+.ko-ipucu{position:absolute;bottom:28px;left:0;transform:translateX(-50%);background:var(--ko-cam);
+  padding:6px 10px;border-radius:6px;font-size:13px;white-space:nowrap;pointer-events:none;
+  opacity:0;transition:opacity .12s;text-align:center}
+.ko-ipucu b{display:block;font-weight:700}
+.ko-ipucu span{opacity:.8}
+.ko-cubuk:hover .ko-ipucu,.ko-cubuk.ko-surukle .ko-ipucu{opacity:1}
+
+/* afiş: ilk kare görünür, üstünde büyük oynat; bitişte tekrar */
+.ko-poster{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:14px;background:var(--ko-zemin);
+  color:var(--ko-lacivert);transition:opacity .25s}
+.ko[data-tema=koyu] .ko-poster{color:#f3efe6}
+.ko-poster.ko-hazir{background:rgba(0,0,0,.28);color:#fff}
+.ko-poster.ko-yok{opacity:0;pointer-events:none}
+.ko-poster-ust{position:absolute;left:20px;top:14px;right:20px;display:flex;
+  justify-content:space-between;align-items:baseline;gap:12px;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.ko-poster-ust b{font-size:18px;font-weight:700}
+.ko-poster-ust small{font-size:13px;opacity:.85;white-space:nowrap}
+.ko-buyuk{width:76px;height:76px;border-radius:50%;border:0;background:var(--ko-lacivert);
+  color:var(--ko-vurgu);display:flex;align-items:center;justify-content:center;cursor:pointer;
+  padding:0;box-shadow:0 8px 24px rgba(0,0,0,.28);transition:transform .15s}
+.ko-buyuk:hover{transform:scale(1.06)}
+.ko-buyuk:focus-visible{outline:3px solid var(--ko-vurgu);outline-offset:3px}
+.ko-buyuk svg{width:34px;height:34px}
+.ko-poster-not{font-size:14px;min-height:1.3em;opacity:.9;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.ko-poster-not:empty{display:none}
+.ko.ko-bekliyor .ko-poster-not::after{content:"";display:inline-block;width:14px;height:14px;
+  margin-left:8px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;
+  vertical-align:-2px;animation:ko-don .8s linear infinite}
+@keyframes ko-don{to{transform:rotate(360deg)}}
+
+/* dokunmatik orta kontroller */
+.ko-orta{position:absolute;inset:0;display:none;align-items:center;justify-content:center;gap:36px;
+  pointer-events:none;transition:opacity .2s;z-index:3}
+.ko.ko-dokunma .ko-orta{display:flex}
+.ko-orta .ko-d{pointer-events:auto;width:56px;height:56px;border-radius:50%;
+  background:rgba(0,0,0,.55)}
+.ko-orta .ko-oynat{width:68px;height:68px}
+.ko-orta svg{width:30px;height:30px}
+.ko.ko-dokunma .ko-sira .ko-oynat,.ko.ko-dokunma .ko-sira .ko-geri,
+.ko.ko-dokunma .ko-sira .ko-ileri,.ko.ko-dokunma .ko-sira .ko-ses input{display:none}
+.ko.ko-dokunma:has(.ko-poster:not(.ko-yok)) .ko-orta,
+.ko.ko-dokunma:has(.ko-hata:not([hidden])) .ko-orta{display:none}
+
+/* menü */
+.ko-menu{position:absolute;left:12px;bottom:64px;min-width:230px;
+  max-width:min(340px,calc(100% - 24px));max-height:calc(100% - 92px);overflow:auto;
+  background:var(--ko-cam);backdrop-filter:blur(8px);border-radius:10px;padding:6px;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);z-index:6}
+.ko-menu.ko-sag{left:auto;right:12px}
+.ko-menu[hidden]{display:none}
+.ko-menu h4{margin:6px 10px 4px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+  opacity:.7}
+.ko-menu button{display:flex;width:100%;align-items:center;gap:10px;border:0;background:transparent;
+  color:inherit;font:inherit;text-align:left;padding:0 10px;min-height:44px;border-radius:6px;
+  cursor:pointer}
+.ko-menu button:hover,.ko-menu button:focus-visible{background:rgba(255,255,255,.12);outline:none}
+.ko-menu button.on{color:var(--ko-vurgu)}
+.ko-menu button .ad{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ko-menu button .zm{margin-left:auto;opacity:.75;font-size:13px}
+.ko-menu button .no{width:24px;height:24px;border-radius:6px;background:rgba(255,255,255,.12);
+  display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;
+  flex:none}
+.ko-menu button.on .no{background:var(--ko-vurgu);color:var(--ko-lacivert)}
+
+/* altyazı */
+.ko-altyazi{position:absolute;left:6%;right:6%;bottom:70px;text-align:center;pointer-events:none;
+  z-index:4;transition:bottom .2s}
+.ko.ko-gizli.ko-oynuyor .ko-altyazi{bottom:22px}
+.ko-altyazi:empty,.ko-altyazi[hidden]{display:none}
+.ko-altyazi span{display:inline-block;background:rgba(0,0,0,.7);color:#fff;padding:5px 12px;
+  border-radius:6px;font-size:clamp(14px,2.2cqw,22px);line-height:1.35;max-width:100%}
+
+/* hata paneli */
+.ko-hata{position:absolute;inset:0;z-index:7;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:10px;padding:24px;text-align:center;background:var(--ko-cam);
+  color:#fff}
+.ko-hata[hidden]{display:none}
+.ko-hata-ik svg{width:40px;height:40px;color:var(--ko-vurgu)}
+.ko-hata p{margin:0;font-size:15px;max-width:40ch}
+.ko-tekrar{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border:0;
+  border-radius:22px;background:var(--ko-vurgu);color:var(--ko-lacivert);font:inherit;
+  font-weight:700;cursor:pointer}
+.ko-tekrar svg{width:20px;height:20px}
+
+/* canlı bölge (görünmez) */
+.ko-duyuru{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
+  white-space:nowrap}
+
+/* tam ekran: gerçek ve sahte (iPhone) */
+.ko.ko-tam{border-radius:0;width:100vw;height:100vh;display:flex;align-items:center;
+  justify-content:center;background:#000}
+.ko.ko-tam .ko-sahne{width:min(100vw,calc(100vh * (var(--ar))));height:auto;max-height:100vh}
+.ko.ko-tam-sahte{position:fixed;inset:0;z-index:9999}
+html.ko-kilit,html.ko-kilit body{overflow:hidden}
+
+/* dar oynatıcı (telefon dikey, dikey paket): kapsayıcı sorgusu — sayfa değil oynatıcı genişliği */
+@container (max-width:480px){
+  .ko-kontrol{padding:0 6px 2px}
+  .ko-sira{--ko-d:40px;height:40px}
+  .ko-zaman{font-size:12.5px;padding:0 4px}
+  .ko-bolum-ad,.ko-temad{display:none}
+  .ko-golge{height:120px}
+  .ko-poster-ust b{font-size:15px}
+  .ko-poster-ust small{display:none}
+  .ko-buyuk{width:64px;height:64px}
+  .ko-orta{gap:28px;transform:translateY(-14px)}
+  .ko-orta .ko-d{width:44px;height:44px}
+  .ko-orta .ko-oynat{width:52px;height:52px}
+  .ko-orta svg{width:24px;height:24px}
+  .ko-altyazi{bottom:56px;left:4%;right:4%}
+  .ko-altyazi span{font-size:13px;padding:4px 8px}
+  .ko.ko-gizli.ko-oynuyor .ko-altyazi{bottom:16px}
+  .ko-menu{bottom:52px;min-width:200px}
+}
+@media (max-width:560px){.ko{border-radius:0}}
+
+@media (prefers-reduced-motion:reduce){
+  .ko *,.ko *::after{transition-duration:0s !important;animation-duration:0s !important}
+}
