@@ -9,6 +9,7 @@
     {
       "no": 1,
       "klasor": "01-hyperframes-giris",
+      "bolum": "giris",
       "motor": "HyperFrames",
       "kare": 102,
       "t_bas": 0,
@@ -19,6 +20,7 @@
     {
       "no": 2,
       "klasor": "02-paperjs-kanca",
+      "bolum": "kanca",
       "motor": "Paper.js",
       "kare": 385,
       "t_bas": 3.0,
@@ -29,6 +31,7 @@
     {
       "no": 3,
       "klasor": "03-paperjs-ornek1",
+      "bolum": "ornek1",
       "motor": "Paper.js",
       "kare": 453,
       "t_bas": 15.44,
@@ -39,6 +42,7 @@
     {
       "no": 4,
       "klasor": "04-canvas-ornek2",
+      "bolum": "ornek2",
       "motor": "Düz canvas",
       "kare": 487,
       "t_bas": 30.15,
@@ -49,6 +53,7 @@
     {
       "no": 5,
       "klasor": "05-canvas-ornek3",
+      "bolum": "ornek3",
       "motor": "Düz canvas",
       "kare": 517,
       "t_bas": 45.98,
@@ -59,6 +64,7 @@
     {
       "no": 6,
       "klasor": "06-hyperframes-form",
+      "bolum": "form",
       "motor": "HyperFrames",
       "kare": 766,
       "t_bas": 62.81,

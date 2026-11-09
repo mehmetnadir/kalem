@@ -15,7 +15,8 @@
       "t_son": 3.0,
       "icerik_kare": 90,
       "gecis": "BookFlip",
-      "ad": "Kapak"
+      "ad": "Kapak",
+      "bolum": "Kapak"
     },
     {
       "no": 2,
@@ -26,7 +27,8 @@
       "t_son": 16.75,
       "icerik_kare": 412,
       "gecis": "BookFlip",
-      "ad": "Örnek"
+      "ad": "Örnek",
+      "bolum": "Örnek"
     },
     {
       "no": 3,
@@ -36,7 +38,8 @@
       "t_bas": 16.75,
       "t_son": 23.97,
       "icerik_kare": 217,
-      "ad": "CTA"
+      "ad": "CTA",
+      "bolum": "CTA"
     }
   ]
 }

@@ -14,7 +14,8 @@
       "t_bas": 0.0,
       "t_son": 3.0,
       "icerik_kare": 90,
-      "ad": "Giriş"
+      "ad": "Giriş",
+      "bolum": "Giriş"
     },
     {
       "no": 2,
@@ -24,7 +25,8 @@
       "t_bas": 3.0,
       "t_son": 15.45,
       "icerik_kare": 374,
-      "ad": "Kanca"
+      "ad": "Kanca",
+      "bolum": "Kanca"
     },
     {
       "no": 3,
@@ -34,7 +36,8 @@
       "t_bas": 15.45,
       "t_son": 27.69,
       "icerik_kare": 367,
-      "ad": "Örnek 1"
+      "ad": "Örnek 1",
+      "bolum": "Örnek 1"
     },
     {
       "no": 4,
@@ -44,7 +47,8 @@
       "t_bas": 27.69,
       "t_son": 43.36,
       "icerik_kare": 470,
-      "ad": "Örnek 2"
+      "ad": "Örnek 2",
+      "bolum": "Örnek 2"
     },
     {
       "no": 5,
@@ -55,6 +59,7 @@
       "t_son": 60.47,
       "icerik_kare": 513,
       "ad": "Örnek 3",
+      "bolum": "Örnek 3",
       "gecis": "fade"
     },
     {
@@ -65,7 +70,8 @@
       "t_bas": 60.47,
       "t_son": 93.47,
       "icerik_kare": 990,
-      "ad": "Soru + Form"
+      "ad": "Soru + Form",
+      "bolum": "Soru + Form"
     }
   ]
 }

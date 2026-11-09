@@ -15,6 +15,7 @@
       "t_son": 3.0,
       "icerik_kare": 90,
       "ad": "Kapak",
+      "bolum": "Kapak",
       "gecis": "BookFlip"
     },
     {
@@ -26,6 +27,7 @@
       "t_son": 12.51,
       "icerik_kare": 285,
       "ad": "Örnek",
+      "bolum": "Örnek",
       "gecis": "BookFlip"
     },
     {
@@ -36,7 +38,8 @@
       "t_bas": 12.51,
       "t_son": 19.25,
       "icerik_kare": 202,
-      "ad": "Çağrı"
+      "ad": "Çağrı",
+      "bolum": "Çağrı"
     }
   ]
 }

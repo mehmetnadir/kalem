@@ -15,6 +15,7 @@
       "t_son": 3.0,
       "icerik_kare": 90,
       "ad": "Giriş",
+      "bolum": "Giriş",
       "gecis": "BookFlip"
     },
     {
@@ -26,6 +27,7 @@
       "t_son": 15.45,
       "icerik_kare": 374,
       "ad": "Kanca",
+      "bolum": "Kanca",
       "gecis": "BookFlip"
     },
     {
@@ -37,6 +39,7 @@
       "t_son": 27.69,
       "icerik_kare": 367,
       "ad": "Örnek 1",
+      "bolum": "Örnek 1",
       "gecis": "BookFlip"
     },
     {
@@ -48,6 +51,7 @@
       "t_son": 43.36,
       "icerik_kare": 470,
       "ad": "Örnek 2",
+      "bolum": "Örnek 2",
       "gecis": "BookFlip"
     },
     {
@@ -59,6 +63,7 @@
       "t_son": 60.47,
       "icerik_kare": 513,
       "ad": "Örnek 3",
+      "bolum": "Örnek 3",
       "gecis": "fade"
     },
     {
@@ -70,6 +75,7 @@
       "t_son": 93.47,
       "icerik_kare": 990,
       "ad": "Soru + Form",
+      "bolum": "Soru + Form",
       "gecis": "fade"
     }
   ]
