@@ -16,7 +16,7 @@ import { yonAdi, yonIstek, ciftUyumlu } from "./yon.js";
 import { sozlukSec, dilCoz, DILLER } from "./sozluk.js";
 import "./cekirdek.js";                       // globalThis.KalemCekirdek (editörle ortak)
 const C = globalThis.KalemCekirdek;
-export const SURUM = "0.4.4";
+export const SURUM = "0.4.5";
 const GIZLE_MS = 3000, SAR = 10, OK = 5;
 const DEPO = "kalem.oynatici.", HIZLAR = [0.75, 1, 1.25, 1.5, 2];
 const ZEMIN = { acik: "#f7f3ea", koyu: "#1b1a17" };
@@ -89,7 +89,7 @@ export function monte(kok, sec) {
     .map((p) => String(p).replace(/\/?$/, "/"));
   const d = {
     paketler, Y: {}, yon: "", bekleyenY: null, sicak: false,
-    B: [], T: 0, FPS: 30, t: 0, oynuyor: false, bitti: false,
+    B: [], T: 0, FPS: 30, t: 0, oynuyor: false, bitti: false, sahneBekle: false,
     hiz: depoAl("hiz", 1), ses: depoAl("ses", 1), sessiz: depoAl("sessiz", false),
     altyazi: depoAl("altyazi", true), tema: sec.tema || depoAl("tema", null) || "acik",
     dil: dilCoz(sec, kok),
@@ -131,6 +131,7 @@ export function monte(kok, sec) {
   const herSlot = (fn) => herY((Y) => Y.slot.forEach((s) => fn(s, Y)));
   const altyaziEl = el("div", "ko-altyazi", sahne); altyaziEl.setAttribute("aria-live", "off");
   const orta = el("div", "ko-orta", sahne);
+  const donen = el("div", "ko-sahne-donen", sahne); donen.setAttribute("aria-hidden", "true");
   const oGeri = dugme(orta, "ko-geri", M.saniyeGeri(SAR), "geri");
   const oOynat = dugme(orta, "ko-oynat", M.oynat, "oynat");
   const oIleri = dugme(orta, "ko-ileri", M.saniyeIleri(SAR), "ileri");
@@ -477,13 +478,22 @@ export function monte(kok, sec) {
       performance.now() > d.gizleT;
     kok.classList.toggle("ko-gizli", gizli);
   }
+  // Sahne tamponu: aktif sahne hazır değilse (yavaş ağ, uzak sarma) ses durur, halka döner;
+  // hazır olunca kendiliğinden sürer (video tamponlaması). Kullanıcı duraklatmasına dokunmaz.
+  function sahneTampon(hazir) {
+    const bekle = d.oynuyor && !hazir;
+    if (bekle === d.sahneBekle) return;
+    d.sahneBekle = bekle; kok.classList.toggle("ko-sahne-bekliyor", bekle);
+    if (bekle) { au.pause(); duyur(M.yukleniyor); }
+    else if (d.oynuyor) au.play().catch(() => { dur(); });   // oynatma izni düştüyse afişe döner
+  }
   function dongu() {
     if (d.oynuyor) {
       d.t = au.currentTime; if (d.t >= d.T - 0.03) { d.t = d.T - 1 / d.FPS; bitir(); }
     }
     const Y = A();
     if (Y) {
-      const r = sahneYonet(d.t, Y, true);
+      const r = sahneYonet(d.t, Y, true); sahneTampon(r.hazir);
       herY((Z) => {                                        // sıcak pasif yön ve bekleyen eski yön
         if (Z !== Y && (d.sicak || Z === d.bekleyenY)) sahneYonet(d.t, Z, Z === d.bekleyenY);
       });

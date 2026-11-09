@@ -113,6 +113,14 @@
   margin-left:8px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;
   vertical-align:-2px;animation:ko-don .8s linear infinite}
 @keyframes ko-don{to{transform:rotate(360deg)}}
+/* sahne tamponu (0.4.5): aktif sahne hazır değilken ses durur, ortada halka; ses tamponlanırken
+   (waiting) de aynı halka */
+.ko-sahne-donen{position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  pointer-events:none;z-index:4}
+.ko-sahne-donen::after{content:"";width:46px;height:46px;border-radius:50%;
+  border:3px solid rgba(255,255,255,.9);border-right-color:transparent;
+  box-shadow:0 0 0 1px rgba(0,0,0,.25);animation:ko-don .8s linear infinite}
+.ko.ko-sahne-bekliyor .ko-sahne-donen,.ko.ko-oynuyor.ko-bekliyor .ko-sahne-donen{display:flex}
 
 /* tam ekran düğmesi (yön çifti): küçük telefon dikeyden yataya döner, 7 sn'de bir; üstünde hızlı */
 .ko-tamd .ko-tel{transform-box:fill-box;transform-origin:center;
