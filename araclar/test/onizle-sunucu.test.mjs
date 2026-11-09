@@ -131,3 +131,27 @@ test('önizleme sunucusu koşullu istek akışı', { timeout: 5000 }, async () =
     await new Promise((coz) => sunucu.close(coz));
   }
 });
+
+test('/p/<proje>/onizle.html editör bağları (betik, stil) sunucuda 200 döner', { timeout: 5000 },
+  async () => {
+  // 09.11: ../oynatici/cekirdek.js göreli yolu /p/ altında 404 veriyordu (KalemCekirdek tanımsız,
+  // editör açılmadı)
+  const sunucu = await baslat({ kok: KOK, port: 0, adres: '127.0.0.1' });
+  const port = sunucu.address().port;
+  const sayfaUrl = `http://127.0.0.1:${port}/p/present-perfect-temel/onizle.html`;
+  try {
+    const res = await fetch(sayfaUrl);
+    assert.equal(res.status, 200);
+    const html = await res.text();
+    const baglar = [...html.matchAll(/<(?:script|link)[^>]*(?:src|href)="([^"]+)"/g)]
+      .map((m) => m[1]);
+    assert.ok(baglar.length >= 3, 'bağ bulunamadı: ' + baglar.length);
+    for (const b of baglar) {
+      const url = new URL(b, sayfaUrl).href;
+      const r = await fetch(url);
+      assert.equal(r.status, 200, `${b} → ${r.status}`);
+    }
+  } finally {
+    await new Promise((coz) => sunucu.close(coz));
+  }
+});
