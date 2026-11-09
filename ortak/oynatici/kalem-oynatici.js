@@ -16,7 +16,7 @@ import { yonAdi, yonIstek, ciftUyumlu } from "./yon.js";
 import { sozlukSec, dilCoz, DILLER } from "./sozluk.js";
 import "./cekirdek.js";                       // globalThis.KalemCekirdek (editörle ortak)
 const C = globalThis.KalemCekirdek;
-export const SURUM = "0.4.5";
+export const SURUM = "0.4.6";
 const GIZLE_MS = 3000, SAR = 10, OK = 5;
 const DEPO = "kalem.oynatici.", HIZLAR = [0.75, 1, 1.25, 1.5, 2];
 const ZEMIN = { acik: "#f7f3ea", koyu: "#1b1a17" };
@@ -495,7 +495,10 @@ export function monte(kok, sec) {
     if (Y) {
       const r = sahneYonet(d.t, Y, true); sahneTampon(r.hazir);
       herY((Z) => {                                        // sıcak pasif yön ve bekleyen eski yön
-        if (Z !== Y && (d.sicak || Z === d.bekleyenY)) sahneYonet(d.t, Z, Z === d.bekleyenY);
+        // Sıcak yön tembel (09.11, Nadir): pasif yön ancak aktif ilk sahne hazır olunca yüklenir;
+        // açılışta ilk kareyle bant genişliği yarışmaz, dönüş yine kesintisizdir.
+        const sicakSira = d.sicak && d.hazir;
+        if (Z !== Y && (sicakSira || Z === d.bekleyenY)) sahneYonet(d.t, Z, Z === d.bekleyenY);
       });
       if (d.bekleyenY && r.hazir) {
         d.bekleyenY.pane.classList.add("ko-pasif"); d.bekleyenY = null;
