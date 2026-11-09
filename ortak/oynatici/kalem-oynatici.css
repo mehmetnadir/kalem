@@ -32,8 +32,9 @@
   pointer-events:none;background:inherit}
 
 /* kaplama ve kontrol çubuğu */
-.ko-golge{position:absolute;left:0;right:0;bottom:0;height:160px;pointer-events:none;
-  background:linear-gradient(to top,rgba(0,0,0,.84) 0,var(--ko-kaplama) 52px,rgba(0,0,0,0) 100%);
+/* gölge yalnız kontrol şeridini taşır (Nadir 09.11: açık sahnede figür kararmasın → 160 → 120 px) */
+.ko-golge{position:absolute;left:0;right:0;bottom:0;height:120px;pointer-events:none;
+  background:linear-gradient(to top,rgba(0,0,0,.82) 0,var(--ko-kaplama) 48px,rgba(0,0,0,0) 100%);
   transition:opacity .2s}
 .ko-kontrol{position:absolute;left:0;right:0;bottom:0;padding:0 10px 4px;transition:opacity .2s}
 .ko.ko-gizli.ko-oynuyor .ko-golge,.ko.ko-gizli.ko-oynuyor .ko-kontrol,

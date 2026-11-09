@@ -24,5 +24,6 @@ sürer; kilidi kapsüle dokunuş ya da hız menüsü çözer; video bitince çö
 Etkinken `touchmove` engellenir (sayfa kaymaz); kilitliyken sıradan dokunuş duraklat / kontroller gibi davranır. Dokunmatik
 orta düğmelerin üstünde bas-tut çalışmaz (düğme). Testler: `araclar/test/oynatici-turbo.test.mjs` (5 test, saf durum makinesi).
 
-Açık (Nadir kararı, v1'den sürüyor): kontrol çubuğu sahne üstünde (künye alt satırı yalnız kontroller açıkken örtülür) mü,
-altında mı. Afiş görseli yok. Gerçek iPhone'da bas-tut ve `-webkit-touch-callout` denenmedi.
+Kapanan (Nadir 09.11 "önerine göre ilerleyelim"): kontrol çubuğu sahne üstünde kalır (K38); alt gölge 160 → 120 px ve
+hafifletildi (açık sahnede figür kararmıyor; `v3-golge-1440.png`, `v3-golge-390-dikey.png` şef okudu).
+Açık: afiş görseli yok. Gerçek iPhone'da bas-tut ve `-webkit-touch-callout` denenmedi.
