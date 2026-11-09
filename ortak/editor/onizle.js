@@ -1,7 +1,8 @@
 // Present Continuous — kurgu editörü. Tek saat: <audio>.
 // Sahneler iframe'de ?canli=1&mesaj=1 ile yalnız mesaj zamanıyla çizer.
 "use strict";
-var PROJE = KalemYol.projeAdi() || "present-continuous", YOL = KalemYol.projeYolu(PROJE), FPS = 30, GECIS = 0.4, ONYUKLE = 3, ET = 104;
+var PROJE = KalemYol.projeAdi() || "present-continuous", YOL = KalemYol.projeYolu(PROJE);
+var FPS = 30, ET = 104;
 var BOLUM = ["Giriş", "Hook", "Example 1 / 3", "Example 2 / 3", "Example 3 / 3", "Question"];
 function bolumAd(i) {
   var s = S[i]; if (!s) return "";
@@ -88,60 +89,17 @@ function veriYukle() {
   });
 }
 
-// ---------- Sahne penceresi: her pencere kendi çift iframe tamponu, teması ve sürümü ----------
-function sahneNo(p, x) { var L = p.S; for (var i = L.length - 1; i >= 0; i--) if (x >= L[i].t_bas) return i; return 0; }
-function url(p, i) {
-  var s = p.S[i];
-  return p.yol + "sahneler/" + s.klasor + (s.motor === "HyperFrames" ? "/proje/index.html" : "/sayfa.html") +
-    "?canli=1&mesaj=1&tbas=" + s.t_bas + (p.tema === "acik" ? "&tema=acik" : "");
-}
-function slotYukle(p, s, i) { s.no = i; s.hazir = false; s.goster = false; s.sonT = null; s.sonF = -1; s.f.src = url(p, i); }
-function slotBul(p, i, goster) {
-  for (var k = 0; k < p.slot.length; k++) if (p.slot[k].no === i && (!goster || p.slot[k].goster)) return p.slot[k];
-  return null;
-}
+// ---------- Sahne penceresi: ortak çekirdek ../oynatici/cekirdek.js (oynatıcıyla AYNI kod) ------
+// Pencere p: S, paket (= yol), tema, slot[{idx, y, f, …}], gosterilen. Kıvrım/fade ve mesaj bütçesi
+// (05.11: ikincil pencereler oynarken tek karede bir, 15 fps) çekirdekte.
+var C = KalemCekirdek;
+function sahneNo(p, x) { return C.sahneNo(p.S, x); }
 function sahneYonet(p, x) {
-  var i = sahneNo(p, x), cur = slotBul(p, i, true), L = p.S, slot = p.slot;
-  if (cur) p.gosterilen = cur.idx;
-  else if (!slotBul(p, i, false)) slotYukle(p, slot[p.gosterilen === 0 ? 1 : 0], i);
-  if (cur && i + 1 < L.length && x >= L[i + 1].t_bas - ONYUKLE && !slotBul(p, i + 1, false)) {
-    slotYukle(p, slot[1 - cur.idx], i + 1);
-  }
-  var onceki = (cur && i > 0 && x - L[i].t_bas < GECIS) ? slotBul(p, i - 1, true) : null;
-  slot.forEach(function (s) {
-    var op = 0, z = 0;
-    if (cur) {
-      if (s === cur) { z = 2; op = 1; if (onceki) { var u = Math.min(1, (x - L[i].t_bas) / GECIS);
-        op = u * u * (3 - 2 * u); } }
-      else if (s === onceki) { z = 1; op = 1; }
-    } else if (s.idx === p.gosterilen) { z = 2; op = 1; }
-    if (s.op !== op) { s.f.style.opacity = op; s.op = op; }
-    if (s.z !== z) { s.f.style.zIndex = z; s.z = z; }
-    // Mesaj bütçesi (05.11): bütün pencereler tek ana iş parçacığını paylaşır. Sayfa karesi değişmeden mesaj yok;
-    // arka tampon tek konum mesajı alır, görünene dek çizmez; ikincil pencereler oynarken tek karede bir (15 fps).
-    if (s.hazir && s.no >= 0) {
-      var fr = Math.floor((x - L[s.no].t_bas) * FPS + 1e-4);
-      var gorunur = s === cur || s === onceki || (!cur && s.idx === p.gosterilen);
-      var seyrek = p.k > 0 && calma !== "dur" && (fr & 1) === 1;
-      if (s.sonT === null || (gorunur && fr !== s.sonF && !seyrek)) {
-        try { s.f.contentWindow.postMessage({ tip: "zaman", t: x }, "*"); } catch (er) {}
-        s.sonT = x; s.sonF = fr;
-      }
-    }
-  });
+  var r = C.sahneYonet(x, p, { FPS: FPS, seyrek: p.k > 0 && calma !== "dur" });
   if (p.k === 0) $("#bekle").style.display = p.gosterilen >= 0 ? "none" : "flex";
-  return { i: i, cur: !!cur, sonraki: i + 1 < L.length ? slotBul(p, i + 1, true) : null };
+  return { i: r.i, cur: r.hazir, sonraki: r.sonraki };
 }
-window.addEventListener("message", function (ev) {
-  var d = ev.data; if (!d || d.tip !== "hazir") return;
-  panes.forEach(function (p) {
-    p.slot.forEach(function (s) {
-      if (s.f.contentWindow !== ev.source) return;
-      s.hazir = true; s.sonT = null; if (d.zamanli) s.goster = true;
-      try { s.f.contentWindow.postMessage({ tip: "tema", ad: p.tema }, "*"); } catch (er) {}
-    });
-  });
-});
+window.addEventListener("message", function (ev) { C.hazirMesaj(ev, panes); });
 function motorRenk(m) {
   return /hyper/i.test(m) ? "var(--m-hf)" : /paper/i.test(m) ? "var(--m-paper)" : /canvas/i.test(m)
     ? "var(--m-canvas)" : "var(--s5)";
@@ -193,11 +151,14 @@ function paneOlustur(k, S0, yol0) {
   var el = e("div", "pw", null, $("#sahne")); el.id = "pn" + k;
   var ic = e("div", "pane", null, el);
   var slot = [0, 1].map(function (m) {
-    var f = e("iframe", null, null, ic); f.title = "pencere " + k + " tampon " + (m + 1);
-    return { idx: m, f: f, no: -1, hazir: false, goster: false, sonT: null, sonF: -1, op: -1, z: -1 };
+    var y = e("div", "yaprak", null, ic), f = e("iframe", null, null, y);   // yaprak: kıvrım yüzeyi
+    f.title = "pencere " + k + " tampon " + (m + 1);
+    return { idx: m, y: y, f: f, no: -1, hazir: false, goster: false, sonT: null, sonF: -1, op: -1,
+      z: -1, tr: null };
   });
   var pl = e("div", "pz", null, el);
-  var p = { k: k, el: el, ic: ic, pl: pl, S: S0 || [], yol: yol0 || "", tema: TEMA, surum: "", kimlik: HOSTK,
+  var p = { k: k, el: el, ic: ic, pl: pl, S: S0 || [], yol: yol0 || "", paket: yol0 || "",
+    tema: TEMA, surum: "", kimlik: HOSTK,
     gosterilen: -1, gen: GEN, yuk: YUK, slot: slot, etT: "" };
   pl.onclick = function (ev) { ev.stopPropagation(); paneEditorAc(p); };
   el.addEventListener("mouseenter", function () { if (panes.length > 1) sesSec(p.yol || YOL); });  // imleç = ses
@@ -351,10 +312,9 @@ function olc() {                                 // pencereleri 1–3 satıra pa
 }
 // pencerenin sahne kaynağını değiştirir, tamponları sıfırlar
 function paneKaynak(p, yol, L) {
-  p.yol = yol; p.S = L; p.gosterilen = -1;
+  p.yol = yol; p.paket = yol; p.S = L; p.gosterilen = -1;
   p.slot.forEach(function (s) {
-    s.no = -1; s.hazir = false; s.goster = false; s.sonT = null; s.sonF = -1; s.op = -1; s.z = -1; s.f.style.opacity = 0;
-    s.f.src = "about:blank";
+    C.slotSifirla(s); s.y.style.opacity = 0; s.y.style.transform = ""; s.f.src = "about:blank";
   });
 }
 function paneTema(p) {

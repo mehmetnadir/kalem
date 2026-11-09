@@ -68,6 +68,11 @@ button.ik{width:34px;padding:0;display:inline-flex;align-items:center;justify-co
 .pw{position:absolute;top:0}
 .pane{position:absolute;left:0;top:0;width:100%;overflow:hidden;background:#15140f;box-shadow:0 0 0 1px var(--ln)}
 .pane.acik{background:#ece6d6}
+/* yaprak = kıvrım yüzeyi; oynatıcı .ko-yaprak ile aynı geometri (K36 parite) */
+.pane{perspective:2400px}
+.yaprak{position:absolute;left:0;top:0;width:100%;height:100%;opacity:0;
+  transform-origin:left center;backface-visibility:hidden;will-change:transform,opacity}
+.yaprak.ko-kivrim{box-shadow:14px 0 42px rgba(0,0,0,.35)}
 #sahne iframe{position:absolute;left:0;top:0;width:1920px;height:1080px;border:0;transform-origin:0 0;
   pointer-events:none;opacity:0;background:inherit}
 #bekle{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--dm);

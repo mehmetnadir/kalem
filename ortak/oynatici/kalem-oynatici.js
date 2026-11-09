@@ -12,8 +12,10 @@
 import { turboKur, bas, sure, hareket, birak, kapat, hizli, TURBO_HIZ, BASILI_MS }
   from "./turbo.js";
 import { yonAdi, yonIstek, ciftUyumlu } from "./yon.js";
-export const SURUM = "0.3.0";
-const GECIS = 0.4, KIVRIM = 0.6, ONYUKLE = 3, GIZLE_MS = 3000, SAR = 10, OK = 5;
+import "./cekirdek.js";                       // globalThis.KalemCekirdek (editörle ortak)
+const C = globalThis.KalemCekirdek;
+export const SURUM = "0.4.0";
+const GIZLE_MS = 3000, SAR = 10, OK = 5;
 const DEPO = "kalem.oynatici.", HIZLAR = [0.75, 1, 1.25, 1.5, 2];
 const ZEMIN = { acik: "#f7f3ea", koyu: "#1b1a17" };
 const IK = {
@@ -44,7 +46,6 @@ const IK = {
 
 const pad = (n) => (n < 10 ? "0" : "") + n;
 const sinirla = (x, a, b) => Math.max(a, Math.min(b, x));
-const yumusak = (u) => u * u * (3 - 2 * u);
 function mmss(x) {
   x = Math.max(0, Math.floor(x + 1e-6)); return Math.floor(x / 60) + ":" + pad(x % 60);
 }
@@ -110,7 +111,7 @@ export function monte(kok, sec) {
   function paneKur(ad, paket, z) {
     const pane = el("div", "ko-pane ko-pasif", sahne); pane.dataset.yon = ad;
     const Y = { ad, paket, S: z.sahneler, GEN: z.genislik || 1920, YUK: z.yukseklik || 1080, pane,
-      gosterilen: -1 };
+      tema: d.tema, gosterilen: -1 };
     Y.slot = [0, 1].map((m) => {
       const y = el("div", "ko-yaprak", pane), f = el("iframe", null, y);
       f.title = ad + " sahne tamponu " + (m + 1); f.setAttribute("aria-hidden", "true");
@@ -169,80 +170,16 @@ export function monte(kok, sec) {
   const duyuru = el("div", "ko-duyuru", kok); duyuru.setAttribute("aria-live", "polite");
   const au = el("audio", null, kok); au.preload = "auto";
 
-  // ---------- Sahne tamponları (onizle.js protokolü; yön başına ayrı) ----------
-  function sahneNo(S, x) {
-    for (let i = S.length - 1; i >= 0; i--) if (x >= S[i].t_bas) return i; return 0;
-  }
+  // ---------- Sahne tamponları: ortak çekirdek cekirdek.js (editör onizle.js ile aynı) ----------
   function bolumNo(x) {
     for (let i = d.B.length - 1; i >= 0; i--) if (x >= d.B[i].t0) return i; return 0;
-  }
-  function sahneAdres(Y, i) {
-    const s = Y.S[i], sayfa = s.motor === "HyperFrames" ? "/proje/index.html" : "/sayfa.html";
-    return Y.paket + "sahneler/" + s.klasor + sayfa + "?canli=1&mesaj=1&tbas=" + s.t_bas +
-      (d.tema === "acik" ? "&tema=acik" : "");
-  }
-  function slotYukle(Y, s, i) {
-    s.no = i; s.hazir = false; s.goster = false; s.sonT = null; s.sonF = -1;
-    s.f.src = sahneAdres(Y, i);
-  }
-  function slotBul(Y, i, goster) {
-    return Y.slot.find((s) => s.no === i && (!goster || s.goster)) || null;
-  }
-  function gecisTur(S, i) {                        // K37: bölüm geçişi kıvrım, bölüm içi fade
-    if (i <= 0 || d.azHareket) return "fade";
-    const a = S[i - 1], b = S[i];
-    if (a.bolum != null && b.bolum != null) return a.bolum === b.bolum ? "fade" : "kivrim";
-    return String(a.gecis || "").toLowerCase() === "fade" ? "fade" : "kivrim";   // zaman.json alanı
   }
   // aktif: görünen yön (her karede zaman mesajı, geçiş efekti). Pasif sıcak yön: tamponlar yüklü
   // kalır, saniyede 1 zaman mesajı alır; döndürünce ilk kare anında doğrudur.
   function sahneYonet(x, Y, aktif) {
-    const L = Y.S, i = sahneNo(L, x), cur = slotBul(Y, i, true);
-    if (cur) Y.gosterilen = cur.idx;
-    else if (!slotBul(Y, i, false)) slotYukle(Y, Y.slot[Y.gosterilen === 0 ? 1 : 0], i);
-    if (cur && i + 1 < L.length && x >= L[i + 1].t_bas - ONYUKLE && !slotBul(Y, i + 1, false)) {
-      slotYukle(Y, Y.slot[1 - cur.idx], i + 1);
-    }
-    const tur = gecisTur(L, i), sure = tur === "kivrim" ? KIVRIM : GECIS;
-    const icinde = aktif && cur && i > 0 && x - L[i].t_bas < sure;
-    const onceki = icinde ? slotBul(Y, i - 1, true) : null;
-    const u = onceki ? yumusak(sinirla((x - L[i].t_bas) / sure, 0, 1)) : 1;
-    Y.slot.forEach((s) => {
-      let op = 0, z = 0, tr = "";
-      if (cur) {
-        if (s === cur) { z = 2; op = onceki && tur === "fade" ? u : 1; }
-        else if (s === onceki) {
-          op = 1; z = tur === "kivrim" ? 3 : 1;
-          if (tur === "kivrim") tr = "perspective(2400px) rotateY(" + (-90 * u).toFixed(2) + "deg)";
-        }
-      } else if (s.idx === Y.gosterilen) { z = 2; op = 1; }
-      if (s.op !== op) { s.y.style.opacity = op; s.op = op; }
-      if (s.z !== z) { s.y.style.zIndex = z; s.z = z; }
-      if (s.tr !== tr) {
-        s.y.style.transform = tr; s.y.classList.toggle("ko-kivrim", !!tr); s.tr = tr;
-      }
-      if (s.hazir && s.no >= 0) {
-        const fr = Math.floor((x - L[s.no].t_bas) * d.FPS + 1e-4);
-        const gorunur = s === cur || s === onceki || (!cur && s.idx === Y.gosterilen);
-        const sira = aktif ? fr !== s.sonF : fr - s.sonF >= d.FPS;      // pasif: sn'de 1
-        if (s.sonT === null || (gorunur && sira)) {
-          try { s.f.contentWindow.postMessage({ tip: "zaman", t: x }, "*"); }
-          catch (e) { /* iframe henüz belge almadı: sonraki karede yeniden */ }
-          s.sonT = x; s.sonF = fr;
-        }
-      }
-    });
-    return { i, hazir: !!cur };
+    return C.sahneYonet(x, Y, { FPS: d.FPS, aktif, azHareket: d.azHareket });
   }
-  addEventListener("message", (ev) => {
-    const m = ev.data; if (!m || m.tip !== "hazir") return;
-    herSlot((s) => {
-      if (s.f.contentWindow !== ev.source) return;
-      s.hazir = true; s.sonT = null; if (m.zamanli) s.goster = true;
-      try { s.f.contentWindow.postMessage({ tip: "tema", ad: d.tema }, "*"); }
-      catch (e) { /* pencere kapandı */ }
-    });
-  });
+  addEventListener("message", (ev) => C.hazirMesaj(ev, Object.values(d.Y)));
   function olc() {
     const w = sahne.clientWidth, h = sahne.clientHeight; if (!w || !h) return;
     herY((Y) => {
@@ -356,6 +293,7 @@ export function monte(kok, sec) {
   }
   function temaSec(ad, sessizce) {
     d.tema = ad === "koyu" ? "koyu" : "acik"; kok.dataset.tema = d.tema;
+    herY((Y) => { Y.tema = d.tema; });                       // sonraki sahne adresleri
     sahne.style.background = ZEMIN[d.tema]; ikon(bTema, d.tema === "acik" ? "gunes" : "ay");
     etiket(bTema, d.tema === "acik" ? "Koyu tema" : "Açık tema");
     herSlot((s) => {
