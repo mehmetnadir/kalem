@@ -30,3 +30,10 @@ test("onizle.html çekirdeği mutlak yoldan yükler (/p/ altında göreli yol k�
   const html = fs.readFileSync(path.join(KOK, "ortak/editor/onizle.html"), "utf8");
   assert.match(html, /src="\/ortak\/oynatici\/cekirdek\.js"/);
 });
+
+test("onizle.css sahne iframe'ine opacity vermez (saydamlık yaprakta, çekirdek stil())", () => {
+  const css = fs.readFileSync(path.join(KOK, "ortak/editor/onizle.css"), "utf8");
+  const kural = css.match(/#sahne iframe\{[^}]*\}/);
+  assert.ok(kural, "#sahne iframe kuralı yok");
+  assert.doesNotMatch(kural[0], /opacity/);
+});

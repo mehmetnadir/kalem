@@ -73,8 +73,10 @@ button.ik{width:34px;padding:0;display:inline-flex;align-items:center;justify-co
 .yaprak{position:absolute;left:0;top:0;width:100%;height:100%;opacity:0;
   transform-origin:left center;backface-visibility:hidden;will-change:transform,opacity}
 .yaprak.ko-kivrim{box-shadow:14px 0 42px rgba(0,0,0,.35)}
+/* saydamlık yaprakta (.yaprak, çekirdek stil()); iframe'e opacity verilmez — 09.11: iframe opacity:0 kalınca
+   çekirdek geçişinden sonra sahne hiç görünmedi */
 #sahne iframe{position:absolute;left:0;top:0;width:1920px;height:1080px;border:0;transform-origin:0 0;
-  pointer-events:none;opacity:0;background:inherit}
+  pointer-events:none;background:inherit}
 #bekle{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--dm);
   font-size:15px;pointer-events:none}
 #sag{grid-area:sag;background:var(--p1);border-left:1px solid var(--ln);display:flex;flex-direction:column;min-height:0}
