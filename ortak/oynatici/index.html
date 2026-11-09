@@ -127,8 +127,95 @@ main.dikey .bolumler{grid-column:2;grid-row:2;position:static;align-self:start}
     <kbd>←</kbd>/<kbd>→</kbd> 5 sn · <kbd>[</kbd>/<kbd>]</kbd> bölüm · <kbd>C</kbd> altyazı ·
     <kbd>F</kbd> tam ekran · <kbd>T</kbd> tema · <kbd>M</kbd> sessiz · sahneye basılı tut 2×,
     basılıyken aşağı sürükle: kilit · cihazı döndür: yatay ↔ dikey kesintisiz ·
-    ?dil=en arayüz İngilizce</p>
+    ?dil=en arayüz İngilizce · ?tani=1 tanı paneli</p>
 </main>
+<script>
+// Tanı kipi (?tani=1): uzak cihazda (Huawei tablet vb.) hata ve durum paneli. Klasik betik: modül
+// yüklenemese de çalışır. Panele dokunmak küçültür/büyütür. Hiçbir şey göndermez; ekran görüntüsü
+// yeter.
+(function () {
+  var Q = new URLSearchParams(location.search); if (Q.get("tani") !== "1") return;
+  var kayit = [], bas = Date.now(), panel = document.createElement("pre"), kucuk = false;
+  panel.id = "tani"; panel.setAttribute("aria-live", "polite");
+  panel.style.cssText = "position:fixed;left:0;right:0;bottom:0;z-index:99999;margin:0;" +
+    "padding:8px;max-height:48vh;overflow:auto;background:rgba(0,0,0,.86);color:#b8f5b8;" +
+    "font:11px/1.35 Menlo,monospace;white-space:pre-wrap;word-break:break-word";
+  panel.addEventListener("click", function () {
+    kucuk = !kucuk; panel.style.maxHeight = kucuk ? "3em" : "48vh";
+  });
+  function ekle(t) { kayit.push(((Date.now() - bas) / 1000).toFixed(1) + "s " + t); ciz(); }
+  function kisa(u) { return String(u || "").split("/").pop().split("?")[0]; }
+  window.addEventListener("error", function (e) {
+    ekle("HATA " + (e.message || e.type) + " @" + kisa(e.filename) + ":" + (e.lineno || "") +
+      (e.target && e.target.src ? " kaynak " + kisa(e.target.src) : ""));
+  }, true);
+  window.addEventListener("unhandledrejection", function (e) {
+    ekle("RET " + (e.reason && e.reason.message ? e.reason.message : e.reason));
+  });
+  function destek(ad, deger) {
+    return window.CSS && CSS.supports ? CSS.supports(ad, deger) : "?";
+  }
+  function destekler() {
+    return ["dvh:" + destek("height", "100dvh"), "aspect:" + destek("aspect-ratio", "1"),
+      "container:" + destek("container-type", "inline-size"),
+      "modül:" + ("noModule" in document.createElement("script")),
+      "RO:" + (typeof ResizeObserver !== "undefined"),
+      "tamEkranAPI:" + !!document.documentElement.requestFullscreen,
+      "işaretçi:" + (matchMedia("(pointer:coarse)").matches ? "kaba" : "ince")].join(" ");
+  }
+  function iframeler() {
+    return Array.prototype.map.call(document.querySelectorAll("#oynatici iframe"), function (f) {
+      var d = null; try { d = f.contentDocument; } catch (e) { /* çapraz köken: erişilemez */ }
+      var src = (f.getAttribute("src") || "(boş)").split("/sahneler/").pop().split("?")[0];
+      return src + " · " + (d ? d.readyState : "erişilemez") +
+        (f.dataset.taniHata ? " · HATA " + f.dataset.taniHata : "");
+    }).join("\n  ") || "(henüz yok)";
+  }
+  function ses() {
+    var a = document.querySelector("#oynatici audio"); if (!a) return "yok";
+    return "ready " + a.readyState + " · net " + a.networkState + " · t " +
+      a.currentTime.toFixed(1) + (a.paused ? " · durdu" : " · oynuyor") +
+      (a.error ? " · HATA " + a.error.code : "");
+  }
+  function durum() {
+    try { return window.OYNATICI ? JSON.stringify(OYNATICI.durum()) : "OYNATICI yok"; }
+    catch (e) { return "durum hatası " + e.message; }
+  }
+  function ciz() {
+    if (!panel.parentNode) return;
+    panel.textContent = ["TANI · " + navigator.userAgent,
+      innerWidth + "x" + innerHeight + " · dpr " + devicePixelRatio + " · " +
+        (matchMedia("(orientation:portrait)").matches ? "dikey" : "yatay") + " · " +
+        document.readyState,
+      destekler(), "ses: " + ses(), "oynatıcı: " + durum(), "iframe:\n  " + iframeler(),
+      "olaylar:\n" + kayit.slice(-14).join("\n")].join("\n");
+  }
+  function bagla() {                     // aynı kökenli sahne iframe'lerinin hatalarını yakala
+    Array.prototype.forEach.call(document.querySelectorAll("#oynatici iframe"), function (f) {
+      var src = f.getAttribute("src") || ""; if (!src || f.dataset.taniBagli === src) return;
+      try {
+        var w = f.contentWindow;
+        if (!w || !w.document || w.document.readyState === "loading") return;
+        f.dataset.taniBagli = src;
+        w.addEventListener("error", function (e) {
+          f.dataset.taniHata = (e.message || e.type) + ":" + (e.lineno || "");
+          ekle("iframe HATA " + kisa(src) + " " + (e.message || e.type));
+        }, true);
+      } catch (e) { /* çapraz köken */ }
+    });
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    document.body.appendChild(panel); ekle("DOM hazır");
+    setInterval(ciz, 1000); setInterval(bagla, 500);
+  });
+  window.addEventListener("load", function () { ekle("load"); });
+  setTimeout(function () {
+    var h = false;
+    try { h = !!(window.OYNATICI && OYNATICI.durum().hazir); } catch (e) { /* oynatıcı yok */ }
+    if (!h) ekle("UYARI 10 sn: oynatıcı hazır değil");
+  }, 10000);
+})();
+</script>
 <script type="module">
 import { monte } from "./kalem-oynatici.js";
 const Q = new URLSearchParams(location.search), PAKET = Q.get("paket") || "present-perfect-temel";
