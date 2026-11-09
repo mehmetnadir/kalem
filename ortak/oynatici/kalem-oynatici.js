@@ -16,7 +16,7 @@ import { yonAdi, yonIstek, ciftUyumlu } from "./yon.js";
 import { sozlukSec, dilCoz, DILLER } from "./sozluk.js";
 import "./cekirdek.js";                       // globalThis.KalemCekirdek (editörle ortak)
 const C = globalThis.KalemCekirdek;
-export const SURUM = "0.4.3";
+export const SURUM = "0.4.4";
 const GIZLE_MS = 3000, SAR = 10, OK = 5;
 const DEPO = "kalem.oynatici.", HIZLAR = [0.75, 1, 1.25, 1.5, 2];
 const ZEMIN = { acik: "#f7f3ea", koyu: "#1b1a17" };
@@ -227,6 +227,16 @@ export function monte(kok, sec) {
     catch (e) { /* ses henüz yüklenmedi: t korunur, loadedmetadata eşitler */ }
     goster();
   }
+  // Chrome < 105 :has() bilmez: afiş/hata görünürken orta kontrollerin gizlenmesi sınıfla yazılır;
+  // gözlemci :has() gibi tepkiseldir (araçlar afişi doğrudan gizlese de doğru kalır).
+  function ortaGuncelle() {
+    kok.classList.toggle("ko-orta-gizli", !poster.classList.contains("ko-yok") || !hata.hidden);
+  }
+  new MutationObserver(ortaGuncelle)
+    .observe(poster, { attributes: true, attributeFilter: ["class"] });
+  new MutationObserver(ortaGuncelle)
+    .observe(hata, { attributes: true, attributeFilter: ["hidden"] });
+  ortaGuncelle();
   function oyna() {
     if (!d.hazir) return;
     if (d.bitti || d.t >= d.T - 0.1) git(0);

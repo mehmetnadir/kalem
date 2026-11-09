@@ -149,8 +149,9 @@
 .ko-orta svg{width:30px;height:30px}
 .ko.ko-dokunma .ko-sira .ko-oynat,.ko.ko-dokunma .ko-sira .ko-geri,
 .ko.ko-dokunma .ko-sira .ko-ileri,.ko.ko-dokunma .ko-sira .ko-ses input{display:none}
-.ko.ko-dokunma:has(.ko-poster:not(.ko-yok)) .ko-orta,
-.ko.ko-dokunma:has(.ko-hata:not([hidden])) .ko-orta{display:none}
+/* Afiş ya da hata görünürken orta kontroller gizli. Sınıfı JS yazar (ortaGuncelle): :has()
+   Chrome < 105 / Safari < 15.4'te yok, tek kural düşerdi (09.11 Huawei tablet, Chrome 104). */
+.ko.ko-dokunma.ko-orta-gizli .ko-orta{display:none}
 
 /* menü */
 .ko-menu{position:absolute;left:12px;bottom:64px;min-width:230px;
@@ -179,7 +180,9 @@
 .ko.ko-gizli.ko-oynuyor .ko-altyazi{bottom:22px}
 .ko-altyazi:empty,.ko-altyazi[hidden]{display:none}
 .ko-altyazi span{display:inline-block;background:rgba(0,0,0,.7);color:#fff;padding:5px 12px;
-  border-radius:6px;font-size:clamp(14px,2.2cqw,22px);line-height:1.35;max-width:100%}
+  border-radius:6px;font-size:clamp(14px,2.2vw,22px);line-height:1.35;max-width:100%}
+/* kapsayıcı birimi (cqw) Chrome < 105'te yok: üstteki vw satırı yedek, bu satır onu ezer */
+.ko-altyazi span{font-size:clamp(14px,2.2cqw,22px)}
 
 /* hata paneli */
 .ko-hata{position:absolute;inset:0;z-index:7;display:flex;flex-direction:column;align-items:center;
@@ -200,9 +203,10 @@
 /* tam ekran: gerçek (Fullscreen API) ve sahte (iPhone Safari yalnız <video>'ya gerçek tam ekran
    verir). dvh: iOS'ta 100vh araç çubuğunun altına taşar. Sahte kipte ölçü inset:0'dan gelir;
    !important ev sayfasının daha özgül .oynatici genişlik kuralını ezer (09.11 iPhone: kutu dar). */
-/* Tam ekranda sahne kutusu = kapsayıcının tamamı; pane'leri olc() oranla ortalar (siyah bant). Görünüm
-   birimi (vh/dvh) kullanılmaz: tarayıcı çubuğu ve eski tarayıcı (dvh yok) sorunu kalmaz — 09.11 tablet
-   yatay: kontroller ekran dışındaydı. Gerçek tam ekranda UA :fullscreen kutuyu zaten %100 yapar. */
+/* Tam ekranda sahne kutusu = kapsayıcının tamamı; pane'leri olc() oranla ortalar (siyah bant).
+   Görünüm birimi (vh/dvh) kullanılmaz: tarayıcı çubuğu ve eski tarayıcı (dvh yok) sorunu kalmaz —
+   09.11 tablet yatay: kontroller ekran dışındaydı. Gerçek tam ekranda UA :fullscreen kutuyu zaten
+   %100 yapar. */
 .ko.ko-tam{border-radius:0;width:100%;height:100%;display:flex;align-items:center;
   justify-content:center;background:#000}
 .ko.ko-tam .ko-sahne{width:100%;height:100%;aspect-ratio:auto;max-height:none}
@@ -216,7 +220,8 @@
     env(safe-area-inset-left)}
 html.ko-kilit,html.ko-kilit body{overflow:hidden}
 
-/* dar oynatıcı (telefon dikey, dikey paket): kapsayıcı sorgusu — sayfa değil oynatıcı genişliği */
+/* dar oynatıcı (telefon dikey, dikey paket): kapsayıcı sorgusu — sayfa değil oynatıcı genişliği.
+   Chrome < 105 bu bloğu atlar: masaüstü ölçüleri kalır, işlev bozulmaz. */
 @container (max-width:480px){
   .ko-kontrol{padding:0 6px 2px}
   .ko-sira{--ko-d:40px;height:40px}
