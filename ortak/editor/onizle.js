@@ -358,7 +358,7 @@ function temaSec(a) {
   } catch (er) {}
 }
 function karePng() {
-  var c = slotBul(panes[0], sahneNo(panes[0], t), true);
+  var c = C.slotBul(panes[0], sahneNo(panes[0], t), true);
   if (!c) return durumMesaj("Sahne henüz hazır değil");
   if (panes[0].S[c.no].motor === "HyperFrames") return durumMesaj("HyperFrames sahneleri kare PNG vermez");
   c.f.contentWindow.postMessage({ tip: "kare" }, "*");
@@ -682,7 +682,7 @@ function arayuz(x, y) {
     son.oi = oi;
   }
   // durum satırı
-  var sk = y.sonraki ? "hazır" : (i + 1 < S.length ? (slotBul(panes[0], i + 1, false) ? "yükleniyor" : "bekliyor")
+  var sk = y.sonraki ? "hazır" : (i + 1 < S.length ? (C.slotBul(panes[0], i + 1, false) ? "yükleniyor" : "bekliyor")
     : "yok");
   var dm = performance.now() < mesajT ? " <b class='dur'>" + mesajM + "</b>" : "";
   var d = "<span>Sahne <b>" + pad(S[i].no) + " " + S[i].klasor.slice(3) + "</b></span><span>Yerel kare <b>" + yerel +
@@ -1091,7 +1091,7 @@ veriYukle().then(function (v) {
   window.EDITOR = { git: git, durum: function () { return { t: t, calma: calma, yan: yan, slot: panes[0].slot.map(
     function (s) { return { no: s.no, hazir: s.hazir, goster: s.goster, op: s.op }; }),
     pencereler: panes.map(function (p) { var i = p.S.length ? sahneNo(p, t) : -1; return { kimlik: p.kimlik || HOSTK,
-      tema: p.tema, sahne: i, hazir: !!(i >= 0 && slotBul(p, i, true)), gen: p.gen, yuk: p.yuk }; }) }; },
+      tema: p.tema, sahne: i, hazir: !!(i >= 0 && C.slotBul(p, i, true)), gen: p.gen, yuk: p.yuk }; }) }; },
     oyna: oyna, dur: dur, zoom: zoomSec, yan: yanSec, pencere: pencereToggle, panel: panelToggle,
     odak: odakToggle };
   requestAnimationFrame(dongu);
