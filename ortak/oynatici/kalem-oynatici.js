@@ -5,10 +5,14 @@
 // Kullanım: monte(kok, { paket: "/projeler/present-perfect-temel/", tema, baslik, alt, olay })
 // Olaylar (olay(ad, detay)): hazir · oynuyor · durdu · bitti · zaman · bolum · tema · hata
 // Basılı tutma 2× (turbo.js): sahneye bas-tut → 2×, aşağı sürükle → halka dolar, kilit (09.11).
+// Yön çifti (yon.js, 09.11): paketler [yatay, dikey] aynı ses saatinde; dokunmatik cihazda iki yön
+// de sıcak tutulur (kendi iframe tamponları), cihaz dönünce yalnız görünen pane değişir: ses ve
+// zaman kesilmez. Masaüstünde pasif yön tembel yüklenir (eski pane kalır, yenisi hazır olunca).
 "use strict";
 import { turboKur, bas, sure, hareket, birak, kapat, hizli, TURBO_HIZ, BASILI_MS }
   from "./turbo.js";
-export const SURUM = "0.2.0";
+import { yonAdi, yonIstek, ciftUyumlu } from "./yon.js";
+export const SURUM = "0.3.0";
 const GECIS = 0.4, KIVRIM = 0.6, ONYUKLE = 3, GIZLE_MS = 3000, SAR = 10, OK = 5;
 const DEPO = "kalem.oynatici.", HIZLAR = [0.75, 1, 1.25, 1.5, 2];
 const ZEMIN = { acik: "#f7f3ea", koyu: "#1b1a17" };
@@ -30,6 +34,8 @@ const IK = {
     "M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4'/>",
   ay: "<path d='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'/>",
   tam: "<path d='M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5'/>",
+  tamYon: "<path d='M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5'/>" +   // yön çifti: dönen telefon
+    "<rect class='ko-tel' x='9.25' y='7' width='5.5' height='10' rx='1.2'/>",
   tamKapat: "<path d='M9 4v5H4M15 4v5h5M20 15h-5v5M4 15h5v5'/>",
   tekrar: "<path d='M3 12a9 9 0 1 0 3-6.7M3 4v5h5'/>",
   uyari: "<path d='M12 3l10 18H2zM12 10v5M12 18h.01'/>",
@@ -76,9 +82,11 @@ function bolumListesi(S) {
 
 export function monte(kok, sec) {
   sec = sec || {};
-  const paket = String(sec.paket || "").replace(/\/?$/, "/");
+  const paketler = (sec.paketler || [sec.paket]).filter(Boolean)
+    .map((p) => String(p).replace(/\/?$/, "/"));
   const d = {
-    paket, S: [], B: [], T: 0, FPS: 30, GEN: 1920, YUK: 1080, t: 0, oynuyor: false, bitti: false,
+    paketler, Y: {}, yon: "", bekleyenY: null, sicak: false,
+    B: [], T: 0, FPS: 30, t: 0, oynuyor: false, bitti: false,
     hiz: depoAl("hiz", 1), ses: depoAl("ses", 1), sessiz: depoAl("sessiz", false),
     altyazi: depoAl("altyazi", true), tema: sec.tema || depoAl("tema", null) || "acik",
     alt: [], slot: [], gosterilen: -1, hazir: false, basladi: false, gizleT: 0, gizliydi: false,
@@ -97,13 +105,24 @@ export function monte(kok, sec) {
   kok.classList.add("ko"); kok.tabIndex = 0; kok.dataset.tema = d.tema;
   kok.setAttribute("role", "region"); kok.setAttribute("aria-label", sec.baslik || "Ders videosu");
   kok.classList.toggle("ko-dokunma", d.dokunma); kok.innerHTML = "";
-  const sahne = el("div", "ko-sahne", kok), pane = el("div", "ko-pane", sahne);
-  d.slot = [0, 1].map((m) => {
-    const y = el("div", "ko-yaprak", pane), f = el("iframe", null, y);
-    f.title = "sahne tamponu " + (m + 1); f.setAttribute("aria-hidden", "true"); f.tabIndex = -1;
-    return { idx: m, y, f, no: -1, hazir: false, goster: false, sonT: null, sonF: -1, op: -1,
-      z: -1, tr: null };
-  });
+  const sahne = el("div", "ko-sahne", kok);
+  // Yön başına pane + 2 iframe tamponu (çift tampon). Yön zaman.json yüklenince bilinir.
+  function paneKur(ad, paket, z) {
+    const pane = el("div", "ko-pane ko-pasif", sahne); pane.dataset.yon = ad;
+    const Y = { ad, paket, S: z.sahneler, GEN: z.genislik || 1920, YUK: z.yukseklik || 1080, pane,
+      gosterilen: -1 };
+    Y.slot = [0, 1].map((m) => {
+      const y = el("div", "ko-yaprak", pane), f = el("iframe", null, y);
+      f.title = ad + " sahne tamponu " + (m + 1); f.setAttribute("aria-hidden", "true");
+      f.tabIndex = -1;
+      return { idx: m, y, f, no: -1, hazir: false, goster: false, sonT: null, sonF: -1, op: -1,
+        z: -1, tr: null };
+    });
+    return Y;
+  }
+  const A = () => d.Y[d.yon];                                   // etkin yön
+  const herY = (fn) => Object.values(d.Y).forEach(fn);
+  const herSlot = (fn) => herY((Y) => Y.slot.forEach((s) => fn(s, Y)));
   const altyaziEl = el("div", "ko-altyazi", sahne); altyaziEl.setAttribute("aria-live", "off");
   const orta = el("div", "ko-orta", sahne);
   const oGeri = dugme(orta, "ko-geri", SAR + " saniye geri", "geri");
@@ -150,43 +169,45 @@ export function monte(kok, sec) {
   const duyuru = el("div", "ko-duyuru", kok); duyuru.setAttribute("aria-live", "polite");
   const au = el("audio", null, kok); au.preload = "auto";
 
-  // ---------- Sahne tamponları (onizle.js protokolü) ----------
-  function sahneNo(x) {
-    const L = d.S; for (let i = L.length - 1; i >= 0; i--) if (x >= L[i].t_bas) return i; return 0;
+  // ---------- Sahne tamponları (onizle.js protokolü; yön başına ayrı) ----------
+  function sahneNo(S, x) {
+    for (let i = S.length - 1; i >= 0; i--) if (x >= S[i].t_bas) return i; return 0;
   }
   function bolumNo(x) {
     for (let i = d.B.length - 1; i >= 0; i--) if (x >= d.B[i].t0) return i; return 0;
   }
-  function sahneAdres(i) {
-    const s = d.S[i], sayfa = s.motor === "HyperFrames" ? "/proje/index.html" : "/sayfa.html";
-    return d.paket + "sahneler/" + s.klasor + sayfa + "?canli=1&mesaj=1&tbas=" + s.t_bas +
+  function sahneAdres(Y, i) {
+    const s = Y.S[i], sayfa = s.motor === "HyperFrames" ? "/proje/index.html" : "/sayfa.html";
+    return Y.paket + "sahneler/" + s.klasor + sayfa + "?canli=1&mesaj=1&tbas=" + s.t_bas +
       (d.tema === "acik" ? "&tema=acik" : "");
   }
-  function slotYukle(s, i) {
+  function slotYukle(Y, s, i) {
     s.no = i; s.hazir = false; s.goster = false; s.sonT = null; s.sonF = -1;
-    s.f.src = sahneAdres(i);
+    s.f.src = sahneAdres(Y, i);
   }
-  function slotBul(i, goster) {
-    return d.slot.find((s) => s.no === i && (!goster || s.goster)) || null;
+  function slotBul(Y, i, goster) {
+    return Y.slot.find((s) => s.no === i && (!goster || s.goster)) || null;
   }
-  function gecisTur(i) {                           // K37: bölüm geçişi kıvrım, bölüm içi fade
+  function gecisTur(S, i) {                        // K37: bölüm geçişi kıvrım, bölüm içi fade
     if (i <= 0 || d.azHareket) return "fade";
-    const a = d.S[i - 1], b = d.S[i];
+    const a = S[i - 1], b = S[i];
     if (a.bolum != null && b.bolum != null) return a.bolum === b.bolum ? "fade" : "kivrim";
     return String(a.gecis || "").toLowerCase() === "fade" ? "fade" : "kivrim";   // zaman.json alanı
   }
-  function sahneYonet(x) {
-    const i = sahneNo(x), L = d.S, cur = slotBul(i, true);
-    if (cur) d.gosterilen = cur.idx;
-    else if (!slotBul(i, false)) slotYukle(d.slot[d.gosterilen === 0 ? 1 : 0], i);
-    if (cur && i + 1 < L.length && x >= L[i + 1].t_bas - ONYUKLE && !slotBul(i + 1, false)) {
-      slotYukle(d.slot[1 - cur.idx], i + 1);
+  // aktif: görünen yön (her karede zaman mesajı, geçiş efekti). Pasif sıcak yön: tamponlar yüklü
+  // kalır, saniyede 1 zaman mesajı alır; döndürünce ilk kare anında doğrudur.
+  function sahneYonet(x, Y, aktif) {
+    const L = Y.S, i = sahneNo(L, x), cur = slotBul(Y, i, true);
+    if (cur) Y.gosterilen = cur.idx;
+    else if (!slotBul(Y, i, false)) slotYukle(Y, Y.slot[Y.gosterilen === 0 ? 1 : 0], i);
+    if (cur && i + 1 < L.length && x >= L[i + 1].t_bas - ONYUKLE && !slotBul(Y, i + 1, false)) {
+      slotYukle(Y, Y.slot[1 - cur.idx], i + 1);
     }
-    const tur = gecisTur(i), sure = tur === "kivrim" ? KIVRIM : GECIS;
-    const icinde = cur && i > 0 && x - L[i].t_bas < sure;
-    const onceki = icinde ? slotBul(i - 1, true) : null;
+    const tur = gecisTur(L, i), sure = tur === "kivrim" ? KIVRIM : GECIS;
+    const icinde = aktif && cur && i > 0 && x - L[i].t_bas < sure;
+    const onceki = icinde ? slotBul(Y, i - 1, true) : null;
     const u = onceki ? yumusak(sinirla((x - L[i].t_bas) / sure, 0, 1)) : 1;
-    d.slot.forEach((s) => {
+    Y.slot.forEach((s) => {
       let op = 0, z = 0, tr = "";
       if (cur) {
         if (s === cur) { z = 2; op = onceki && tur === "fade" ? u : 1; }
@@ -194,7 +215,7 @@ export function monte(kok, sec) {
           op = 1; z = tur === "kivrim" ? 3 : 1;
           if (tur === "kivrim") tr = "perspective(2400px) rotateY(" + (-90 * u).toFixed(2) + "deg)";
         }
-      } else if (s.idx === d.gosterilen) { z = 2; op = 1; }
+      } else if (s.idx === Y.gosterilen) { z = 2; op = 1; }
       if (s.op !== op) { s.y.style.opacity = op; s.op = op; }
       if (s.z !== z) { s.y.style.zIndex = z; s.z = z; }
       if (s.tr !== tr) {
@@ -202,8 +223,9 @@ export function monte(kok, sec) {
       }
       if (s.hazir && s.no >= 0) {
         const fr = Math.floor((x - L[s.no].t_bas) * d.FPS + 1e-4);
-        const gorunur = s === cur || s === onceki || (!cur && s.idx === d.gosterilen);
-        if (s.sonT === null || (gorunur && fr !== s.sonF)) {
+        const gorunur = s === cur || s === onceki || (!cur && s.idx === Y.gosterilen);
+        const sira = aktif ? fr !== s.sonF : fr - s.sonF >= d.FPS;      // pasif: sn'de 1
+        if (s.sonT === null || (gorunur && sira)) {
           try { s.f.contentWindow.postMessage({ tip: "zaman", t: x }, "*"); }
           catch (e) { /* iframe henüz belge almadı: sonraki karede yeniden */ }
           s.sonT = x; s.sonF = fr;
@@ -214,7 +236,7 @@ export function monte(kok, sec) {
   }
   addEventListener("message", (ev) => {
     const m = ev.data; if (!m || m.tip !== "hazir") return;
-    d.slot.forEach((s) => {
+    herSlot((s) => {
       if (s.f.contentWindow !== ev.source) return;
       s.hazir = true; s.sonT = null; if (m.zamanli) s.goster = true;
       try { s.f.contentWindow.postMessage({ tip: "tema", ad: d.tema }, "*"); }
@@ -223,15 +245,37 @@ export function monte(kok, sec) {
   });
   function olc() {
     const w = sahne.clientWidth, h = sahne.clientHeight; if (!w || !h) return;
-    const k = Math.min(w / d.GEN, h / d.YUK);
-    pane.style.width = (d.GEN * k) + "px"; pane.style.height = (d.YUK * k) + "px";
-    d.slot.forEach((s) => {
-      s.f.style.width = d.GEN + "px"; s.f.style.height = d.YUK + "px";
-      s.f.style.transform = "scale(" + k + ")";
+    herY((Y) => {
+      const k = Math.min(w / Y.GEN, h / Y.YUK);
+      Y.pane.style.width = (Y.GEN * k) + "px"; Y.pane.style.height = (Y.YUK * k) + "px";
+      Y.slot.forEach((s) => {
+        s.f.style.width = Y.GEN + "px"; s.f.style.height = Y.YUK + "px";
+        s.f.style.transform = "scale(" + k + ")";
+      });
     });
   }
   if (typeof ResizeObserver !== "undefined") new ResizeObserver(olc).observe(sahne);
   addEventListener("resize", olc);
+
+  // ---------- Yön (yatay ↔ dikey): ses saati ortak, yalnız görünen pane değişir ----------
+  const portreMQ = matchMedia("(orientation: portrait)");
+  function yonUygula(y) {
+    const Y = d.Y[y]; if (!Y || y === d.yon) return;
+    const eski = A(); d.yon = y; kok.dataset.yon = y;
+    kok.style.setProperty("--ar", Y.GEN + " / " + Y.YUK); olc();
+    const r = sahneYonet(d.t, Y, true);
+    // Yeni yönün sahnesi henüz yoksa (tembel yükleme) eski pane kalır, yenisi hazır olunca geçer.
+    d.bekleyenY = r.hazir || !eski ? null : eski;
+    herY((Z) => Z.pane.classList.toggle("ko-pasif", Z !== Y && Z !== d.bekleyenY));
+    if (eski) { duyur(y === "dikey" ? "Dikey görünüm" : "Yatay görünüm"); goster(); }
+    olay("yon", { yon: y, kesintisiz: r.hazir, t: d.t });
+  }
+  function yonGuncelle() {
+    if (!d.yon) return;
+    const y = yonIstek(portreMQ.matches, d.Y, sec.yon); if (y && y !== d.yon) yonUygula(y);
+  }
+  if (portreMQ.addEventListener) portreMQ.addEventListener("change", yonGuncelle);
+  addEventListener("resize", yonGuncelle);
 
   // ---------- Oynatma ----------
   function git(x) {
@@ -314,7 +358,7 @@ export function monte(kok, sec) {
     d.tema = ad === "koyu" ? "koyu" : "acik"; kok.dataset.tema = d.tema;
     sahne.style.background = ZEMIN[d.tema]; ikon(bTema, d.tema === "acik" ? "gunes" : "ay");
     etiket(bTema, d.tema === "acik" ? "Koyu tema" : "Açık tema");
-    d.slot.forEach((s) => {
+    herSlot((s) => {
       try { s.f.contentWindow.postMessage({ tip: "tema", ad: d.tema }, "*"); }
       catch (e) { /* boş tampon */ }
     });
@@ -325,8 +369,9 @@ export function monte(kok, sec) {
     if (document.fullscreenElement === kok) return document.exitFullscreen();
     if (kok.classList.contains("ko-tam-sahte")) return sahteKapat();
     if (!kok.requestFullscreen) return sahteAc();
-    kok.requestFullscreen().then(() => {
-      if (d.GEN > d.YUK && screen.orientation && screen.orientation.lock) {
+    kok.requestFullscreen().then(() => {                 // yön çifti varsa kilit YOK: dönüş serbest
+      const Y = A();
+      if (!d.Y.dikey && Y && Y.GEN > Y.YUK && screen.orientation && screen.orientation.lock) {
         screen.orientation.lock("landscape").catch(() => { /* masaüstü: kilit yok */ });
       }
     }).catch(sahteAc);
@@ -339,8 +384,10 @@ export function monte(kok, sec) {
     kok.classList.remove("ko-tam", "ko-tam-sahte");
     document.documentElement.classList.remove("ko-kilit"); tamYaz(false); olc();
   }
-  function tamYaz(acik) {
-    ikon(bTam, acik ? "tamKapat" : "tam"); etiket(bTam, acik ? "Tam ekrandan çık" : "Tam ekran");
+  function tamYaz(acik) {                                // yön çifti: dönen telefon simgesi
+    const cift = !!(d.Y.yatay && d.Y.dikey);
+    ikon(bTam, acik ? "tamKapat" : cift ? "tamYon" : "tam");
+    etiket(bTam, acik ? "Tam ekrandan çık" : cift ? "Tam ekran (yatay ve dikey)" : "Tam ekran");
   }
   document.addEventListener("fullscreenchange", () => {
     const acik = document.fullscreenElement === kok; kok.classList.toggle("ko-tam", acik);
@@ -477,7 +524,17 @@ export function monte(kok, sec) {
     if (d.oynuyor) {
       d.t = au.currentTime; if (d.t >= d.T - 0.03) { d.t = d.T - 1 / d.FPS; bitir(); }
     }
-    if (d.S.length) arayuz(d.t, sahneYonet(d.t));
+    const Y = A();
+    if (Y) {
+      const r = sahneYonet(d.t, Y, true);
+      herY((Z) => {                                        // sıcak pasif yön ve bekleyen eski yön
+        if (Z !== Y && (d.sicak || Z === d.bekleyenY)) sahneYonet(d.t, Z, Z === d.bekleyenY);
+      });
+      if (d.bekleyenY && r.hazir) {
+        d.bekleyenY.pane.classList.add("ko-pasif"); d.bekleyenY = null;
+      }
+      arayuz(d.t, r);
+    }
     requestAnimationFrame(dongu);
   }
 
@@ -581,19 +638,29 @@ export function monte(kok, sec) {
   }
   function yukle() {
     hata.hidden = true; posterNot.textContent = "Yükleniyor"; kok.classList.add("ko-bekliyor");
-    fetch(d.paket + "zaman.json").then((r) => {
+    herY((Y) => Y.pane.remove()); d.Y = {}; d.yon = ""; d.bekleyenY = null;   // "Tekrar dene"
+    const zamanAl = (p) => fetch(p + "zaman.json").then((r) => {
       if (!r.ok) throw new Error("zaman.json " + r.status); return r.json();
-    }).then((z) => {
-      d.S = z.sahneler || []; if (!d.S.length) throw new Error("sahne yok");
-      d.FPS = z.fps || 30; d.GEN = z.genislik || 1920; d.YUK = z.yukseklik || 1080;
-      d.T = d.S[d.S.length - 1].t_son; d.B = bolumListesi(d.S);
-      if (!sec.tema && depoAl("tema", null) == null && z.tema) d.tema = z.tema;
-      kok.style.setProperty("--ar", d.GEN + " / " + d.YUK);
-      kok.dataset.yon = d.GEN >= d.YUK ? "yatay" : "dikey";
+    }).then((z) => ({ p, z }));
+    Promise.all(d.paketler.map(zamanAl)).then((L) => {
+      L.forEach(({ p, z }) => {                            // ilk paket ana; diğeri eş yön çifti
+        if (!(z.sahneler || []).length) throw new Error("sahne yok: " + p);
+        const ad = yonAdi(z.genislik || 1920, z.yukseklik || 1080), ilk = Object.values(d.Y)[0];
+        if (d.Y[ad]) return;
+        if (ilk && !ciftUyumlu(ilk.S, z.sahneler)) { konsol("yön çifti uyumsuz: " + p); return; }
+        d.Y[ad] = paneKur(ad, p, z);
+      });
+      const ilk = Object.values(d.Y)[0], z0 = L[0].z;
+      d.FPS = z0.fps || 30; d.T = ilk.S[ilk.S.length - 1].t_son; d.B = bolumListesi(ilk.S);
+      const cift = !!(d.Y.yatay && d.Y.dikey);
+      d.sicak = cift && (sec.sicak == null ? d.dokunma : !!sec.sicak);   // sicak: iki yön yüklü
+      kok.dataset.cift = cift ? "1" : "0";
+      if (!sec.tema && depoAl("tema", null) == null && z0.tema) d.tema = z0.tema;
       zamanEl.querySelector("span").textContent = " / " + mmss(d.T);
-      au.src = d.paket + (z.anlatim || "ortak/anlatim/anlatim.wav");
-      temaSec(d.tema, true); cubukKur(); olc(); kok.classList.remove("ko-bekliyor");
-      return fetch(d.paket + "ortak/anlatim/altyazi.json").then((r) => (r.ok ? r.json() : []))
+      au.src = ilk.paket + (z0.anlatim || "ortak/anlatim/anlatim.wav");
+      temaSec(d.tema, true); cubukKur(); tamYaz(false);
+      yonUygula(yonIstek(portreMQ.matches, d.Y, sec.yon)); kok.classList.remove("ko-bekliyor");
+      return fetch(ilk.paket + "ortak/anlatim/altyazi.json").then((r) => (r.ok ? r.json() : []))
         .catch(() => []).then((a) => { d.alt = Array.isArray(a) ? a : []; });
     }).catch((e) => {
       kok.classList.remove("ko-bekliyor"); hataGoster("Video verisi yüklenemedi: " + e.message);
@@ -607,8 +674,9 @@ export function monte(kok, sec) {
 
   return {
     oyna, dur, git, bolumGit, hiz: hizSec, tema: temaSec, tamEkran, altyazi: altyaziSec, kok,
+    yon: yonUygula,
     durum: () => ({ t: d.t, sure: d.T, oynuyor: d.oynuyor, bolum: bolumNo(d.t), tema: d.tema,
-      hazir: d.hazir }),
+      hazir: d.hazir, yon: d.yon, yonler: Object.keys(d.Y), sicak: d.sicak }),
     bolumler: () => d.B.map((b) => ({ ad: b.ad, t0: b.t0, t1: b.t1 })),
   };
 }

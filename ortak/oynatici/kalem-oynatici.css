@@ -20,11 +20,13 @@
 .ko .ko-d[data-ik=oynat] svg path,.ko .ko-d[data-ik=dur] svg path{fill:currentColor;stroke:none}
 
 /* sahne ve tamponlar */
-.ko-sahne{position:relative;width:100%;aspect-ratio:var(--ar);display:flex;align-items:center;
-  justify-content:center;background:var(--ko-zemin);cursor:pointer;overflow:hidden;
-  -webkit-touch-callout:none}
+.ko-sahne{position:relative;width:100%;aspect-ratio:var(--ar);display:grid;place-items:center;
+  background:var(--ko-zemin);cursor:pointer;overflow:hidden;-webkit-touch-callout:none}
 .ko.ko-gizli.ko-oynuyor .ko-sahne{cursor:none}
-.ko-pane{position:relative;overflow:hidden;perspective:2400px}
+/* yön başına bir pane, aynı hücrede üst üste; pasif yön saydam (iframe'leri sıcak kalır) */
+.ko-pane{grid-area:1 / 1;position:relative;overflow:hidden;perspective:2400px;
+  transition:opacity .15s}
+.ko-pane.ko-pasif{opacity:0;pointer-events:none}
 .ko-yaprak{position:absolute;inset:0;opacity:0;transform-origin:left center;
   backface-visibility:hidden;will-change:transform,opacity}
 .ko-yaprak.ko-kivrim{box-shadow:14px 0 42px rgba(0,0,0,.35)}
@@ -32,7 +34,7 @@
   pointer-events:none;background:inherit}
 
 /* kaplama ve kontrol çubuğu */
-/* gölge yalnız kontrol şeridini taşır (Nadir 09.11: açık sahnede figür kararmasın → 160 → 120 px) */
+/* gölge yalnız kontrol şeridini taşır (Nadir 09.11: açık sahnede figür kararmasın; 160 → 120 px) */
 .ko-golge{position:absolute;left:0;right:0;bottom:0;height:120px;pointer-events:none;
   background:linear-gradient(to top,rgba(0,0,0,.82) 0,var(--ko-kaplama) 48px,rgba(0,0,0,0) 100%);
   transition:opacity .2s}
@@ -111,6 +113,13 @@
   margin-left:8px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;
   vertical-align:-2px;animation:ko-don .8s linear infinite}
 @keyframes ko-don{to{transform:rotate(360deg)}}
+
+/* tam ekran düğmesi (yön çifti): küçük telefon dikeyden yataya döner, 7 sn'de bir; üstünde hızlı */
+.ko-tamd .ko-tel{transform-box:fill-box;transform-origin:center;
+  animation:ko-tel 7s ease-in-out infinite}
+.ko-tamd:hover .ko-tel,.ko-tamd:focus-visible .ko-tel{animation-duration:1.8s}
+@keyframes ko-tel{0%,55%{transform:rotate(0)}65%,85%{transform:rotate(90deg)}
+  95%,100%{transform:rotate(0)}}
 
 /* basılı tutma 2× kapsülü: tepede ortada; halka aşağı sürüklemeyle dolar, dolunca kilit */
 .ko-turbo{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:4;--u:0;

@@ -4,7 +4,9 @@
 // kalıbı; tarayıcı AÇMAZ, yalnız PNG yazar). Tasarım teslim kapısı §7 (masaüstü 1440, telefon 390).
 //   node araclar/oynatici-kare.mjs <url> <GxY> <çıktı.png> [--t 25] [--tema acik|koyu]
 //     [--dokunma 1] [--tam 1] [--menu bolum|hiz] [--port 9333] [--bekle 8] [--oynat 1]
-//     [--basili <px>] [--bekleSn 0]
+//     [--basili <px>] [--bekleSn 0] [--dondur GxY]
+//   --dondur GxY: kareden önce pencereyi bu ölçüye çevirir (cihaz dönüşü); yeni yön pane'inin kaç
+//     ms'de göründüğünü ve ses saatinin kesilmediğini JSON'a yazar (CDP gecikmesi dahil üst sınır)
 //   --dokunma 1: dokunmatik düzen (orta kontroller) · --tam 1: sayfanın tamamı (kaydırmalı)
 //   --oynat 1: büyük oynat düğmesine gerçek tık (CDP Input = kullanıcı hareketi; ses açık oynar)
 //   --basili <px>: oynarken sahne ortasına bas-tut (650 ms), <px> aşağı sürükle, basılıyken kare al
@@ -48,6 +50,10 @@ ws.onopen = async () => {
     const { sessionId } = await g("Target.attachToTarget", { targetId, flatten: true });
     await g("Target.activateTarget", { targetId });
     await g("Emulation.setFocusEmulationEnabled", { enabled: true }, sessionId);
+    if (sec.dokunma === "1") {                      // (pointer: coarse) yüklemeden önce doğru olsun
+      await g("Emulation.setTouchEmulationEnabled", { enabled: true, maxTouchPoints: 5 },
+        sessionId);
+    }
     await g("Page.navigate", { url }, sessionId);
     const ev = async (js) => (await g("Runtime.evaluate",
       { expression: js, awaitPromise: true, returnByValue: true }, sessionId)).result.value;
@@ -88,10 +94,30 @@ ws.onopen = async () => {
       await uyku(400 + 1000 * +(sec.bekleSn || 0));
     }
     if (sec.basili != null) {                       // bas-tut 2× (turbo.js) — basılıyken kare
-      const p = await orta(".ko-pane", 0.25, 0.22);  // dokunmatik orta düğme bandının üstü
+      const p = await orta(".ko-sahne", 0.25, 0.22); // dokunmatik orta düğme bandının üstü
       await fare("mousePressed", p.x, p.y); await uyku(650);
       const px = +sec.basili; if (px) await fare("mouseMoved", p.x, p.y + px, { buttons: 1 });
       await uyku(250);
+    }
+    let donus = null;
+    if (sec.dondur) {                               // cihaz dönüşü: yeni yön kaç ms'de göründü
+      const [W2, H2] = String(sec.dondur).split("x").map(Number);
+      const hedef = W2 >= H2 ? "yatay" : "dikey";
+      const SES = "JSON.stringify((a => ({ t: a.currentTime, durdu: a.paused }))" +
+        "(document.querySelector('.ko audio')))";
+      const once = JSON.parse(await ev(SES)), t0 = Date.now();
+      await g("Emulation.setDeviceMetricsOverride",
+        { width: W2, height: H2, deviceScaleFactor: 1, mobile: sec.dokunma === "1" }, sessionId);
+      const GORUNDU = `(() => { const p = document.querySelector('.ko-pane[data-yon=${hedef}]');
+        return !!p && !p.classList.contains('ko-pasif') && OYNATICI.durum().yon === '${hedef}' &&
+        [...p.querySelectorAll('.ko-yaprak')].some((y) => y.style.opacity === '1'); })()`;
+      let ms = null;
+      while (Date.now() - t0 < 10000) {
+        if (await ev(GORUNDU)) { ms = Date.now() - t0; break; } await uyku(10);
+      }
+      donus = { hedef, ms, sesOnce: once, sesSonra: JSON.parse(await ev(SES)),
+        yon: await ev("OYNATICI.durum().yon") };
+      await uyku(300);
     }
     await uyku(sec.basili != null ? 0 : 600);
     const param = { format: "png" };
@@ -108,10 +134,10 @@ ws.onopen = async () => {
     const turbo = await ev("(() => { const t = document.querySelector('.ko-turbo'); return t ?" +
       " (t.hidden ? 'gizli' : t.className + ' u=' + t.style.getPropertyValue('--u')) : '-'; })()");
     if (sec.basili != null) {
-      const p = await orta(".ko-pane", 0.25, 0.22); await fare("mouseReleased", p.x, p.y);
+      const p = await orta(".ko-sahne", 0.25, 0.22); await fare("mouseReleased", p.x, p.y);
     }
     console.log(JSON.stringify({ png: cikti, bayt: fs.statSync(cikti).size, olcu: `${W}x${H}`,
-      durum, hiz, turbo }));
+      durum, hiz, turbo, donus }));
   } catch (er) { console.error("HATA", er.message); process.exitCode = 1; }
   if (ctx) await g("Target.disposeBrowserContext", { browserContextId: ctx }).catch(() => {});
   ws.close();

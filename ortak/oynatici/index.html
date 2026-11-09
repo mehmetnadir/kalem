@@ -116,7 +116,7 @@ main.dikey .bolumler{grid-column:2;grid-row:2;position:static;align-self:start}
   <p class="not">Prototip 0.1 · klavye: <kbd>Boşluk</kbd> oynat · <kbd>J</kbd>/<kbd>L</kbd> 10 sn ·
     <kbd>←</kbd>/<kbd>→</kbd> 5 sn · <kbd>[</kbd>/<kbd>]</kbd> bölüm · <kbd>C</kbd> altyazı ·
     <kbd>F</kbd> tam ekran · <kbd>T</kbd> tema · <kbd>M</kbd> sessiz · sahneye basılı tut 2×,
-    basılıyken aşağı sürükle: kilit</p>
+    basılıyken aşağı sürükle: kilit · cihazı döndür: yatay ↔ dikey kesintisiz</p>
 </main>
 <script type="module">
 import { monte } from "./kalem-oynatici.js";
@@ -169,20 +169,34 @@ fetch("/projeler/" + kokPaket + "/surumler.json").then((r) => (r.ok ? r.json() :
     if (v.kitle) rozet(v.kitle, "sari");
     if (v.seviye) rozet(v.seviye[0].toUpperCase() + v.seviye.slice(1));
     if (v.ders) rozet(v.ders);
-    if (/-dikey$/.test(PAKET)) rozet("Dikey 9:16");
+    // Yön çifti: ana-yatay + dikey-tam sürümleri aynı ses saatinde; oynatıcı yönü cihazdan seçer.
+    const sur = (s && s.surumler) || [], yollar = [YOL];
+    ["ana-yatay", "dikey-tam"].forEach((k) => {
+      const x = sur.find((v) => v.kimlik === k);
+      const p = x && "/projeler/" + (x.proje || kokPaket) + "/";
+      if (p && !yollar.includes(p)) yollar.push(p);
+    });
+    if (yollar.length > 1) rozet("Yatay · Dikey");
+    else if (/-dikey$/.test(PAKET)) rozet("Dikey 9:16");
     const sure = document.createElement("span"); sure.id = "sure"; $("#meta").appendChild(sure);
     (v.canAlici || []).slice(0, 4).forEach((t) => {
       const li = document.createElement("li"); li.textContent = t; $("#amac").appendChild(li);
     });
+    const yonSayfa = (yon) => {                                  // sayfa düzeni yönü izler
+      $("#ana").classList.toggle("dikey", yon === "dikey");
+      $("#ana").style.setProperty("--ar", $("#oynatici").style.getPropertyValue("--ar"));
+    };
     api = monte($("#oynatici"), {
-      paket: YOL, tema: temaIlk, baslik: ad, alt: [v.kitle, v.seviye].filter(Boolean).join(" · "),
+      paketler: yollar, yon: Q.get("yon") || null, tema: temaIlk, baslik: ad,
+      sicak: Q.has("sicak") ? Q.get("sicak") === "1" : null,   // iki yön sıcak (öntanım: dokunmatik)
+      alt: [v.kitle, v.seviye].filter(Boolean).join(" · "),
       olay(tur, d) {
         if (tur === "hazir") {
           B = d.bolumler; listeCiz();
           $("#sure").textContent = mmss(d.sure) + " · " + B.length + " bölüm";
-          $("#ana").classList.toggle("dikey", api.kok.dataset.yon === "dikey");
-          $("#ana").style.setProperty("--ar", api.kok.style.getPropertyValue("--ar"));
-        } else if (tur === "bolum") { aktif = d.no; listeCiz(); }
+          yonSayfa($("#oynatici").dataset.yon);
+        } else if (tur === "yon") yonSayfa(d.yon);
+        else if (tur === "bolum") { aktif = d.no; listeCiz(); }
         else if (tur === "tema") sayfaTema(d.tema);
       },
     });
