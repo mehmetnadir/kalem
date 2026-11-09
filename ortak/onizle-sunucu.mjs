@@ -406,7 +406,8 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
     : v; };
   const port = Number(arg('--port', 3012));
   const kok = arg('--kok', path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'));
-  baslat({ kok, port }).then(() =>
-    console.log(`önizleme sunucusu: http://127.0.0.1:${port}/ (kök ${kok})`))
+  const adres = arg('--adres', '127.0.0.1');        // telefon testi: --adres 0.0.0.0 (aynı Wi-Fi)
+  baslat({ kok, port, adres }).then(() =>
+    console.log(`önizleme sunucusu: http://${adres}:${port}/ (kök ${kok})`))
     .catch((e) => { console.error(`HATA: ${e.message}`); process.exit(1); });
 }
