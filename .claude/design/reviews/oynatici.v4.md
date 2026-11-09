@@ -35,7 +35,7 @@ Paket present-perfect-temel (yatay + dikey çifti), açık tema, t = 25 sn, baş
 | 4 | Hareket / JS kapalı | GEÇTİ | kurallar CSS; `prefers-reduced-motion` korunur |
 | 5 | Erişilebilirlik | GEÇTİ | kontrol çubuğu her görünümde görünür, düğme ≥ 44 px dokunmada |
 | 6 | Metin | GEÇTİ | sözlükten (0.4.1) |
-| 7 | Algılanan hız | — | temiz yük ölçümü bekçide (yük < 10) |
+| 7 | Algılanan hız | KISMEN | temiz makine 09.11 16:31 (yük 9–12): masaüstü cpu1 ilk kare 204 ms, meşgul %49, 59 fps, uzun iş 0 · telefon cpu1 222 ms, %51, 59 fps · telefon cpu4 607 ms, **%94, 15 fps, uzun iş 6** — PRD ölçütü (≤ %30, ≤ 2) cpu4'te karşılanmıyor; P2 adayları PRD §7 |
 | 8 | Uygulama kipi | GEÇTİ | iki yön, 6 görünüm |
 
 Gerçek cihaz 09.11 15:14: Huawei MatePad Pro (Huawei Browser, Chromium 114; adb + CDP 9241) — sahneler gerçek ekranda
