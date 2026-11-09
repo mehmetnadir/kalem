@@ -188,7 +188,7 @@ fetch("/projeler/" + kokPaket + "/surumler.json").then((r) => (r.ok ? r.json() :
     };
     api = monte($("#oynatici"), {
       paketler: yollar, yon: Q.get("yon") || null, tema: temaIlk, baslik: ad,
-      sicak: Q.has("sicak") ? Q.get("sicak") === "1" : null,   // iki yön sıcak (öntanım: dokunmatik)
+      sicak: Q.has("sicak") ? Q.get("sicak") === "1" : null,   // iki yön sıcak (öntanım dokunmatik)
       alt: [v.kitle, v.seviye].filter(Boolean).join(" · "),
       olay(tur, d) {
         if (tur === "hazir") {
