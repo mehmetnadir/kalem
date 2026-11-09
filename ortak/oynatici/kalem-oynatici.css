@@ -16,11 +16,13 @@
   stroke-linejoin:round;display:block}
 .ko svg text{font:700 8px Lexend,system-ui,sans-serif;fill:currentColor;stroke:none;
   text-anchor:middle}
-.ko .ko-oynat svg path,.ko-buyuk svg path{fill:currentColor}
+/* oynat / duraklat dolu simge: kontur kapatılır (2 px kontur çubuk arasını dolduruyordu) */
+.ko .ko-d[data-ik=oynat] svg path,.ko .ko-d[data-ik=dur] svg path{fill:currentColor;stroke:none}
 
 /* sahne ve tamponlar */
 .ko-sahne{position:relative;width:100%;aspect-ratio:var(--ar);display:flex;align-items:center;
-  justify-content:center;background:var(--ko-zemin);cursor:pointer;overflow:hidden}
+  justify-content:center;background:var(--ko-zemin);cursor:pointer;overflow:hidden;
+  -webkit-touch-callout:none}
 .ko.ko-gizli.ko-oynuyor .ko-sahne{cursor:none}
 .ko-pane{position:relative;overflow:hidden;perspective:2400px}
 .ko-yaprak{position:absolute;inset:0;opacity:0;transform-origin:left center;
@@ -89,6 +91,8 @@
   color:var(--ko-lacivert);transition:opacity .25s}
 .ko[data-tema=koyu] .ko-poster{color:#f3efe6}
 .ko-poster.ko-hazir{background:rgba(0,0,0,.28);color:#fff}
+.ko-poster.ko-bitti{background:rgba(0,0,0,.46)}
+.ko-poster.ko-bitti .ko-poster-ust{display:none}     /* bitişte başlık sahne künyesine binmesin */
 .ko-poster.ko-yok{opacity:0;pointer-events:none}
 .ko-poster-ust{position:absolute;left:20px;top:14px;right:20px;display:flex;
   justify-content:space-between;align-items:baseline;gap:12px;text-shadow:0 1px 2px rgba(0,0,0,.25)}
@@ -106,6 +110,24 @@
   margin-left:8px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;
   vertical-align:-2px;animation:ko-don .8s linear infinite}
 @keyframes ko-don{to{transform:rotate(360deg)}}
+
+/* basılı tutma 2× kapsülü: tepede ortada; halka aşağı sürüklemeyle dolar, dolunca kilit */
+.ko-turbo{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:4;--u:0;
+  display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 12px 0 7px;border:0;
+  border-radius:999px;background:var(--ko-cam);color:var(--ko-metin);cursor:default;
+  font:700 14px/1 Lexend,system-ui,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.25);
+  animation:ko-belir .15s ease-out}
+.ko-turbo[hidden]{display:none}
+.ko-turbo.ko-kilit{cursor:pointer}
+.ko-halka{width:22px;height:22px;flex:none}
+.ko-halka svg{width:22px;height:22px;transform:rotate(-90deg)}
+.ko-halka .iz{stroke:rgba(255,255,255,.25);stroke-width:2.5}
+.ko-halka .dolum{stroke:var(--ko-vurgu);stroke-width:2.5;stroke-dasharray:56.55px;
+  stroke-dashoffset:calc(56.55px * (1 - var(--u)));transition:stroke-dashoffset .08s linear}
+.ko-turbo .ko-turbo-ik svg{width:18px;height:18px}
+.ko-turbo.ko-kilit .ko-turbo-ik{color:var(--ko-vurgu)}
+@keyframes ko-belir{from{opacity:0;transform:translateX(-50%) scale(.9)}
+  to{opacity:1;transform:translateX(-50%) scale(1)}}
 
 /* dokunmatik orta kontroller */
 .ko-orta{position:absolute;inset:0;display:none;align-items:center;justify-content:center;gap:36px;

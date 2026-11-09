@@ -3,8 +3,12 @@
 // ölçüsünde açar, OYNATICI'yı istenen saniyeye sarar, afişi kaldırır, PNG alır (sahne-kare.mjs
 // kalıbı; tarayıcı AÇMAZ, yalnız PNG yazar). Tasarım teslim kapısı §7 (masaüstü 1440, telefon 390).
 //   node araclar/oynatici-kare.mjs <url> <GxY> <çıktı.png> [--t 25] [--tema acik|koyu]
-//     [--dokunma 1] [--tam 1] [--menu bolum|hiz] [--port 9333] [--bekle 8]
+//     [--dokunma 1] [--tam 1] [--menu bolum|hiz] [--port 9333] [--bekle 8] [--oynat 1]
+//     [--basili <px>] [--bekleSn 0]
 //   --dokunma 1: dokunmatik düzen (orta kontroller) · --tam 1: sayfanın tamamı (kaydırmalı)
+//   --oynat 1: büyük oynat düğmesine gerçek tık (CDP Input = kullanıcı hareketi; ses açık oynar)
+//   --basili <px>: oynarken sahne ortasına bas-tut (650 ms), <px> aşağı sürükle, basılıyken kare al
+//     (turbo.js: 0 = yalnız 2× kapsülü; eşik 48–96 px → kilit) · --bekleSn: oynatma sonrası bekleme
 import fs from "node:fs";
 import path from "node:path";
 
@@ -70,7 +74,26 @@ ws.onopen = async () => {
       const d = sec.menu === "hiz" ? "hizd" : "bold";
       await ev(`document.querySelector('.ko-${d}').click(); true`);
     }
-    await uyku(600);
+    // fx/fy: öğe içindeki oran (0,5 = orta). Bas-tut sol çeyrekten: orta düğmelere değmesin.
+    const orta = async (s, fx = 0.5, fy = 0.5) => JSON.parse(await ev(`(() => { const r = document
+      .querySelector(${JSON.stringify(s)}).getBoundingClientRect(); return JSON.stringify(
+      { x: r.left + r.width * ${fx}, y: r.top + r.height * ${fy} }); })()`));
+    const fare = (type, x, y, ek = {}) => g("Input.dispatchMouseEvent",
+      { type, x, y, button: "left", clickCount: 1, ...ek }, sessionId);
+    if (sec.oynat === "1") {                        // gerçek kullanıcı hareketi: ses kilidi açılır
+      await ev(sinif(".ko-poster", "ko-hazir")); await ev("document.querySelector('.ko-poster')" +
+        ".classList.remove('ko-yok'); true");
+      const p = await orta(".ko-buyuk");
+      await fare("mousePressed", p.x, p.y); await fare("mouseReleased", p.x, p.y);
+      await uyku(400 + 1000 * +(sec.bekleSn || 0));
+    }
+    if (sec.basili != null) {                       // bas-tut 2× (turbo.js) — basılıyken kare
+      const p = await orta(".ko-pane", 0.25, 0.22);  // dokunmatik orta düğme bandının üstü
+      await fare("mousePressed", p.x, p.y); await uyku(650);
+      const px = +sec.basili; if (px) await fare("mouseMoved", p.x, p.y + px, { buttons: 1 });
+      await uyku(250);
+    }
+    await uyku(sec.basili != null ? 0 : 600);
     const param = { format: "png" };
     if (sec.tam === "1") {
       const lm = await g("Page.getLayoutMetrics", {}, sessionId);
@@ -81,8 +104,14 @@ ws.onopen = async () => {
     const sc = await g("Page.captureScreenshot", param, sessionId);
     fs.writeFileSync(cikti, Buffer.from(sc.data, "base64"));
     const durum = await ev("JSON.stringify(OYNATICI.durum())");
+    const hiz = await ev("document.querySelector('.ko audio').playbackRate");
+    const turbo = await ev("(() => { const t = document.querySelector('.ko-turbo'); return t ?" +
+      " (t.hidden ? 'gizli' : t.className + ' u=' + t.style.getPropertyValue('--u')) : '-'; })()");
+    if (sec.basili != null) {
+      const p = await orta(".ko-pane", 0.25, 0.22); await fare("mouseReleased", p.x, p.y);
+    }
     console.log(JSON.stringify({ png: cikti, bayt: fs.statSync(cikti).size, olcu: `${W}x${H}`,
-      durum }));
+      durum, hiz, turbo }));
   } catch (er) { console.error("HATA", er.message); process.exitCode = 1; }
   if (ctx) await g("Target.disposeBrowserContext", { browserContextId: ctx }).catch(() => {});
   ws.close();

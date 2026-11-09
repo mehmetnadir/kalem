@@ -4,14 +4,19 @@
 // çekirdeğiyle aynı protokol, ortak/surucu.js). Oynatma sırasında sunucu ucu çağrılmaz.
 // Kullanım: monte(kok, { paket: "/projeler/present-perfect-temel/", tema, baslik, alt, olay })
 // Olaylar (olay(ad, detay)): hazir · oynuyor · durdu · bitti · zaman · bolum · tema · hata
+// Basılı tutma 2× (turbo.js): sahneye bas-tut → 2×, aşağı sürükle → halka dolar, kilit (09.11).
 "use strict";
-export const SURUM = "0.1.0";
+import { turboKur, bas, sure, hareket, birak, kapat, hizli, TURBO_HIZ, BASILI_MS }
+  from "./turbo.js";
+export const SURUM = "0.2.0";
 const GECIS = 0.4, KIVRIM = 0.6, ONYUKLE = 3, GIZLE_MS = 3000, SAR = 10, OK = 5;
 const DEPO = "kalem.oynatici.", HIZLAR = [0.75, 1, 1.25, 1.5, 2];
 const ZEMIN = { acik: "#f7f3ea", koyu: "#1b1a17" };
 const IK = {
-  oynat: "<path d='M8 5l11 7-11 7z'/>",
-  dur: "<path d='M7 5h4v14H7zM13 5h4v14h-4z'/>",
+  oynat: "<path d='M7 4.5l12.5 7.5L7 19.5z'/>",                // dolu: CSS [data-ik] kuralı
+  dur: "<path d='M6 5h4.5v14H6zM13.5 5H18v14h-4.5z'/>",
+  cift: "<path d='M5 6l6 6-6 6M13 6l6 6-6 6'/>",
+  kilit: "<rect x='5' y='11' width='14' height='10' rx='2'/><path d='M8 11V7a4 4 0 0 1 8 0v4'/>",
   geri: "<path d='M4 12a8 8 0 1 0 2.3-5.7M4 4v4.6h4.6'/><text x='12' y='15.5'>10</text>",
   ileri: "<path d='M20 12a8 8 0 1 1-2.3-5.7M20 4v4.6h-4.6'/><text x='12' y='15.5'>10</text>",
   ses: "<path d='M4 9v6h4l5 4V5L8 9zM16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11'/>",
@@ -44,7 +49,7 @@ function el(tag, cls, ust, html) {
 const svg = (ad) =>
   "<svg viewBox='0 0 24 24' aria-hidden='true' focusable='false'>" + IK[ad] + "</svg>";
 function dugme(ust, cls, etiket, ad) {
-  const b = el("button", "ko-d " + cls, ust, svg(ad)); b.type = "button";
+  const b = el("button", "ko-d " + cls, ust, svg(ad)); b.type = "button"; b.dataset.ik = ad;
   b.setAttribute("aria-label", etiket); b.title = etiket; return b;
 }
 function ikon(b, ad) { if (b.dataset.ik !== ad) { b.innerHTML = svg(ad); b.dataset.ik = ad; } }
@@ -78,7 +83,7 @@ export function monte(kok, sec) {
     altyazi: depoAl("altyazi", true), tema: sec.tema || depoAl("tema", null) || "acik",
     alt: [], slot: [], gosterilen: -1, hazir: false, basladi: false, gizleT: 0, gizliydi: false,
     surukle: false, menu: "", kontrolUstunde: false, sonSn: -1, sonBolum: -1, sonAlt: "",
-    oynuyorduSurukle: false,
+    oynuyorduSurukle: false, turbo: turboKur(), turboZ: 0, turboTik: false,
     dokunma: matchMedia("(pointer: coarse)").matches,
     azHareket: matchMedia("(prefers-reduced-motion: reduce)").matches,
   };
@@ -111,6 +116,12 @@ export function monte(kok, sec) {
   const buyuk = dugme(poster, "ko-buyuk", "Oynat", "oynat");
   const posterNot = el("div", "ko-poster-not", poster, "Yükleniyor");
   const hata = el("div", "ko-hata", sahne); hata.hidden = true; hata.setAttribute("role", "alert");
+  const turboEl = el("button", "ko-turbo", sahne, "<span class='ko-halka'>" +
+    "<svg viewBox='0 0 24 24'><circle class='iz' cx='12' cy='12' r='9'/>" +
+    "<circle class='dolum' cx='12' cy='12' r='9'/></svg></span><b>" + TURBO_HIZ + "×</b>" +
+    "<span class='ko-turbo-ik' data-ik='cift'>" + svg("cift") + "</span>");
+  turboEl.type = "button"; turboEl.hidden = true; turboEl.tabIndex = -1;
+  turboEl.setAttribute("aria-label", TURBO_HIZ + "× hız");
   el("div", "ko-golge", kok);
   const kontrol = el("div", "ko-kontrol", kok);
   const cubuk = el("div", "ko-cubuk", kontrol); cubuk.tabIndex = 0;
@@ -232,7 +243,7 @@ export function monte(kok, sec) {
   function oyna() {
     if (!d.hazir) return;
     if (d.bitti || d.t >= d.T - 0.1) git(0);
-    au.playbackRate = d.hiz; au.volume = d.ses; au.muted = d.sessiz;
+    hizUygula(); au.volume = d.ses; au.muted = d.sessiz;
     if (Math.abs(au.currentTime - d.t) > 0.05) {
       try { au.currentTime = d.t; } catch (e) { /* yüklenince eşitlenir */ }
     }
@@ -250,18 +261,40 @@ export function monte(kok, sec) {
     au.pause(); d.t = au.currentTime; d.oynuyor = false; kok.classList.remove("ko-oynuyor");
     goster(); if (!sessizce) { duyur("Duraklatıldı"); olay("durdu", { t: d.t }); }
   }
-  function bitir() {
-    au.pause(); d.oynuyor = false; d.bitti = true; kok.classList.remove("ko-oynuyor");
+  function bitir() {                 // ses dosyası T'den kısa bitebilir: çubuk yine tam dolar
+    au.pause(); d.oynuyor = false; d.bitti = true; d.t = d.T - 1 / d.FPS;
+    kok.classList.remove("ko-oynuyor");
     poster.classList.remove("ko-yok"); poster.classList.add("ko-bitti"); ikon(buyuk, "tekrar");
     etiket(buyuk, "Tekrar izle"); posterNot.textContent = "Tekrar izle"; goster();
-    olay("bitti", { t: d.T });
+    turboKapat(true); olay("bitti", { t: d.T });
   }
   function oynatDur() { if (d.oynuyor) dur(); else oyna(); }
   function sar(k) { git(d.t + k); goster(); }
   function bolumGit(i) { i = sinirla(i, 0, d.B.length - 1); git(d.B[i].t0 + 0.001); menuKapat(); }
   const hizYazi = (h) => String(h).replace(".", ",") + "×";
   function hizSec(h) {
-    d.hiz = h; au.playbackRate = h; depoYaz("hiz", h); menuKapat(); duyur("Hız " + hizYazi(h));
+    d.hiz = h; depoYaz("hiz", h); menuKapat(); turboKapat(true); hizUygula();
+    duyur("Hız " + hizYazi(h));
+  }
+  // Basılı tutma 2× (turbo.js): kalıcı hız d.hiz'e dokunmaz, depoya yazılmaz.
+  function hizUygula() { au.playbackRate = hizli(d.turbo) ? TURBO_HIZ : d.hiz; }
+  function turboCiz() {
+    const s = d.turbo, kilit = s.evre === "kilit", ik = turboEl.querySelector(".ko-turbo-ik");
+    turboEl.hidden = !hizli(s); turboEl.classList.toggle("ko-kilit", kilit);
+    turboEl.style.setProperty("--u", String(kilit ? 1 : s.u));
+    const ad = kilit ? "kilit" : "cift";
+    if (ik.dataset.ik !== ad) { ik.innerHTML = svg(ad); ik.dataset.ik = ad; }
+    etiket(turboEl, kilit ? TURBO_HIZ + "× kilitli. Çıkmak için dokun" : TURBO_HIZ + "× hız");
+  }
+  function turboAc() {
+    if (!d.oynuyor || !d.hazir) { kapat(d.turbo); return; }
+    sure(d.turbo); if (!hizli(d.turbo)) return;
+    hizUygula(); turboCiz(); duyur("Hız " + TURBO_HIZ + "×"); goster();
+  }
+  function turboKapat(sessizce) {
+    const vardi = hizli(d.turbo); clearTimeout(d.turboZ); kapat(d.turbo);
+    if (!vardi) return;
+    hizUygula(); turboCiz(); if (!sessizce) duyur("Hız " + hizYazi(d.hiz)); goster();
   }
   function sesUygula() {
     au.volume = d.ses; au.muted = d.sessiz || d.ses === 0; sesKay.value = d.sessiz ? 0 : d.ses;
@@ -458,7 +491,39 @@ export function monte(kok, sec) {
   bTam.onclick = tamEkran; bHiz.onclick = () => menuAc("hiz", true);
   bBol.onclick = () => menuAc("bolum", true); bBolum.onclick = () => menuAc("bolum", false);
   let sonTik = 0;
+  // Basılı tutma: 500 ms sonra 2×; aşağı sürükleme halkayı doldurur (eşik = sahne boyu × 0,3,
+  // 48–96 px); dolunca kilit. Etkinken touchmove engellenir: sayfa kaymaz (dinleyici pasif değil).
+  sahne.addEventListener("pointerdown", (ev) => {
+    d.turboTik = false;
+    if (ev.button !== 0 || ev.target.closest("button") || !d.oynuyor || !d.hazir) return;
+    bas(d.turbo, ev.clientX, ev.clientY, sinirla(sahne.clientHeight * 0.3, 48, 96));
+    if (d.turbo.evre !== "bekliyor") return;                        // kilitli: sıradan dokunuş
+    clearTimeout(d.turboZ); d.turboZ = setTimeout(turboAc, BASILI_MS);
+    try { sahne.setPointerCapture(ev.pointerId); } catch (e) { /* yakalama yoksa da sürer */ }
+  });
+  sahne.addEventListener("pointermove", (ev) => {
+    const s = d.turbo; if (s.evre === "bos") return;
+    const once = s.evre; hareket(s, ev.clientX, ev.clientY);
+    if (s.evre === "bos") clearTimeout(d.turboZ);                 // kaydırma niyeti: iptal
+    else if (s.evre === "aktif" || once !== s.evre) {
+      turboCiz(); if (s.evre === "kilit") duyur("Hız " + TURBO_HIZ + "× kilitlendi");
+    }
+  });
+  const turboBirak = () => {
+    clearTimeout(d.turboZ); const s = d.turbo, vardi = hizli(s);
+    if (birak(s)) d.turboTik = true;
+    if (vardi && !hizli(s)) { hizUygula(); turboCiz(); duyur("Hız " + hizYazi(d.hiz)); }
+  };
+  sahne.addEventListener("pointerup", turboBirak);
+  sahne.addEventListener("pointercancel", turboBirak);
+  sahne.addEventListener("touchmove", (ev) => { if (hizli(d.turbo)) ev.preventDefault(); },
+    { passive: false });
+  sahne.addEventListener("contextmenu", (ev) => {
+    if (d.turbo.evre !== "bos") ev.preventDefault();
+  });
+  turboEl.onclick = () => turboKapat();
   sahne.addEventListener("click", (ev) => {
+    if (d.turboTik) { d.turboTik = false; return; }               // basılı tutmanın tıkı sayılmaz
     if (ev.target.closest("button") || !d.hazir) return;
     if (d.dokunma) { if (!d.gizliydi) d.gizleT = 0; return; }   // dokunma: kontrolleri aç / kapat
     const simdi = performance.now();
