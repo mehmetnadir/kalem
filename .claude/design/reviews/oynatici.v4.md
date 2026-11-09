@@ -38,4 +38,9 @@ Paket present-perfect-temel (yatay + dikey çifti), açık tema, t = 25 sn, baş
 | 7 | Algılanan hız | — | temiz yük ölçümü bekçide (yük < 10) |
 | 8 | Uygulama kipi | GEÇTİ | iki yön, 6 görünüm |
 
-Açık: gerçek cihazda yeniden doğrulama (Nadir, iPhone yenile); temiz yük ölçümü ve dönüş ölçümü bekçileri.
+Gerçek cihaz 09.11 15:14: Huawei MatePad Pro (Huawei Browser, Chromium 114; adb + CDP 9241) — sahneler gerçek ekranda
+doğru (`adb screencap`; CDP ekran görüntüsü GPU canvas'ı siyah basar, kanıt sayılmaz), m4a oynuyor, soğuk yük 3,68 MB /
+hazır 1,0 sn, ikinci yük 0,02 MB (ETag 304), 0.4.5 sahne tamponu yüklü, hata 0.
+
+Açık: Chrome 104 canlı deneme (Dijital Denge süre sınırı); iPhone yenileme; temiz yük ve dönüş ölçümü bekçileri (yük
+3 sa < 12'ye düşmedi).
