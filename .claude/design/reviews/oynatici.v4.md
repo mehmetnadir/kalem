@@ -42,5 +42,8 @@ Gerçek cihaz 09.11 15:14: Huawei MatePad Pro (Huawei Browser, Chromium 114; adb
 doğru (`adb screencap`; CDP ekran görüntüsü GPU canvas'ı siyah basar, kanıt sayılmaz), m4a oynuyor, soğuk yük 3,68 MB /
 hazır 1,0 sn, ikinci yük 0,02 MB (ETag 304), 0.4.5 sahne tamponu yüklü, hata 0.
 
-Açık: Chrome 104 canlı deneme (Dijital Denge süre sınırı); iPhone yenileme; temiz yük ve dönüş ölçümü bekçileri (yük
+Chrome 104 canlı 15:44 (aynı tablet, Dijital Denge parolası Nadir): soğuk 4,79 MB / hazır 1,1 sn, ikinci yük 0,02 MB,
+gerçek dokunmayla oynadı, 22 ve 52 sn'de sahneler gerçek ekranda eksiksiz, hata 0 — GEÇTİ.
+
+Açık: iPhone yenileme; temiz yük ve dönüş ölçümü bekçileri (yük
 3 sa < 12'ye düşmedi).
