@@ -70,6 +70,59 @@ function kisaAd(ad) {
     .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'surum';
 }
 
+export function dogrulayici(st) {
+  const mtimeMs = typeof st.mtimeMs === 'number'
+    ? Math.floor(st.mtimeMs)
+    : Math.floor(st.mtime?.getTime?.() || 0);
+  const etag = `W/"${st.size}-${mtimeMs.toString(36)}"`;
+  const sonMod = new Date(mtimeMs).toUTCString();
+  return { etag, sonMod, lastModified: sonMod, mtimeMs };
+}
+
+export function etagEslesir(gelen, hedefEtag) {
+  if (!gelen || !hedefEtag) return false;
+  const hedef = hedefEtag.trim().replace(/^W\//, '');
+  const parcalar = gelen.split(',');
+  for (let p of parcalar) {
+    const t = p.trim();
+    if (t === '*') return true;
+    if (t.replace(/^W\//, '') === hedef) return true;
+  }
+  return false;
+}
+
+export function imsEslesir(ims, mtimeMs) {
+  if (!ims) return false;
+  const d = Date.parse(ims);
+  if (Number.isNaN(d)) return false;
+  return Math.floor(d / 1000) >= Math.floor(mtimeMs / 1000);
+}
+
+export function kosullu304(headers, etag, mtimeMs) {
+  const inm = headers['if-none-match'];
+  if (inm !== undefined && inm !== null) {
+    return etagEslesir(inm, etag);
+  }
+  const ims = headers['if-modified-since'];
+  if (ims !== undefined && ims !== null) {
+    return imsEslesir(ims, mtimeMs);
+  }
+  return false;
+}
+
+export function ifRangeGecerli(ifRange, etag, mtimeMs) {
+  if (!ifRange) return true;
+  const t = ifRange.trim();
+  if (t.startsWith('"') || t.startsWith('W/"')) {
+    return t.replace(/^W\//, '') === etag.replace(/^W\//, '');
+  }
+  const d = Date.parse(t);
+  if (!Number.isNaN(d)) {
+    return Math.floor(d / 1000) === Math.floor(mtimeMs / 1000);
+  }
+  return false;
+}
+
 export function sunucuKur({ kok }) {
   const KOK = path.resolve(kok);
   const kuyruk = new Map(); // proje -> zincir (tek süreç kilidi)
@@ -328,8 +381,23 @@ export function sunucuKur({ kok }) {
       dosya = idx; st = fs.statSync(idx);
     }
     const tur = MIME[path.extname(dosya).toLowerCase()] || 'application/octet-stream';
-    const baslik = { 'Content-Type': tur, 'Accept-Ranges': 'bytes', 'Cache-Control': 'no-cache' };
-    const r = istek.headers.range && /^bytes=(\d*)-(\d*)$/.exec(istek.headers.range);
+    const d = dogrulayici(st);
+    const baslik = {
+      'Content-Type': tur, 'Accept-Ranges': 'bytes', 'Cache-Control': 'no-cache',
+      'ETag': d.etag, 'Last-Modified': d.sonMod,
+    };
+    if (kosullu304(istek.headers, d.etag, d.mtimeMs)) {
+      yanit.writeHead(304, {
+        'Cache-Control': 'no-cache', 'ETag': d.etag, 'Last-Modified': d.sonMod,
+      });
+      return yanit.end();
+    }
+    let rangeIstek = istek.headers.range;
+    const ifRange = istek.headers['if-range'];
+    if (rangeIstek && ifRange && !ifRangeGecerli(ifRange, d.etag, d.mtimeMs)) {
+      rangeIstek = undefined;
+    }
+    const r = rangeIstek && /^bytes=(\d*)-(\d*)$/.exec(rangeIstek);
     if (r) {
       let bas = r[1] === '' ? st.size - Number(r[2]) : Number(r[1]);
       let son = r[1] === '' || r[2] === '' ? st.size - 1 : Math.min(Number(r[2]), st.size - 1);
@@ -352,9 +420,20 @@ export function sunucuKur({ kok }) {
     if (artik.length || !EDITOR_DOSYA.has(dosya)) return json(yanit, 404, { hata: 'bulunamadı' });
     projeDizini(proje);
     const yol = path.join(EDITOR_DIZINI, dosya);
+    let st;
+    try { st = fs.statSync(yol); } catch { return json(yanit, 404, { hata: 'bulunamadı' }); }
     const tur = MIME[path.extname(dosya)] || 'application/octet-stream';
-    const boy = fs.statSync(yol).size;
-    yanit.writeHead(200, { 'Content-Type': tur, 'Content-Length': boy, 'Cache-Control': 'no-cache' });
+    const d = dogrulayici(st);
+    if (kosullu304(istek.headers, d.etag, d.mtimeMs)) {
+      yanit.writeHead(304, {
+        'Cache-Control': 'no-cache', 'ETag': d.etag, 'Last-Modified': d.sonMod,
+      });
+      return yanit.end();
+    }
+    yanit.writeHead(200, {
+      'Content-Type': tur, 'Content-Length': st.size, 'Cache-Control': 'no-cache',
+      'ETag': d.etag, 'Last-Modified': d.sonMod,
+    });
     if (istek.method === 'HEAD') return yanit.end();
     fs.createReadStream(yol).pipe(yanit);
   }
@@ -368,7 +447,8 @@ export function sunucuKur({ kok }) {
         return json(yanit, istek.method === 'POST' ? 201 : 200, await api(istek.method, parcalar,
           govde));
       }
-      // Sahnelerin canlı kip günlüğü (POST /log): sessizce yutulur; konsolda 405 görünmesin (05.11).
+      // Sahnelerin canlı kip günlüğü (POST /log): sessizce yutulur; konsolda 405
+      // görünmesin (05.11).
       if (url.pathname === '/log') { istek.resume(); yanit.writeHead(204); return yanit.end(); }
       if (url.pathname === '/favicon.ico') { yanit.writeHead(204); return yanit.end(); }
       if (!['GET', 'HEAD'].includes(istek.method)) return json(yanit, 405, { hata: 'yöntem yok' });
