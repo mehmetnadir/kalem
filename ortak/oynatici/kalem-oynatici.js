@@ -3,18 +3,20 @@
 // iframe'de ?canli=1&mesaj=1 ile yalnız {tip:"zaman", t} mesajıyla çizer (ortak/editor/onizle.js
 // çekirdeğiyle aynı protokol, ortak/surucu.js). Oynatma sırasında sunucu ucu çağrılmaz.
 // Kullanım: monte(kok, { paket: "/projeler/present-perfect-temel/", tema, baslik, alt, olay })
-// Olaylar (olay(ad, detay)): hazir · oynuyor · durdu · bitti · zaman · bolum · tema · hata
+// Olaylar (olay(ad, detay)): hazir · oynuyor · durdu · bitti · zaman · bolum · tema · hata · dil
 // Basılı tutma 2× (turbo.js): sahneye bas-tut → 2×, aşağı sürükle → halka dolar, kilit (09.11).
 // Yön çifti (yon.js, 09.11): paketler [yatay, dikey] aynı ses saatinde; dokunmatik cihazda iki yön
 // de sıcak tutulur (kendi iframe tamponları), cihaz dönünce yalnız görünen pane değişir: ses ve
 // zaman kesilmez. Masaüstünde pasif yön tembel yüklenir (eski pane kalır, yenisi hazır olunca).
+// dil: sözlük tr/en (madde 17)
 "use strict";
 import { turboKur, bas, sure, hareket, birak, kapat, hizli, TURBO_HIZ, BASILI_MS }
   from "./turbo.js";
 import { yonAdi, yonIstek, ciftUyumlu } from "./yon.js";
+import { sozlukSec, dilCoz, DILLER } from "./sozluk.js";
 import "./cekirdek.js";                       // globalThis.KalemCekirdek (editörle ortak)
 const C = globalThis.KalemCekirdek;
-export const SURUM = "0.4.0";
+export const SURUM = "0.4.1";
 const GIZLE_MS = 3000, SAR = 10, OK = 5;
 const DEPO = "kalem.oynatici.", HIZLAR = [0.75, 1, 1.25, 1.5, 2];
 const ZEMIN = { acik: "#f7f3ea", koyu: "#1b1a17" };
@@ -90,12 +92,15 @@ export function monte(kok, sec) {
     B: [], T: 0, FPS: 30, t: 0, oynuyor: false, bitti: false,
     hiz: depoAl("hiz", 1), ses: depoAl("ses", 1), sessiz: depoAl("sessiz", false),
     altyazi: depoAl("altyazi", true), tema: sec.tema || depoAl("tema", null) || "acik",
+    dil: dilCoz(sec, kok),
     alt: [], slot: [], gosterilen: -1, hazir: false, basladi: false, gizleT: 0, gizliydi: false,
     surukle: false, menu: "", kontrolUstunde: false, sonSn: -1, sonBolum: -1, sonAlt: "",
     oynuyorduSurukle: false, turbo: turboKur(), turboZ: 0, turboTik: false,
     dokunma: matchMedia("(pointer: coarse)").matches,
     azHareket: matchMedia("(prefers-reduced-motion: reduce)").matches,
   };
+  let M = sozlukSec(d.dil);
+  kok.lang = d.dil;
   const konsol = (e) => {
     if (typeof console !== "undefined") console.error("[kalem-oynatici]", e);
   };
@@ -104,7 +109,7 @@ export function monte(kok, sec) {
 
   // ---------- Kurulum: DOM ----------
   kok.classList.add("ko"); kok.tabIndex = 0; kok.dataset.tema = d.tema;
-  kok.setAttribute("role", "region"); kok.setAttribute("aria-label", sec.baslik || "Ders videosu");
+  kok.setAttribute("role", "region"); kok.setAttribute("aria-label", sec.baslik || M.dersVideosu);
   kok.classList.toggle("ko-dokunma", d.dokunma); kok.innerHTML = "";
   const sahne = el("div", "ko-sahne", kok);
   // Yön başına pane + 2 iframe tamponu (çift tampon). Yön zaman.json yüklenince bilinir.
@@ -114,7 +119,7 @@ export function monte(kok, sec) {
       tema: d.tema, gosterilen: -1 };
     Y.slot = [0, 1].map((m) => {
       const y = el("div", "ko-yaprak", pane), f = el("iframe", null, y);
-      f.title = ad + " sahne tamponu " + (m + 1); f.setAttribute("aria-hidden", "true");
+      f.title = M.sahneTampon(ad, m + 1); f.setAttribute("aria-hidden", "true");
       f.tabIndex = -1;
       return { idx: m, y, f, no: -1, hazir: false, goster: false, sonT: null, sonF: -1, op: -1,
         z: -1, tr: null };
@@ -126,46 +131,47 @@ export function monte(kok, sec) {
   const herSlot = (fn) => herY((Y) => Y.slot.forEach((s) => fn(s, Y)));
   const altyaziEl = el("div", "ko-altyazi", sahne); altyaziEl.setAttribute("aria-live", "off");
   const orta = el("div", "ko-orta", sahne);
-  const oGeri = dugme(orta, "ko-geri", SAR + " saniye geri", "geri");
-  const oOynat = dugme(orta, "ko-oynat", "Oynat", "oynat");
-  const oIleri = dugme(orta, "ko-ileri", SAR + " saniye ileri", "ileri");
+  const oGeri = dugme(orta, "ko-geri", M.saniyeGeri(SAR), "geri");
+  const oOynat = dugme(orta, "ko-oynat", M.oynat, "oynat");
+  const oIleri = dugme(orta, "ko-ileri", M.saniyeIleri(SAR), "ileri");
   const poster = el("div", "ko-poster", sahne);
   const posterUst = el("div", "ko-poster-ust", poster, "<b></b><small></small>");
   posterUst.querySelector("b").textContent = sec.baslik || "";
   posterUst.querySelector("small").textContent = sec.alt || "";
-  const buyuk = dugme(poster, "ko-buyuk", "Oynat", "oynat");
-  const posterNot = el("div", "ko-poster-not", poster, "Yükleniyor");
+  const buyuk = dugme(poster, "ko-buyuk", M.oynat, "oynat");
+  const posterNot = el("div", "ko-poster-not", poster, M.yukleniyor);
   const hata = el("div", "ko-hata", sahne); hata.hidden = true; hata.setAttribute("role", "alert");
   const turboEl = el("button", "ko-turbo", sahne, "<span class='ko-halka'>" +
     "<svg viewBox='0 0 24 24'><circle class='iz' cx='12' cy='12' r='9'/>" +
     "<circle class='dolum' cx='12' cy='12' r='9'/></svg></span><b>" + TURBO_HIZ + "×</b>" +
     "<span class='ko-turbo-ik' data-ik='cift'>" + svg("cift") + "</span>");
   turboEl.type = "button"; turboEl.hidden = true; turboEl.tabIndex = -1;
-  turboEl.setAttribute("aria-label", TURBO_HIZ + "× hız");
+  turboEl.setAttribute("aria-label", M.hizCarpan(TURBO_HIZ));
   el("div", "ko-golge", kok);
   const kontrol = el("div", "ko-kontrol", kok);
   const cubuk = el("div", "ko-cubuk", kontrol); cubuk.tabIndex = 0;
-  cubuk.setAttribute("role", "slider"); cubuk.setAttribute("aria-label", "İlerleme");
+  cubuk.setAttribute("role", "slider"); cubuk.setAttribute("aria-label", M.ilerleme);
   cubuk.setAttribute("aria-valuemin", "0");
   const ray = el("div", "ko-ray", cubuk), tutamac = el("div", "ko-tutamac", cubuk);
   const ipucu = el("div", "ko-ipucu", cubuk, "<b></b><span></span>");
   const sira = el("div", "ko-sira", kontrol);
-  const bOynat = dugme(sira, "ko-oynat", "Oynat", "oynat");
-  const bGeri = dugme(sira, "ko-geri", SAR + " saniye geri", "geri");
-  const bIleri = dugme(sira, "ko-ileri", SAR + " saniye ileri", "ileri");
+  const bOynat = dugme(sira, "ko-oynat", M.oynat, "oynat");
+  const bGeri = dugme(sira, "ko-geri", M.saniyeGeri(SAR), "geri");
+  const bIleri = dugme(sira, "ko-ileri", M.saniyeIleri(SAR), "ileri");
   const sesGrup = el("div", "ko-ses", sira);
-  const bSes = dugme(sesGrup, "ko-sesd", "Sessiz", "ses");
+  const bSes = dugme(sesGrup, "ko-sesd", M.sessiz, "ses");
   const sesKay = el("input", null, sesGrup); sesKay.type = "range"; sesKay.min = "0";
-  sesKay.max = "1"; sesKay.step = "0.05"; sesKay.setAttribute("aria-label", "Ses düzeyi");
+  sesKay.max = "1"; sesKay.step = "0.05"; sesKay.setAttribute("aria-label", M.sesDuzeyi);
   const zamanEl = el("div", "ko-zaman", sira, "<b>0:00</b><span> / 0:00</span>");
   const bBolum = el("button", "ko-bolum-ad", sira, "<i></i><b></b>" + svg("ok"));
-  bBolum.type = "button"; bBolum.title = "Bölümler"; bBolum.setAttribute("aria-haspopup", "menu");
+  bBolum.type = "button"; bBolum.title = M.bolumler; bBolum.setAttribute("aria-haspopup", "menu");
+  bBolum.setAttribute("aria-label", M.bolumler);
   el("span", "ko-bos", sira);
-  const bAlt = dugme(sira, "ko-altd", "Altyazı", "altyazi");
-  const bHiz = dugme(sira, "ko-hizd", "Oynatma hızı", "hiz");
-  const bBol = dugme(sira, "ko-bold", "Bölümler", "bolum");
-  const bTema = dugme(sira, "ko-temad", "Tema", "gunes");
-  const bTam = dugme(sira, "ko-tamd", "Tam ekran", "tam");
+  const bAlt = dugme(sira, "ko-altd", M.altyazi, "altyazi");
+  const bHiz = dugme(sira, "ko-hizd", M.oynatmaHizi, "hiz");
+  const bBol = dugme(sira, "ko-bold", M.bolumler, "bolum");
+  const bTema = dugme(sira, "ko-temad", M.tema, "gunes");
+  const bTam = dugme(sira, "ko-tamd", M.tamEkran, "tam");
   const menu = el("div", "ko-menu", kok); menu.hidden = true; menu.setAttribute("role", "menu");
   const duyuru = el("div", "ko-duyuru", kok); duyuru.setAttribute("aria-live", "polite");
   const au = el("audio", null, kok); au.preload = "auto";
@@ -204,7 +210,7 @@ export function monte(kok, sec) {
     // Yeni yönün sahnesi henüz yoksa (tembel yükleme) eski pane kalır, yenisi hazır olunca geçer.
     d.bekleyenY = r.hazir || !eski ? null : eski;
     herY((Z) => Z.pane.classList.toggle("ko-pasif", Z !== Y && Z !== d.bekleyenY));
-    if (eski) { duyur(y === "dikey" ? "Dikey görünüm" : "Yatay görünüm"); goster(); }
+    if (eski) { duyur(y === "dikey" ? M.dikeyGorunum : M.yatayGorunum); goster(); }
     olay("yon", { yon: y, kesintisiz: r.hazir, t: d.t });
   }
   function yonGuncelle() {
@@ -231,22 +237,22 @@ export function monte(kok, sec) {
     au.play().then(() => {
       d.oynuyor = true; d.basladi = true; poster.classList.add("ko-yok");
       kok.classList.add("ko-oynuyor"); posterNot.textContent = ""; goster();
-      duyur("Oynatılıyor"); olay("oynuyor", { t: d.t });
+      duyur(M.oynatiliyor); olay("oynuyor", { t: d.t });
     }).catch(() => {
       d.oynuyor = false; poster.classList.remove("ko-yok");
-      posterNot.textContent = "Sesi açmak için dokun"; ikon(buyuk, "oynat");
+      posterNot.textContent = M.sesIcinDokun; ikon(buyuk, "oynat");
     });
   }
   function dur(sessizce) {
     if (!d.oynuyor) return;
     au.pause(); d.t = au.currentTime; d.oynuyor = false; kok.classList.remove("ko-oynuyor");
-    goster(); if (!sessizce) { duyur("Duraklatıldı"); olay("durdu", { t: d.t }); }
+    goster(); if (!sessizce) { duyur(M.duraklatildi); olay("durdu", { t: d.t }); }
   }
   function bitir() {                 // ses dosyası T'den kısa bitebilir: çubuk yine tam dolar
     au.pause(); d.oynuyor = false; d.bitti = true; d.t = d.T - 1 / d.FPS;
     kok.classList.remove("ko-oynuyor");
     poster.classList.remove("ko-yok"); poster.classList.add("ko-bitti"); ikon(buyuk, "tekrar");
-    etiket(buyuk, "Tekrar izle"); posterNot.textContent = "Tekrar izle"; goster();
+    etiket(buyuk, M.tekrarIzle); posterNot.textContent = M.tekrarIzle; goster();
     turboKapat(true); olay("bitti", { t: d.T });
   }
   function oynatDur() { if (d.oynuyor) dur(); else oyna(); }
@@ -255,7 +261,7 @@ export function monte(kok, sec) {
   const hizYazi = (h) => String(h).replace(".", ",") + "×";
   function hizSec(h) {
     d.hiz = h; depoYaz("hiz", h); menuKapat(); turboKapat(true); hizUygula();
-    duyur("Hız " + hizYazi(h));
+    duyur(M.hiz(hizYazi(h)));
   }
   // Basılı tutma 2× (turbo.js): kalıcı hız d.hiz'e dokunmaz, depoya yazılmaz.
   function hizUygula() { au.playbackRate = hizli(d.turbo) ? TURBO_HIZ : d.hiz; }
@@ -265,22 +271,22 @@ export function monte(kok, sec) {
     turboEl.style.setProperty("--u", String(kilit ? 1 : s.u));
     const ad = kilit ? "kilit" : "cift";
     if (ik.dataset.ik !== ad) { ik.innerHTML = svg(ad); ik.dataset.ik = ad; }
-    etiket(turboEl, kilit ? TURBO_HIZ + "× kilitli. Çıkmak için dokun" : TURBO_HIZ + "× hız");
+    etiket(turboEl, kilit ? M.hizKilitli(TURBO_HIZ) : M.hizCarpan(TURBO_HIZ));
   }
   function turboAc() {
     if (!d.oynuyor || !d.hazir) { kapat(d.turbo); return; }
     sure(d.turbo); if (!hizli(d.turbo)) return;
-    hizUygula(); turboCiz(); duyur("Hız " + TURBO_HIZ + "×"); goster();
+    hizUygula(); turboCiz(); duyur(M.hiz(TURBO_HIZ + "×")); goster();
   }
   function turboKapat(sessizce) {
     const vardi = hizli(d.turbo); clearTimeout(d.turboZ); kapat(d.turbo);
     if (!vardi) return;
-    hizUygula(); turboCiz(); if (!sessizce) duyur("Hız " + hizYazi(d.hiz)); goster();
+    hizUygula(); turboCiz(); if (!sessizce) duyur(M.hiz(hizYazi(d.hiz))); goster();
   }
   function sesUygula() {
     au.volume = d.ses; au.muted = d.sessiz || d.ses === 0; sesKay.value = d.sessiz ? 0 : d.ses;
     ikon(bSes, au.muted ? "sessiz" : d.ses < 0.5 ? "sesAz" : "ses");
-    etiket(bSes, au.muted ? "Sesi aç" : "Sessiz");
+    etiket(bSes, au.muted ? M.sesiAc : M.sessiz);
     depoYaz("ses", d.ses); depoYaz("sessiz", d.sessiz);
   }
   function sessizSec(v) {
@@ -295,7 +301,7 @@ export function monte(kok, sec) {
     d.tema = ad === "koyu" ? "koyu" : "acik"; kok.dataset.tema = d.tema;
     herY((Y) => { Y.tema = d.tema; });                       // sonraki sahne adresleri
     sahne.style.background = ZEMIN[d.tema]; ikon(bTema, d.tema === "acik" ? "gunes" : "ay");
-    etiket(bTema, d.tema === "acik" ? "Koyu tema" : "Açık tema");
+    etiket(bTema, d.tema === "acik" ? M.koyuTema : M.acikTema);
     herSlot((s) => {
       try { s.f.contentWindow.postMessage({ tip: "tema", ad: d.tema }, "*"); }
       catch (e) { /* boş tampon */ }
@@ -325,7 +331,7 @@ export function monte(kok, sec) {
   function tamYaz(acik) {                                // yön çifti: dönen telefon simgesi
     const cift = !!(d.Y.yatay && d.Y.dikey);
     ikon(bTam, acik ? "tamKapat" : cift ? "tamYon" : "tam");
-    etiket(bTam, acik ? "Tam ekrandan çık" : cift ? "Tam ekran (yatay ve dikey)" : "Tam ekran");
+    etiket(bTam, acik ? M.tamEkrandanCik : cift ? M.tamEkranCift : M.tamEkran);
   }
   document.addEventListener("fullscreenchange", () => {
     const acik = document.fullscreenElement === kok; kok.classList.toggle("ko-tam", acik);
@@ -343,7 +349,7 @@ export function monte(kok, sec) {
     if (d.menu === tur) return menuKapat();
     d.menu = tur; menu.innerHTML = ""; menu.hidden = false; menu.classList.toggle("ko-sag", !!sag);
     if (tur === "bolum") {
-      el("h4", null, menu, "Bölümler");
+      el("h4", null, menu, M.bolumler);
       const bi = bolumNo(d.t);
       d.B.forEach((b, i) => {
         const x = el("button", i === bi ? "on" : "", menu); x.type = "button";
@@ -355,12 +361,12 @@ export function monte(kok, sec) {
       });
       bBol.setAttribute("aria-expanded", "true"); bBolum.setAttribute("aria-expanded", "true");
     } else {
-      el("h4", null, menu, "Oynatma hızı");
+      el("h4", null, menu, M.oynatmaHizi);
       HIZLAR.forEach((h) => {
         const x = el("button", h === d.hiz ? "on" : "", menu); x.type = "button";
         x.setAttribute("role", "menuitemradio");
         x.setAttribute("aria-checked", String(h === d.hiz));
-        x.innerHTML = "<span class='ad'>" + (h === 1 ? "Normal" : hizYazi(h)) + "</span>" +
+        x.innerHTML = "<span class='ad'>" + (h === 1 ? M.normal : hizYazi(h)) + "</span>" +
           (h === d.hiz ? "<span class='zm'>✓</span>" : "");
         x.onclick = () => hizSec(h);
       });
@@ -428,7 +434,7 @@ export function monte(kok, sec) {
   function arayuz(x, y) {
     if (!d.hazir && y.hazir) {
       d.hazir = true; poster.classList.add("ko-hazir");
-      posterNot.textContent = d.dokunma ? "İzlemek için dokun" : "";
+      posterNot.textContent = d.dokunma ? M.izlemekIcinDokun : "";
       olay("hazir", { sure: d.T, bolumler: d.B.map((b) => ({ ad: b.ad, t0: b.t0, t1: b.t1 })) });
     }
     const sn = Math.floor(x);
@@ -448,11 +454,11 @@ export function monte(kok, sec) {
     const bi = bolumNo(x);
     if (bi !== d.sonBolum) {
       d.sonBolum = bi; bBolum.querySelector("b").textContent = d.B[bi] ? d.B[bi].ad : "";
-      if (d.basladi) duyur("Bölüm " + (bi + 1) + ": " + d.B[bi].ad);
+      if (d.basladi) duyur(M.bolum(bi + 1) + ": " + d.B[bi].ad);
       olay("bolum", { no: bi, ad: d.B[bi] ? d.B[bi].ad : "", t0: d.B[bi] ? d.B[bi].t0 : 0 });
     }
     altyaziYaz(x);
-    const ik = d.oynuyor ? "dur" : "oynat", et = d.oynuyor ? "Duraklat" : "Oynat";
+    const ik = d.oynuyor ? "dur" : "oynat", et = d.oynuyor ? M.duraklat : M.oynat;
     [bOynat, oOynat].forEach((b) => { ikon(b, ik); etiket(b, et); });
     const gizli = d.oynuyor && !d.menu && !d.surukle && !d.kontrolUstunde &&
       performance.now() > d.gizleT;
@@ -501,13 +507,13 @@ export function monte(kok, sec) {
     const once = s.evre; hareket(s, ev.clientX, ev.clientY);
     if (s.evre === "bos") clearTimeout(d.turboZ);                 // kaydırma niyeti: iptal
     else if (s.evre === "aktif" || once !== s.evre) {
-      turboCiz(); if (s.evre === "kilit") duyur("Hız " + TURBO_HIZ + "× kilitlendi");
+      turboCiz(); if (s.evre === "kilit") duyur(M.hizKilitlendi(TURBO_HIZ));
     }
   });
   const turboBirak = () => {
     clearTimeout(d.turboZ); const s = d.turbo, vardi = hizli(s);
     if (birak(s)) d.turboTik = true;
-    if (vardi && !hizli(s)) { hizUygula(); turboCiz(); duyur("Hız " + hizYazi(d.hiz)); }
+    if (vardi && !hizli(s)) { hizUygula(); turboCiz(); duyur(M.hiz(hizYazi(d.hiz))); }
   };
   sahne.addEventListener("pointerup", turboBirak);
   sahne.addEventListener("pointercancel", turboBirak);
@@ -562,7 +568,7 @@ export function monte(kok, sec) {
   au.addEventListener("loadedmetadata", () => {
     if (Math.abs(au.currentTime - d.t) > 0.05) au.currentTime = d.t;
   });
-  au.addEventListener("error", () => hataGoster("Ses dosyası yüklenemedi."));
+  au.addEventListener("error", () => hataGoster(M.sesHatasi));
   au.addEventListener("waiting", () => kok.classList.add("ko-bekliyor"));
   au.addEventListener("playing", () => kok.classList.remove("ko-bekliyor"));
   au.addEventListener("canplay", () => kok.classList.remove("ko-bekliyor"));
@@ -571,11 +577,11 @@ export function monte(kok, sec) {
   function hataGoster(m) {
     hata.hidden = false; hata.innerHTML = "";
     el("div", "ko-hata-ik", hata, svg("uyari")); el("p", null, hata).textContent = m;
-    const b = el("button", "ko-tekrar", hata, svg("tekrar") + "<span>Tekrar dene</span>");
+    const b = el("button", "ko-tekrar", hata, svg("tekrar") + "<span>" + M.tekrarDene + "</span>");
     b.type = "button"; b.onclick = yukle; olay("hata", { mesaj: m });
   }
   function yukle() {
-    hata.hidden = true; posterNot.textContent = "Yükleniyor"; kok.classList.add("ko-bekliyor");
+    hata.hidden = true; posterNot.textContent = M.yukleniyor; kok.classList.add("ko-bekliyor");
     herY((Y) => Y.pane.remove()); d.Y = {}; d.yon = ""; d.bekleyenY = null;   // "Tekrar dene"
     const zamanAl = (p) => fetch(p + "zaman.json").then((r) => {
       if (!r.ok) throw new Error("zaman.json " + r.status); return r.json();
@@ -585,7 +591,7 @@ export function monte(kok, sec) {
         if (!(z.sahneler || []).length) throw new Error("sahne yok: " + p);
         const ad = yonAdi(z.genislik || 1920, z.yukseklik || 1080), ilk = Object.values(d.Y)[0];
         if (d.Y[ad]) return;
-        if (ilk && !ciftUyumlu(ilk.S, z.sahneler)) { konsol("yön çifti uyumsuz: " + p); return; }
+        if (ilk && !ciftUyumlu(ilk.S, z.sahneler)) { konsol(M.yonUyumsuz(p)); return; }
         d.Y[ad] = paneKur(ad, p, z);
       });
       const ilk = Object.values(d.Y)[0], z0 = L[0].z;
@@ -601,8 +607,45 @@ export function monte(kok, sec) {
       return fetch(ilk.paket + "ortak/anlatim/altyazi.json").then((r) => (r.ok ? r.json() : []))
         .catch(() => []).then((a) => { d.alt = Array.isArray(a) ? a : []; });
     }).catch((e) => {
-      kok.classList.remove("ko-bekliyor"); hataGoster("Video verisi yüklenemedi: " + e.message);
+      kok.classList.remove("ko-bekliyor"); hataGoster(M.veriHatasi(e.message));
     });
+  }
+
+  // ---------- Dil ve etiket güncelleme ----------
+  function etiketleriYaz() {
+    kok.setAttribute("aria-label", sec.baslik || M.dersVideosu);
+    etiket(oGeri, M.saniyeGeri(SAR));
+    etiket(oOynat, d.oynuyor ? M.duraklat : M.oynat);
+    etiket(oIleri, M.saniyeIleri(SAR));
+    etiket(bOynat, d.oynuyor ? M.duraklat : M.oynat);
+    etiket(bGeri, M.saniyeGeri(SAR));
+    etiket(bIleri, M.saniyeIleri(SAR));
+    if (d.bitti) {
+      etiket(buyuk, M.tekrarIzle); posterNot.textContent = M.tekrarIzle;
+    } else {
+      etiket(buyuk, M.oynat);
+      if (!d.hazir) posterNot.textContent = M.yukleniyor;
+      else if (!d.basladi && d.dokunma) posterNot.textContent = M.izlemekIcinDokun;
+    }
+    cubuk.setAttribute("aria-label", M.ilerleme);
+    sesKay.setAttribute("aria-label", M.sesDuzeyi);
+    bBolum.title = M.bolumler; bBolum.setAttribute("aria-label", M.bolumler);
+    etiket(bAlt, M.altyazi); etiket(bHiz, M.oynatmaHizi); etiket(bBol, M.bolumler);
+    sesUygula(); temaSec(d.tema, true);
+    tamYaz(document.fullscreenElement === kok || kok.classList.contains("ko-tam-sahte"));
+    turboCiz();
+    herSlot((s, Y) => { s.f.title = M.sahneTampon(Y.ad, s.idx + 1); });
+    if (d.menu) {                                        // açık menüyü yeni dilde yeniden çiz
+      const tur = d.menu, sag = menu.classList.contains("ko-sag"); d.menu = ""; menuAc(tur, sag);
+    }
+    const tk = hata.querySelector(".ko-tekrar span");
+    if (tk) tk.textContent = M.tekrarDene;
+  }
+  function dilSec(yeni) {
+    if (!DILLER.includes(yeni) || yeni === d.dil) return;
+    d.dil = yeni; M = sozlukSec(yeni); kok.lang = yeni;
+    etiketleriYaz();
+    olay("dil", { dil: yeni });
   }
 
   // ---------- Açılış ----------
@@ -612,9 +655,9 @@ export function monte(kok, sec) {
 
   return {
     oyna, dur, git, bolumGit, hiz: hizSec, tema: temaSec, tamEkran, altyazi: altyaziSec, kok,
-    yon: yonUygula,
+    yon: yonUygula, dil: dilSec,
     durum: () => ({ t: d.t, sure: d.T, oynuyor: d.oynuyor, bolum: bolumNo(d.t), tema: d.tema,
-      hazir: d.hazir, yon: d.yon, yonler: Object.keys(d.Y), sicak: d.sicak }),
+      hazir: d.hazir, yon: d.yon, yonler: Object.keys(d.Y), sicak: d.sicak, dil: d.dil }),
     bolumler: () => d.B.map((b) => ({ ad: b.ad, t0: b.t0, t1: b.t1 })),
   };
 }
