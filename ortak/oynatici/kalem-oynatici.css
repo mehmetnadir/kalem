@@ -197,11 +197,16 @@
 .ko-duyuru{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
   white-space:nowrap}
 
-/* tam ekran: gerçek ve sahte (iPhone) */
-.ko.ko-tam{border-radius:0;width:100vw;height:100vh;display:flex;align-items:center;
+/* tam ekran: gerçek (Fullscreen API) ve sahte (iPhone Safari yalnız <video>'ya gerçek tam ekran
+   verir). dvh: iOS'ta 100vh araç çubuğunun altına taşar. Sahte kipte ölçü inset:0'dan gelir;
+   !important ev sayfasının daha özgül .oynatici genişlik kuralını ezer (09.11 iPhone: kutu dar). */
+.ko.ko-tam{border-radius:0;width:100dvw;height:100dvh;display:flex;align-items:center;
   justify-content:center;background:#000}
-.ko.ko-tam .ko-sahne{width:min(100vw,calc(100vh * (var(--ar))));height:auto;max-height:100vh}
-.ko.ko-tam-sahte{position:fixed;inset:0;z-index:9999}
+.ko.ko-tam .ko-sahne{width:min(100%,calc(100dvh * (var(--ar))));height:auto;max-height:100dvh}
+.ko.ko-tam-sahte{position:fixed;inset:0;z-index:9999;width:auto!important;height:auto!important;
+  max-width:none!important;margin:0!important;box-sizing:border-box;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+    env(safe-area-inset-left)}
 html.ko-kilit,html.ko-kilit body{overflow:hidden}
 
 /* dar oynatıcı (telefon dikey, dikey paket): kapsayıcı sorgusu — sayfa değil oynatıcı genişliği */

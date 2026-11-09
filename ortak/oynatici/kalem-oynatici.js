@@ -16,7 +16,7 @@ import { yonAdi, yonIstek, ciftUyumlu } from "./yon.js";
 import { sozlukSec, dilCoz, DILLER } from "./sozluk.js";
 import "./cekirdek.js";                       // globalThis.KalemCekirdek (editörle ortak)
 const C = globalThis.KalemCekirdek;
-export const SURUM = "0.4.1";
+export const SURUM = "0.4.2";
 const GIZLE_MS = 3000, SAR = 10, OK = 5;
 const DEPO = "kalem.oynatici.", HIZLAR = [0.75, 1, 1.25, 1.5, 2];
 const ZEMIN = { acik: "#f7f3ea", koyu: "#1b1a17" };
@@ -204,7 +204,7 @@ export function monte(kok, sec) {
   const portreMQ = matchMedia("(orientation: portrait)");
   function yonUygula(y) {
     const Y = d.Y[y]; if (!Y || y === d.yon) return;
-    const eski = A(); d.yon = y; kok.dataset.yon = y;
+    const eski = A(); d.yon = y; kok.dataset.yon = y; altyaziGoster();
     kok.style.setProperty("--ar", Y.GEN + " / " + Y.YUK); olc();
     const r = sahneYonet(d.t, Y, true);
     // Yeni yönün sahnesi henüz yoksa (tembel yükleme) eski pane kalır, yenisi hazır olunca geçer.
@@ -293,9 +293,12 @@ export function monte(kok, sec) {
     d.sessiz = v == null ? !d.sessiz : v; if (!d.sessiz && d.ses === 0) d.ses = 0.5; sesUygula();
   }
   function sesAyar(v) { d.ses = sinirla(v, 0, 1); d.sessiz = d.ses === 0; sesUygula(); }
+  // Dikey paket altyazıyı sahnenin içinde taşır (dikey yerleşim: altyazı bandı %70–80); oynatıcı
+  // katmanı dikeyde gizlenir, yoksa aynı cümle iki kez görünür (09.11 iPhone kontağı).
+  function altyaziGoster() { altyaziEl.hidden = !d.altyazi || d.yon === "dikey"; }
   function altyaziSec(v) {
     d.altyazi = v == null ? !d.altyazi : v; bAlt.setAttribute("aria-pressed", String(d.altyazi));
-    altyaziEl.hidden = !d.altyazi; depoYaz("altyazi", d.altyazi); d.sonAlt = ""; altyaziYaz(d.t);
+    altyaziGoster(); depoYaz("altyazi", d.altyazi); d.sonAlt = ""; altyaziYaz(d.t);
   }
   function temaSec(ad, sessizce) {
     d.tema = ad === "koyu" ? "koyu" : "acik"; kok.dataset.tema = d.tema;
