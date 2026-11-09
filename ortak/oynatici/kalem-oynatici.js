@@ -16,7 +16,7 @@ import { yonAdi, yonIstek, ciftUyumlu } from "./yon.js";
 import { sozlukSec, dilCoz, DILLER } from "./sozluk.js";
 import "./cekirdek.js";                       // globalThis.KalemCekirdek (editörle ortak)
 const C = globalThis.KalemCekirdek;
-export const SURUM = "0.4.2";
+export const SURUM = "0.4.3";
 const GIZLE_MS = 3000, SAR = 10, OK = 5;
 const DEPO = "kalem.oynatici.", HIZLAR = [0.75, 1, 1.25, 1.5, 2];
 const ZEMIN = { acik: "#f7f3ea", koyu: "#1b1a17" };

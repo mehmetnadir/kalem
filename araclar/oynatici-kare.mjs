@@ -4,7 +4,11 @@
 // kalıbı; tarayıcı AÇMAZ, yalnız PNG yazar). Tasarım teslim kapısı §7 (masaüstü 1440, telefon 390).
 //   node araclar/oynatici-kare.mjs <url> <GxY> <çıktı.png> [--t 25] [--tema acik|koyu]
 //     [--dokunma 1] [--tam 1] [--menu bolum|hiz] [--port 9333] [--bekle 8] [--oynat 1]
-//     [--basili <px>] [--bekleSn 0] [--dondur GxY]
+//     [--basili <px>] [--bekleSn 0] [--dondur GxY] [--tamekran 1]
+//   --tamekran 1: tam ekran düğmesine gerçek tık (K40 tam pencere; Fullscreen API varsa gerçek);
+//     JSON'a tamekran: gercek | sahte | yok yazar · --sahte 1: Fullscreen API'yi kapatıp tam
+//     pencere yolunu zorlar (iPhone Safari davranışı; başsız gerçek tam ekran 800x600'e düşer)
+//   --olc "<js>": kareden sonra sayfada koşan ifade; sonucu JSON'a `olc` olarak girer (ölçüm)
 //   --dondur GxY: kareden önce pencereyi bu ölçüye çevirir (cihaz dönüşü); yeni yön pane'inin kaç
 //     ms'de göründüğünü ve ses saatinin kesilmediğini JSON'a yazar (CDP gecikmesi dahil üst sınır)
 //   --dokunma 1: dokunmatik düzen (orta kontroller) · --tam 1: sayfanın tamamı (kaydırmalı)
@@ -99,6 +103,14 @@ ws.onopen = async () => {
       const px = +sec.basili; if (px) await fare("mouseMoved", p.x, p.y + px, { buttons: 1 });
       await uyku(250);
     }
+    if (sec.tamekran === "1") {                   // tam ekran düğmesi; gizli kontrolü önce göster
+      if (sec.sahte === "1") await ev("document.querySelector('.ko').requestFullscreen = null; 1");
+      const o = await orta(".ko-sahne", 0.5, 0.35);
+      await fare("mouseMoved", o.x, o.y); await uyku(150);
+      const p = await orta(".ko-tamd");
+      await fare("mousePressed", p.x, p.y); await fare("mouseReleased", p.x, p.y);
+      await uyku(800);
+    }
     let donus = null;
     if (sec.dondur) {                               // cihaz dönüşü: yeni yön kaç ms'de göründü
       const [W2, H2] = String(sec.dondur).split("x").map(Number);
@@ -131,13 +143,15 @@ ws.onopen = async () => {
     fs.writeFileSync(cikti, Buffer.from(sc.data, "base64"));
     const durum = await ev("JSON.stringify(OYNATICI.durum())");
     const hiz = await ev("document.querySelector('.ko audio').playbackRate");
+    const tamekran = await ev("document.fullscreenElement ? 'gercek' : document" +
+      ".querySelector('.ko').classList.contains('ko-tam-sahte') ? 'sahte' : 'yok'");
     const turbo = await ev("(() => { const t = document.querySelector('.ko-turbo'); return t ?" +
       " (t.hidden ? 'gizli' : t.className + ' u=' + t.style.getPropertyValue('--u')) : '-'; })()");
     if (sec.basili != null) {
       const p = await orta(".ko-sahne", 0.25, 0.22); await fare("mouseReleased", p.x, p.y);
     }
     console.log(JSON.stringify({ png: cikti, bayt: fs.statSync(cikti).size, olcu: `${W}x${H}`,
-      durum, hiz, turbo, donus }));
+      durum, hiz, turbo, tamekran, donus, olc: sec.olc ? await ev(sec.olc) : undefined }));
   } catch (er) { console.error("HATA", er.message); process.exitCode = 1; }
   if (ctx) await g("Target.disposeBrowserContext", { browserContextId: ctx }).catch(() => {});
   ws.close();

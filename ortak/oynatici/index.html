@@ -89,6 +89,16 @@ main.dikey .bolumler{grid-column:2;grid-row:2;position:static;align-self:start}
   .baslik,.bolumler,.gezin,.not{padding-left:16px;padding-right:16px}
   .baslik h1{font-size:21px}
 }
+/* K40 (09.11): telefon yatay = tiyatro. Kısa yatay görünümde oynatıcı görünümü doldurur; başlık
+   ve kırıntı gizli, sayfa altta kaydırılır. iPhone 844x390 kontağı: oynatıcı ekrandan taşıyor,
+   tam ekran düğmesi görünmüyordu. */
+@media (orientation:landscape) and (max-height:520px){
+  .ust{display:none}
+  main,main.dikey{display:block;max-width:none;padding:0 0 40px}
+  main .oynatici,main.dikey .oynatici{width:min(100%,calc(100dvh * (var(--ar,16 / 9))));
+    margin:0 auto}
+  .baslik,.bolumler,.gezin,.not{padding-left:16px;padding-right:16px}
+}
 @media (prefers-reduced-motion:reduce){*{transition-duration:0s !important}}
 </style>
 </head><body>
