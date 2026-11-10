@@ -58,20 +58,32 @@ function grenUret() {
   });
 }
 
+// Zemin önbelleği (10.11, P2-3, Nadir: "zemin değişimi oranımız çok düşük"): zemin kareden kareye
+// değişmez, yalnız gren karosu kayar. Zemin rengi düz olduğundan "zemin ⊕ gren overlay" sonucu tema
+// başına 3 karoda (zeminKaroAl), vinyet gradyanı tema başına 1 gizli tuvalde (vinyetAl) bir kez
+// hesaplanır; karede 15 düz karo kopyası + 1 vinyet kopyası kalır. Ölçüm (tam tuval, kısmasız):
+// zemin 9,7 → 1,6 ms/kare (yatay ve dikey); eski algoritmaya karşı piksel farkı en çok 1/255.
 export function zeminCiz(ctx, f, K) {
   ctx.save(); ctx.globalCompositeOperation = "source-over"; ctx.globalAlpha = 1;
-  ctx.fillStyle = RENK.zemin; ctx.fillRect(0, 0, W, H);
   if (K && K.grenler) {
-    ctx.globalAlpha = temaAd === "acik" ? 0.03 : 0.045; ctx.globalCompositeOperation = "overlay";
-    const g = K.grenler[f % 3], ox = (f * 97) % 512, oy = (f * 61) % 512;
+    const g = zeminKaroAl(K)[f % 3], ox = (f * 97) % 512, oy = (f * 61) % 512;
     for (let y = -oy; y < H; y += 512) for (let x = -ox; x < W; x += 512) ctx.drawImage(g, x, y);
-  }
-  ctx.globalAlpha = 1; ctx.globalCompositeOperation = "source-over";
+  } else { ctx.fillStyle = RENK.zemin; ctx.fillRect(0, 0, W, H); }
   ctx.drawImage(vinyetAl(), 0, 0); ctx.restore();
 }
 
-// Vinyet önbelleği (10.11, P2-3): radyal gradyan tema başına 1 kez gizli tuvale çizilir, her karede
-// kopyalanır. Ölçüm (tam tuval, kısmasız): zemin 9,7 → 4,0 ms/kare; piksel farkı en çok 1/255.
+function zeminKaroAl(K) {
+  if (K.zeminKaro && K.zeminKaro.surum === surum) return K.zeminKaro.karolar;
+  const karolar = K.grenler.map((g) => {
+    const c = document.createElement("canvas"); c.width = c.height = 512;
+    const x = c.getContext("2d");
+    x.fillStyle = RENK.zemin; x.fillRect(0, 0, 512, 512);
+    x.globalAlpha = temaAd === "acik" ? 0.03 : 0.045; x.globalCompositeOperation = "overlay";
+    x.drawImage(g, 0, 0); return c;
+  });
+  K.zeminKaro = { surum, karolar }; return karolar;
+}
+
 let vinyet = null, vinyetSurum = -1;
 function vinyetAl() {
   if (vinyet && vinyetSurum === surum) return vinyet;
