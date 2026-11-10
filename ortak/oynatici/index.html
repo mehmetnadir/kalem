@@ -107,8 +107,7 @@ main.dikey .bolumler{grid-column:2;grid-row:2;position:static;align-self:start}
 </style>
 </head><body>
 <header class="ust">
-  <a href="#" aria-label="YDS Publishing"><img id="logo" alt="YDS Publishing"
-    src="/projeler/present-continuous/ortak/logo/yds-publishing-lacivert.svg"></a>
+  <a href="#" aria-label="YDS Publishing"><img id="logo" alt="YDS Publishing"></a>
   <nav aria-label="Konum"><a href="#">Grammar</a><span aria-hidden="true">›</span>
     <b id="kirinti"></b></nav>
 </header>
@@ -239,8 +238,15 @@ main.dikey .bolumler{grid-column:2;grid-row:2;position:static;align-self:start}
 </script>
 <script type="module">
 import { monte } from "./kalem-oynatici.js";
-const Q = new URLSearchParams(location.search), PAKET = Q.get("paket") || "present-perfect-temel";
-const YOL = "/projeler/" + PAKET + "/";
+const Q = new URLSearchParams(location.search);
+// Yayın kipi (10.11): Worker giriş sayfasına `#giris` JSON'u gömer (kimlik, video, paketler[].yol,
+// oynatici). Yoksa geliştirme kipi: ?paket= ve /projeler/<paket>/surumler.json.
+const GIRIS = (() => {
+  const e = document.getElementById("giris");
+  try { return e ? JSON.parse(e.textContent) : null; } catch (err) { return null; }
+})();
+const PAKET = GIRIS ? GIRIS.kimlik : (Q.get("paket") || "present-perfect-temel");
+const YOL = GIRIS ? GIRIS.paketler[0].yol : "/projeler/" + PAKET + "/";
 const $ = (s) => document.querySelector(s);
 const kokPaket = PAKET.replace(/-(dikey|s1|d1)$/, "");      // meta ana paketten (aynı video)
 const temaIlk = Q.get("tema") || null;
@@ -280,8 +286,10 @@ function rozet(t, cls) {
   const e = document.createElement("span"); e.className = "rozet" + (cls ? " " + cls : "");
   e.textContent = t; $("#meta").appendChild(e);
 }
-fetch("/projeler/" + kokPaket + "/surumler.json").then((r) => (r.ok ? r.json() : {}))
-  .catch(() => ({})).then((s) => {
+const surumlerAl = GIRIS ? Promise.resolve({ video: GIRIS.video, surumler: [] })
+  : fetch("/projeler/" + kokPaket + "/surumler.json").then((r) => (r.ok ? r.json() : {}))
+    .catch(() => ({}));
+surumlerAl.then((s) => {
     const v = (s && s.video) || {}, ad = v.konu || PAKET;
     document.title = ad + " — ders oynatıcısı";
     $("#baslik").textContent = ad; $("#kirinti").textContent = ad;
@@ -289,8 +297,9 @@ fetch("/projeler/" + kokPaket + "/surumler.json").then((r) => (r.ok ? r.json() :
     if (v.seviye) rozet(v.seviye[0].toUpperCase() + v.seviye.slice(1));
     if (v.ders) rozet(v.ders);
     // Yön çifti: ana-yatay + dikey-tam sürümleri aynı ses saatinde; oynatıcı yönü cihazdan seçer.
-    const sur = (s && s.surumler) || [], yollar = [YOL];
-    ["ana-yatay", "dikey-tam"].forEach((k) => {
+    const sur = (s && s.surumler) || [];
+    const yollar = GIRIS ? GIRIS.paketler.map((p) => p.yol) : [YOL];
+    if (!GIRIS) ["ana-yatay", "dikey-tam"].forEach((k) => {
       const x = sur.find((v) => v.kimlik === k);
       const p = x && "/projeler/" + (x.proje || kokPaket) + "/";
       if (p && !yollar.includes(p)) yollar.push(p);

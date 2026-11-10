@@ -76,7 +76,10 @@ export function canliHF(tl, fps = 30) {
 }
 
 export async function surucu(kur, kare, KARE = 240, fps = 30) {
-  const log = (m) => fetch("/log", { method: "POST", body: String(m) });
+  const yerel = /^(localhost|127\.0\.0\.1|\[::1\]|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+)$/
+    .test(location.hostname);                    // POST /log yalnız yerel sunucuda (10.11)
+  const log = (m) => (yerel ? fetch("/log", { method: "POST", body: String(m) })
+    : Promise.resolve());
   try {
     for (const [ad, dosya, stil] of [["Fell", "IMFeENrm28P.ttf", "normal"], ["Fell", "IMFeENit28P.ttf", "italic"], ["Garamond", "EBGaramond.ttf", "normal"], ["Garamond", "EBGaramond-Italic.ttf", "italic"]]) {
       const f = new FontFace(ad, `url(/ortak/font/${dosya})`, { style: stil }); await f.load(); document.fonts.add(f);

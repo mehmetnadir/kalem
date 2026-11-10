@@ -149,3 +149,11 @@ function altyaziSar(ctx, metin, genislik) {
   if (s) satirlar.push(s);
   return satirlar;
 }
+
+// Geliştirme günlüğü (10.11): POST /log yalnız yerel geliştirme sunucusunda; yayında istek yok.
+const YEREL_SUNUCU = /^(localhost|127\.0\.0\.1|\[::1\]|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+)$/
+  .test(location.hostname);
+export function gunluk(m) {
+  if (!YEREL_SUNUCU) return Promise.resolve();
+  return fetch("/log", { method: "POST", body: String(m) }).catch(() => {});
+}

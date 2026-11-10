@@ -1,6 +1,6 @@
 // DİKEY 1080x1920 — düz canvas sahnelerinin ortak iskeleti (altyazı bandı dahil): zaman, olaylar, kalem öğeleri, cümle belirmesi.
 // Her öğe {ciz(ctx, f)} taşır; zaman yalnız kare numarasından gelir (Math.random ve Date yok).
-import { kunyeHazirla, zeminCiz, kunyeCiz, altyaziMetin, altyaziCiz, RENK, RT, renkCoz }
+import { kunyeHazirla, zeminCiz, kunyeCiz, altyaziMetin, altyaziCiz, RENK, RT, renkCoz, gunluk }
   from "/projeler/present-perfect-temel-dikey/ortak/kunye.js";
 import { kalemCizgi, darbeCiz, svgYollari, elips, ok, kutu, altCizgi, kis, lerp, yavasla, geriTasma, hash,
   tohumSifirla, yaziDarbeleri, yaziCiz } from "/projeler/present-perfect-temel-dikey/ortak/kalem-canvas.js";
@@ -299,8 +299,8 @@ export class Sahne {
     kunyeCiz(ctx, { bolum: this.bolum, logo: this.K.logo });
     altyaziCiz(ctx, altyaziSec(this.K.altyazi, this.sozc, this.zm(Math.min(f, this.kareSay - 15))));
     if (f === this.kareSay - 1 && !/canli=1/.test(location.search)) {
-      await fetch("/log", { method: "POST", body: `ILKBAS ${Math.round(this.ilkBas)}` });
-      await fetch("/log", { method: "POST", body: "OLAYLAR " + JSON.stringify(this.olayListe()) });
+      await gunluk(`ILKBAS ${Math.round(this.ilkBas)}`);
+      await gunluk("OLAYLAR " + JSON.stringify(this.olayListe()));
     }
     return this.cv;
   }

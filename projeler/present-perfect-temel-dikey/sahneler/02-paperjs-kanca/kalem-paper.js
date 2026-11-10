@@ -1,7 +1,7 @@
 // Paper.js "kendini çizen kalem" ortak modülü — sahne 02 ve 03 buradan import eder.
 // Zaman yalnız kare numarasından gelir; Math.random / Date yok (tohumlu hash).
 // Kullanım: const S = await sahneKur(paper, { KARE, tBas, bolum, etkin }); ...içerik...; S.kare(f) -> canvas
-import { kunyeHazirla, zeminCiz, kunyeCiz, altyaziMetin, altyaziCiz, RENK, RT, renkCoz, temaSurum, KOK }
+import { kunyeHazirla, zeminCiz, kunyeCiz, altyaziMetin, altyaziCiz, RENK, RT, renkCoz, temaSurum, KOK, gunluk }
   from "/projeler/present-perfect-temel-dikey/ortak/kunye.js";
 import { yaziNoktalari } from "/projeler/present-perfect-temel-dikey/ortak/kalem-canvas.js";
 
@@ -315,9 +315,9 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
     if (f === KARE - 1) {
       const ev = [...OLAY.values()].sort((a, b) => a.kare - b.kare || b.guc - a.guc), say = {}, son = [];
       for (const e of ev) { if (e.kare > SON) continue; say[e.kare] = (say[e.kare] || 0) + 1; if (say[e.kare] <= 3) son.push(e); }   // son 12 kare durgun: olay yok
-      await fetch("/log", { method: "POST", body: "OLAYLAR " + JSON.stringify(son) });
+      await gunluk("OLAYLAR " + JSON.stringify(son));
       ZAMAN.push({ ad: "DARBE toplam", kare: CIZGILER.length });
-      await fetch("/log", { method: "POST", body: "ZAMANLAR " + JSON.stringify(ZAMAN) });
+      await gunluk("ZAMANLAR " + JSON.stringify(ZAMAN));
     }
     return out;
   }

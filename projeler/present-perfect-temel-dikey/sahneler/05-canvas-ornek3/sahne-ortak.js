@@ -1,6 +1,6 @@
 // Düz canvas sahnelerinin (04, 05) ortak iskeleti: zaman, olaylar, kalem öğeleri, cümle belirmesi.
 // Her öğe {ciz(ctx, f)} taşır; zaman yalnız kare numarasından gelir (Math.random ve Date yok).
-import { kunyeHazirla, zeminCiz, kunyeCiz, altyaziCiz, KUNYE, RENK, RT, renkCoz } from "/projeler/present-perfect-temel-dikey/ortak/kunye.js";
+import { kunyeHazirla, zeminCiz, kunyeCiz, altyaziCiz, KUNYE, RENK, RT, renkCoz, gunluk } from "/projeler/present-perfect-temel-dikey/ortak/kunye.js";
 import { kalemCizgi, darbeCiz, svgYollari, elips, ok, kutu, altCizgi, kis, lerp, yavasla, geriTasma, hash,
   tohumSifirla, yaziDarbeleri, yaziCiz } from "/projeler/present-perfect-temel-dikey/ortak/kalem-canvas.js";
 
@@ -149,7 +149,7 @@ export class Sahne {
     const yollar = svgYollari(a.svg, a.kutu, { enCok: a.enCok || 25, esik: a.esik == null ? 0.02 : a.esik });
     const g = { cocuk: [], donusum: null, dolgu: null, bitis: a.tb + a.sure, yollar };
     const n = yollar.length;
-    fetch("/log", { method: "POST", body: `CIZIM ${a.ad || "?"} darbe=${n} esik=${a.esik == null ? 0.02 : a.esik}` });
+    gunluk(`CIZIM ${a.ad || "?"} darbe=${n} esik=${a.esik == null ? 0.02 : a.esik}`);
     yollar.forEach((p, i) => {
       const dur = Math.min(a.sure * 0.6, 0.15 + p.L / 1800), bas = a.tb + (n > 1 ? i / (n - 1) : 0) * (a.sure - dur);
       g.cocuk.push(this.darbe(p, { w: a.w, renk: a.renk, alfa: a.alfa, uc0: 10, uc1: 22 }, bas, dur,
@@ -323,8 +323,8 @@ export class Sahne {
     kunyeCiz(ctx, { bolum: this.bolum, logo: this.K.logo });
     altyaziCiz(ctx, this.altyaziMetin(this.zm(f)));
     if (f === this.kareSay - 1) {
-      await fetch("/log", { method: "POST", body: `ILKBAS ${Math.round(this.ilkBas)}` });
-      await fetch("/log", { method: "POST", body: "OLAYLAR " + JSON.stringify(this.olayListe()) });
+      await gunluk(`ILKBAS ${Math.round(this.ilkBas)}`);
+      await gunluk("OLAYLAR " + JSON.stringify(this.olayListe()));
     }
     return this.cv;
   }
