@@ -78,6 +78,13 @@
       "tarih": "2026-11-05T01:30:00Z",
       "degisiklik": "Senaryo + ses paketi (ElevenLabs v4), zaman.json, BRIEF",
       "cikti": null
+    },
+    {
+      "surum": "dikey-tam",
+      "no": "r1",
+      "tarih": "2026-11-10T16:40:00Z",
+      "degisiklik": "Dikey tam ders paketi (9:16, aynı ses, altyazı sahnede); ilk yayın derlemesi",
+      "cikti": null
     }
   ]
 }
