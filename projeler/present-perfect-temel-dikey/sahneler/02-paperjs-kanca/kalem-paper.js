@@ -184,7 +184,9 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
   function yaziGuncelle(y, f) {
     const u = kis((f - y.bas) / y.sure);
     if (f < y.bas) { y.g.visible = false; return; }
-    y.g.visible = true; y.tx.fillColor = renkCoz(y.renk);
+    y.g.visible = true;
+    const renk = renkCoz(y.renk);   // her karede atanırsa Paper metin yerleşimini siler (10.11)
+    if (y.sonRenk !== renk) { y.tx.fillColor = renk; y.sonRenk = renk; }
     const k = y.g.children;
     if (u < 1) {
       if (k.length > 1) k[0].remove();
@@ -290,7 +292,8 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
       const q = e.kucul, u = yumus((f - q.f0) / (q.f1 - q.f0)), k = lerp(1, q.s, u);
       m.translate(q.dx * u, q.dy * u).translate(q.px, q.py).scale(k).translate(-q.px, -q.py);
     }
-    e.g.matrix = m.translate(tx, ty).translate(cx, cy).scale(s).translate(-cx, -cy);
+    m.translate(tx, ty).translate(cx, cy).scale(s).translate(-cx, -cy);
+    if (!m.equals(e.g.matrix)) e.g.matrix = m;   // aynı matris Paper'ı kirletmesin (10.11)
     if (e.alfa) e.g.opacity = e.alfa(f);
   }
   async function kare(f) {

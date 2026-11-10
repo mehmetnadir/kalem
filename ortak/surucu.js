@@ -100,7 +100,10 @@ function canliKare(kare, KARE, fps) {
   const cv = document.createElement("canvas"); cv.width = 1920; cv.height = 1080;
   cv.style.cssText = "display:block;margin:auto;max-width:100vw;height:auto;max-height:100vh";
   document.body.appendChild(cv);
-  const g = cv.getContext("2d");
+  // alpha:false (10.11, ölçümle): tuval her karede tam kopyayla dolar, saydamlık gerekmez; opak katman
+  // compositor'da harmanlanmaz. Başsız cpu4: sahne 22 → 28 kare/sn. Bu tuvale metin çizilmez
+  // (opak tuvalde LCD metin AA riski yok).
+  const g = cv.getContext("2d", { alpha: false });
   canliCekirdek({
     fps, KARE,
     ciz: async (f) => {

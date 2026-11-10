@@ -212,7 +212,9 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
   function yaziGuncelle(y, f) {
     const u = kis((f - y.bas) / y.sure);
     if (f < y.bas) { y.g.visible = false; return; }
-    y.g.visible = true; y.tx.fillColor = renkCoz(y.renk);
+    y.g.visible = true;
+    const renk = renkCoz(y.renk);   // her karede atanırsa Paper metin yerleşimini siler (10.11)
+    if (y.sonRenk !== renk) { y.tx.fillColor = renk; y.sonRenk = renk; }
     const k = y.g.children;
     if (u < 1) {
       if (k.length > 1) k[0].remove();

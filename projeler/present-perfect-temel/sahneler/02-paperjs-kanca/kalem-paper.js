@@ -183,7 +183,9 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
   function yaziGuncelle(y, f) {
     const u = kis((f - y.bas) / y.sure);
     if (f < y.bas) { y.g.visible = false; return; }
-    y.g.visible = true; y.tx.fillColor = renkCoz(y.renk);
+    y.g.visible = true;
+    const renk = renkCoz(y.renk);   // her karede atanırsa Paper metin yerleşimini siler (10.11)
+    if (y.sonRenk !== renk) { y.tx.fillColor = renk; y.sonRenk = renk; }
     const k = y.g.children;
     if (u < 1) {
       if (k.length > 1) k[0].remove();
@@ -284,7 +286,8 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
     let tx = 0, ty = 0, s = 1, cx = 0, cy = 0;
     if (e.kay) { const u = yumus((f - e.kay.f0) / (e.kay.f1 - e.kay.f0)); tx = e.kay.dx * u; ty = (e.kay.dy || 0) * u; }
     if (e.nefes && f > e.nefes.bas) { const ph = (f - e.nefes.bas) / 180; s = 1 + 0.012 * (0.5 - 0.5 * Math.cos(2 * Math.PI * ph)); cx = e.nefes.cx; cy = e.nefes.cy; }
-    e.g.matrix = new P.Matrix().translate(tx, ty).translate(cx, cy).scale(s).translate(-cx, -cy);
+    const m = new P.Matrix().translate(tx, ty).translate(cx, cy).scale(s).translate(-cx, -cy);
+    if (!m.equals(e.g.matrix)) e.g.matrix = m;   // aynı matris Paper'ı kirletmesin (10.11)
     if (e.alfa) e.g.opacity = e.alfa(f);
   }
   async function kare(f) {
