@@ -236,12 +236,12 @@
     "aciklama": "NE: Sahne 02 ('I'm going to my uncle's tonight') sol alt çeyreği boş.\n\nŞU AN (11.11 görüntüsü, sahne 02 son kare): Sol sütunda yazılar 680 px'te bitiyor; altında yaklaşık 300 px boşluk var. Sağ altta '6 min · form · time expressions · 6 uses' kutusu duruyor.\n\nEK BULGU (yeni, aynı sahne): Kutu '6 min' diyor, video 88 sn. Bu yanlış iddia tek derste değil: '6 min' 16 ders paketinin sahnesinde, 'Altı dakikada' 19 senaryoda var (ölçülen videolar 88 sn ve 96 sn). Ayrı hat görevi açılmalı.\n\nSEÇENEKLER:\n  a) İçerik kutusunu sola alta taşı; sağda figür + ev kalır. Yeni çizim gerekmez (önerim).\n  b) Sol alta yeni figür ekle (örnek: amca, yolda giden figür).\n\nSENDEN İSTENEN (2 kısa karar):\n1) a mı b mi? Önerim a.\n2) Kutudaki süre ne yazsın? Önerim: gerçek süre ('1,5 min'), değer videonun kendi süresinden hesaplansın; bütün paketlerde aynı düzeltme.",
     "grup": "tasarim-karar",
     "durum": "acik",
-    "atanan": "ajan",
+    "atanan": "Nadir",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
     "bagimli": [],
-    "guncelleme": "2026-11-11T17:57:03.670Z"
+    "guncelleme": "2026-11-11T18:01:35.933Z"
   },
   {
     "kimlik": "g-15",
