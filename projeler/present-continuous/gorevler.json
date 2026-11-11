@@ -109,7 +109,7 @@
     "surum": null,
     "tur": "uret",
     "baslik": "Çıktı karesi çakışma kapısı",
-    "aciklama": "Kare yakalamada metin/figür çakışmasını ölçen kapı; ölçüm sayısal.",
+    "aciklama": "NE: Videonun her karesinde yazı ile çizimin üst üste binip binmediğini otomatik ölçen kapı. Kural BRIEF 2.6'da var: çakışma 0 px (yazı × çizim, yazı × künye). Bugün bu kuralı ölçen bir şey yok; çakışmayı göz yakalıyor.\n\nNEDEN ÖNEMLİ: Göz 3 kez yakaladı: 03.11 gerekçe notu kart metninin üstüne bindi; 05.11 dikey sahne 06'da '-ing' birleşme anı üst üste; bu derste kedi ağacın dallarının içinde kayboluyor (g-13). 28 paket yayına girecek; elle bakmak ölçeklenmez.\n\nŞU AN: Kare denetimi (dijital-anlatim kare-denetim.mjs) yalnız kutu, opaklık ve boş kare ölçer. Sahnelerin nesneler.json dosyası her öğenin zamanını tutuyor ama kutusunu (konum + boy) tutmuyor.\n\nKALAN İŞ (şef yapar): motor her öğeyi çizerken kutusunu da yazar → kapı aynı anda ekranda olan yazı ve çizim kutularını karşılaştırır → çakışma varsa sahne adı + saniye + öğe adlarıyla kırmızı. Önce bu derste denenir, sonra 35 pakete.\n\nSENDEN İSTENEN: Karar yok. Yalnız sıra: bunu paketlerin toplu yayınından (pp g-11) önce yapmayı öneriyorum.",
     "grup": "motor",
     "durum": "acik",
     "atanan": "ajan",
@@ -120,7 +120,7 @@
       "g-4"
     ],
     "kapsam": "hat",
-    "guncelleme": "2026-11-11T11:45:47.220Z"
+    "guncelleme": "2026-11-11T17:57:03.670Z"
   },
   {
     "kimlik": "g-8",
@@ -164,7 +164,7 @@
     "surum": null,
     "tur": "karar",
     "baslik": "Quiz yayın yeri kararı",
-    "aciklama": "Numaralı PDF yedeği ve mini quiz nerede yaşayacak: kendi alanımız + Drive.",
+    "aciklama": "NE: Videodaki mini quiz ve onun yazdırılabilir PDF yedeği nerede durur?\n\nŞU AN (karar geçmişi):\n- 03.11 onaylı: QR → sitede mini quiz; numaralı PDF yedeği (saniye eşlemeli, cevap anahtarı son sayfada); yer 'kendi alanımız + Drive'.\n- 08.11 K35: QR yds.tc kısa kodu, hedef = sitedeki ders sayfası (bizim oynatıcı).\n- K21 + oynatıcı planı: mini soru oynatıcının etkinlik katmanında, P3 aşamasında.\n- Bugün grammar paketlerinde quiz yok; yalnız 1 deneme var (pilot grammar-etkilesim-onizleme/quiz: quiz.json + quiz.pdf).\n\nAÇIK KALAN: PDF'in yeri ve Drive'ın gerekip gerekmediği.\n\nSENDEN İSTENEN (1 karar):\nPDF yedeği nerede dursun?\n  a) Yalnız kendi alanımız: videonun yayın setinin içinde (ydspublishing.com/grammar/<ders kodu>/...), ders sayfasında 'PDF indir' bağlantısı (önerim). Video ile aynı sürümü taşır, bağlantı ölmez, izin derdi yok.\n  b) a + Drive kopyası (03.11 kararı). İki yer, eşitleme işi ve Drive izin ayarı gerekir.\nNot: quiz içeriği P3'te yazılacak; bu karar şimdi yalnız yeri sabitler.",
     "grup": "platform",
     "durum": "acik",
     "atanan": "Nadir",
@@ -175,7 +175,7 @@
       "g-9"
     ],
     "kapsam": "hat",
-    "guncelleme": "2026-11-11T11:45:47.220Z"
+    "guncelleme": "2026-11-11T17:57:03.670Z"
   },
   {
     "kimlik": "g-11",
@@ -183,7 +183,7 @@
     "surum": "ana-yatay",
     "tur": "karar",
     "baslik": "Açık palet seçimi",
-    "aciklama": "Önerilen: kağıt #f7f3ea, mürekkep lacivert #1b2440. Seçilecek: logo sarısı, karaoke dolgusu, kart beyaz/krem.",
+    "aciklama": "NE: Açık temanın renklerini onaylamak.\n\nŞU AN: Bu renkler zaten kullanılıyor; 35 paketin 35'inde aynı (kalem ortak/kunye.js, açık tema). K19: render varsayılanı açık tema, zemin tam beyaz değil.\n- Zemin (kâğıt): #f7f3ea krem\n- Mürekkep (yazı, çizim): #1b2440 lacivert\n- Vurgu (daire, ok, bölüm adı): #d9900f koyu sarı\n- Altını çizme dolgusu: #ffe066 açık sarı\n- Logo sarısı: #fece00 (YDS marka sarısı)\n- Kartlar: ayrı renk yok; kâğıt üstünde çerçeve\nGörüntü: present-continuous kontrol.png (12 kare).\n\nNOT: Arayüz ev stilimiz krem zemini yasaklar (29.10). Videoda krem zemin K19 ile bilinçli seçildi; arayüz kuralı videoya uygulanmaz.\n\nSENDEN İSTENEN: Bu palet onaylı mı?\n  a) Evet, olduğu gibi (önerim; 35 pakette tutarlı, değişiklik yok).\n  b) Değiştirilecek renk(ler)i söyle; tek dosyadan 35 pakete taşırım.",
     "grup": "tasarim-karar",
     "durum": "acik",
     "atanan": "Nadir",
@@ -192,7 +192,7 @@
     "tarih": "2026-11-04T10:00:00Z",
     "bagimli": [],
     "kapsam": "hat",
-    "guncelleme": "2026-11-11T11:45:47.220Z"
+    "guncelleme": "2026-11-11T17:57:03.670Z"
   },
   {
     "kimlik": "g-12",
@@ -200,7 +200,7 @@
     "surum": "ana-yatay",
     "tur": "karar",
     "baslik": "Nesne bloğu süresi kararı",
-    "aciklama": "Nesne bloğu kaç saniye ekranda kalsın; kısa sürede 4 sn kuralı bozulur.",
+    "aciklama": "NE: Çizilen bir nesne (ağaç, piyano, ev) ekranda ne kadar kalsın? 04.11'deki kaygı: kısa kalırsa ya da uzun süre hiçbir şey değişmezse '4 sn kuralı' bozulur. BRIEF kuralı: en çok 4 sn durağanlık.\n\nŞU AN (11.11 ölçümü, bu dersin 6 sahnesi):\n- Bugünkü kural (BRIEF 2.6): nesne çizilince sahne sonuna kadar kalır; yer gerekirse küçülüp köşeye çekilir. Örnek: ağaç 47,3 sn'de çizilir, 62,8 sn'ye kadar kalır.\n- Çizimden sonra durmasın diye 6 sn'de bir küçük hareket var (nefes ya da parıltı).\n- En uzun olaysız aralık: sahne 05'te 2,8 sn. Kural (en çok 4 sn) her sahnede tutuyor.\n\nSENDEN İSTENEN: Bugünkü kural yeterli mi?\n  a) Evet; nesne sahne sonuna kadar kalır, 4 sn sınırını kapı ölçer, görev kapanır (önerim).\n  b) Hayır; nesneler belli süreden sonra kalksın (süreyi sen söyle).",
     "grup": "tasarim-karar",
     "durum": "acik",
     "atanan": "Nadir",
@@ -209,7 +209,7 @@
     "tarih": "2026-11-04T10:00:00Z",
     "bagimli": [],
     "kapsam": "hat",
-    "guncelleme": "2026-11-11T11:45:47.220Z"
+    "guncelleme": "2026-11-11T17:57:03.670Z"
   },
   {
     "kimlik": "g-13",
@@ -217,14 +217,15 @@
     "surum": "ana-yatay",
     "tur": "duzelt",
     "baslik": "Sahne 05 kedi okunurluğu",
-    "aciklama": "Kedi çizimi küçük boyda okunmuyor; kalınlık ve boy artırılacak.",
+    "aciklama": "NE: Sahne 05'te ('The cat is climbing the tree') kedi okunmuyor.\n\nŞU AN (11.11 görüntüsü, sahne 05 son kare): Kedi 170 px kutuda, ağacın taç çizgilerinin tam içinde. Kedi ile dallar aynı renk ve aynı kalınlıkta; kedi çizgilerin arasında kayboluyor. Kod: sahneler/05-canvas-ornek3/sahne.js (kedi kutusu 170×170, kalınlık 4,6).\n\nKALAN İŞ (şef yapar): kediyi yaklaşık 260 px'e büyüt, dalların seyrek olduğu gövde üstüne taşı, çizgisini kalınlaştır. Sonra sahneyi yeniden üret, ana videoyu yeniden birleştir, önce/sonra karesini sana göster.\n\nSENDEN İSTENEN: Yok. Sonuca bakıp onay vermen yeterli. İstersen kediyi vurgu renginde (koyu sarı) çizerim; önerim aynı renk kalsın, boy ve konum yeter.",
     "grup": "tasarim-karar",
     "durum": "acik",
     "atanan": "ajan",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
-    "bagimli": []
+    "bagimli": [],
+    "guncelleme": "2026-11-11T17:57:03.670Z"
   },
   {
     "kimlik": "g-14",
@@ -232,14 +233,15 @@
     "surum": "ana-yatay",
     "tur": "duzelt",
     "baslik": "Sahne 02 figür ve sol alt boşluk",
-    "aciklama": "Sol alt köşe boş; figür eklenecek ya da yerleşim kayacak.",
+    "aciklama": "NE: Sahne 02 ('I'm going to my uncle's tonight') sol alt çeyreği boş.\n\nŞU AN (11.11 görüntüsü, sahne 02 son kare): Sol sütunda yazılar 680 px'te bitiyor; altında yaklaşık 300 px boşluk var. Sağ altta '6 min · form · time expressions · 6 uses' kutusu duruyor.\n\nEK BULGU (yeni, aynı sahne): Kutu '6 min' diyor, video 88 sn. Bu yanlış iddia tek derste değil: '6 min' 16 ders paketinin sahnesinde, 'Altı dakikada' 19 senaryoda var (ölçülen videolar 88 sn ve 96 sn). Ayrı hat görevi açılmalı.\n\nSEÇENEKLER:\n  a) İçerik kutusunu sola alta taşı; sağda figür + ev kalır. Yeni çizim gerekmez (önerim).\n  b) Sol alta yeni figür ekle (örnek: amca, yolda giden figür).\n\nSENDEN İSTENEN (2 kısa karar):\n1) a mı b mi? Önerim a.\n2) Kutudaki süre ne yazsın? Önerim: gerçek süre ('1,5 min'), değer videonun kendi süresinden hesaplansın; bütün paketlerde aynı düzeltme.",
     "grup": "tasarim-karar",
     "durum": "acik",
     "atanan": "ajan",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
-    "bagimli": []
+    "bagimli": [],
+    "guncelleme": "2026-11-11T17:57:03.670Z"
   },
   {
     "kimlik": "g-15",
@@ -247,7 +249,7 @@
     "surum": "ana-yatay",
     "tur": "duzelt",
     "baslik": "Tabler kamera/piyano yerine Coco",
-    "aciklama": "Tabler çizgi stili Coco ile uyumsuz; iki nesne Coco ile değişir.",
+    "aciklama": "NE: Sahne 03'teki kamera ve sahne 04'teki piyano Tabler setinden; ince ve geometrik çizgi stilleri Coco çizimleriyle (ağaç, kedi) uyumsuz. İkisi Coco ile değişecek.\n\nŞU AN: Coco setinde camera.svg ve piano.svg var (present-continuous ortak/cizim/coco, 31 çizim; g-5 kapalı). Değişiklik 2 satır: sahne-03.js 27. satır (tabler/camera.svg), sahne.js 04 13. satır (tabler/piano.svg). Sahne 02'de de 3 Tabler simgesi var (ev, takvim, saat); simge olarak kalmaları uygun.\n\nKALAN İŞ (şef yapar): iki çizimi değiştir → iki sahneyi yeniden üret → ana videoyu birleştir → önce/sonra karesi.\n\nSENDEN İSTENEN: Yok. Sonuca bakıp onay vermen yeterli.",
     "grup": "tasarim-karar",
     "durum": "acik",
     "atanan": "ajan",
@@ -256,7 +258,8 @@
     "tarih": "2026-11-04T10:00:00Z",
     "bagimli": [
       "g-5"
-    ]
+    ],
+    "guncelleme": "2026-11-11T17:57:03.670Z"
   },
   {
     "kimlik": "g-16",
@@ -480,5 +483,21 @@
     "guncelleme": "2026-11-11T11:45:47.220Z",
     "sonuc": "birlestir.py --efekt hisirti (yalnız çizgi olayları, +9,5 dB); ana video 135/212 olay; 28 test geçti.",
     "kapsam": "hat"
+  },
+  {
+    "kimlik": "g-29",
+    "video": "present-continuous",
+    "surum": null,
+    "tur": "duzelt",
+    "baslik": "Yanlış süre iddiası: '6 min' / 'Altı dakikada' (16 paket + 19 senaryo)",
+    "grup": "senaryo",
+    "durum": "acik",
+    "atanan": "ajan",
+    "oncelik": "yuksek",
+    "olusturan": "sef",
+    "tarih": "2026-11-11T17:57:03.213Z",
+    "bagimli": [],
+    "kapsam": "hat",
+    "aciklama": "NE: Videolar izleyiciye 6 dakika sürecek diyor; gerçek süre 1,5 dakika.\n\nŞU AN (11.11 ölçümü):\n- Sahne 02 içerik kutusunda el yazısıyla '6 min': 16 ders paketi (+5 deneme paketi).\n- Senaryoda 'Altı dakikada ... bitiriyoruz' cümlesi: dijital-anlatim pilot altında 19 senaryo.json.\n- Ölçülen süre: present-continuous 88 sn, present-perfect-temel 95,9 sn.\nKök: eski Doğan Hoca dersi 6 dk idi; kalıp ilk pakete oradan geçti, sonra kopyalandı.\n\nKALAN İŞ (şef yapar, karar sonrası): süre metni videonun kendi süresinden hesaplanır ('1,5 min'), sabit yazılmaz · senaryo cümlesi düzeltilir, ilgili ses parçası yeniden üretilir · içerik denetimi betiği (pp g-7) bu sınıfı yakalar.\n\nSENDEN İSTENEN: Kutuda ne yazsın? Önerim: gerçek süre, otomatik. Karar g-14 ile birlikte sorulur."
   }
 ]
