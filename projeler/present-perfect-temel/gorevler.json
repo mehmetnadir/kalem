@@ -7,13 +7,14 @@
     "baslik": "P2 kare bütçesi: zemin + gren karo önbelleği, alpha:false, Paper koruması",
     "aciklama": "Kovan A-0029/A-0041/A-0043. kalem 2a349f5, 565d7a9, 38458ba. Zemin 9,7→1,6 ms/kare; cpu4 18→26 kare/sn; tablet 24 kare/sn sınır (paper-core %38 + GPU raster %21).",
     "grup": "oynatici",
-    "durum": "onay",
+    "durum": "kapali",
     "atanan": "ajan",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-10T17:30:00Z",
     "bagimli": [],
-    "guncelleme": "2026-11-10T17:30:00Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "kapsam": "hat"
   },
   {
     "kimlik": "g-2",
@@ -29,7 +30,8 @@
     "olusturan": "sef",
     "tarih": "2026-11-10T17:30:00Z",
     "bagimli": [],
-    "guncelleme": "2026-11-10T17:30:00Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "kapsam": "hat"
   },
   {
     "kimlik": "g-3",
@@ -45,7 +47,8 @@
     "olusturan": "sef",
     "tarih": "2026-11-10T17:30:00Z",
     "bagimli": [],
-    "guncelleme": "2026-11-10T17:30:00Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "kapsam": "hat"
   },
   {
     "kimlik": "g-4",
@@ -61,7 +64,8 @@
     "olusturan": "sef",
     "tarih": "2026-11-10T17:30:00Z",
     "bagimli": [],
-    "guncelleme": "2026-11-10T17:30:00Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "kapsam": "hat"
   },
   {
     "kimlik": "g-5",
@@ -93,7 +97,8 @@
     "olusturan": "sef",
     "tarih": "2026-11-10T17:30:00Z",
     "bagimli": [],
-    "guncelleme": "2026-11-10T17:30:00Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "kapsam": "hat"
   },
   {
     "kimlik": "g-7",
@@ -109,7 +114,8 @@
     "olusturan": "sef",
     "tarih": "2026-11-10T17:30:00Z",
     "bagimli": [],
-    "guncelleme": "2026-11-10T17:30:00Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "kapsam": "hat"
   },
   {
     "kimlik": "g-8",
@@ -128,7 +134,8 @@
       "g-6",
       "g-7"
     ],
-    "guncelleme": "2026-11-10T17:30:00Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "kapsam": "hat"
   },
   {
     "kimlik": "g-9",
@@ -144,7 +151,8 @@
     "olusturan": "sef",
     "tarih": "2026-11-10T17:30:00Z",
     "bagimli": [],
-    "guncelleme": "2026-11-10T17:30:00Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "kapsam": "hat"
   },
   {
     "kimlik": "g-10",
@@ -160,7 +168,8 @@
     "olusturan": "sef",
     "tarih": "2026-11-10T17:30:00Z",
     "bagimli": [],
-    "guncelleme": "2026-11-10T17:30:00Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "kapsam": "hat"
   },
   {
     "kimlik": "g-11",
@@ -176,6 +185,7 @@
     "olusturan": "sef",
     "tarih": "2026-11-10T17:30:00Z",
     "bagimli": [],
-    "guncelleme": "2026-11-10T17:30:00Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "kapsam": "hat"
   }
 ]

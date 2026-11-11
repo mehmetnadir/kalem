@@ -7,13 +7,14 @@
     "baslik": "Tema çalışma zamanında CSS değişkeni",
     "aciklama": "Açık/koyu tema sahne yeniden yüklenmeden değişsin; renkler CSS değişkeninden gelsin.",
     "grup": "motor",
-    "durum": "inceleme",
+    "durum": "kapali",
     "atanan": "ajan",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
     "bagimli": [],
-    "guncelleme": "2026-11-04T12:49:23.107Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "kapsam": "hat"
   },
   {
     "kimlik": "g-2",
@@ -23,13 +24,14 @@
     "baslik": "Kadro ses–figür eşlemesi (K22)",
     "aciklama": "Her konuşan sese tek figür; kadro boyunca aynı eşleme.",
     "grup": "senaryo",
-    "durum": "inceleme",
+    "durum": "kapali",
     "atanan": "ajan",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
     "bagimli": [],
-    "guncelleme": "2026-11-04T12:49:23.119Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "kapsam": "hat"
   },
   {
     "kimlik": "g-3",
@@ -39,12 +41,14 @@
     "baslik": "Dikey senaryo kalıbı (K20)",
     "aciklama": "Dikey parçalar aynı olaylarla tek sütun; kalıp önce yazılır.",
     "grup": "senaryo",
-    "durum": "acik",
+    "durum": "kapali",
     "atanan": "sef",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
-    "bagimli": []
+    "bagimli": [],
+    "kapsam": "hat",
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-4",
@@ -54,12 +58,14 @@
     "baslik": "Kalem darbesi geometrisini motora taşı",
     "aciklama": "cizgi(): uçta incelme, titrek merkez, ilerleyen dolgu. Paper.js kaynağından motor modülüne.",
     "grup": "motor",
-    "durum": "acik",
+    "durum": "kapali",
     "atanan": "ajan",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
-    "bagimli": []
+    "bagimli": [],
+    "kapsam": "hat",
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-5",
@@ -69,12 +75,14 @@
     "baslik": "Coco setini motora ekle",
     "aciklama": "Coco Material (CC0) nesneleri kalınlık 2-3 ile; anahtarsız API.",
     "grup": "motor",
-    "durum": "acik",
+    "durum": "kapali",
     "atanan": "ajan",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
-    "bagimli": []
+    "bagimli": [],
+    "kapsam": "hat",
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-6",
@@ -84,14 +92,16 @@
     "baslik": "Olay → efekt sesi motora taşı",
     "aciklama": "olaylar.json olaylarından Tone.js efekt (kalem hışırtısı, tık, sayfa).",
     "grup": "motor",
-    "durum": "acik",
+    "durum": "kapali",
     "atanan": "ajan",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
     "bagimli": [
       "g-4"
-    ]
+    ],
+    "kapsam": "hat",
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-7",
@@ -108,7 +118,9 @@
     "tarih": "2026-11-04T10:00:00Z",
     "bagimli": [
       "g-4"
-    ]
+    ],
+    "kapsam": "hat",
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-8",
@@ -118,7 +130,7 @@
     "baslik": "Oynatıcı ders kipi",
     "aciklama": "Bölüm çubuğu, etkinlik paneli, tema anahtarı. Duraklatıp araya etkinlik girer.",
     "grup": "oynatici",
-    "durum": "inceleme",
+    "durum": "kapali",
     "atanan": "ajan",
     "oncelik": "orta",
     "olusturan": "sef",
@@ -126,7 +138,8 @@
     "bagimli": [
       "g-1"
     ],
-    "guncelleme": "2026-11-04T12:58:42.541Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "kapsam": "hat"
   },
   {
     "kimlik": "g-9",
@@ -136,12 +149,14 @@
     "baslik": "QR adresi kararı",
     "aciklama": "Kök adres: kısa, ölmeyen bağlantı. Seçenekler: kendi alanımız, kısa alan adı, platform yolu.",
     "grup": "tasarim-karar",
-    "durum": "acik",
+    "durum": "kapali",
     "atanan": "Nadir",
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
-    "bagimli": []
+    "bagimli": [],
+    "kapsam": "hat",
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-10",
@@ -158,7 +173,9 @@
     "tarih": "2026-11-04T10:00:00Z",
     "bagimli": [
       "g-9"
-    ]
+    ],
+    "kapsam": "hat",
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-11",
@@ -173,7 +190,9 @@
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
-    "bagimli": []
+    "bagimli": [],
+    "kapsam": "hat",
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-12",
@@ -188,7 +207,9 @@
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
-    "bagimli": []
+    "bagimli": [],
+    "kapsam": "hat",
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-13",
@@ -245,12 +266,13 @@
     "baslik": "Shorts tanıtım senaryosu + kapak",
     "aciklama": "Tanıtım, can alıcı, spoiler. Kapak asistim-reels/betik/kapak.py kalıbıyla.",
     "grup": "senaryo",
-    "durum": "acik",
+    "durum": "kapali",
     "atanan": "sef",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
-    "bagimli": []
+    "bagimli": [],
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-17",
@@ -260,14 +282,15 @@
     "baslik": "Dikey yeni senaryo",
     "aciklama": "Dikey için yeni senaryo; yatay metinden kopya değil.",
     "grup": "senaryo",
-    "durum": "acik",
+    "durum": "kapali",
     "atanan": "sef",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
     "bagimli": [
       "g-3"
-    ]
+    ],
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-18",
@@ -277,12 +300,13 @@
     "baslik": "Alternatif seviye senaryosu (orta)",
     "aciklama": "Orta seviye öğrenci için aynı konuyu farklı örneklerle anlatan senaryo.",
     "grup": "senaryo",
-    "durum": "acik",
+    "durum": "kapali",
     "atanan": "sef",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
-    "bagimli": []
+    "bagimli": [],
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-19",
@@ -292,12 +316,14 @@
     "baslik": "Faz 2 barındırma kararı",
     "aciklama": "imagen.ndr.ist tuvali (ekip/pano) ya da kayit.ndr.ist kontrol düzlemi.",
     "grup": "platform",
-    "durum": "acik",
+    "durum": "kapali",
     "atanan": "Nadir",
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
-    "bagimli": []
+    "bagimli": [],
+    "kapsam": "hat",
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-20",
@@ -307,7 +333,7 @@
     "baslik": "dijital-anlatim paket adaptörü",
     "aciklama": "Hyperframes paketleri aynı editörde açılsın.",
     "grup": "platform",
-    "durum": "acik",
+    "durum": "kapali",
     "atanan": "ajan",
     "oncelik": "orta",
     "olusturan": "sef",
@@ -315,7 +341,9 @@
     "bagimli": [
       "g-8",
       "g-19"
-    ]
+    ],
+    "kapsam": "hat",
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-21",
@@ -325,13 +353,14 @@
     "baslik": "Öğrenci balonu: kadro figürünün başı mı, siluet mi?",
     "aciklama": "K22 sonrası öğrenci sesi (Gökçe Deniz, kadın) kadroda LongBangs + GlassRound ile tanımlı; balon şu an cinsiyetsiz siluet. Seçenek: (a) kadro figürünün başı balonun yanında, (b) siluet kalsın, (c) balon yalnız metin. Ek: kısa saç = erkek varsayımı doğru mu; 7 sesin yaşı belirsiz (varlik/ses/sesler.json).",
     "grup": "tasarim-karar",
-    "durum": "onay",
+    "durum": "kapali",
     "atanan": "Nadir",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T12:49:42.303Z",
     "bagimli": [],
-    "guncelleme": "2026-11-04T14:21:23.970Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "kapsam": "hat"
   },
   {
     "kimlik": "g-22",
@@ -341,13 +370,13 @@
     "baslik": "Dikey senaryo taslağı onayı (D1 -yor=-ing · D2 Be tuzağı · D3 mini soru · S1 Shorts) + kapak başlığı",
     "aciklama": "Kalıp: .claude/docs/dikey-senaryo-kalibi.md (116 satır). Pilot taslak: pilot/grammar-tenses-01-temel/senaryo-dikey-taslak.md (103 satır). Sorular: alt %30 bant platform alanını kapsıyor mu; mini soru ayrı parça mı; Shorts çağrısında QR; kimlikler dikey-1/shorts-1 ve -D1/-S1 sonekleri; D3 (Nina) temel seviyeye uyar mı; kapak başlığı: -YOR = -ING / BU AKŞAM = I AM GOING / LOOK! = ŞİMDİ.",
     "grup": "senaryo",
-    "durum": "inceleme",
+    "durum": "kapali",
     "atanan": "Nadir",
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T12:56:04.806Z",
     "bagimli": [],
-    "guncelleme": "2026-11-04T13:22:30.833Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-23",
@@ -357,12 +386,14 @@
     "baslik": "Kalem kare yakalama varsayılan tema açık (K19)",
     "aciklama": "calistir.sh/yakala.py kareleri koyu temayla alıyor (kontrol.png koyu). Render varsayılanı açık (K19): calistir.sh ?tema=acik varsayılan, --tema koyu seçenek; birlestir --plan etiketlerine tema adı.",
     "grup": "motor",
-    "durum": "acik",
+    "durum": "kapali",
     "atanan": "ajan",
     "oncelik": "dusuk",
     "olusturan": "sef",
     "tarih": "2026-11-04T13:01:43.198Z",
-    "bagimli": []
+    "bagimli": [],
+    "kapsam": "hat",
+    "guncelleme": "2026-11-11T11:45:47.220Z"
   },
   {
     "kimlik": "g-24",
@@ -372,13 +403,14 @@
     "baslik": "Ses tasarımı katmanı: efekt sesi videoya girsin mi? (dinle: scratchpad/ses-efekt/karisim.wav)",
     "aciklama": "Araç hazır: araclar/ses-efekt (olay → kalem hışırtısı / tık / vuruş / çan / sayfa; bağımlılıksız WAV sentez; 10 test). Pilot: anlatım + efekt (−18 dB) karışımı /private/tmp/claude-501/-Users-nadir/7541766e-14a2-4d14-bb93-234109b91572/scratchpad/ses-efekt/karisim.wav. Karar: (a) efekt katmanı açık, (b) yalnız kalem hışırtısı, (c) kapalı. Müzik ayrı karar (Mixkit lisansı).",
     "grup": "tasarim-karar",
-    "durum": "onay",
+    "durum": "kapali",
     "atanan": "Nadir",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T13:10:21.354Z",
     "bagimli": [],
-    "guncelleme": "2026-11-04T14:21:23.973Z"
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "kapsam": "hat"
   },
   {
     "kimlik": "g-25",
@@ -388,13 +420,13 @@
     "baslik": "D1 dikey parça: -yor = -ing (55 sn) üretimi",
     "aciklama": "senaryo-dikey-taslak.md D1 → senaryo.json (9:16), sentez (el.py), motor dikey, lint, snapshot",
     "grup": "motor",
-    "durum": "inceleme",
+    "durum": "kapali",
     "atanan": "ajan",
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T14:21:23.975Z",
     "bagimli": [],
-    "guncelleme": "2026-11-04T19:05:00Z",
+    "guncelleme": "2026-11-11T11:45:47.220Z",
     "sonuc": "D1 üretildi: 4 sahne, 54,33 sn, 1080×1920, efekt hışırtı 81/132; kapak -YOR = -ING; altyazı bandı boş (karar)."
   },
   {
@@ -405,13 +437,13 @@
     "baslik": "S1 Shorts tanıtım (25 sn) + kapak \"BU AKŞAM = I AM GOING\"",
     "aciklama": "taslak S1 → senaryo.json, sentez, motor dikey, kapak sahnesi snapshot (PNG)",
     "grup": "motor",
-    "durum": "inceleme",
+    "durum": "kapali",
     "atanan": "ajan",
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T14:21:23.976Z",
     "bagimli": [],
-    "guncelleme": "2026-11-04T19:05:00Z",
+    "guncelleme": "2026-11-11T11:45:47.220Z",
     "sonuc": "S1 üretildi: 3 sahne, 26,4 sn, kapak.png 'BU AKŞAM = I AM GOING' (t 1,97); altyazı bandı boş (karar)."
   },
   {
@@ -422,13 +454,13 @@
     "baslik": "Öğrenci balonu: kadro figürünün başı",
     "aciklama": "K22; motor balon olayı kadro başı çizer; pilotlar yeniden derlenir",
     "grup": "motor",
-    "durum": "inceleme",
+    "durum": "kapali",
     "atanan": "ajan",
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T14:21:23.978Z",
     "bagimli": [],
-    "guncelleme": "2026-11-04T19:05:00Z",
+    "guncelleme": "2026-11-11T11:45:47.220Z",
     "sonuc": "Sahne 06: siluet yerine peeps-kit ogrenci-bas.svg (kadın, gözlüklü); k/75 doğrulandı; ana video yeniden birleştirildi."
   },
   {
@@ -439,13 +471,14 @@
     "baslik": "Efekt sesi: yalnız kalem hışırtısı izi (motor + oynatıcı)",
     "aciklama": "ses-efekt --katman hisirti; motor ses/efekt.wav; oynatıcı ikinci iz −18 dB",
     "grup": "motor",
-    "durum": "inceleme",
+    "durum": "kapali",
     "atanan": "ajan",
     "oncelik": "yuksek",
     "olusturan": "sef",
     "tarih": "2026-11-04T14:21:23.979Z",
     "bagimli": [],
-    "guncelleme": "2026-11-04T19:05:00Z",
-    "sonuc": "birlestir.py --efekt hisirti (yalnız çizgi olayları, +9,5 dB); ana video 135/212 olay; 28 test geçti."
+    "guncelleme": "2026-11-11T11:45:47.220Z",
+    "sonuc": "birlestir.py --efekt hisirti (yalnız çizgi olayları, +9,5 dB); ana video 135/212 olay; 28 test geçti.",
+    "kapsam": "hat"
   }
 ]
