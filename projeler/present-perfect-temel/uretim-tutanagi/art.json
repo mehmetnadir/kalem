@@ -1,0 +1,85 @@
+{
+  "asr": {
+    "dil": "tr",
+    "model": "mlx-community/whisper-large-v3-turbo",
+    "surum": "0.4.3"
+  },
+  "cumleler": [
+    {
+      "beklenen": "Kaybettim, kapıda kaldım.",
+      "benzerlik": 1.0,
+      "duyulan": "Kaybettim. Kapıda kaldım.",
+      "i": 1,
+      "t0": 1.0,
+      "t1": 3.24
+    },
+    {
+      "beklenen": "Anahtarı kaybettim: geçmişte oldu, ama sonucu şimdi bizimle. İngilizce bunun için ayrı bir zaman kullanır. Altı dakikada Present Perfect'in formunu, since ile for farkını ve sinyal sözcüklerini bitiriyoruz.",
+      "benzerlik": 1.0,
+      "duyulan": "Anahtarı kaybettim. Geçmişte oldu. Ama sonucu şimdi bizimle. İngilizce bunun için ayrı bir zaman kullanır. 6 dakikada present perfectin formunu, since ile for farkını ve sinyal sözcüklerini bitiriyoruz.",
+      "i": 2,
+      "t0": 3.71,
+      "t1": 18.81
+    },
+    {
+      "beklenen": "Birinci örnek. I have broken my phone. Telefonumu kırdım. Kırma işi geçmişte oldu, ama ekran şimdi de kırık. İki parça var: have ve broken. Have, artı fiilin üçüncü hâli.",
+      "benzerlik": 1.0,
+      "duyulan": "Birinci örnek. I have broken my phone. Telefonumu kırdım. Kırma işi geçmişte oldu. Ama ekran şimdi de kırık. İki parça var. Have ve broken. Have artı fiilin üçüncü hali.",
+      "i": 3,
+      "t0": 19.28,
+      "t1": 34.24
+    },
+    {
+      "beklenen": "İkinci örnek. My brother has played the guitar for five years. Kardeşim beş yıldır gitar çalıyor. Başladı ve hâlâ çalıyor. For süreyi söyler. Başlangıç olsaydı since derdik. Bu kez has, çünkü özne tek kişi.",
+      "benzerlik": 1.0,
+      "duyulan": "İkinci örnek. My brother has played the guitar for five years. Kardeşim beş yıldır gitar çalıyor. Başladı ve hala çalıyor. For süreyi söyler. Başlangıç olsaydı since derdik. Bu kez has. Çünkü özne tek kişi.",
+      "i": 4,
+      "t0": 34.71,
+      "t1": 51.2
+    },
+    {
+      "beklenen": "Üçüncü örnek. I have never flown in a plane. Hayatımda hiç uçağa binmedim. Bugüne kadar hiç olmadı. Never gibi sözcükler hayatın bugüne kadarki kısmını anlatır. Yine have, artı flown.",
+      "benzerlik": 1.0,
+      "duyulan": "Üçüncü örnek. I have never flown in a plane. Hayatımda hiç uçağa binmedim. bugüne kadar hiç olmadı. Never gibi sözcükler hayatın bugüne kadarki kısmını anlatır. Yine have artı flown.",
+      "i": 5,
+      "t0": 51.67,
+      "t1": 67.27
+    },
+    {
+      "beklenen": "Hocam, üçünde de have var. Neden hep üçüncü hâl?",
+      "benzerlik": 1.0,
+      "duyulan": "Hocam üçünde de have var. Neden hep üçüncü hal?",
+      "i": 6,
+      "t0": 67.74,
+      "t1": 71.66
+    },
+    {
+      "beklenen": "Çünkü iş geçmişte bitti, ama etkisi şimdiye uzanıyor. Have ya da has şimdiyi taşır, üçüncü hâl işi söyler. For ve since süre, never ve ever deneyim, just ve already yeni biten iş. Kod: have artı üçüncü hâl, geçmiş iş, şimdiki etki.",
+      "benzerlik": 1.0,
+      "duyulan": "Çünkü iş geçmişte bitti ama etkisi şimdiye uzanıyor. Have ya da has şimdiyi taşır. Üçüncü hal işi söyler. FOR ve SINCE süre NEVER ve EVER deneyim JUST ve ALREADY yeni biten iş KOD HAVE artı üçüncü hal Geçmiş iş şimdiki etki",
+      "i": 7,
+      "t0": 72.13,
+      "t1": 93.94
+    }
+  ],
+  "kimlik": "UA-20261112-6736",
+  "on_kimlik": "UT-20261112-f288",
+  "ozet": {
+    "en_dusuk": 1.0,
+    "esik": 0.85,
+    "gecen": 7,
+    "ortalama": 1.0,
+    "toplam": 7
+  },
+  "paket": "present-perfect-temel",
+  "sema": "ut-art/v1",
+  "sonuc": "GEÇTİ",
+  "video": {
+    "bayt": 24207022,
+    "dosya": "cikti.mp4",
+    "sha256": "449805e03953f687f486eb56128236a60cd2d538eea85478a4a84e96e5d77563",
+    "sure_sn": 95.87,
+    "tema": "acik"
+  },
+  "zaman": "2026-11-12T10:02:16Z"
+}
