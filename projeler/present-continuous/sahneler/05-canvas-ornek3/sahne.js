@@ -8,6 +8,16 @@ const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: KAYMA, bolu
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
 
+// Dışbükey zarf (monoton zincir): [[x, y], …] → kapalı çokgen.
+function zarf(pts) {
+  const p = [...pts].sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cap = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const alt = [], ust = [];
+  for (const q of p) { while (alt.length > 1 && cap(alt[alt.length - 2], alt[alt.length - 1], q) <= 0) alt.pop(); alt.push(q); }
+  for (const q of p.reverse()) { while (ust.length > 1 && cap(ust[ust.length - 2], ust[ust.length - 1], q) <= 0) ust.pop(); ust.push(q); }
+  return alt.slice(0, -1).concat(ust.slice(0, -1));
+}
+
 async function kur() {
   await S.kur();
   const [agac, kedi] = await Promise.all([svgOku("coco/tree.svg"), svgOku("coco/cat.svg")]);
@@ -32,19 +42,21 @@ async function kur() {
   const cum = S.koy(S.cumleYaz({ sozcukler: S.dizi("The", 53.99, 6), x: 140, y: 460, maxGen: 980 }));
   const sonSatir = Math.max(...cum.kel.map((k) => k.y)), kel = (ad) => cum.kel.find((k) => k.m === ad);
 
-  // 53,3–54,6 ağaç (Coco, ≈640 px); 54,4–56,5 kedi (Coco, ≈170 px) gövde boyunca aşağıdan ortaya tırmanır
+  // 53,3–54,6 ağaç (Coco, ≈640 px); 54,4–56,5 kedi (Coco, ≈260 px) gövde boyunca aşağıdan tacın altına tırmanır
   S.koy(S.cizim({ svg: agac, kutu: { x: 1200, y: 260, w: 640, h: 640 }, ad: "agac", esik: 0.01, enCok: 40, w: 3.8, tb: 53.3,
     sure: 1.3, olayEnCok: 8, nefes: false }));
   S.koy(S.parilti(1650, 330, 54.65, 26));
-  const kx = 1520 - 85, ky0 = 775, fTir = S.fr(55.15), fTirSon = S.fr(56.5), MES = 340;
-  const kg = S.cizim({ svg: kedi, kutu: { x: kx, y: ky0, w: 170, h: 170 }, ad: "kedi", esik: 0.01, enCok: 30, w: 4.6, tb: 54.4,
+  const kx = 1510 - 130, ky0 = 740, fTir = S.fr(55.15), fTirSon = S.fr(56.5), MES = 160;
+  const kg = S.cizim({ svg: kedi, kutu: { x: kx, y: ky0, w: 260, h: 260 }, ad: "kedi", esik: 0.01, enCok: 30, w: 5.2, tb: 54.4,
     sure: 0.6, olayEnCok: 2, nefes: false });
-  kg.dolgu = { nokta: kg.yollar, renk: RT.zemin, fb: S.fr(54.4) };
+  // Siluet maskesi (12.11, g-13): açık çizgi yollarını tek tek doldurmak dalları örtmüyordu; bütün noktaların
+  // dışbükey zarfı zemin rengiyle dolar, kedi gövdenin önünde okunur.
+  kg.dolgu = { nokta: [zarf(kg.yollar.flat())], renk: RT.zemin, fb: S.fr(54.4) };
   kg.donusum = (f) => {
     const u = kis((f - fTir) / (fTirSon - fTir)), e = yavasla(u), fi = Math.min(f, ICERIK), son = f >= fTirSon;
     const sal = u > 0 ? (son ? 0 : 4 * Math.sin(u * Math.PI * 6)) : 0;
     const dur = son ? 2 * Math.sin((fi - fTirSon) / 22) : 0;
-    return { cx: kx + 85, cy: ky0 + 160, tx: sal, ty: -MES * e + dur, dondur: u > 0 && !son ? 0.052 * Math.sin(u * Math.PI * 6) : 0, olcek: 1 };
+    return { cx: kx + 130, cy: ky0 + 240, tx: sal, ty: -MES * e + dur, dondur: u > 0 && !son ? 0.052 * Math.sin(u * Math.PI * 6) : 0, olcek: 1 };
   };
   S.koy(kg);
   [[[1500, 905], [1476, 917]], [[1528, 910], [1528, 932]], [[1556, 905], [1580, 917]]].forEach((p, i) => {

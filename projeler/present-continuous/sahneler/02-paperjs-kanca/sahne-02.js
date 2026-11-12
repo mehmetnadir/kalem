@@ -17,14 +17,14 @@ export async function kur(P) {
     { x: 140, y: 300, boyut: 64, aile: "Caveat", agirlik: 700 });
   not("cümle 1 başı (Bu)", c1[0].bas); not("gidiyorum", c1[3].bas);
 
-  // --- sağ eskiz: ev + yürüyen figür + hilal
-  const ev = await S.svgCiz("tabler/home.svg", { kutu: [1330, 190, 260, 260], bas: GB, sure: 26, azami: 25, w: 4, sesAralik: 2 });
-  const figOge = S.oge({ kay: { f0: GB, f1: fr0(8.8), dx: 70 }, nefes: { bas: fr0(8.9), cx: 1190, cy: 450 } });
-  const fig = await S.svgCiz("open-peeps/standing-2.svg", { kutu: [1090, 120, 190, 330], bas: GB, sure: 42, azami: 60, yuz: 3, w: 3.2, oge: figOge, sesAralik: 5, ayna: false });
+  // --- sağ eskiz: ev + yürüyen figür + hilal (dikeyde ortalandı, zemin çizgisi ≈ y 600)
+  const ev = await S.svgCiz("tabler/home.svg", { kutu: [1330, 336, 260, 260], bas: GB, sure: 26, azami: 25, w: 4, sesAralik: 2 });
+  const figOge = S.oge({ kay: { f0: GB, f1: fr0(8.8), dx: 70 }, nefes: { bas: fr0(8.9), cx: 1190, cy: 596 } });
+  const fig = await S.svgCiz("open-peeps/standing-2.svg", { kutu: [1090, 266, 190, 330], bas: GB, sure: 42, azami: 60, yuz: 3, w: 3.2, oge: figOge, sesAralik: 5, ayna: false });
   not("ev çizimi başı", GB); not("figür çizimi başı", GB); not("figür yürüme biter", fr0(8.8));
-  ciz([[1040, 456], [1220, 452], [1420, 457], [1650, 453]], { w: 3, renk: IKI, alfa: 0.75, bas: 36, sure: 30, uc0: 10, uc1: 30 });
+  ciz([[1040, 602], [1220, 598], [1420, 603], [1650, 599]], { w: 3, renk: IKI, alfa: 0.75, bas: 36, sure: 30, uc0: 10, uc1: 30 });
   {   // hilal: dış yay + iç yay tek darbe (el elipsi)
-    const C = [1730, 240], R = 56, d2r = Math.PI / 180, pts = [];
+    const C = [1730, 386], R = 56, d2r = Math.PI / 180, pts = [];
     for (let a = 65; a <= 295; a += 6) pts.push([C[0] + R * Math.cos(a * d2r), C[1] + R * Math.sin(a * d2r)]);
     const Ci = [C[0] + 0.5 * R, C[1]], Ri = R * 0.91;
     for (let a = 265; a >= 95; a -= 6) pts.push([Ci[0] + Ri * Math.cos(a * d2r), Ci[1] + Ri * Math.sin(a * d2r)]);
@@ -59,16 +59,39 @@ export async function kur(P) {
     elYazisi("-ing", { x: a.x1 + 156, y, boyut: 52, renk: SARI, bas: bitis(ar) + 4, sure: 10, ses: true }); not("ok -yor ⇄ -ing", ar.bas);
   }
 
-  // --- 14,73–20,89: el kutusu, saat, 3 madde
+  // --- 14,73–20,89: sol alta taşınan el kutusu (x>=140, alt kenar y<=960), saat, zaman.json süresi, 3 madde
   {
-    S.kutu(1060, 690, 760, 280, { bas: fr(14.73) - 8, sure: 38 }); not("kutu çizimi", fr(14.73) - 8);
-    await S.svgCiz("tabler/clock.svg", { kutu: [1096, 712, 76, 76], bas: fr(14.73), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
-    elYazisi("6 min", { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(14.73) + 14, sure: 14 }); not("saat + 6 min", fr(14.73));
-    parilti(1176, 714, { bas: fr(15.9), r: 22, periyot: 170, adet: 3 });
-    const m = [["form", 16.97, 835], ["time expressions", 17.65, 890], ["6 uses", 19.29, 945]];
+    let sureMetni = "";
+    try {
+      const res = await fetch(new URL("../../zaman.json", location.href)); // paket kökü: yayında da aynı göreli yol
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const veri = await res.json();
+      const sahneler = veri?.sahneler;
+      const son = Array.isArray(sahneler) && sahneler.length ? sahneler[sahneler.length - 1] : null;
+      const tSon = son?.t_son;
+      if (typeof tSon !== "number") throw new Error("t_son sayı değil");
+      if (tSon < 60) {
+        sureMetni = `${Math.round(tSon)} sec`;
+      } else {
+        const dk = Math.round((tSon / 60) * 2) / 2;
+        sureMetni = `${dk} min`;
+      }
+    } catch (err) {
+      console.warn("zaman.json süre okunamadı:", err);
+    }
+
+    const kx = 140, ky = 705, kw = 560, kh = 245;
+    S.kutu(kx, ky, kw, kh, { bas: fr(14.73) - 8, sure: 38 }); not("kutu çizimi", fr(14.73) - 8);
+    await S.svgCiz("tabler/clock.svg", { kutu: [kx + 32, ky + 18, 68, 68], bas: fr(14.73), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
+    if (sureMetni) {
+      elYazisi(sureMetni, { x: kx + 120, y: ky + 68, boyut: 56, renk: SARI, bas: fr(14.73) + 14, sure: 14 });
+    }
+    not("saat + süre", fr(14.73));
+    parilti(kx + 100, ky + 20, { bas: fr(15.9), r: 22, periyot: 170, adet: 3 });
+    const m = [["form", 16.97, ky + 126], ["time expressions", 17.65, ky + 172], ["6 uses", 19.29, ky + 218]];
     for (const [s, t, y] of m) {
-      yazi(s, { x: 1140, y, boyut: 44, aile: "Fredoka", agirlik: 700, renk: RT.murekkep, bas: fr(t), sure: 8 });
-      tik(1108, y - 12, { bas: fr(t) + 4 }); not("madde " + s, fr(t));
+      yazi(s, { x: kx + 76, y, boyut: 40, aile: "Fredoka", agirlik: 700, renk: RT.murekkep, bas: fr(t), sure: 8 });
+      tik(kx + 44, y - 12, { bas: fr(t) + 4 }); not("madde " + s, fr(t));
     }
   }
   return S;

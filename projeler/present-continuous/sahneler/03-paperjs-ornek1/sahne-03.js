@@ -24,7 +24,7 @@ export async function kur(P) {
   await S.svgCiz("open-peeps/sitting-4.svg", { kutu: [1010, 170, 370, 500], bas: fr(22.5), sure: fr(24.6) - fr(22.5), azami: 60, yuz: 3, w: 3.2,
     oge: figOge, sesAralik: 5, ayna: FIGUR_AYNA });
   not("figür çizimi başı", fr(22.5));
-  await S.svgCiz("tabler/camera.svg", { kutu: [1520, 240, 210, 210], bas: fr(23.8), sure: 14, azami: 25, w: 4, sesAralik: 1 });
+  await S.svgCiz("coco/camera.svg", { kutu: [1520, 240, 210, 210], bas: fr(23.8), sure: 14, azami: 25, w: 4, sesAralik: 1 });
   not("kamera çizimi başı", fr(23.8));
   [[[1625, 424], [1545, 655]], [[1625, 424], [1627, 665]], [[1625, 424], [1712, 655]]].forEach((p, i) => {
     ciz([p[0], [(p[0][0] + p[1][0]) / 2 + 2, (p[0][1] + p[1][1]) / 2], p[1]], { w: 4, bas: fr(23.8) + 14 + i * 4, sure: 6, uc0: 6, uc1: 12, amp: 0.6 }); });
