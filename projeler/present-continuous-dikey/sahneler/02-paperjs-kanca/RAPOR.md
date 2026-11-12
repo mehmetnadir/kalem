@@ -1,6 +1,6 @@
 # Sahne 02 DİKEY — Kanca (Paper.js 1080x1920, 385 kare, t_bas 3,00)
 
-Tema: koyu (ikisi de koştu: `video-acik.mp4` + `video-koyu.mp4`; `video.mp4` = son koşu = koyu)
+Tema: koyu
 
 ## Sonuç
 - ffprobe: h264 yuv420p 1080x1920 30 fps, 385 kare (zaman.json ile birebir), her iki tema.

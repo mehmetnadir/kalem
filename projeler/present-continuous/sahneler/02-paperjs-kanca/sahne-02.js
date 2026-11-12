@@ -59,7 +59,7 @@ export async function kur(P) {
     elYazisi("-ing", { x: a.x1 + 156, y, boyut: 52, renk: SARI, bas: bitis(ar) + 4, sure: 10, ses: true }); not("ok -yor ⇄ -ing", ar.bas);
   }
 
-  // --- 14,73–20,89: sol alta taşınan el kutusu (x>=140, alt kenar y<=960), saat, zaman.json süresi, 3 madde
+  // --- 14,49–20,89: sol alta taşınan el kutusu (x>=140, alt kenar y<=960), saat, zaman.json süresi, 3 madde
   {
     let sureMetni = "";
     try {
@@ -81,14 +81,14 @@ export async function kur(P) {
     }
 
     const kx = 140, ky = 705, kw = 560, kh = 245;
-    S.kutu(kx, ky, kw, kh, { bas: fr(14.73) - 8, sure: 38 }); not("kutu çizimi", fr(14.73) - 8);
-    await S.svgCiz("tabler/clock.svg", { kutu: [kx + 32, ky + 18, 68, 68], bas: fr(14.73), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
+    S.kutu(kx, ky, kw, kh, { bas: fr(14.49) - 8, sure: 38 }); not("kutu çizimi", fr(14.49) - 8);
+    await S.svgCiz("tabler/clock.svg", { kutu: [kx + 32, ky + 18, 68, 68], bas: fr(14.49), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
     if (sureMetni) {
-      elYazisi(sureMetni, { x: kx + 120, y: ky + 68, boyut: 56, renk: SARI, bas: fr(14.73) + 14, sure: 14 });
+      elYazisi(sureMetni, { x: kx + 120, y: ky + 68, boyut: 56, renk: SARI, bas: fr(14.49) + 14, sure: 14 });
     }
-    not("saat + süre", fr(14.73));
-    parilti(kx + 100, ky + 20, { bas: fr(15.9), r: 22, periyot: 170, adet: 3 });
-    const m = [["form", 16.97, ky + 126], ["time expressions", 17.65, ky + 172], ["6 uses", 19.29, ky + 218]];
+    not("saat + süre", fr(14.49));
+    parilti(kx + 100, ky + 20, { bas: fr(15.66), r: 22, periyot: 170, adet: 3 });
+    const m = [["form", 16.41, ky + 126], ["time expressions", 17.25, ky + 172], ["6 uses", 18.73, ky + 218]];
     for (const [s, t, y] of m) {
       yazi(s, { x: kx + 76, y, boyut: 40, aile: "Fredoka", agirlik: 700, renk: RT.murekkep, bas: fr(t), sure: 8 });
       tik(kx + 44, y - 12, { bas: fr(t) + 4 }); not("madde " + s, fr(t));

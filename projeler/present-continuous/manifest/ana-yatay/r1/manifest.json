@@ -1,0 +1,563 @@
+{
+  "sema": "manifest/v1",
+  "hat": "grammar",
+  "video": {
+    "kimlik": "present-continuous",
+    "kod": "ING-YDT-GR-01-PC",
+    "ders": "İngilizce",
+    "konu": "Present Continuous",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "paket": "present-continuous"
+  },
+  "surum": {
+    "kimlik": "ana-yatay",
+    "tur": "ana-yatay",
+    "ad": "Ana video (yatay 16:9)",
+    "bicim": {
+      "genislik": 1920,
+      "yukseklik": 1080,
+      "fps": 30
+    }
+  },
+  "revizyon": {
+    "no": "r1",
+    "tarih": "2026-11-04T09:00:00Z",
+    "degisiklik": "Prototip 4 kalem: 6 sahne, 3 motor",
+    "onceki": null
+  },
+  "durum": "inceleme",
+  "inceleme": [],
+  "bayrak": "yok",
+  "sure_sn": 87.33,
+  "dosyalar": [
+    {
+      "yol": "ortak/anlatim/METIN.md",
+      "rol": "senaryo",
+      "sha256": "2e4826b5186d5f396d49000a761eff871b9eb50f9bde0e37b7584b15cfe78689",
+      "bayt": 4453
+    },
+    {
+      "yol": "ortak/anlatim/altyazi.json",
+      "rol": "altyazi",
+      "sha256": "440c6dfdedbc47bfa29fb92e5117ad699b4229263bd6fbfda91c72ca43e2ab7d",
+      "bayt": 3221
+    },
+    {
+      "yol": "ortak/anlatim/anlatim.wav",
+      "rol": "ses",
+      "sha256": "48bea2a10b59010886c4989e6a193173a2e6470639604714331041529abcfcbb",
+      "bayt": 8383758
+    },
+    {
+      "yol": "ortak/anlatim/cumle-1.wav",
+      "rol": "ses",
+      "sha256": "334f63e7ebd0c5886225a298d6774eaaf7704dd7513678765628b25c207df12b",
+      "bayt": 162332
+    },
+    {
+      "yol": "ortak/anlatim/cumle-2.wav",
+      "rol": "ses",
+      "sha256": "437a2c42c026471963f758cc3d4f202d76bd60b95610ac2f156b0e50631ebb74",
+      "bayt": 964952
+    },
+    {
+      "yol": "ortak/anlatim/cumle-3.wav",
+      "rol": "ses",
+      "sha256": "2d9b836cdeed0a11e17c9f4dc3bef97cf113fc1773b22fdf14c27b9bb258f060",
+      "bayt": 1248956
+    },
+    {
+      "yol": "ortak/anlatim/cumle-4.wav",
+      "rol": "ses",
+      "sha256": "d5b3bb0e1c35cadb960dfb7666a620cd33039dcdbd4cb59dc607f90f1954664b",
+      "bayt": 1347740
+    },
+    {
+      "yol": "ortak/anlatim/cumle-5.wav",
+      "rol": "ses",
+      "sha256": "7e5b2a07c0a70d898f35ea5dfa2e71923496e71e2b313831a3e81fbcdff4accb",
+      "bayt": 1435940
+    },
+    {
+      "yol": "ortak/anlatim/cumle-6.wav",
+      "rol": "ses",
+      "sha256": "3ee8339169533d62a0fd5b06bacef0cd04cb2ccbfc519e69ae390f04cb4ad72a",
+      "bayt": 296396
+    },
+    {
+      "yol": "ortak/anlatim/cumle-7.wav",
+      "rol": "ses",
+      "sha256": "cd9d229f0bafbc38d7a2248111d276f899c52e7888f1e53df8ea6c3843af0d7f",
+      "bayt": 1676726
+    },
+    {
+      "yol": "ortak/anlatim/senaryo.json",
+      "rol": "senaryo",
+      "sha256": "2d1ffa57590a0956d01fde297772525485c40f1871071c4881588b8621910442",
+      "bayt": 15153
+    },
+    {
+      "yol": "ortak/logo/yds-publishing-koyu-zemin.svg",
+      "rol": "stil",
+      "sha256": "14ff1f3f41e12759fb73c0e440a776c7e2429925b6e7fba5ec9dc12bee9b0c24",
+      "bayt": 4799
+    },
+    {
+      "yol": "ortak/logo/yds-publishing-lacivert.svg",
+      "rol": "stil",
+      "sha256": "338ccbcbb475efef5c503ba1afce808695fe76b62994f35ee12f9604807c8074",
+      "bayt": 4802
+    },
+    {
+      "yol": "ortak/logo/yds-publishing-seffaf.svg",
+      "rol": "stil",
+      "sha256": "14ff1f3f41e12759fb73c0e440a776c7e2429925b6e7fba5ec9dc12bee9b0c24",
+      "bayt": 4799
+    },
+    {
+      "yol": "ortak/logo/yds-publishing.svg",
+      "rol": "stil",
+      "sha256": "21c2ed7850e3c524a4041ef0e1b381a5228bf0b08ef8a5580677724c4d0aee10",
+      "bayt": 4917
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/nesneler.json",
+      "rol": "sahne",
+      "sha256": "8a810f781aab3c88e860f63f69036e43249c099f65338b3c8de434b56a2668bf",
+      "bayt": 890
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/olay.py",
+      "rol": "sahne",
+      "sha256": "453e8e1f6d568f331a653467c35c477fb551a683a39f6bd15d7bf026ec61eac0",
+      "bayt": 1812
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/olaylar.json",
+      "rol": "sahne",
+      "sha256": "4e7384a8a46d8e54e72685022f588d3779cbbff1d0d05f4c79e1924fb867df4d",
+      "bayt": 2165
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/.hyperframes/history-id",
+      "rol": "sahne",
+      "sha256": "99a8053861b129d72aad66525436cab6201b0a90d3f9b3ed910303b0691401af",
+      "bayt": 37
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/.hyperframes/render-outputs.json",
+      "rol": "sahne",
+      "sha256": "0215b9e7d8fd7515bca539fe904dcfd7b168634f4d73ccab42250a7d612c9ce0",
+      "bayt": 213
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/.hyperframes/video-state.json",
+      "rol": "sahne",
+      "sha256": "46718fdff5e0181346dc854bdeec20f26b12fb819c11e3860df3a9308af9ca30",
+      "bayt": 10084
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/assets/cizim/camera.svg",
+      "rol": "sahne",
+      "sha256": "e2d695f97f075ccab08d13595aeb3e86c351d3736372cb88e69153cbaf233984",
+      "bayt": 532
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/assets/cizim/standing-3.svg",
+      "rol": "sahne",
+      "sha256": "eeecd4f64dc85e88072f9533073da90df4b17683875e7a26a988fd23264d050f",
+      "bayt": 38146
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/assets/fonts/caveat-latin-700-normal.woff2",
+      "rol": "sahne",
+      "sha256": "632743b25f0a9ae209bd9bee1febad7d008907a7aa0845be25f54ea924be28d7",
+      "bayt": 51060
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/assets/fonts/caveat-latin-ext-700-normal.woff2",
+      "rol": "sahne",
+      "sha256": "1c693e0e4b6b74066e4ca16373b6a201f6eba96c963d4e9bf00e415dfab162dc",
+      "bayt": 19592
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/assets/fonts/fredoka-latin-600-normal.woff2",
+      "rol": "sahne",
+      "sha256": "7046069756572f2d090fd5ac943b24d1958f2fbb259cd6b99872758d24dbe369",
+      "bayt": 16484
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/assets/fonts/fredoka-latin-700-normal.woff2",
+      "rol": "sahne",
+      "sha256": "c28f2b70e6e1bf0d9b6653022c613e7923218c6a0ff83f47c6ff080603119190",
+      "bayt": 15888
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/assets/fonts/fredoka-latin-ext-600-normal.woff2",
+      "rol": "sahne",
+      "sha256": "f9f4ef21b420cb81787c5614904e18542cdbe4faf953035d1a962603536eaa77",
+      "bayt": 3192
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/assets/fonts/fredoka-latin-ext-700-normal.woff2",
+      "rol": "sahne",
+      "sha256": "7e50b9b983db5ad04c9c8ef9da99651c3e99012c62032977e2003cf2b90b372c",
+      "bayt": 3164
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/assets/fonts/lexend-latin-500-normal.woff2",
+      "rol": "sahne",
+      "sha256": "915de77efabd40add87116706113e9f878961c817731e05dd9e60cd69920d89b",
+      "bayt": 14912
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/assets/fonts/lexend-latin-700-normal.woff2",
+      "rol": "sahne",
+      "sha256": "eaaf6b5946c77d6e92b824e10bad2ba2392efe6812303c3264fc26f216a6599a",
+      "bayt": 14832
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/assets/fonts/lexend-latin-ext-500-normal.woff2",
+      "rol": "sahne",
+      "sha256": "662973e6a288b5033bc5b079581b856c568ad73ec9a9c3fb7ba34ecc4de59978",
+      "bayt": 13700
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/assets/fonts/lexend-latin-ext-700-normal.woff2",
+      "rol": "sahne",
+      "sha256": "f53fd8dbdd8dc72169a498c47b668dd2f255077239664003090d6b4ef461fb13",
+      "bayt": 13596
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/assets/logo.svg",
+      "rol": "sahne",
+      "sha256": "14ff1f3f41e12759fb73c0e440a776c7e2429925b6e7fba5ec9dc12bee9b0c24",
+      "bayt": 4799
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/index.html",
+      "rol": "sahne",
+      "sha256": "32ab4296047426d228a566e45290fa2e66ab61132a4bae55f87cba70f5408bef",
+      "bayt": 46754
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/proje/lib/gsap.min.js",
+      "rol": "sahne",
+      "sha256": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "bayt": 72779
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/uret.py",
+      "rol": "sahne",
+      "sha256": "b44b080b2a225f0963db8dbe4522af70e6e49ce087f90da0ad74ca0782551790",
+      "bayt": 10002
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/yardim.py",
+      "rol": "sahne",
+      "sha256": "50be4f6e2e19a274000d5469ff23a596091e3b379ec9d4881a8dabd8ff867b8e",
+      "bayt": 8899
+    },
+    {
+      "yol": "sahneler/01-hyperframes-giris/zamanlar.json",
+      "rol": "sahne",
+      "sha256": "88a6288d324ed05432443e4587f305bc99d684b2fa667063b392bb21475645bc",
+      "bayt": 215
+    },
+    {
+      "yol": "sahneler/02-paperjs-kanca/kalem-paper.js",
+      "rol": "sahne",
+      "sha256": "eaafd8c13ff074d597ac5346765bc5cb20e3f4ac5f1421b573115136efe4153e",
+      "bayt": 25401
+    },
+    {
+      "yol": "sahneler/02-paperjs-kanca/nesneler.json",
+      "rol": "sahne",
+      "sha256": "9c325b76be03e4e79fb169896c75e62e2ba7db8a6d5d944693a700337a820589",
+      "bayt": 1473
+    },
+    {
+      "yol": "sahneler/02-paperjs-kanca/olaylar.json",
+      "rol": "sahne",
+      "sha256": "e2053cce0938bff9cd4754545ce7c3e7d6c1da33d73205727f1bfb974e0a9e44",
+      "bayt": 1188
+    },
+    {
+      "yol": "sahneler/02-paperjs-kanca/sahne-02.js",
+      "rol": "sahne",
+      "sha256": "bb49eed9426fdf37d0c1fbf0ecbeb123f6dc8124c2331d54b9ffa23b297ab098",
+      "bayt": 6805
+    },
+    {
+      "yol": "sahneler/02-paperjs-kanca/sayfa.html",
+      "rol": "sahne",
+      "sha256": "6e859113796ac572769e6a2068f73b787880c96dc0b101c2957f051aeea6e577",
+      "bayt": 597
+    },
+    {
+      "yol": "sahneler/02-paperjs-kanca/zamanlar.json",
+      "rol": "sahne",
+      "sha256": "1f7ad252700abf00680c621326d73fd7b9984530675218fc93f437a127920c69",
+      "bayt": 709
+    },
+    {
+      "yol": "sahneler/03-paperjs-ornek1/nesneler.json",
+      "rol": "sahne",
+      "sha256": "ceea8344d71a49372a3a726304430a034991a4a1ff6b535525c3ac16ebb7512a",
+      "bayt": 1494
+    },
+    {
+      "yol": "sahneler/03-paperjs-ornek1/olaylar.json",
+      "rol": "sahne",
+      "sha256": "327f7d4b85b68856601eb1e1b17c1a55b656f944b864a55fed322121f83fbb76",
+      "bayt": 1061
+    },
+    {
+      "yol": "sahneler/03-paperjs-ornek1/sahne-03.js",
+      "rol": "sahne",
+      "sha256": "b2adf88fcc7e6a1f66c831b7b4b23081cf54053fdc8f5c5b42ed98e2c327b490",
+      "bayt": 6473
+    },
+    {
+      "yol": "sahneler/03-paperjs-ornek1/sayfa.html",
+      "rol": "sahne",
+      "sha256": "27c90a735379252928d9c8c9ab95fa2f8c474b4ccfdafe85d11308913f50aa4b",
+      "bayt": 613
+    },
+    {
+      "yol": "sahneler/03-paperjs-ornek1/zamanlar.json",
+      "rol": "sahne",
+      "sha256": "f933c8ccf89ec4c07a4e1845cc8f130c888bd25b06792466b569cbf70130be00",
+      "bayt": 663
+    },
+    {
+      "yol": "sahneler/04-canvas-ornek2/nesneler.json",
+      "rol": "sahne",
+      "sha256": "c7c2b42776478701273823b348b2642cdcc4cab03a9d045bd8626b9e628d06b8",
+      "bayt": 1623
+    },
+    {
+      "yol": "sahneler/04-canvas-ornek2/olaylar.json",
+      "rol": "sahne",
+      "sha256": "6d9b952568abac63dcaa494eff41a766f967d12e6b0d0e2916edb287f699e786",
+      "bayt": 1255
+    },
+    {
+      "yol": "sahneler/04-canvas-ornek2/sahne-ortak.js",
+      "rol": "sahne",
+      "sha256": "41e8dced10b8cd989cc6ddffc1c2d335ea0051715e923ea2173d27c62c744309",
+      "bayt": 17703
+    },
+    {
+      "yol": "sahneler/04-canvas-ornek2/sahne.js",
+      "rol": "sahne",
+      "sha256": "e36e410f0a550cdf5bfd7ab2f6fbdc1a4edbc01eda0defed6db2c3b8300c305d",
+      "bayt": 4788
+    },
+    {
+      "yol": "sahneler/04-canvas-ornek2/sayfa.html",
+      "rol": "sahne",
+      "sha256": "119e5d3dd572580f29a5738a7aac084d8e15a9bf7c7ebc4d0fb4e486d2db659e",
+      "bayt": 182
+    },
+    {
+      "yol": "sahneler/05-canvas-ornek3/nesneler.json",
+      "rol": "sahne",
+      "sha256": "c45ff10229abf5a8ba1161076bb353a8b7740a688ab4ab116482d7411ccce310",
+      "bayt": 1465
+    },
+    {
+      "yol": "sahneler/05-canvas-ornek3/olaylar.json",
+      "rol": "sahne",
+      "sha256": "5f87513ce1429e39edd622a4c420179b110e754bc6a0fd93cd8d65fce32ff693",
+      "bayt": 983
+    },
+    {
+      "yol": "sahneler/05-canvas-ornek3/sahne.js",
+      "rol": "sahne",
+      "sha256": "18f31f3feb191a42eb3738576b54dace5c3e1ff9c7323fb23cc875995601aef4",
+      "bayt": 6706
+    },
+    {
+      "yol": "sahneler/05-canvas-ornek3/sayfa.html",
+      "rol": "sahne",
+      "sha256": "119e5d3dd572580f29a5738a7aac084d8e15a9bf7c7ebc4d0fb4e486d2db659e",
+      "bayt": 182
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/nesneler.json",
+      "rol": "sahne",
+      "sha256": "5df792f47428f3ed6af2b3a2a7f098afb3544347d69eb8c8390b6914ec4c3953",
+      "bayt": 1685
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/olay.py",
+      "rol": "sahne",
+      "sha256": "488fdcc06cb28bb40a359926967cedaae8f172727108735767d26a982dbd1cda",
+      "bayt": 737
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/olaylar.json",
+      "rol": "sahne",
+      "sha256": "3cf1c000f1ef8997a660785e85c7a73240a1bea0e072a45519c730c63d7ceb9b",
+      "bayt": 1683
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/.hyperframes/history-id",
+      "rol": "sahne",
+      "sha256": "f26a34fe82fa177a9f3d42cbae6f52737f77479e6d0349ada9855aab32b37b44",
+      "bayt": 37
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/.hyperframes/render-outputs.json",
+      "rol": "sahne",
+      "sha256": "bbfc0ef5c70731c83ccf78de1f7ee2f0f3e3b6875111de4f4bcb695a2a753762",
+      "bayt": 71
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/.hyperframes/video-state.json",
+      "rol": "sahne",
+      "sha256": "a232bcedfbc54983801298f77df007965de86cd24ffaee3a90622526665d96a9",
+      "bayt": 10428
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/assets/cizim/sitting-6.svg",
+      "rol": "sahne",
+      "sha256": "a0e20fa8e8c6afac16466a432315a46f14816e7db9d886cfc340157f621f8e65",
+      "bayt": 42072
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/assets/fonts/caveat-latin-700-normal.woff2",
+      "rol": "sahne",
+      "sha256": "632743b25f0a9ae209bd9bee1febad7d008907a7aa0845be25f54ea924be28d7",
+      "bayt": 51060
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/assets/fonts/caveat-latin-ext-700-normal.woff2",
+      "rol": "sahne",
+      "sha256": "1c693e0e4b6b74066e4ca16373b6a201f6eba96c963d4e9bf00e415dfab162dc",
+      "bayt": 19592
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/assets/fonts/fredoka-latin-600-normal.woff2",
+      "rol": "sahne",
+      "sha256": "7046069756572f2d090fd5ac943b24d1958f2fbb259cd6b99872758d24dbe369",
+      "bayt": 16484
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/assets/fonts/fredoka-latin-700-normal.woff2",
+      "rol": "sahne",
+      "sha256": "c28f2b70e6e1bf0d9b6653022c613e7923218c6a0ff83f47c6ff080603119190",
+      "bayt": 15888
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/assets/fonts/fredoka-latin-ext-600-normal.woff2",
+      "rol": "sahne",
+      "sha256": "f9f4ef21b420cb81787c5614904e18542cdbe4faf953035d1a962603536eaa77",
+      "bayt": 3192
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/assets/fonts/fredoka-latin-ext-700-normal.woff2",
+      "rol": "sahne",
+      "sha256": "7e50b9b983db5ad04c9c8ef9da99651c3e99012c62032977e2003cf2b90b372c",
+      "bayt": 3164
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/assets/fonts/lexend-latin-500-normal.woff2",
+      "rol": "sahne",
+      "sha256": "915de77efabd40add87116706113e9f878961c817731e05dd9e60cd69920d89b",
+      "bayt": 14912
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/assets/fonts/lexend-latin-700-normal.woff2",
+      "rol": "sahne",
+      "sha256": "eaaf6b5946c77d6e92b824e10bad2ba2392efe6812303c3264fc26f216a6599a",
+      "bayt": 14832
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/assets/fonts/lexend-latin-ext-500-normal.woff2",
+      "rol": "sahne",
+      "sha256": "662973e6a288b5033bc5b079581b856c568ad73ec9a9c3fb7ba34ecc4de59978",
+      "bayt": 13700
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/assets/fonts/lexend-latin-ext-700-normal.woff2",
+      "rol": "sahne",
+      "sha256": "f53fd8dbdd8dc72169a498c47b668dd2f255077239664003090d6b4ef461fb13",
+      "bayt": 13596
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/assets/logo.svg",
+      "rol": "sahne",
+      "sha256": "14ff1f3f41e12759fb73c0e440a776c7e2429925b6e7fba5ec9dc12bee9b0c24",
+      "bayt": 4799
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/index.html",
+      "rol": "sahne",
+      "sha256": "4c35f0ee6a5d72c8a6994f4976ca3e72998a8e42d71c4d14bf45dae5750b426a",
+      "bayt": 44676
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/proje/lib/gsap.min.js",
+      "rol": "sahne",
+      "sha256": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "bayt": 72779
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/uret.py",
+      "rol": "sahne",
+      "sha256": "9622efff735a6be6a501fb5a35065364072e246af04c7d3996295673f03d2acc",
+      "bayt": 16715
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/yardim.py",
+      "rol": "sahne",
+      "sha256": "50be4f6e2e19a274000d5469ff23a596091e3b379ec9d4881a8dabd8ff867b8e",
+      "bayt": 8899
+    },
+    {
+      "yol": "sahneler/06-hyperframes-form/zamanlar.json",
+      "rol": "sahne",
+      "sha256": "a5ac23410f8293b10e0cffc667430140d22ff2c79fbbaca01f4b9dcb1c3afd11",
+      "bayt": 585
+    },
+    {
+      "yol": "zaman.json",
+      "rol": "zaman",
+      "sha256": "637168841c2f9ed1302cf6818924990f95b932825238dac4cbb833a6db142e7a",
+      "bayt": 1542
+    }
+  ],
+  "oynatici": {
+    "ses": "ortak/anlatim/anlatim.wav",
+    "zaman": "zaman.json",
+    "altyazi": "ortak/anlatim/altyazi.json",
+    "kapak": null
+  },
+  "qr": {
+    "kod": "ing-ydt-gr-01-pc",
+    "kok": "https://yds.tc/",
+    "hedef": "https://ydspublishing.com/grammar/present-continuous",
+    "durum": "planli",
+    "kisa": null
+  },
+  "tutanak": {
+    "on": "UT-20261112-6dad",
+    "art": null
+  },
+  "r2": {
+    "kova": "ydsdigital",
+    "onek": "grammar/present-continuous/ana-yatay/r1/"
+  },
+  "kaynak": {
+    "repo": "kalem",
+    "commit": "5ba5c035012de28ca54a5f8a24c756fb33327fd2"
+  },
+  "tarih": "2026-11-12T17:57:26Z",
+  "imza": {
+    "alg": "sha256",
+    "deger": "a9e3728aa42a7c3e2f364627c86c7709f4b646fa204cf6627c62f22934157f73"
+  }
+}

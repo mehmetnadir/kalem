@@ -3,7 +3,7 @@
 | # | başlar | biter | konuşan | metin |
 |---|---|---|---|---|
 | 1 | 1.00 | 2.84 | öğretmen | Bu akşam amcamlara gidiyorum. |
-| 2 | 3.39 | 14.89 | öğretmen | Türkçede şimdiki zamanla geleceği anlatırız. İngilizce de aynısını yapar. Altı dakikada Present Continuous'ın formunu, zaman ifadelerini ve altı kullanımını bitiriyoruz. |
+| 2 | 3.39 | 14.89 | öğretmen | Türkçede şimdiki zamanla geleceği anlatırız. İngilizce de aynısını yapar. Bu derste Present Continuous'ın formunu, zaman ifadelerini ve altı kullanımını görüyoruz. |
 | 3 | 15.44 | 29.60 | öğretmen | Birinci örnek. I am sitting in front of the camera now. Şu anda oturuyorum. Olay tam konuşma anında sürüyor. İki parça var: am ve sitting. Be fiili, artı fiile -ing. |
 | 4 | 30.15 | 45.43 | öğretmen | İkinci örnek. My sister is taking piano lessons this semester. Kardeşim bu dönem piyano dersi alıyor. Şu anda piyanonun başında değil. Ama bu günlerde süren bir iş. Yine is taking. Be fiili, artı -ing. |
 | 5 | 45.98 | 62.26 | öğretmen | Üçüncü örnek. Look! The cat is climbing the tree. Bak, kedi ağaca tırmanıyor. Look, listen, watch out gibi sözcükler olayın tam şu anda olduğunu söyler. Is climbing. Aynı yapı. |

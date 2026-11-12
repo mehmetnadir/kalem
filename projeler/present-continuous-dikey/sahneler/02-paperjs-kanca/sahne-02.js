@@ -4,7 +4,7 @@
 // Telefon ölçeği: figür kutusu ≥ 420 px (küçültülmez, sol sütunda sabit 500 px).
 // Kart tek satır: "Bu akşam amcamlara gidiyorum." (Caveat 76).
 // Sağ sütunda faz 1'de ev + hilal, faz 2'de -yor ⇄ -ing + ajanda kutusu
-// (6 dakikada: Form / Zaman ifadeleri / 6 kullanım).
+// (Bu derste: Form / Zaman ifadeleri / 6 kullanım).
 import { sahneKur, RT }
   from "/projeler/present-continuous-dikey/sahneler/02-paperjs-kanca/kalem-paper.js";
 
@@ -135,20 +135,20 @@ export async function kur(P) {
     not("ok -yor ⇄ -ing", ar.bas);
   }
 
-  // --- 8,73–13,6 AJANDA KUTUSU: sağ sütunda x 370..1032, y 835..1280
-  // Saat + "6 dakikada:" üst satırda yan yana;
+  // --- 8,49–13,6 AJANDA KUTUSU: sağ sütunda x 370..1032, y 835..1280
+  // Saat + "Bu derste:" üst satırda yan yana;
   // maddeler x 450'den başlar (en geniş madde ≤ 1032)
   {
-    S.kutu(370, 835, 662, 445, { bas: fr(8.73) - 8, sure: 36, w: 4 });
-    not("kutu çizimi", fr(8.73) - 8);
+    S.kutu(370, 835, 662, 445, { bas: fr(8.49) - 8, sure: 36, w: 4 });
+    not("kutu çizimi", fr(8.49) - 8);
     await S.svgCiz("tabler/clock.svg", {
-      kutu: [405, 868, 110, 110], bas: fr(8.73), sure: 22, azami: 25, w: 4, sesAralik: 3
+      kutu: [405, 868, 110, 110], bas: fr(8.49), sure: 22, azami: 25, w: 4, sesAralik: 3
     });
-    // 8,73–9,61 «Altı dakikada» (pencere: altı 8,73–9,01 · dakikada 9,05–9,61)
-    elYazisi("6 dakikada:", { x: 535, y: 940, boyut: 64, renk: SARI, sozcukler: pen("Altı", 2) });
-    parilti(510, 885, { bas: fr(9.6), r: 24, periyot: 170, adet: 3 });
+    // 8,49–9,05 «Bu derste» (pencere: Bu 8,49–8,57 · derste 8,69–9,05)
+    elYazisi("Bu derste:", { x: 535, y: 940, boyut: 64, renk: SARI, sozcukler: pen("Bu", 2) });
+    parilti(510, 885, { bas: fr(9.05), r: 24, periyot: 170, adet: 3 });
     const m = [
-      ["Form", 10.97, 1060], ["Zaman ifadeleri", 11.65, 1155], ["6 kullanım", 13.29, 1250]
+      ["Form", 10.41, 1060], ["Zaman ifadeleri", 11.25, 1155], ["6 kullanım", 12.73, 1250]
     ];
     for (const [s, t, y] of m) {
       yazi(s, {

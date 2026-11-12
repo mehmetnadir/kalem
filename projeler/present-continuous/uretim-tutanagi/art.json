@@ -1,0 +1,85 @@
+{
+  "asr": {
+    "dil": "tr",
+    "model": "mlx-community/whisper-large-v3-turbo",
+    "surum": "0.4.3"
+  },
+  "cumleler": [
+    {
+      "beklenen": "Bu akşam amcamlara gidiyorum.",
+      "benzerlik": 0.94,
+      "duyulan": "akşam amcamlara gidiyorum.",
+      "i": 1,
+      "t0": 1.0,
+      "t1": 2.92
+    },
+    {
+      "beklenen": "Türkçede şimdiki zamanla geleceği anlatırız. İngilizce de aynısını yapar. Bu derste Present Continuous'ın formunu, zaman ifadelerini ve altı kullanımını görüyoruz.",
+      "benzerlik": 1.0,
+      "duyulan": "Türkçe'de şimdiki zamanla geleceği anlatırız. İngilizce de aynısını yapar. Bu derste Present Continuous 'ın formunu, zaman ifadelerini ve altı kullanımını görüyoruz.",
+      "i": 2,
+      "t0": 3.39,
+      "t1": 14.41
+    },
+    {
+      "beklenen": "Birinci örnek. I am sitting in front of the camera now. Şu anda oturuyorum. Olay tam konuşma anında sürüyor. İki parça var: am ve sitting. Be fiili, artı fiile -ing.",
+      "benzerlik": 0.98,
+      "duyulan": "Birinci örnek. I'm sitting in front of the camera now. Şu anda oturuyorum. Olay tam konuşma anında sürüyor. İki parça var. Am ve sitting. Bir fiili artı fiile ing.",
+      "i": 3,
+      "t0": 15.44,
+      "t1": 29.68
+    },
+    {
+      "beklenen": "İkinci örnek. My sister is taking piano lessons this semester. Kardeşim bu dönem piyano dersi alıyor. Şu anda piyanonun başında değil. Ama bu günlerde süren bir iş. Yine is taking. Be fiili, artı -ing.",
+      "benzerlik": 0.99,
+      "duyulan": "İkinci örnek. My sister is taking piano lessons this semester. Kardeşim bu dönem piyano dersi alıyor. Şu anda piyanonun başında değil ama bugünlerde süren bir iş. Yine is taking. B fiili artı ing.",
+      "i": 4,
+      "t0": 30.15,
+      "t1": 45.51
+    },
+    {
+      "beklenen": "Üçüncü örnek. Look! The cat is climbing the tree. Bak, kedi ağaca tırmanıyor. Look, listen, watch out gibi sözcükler olayın tam şu anda olduğunu söyler. Is climbing. Aynı yapı.",
+      "benzerlik": 1.0,
+      "duyulan": "Üçüncü örnek. Look, the cat is climbing the tree. Bak, kedi ağaca tırmanıyor. Look, listen, watch out gibi sözcükler olayın tam şu anda olduğunu söyler. Is climbing. Aynı yapı.",
+      "i": 5,
+      "t0": 45.98,
+      "t1": 62.26
+    },
+    {
+      "beklenen": "Hocam, üçünde de -ing var. Neden hep -ing?",
+      "benzerlik": 0.95,
+      "duyulan": "Hocam, üçünde de ink var. Neden hep ink?",
+      "i": 6,
+      "t0": 62.81,
+      "t1": 66.17
+    },
+    {
+      "beklenen": "Çünkü -ing devam eden işi gösterir. Olay bitmemiş, sürüyor. Be fiili ise zamanı taşır: am, is, are şimdiki zaman demek. Past olsaydı was, were derdik. -ing ekini Türkçedeki -yor gibi düşün: koşu-yor, runn-ing.",
+      "benzerlik": 0.98,
+      "duyulan": "Çünkü ink devam eden işi gösterir. Olay bitmemiş, sürüyor. Bir fiili ise zamanı taşır. Am, is, are şimdiki zaman demek. Past olsaydı, was, were derdik. Ink ekini Türkçedeki yor gibi düşün. Koşuyor, running.",
+      "i": 7,
+      "t0": 66.72,
+      "t1": 85.81
+    }
+  ],
+  "kimlik": "UA-20261112-ce55",
+  "on_kimlik": "UT-20261112-6dad",
+  "ozet": {
+    "en_dusuk": 0.94,
+    "esik": 0.85,
+    "gecen": 7,
+    "ortalama": 0.98,
+    "toplam": 7
+  },
+  "paket": "present-continuous",
+  "sema": "ut-art/v1",
+  "sonuc": "GEÇTİ",
+  "video": {
+    "bayt": 22712213,
+    "dosya": "cikti.mp4",
+    "sha256": "4c7aab88bbadb10148a6628ec654a9765127bdbeb87459a3f4fcd659b2a7da90",
+    "sure_sn": 88.33,
+    "tema": "acik"
+  },
+  "zaman": "2026-11-12T17:57:37Z"
+}

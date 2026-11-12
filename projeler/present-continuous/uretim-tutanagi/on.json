@@ -7,38 +7,38 @@
         "surum": null,
         "tur": "betik"
       },
-      "zaman": "2026-11-04T12:57:44Z"
+      "zaman": "2026-11-12T17:35:23Z"
     },
     {
       "adim": "sahne",
       "aktor": {
         "ad": "kalem",
-        "surum": "72aedbe",
+        "surum": "128c33c",
         "tur": "betik"
       },
       "zaman": "2026-11-09T11:55:16Z"
     }
   ],
   "arac": {
-    "kalem_commit": "72aedbe",
+    "kalem_commit": "128c33c",
     "motorlar": [
       "Paper.js",
       "HyperFrames",
       "canvas"
     ],
-    "python": "3.9.6"
+    "python": "3.15.2"
   },
   "git": {
     "dijital-anlatim": {
-      "commit": "fd0a18f"
+      "commit": "6663e7c"
     },
     "kalem": {
-      "commit": "72aedbe"
+      "commit": "128c33c"
     }
   },
   "imza": {
     "alg": "sha256",
-    "deger": "5d7f2e73f74930f56027df63f34f279b37754b2f2c0d1f0139b7315dff599752"
+    "deger": "6dadd1dbcdc97872cb0a24aa5a04e1ba9aa8a0dff0425ae30e0bcc883ad49dfd"
   },
   "kaynaklar": [
     {
@@ -70,10 +70,10 @@
       "yol": "varlik/grammar/kaynak-pptx/YEDEK/Tenses/unit-1_sunum-1-çekildi.pptx"
     }
   ],
-  "kimlik": "UT-20261112-5d7f",
+  "kimlik": "UT-20261112-6dad",
   "sema": "ut-on/v1",
   "senaryo": {
-    "sha256": "f7359e5c0cb7b43bf90a0609307b2c59460278b1780ed7e127899b54f4d0ceff",
+    "sha256": "2e4826b5186d5f396d49000a761eff871b9eb50f9bde0e37b7584b15cfe78689",
     "yazan": {
       "ad": "bilinmiyor",
       "surum": null,
@@ -96,11 +96,11 @@
       "benzerlik": null,
       "cumle": 2,
       "dosya": "ortak/anlatim/cumle-2.wav",
-      "metin_sha256": "4623e45c74ccbb5f697fe0bf52768bfcccf4108fec18273bd8439be0fb475724",
+      "metin_sha256": "26b90e3f0281c367e82eaeff28fec3851fae06a9bb908e14c9bb60b41ce4d56d",
       "model": "elevenlabs-v4",
       "ses_kimligi": "bilinmiyor",
-      "sha256": "42f63db626222b48364439d7fe67d1e5319e72278b636e53c18b16308688ba70",
-      "sure": 11.5
+      "sha256": "437a2c42c026471963f758cc3d4f202d76bd60b95610ac2f156b0e50631ebb74",
+      "sure": 10.94
     },
     {
       "benzerlik": null,
@@ -172,7 +172,7 @@
     ],
     "sha256": "5dfad7fe8575a7b3e039da8644dffc383a21d077e35045367aa5deb84833aecc"
   },
-  "tarih": "2026-11-12T06:47:12Z",
+  "tarih": "2026-11-12T17:37:53Z",
   "varliklar": [
     {
       "ad": "coco",
