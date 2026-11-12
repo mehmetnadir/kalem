@@ -1,0 +1,214 @@
+{
+  "adimlar": [
+    {
+      "adim": "ses",
+      "aktor": {
+        "ad": "el.py",
+        "surum": null,
+        "tur": "betik"
+      },
+      "zaman": "2026-11-04T22:24:44Z"
+    },
+    {
+      "adim": "sahne",
+      "aktor": {
+        "ad": "kalem",
+        "surum": "72aedbe",
+        "tur": "betik"
+      },
+      "zaman": "2026-11-09T11:55:23Z"
+    }
+  ],
+  "arac": {
+    "kalem_commit": "72aedbe",
+    "motorlar": [
+      "Paper.js",
+      "HyperFrames",
+      "canvas"
+    ],
+    "python": "3.9.6"
+  },
+  "git": {
+    "dijital-anlatim": {
+      "commit": "fd0a18f"
+    },
+    "kalem": {
+      "commit": "72aedbe"
+    }
+  },
+  "imza": {
+    "alg": "sha256",
+    "deger": "493439dadf4a6b426af560a47575f782c29c83a04b4bb771ab6157d0b39e7b64"
+  },
+  "kaynaklar": [
+    {
+      "kimlik": "transkript:863573186",
+      "kullanilan": true,
+      "sha256": "ad0271535c5e602b7e6e599765bacdf8c72edb9d154ed9c98c3e3b3397b5b5e5",
+      "tur": "onceki-anlatim",
+      "yol": "varlik/grammar/transkript-whisper/863573186.json"
+    },
+    {
+      "kimlik": "vimeo:863573186",
+      "kullanilan": true,
+      "sha256": null,
+      "tur": "onceki-anlatim",
+      "yol": null
+    },
+    {
+      "kimlik": "unit-1_sunum-4b uygun",
+      "kullanilan": true,
+      "sha256": "13aa7c3ee83e5e0a84f7d1b31d25b63faab1fc0eb65e56ee623706af7da6164b",
+      "tur": "sunum",
+      "yol": "varlik/grammar/kaynak-pptx/YEDEK/Tenses/unit-1_sunum-4b uygun.pptx"
+    }
+  ],
+  "kimlik": "UT-20261112-4934",
+  "sema": "ut-on/v1",
+  "senaryo": {
+    "sha256": "7855a474ba5993a4b69699e03536363635f069e36d30e05465b25d8242796f2f",
+    "yazan": {
+      "ad": "bilinmiyor",
+      "surum": null,
+      "tur": "model"
+    },
+    "yol": "ortak/anlatim/METIN.md"
+  },
+  "ses": [
+    {
+      "benzerlik": null,
+      "cumle": 1,
+      "dosya": "ortak/anlatim/cumle-1.wav",
+      "metin_sha256": "c69ea713467b839cde73315f7bc76e164a633797265f29b7fb0458679b193b3b",
+      "model": "elevenlabs-v4",
+      "ses_kimligi": "gsJ9nrlXYbPztJxC4fwc",
+      "sha256": "db55172ef7498347c0fae63d7b75d16b27eea09f1d0f08fe0f6be7ffbc7eb436",
+      "sure": 2.16
+    },
+    {
+      "benzerlik": null,
+      "cumle": 2,
+      "dosya": "ortak/anlatim/cumle-2.wav",
+      "metin_sha256": "5948748d554d5958448bf46669ff1f51abd0ecbb83034b70d5ed887401353725",
+      "model": "elevenlabs-v4",
+      "ses_kimligi": "gsJ9nrlXYbPztJxC4fwc",
+      "sha256": "d0dd18c30332c6646a24be47d7c73a7b58716cd27391d2e3510553d21e872893",
+      "sure": 15.02
+    },
+    {
+      "benzerlik": null,
+      "cumle": 3,
+      "dosya": "ortak/anlatim/cumle-3.wav",
+      "metin_sha256": "2d27b1a0b7e55dcdd7388a1bf9e4b3983cfb86b6238d5b16cebc293df9f1889e",
+      "model": "elevenlabs-v4",
+      "ses_kimligi": "gsJ9nrlXYbPztJxC4fwc",
+      "sha256": "772f709e4824cbb7b3b1a5a573296f0715b34210c3a84e7bd1cce3e7bb19b436",
+      "sure": 14.88
+    },
+    {
+      "benzerlik": null,
+      "cumle": 4,
+      "dosya": "ortak/anlatim/cumle-4.wav",
+      "metin_sha256": "c571bbffa5a08a73be9cf41175b97f2d25347e72db7ad5ef9b54b35b5f0f1094",
+      "model": "elevenlabs-v4",
+      "ses_kimligi": "gsJ9nrlXYbPztJxC4fwc",
+      "sha256": "7c5d2a5c10ebd57d43e5cac2e669deba52285babddcbf7305d69dfdb5e24fc14",
+      "sure": 16.41
+    },
+    {
+      "benzerlik": null,
+      "cumle": 5,
+      "dosya": "ortak/anlatim/cumle-5.wav",
+      "metin_sha256": "8c9c4a9668039826fe6d56f0d83e2b0ce526d1fae4d184c3037e3da85eae3bbb",
+      "model": "elevenlabs-v4",
+      "ses_kimligi": "gsJ9nrlXYbPztJxC4fwc",
+      "sha256": "50dd39aaf14bfbd41be272dcf2fbca93afc338bc3fbde7eed386041538ad08b9",
+      "sure": 15.52
+    },
+    {
+      "benzerlik": null,
+      "cumle": 6,
+      "dosya": "ortak/anlatim/cumle-6.wav",
+      "metin_sha256": "ca80821f66fa87c39a7d5fade0a427762bde36e2c32e453aad0bfe65341e66ca",
+      "model": "elevenlabs-v4",
+      "ses_kimligi": "oPC5I9GKjMReiaM29gjY",
+      "sha256": "965c2985f0773baffd3414169767cd2ebe45c4d9a0893225c6873b8c8c0a0624",
+      "sure": 3.84
+    },
+    {
+      "benzerlik": null,
+      "cumle": 7,
+      "dosya": "ortak/anlatim/cumle-7.wav",
+      "metin_sha256": "df7a10f9a5d02ef9b2f7cc75f58fef2d6af96ca21cf96ed178e946115ac7cda1",
+      "model": "elevenlabs-v4",
+      "ses_kimligi": "gsJ9nrlXYbPztJxC4fwc",
+      "sha256": "2d358e76171890afed6a814e4d183c050d4496ce462f6e040054ae0214b9a5a3",
+      "sure": 21.73
+    }
+  ],
+  "seviye_politikasi": {
+    "durum": "tam",
+    "seviye": "temel",
+    "zorunlu_kaynak_turleri": [
+      "onceki-anlatim"
+    ]
+  },
+  "sozlesme": {
+    "dosya": ".claude/docs/sozlesme.md",
+    "kapsayan_kararlar": [
+      "K24",
+      "K25",
+      "K27",
+      "K30",
+      "K33",
+      "K34"
+    ],
+    "sha256": "5dfad7fe8575a7b3e039da8644dffc383a21d077e35045367aa5deb84833aecc"
+  },
+  "tarih": "2026-11-12T06:47:45Z",
+  "varliklar": [
+    {
+      "ad": "coco",
+      "kapsam": "katalog",
+      "kaynak": "varlik/cizim/katalog.json",
+      "lisans": "CC0-1.0",
+      "tur": "cizim"
+    },
+    {
+      "ad": "open-doodles",
+      "kapsam": "katalog",
+      "kaynak": "varlik/cizim/katalog.json",
+      "lisans": "CC0-1.0",
+      "tur": "cizim"
+    },
+    {
+      "ad": "open-peeps",
+      "kapsam": "katalog",
+      "kaynak": "varlik/cizim/katalog.json",
+      "lisans": "CC0-1.0",
+      "tur": "cizim"
+    },
+    {
+      "ad": "peeps-kit",
+      "kapsam": "katalog",
+      "kaynak": "varlik/cizim/katalog.json",
+      "lisans": "MIT",
+      "tur": "cizim"
+    },
+    {
+      "ad": "tabler",
+      "kapsam": "katalog",
+      "kaynak": "varlik/cizim/katalog.json",
+      "lisans": "MIT",
+      "tur": "cizim"
+    }
+  ],
+  "video": {
+    "kimlik": "02-06-ydt-temel",
+    "kod": "ING-YDT-GR-02-06-T",
+    "paket": "present-perfect-temel-dikey"
+  },
+  "yayin": {
+    "manifest_imza": null
+  }
+}

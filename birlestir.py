@@ -302,6 +302,20 @@ def kontrol_yaz(cikti: str, hedef: str, toplam: int, fps: int, kunye: str = "") 
 
 # ---------- akış ----------
 
+DA_KOK = os.environ.get("DIJITAL_ANLATIM_KOK", os.path.expanduser("~/01dev/dijital-anlatim"))
+
+
+def kapi_on(P: str) -> tuple[int, str] | None:
+    """KAPI-ÖN (12.11, D-0146): grammar paketi (projeler/<ad>/surumler.json) ön tutanağı yoksa,
+    kaynağı eksikse ya da girdisi değiştiyse birleştirilmez. Paket dışı proje (ornek/…) kapsam dışı: None."""
+    P = os.path.abspath(P)
+    if os.path.basename(os.path.dirname(P)) != "projeler" or not os.path.exists(os.path.join(P, "surumler.json")):
+        return None
+    betik = os.path.join(DA_KOK, "araclar", "sema", "tutanak_on.py")
+    r = subprocess.run(["/usr/bin/python3", "-I", betik, "kapi", P], capture_output=True, text=True)
+    return r.returncode, (r.stdout + r.stderr).strip()
+
+
 def main(argv: list[str]) -> None:
     degerli = ("--gecis", "--anlatim", "--tema", "--efekt", "--yalniz-gecis")
     pozisyonel = [a for i, a in enumerate(argv[1:], 1)
@@ -347,6 +361,11 @@ def main(argv: list[str]) -> None:
         gecis_gl_uret(va, ka, vb, GK[i]["n"], GK[i]["ad"], g, d, W, H)
         print(f"tamam: {GK[i]['ad']} n={GK[i]['n']}, A {ka} kare, B {kb} kare -> {d}"); return
 
+    kp = kapi_on(P)
+    if kp and kp[0] != 0:
+        sys.exit(f"{kp[1]}\nüretim durdu (KAPI-ÖN, D-0146). Ön tutanak: "
+                 f"/usr/bin/python3 -I {DA_KOK}/araclar/sema/tutanak_on.py uret {P} --yaz")
+    if kp: print(kp[1])
     IS = os.path.join(P, "_is"); shutil.rmtree(IS, ignore_errors=True); os.makedirs(IS)
     KOD = ["-c:v", "libx264", "-crf", "16", "-pix_fmt", "yuv420p", "-r", str(FPS)]
     if an_yol and not os.path.exists(an_yol): sys.exit(f"eksik anlatım: {an_yol}")

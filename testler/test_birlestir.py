@@ -168,6 +168,40 @@ class Yol(unittest.TestCase):
         self.assertEqual(b.yol_coz("yok.wav", "/p", "/k"), "/p/yok.wav")
 
 
+
+class KapiOnTesti(unittest.TestCase):
+    """KAPI-ÖN (12.11, D-0146): grammar paketi tutanak kapısından geçmeden birleştirilmez."""
+
+    def setUp(self):
+        import tempfile
+        self.d = tempfile.TemporaryDirectory(); self.addCleanup(self.d.cleanup)
+        self.da = os.path.join(self.d.name, "da", "araclar", "sema"); os.makedirs(self.da)
+        self.paket = os.path.join(self.d.name, "projeler", "ders-temel"); os.makedirs(self.paket)
+        open(os.path.join(self.paket, "surumler.json"), "w").write("{}")
+        self.eski = b.DA_KOK; b.DA_KOK = os.path.join(self.d.name, "da")
+        self.addCleanup(setattr, b, "DA_KOK", self.eski)
+
+    def _sahte(self, kod):
+        open(os.path.join(self.da, "tutanak_on.py"), "w").write(
+            "import sys\nprint('KAPI-ÖN SAHTE ' + sys.argv[2])\nsys.exit(%d)\n" % kod)
+
+    def test_paket_disi_kapsam_disi(self):
+        self.assertIsNone(b.kapi_on(os.path.join(self.d.name, "ornek", "ucan-makine")))
+
+    def test_surumler_yoksa_kapsam_disi(self):
+        yol = os.path.join(self.d.name, "projeler", "taslak"); os.makedirs(yol)
+        self.assertIsNone(b.kapi_on(yol))
+
+    def test_bayat_kod_doner(self):
+        self._sahte(5)
+        kod, ileti = b.kapi_on(self.paket)
+        self.assertEqual(kod, 5)
+        self.assertIn("KAPI-ÖN SAHTE", ileti)
+
+    def test_gecti(self):
+        self._sahte(0)
+        self.assertEqual(b.kapi_on(self.paket)[0], 0)
+
 if __name__ == "__main__":
     unittest.main()
 
