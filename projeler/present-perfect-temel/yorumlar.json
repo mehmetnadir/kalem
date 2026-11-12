@@ -178,5 +178,41 @@
     "yazar": "sef",
     "tarih": "2026-11-12T06:20:01.516Z",
     "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-16",
+    "gorev": "g-10",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Kodlandı (kalem e472531): ortak/surucu.js artık Fell/Garamond yüklemiyor; her sahnede inen 2,0 MB kalktı. Canvas ve paper.js sahnesi ortak tarayıcıda istisnasız açıldı. Yayın setine bir sonraki yayında girer (g-8).",
+    "yazar": "sef",
+    "tarih": "2026-11-12T07:11:22.541Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-17",
+    "gorev": "g-11",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Kodlandı (kalem d412314): günlük koruması 83 dosya / 153 çağrı, zemin önbelleği 31 paket. 115 dosya ES modül olarak ayrıştı, 8 birim test OK, 2 sahne istisnasız açıldı. Kalan: deneme-doku (zemin gövdesi farklı, elle) ve present-continuous (sahne şeridi bitince).",
+    "yazar": "sef",
+    "tarih": "2026-11-12T07:11:24.013Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-18",
+    "gorev": "g-7",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "v1 betik hazır (dijital-anlatim 19984d6, 33 test OK): araclar/sema/icerik_denetim.py. Tarama 12.11: 1211 senaryo, 59 kırmızı (süre iddiası 25, amaç kapsamı 34). Bu ders: 'Altı dakikada' (gerçek 89,6 sn) ve 'yet' amaçta var, anlatımda yok. Kaynak eşlemesi (Doğan Hoca transkripti) v2'de. Kalan: denetçi adı (sende) ve kayıt panelinde gösterim.",
+    "yazar": "sef",
+    "tarih": "2026-11-12T07:18:00.178Z",
+    "durum": "cozuldu"
   }
 ]

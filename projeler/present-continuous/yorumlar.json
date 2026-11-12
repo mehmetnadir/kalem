@@ -562,5 +562,65 @@
     "yazar": "sef",
     "tarih": "2026-11-12T06:20:01.516Z",
     "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-48",
+    "gorev": "g-29",
+    "surum": null,
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Ölçüldü (icerik_denetim v1, 12.11): 25 senaryoda süre iddiası gerçek sesten %300-%2100 sapıyor ('Altı dakikada' uzun derslerde, '6 dakika'/'altı dakika' kısa videolarda). Liste: dijital-anlatim _is/icerik-denetim-1211.json. Bu dersin kart süresi zaman.json'dan hesaplanacak (sahne şeridi sürüyor).",
+    "yazar": "sef",
+    "tarih": "2026-11-12T07:18:00.849Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-49",
+    "gorev": "g-13",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Yapıldı (kalem a42850d): kedi 260 px, çizgi 5,2, gövdede. Yalnız taşımak yetmedi (dallar kedinin içinden geçiyordu); kedinin dış zarfı zemin rengiyle doldu, kedi gövdenin önünde okunuyor. Kare: _is/kare-1211/05-canvas-ornek3-62.51.png (önce: -once.png). Not: zarfın sağ kenarında hafif açık ton görülebilir; bakınca söyle.",
+    "yazar": "sef",
+    "tarih": "2026-11-12T07:36:14.700Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-50",
+    "gorev": "g-14",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Yapıldı (kalem a42850d): içerik kutusu sol alta (-yor ↔ -ing altına, x 140, alt kenar 950 px); figür + ev + ay dikeyde ortalı (zemin y 600). Kare: _is/kare-1211/02-paperjs-kanca-15.14.png.",
+    "yazar": "sef",
+    "tarih": "2026-11-12T07:36:14.797Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-51",
+    "gorev": "g-15",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Kamera Coco oldu (kalem a42850d). Piyano Tabler kaldı: Coco piyano dosyası yalnız 2 çizgilik bir dikdörtgen, sahnede piyano okunmuyordu (denendi, kare incelendi). Başka piyano çizimi istersen söyle.",
+    "yazar": "sef",
+    "tarih": "2026-11-12T07:36:14.891Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-52",
+    "gorev": "g-29",
+    "surum": null,
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Bu derste yapıldı (kalem a42850d): '6 min' sabiti kalktı; süre zaman.json son t_son'dan hesaplanıyor (87,3 sn → '1.5 min'). Kalan: öteki 15 paket kartı + 19 senaryodaki 'Altı dakikada' cümlesi (ses parçası yeniden üretilecek).",
+    "yazar": "sef",
+    "tarih": "2026-11-12T07:36:14.988Z",
+    "durum": "cozuldu"
   }
 ]

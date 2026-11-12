@@ -219,13 +219,13 @@
     "baslik": "Sahne 05 kedi okunurluğu",
     "aciklama": "12.11: şef uyguluyor (kedi büyüt, gövdeye taşı).\n\nNE: Sahne 05'te ('The cat is climbing the tree') kedi okunmuyor.\n\nŞU AN (11.11 görüntüsü, sahne 05 son kare): Kedi 170 px kutuda, ağacın taç çizgilerinin tam içinde. Kedi ile dallar aynı renk ve aynı kalınlıkta; kedi çizgilerin arasında kayboluyor. Kod: sahneler/05-canvas-ornek3/sahne.js (kedi kutusu 170×170, kalınlık 4,6).\n\nKALAN İŞ (şef yapar): kediyi yaklaşık 260 px'e büyüt, dalların seyrek olduğu gövde üstüne taşı, çizgisini kalınlaştır. Sonra sahneyi yeniden üret, ana videoyu yeniden birleştir, önce/sonra karesini sana göster.\n\nSORULAN (karar üstte): Yok. Sonuca bakıp onay vermen yeterli. İstersen kediyi vurgu renginde (koyu sarı) çizerim; önerim aynı renk kalsın, boy ve konum yeter.",
     "grup": "tasarim-karar",
-    "durum": "uretimde",
-    "atanan": "ajan",
+    "durum": "inceleme",
+    "atanan": "Nadir",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
     "bagimli": [],
-    "guncelleme": "2026-11-12T06:20:01.516Z"
+    "guncelleme": "2026-11-12T07:36:14.700Z"
   },
   {
     "kimlik": "g-14",
@@ -235,13 +235,13 @@
     "baslik": "Sahne 02 figür ve sol alt boşluk",
     "aciklama": "KARAR 12.11 (D-0147): a) içerik kutusu sol alta taşınır; süre gerçek değerden otomatik yazılır (g-29). Şimdi: şef uyguluyor.\n\nNE: Sahne 02 ('I'm going to my uncle's tonight') sol alt çeyreği boş.\n\nŞU AN (11.11 görüntüsü, sahne 02 son kare): Sol sütunda yazılar 680 px'te bitiyor; altında yaklaşık 300 px boşluk var. Sağ altta '6 min · form · time expressions · 6 uses' kutusu duruyor.\n\nEK BULGU (yeni, aynı sahne): Kutu '6 min' diyor, video 88 sn. Bu yanlış iddia tek derste değil: '6 min' 16 ders paketinin sahnesinde, 'Altı dakikada' 19 senaryoda var (ölçülen videolar 88 sn ve 96 sn). Ayrı hat görevi açılmalı.\n\nSEÇENEKLER:\n  a) İçerik kutusunu sola alta taşı; sağda figür + ev kalır. Yeni çizim gerekmez (önerim).\n  b) Sol alta yeni figür ekle (örnek: amca, yolda giden figür).\n\nSORULAN (karar üstte) (2 kısa karar):\n1) a mı b mi? Önerim a.\n2) Kutudaki süre ne yazsın? Önerim: gerçek süre ('1,5 min'), değer videonun kendi süresinden hesaplansın; bütün paketlerde aynı düzeltme.",
     "grup": "tasarim-karar",
-    "durum": "uretimde",
-    "atanan": "ajan",
+    "durum": "inceleme",
+    "atanan": "Nadir",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
     "bagimli": [],
-    "guncelleme": "2026-11-12T06:20:01.516Z"
+    "guncelleme": "2026-11-12T07:36:14.797Z"
   },
   {
     "kimlik": "g-15",
@@ -251,15 +251,15 @@
     "baslik": "Tabler kamera/piyano yerine Coco",
     "aciklama": "12.11: şef uyguluyor (kamera ve piyano Coco ile).\n\nNE: Sahne 03'teki kamera ve sahne 04'teki piyano Tabler setinden; ince ve geometrik çizgi stilleri Coco çizimleriyle (ağaç, kedi) uyumsuz. İkisi Coco ile değişecek.\n\nŞU AN: Coco setinde camera.svg ve piano.svg var (present-continuous ortak/cizim/coco, 31 çizim; g-5 kapalı). Değişiklik 2 satır: sahne-03.js 27. satır (tabler/camera.svg), sahne.js 04 13. satır (tabler/piano.svg). Sahne 02'de de 3 Tabler simgesi var (ev, takvim, saat); simge olarak kalmaları uygun.\n\nKALAN İŞ (şef yapar): iki çizimi değiştir → iki sahneyi yeniden üret → ana videoyu birleştir → önce/sonra karesi.\n\nSORULAN (karar üstte): Yok. Sonuca bakıp onay vermen yeterli.",
     "grup": "tasarim-karar",
-    "durum": "uretimde",
-    "atanan": "ajan",
+    "durum": "inceleme",
+    "atanan": "Nadir",
     "oncelik": "orta",
     "olusturan": "sef",
     "tarih": "2026-11-04T10:00:00Z",
     "bagimli": [
       "g-5"
     ],
-    "guncelleme": "2026-11-12T06:20:01.516Z"
+    "guncelleme": "2026-11-12T07:36:14.891Z"
   },
   {
     "kimlik": "g-16",
@@ -499,6 +499,6 @@
     "bagimli": [],
     "kapsam": "hat",
     "aciklama": "KARAR 12.11 (D-0147): süre videonun kendi süresinden otomatik yazılır; senaryo cümlesi düzeltilir. Önce iki pilot ders, sonra öteki paketler.\n\nNE: Videolar izleyiciye 6 dakika sürecek diyor; gerçek süre 1,5 dakika.\n\nŞU AN (11.11 ölçümü):\n- Sahne 02 içerik kutusunda el yazısıyla '6 min': 16 ders paketi (+5 deneme paketi).\n- Senaryoda 'Altı dakikada ... bitiriyoruz' cümlesi: dijital-anlatim pilot altında 19 senaryo.json.\n- Ölçülen süre: present-continuous 88 sn, present-perfect-temel 95,9 sn.\nKök: eski Doğan Hoca dersi 6 dk idi; kalıp ilk pakete oradan geçti, sonra kopyalandı.\n\nKALAN İŞ (şef yapar, karar sonrası): süre metni videonun kendi süresinden hesaplanır ('1,5 min'), sabit yazılmaz · senaryo cümlesi düzeltilir, ilgili ses parçası yeniden üretilir · içerik denetimi betiği (pp g-7) bu sınıfı yakalar.\n\nSORULAN (karar üstte): Kutuda ne yazsın? Önerim: gerçek süre, otomatik. Karar g-14 ile birlikte sorulur.",
-    "guncelleme": "2026-11-12T06:20:01.516Z"
+    "guncelleme": "2026-11-12T07:36:14.988Z"
   }
 ]
