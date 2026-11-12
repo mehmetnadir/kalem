@@ -29,11 +29,15 @@ import {
   yaziDarbeleri,
   yaziCiz
 } from "/projeler/simple-present-ileri-dikey/ortak/kalem-canvas.js";
+// Geliştirme günlüğü (12.11, pp g-11): POST /log yalnız yerel geliştirme sunucusunda; yayında istek yok.
+const YEREL_SUNUCU = /^(localhost|127\.0\.0\.1|\[::1\]|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+)$/
+  .test(location.hostname);
+const logGonder = (o) => (YEREL_SUNUCU ? fetch("/log", o).catch(() => {}) : Promise.resolve());
 
 const gunluk = (o) => (
   new URLSearchParams(location.search).get("canli") === "1"
     ? Promise.resolve()
-    : fetch("/log", o)
+    : logGonder(o)
 );
 export {
   RENK,

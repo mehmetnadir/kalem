@@ -3,6 +3,10 @@
 import { kunyeHazirla, zeminCiz, kunyeCiz, RENK, RT, renkCoz } from "/projeler/present-perfect-cont-temel/ortak/kunye.js";
 import { kalemCizgi, darbeCiz, svgYollari, elips, ok, kutu, altCizgi, kis, lerp, yavasla, geriTasma, hash,
   tohumSifirla, yaziDarbeleri, yaziCiz } from "/projeler/present-perfect-cont-temel/ortak/kalem-canvas.js";
+// Geliştirme günlüğü (12.11, pp g-11): POST /log yalnız yerel geliştirme sunucusunda; yayında istek yok.
+const YEREL_SUNUCU = /^(localhost|127\.0\.0\.1|\[::1\]|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+)$/
+  .test(location.hostname);
+const logGonder = (o) => (YEREL_SUNUCU ? fetch("/log", o).catch(() => {}) : Promise.resolve());
 
 export { RENK, RT, renkCoz, elips, ok, kutu, altCizgi, kis, lerp, yavasla, geriTasma, hash };
 const KOK = "/projeler/present-perfect-cont-temel/ortak";
@@ -112,7 +116,7 @@ export class Sahne {
     const yollar = svgYollari(a.svg, a.kutu, { enCok: a.enCok || 25, esik: a.esik == null ? 0.02 : a.esik });
     const g = { cocuk: [], donusum: null, dolgu: null, bitis: a.tb + a.sure, yollar };
     const n = yollar.length;
-    if (!location.search.includes("canli")) fetch("/log", { method: "POST", body: `CIZIM ${a.ad || "?"} darbe=${n} esik=${a.esik == null ? 0.02 : a.esik}` });
+    if (!location.search.includes("canli")) logGonder({ method: "POST", body: `CIZIM ${a.ad || "?"} darbe=${n} esik=${a.esik == null ? 0.02 : a.esik}` });
     yollar.forEach((p, i) => {
       const dur = Math.min(a.sure * 0.6, 0.15 + p.L / 1800), bas = a.tb + (n > 1 ? i / (n - 1) : 0) * (a.sure - dur);
       g.cocuk.push(this.darbe(p, { w: a.w, renk: a.renk, alfa: a.alfa, uc0: 10, uc1: 22 }, bas, dur,
@@ -284,8 +288,8 @@ export class Sahne {
     for (const e of this.ogeler) e.ciz(ctx, f);
     kunyeCiz(ctx, { bolum: this.bolum, etkin: 1, logo: this.K.logo });
     if (f === this.kareSay - 1) {
-      await fetch("/log", { method: "POST", body: `ILKBAS ${Math.round(this.ilkBas)}` });
-      await fetch("/log", { method: "POST", body: "OLAYLAR " + JSON.stringify(this.olayListe()) });
+      await logGonder({ method: "POST", body: `ILKBAS ${Math.round(this.ilkBas)}` });
+      await logGonder({ method: "POST", body: "OLAYLAR " + JSON.stringify(this.olayListe()) });
     }
     return this.cv;
   }

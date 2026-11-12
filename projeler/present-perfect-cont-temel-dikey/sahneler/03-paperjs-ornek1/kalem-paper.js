@@ -4,6 +4,10 @@
 import { kunyeHazirla, zeminCiz, kunyeCiz, altyaziMetin, altyaziCiz, RENK, RT, renkCoz, temaSurum, KOK }
   from "/projeler/present-perfect-cont-temel-dikey/ortak/kunye.js";
 import { yaziNoktalari } from "/projeler/present-perfect-cont-temel-dikey/ortak/kalem-canvas.js";
+// Geliştirme günlüğü (12.11, pp g-11): POST /log yalnız yerel geliştirme sunucusunda; yayında istek yok.
+const YEREL_SUNUCU = /^(localhost|127\.0\.0\.1|\[::1\]|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+)$/
+  .test(location.hostname);
+const logGonder = (o) => (YEREL_SUNUCU ? fetch("/log", o).catch(() => {}) : Promise.resolve());
 
 const W = 1080, H = 1920;
 export { RENK, RT, renkCoz };
@@ -309,9 +313,9 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0, tGercek
     if (f === KARE - 1) {
       const ev = [...OLAY.values()].sort((a, b) => a.kare - b.kare || b.guc - a.guc), say = {}, son = [];
       for (const e of ev) { if (e.kare > SON) continue; say[e.kare] = (say[e.kare] || 0) + 1; if (say[e.kare] <= 3) son.push(e); }   // son 12 kare durgun: olay yok
-      await fetch("/log", { method: "POST", body: "OLAYLAR " + JSON.stringify(son) });
+      await logGonder({ method: "POST", body: "OLAYLAR " + JSON.stringify(son) });
       ZAMAN.push({ ad: "DARBE toplam", kare: CIZGILER.length });
-      await fetch("/log", { method: "POST", body: "ZAMANLAR " + JSON.stringify(ZAMAN) });
+      await logGonder({ method: "POST", body: "ZAMANLAR " + JSON.stringify(ZAMAN) });
     }
     return out;
   }

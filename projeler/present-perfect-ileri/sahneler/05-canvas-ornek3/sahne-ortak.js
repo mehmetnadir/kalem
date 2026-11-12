@@ -3,8 +3,12 @@
 import { kunyeHazirla, zeminCiz, kunyeCiz, RENK, RT, renkCoz } from "/projeler/present-perfect-ileri/ortak/kunye.js";
 import { kalemCizgi, darbeCiz, svgYollari, elips, ok, kutu, altCizgi, kis, lerp, yavasla, geriTasma, hash,
   tohumSifirla, yaziDarbeleri, yaziCiz } from "/projeler/present-perfect-ileri/ortak/kalem-canvas.js";
+// Geliştirme günlüğü (12.11, pp g-11): POST /log yalnız yerel geliştirme sunucusunda; yayında istek yok.
+const YEREL_SUNUCU = /^(localhost|127\.0\.0\.1|\[::1\]|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+)$/
+  .test(location.hostname);
+const logGonder = (o) => (YEREL_SUNUCU ? fetch("/log", o).catch(() => {}) : Promise.resolve());
 
-const gunluk = (o) => (new URLSearchParams(location.search).get("canli") === "1" ? Promise.resolve() : fetch("/log", o));
+const gunluk = (o) => (new URLSearchParams(location.search).get("canli") === "1" ? Promise.resolve() : logGonder(o));
 export { RENK, RT, renkCoz, elips, ok, kutu, altCizgi, kis, lerp, yavasla, geriTasma, hash };
 const KOK = "/projeler/present-perfect-ileri/ortak";
 const OLC = document.createElement("canvas").getContext("2d");

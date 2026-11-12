@@ -9,6 +9,10 @@ import {
   kalemCizgi, darbeCiz, svgYollari, elips, ok, kutu, altCizgi, kis, lerp, yavasla, geriTasma, hash,
   tohumSifirla, yaziDarbeleri, yaziCiz
 } from "/projeler/present-continuous-dikey/ortak/kalem-canvas.js";
+// Geliştirme günlüğü (12.11, pp g-11): POST /log yalnız yerel geliştirme sunucusunda; yayında istek yok.
+const YEREL_SUNUCU = /^(localhost|127\.0\.0\.1|\[::1\]|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+)$/
+  .test(location.hostname);
+const logGonder = (o) => (YEREL_SUNUCU ? fetch("/log", o).catch(() => {}) : Promise.resolve());
 
 export { RENK, RT, renkCoz, elips, ok, kutu, altCizgi, kis, lerp, yavasla, geriTasma, hash };
 const KOK = "/projeler/present-continuous-dikey/ortak";
@@ -189,7 +193,7 @@ export class Sahne {
     });
     const g = { cocuk: [], donusum: null, dolgu: null, bitis: a.tb + a.sure, yollar };
     const n = yollar.length;
-    fetch("/log", {
+    logGonder({
       method: "POST", body: `CIZIM ${a.ad || "?"} darbe=${n} esik=${a.esik == null ? 0.02 : a.esik}`
     });
     yollar.forEach((p, i) => {
@@ -418,8 +422,8 @@ export class Sahne {
     kunyeCiz(ctx, { bolum: this.bolum, logo: this.K.logo });
     altyaziCiz(ctx, this.altyaziMetin(this.zm(f)));
     if (f === this.kareSay - 1) {
-      await fetch("/log", { method: "POST", body: `ILKBAS ${Math.round(this.ilkBas)}` });
-      await fetch("/log", { method: "POST", body: "OLAYLAR " + JSON.stringify(this.olayListe()) });
+      await logGonder({ method: "POST", body: `ILKBAS ${Math.round(this.ilkBas)}` });
+      await logGonder({ method: "POST", body: "OLAYLAR " + JSON.stringify(this.olayListe()) });
     }
     return this.cv;
   }

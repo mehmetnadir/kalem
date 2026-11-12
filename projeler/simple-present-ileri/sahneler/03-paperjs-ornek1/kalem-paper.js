@@ -3,9 +3,13 @@
 // Kullanım: const S = await sahneKur(paper, { KARE, tBas, bolum, etkin }); ...içerik...; S.kare(f) -> canvas
 import { kunyeHazirla, zeminCiz, kunyeCiz, RENK, RT, renkCoz, temaSurum, KOK } from "/projeler/simple-present-ileri/ortak/kunye.js";
 import { yaziNoktalari } from "/projeler/simple-present-ileri/ortak/kalem-canvas.js";
+// Geliştirme günlüğü (12.11, pp g-11): POST /log yalnız yerel geliştirme sunucusunda; yayında istek yok.
+const YEREL_SUNUCU = /^(localhost|127\.0\.0\.1|\[::1\]|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+)$/
+  .test(location.hostname);
+const logGonder = (o) => (YEREL_SUNUCU ? fetch("/log", o).catch(() => {}) : Promise.resolve());
 
 const W = 1920, H = 1080;
-const gunluk = (o) => (new URLSearchParams(location.search).get("canli") === "1" ? Promise.resolve() : fetch("/log", o));
+const gunluk = (o) => (new URLSearchParams(location.search).get("canli") === "1" ? Promise.resolve() : logGonder(o));
 export { RENK, RT, renkCoz };
 export const kis = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 export const yumus = (x) => { x = kis(x); return x * x * (3 - 2 * x); };
