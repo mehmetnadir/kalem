@@ -2,7 +2,7 @@
 // Zaman yalnız kare numarasından gelir; Math.random / Date yok (tohumlu hash).
 // Kullanım: const S = await sahneKur(paper, { KARE, tBas, bolum, etkin }); ...içerik...; S.kare(f) -> canvas
 import { kunyeHazirla, zeminCiz, kunyeCiz, RENK, RT, renkCoz, temaSurum, KOK, gunluk } from "/projeler/present-perfect-temel/ortak/kunye.js";
-import { yaziNoktalari } from "/projeler/present-perfect-temel/ortak/kalem-canvas.js";
+import { yaziNoktalari, NoktaYoneticisi, noktaAktif } from "/projeler/present-perfect-temel/ortak/kalem-canvas.js";
 
 const W = 1920, H = 1080;
 export { RENK, RT, renkCoz };
@@ -30,6 +30,7 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
   const pt = (q) => new P.Point(q[0], q[1]);
   const fr = (t) => Math.round((t - tBas) * 30);
   const CIZGILER = [], YAZILAR = [], DINAMIK = [], OGELER = [], OLAY = new Map(), ZAMAN = [];
+  const NOKTA = new NoktaYoneticisi(30);
   let tohum = 1, sonSurum = temaSurum();
 
   const olay = (k, tur, guc) => { k = Math.max(0, Math.min(KARE - 1, Math.round(k))); const a = k + "|" + tur;
@@ -85,6 +86,17 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
   }
   const kok = oge({});
 
+  function cizUcu(c, t) {
+    const m = kis(t) * (c.n - 1), k = Math.min(c.n - 2, Math.floor(m)), u = kis(m - k);
+    let x = c.p[k][0] + (c.p[k + 1][0] - c.p[k][0]) * u;
+    let y = c.p[k][1] + (c.p[k + 1][1] - c.p[k][1]) * u;
+    if (c.og && c.og.g && c.og.g.matrix && !c.og.g.matrix.isIdentity()) {
+      const pt_ = c.og.g.matrix.transform(new P.Point(x, y));
+      x = pt_.x; y = pt_.y;
+    }
+    return [x, y];
+  }
+
   // ---------- darbe ----------
   // ciz(pts, {bas, sure, w, renk, alfa, duz, uc0, uc1, amp, oge, ses}) ; ses: false | "tik" | "parilti" | (varsayılan "cizgi")
   function ciz(pts, o = {}) {
@@ -94,6 +106,13 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
       if (o.ses === "tik") olay(c.bas, "tik", 0.5); else if (o.ses === "parilti") olay(c.bas, "parilti", 0.5);
       else olay(c.bas, "cizgi", Math.min(0.7, 0.4 + c.L / 1500));
     }
+    NOKTA.ekle({
+      bas: c.bas,
+      sure: c.sure,
+      konum: (f) => cizUcu(c, ilerle(c, f)),
+      basKonum: () => cizUcu(c, 0),
+      bitKonum: () => cizUcu(c, 1),
+    });
     return c;
   }
   const bitis = (c) => c.bas + c.sure;
@@ -258,6 +277,16 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
       const fb = bas0 + d.bas * 30, fs = Math.max(2, d.sure * 30);
       const c = d.nokta ? null : ciz(d.pts, { duz: true, w: Math.max(1.4, d.gen), amp: 0.25, uc0: 2.5,
         uc1: 3, aralik: 1.6, renk, alfa, bas: fb, sure: fs, oge: o.oge, ses: false });
+      if (d.nokta && d.nib && d.nib.length > 0) {
+        const nx = d.nib[0].x, ny = d.nib[0].y;
+        NOKTA.ekle({
+          bas: fb,
+          sure: fs,
+          konum: () => [nx, ny],
+          basKonum: () => [nx, ny],
+          bitKonum: () => [nx, ny],
+        });
+      }
       return { c, fb, fs, nib: d.nib };
     });
     if (o.ses !== false) (soz ? soz.map((q) => q.t0 * 30) : [bas0]).forEach((f) => olay(f, "cizgi", 0.35));
@@ -305,6 +334,9 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
     for (const e of OGELER) matrisUygula(e, fe);
     P.view.update();
     zeminCiz(oc, f, K); oc.drawImage(document.getElementById("cv"), 0, 0); kunyeCiz(oc, { bolum, etkin, logo: K.logo });
+    if (noktaAktif()) {
+      NOKTA.ciz(oc, fe);
+    }
     if (f === KARE - 1) {
       const ev = [...OLAY.values()].sort((a, b) => a.kare - b.kare || b.guc - a.guc), say = {}, son = [];
       for (const e of ev) { if (e.kare > SON) continue; say[e.kare] = (say[e.kare] || 0) + 1; if (say[e.kare] <= 3) son.push(e); }   // son 12 kare durgun: olay yok

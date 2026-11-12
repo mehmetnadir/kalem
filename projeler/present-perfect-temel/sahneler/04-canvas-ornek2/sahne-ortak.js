@@ -2,7 +2,7 @@
 // Her öğe {ciz(ctx, f)} taşır; zaman yalnız kare numarasından gelir (Math.random ve Date yok).
 import { kunyeHazirla, zeminCiz, kunyeCiz, RENK, RT, renkCoz, gunluk } from "/projeler/present-perfect-temel/ortak/kunye.js";
 import { kalemCizgi, darbeCiz, svgYollari, elips, ok, kutu, altCizgi, kis, lerp, yavasla, geriTasma, hash,
-  tohumSifirla, yaziDarbeleri, yaziCiz } from "/projeler/present-perfect-temel/ortak/kalem-canvas.js";
+  tohumSifirla, yaziDarbeleri, yaziCiz, basUcu, NoktaYoneticisi, noktaAktif } from "/projeler/present-perfect-temel/ortak/kalem-canvas.js";
 
 export { RENK, RT, renkCoz, elips, ok, kutu, altCizgi, kis, lerp, yavasla, geriTasma, hash };
 const KOK = "/projeler/present-perfect-temel/ortak";
@@ -23,6 +23,7 @@ export class Sahne {
     Object.assign(this, { tbas: a.tbas, kareSay: a.kare, icerik: a.icerik, bolum: a.bolum, cumle: a.cumle,
       kayma: a.kayma || 0 });   // kayma: sözcük zamanlarını eski tbas çerçevesine çevirir (sn)
     this.ogeler = []; this.olaylar = new Map(); this.ilkBas = Infinity;
+    this.nokta = new NoktaYoneticisi(30);
     this.cv = document.getElementById("cv"); this.ctx = this.cv.getContext("2d");
   }
 
@@ -80,6 +81,13 @@ export class Sahne {
     this.bas(fb);
     if (ses !== false) this.olay(fb, "cizgi", ses || Math.min(0.7, 0.4 + c.L / 1500));
     const e = { c, fb, n, carpan: 1, ciz: (ctx, f) => { const t = yavasla((f - fb) / n); if (t > 0) darbeCiz(ctx, c, t, e.carpan); } };
+    this.nokta.ekle({
+      bas: fb,
+      sure: n,
+      konum: (f) => basUcu(c, yavasla((f - fb) / n)),
+      basKonum: () => basUcu(c, 0),
+      bitKonum: () => basUcu(c, 1),
+    });
     return e;
   }
 
@@ -100,6 +108,20 @@ export class Sahne {
     if (a.ses !== false) {
       const baslar = mutlak ? a.sozcukler.map((s) => this.fr(s.t0)) : [fb];
       baslar.forEach((f) => this.olay(f, "cizgi", a.ses || 0.35));
+    }
+    for (const d of Y.darbeler) {
+      const fb_d = mutlak ? this.fr(d.bas) : (fb + d.bas * 30);
+      const n_d = Math.max(1, d.sure * 30);
+      this.nokta.ekle({
+        bas: fb_d,
+        sure: n_d,
+        konum: (f) => {
+          const u = kis((f - fb_d) / n_d);
+          return d.c ? basUcu(d.c, u) : (d.nib && d.nib.length ? [d.nib[0].x, d.nib[0].y] : [a.x, a.y]);
+        },
+        basKonum: () => d.c ? basUcu(d.c, 0) : (d.nib && d.nib.length ? [d.nib[0].x, d.nib[0].y] : [a.x, a.y]),
+        bitKonum: () => d.c ? basUcu(d.c, 1) : (d.nib && d.nib.length ? [d.nib[0].x, d.nib[0].y] : [a.x, a.y]),
+      });
     }
     return { x: a.x, w: Y.gen, Y, sure: Y.sure, ciz: (ctx, f) => {
       const t = mutlak ? this.zm(f) : (f - fb) / 30; if (t <= (mutlak ? a.sozcukler[0].t0 : 0)) return;
@@ -283,6 +305,9 @@ export class Sahne {
     zeminCiz(ctx, f, this.K);
     for (const e of this.ogeler) e.ciz(ctx, f);
     kunyeCiz(ctx, { bolum: this.bolum, etkin: 1, logo: this.K.logo });
+    if (noktaAktif()) {
+      this.nokta.ciz(ctx, f);
+    }
     if (f === this.kareSay - 1 && !/canli=1/.test(location.search)) {
       await gunluk(`ILKBAS ${Math.round(this.ilkBas)}`);
       await gunluk("OLAYLAR " + JSON.stringify(this.olayListe()));

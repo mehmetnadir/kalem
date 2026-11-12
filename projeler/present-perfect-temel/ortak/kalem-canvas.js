@@ -2,7 +2,7 @@
 // Kaynak: ornek/ucan-makine/sahneler/01-paperjs/sayfa.html (cizgi, cokgen). Tohumlu; Math.random ve Date yok.
 // Kullanım: const c = kalemCizgi(noktalar, { w: 3.5 }); ... darbeCiz(ctx, c, ilerleme 0..1);
 
-import { renkCoz } from "./kunye.js";
+import { renkCoz, RT } from "./kunye.js";
 
 // ---------- küçük yardımcılar ----------
 // [a,b] aralığına sıkıştırır.
@@ -358,4 +358,203 @@ export function yaziUcu(Y, t) {
     if (u > 0 && u < 1) return d.c ? basUcu(d.c, u) : [d.nib[0].x, d.nib[0].y];
   }
   return null;
+}
+
+// ---------- Yönlendirici Nokta Pilot (Nadir 12.11) ----------
+// Bayrak: ?nokta=1 ya da window.KALEM_NOKTA === true (yayın varsayılanı kapalı).
+export function noktaAktif() {
+  if (typeof window === "undefined") return false;
+  if (window.KALEM_NOKTA === true) return true;
+  try {
+    const q = new URLSearchParams(window.location.search).get("nokta");
+    return q === "1" || q === "true";
+  } catch (e) {
+    console.warn("nokta bayrağı okunamadı:", e);
+    return false;
+  }
+}
+
+// Yumuşak geçiş: ease-in-out cubic
+export function easeInOutCubic(t) {
+  t = Math.min(1, Math.max(0, t));
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+
+function hexToRgb(hex) {
+  if (typeof hex !== "string") return [242, 169, 59];
+  hex = hex.replace("#", "");
+  if (hex.length === 3) hex = hex.split("").map((c) => c + c).join("");
+  const num = parseInt(hex, 16);
+  if (Number.isNaN(num)) return [242, 169, 59];
+  return [(num >> 16) & 255, (num >> 8) & 255, num & 255];
+}
+
+// Nokta görünümü: çap 14 px (yarıçap 7 px), dolgu tema vurgu rengi, 6 px yumuşak hale (alfa 0.25).
+export function noktaCizCanvas(ctx, x, y, alpha = 1) {
+  if (alpha <= 0.001) return;
+  const r = 7;
+  const rHale = 13;
+  const renkVurgu = renkCoz(RT.vurgu);
+  const rgb = hexToRgb(renkVurgu);
+
+  ctx.save();
+  // 1. Yumuşak hale (6 px, alfa 0.25 * alpha)
+  const grad = ctx.createRadialGradient(x, y, r, x, y, rHale);
+  grad.addColorStop(0, `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${0.25 * alpha})`);
+  grad.addColorStop(1, `rgba(${rgb[0]},${rgb[1]},${rgb[2]},0)`);
+
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.arc(x, y, rHale, 0, Math.PI * 2);
+  ctx.fill();
+
+  // 2. Çekirdek nokta (çap 14 px, yarıçap 7 px)
+  ctx.fillStyle = `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha})`;
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.restore();
+}
+
+// Zaman çizelgesi ve konum yöneticisi (deterministik, durum birikimi yok).
+export class NoktaYoneticisi {
+  constructor(fps = 30) {
+    this.fps = fps;
+    this.darbeler = [];
+    this.sirali = false;
+  }
+
+  ekle({ bas, sure, konum, basKonum, bitKonum }) {
+    this.darbeler.push({
+      bas,
+      sure: Math.max(1, sure),
+      konum,
+      basKonum: basKonum || (() => konum(bas)),
+      bitKonum: bitKonum || (() => konum(bas + sure)),
+      idx: this.darbeler.length,
+    });
+    this.sirali = false;
+  }
+
+  hazirla() {
+    if (this.sirali) return;
+    this.darbeler.sort((a, b) => a.bas - b.bas || a.idx - b.idx);
+    this.sirali = true;
+  }
+
+  durum(f) {
+    this.hazirla();
+    if (this.darbeler.length === 0) return { x: 0, y: 0, alfa: 0 };
+
+    // (a) Çizim sürerken: o anda ilerleyen darbenin ucu (birden çok ise en son başlayan)
+    let aktif = null;
+    for (let i = 0; i < this.darbeler.length; i++) {
+      const d = this.darbeler[i];
+      if (f >= d.bas && f < d.bas + d.sure) {
+        if (!aktif || d.bas > aktif.bas || (d.bas === aktif.bas && d.idx > aktif.idx)) {
+          aktif = d;
+        }
+      }
+    }
+    if (aktif) {
+      const p = aktif.konum(f);
+      return { x: p[0], y: p[1], alfa: 1 };
+    }
+
+    // Hiçbir darbe aktif değil: önceki ve sonraki darbeyi bul
+    let onceki = null, oncekiBit = -Infinity;
+    for (let i = 0; i < this.darbeler.length; i++) {
+      const d = this.darbeler[i], dBit = d.bas + d.sure;
+      if (dBit <= f) {
+        if (!onceki || dBit > oncekiBit || (dBit === oncekiBit && d.bas > onceki.bas)) {
+          onceki = d;
+          oncekiBit = dBit;
+        }
+      }
+    }
+
+    let sonraki = null, sonrakiBas = Infinity;
+    for (let i = 0; i < this.darbeler.length; i++) {
+      const d = this.darbeler[i];
+      if (d.bas > f) {
+        if (!sonraki || d.bas < sonrakiBas || (d.bas === sonrakiBas && d.idx < sonraki.idx)) {
+          sonraki = d;
+          sonrakiBas = d.bas;
+        }
+      }
+    }
+
+    // İki darbe arasında
+    if (onceki && sonraki) {
+      const tPrevEnd = onceki.bas + onceki.sure;
+      const tNextStart = sonraki.bas;
+      const boslukSn = (tNextStart - tPrevEnd) / this.fps;
+
+      if (boslukSn <= 1.5) {
+        // (b) Boşluk <= 1.5 sn: yumuşak geçiş (easeInOutCubic)
+        const u = (f - tPrevEnd) / (tNextStart - tPrevEnd);
+        const e = easeInOutCubic(u);
+        const p0 = onceki.bitKonum(), p1 = sonraki.basKonum();
+        return {
+          x: p0[0] + (p1[0] - p0[0]) * e,
+          y: p0[1] + (p1[1] - p0[1]) * e,
+          alfa: 1,
+        };
+      } else {
+        // (c) Boşluk > 1.5 sn: 0.6 sn durur, 0.3 sn'de söner; yeni darbeden 0.4 sn önce belirir
+        const tGecen = (f - tPrevEnd) / this.fps;
+        const tKalan = (tNextStart - f) / this.fps;
+
+        if (tGecen <= 0.6) {
+          const p = onceki.bitKonum();
+          return { x: p[0], y: p[1], alfa: 1 };
+        } else if (tGecen <= 0.9) {
+          const p = onceki.bitKonum();
+          const al = 1 - (tGecen - 0.6) / 0.3;
+          return { x: p[0], y: p[1], alfa: Math.max(0, Math.min(1, al)) };
+        } else if (tKalan <= 0.4) {
+          const p = sonraki.basKonum();
+          const al = (0.4 - tKalan) / 0.4;
+          return { x: p[0], y: p[1], alfa: Math.max(0, Math.min(1, al)) };
+        } else {
+          return { x: 0, y: 0, alfa: 0 };
+        }
+      }
+    }
+
+    // İlk darbeden önce: 0.4 sn önce başlangıç noktasında belirir
+    if (sonraki && !onceki) {
+      const tKalan = (sonraki.bas - f) / this.fps;
+      if (tKalan <= 0.4) {
+        const p = sonraki.basKonum();
+        const al = (0.4 - tKalan) / 0.4;
+        return { x: p[0], y: p[1], alfa: Math.max(0, Math.min(1, al)) };
+      }
+      return { x: 0, y: 0, alfa: 0 };
+    }
+
+    // Son darbeden sonra: 0.6 sn durur, 0.3 sn'de söner
+    if (onceki && !sonraki) {
+      const tPrevEnd = onceki.bas + onceki.sure;
+      const tGecen = (f - tPrevEnd) / this.fps;
+      if (tGecen <= 0.6) {
+        const p = onceki.bitKonum();
+        return { x: p[0], y: p[1], alfa: 1 };
+      } else if (tGecen <= 0.9) {
+        const p = onceki.bitKonum();
+        const al = 1 - (tGecen - 0.6) / 0.3;
+        return { x: p[0], y: p[1], alfa: Math.max(0, Math.min(1, al)) };
+      }
+      return { x: 0, y: 0, alfa: 0 };
+    }
+
+    return { x: 0, y: 0, alfa: 0 };
+  }
+
+  ciz(ctx, f) {
+    const d = this.durum(f);
+    if (d.alfa <= 0.001) return;
+    noktaCizCanvas(ctx, d.x, d.y, d.alfa);
+  }
 }
