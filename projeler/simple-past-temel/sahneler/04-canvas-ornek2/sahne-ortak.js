@@ -134,11 +134,22 @@ export class Sahne {
       };
     }
     g.ciz = (ctx, f) => {
-      if (f >= this.fr(a.tb) && (a.alfa == null || a.alfa >= 0.2)) {
-        window.__kalemKutu?.ekle("cizim", a.ad || "cizim", a.kutu.x, a.kutu.y, a.kutu.w, a.kutu.h);
-      }
       ctx.save();
       const d = g.donusum ? g.donusum(f) : null;
+      if (f >= this.fr(a.tb) && (a.alfa == null || a.alfa >= 0.2)) {
+        // Kanca: kutu çizimle aynı dönüşümden geçer (kalkan uçak, nefes ölçeği)
+        let { x, y, w, h } = a.kutu;
+        if (d) {
+          const c = Math.cos(d.dondur || 0), s = Math.sin(d.dondur || 0), xs = [], ys = [];
+          for (const [px, py] of [[x, y], [x + w, y], [x, y + h], [x + w, y + h]]) {
+            const dx = (px - d.cx) * d.olcek, dy = (py - d.cy) * d.olcek;
+            xs.push(d.cx + d.tx + dx * c - dy * s);
+            ys.push(d.cy + d.ty + dx * s + dy * c);
+          }
+          x = Math.min(...xs); y = Math.min(...ys); w = Math.max(...xs) - x; h = Math.max(...ys) - y;
+        }
+        window.__kalemKutu?.ekle("cizim", a.ad || "cizim", x, y, w, h);
+      }
       if (d) { ctx.translate(d.cx + d.tx, d.cy + d.ty); if (d.dondur) ctx.rotate(d.dondur); ctx.scale(d.olcek, d.olcek); ctx.translate(-d.cx, -d.cy); }
       if (g.dolgu) {
         const al = kis((f - g.dolgu.fb) / 8);

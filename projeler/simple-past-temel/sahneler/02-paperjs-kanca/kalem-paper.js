@@ -262,7 +262,7 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
     const darbeler = Y.darbeler.map((d) => {
       const fb = bas0 + d.bas * 30, fs = Math.max(2, d.sure * 30);
       const c = d.nokta ? null : ciz(d.pts, { duz: true, w: Math.max(1.4, d.gen), amp: 0.25, uc0: 2.5,
-        uc1: 3, aralik: 1.6, renk, alfa, bas: fb, sure: fs, oge: o.oge, ses: false });
+        uc1: 3, aralik: 1.6, renk, alfa, bas: fb, sure: fs, oge: o.oge, ses: false, tur: "yazi", ad: str });
       return { c, fb, fs, nib: d.nib };
     });
     if (o.ses !== false) (soz ? soz.map((q) => q.t0 * 30) : [bas0]).forEach((f) => olay(f, "cizgi", 0.35));

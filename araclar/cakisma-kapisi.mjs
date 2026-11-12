@@ -99,6 +99,7 @@ let toplamUyari = 0;
 let olculenSayisi = 0;
 let olculmediSayisi = 0;
 let kutusuzSahne = 0;
+let olcumHatasi = 0;
 
 for (const S of sahneler) {
   if (S.motor === "HyperFrames") {
@@ -210,6 +211,7 @@ for (const S of sahneler) {
     });
   } catch (er) {
     console.error(`${S.klasor} | ölçüm hatası: ${er.message.trim()}`);
+    olcumHatasi++;
     sonuclar.push({
       sahne: S.klasor,
       motor: S.motor,
@@ -233,6 +235,7 @@ if (sec.json) {
       toplamSahne: sahneler.length,
       olculen: olculenSayisi,
       olculmedi: olculmediSayisi,
+      olcumHatasi,
       toplamHata,
       toplamUyari,
     },
@@ -243,6 +246,10 @@ if (sec.json) {
 
 if (toplamHata > 0) {
   process.exit(1);
+} else if (olcumHatasi > 0) {
+  // 12.11: present-perfect-ileri 03 "sahne hazır olmadı" ile ölçülemedi, kapı yine 0 dönmüştü.
+  console.error(`UYARI: ${olcumHatasi} sahne ölçülemedi (ölçüm hatası); kapı geçti sayılmaz`);
+  process.exit(2);
 } else if (kutusuzSahne > 0) {
   // Canvas/Paper.js sahnesi ölçülemedi: geçti sayılmaz.
   console.error(`UYARI: ${kutusuzSahne} sahne kutu üretmedi (kanca eksik); kapı geçti sayılmaz`);
