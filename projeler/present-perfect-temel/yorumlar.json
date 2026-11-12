@@ -118,5 +118,17 @@
     "yazar": "sef",
     "tarih": "2026-11-11T11:45:47.220Z",
     "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-11",
+    "gorev": "g-6",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Nadir kararı 12.11 (D-0146): kaynağı eksik (KAYNAKSIZ) ya da ön tutanağı bayat videoda üretim durur. Kalan iş şefte: ön tutanağı tazele, üretim betiğine kapı (tutanak_on.py dogrula çıkış 0 değilse dur).",
+    "yazar": "sef",
+    "tarih": "2026-11-12T06:12:17.763Z",
+    "durum": "cozuldu"
   }
 ]
