@@ -1,5 +1,6 @@
 // Sayfa tarafı sürücü. kur() bir kez, kare(f) her kare için çağrılır; kare(f) çizilmiş canvas döndürür.
-// Fontlar: Fell (IM Fell, başlık), Garamond (EB Garamond, metin) /ortak/font altından yüklenir.
+// Yazı tipi yüklemez (12.11, pp g-10): Fell/Garamond hiçbir sahnede kullanılmıyordu, her sahnede 2,0 MB iniyordu.
+// Sahneler kendi yazı tipini paket ortak/kunye.js ya da HyperFrames @font-face ile yükler.
 // Canlı kip (?canli=1): kareler POST edilmez, görünür canvas'ta gerçek zamanlı oynar (render öncesi izleme).
 //   ?ses=<wav yolu>&tbas=<sn>: anlatım sesi ve sahnenin küresel başlangıcı.
 //   Üst sayfa {tip:"zaman", t} mesajı da yollayabilir (t = anlatım zamanı, sn).
@@ -81,9 +82,6 @@ export async function surucu(kur, kare, KARE = 240, fps = 30) {
   const log = (m) => (yerel ? fetch("/log", { method: "POST", body: String(m) })
     : Promise.resolve());
   try {
-    for (const [ad, dosya, stil] of [["Fell", "IMFeENrm28P.ttf", "normal"], ["Fell", "IMFeENit28P.ttf", "italic"], ["Garamond", "EBGaramond.ttf", "normal"], ["Garamond", "EBGaramond-Italic.ttf", "italic"]]) {
-      const f = new FontFace(ad, `url(/ortak/font/${dosya})`, { style: stil }); await f.load(); document.fonts.add(f);
-    }
     await kur();
     if (CANLI()) return canliKare(kare, KARE, fps);
     for (let f = 0; f < KARE; f++) {
