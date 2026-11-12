@@ -1103,6 +1103,62 @@ export function kancaSahneOrtak(icerik, dosyaYol) {
   return { durum: "DEGISTI", icerik: metin };
 }
 
+// --- Sahne Kancası (altCiz -> tur: "isaret") ---
+
+export function kancaSahne(icerik, dosyaYol) {
+  let metin = icerik;
+
+  if (!/\baltCiz\b/.test(metin)) {
+    return { durum: "VAR", icerik: metin };
+  }
+
+  // Zaten kancalanmış mı?
+  const altCizKancali = metin.includes('tur: "isaret"') && metin.includes('ad: o.ad || "altCiz"');
+  const lastNightVar = metin.includes('not("last night altı çizgi"');
+  const lastNightKancali = !lastNightVar || metin.includes('ad: "altCiz:lastNight"');
+
+  if (altCizKancali && lastNightKancali) {
+    return { durum: "VAR", icerik: metin };
+  }
+
+  let degisti = false;
+
+  // 1. altCiz kancası
+  if (!altCizKancali) {
+    const CAPA1 = "const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],\n    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });";
+    const YENI1 = "const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],\n    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, tur: \"isaret\", ad: o.ad || \"altCiz\", ...o });";
+
+    const CAPA2 = "const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]], { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });";
+    const YENI2 = "const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]], { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, tur: \"isaret\", ad: o.ad || \"altCiz\", ...o });";
+
+    if (metin.includes(CAPA1)) {
+      metin = metin.replace(CAPA1, YENI1);
+      degisti = true;
+    } else if (metin.includes(CAPA2)) {
+      metin = metin.replace(CAPA2, YENI2);
+      degisti = true;
+    } else {
+      return { durum: "CAPA_YOK", capa: "altCiz ciz", dosyaYol };
+    }
+  }
+
+  // 2. last night altı çizgi kancası (simple-past-temel-s1)
+  if (lastNightVar && !lastNightKancali) {
+    const CAPA_LN = "const c = ciz([[a.x0 - 4, y + 14], [b.x1 + 4, y + 8]], { w: 10, renk: DOLGU, alfa: 0.9, bas: fr(13.86),\n      sure: 24, uc0: 8, uc1: 12, amp: 1.0 });\n    not(\"last night altı çizgi\", c.bas);";
+    const YENI_LN = "const c = ciz([[a.x0 - 4, y + 14], [b.x1 + 4, y + 8]], { w: 10, renk: DOLGU, alfa: 0.9, bas: fr(13.86),\n      sure: 24, uc0: 8, uc1: 12, amp: 1.0, tur: \"isaret\", ad: \"altCiz:lastNight\" });\n    not(\"last night altı çizgi\", c.bas);";
+
+    if (metin.includes(CAPA_LN)) {
+      metin = metin.replace(CAPA_LN, YENI_LN);
+      degisti = true;
+    }
+  }
+
+  if (degisti) {
+    return { durum: "DEGISTI", icerik: metin };
+  }
+  return { durum: "VAR", icerik: metin };
+}
+
 // --- Ana İşleyici ---
 
 export function dosyayiKancala(dosyaYol, icerik) {
@@ -1115,6 +1171,8 @@ export function dosyayiKancala(dosyaYol, icerik) {
     return kancaKalemPaper(icerik, dosyaYol);
   } else if (ad === "sahne-ortak.js") {
     return kancaSahneOrtak(icerik, dosyaYol);
+  } else if (ad.startsWith("sahne") && ad.endsWith(".js")) {
+    return kancaSahne(icerik, dosyaYol);
   }
   return { durum: "BILINMEYEN_DOSYA", icerik };
 }
@@ -1122,7 +1180,7 @@ export function dosyayiKancala(dosyaYol, icerik) {
 export function paketDosyalariniBul(paketAdi) {
   const paketDizin = path.isAbsolute(paketAdi)
     ? paketAdi
-    : (paketAdi.startsWith("projeler/") ? path.join(KOK, paketAdi) : path.join(KOK, "projeler", paketAdi));
+    : (fs.existsSync(path.join(KOK, paketAdi)) ? path.join(KOK, paketAdi) : path.join(KOK, "projeler", paketAdi));
 
   if (!fs.existsSync(paketDizin)) {
     return [];
@@ -1147,6 +1205,16 @@ export function paketDosyalariniBul(paketAdi) {
 
         const ortakYol = path.join(altTam, "sahne-ortak.js");
         if (fs.existsSync(ortakYol)) dosyalar.push(ortakYol);
+
+        // sahne*.js dosyaları (içinde altCiz olanlar)
+        const icDosyalar = fs.readdirSync(altTam).sort();
+        for (const f of icDosyalar) {
+          if (f.startsWith("sahne") && f.endsWith(".js")) {
+            const fTam = path.join(altTam, f);
+            const ic = fs.readFileSync(fTam, "utf8");
+            if (/\baltCiz\b/.test(ic)) dosyalar.push(fTam);
+          }
+        }
       }
     }
   }
@@ -1161,7 +1229,7 @@ export function paketYedekle(paketAdi, dosyalar, hedefDizin = "dagit2") {
 
   const paketKok = path.isAbsolute(paketAdi)
     ? paketAdi
-    : (paketAdi.startsWith("projeler/") ? path.join(KOK, paketAdi) : path.join(KOK, "projeler", paketAdi));
+    : (fs.existsSync(path.join(KOK, paketAdi)) ? path.join(KOK, paketAdi) : path.join(KOK, "projeler", paketAdi));
 
   for (const d of dosyalar) {
     const rel = path.relative(paketKok, d);
@@ -1184,7 +1252,7 @@ export function paketGeriYukle(paketAdi, hedefDizin = "dagit2") {
 
   const paketKok = path.isAbsolute(paketAdi)
     ? paketAdi
-    : (paketAdi.startsWith("projeler/") ? path.join(KOK, paketAdi) : path.join(KOK, "projeler", paketAdi));
+    : (fs.existsSync(path.join(KOK, paketAdi)) ? path.join(KOK, paketAdi) : path.join(KOK, "projeler", paketAdi));
 
   function geriKopyala(dizin, relDizin = "") {
     const entries = fs.readdirSync(dizin, { withFileTypes: true });

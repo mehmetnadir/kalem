@@ -10,6 +10,7 @@ import {
   kancaKunye,
   kancaKalemPaper,
   kancaSahneOrtak,
+  kancaSahne,
   dosyayiKancala,
 } from "../araclar/kanca-dagit.mjs";
 
@@ -390,4 +391,30 @@ test("kancaSahneOrtak (halka varyantları: renk parametreli / k.boy boyutlu): ç
 
   const res2 = kancaSahneOrtak(res1.icerik, "sahne-ortak.js");
   assert.equal(res2.durum, "VAR");
+});
+
+test("kancaSahne: fikstürde altCiz → tur: isaret etiketi eklenir, eşgüçlüdür, çapa yoksa CAPA_YOK", () => {
+  const miniSahne = `export async function sahne(S) {
+  const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],
+    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
+  return S;
+}
+`;
+  const res1 = kancaSahne(miniSahne, "sahne-02.js");
+  assert.equal(res1.durum, "DEGISTI");
+  assert.ok(res1.icerik.includes('tur: "isaret", ad: o.ad || "altCiz"'));
+
+  // Eşgüçlülük
+  const res2 = kancaSahne(res1.icerik, "sahne-02.js");
+  assert.equal(res2.durum, "VAR");
+
+  // Çapa yoksa CAPA_YOK
+  const hatali = `export async function sahne(S) {
+  const altCiz = (z, f0, o = {}) => ciz(pts);
+  return S;
+}
+`;
+  const res3 = kancaSahne(hatali, "sahne-02.js");
+  assert.equal(res3.durum, "CAPA_YOK");
+  assert.equal(res3.capa, "altCiz ciz");
 });
