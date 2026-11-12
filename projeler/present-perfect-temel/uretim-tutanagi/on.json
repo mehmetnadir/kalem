@@ -7,20 +7,20 @@
         "surum": null,
         "tur": "betik"
       },
-      "zaman": "2026-11-04T22:24:44Z"
+      "zaman": "2026-11-12T13:45:45Z"
     },
     {
       "adim": "sahne",
       "aktor": {
         "ad": "kalem",
-        "surum": "72aedbe",
+        "surum": "352d8fd",
         "tur": "betik"
       },
       "zaman": "2026-11-09T11:55:23Z"
     }
   ],
   "arac": {
-    "kalem_commit": "72aedbe",
+    "kalem_commit": "352d8fd",
     "motorlar": [
       "Paper.js",
       "HyperFrames",
@@ -30,15 +30,15 @@
   },
   "git": {
     "dijital-anlatim": {
-      "commit": "fd0a18f"
+      "commit": "6663e7c"
     },
     "kalem": {
-      "commit": "72aedbe"
+      "commit": "352d8fd"
     }
   },
   "imza": {
     "alg": "sha256",
-    "deger": "f28875d19ccf37008407d7ea750af17f64c74586509b2c2ba2a40474159637fc"
+    "deger": "258f1895526fca3c3d4e003b8365df09760fe11d19e68e9f3d4337eaf3420821"
   },
   "kaynaklar": [
     {
@@ -63,10 +63,10 @@
       "yol": "varlik/grammar/kaynak-pptx/YEDEK/Tenses/unit-1_sunum-4b uygun.pptx"
     }
   ],
-  "kimlik": "UT-20261112-f288",
+  "kimlik": "UT-20261112-258f",
   "sema": "ut-on/v1",
   "senaryo": {
-    "sha256": "7855a474ba5993a4b69699e03536363635f069e36d30e05465b25d8242796f2f",
+    "sha256": "d9bfc2bbabf50e93450a96f6ff9b8ec6a792f2f4ba523631c704f969dfe9d432",
     "yazan": {
       "ad": "bilinmiyor",
       "surum": null,
@@ -76,7 +76,7 @@
   },
   "ses": [
     {
-      "benzerlik": 1.0,
+      "benzerlik": null,
       "cumle": 1,
       "dosya": "ortak/anlatim/cumle-1.wav",
       "metin_sha256": "c69ea713467b839cde73315f7bc76e164a633797265f29b7fb0458679b193b3b",
@@ -86,17 +86,17 @@
       "sure": 2.16
     },
     {
-      "benzerlik": 1.0,
+      "benzerlik": null,
       "cumle": 2,
       "dosya": "ortak/anlatim/cumle-2.wav",
-      "metin_sha256": "5948748d554d5958448bf46669ff1f51abd0ecbb83034b70d5ed887401353725",
+      "metin_sha256": "0f038e4e79af7546e3d4b725b98bb0be95f1dc8c19b23ec924e27442ad176819",
       "model": "elevenlabs-v4",
       "ses_kimligi": "gsJ9nrlXYbPztJxC4fwc",
-      "sha256": "d0dd18c30332c6646a24be47d7c73a7b58716cd27391d2e3510553d21e872893",
-      "sure": 15.02
+      "sha256": "f3e16c966ff1f419400f37690cf69c4ca775f8cba3bc4f4940949a698e3af728",
+      "sure": 14.86
     },
     {
-      "benzerlik": 1.0,
+      "benzerlik": null,
       "cumle": 3,
       "dosya": "ortak/anlatim/cumle-3.wav",
       "metin_sha256": "2d27b1a0b7e55dcdd7388a1bf9e4b3983cfb86b6238d5b16cebc293df9f1889e",
@@ -106,7 +106,7 @@
       "sure": 14.88
     },
     {
-      "benzerlik": 1.0,
+      "benzerlik": null,
       "cumle": 4,
       "dosya": "ortak/anlatim/cumle-4.wav",
       "metin_sha256": "c571bbffa5a08a73be9cf41175b97f2d25347e72db7ad5ef9b54b35b5f0f1094",
@@ -116,7 +116,7 @@
       "sure": 16.41
     },
     {
-      "benzerlik": 1.0,
+      "benzerlik": null,
       "cumle": 5,
       "dosya": "ortak/anlatim/cumle-5.wav",
       "metin_sha256": "8c9c4a9668039826fe6d56f0d83e2b0ce526d1fae4d184c3037e3da85eae3bbb",
@@ -126,7 +126,7 @@
       "sure": 15.52
     },
     {
-      "benzerlik": 1.0,
+      "benzerlik": null,
       "cumle": 6,
       "dosya": "ortak/anlatim/cumle-6.wav",
       "metin_sha256": "ca80821f66fa87c39a7d5fade0a427762bde36e2c32e453aad0bfe65341e66ca",
@@ -136,7 +136,7 @@
       "sure": 3.84
     },
     {
-      "benzerlik": 0.98,
+      "benzerlik": null,
       "cumle": 7,
       "dosya": "ortak/anlatim/cumle-7.wav",
       "metin_sha256": "df7a10f9a5d02ef9b2f7cc75f58fef2d6af96ca21cf96ed178e946115ac7cda1",
@@ -165,7 +165,7 @@
     ],
     "sha256": "5dfad7fe8575a7b3e039da8644dffc383a21d077e35045367aa5deb84833aecc"
   },
-  "tarih": "2026-11-12T06:48:22Z",
+  "tarih": "2026-11-12T13:48:20Z",
   "varliklar": [
     {
       "ad": "coco",

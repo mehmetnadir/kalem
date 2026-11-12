@@ -3,7 +3,7 @@
 | # | başlar | biter | konuşan | metin |
 |---|---|---|---|---|
 | 1 | 1.00 | 3.16 | ogretmen | Kaybettim, kapıda kaldım. |
-| 2 | 3.71 | 18.73 | ogretmen | Anahtarı kaybettim: geçmişte oldu, ama sonucu şimdi bizimle. İngilizce bunun için ayrı bir zaman kullanır. Altı dakikada Present Perfect'in formunu, since ile for farkını ve sinyal sözcüklerini bitiriyoruz. |
+| 2 | 3.71 | 18.73 | ogretmen | Anahtarı kaybettim: geçmişte oldu, ama sonucu şimdi bizimle. İngilizce bunun için ayrı bir zaman kullanır. Bu derste Present Perfect'in formunu, since ile for farkını ve sinyal sözcüklerini görüyoruz. |
 | 3 | 19.28 | 34.16 | ogretmen | Birinci örnek. I have broken my phone. Telefonumu kırdım. Kırma işi geçmişte oldu, ama ekran şimdi de kırık. İki parça var: have ve broken. Have, artı fiilin üçüncü hâli. |
 | 4 | 34.71 | 51.12 | ogretmen | İkinci örnek. My brother has played the guitar for five years. Kardeşim beş yıldır gitar çalıyor. Başladı ve hâlâ çalıyor. For süreyi söyler. Başlangıç olsaydı since derdik. Bu kez has, çünkü özne tek kişi. |
 | 5 | 51.67 | 67.19 | ogretmen | Üçüncü örnek. I have never flown in a plane. Hayatımda hiç uçağa binmedim. Bugüne kadar hiç olmadı. Never gibi sözcükler hayatın bugüne kadarki kısmını anlatır. Yine have, artı flown. |

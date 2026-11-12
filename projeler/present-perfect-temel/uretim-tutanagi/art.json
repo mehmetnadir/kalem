@@ -14,17 +14,17 @@
       "t1": 3.24
     },
     {
-      "beklenen": "Anahtarı kaybettim: geçmişte oldu, ama sonucu şimdi bizimle. İngilizce bunun için ayrı bir zaman kullanır. Altı dakikada Present Perfect'in formunu, since ile for farkını ve sinyal sözcüklerini bitiriyoruz.",
-      "benzerlik": 1.0,
-      "duyulan": "Anahtarı kaybettim. Geçmişte oldu. Ama sonucu şimdi bizimle. İngilizce bunun için ayrı bir zaman kullanır. 6 dakikada present perfectin formunu, since ile for farkını ve sinyal sözcüklerini bitiriyoruz.",
+      "beklenen": "Anahtarı kaybettim: geçmişte oldu, ama sonucu şimdi bizimle. İngilizce bunun için ayrı bir zaman kullanır. Bu derste Present Perfect'in formunu, since ile for farkını ve sinyal sözcüklerini görüyoruz.",
+      "benzerlik": 0.99,
+      "duyulan": "Anahtarı kaybettim. Geçmişte oldu. Ama sonucu şimdi bizimle. İngilizce bunun için ayrı bir zaman kullanır. Bu derste present perfect informunu, since ile for farkını ve sinyal sözcüklerini görüyoruz.",
       "i": 2,
       "t0": 3.71,
-      "t1": 18.81
+      "t1": 18.65
     },
     {
       "beklenen": "Birinci örnek. I have broken my phone. Telefonumu kırdım. Kırma işi geçmişte oldu, ama ekran şimdi de kırık. İki parça var: have ve broken. Have, artı fiilin üçüncü hâli.",
       "benzerlik": 1.0,
-      "duyulan": "Birinci örnek. I have broken my phone. Telefonumu kırdım. Kırma işi geçmişte oldu. Ama ekran şimdi de kırık. İki parça var. Have ve broken. Have artı fiilin üçüncü hali.",
+      "duyulan": "Birinci örnek. I have broken my phone. Telefonumu kırdım. Kırma işi geçmişte oldu ama ekran şimdi de kırık. İki parça var. Have ve broken. Have artı fiilin üçüncü hali.",
       "i": 3,
       "t0": 19.28,
       "t1": 34.24
@@ -40,7 +40,7 @@
     {
       "beklenen": "Üçüncü örnek. I have never flown in a plane. Hayatımda hiç uçağa binmedim. Bugüne kadar hiç olmadı. Never gibi sözcükler hayatın bugüne kadarki kısmını anlatır. Yine have, artı flown.",
       "benzerlik": 1.0,
-      "duyulan": "Üçüncü örnek. I have never flown in a plane. Hayatımda hiç uçağa binmedim. bugüne kadar hiç olmadı. Never gibi sözcükler hayatın bugüne kadarki kısmını anlatır. Yine have artı flown.",
+      "duyulan": "Üçüncü örnek. I have never flown in a plane. Hayatımda hiç uçağa binmedim. Bugüne kadar hiç olmadı. Never gibi sözcükler hayatın bugüne kadarki kısmını anlatır. Yine have artı flown.",
       "i": 5,
       "t0": 51.67,
       "t1": 67.27
@@ -56,16 +56,16 @@
     {
       "beklenen": "Çünkü iş geçmişte bitti, ama etkisi şimdiye uzanıyor. Have ya da has şimdiyi taşır, üçüncü hâl işi söyler. For ve since süre, never ve ever deneyim, just ve already yeni biten iş. Kod: have artı üçüncü hâl, geçmiş iş, şimdiki etki.",
       "benzerlik": 1.0,
-      "duyulan": "Çünkü iş geçmişte bitti ama etkisi şimdiye uzanıyor. Have ya da has şimdiyi taşır. Üçüncü hal işi söyler. FOR ve SINCE süre NEVER ve EVER deneyim JUST ve ALREADY yeni biten iş KOD HAVE artı üçüncü hal Geçmiş iş şimdiki etki",
+      "duyulan": "Çünkü iş geçmişte bitti ama etkisi şimdiye uzanıyor. Have ya da has şimdiyi taşır. Üçüncü hal işi söyler. For ve since süre. Never ve ever deneyim. Just ve Already yeni biten iş. Kod Have artı üçüncü hay. Geçmiş iş, şimdiki etki.",
       "i": 7,
       "t0": 72.13,
       "t1": 93.94
     }
   ],
-  "kimlik": "UA-20261112-6736",
-  "on_kimlik": "UT-20261112-f288",
+  "kimlik": "UA-20261112-e56f",
+  "on_kimlik": "UT-20261112-258f",
   "ozet": {
-    "en_dusuk": 1.0,
+    "en_dusuk": 0.99,
     "esik": 0.85,
     "gecen": 7,
     "ortalama": 1.0,
@@ -75,11 +75,11 @@
   "sema": "ut-art/v1",
   "sonuc": "GEÇTİ",
   "video": {
-    "bayt": 24207022,
+    "bayt": 24464628,
     "dosya": "cikti.mp4",
-    "sha256": "449805e03953f687f486eb56128236a60cd2d538eea85478a4a84e96e5d77563",
+    "sha256": "ab0e38f102c24fa0cee4f149624713be524ff9c52eb79b2a4caaf37bdfbd0552",
     "sure_sn": 95.87,
     "tema": "acik"
   },
-  "zaman": "2026-11-12T10:02:16Z"
+  "zaman": "2026-11-12T14:02:47Z"
 }

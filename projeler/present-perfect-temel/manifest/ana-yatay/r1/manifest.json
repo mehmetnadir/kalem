@@ -34,19 +34,19 @@
     {
       "yol": "ortak/anlatim/METIN.md",
       "rol": "senaryo",
-      "sha256": "7855a474ba5993a4b69699e03536363635f069e36d30e05465b25d8242796f2f",
-      "bayt": 4770
+      "sha256": "d9bfc2bbabf50e93450a96f6ff9b8ec6a792f2f4ba523631c704f969dfe9d432",
+      "bayt": 4765
     },
     {
       "yol": "ortak/anlatim/altyazi.json",
       "rol": "altyazi",
-      "sha256": "955661bdda66f369a9c5e29bb70b88ebbd456b3f05b514dd1301fbdc09080802",
-      "bayt": 3257
+      "sha256": "39e2506695eeadd58108fb8edf0b259e71b29866504b5ac88577810f714f15cd",
+      "bayt": 3249
     },
     {
       "yol": "ortak/anlatim/anlatim.wav",
       "rol": "ses",
-      "sha256": "8138a7455d574abb1fd85b6f6ee6fcb13cda49cb0ee0da9e232e7d141239e66a",
+      "sha256": "15ffac14fd0da1acf56c263c94c503a6b67ad88e78872672959461d226ff7795",
       "bayt": 9106638
     },
     {
@@ -58,8 +58,8 @@
     {
       "yol": "ortak/anlatim/cumle-2.wav",
       "rol": "ses",
-      "sha256": "d0dd18c30332c6646a24be47d7c73a7b58716cd27391d2e3510553d21e872893",
-      "bayt": 1324808
+      "sha256": "f3e16c966ff1f419400f37690cf69c4ca775f8cba3bc4f4940949a698e3af728",
+      "bayt": 1310696
     },
     {
       "yol": "ortak/anlatim/cumle-3.wav",
@@ -94,8 +94,14 @@
     {
       "yol": "ortak/anlatim/senaryo.json",
       "rol": "senaryo",
-      "sha256": "3d08619525e786ceff707e4ff4a6f8dc9d1c2c65307d07373e700ba24dd78feb",
-      "bayt": 6182
+      "sha256": "5989ef08325e07a61f73616635623b04b4a6fc8d3853b8c9b030bab8ea261c2d",
+      "bayt": 6172
+    },
+    {
+      "yol": "ortak/logo/yds-publishing-koyu-zemin.svg",
+      "rol": "stil",
+      "sha256": "14ff1f3f41e12759fb73c0e440a776c7e2429925b6e7fba5ec9dc12bee9b0c24",
+      "bayt": 4799
     },
     {
       "yol": "ortak/logo/yds-publishing-lacivert.svg",
@@ -262,8 +268,8 @@
     {
       "yol": "sahneler/02-paperjs-kanca/kalem-paper.js",
       "rol": "sahne",
-      "sha256": "684de24e8654f9e5b07586944da71f428e238cfb083e069b6873d4a2a87b80f5",
-      "bayt": 21411
+      "sha256": "41ee0295460e04526c6702fa1b7b4d15e1860a41345f90644049898555f6e912",
+      "bayt": 26005
     },
     {
       "yol": "sahneler/02-paperjs-kanca/nesneler.json",
@@ -274,14 +280,14 @@
     {
       "yol": "sahneler/02-paperjs-kanca/olaylar.json",
       "rol": "sahne",
-      "sha256": "e630caeac8ee7c1d5ce06da26da52ea2048c59aeb526da657fca0764d8e8d0e7",
-      "bayt": 1252
+      "sha256": "18e5ac79d72df87bad8958a60976d889e013a42816dec412e6ca41b06f594509",
+      "bayt": 1521
     },
     {
       "yol": "sahneler/02-paperjs-kanca/sahne-02.js",
       "rol": "sahne",
-      "sha256": "4579fe2e557c5d51449ca1dbce12e52bd8a7230c0007be627c5b0a80cc894306",
-      "bayt": 7261
+      "sha256": "d83527c3896c90458b99fa8d9da2919eb99f0dd4f2f8fe37224c2d3e996378ef",
+      "bayt": 7823
     },
     {
       "yol": "sahneler/02-paperjs-kanca/sayfa.html",
@@ -322,14 +328,14 @@
     {
       "yol": "sahneler/02-paperjs-kanca/zamanlar.json",
       "rol": "sahne",
-      "sha256": "5da5529722284dd285a33ddd38f8897d50c37adf3a9b12ca2d0e804cbe7903d1",
-      "bayt": 636
+      "sha256": "69f3ccce06e43b04463ab376e3a7b87ffa16a6b97462422319e8d5c87463c308",
+      "bayt": 763
     },
     {
       "yol": "sahneler/03-paperjs-ornek1/kalem-paper.js",
       "rol": "sahne",
-      "sha256": "684de24e8654f9e5b07586944da71f428e238cfb083e069b6873d4a2a87b80f5",
-      "bayt": 21411
+      "sha256": "99173ed5600fe6bfd48a2fbff88573852ba5f6e5d0653d90dd48c13963bb5b33",
+      "bayt": 24649
     },
     {
       "yol": "sahneler/03-paperjs-ornek1/nesneler.json",
@@ -376,8 +382,8 @@
     {
       "yol": "sahneler/04-canvas-ornek2/sahne-ortak.js",
       "rol": "sahne",
-      "sha256": "92f1442173c600413d3b06b548ae0eb793eaa5135bd482e9df51fa802d34de4b",
-      "bayt": 15148
+      "sha256": "1b975a556c5c91ad3b52e5f3be418243d2ef87c233d8a9589ec120c89cb7fc08",
+      "bayt": 18326
     },
     {
       "yol": "sahneler/04-canvas-ornek2/sahne.js",
@@ -412,8 +418,8 @@
     {
       "yol": "sahneler/05-canvas-ornek3/sahne-ortak.js",
       "rol": "sahne",
-      "sha256": "b2583f46309ca951fbc448a84e4beb467d6a5670d761deed376cf2d4abe8f76e",
-      "bayt": 15074
+      "sha256": "2450f1ff05b4690619a1ec3e97c4a82313fec72d9a30a4426f499b534081ac2c",
+      "bayt": 17300
     },
     {
       "yol": "sahneler/05-canvas-ornek3/sahne.js",
@@ -562,8 +568,8 @@
     {
       "yol": "zaman.json",
       "rol": "zaman",
-      "sha256": "1c68aaf4f63b6cc4dca2c5101f73def9ee93a643613ac85bf31638b244e5ae77",
-      "bayt": 1517
+      "sha256": "a6fbab3c1d6a5193bc7c7b7ca8493695e4023d86766ff2bb32a2a28d33bc390d",
+      "bayt": 1677
     }
   ],
   "oynatici": {
@@ -580,7 +586,7 @@
     "kisa": "https://yds.tc/ing-ydt-gr-02-06-t"
   },
   "tutanak": {
-    "on": "UT-20261108-4150",
+    "on": "UT-20261112-258f",
     "art": null
   },
   "r2": {
@@ -589,11 +595,11 @@
   },
   "kaynak": {
     "repo": "kalem",
-    "commit": "ff465f3e3c84cc5707a4c57528355a2929663a56"
+    "commit": "352d8fd81d24b802c028519d2011285fd9d8616a"
   },
-  "tarih": "2026-11-08T12:18:49Z",
+  "tarih": "2026-11-12T13:48:57Z",
   "imza": {
     "alg": "sha256",
-    "deger": "be44a43cba3192bb29bd2a6764d03fb340dc0770fff8849ef0b43189eac78358"
+    "deger": "cbbf7cee0e2c08ef80ae1917513b2bb310c0794bb7c2ed784527c7c37537029a"
   }
 }

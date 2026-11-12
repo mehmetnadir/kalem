@@ -107,18 +107,18 @@ export async function kur(P) {
     not("not İngilizce ayrı zaman", n.bas);
   }
 
-  // --- 11,77–18,73: el kutusu, saat (6 min), 3 madde tik zamanlı
+  // --- 11,93–18,65: el kutusu, saat, 3 madde tik zamanlı
   {
-    S.kutu(1060, 690, 760, 300, { bas: fr(11.77) - 8, sure: 38 }); not("kutu çizimi", fr(11.77) - 8);
-    await S.svgCiz("tabler/clock.svg", { kutu: [1096, 712, 76, 76], bas: fr(12.05), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
-    // 12,52: saatin yanında anlatımsız etiket, hedef 16 kare (0,53 sn; bitiş 13,05 < 13,85)
-    elYazisi(SURE_METNI, { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(12.05) + 14, sure: 16 });
-    not("saat + 6 min", fr(12.05));
-    parilti(1176, 714, { bas: fr(12.9), r: 22, periyot: 170, adet: 3 });
-    // 14,73 since → başlangıç oku (past durağı); 15,45 for → süre bandı past→now (K26: yazı ≤ ses)
-    baslangic(hat, "past", { etiket: "since", bas: fr(14.73) - 10 });
-    aralik(hat, "past", "now", { etiket: "for", bas: fr(15.45) - 22, sure: 16 });
-    const m = [["form", 13.85, 842], ["since / for", 15.17, 900], ["sinyal sözcükleri", 16.89, 958]];
+    S.kutu(1060, 690, 760, 300, { bas: fr(11.93) - 8, sure: 38 }); not("kutu çizimi", fr(11.93) - 8);
+    await S.svgCiz("tabler/clock.svg", { kutu: [1096, 712, 76, 76], bas: fr(12.13), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
+    // 12,60: saatin yanında anlatımsız etiket, hedef 16 kare
+    elYazisi(SURE_METNI, { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(12.13) + 14, sure: 16 });
+    not("saat etiketi", fr(12.13));
+    parilti(1176, 714, { bas: fr(12.65), r: 22, periyot: 170, adet: 3 });
+    // 14,65 since → başlangıç oku (past durağı); 15,37 for → süre bandı past→now (K26: yazı ≤ ses)
+    baslangic(hat, "past", { etiket: "since", bas: fr(14.65) - 10 });
+    aralik(hat, "past", "now", { etiket: "for", bas: fr(15.37) - 22, sure: 16 });
+    const m = [["form", 13.77, 842], ["since / for", 15.05, 900], ["sinyal sözcükleri", 16.81, 958]];
     for (const [s, t, y] of m) {
       yazi(s, { x: 1140, y, boyut: 44, aile: "Fredoka", agirlik: 700, renk: KRE, bas: fr(t), sure: 8 });
       tik(1108, y - 12, { bas: fr(t) + 4 }); not("madde " + s, fr(t));
