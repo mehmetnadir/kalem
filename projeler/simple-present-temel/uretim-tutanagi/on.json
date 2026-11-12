@@ -13,14 +13,14 @@
       "adim": "sahne",
       "aktor": {
         "ad": "kalem",
-        "surum": "72aedbe",
+        "surum": "5036b96",
         "tur": "betik"
       },
       "zaman": "2026-11-09T11:55:33Z"
     }
   ],
   "arac": {
-    "kalem_commit": "72aedbe",
+    "kalem_commit": "5036b96",
     "motorlar": [
       "Paper.js",
       "HyperFrames",
@@ -30,40 +30,40 @@
   },
   "git": {
     "dijital-anlatim": {
-      "commit": "fd0a18f"
+      "commit": "19984d6"
     },
     "kalem": {
-      "commit": "72aedbe"
+      "commit": "5036b96"
     }
   },
   "imza": {
     "alg": "sha256",
-    "deger": "2e169ff8730e188cc7a2f86b0c8acbe62d0fbd6c083dbc2c6f346c6a78bd18d8"
+    "deger": "48531dae2e061d7ba490e8f4f63f3b0a1b8965f77e8ad3de9f81f90332a56400"
   },
   "kaynaklar": [
     {
-      "kimlik": "transkript:863572960",
+      "kimlik": "transkript:863572777",
       "kullanilan": true,
-      "sha256": "046b63d2266ef3643dc27bf346baf371f0be506bfd682a06a89207403b7d828a",
+      "sha256": "65f532913664ffc062e4797d460cacc38e5fa5a363daec33520f0a99782293fe",
       "tur": "onceki-anlatim",
-      "yol": "varlik/grammar/transkript-whisper/863572960.json"
+      "yol": "varlik/grammar/transkript-whisper/863572777.json"
     },
     {
-      "kimlik": "vimeo:863572960",
+      "kimlik": "vimeo:863572777",
       "kullanilan": true,
       "sha256": null,
       "tur": "onceki-anlatim",
       "yol": null
     },
     {
-      "kimlik": "unit-1_sunum-3 uygun",
+      "kimlik": "unit-1_sunum-2a uygun",
       "kullanilan": true,
-      "sha256": "4b3ac535adaad9d8eca8277a5cec683997ad3e9f562b88e1395959b7be1da1f2",
+      "sha256": "74ef3a1b2f42f0148b0a09a3be13b539c77d2510f7e0aa48437a82e81410a660",
       "tur": "sunum",
-      "yol": "varlik/grammar/kaynak-pptx/YEDEK/Tenses/unit-1_sunum-3 uygun.pptx"
+      "yol": "varlik/grammar/kaynak-pptx/YEDEK/Tenses/unit-1_sunum-2a uygun.pptx"
     }
   ],
-  "kimlik": "UT-20261112-2e16",
+  "kimlik": "UT-20261112-4853",
   "sema": "ut-on/v1",
   "senaryo": {
     "sha256": "e03b7edf872ca4129fe14208688d591b9df406df81976794bc79edf5795ee6ab",
@@ -165,7 +165,7 @@
     ],
     "sha256": "5dfad7fe8575a7b3e039da8644dffc383a21d077e35045367aa5deb84833aecc"
   },
-  "tarih": "2026-11-12T06:48:14Z",
+  "tarih": "2026-11-12T08:05:01Z",
   "varliklar": [
     {
       "ad": "coco",
@@ -204,8 +204,8 @@
     }
   ],
   "video": {
-    "kimlik": "02-04-ydt-temel",
-    "kod": "ING-YDT-GR-02-04-T",
+    "kimlik": "02-02-ydt-temel",
+    "kod": "ING-YDT-GR-02-02-T",
     "paket": "simple-present-temel"
   },
   "yayin": {
