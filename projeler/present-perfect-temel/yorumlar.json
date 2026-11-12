@@ -214,5 +214,17 @@
     "yazar": "sef",
     "tarih": "2026-11-12T07:18:00.178Z",
     "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-19",
+    "gorev": "g-6",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Karar 2 yapıldı (kayit b27705b, canlı 12.11): ders sayfasında 'Üretim tutanağı' bölümü — paket, kapı sonucu, kaynaklar, senaryo yazanı, ses, seviye, imza. İçe alma 23 tutanak yazdı, hepsi Geçerli (kapı GEÇTİ). Bu derste 4 paket görünür (temel, s1, dikey, deneme-metro). Kalan: art tutanak (üretilen sesin metinle karşılaştırması) ve senaryo yazanının adı (bugün 'ad kaydı yok').",
+    "yazar": "sef",
+    "tarih": "2026-11-12T07:47:57.238Z",
+    "durum": "cozuldu"
   }
 ]
