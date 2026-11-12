@@ -37,3 +37,6 @@ projeler/*/sahneler/*/k/
 projeler/*/sahneler/*/yakala.log
 projeler/*/ortak/anlatim/*.m4a
 projeler/*/ortak/anlatim/*.m4a.imza
+
+# KAPI-ÖN sonucu (türetilmiş, içe almadan önce araclar/kapi-yaz.py yazar; 12.11)
+projeler/*/uretim-tutanagi/kapi.json
