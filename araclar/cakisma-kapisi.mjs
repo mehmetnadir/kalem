@@ -32,7 +32,7 @@ if (!paket) {
   process.exit(2);
 }
 
-const KOK = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
+const KOK = process.env.KALEM_KOK || path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const zamanYol = path.join(KOK, "projeler", paket, "zaman.json");
 if (!fs.existsSync(zamanYol)) {
   console.error("HATA zaman.json bulunamadı:", zamanYol);
@@ -42,7 +42,7 @@ if (!fs.existsSync(zamanYol)) {
 const zaman = JSON.parse(fs.readFileSync(zamanYol, "utf8"));
 const sikilik = +(sec.sikilik || 4);
 const pay = +(sec.pay || 4);
-const bekle = +(sec.bekle || 15);
+const bekle = +(sec.bekle || 30);
 const port = sec.port || "9333";
 const sunucu = sec.sunucu || "3012";
 
@@ -63,7 +63,7 @@ if (sec.gorsel) {
   fs.mkdirSync(path.resolve(sec.gorsel), { recursive: true });
 }
 
-const sahneKareBetik = path.join(KOK, "araclar", "sahne-kare.mjs");
+const sahneKareBetik = process.env.SAHNE_KARE_BETIK || path.join(KOK, "araclar", "sahne-kare.mjs");
 const olcKod = "JSON.stringify((() => { if (window.__kalemKutu?.paperTopla) window.__kalemKutu.paperTopla(); return window.__kalemKutu?.kare || []; })())";
 
 function sahneKareCalistir(args) {
@@ -84,7 +84,7 @@ function sahneKareCalistir(args) {
 
     cp.on("error", (err) => reject(err));
     cp.on("close", (code) => {
-      if (code !== 0 && satirlar.length === 0) {
+      if (code !== 0) {
         reject(new Error(stderrMetin.trim() || `sahne-kare çıkış kodu: ${code}`));
       } else {
         resolve(satirlar);
@@ -137,6 +137,9 @@ for (const S of sahneler) {
       "--sunucu", String(sunucu),
       "--olc", olcKod,
     ];
+    if (!sec.gorsel) {
+      args.push("--png", "0");
+    }
 
     const satirlar = await sahneKareCalistir(args);
     const ornekler = [];
@@ -160,7 +163,20 @@ for (const S of sahneler) {
       }
     }
 
-    if (kutuToplam === 0) {
+    if (ornekler.length === 0) {
+      console.log(`${S.klasor} | ölçüm hatası: örnek kare alınamadı`);
+      sonuclar.push({
+        sahne: S.klasor,
+        motor: S.motor,
+        durum: "hata",
+        hata: "örnek kare alınamadı",
+        olaylar: [],
+      });
+      olcumHatasi++;
+      continue;
+    }
+
+    if (kutuToplam === 0 && ornekler.length > 0) {
       console.log(`${S.klasor} | ölçülmedi (kanca kutu üretmedi, ${ornekler.length} örnek)`);
       sonuclar.push({
         sahne: S.klasor,
