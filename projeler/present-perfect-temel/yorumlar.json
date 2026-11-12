@@ -130,5 +130,53 @@
     "yazar": "sef",
     "tarih": "2026-11-12T06:12:17.763Z",
     "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-12",
+    "gorev": "g-6",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Nadir onayı 12.11 ('önerine göre ilerleyelim'): KARARLAR 12.11: 1) kaynağı eksik ya da tutanağı bayat videoda üretim durur (D-0146). 2) Tutanak kayit.ndr.ist ders sayfasında, editör ve yönetici görür (D-0147). Şimdi: şef uyguluyor.",
+    "yazar": "sef",
+    "tarih": "2026-11-12T06:20:01.516Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-13",
+    "gorev": "g-7",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Nadir onayı 12.11 ('önerine göre ilerleyelim'): KARARLAR 12.11 (D-0147): 1) Doğan Hoca anlatımı karşılaştırma tabanı; çelişkide hüküm Doğan Hoca ya da editör. 2) Senaryoda kırmızı bayrak ses ve video üretimini durdurur. 4) Konu birden çok eski videoya yayılıyorsa hepsi kaynak. 5) Maarif hattı kazanım metni bulunana kadar bekler, önce YDT. AÇIK: 3) İlk 3 videoyu kim okuyacak (isim Nadir'den). Şimdi: denetim betiği yazılıyor.",
+    "yazar": "sef",
+    "tarih": "2026-11-12T06:20:01.516Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-14",
+    "gorev": "g-10",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Nadir onayı 12.11 ('önerine göre ilerleyelim'): KARAR 12.11 (D-0147): kullanılmayan Garamond ve Fell yüklemesi kalkar; woff2 kurulumu yok. Şimdi: şef uyguluyor.",
+    "yazar": "sef",
+    "tarih": "2026-11-12T06:20:01.516Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-15",
+    "gorev": "g-11",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Nadir onayı 12.11 ('önerine göre ilerleyelim'): KARAR 12.11 (D-0147): 33 pakete tek seferde. Şimdi: agy-filo şeritleri uyguluyor, şef doğrular.",
+    "yazar": "sef",
+    "tarih": "2026-11-12T06:20:01.516Z",
+    "durum": "cozuldu"
   }
 ]

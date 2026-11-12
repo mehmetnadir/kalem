@@ -466,5 +466,101 @@
     "yazar": "sef",
     "tarih": "2026-11-11T11:45:47.220Z",
     "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-40",
+    "gorev": "g-7",
+    "surum": null,
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Nadir onayı 12.11 ('önerine göre ilerleyelim'): 12.11: kapı önce bu derste kurulacak; sahne düzeltmeleri (g-13, g-14, g-15) bittikten sonra başlar (aynı dosyalar).",
+    "yazar": "sef",
+    "tarih": "2026-11-12T06:20:01.516Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-41",
+    "gorev": "g-10",
+    "surum": null,
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Nadir onayı 12.11 ('önerine göre ilerleyelim'): KARAR 12.11 (D-0147): quiz PDF yalnız kendi alanımızda, videonun yayın setinin içinde; ders sayfasında 'PDF indir'. Drive yok. Quiz içeriği P3'te.",
+    "yazar": "sef",
+    "tarih": "2026-11-12T06:20:01.516Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-42",
+    "gorev": "g-11",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Nadir onayı 12.11 ('önerine göre ilerleyelim'): KARAR 12.11 (D-0147): açık palet olduğu gibi onaylandı (35/35 pakette aynı, kalem ortak/kunye.js).",
+    "yazar": "sef",
+    "tarih": "2026-11-12T06:20:01.516Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-43",
+    "gorev": "g-12",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Nadir onayı 12.11 ('önerine göre ilerleyelim'): KARAR 12.11 (D-0147): bugünkü kural yeterli: nesne sahne sonuna kadar kalır; 4 sn durağanlık sınırını kapı ölçer (ölçüm: en uzun olaysız aralık 2,8 sn).",
+    "yazar": "sef",
+    "tarih": "2026-11-12T06:20:01.516Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-44",
+    "gorev": "g-13",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Nadir onayı 12.11 ('önerine göre ilerleyelim'): 12.11: şef uyguluyor (kedi büyüt, gövdeye taşı).",
+    "yazar": "sef",
+    "tarih": "2026-11-12T06:20:01.516Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-45",
+    "gorev": "g-14",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Nadir onayı 12.11 ('önerine göre ilerleyelim'): KARAR 12.11 (D-0147): a) içerik kutusu sol alta taşınır; süre gerçek değerden otomatik yazılır (g-29). Şimdi: şef uyguluyor.",
+    "yazar": "sef",
+    "tarih": "2026-11-12T06:20:01.516Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-46",
+    "gorev": "g-15",
+    "surum": "ana-yatay",
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Nadir onayı 12.11 ('önerine göre ilerleyelim'): 12.11: şef uyguluyor (kamera ve piyano Coco ile).",
+    "yazar": "sef",
+    "tarih": "2026-11-12T06:20:01.516Z",
+    "durum": "cozuldu"
+  },
+  {
+    "kimlik": "y-47",
+    "gorev": "g-29",
+    "surum": null,
+    "t": null,
+    "sahne": null,
+    "nesne": null,
+    "metin": "Nadir onayı 12.11 ('önerine göre ilerleyelim'): KARAR 12.11 (D-0147): süre videonun kendi süresinden otomatik yazılır; senaryo cümlesi düzeltilir. Önce iki pilot ders, sonra öteki paketler.",
+    "yazar": "sef",
+    "tarih": "2026-11-12T06:20:01.516Z",
+    "durum": "cozuldu"
   }
 ]
