@@ -353,6 +353,7 @@ export class Sahne {
   async kare(f, hepsi) {
     if (typeof window !== "undefined" && window.__kalemKutu) {
       window.__kalemKutu.kare = [];
+      window.__kalemKutu.ctx = this.ctx;
     }
     const ctx = this.ctx;
     zeminCiz(ctx, f, this.K);

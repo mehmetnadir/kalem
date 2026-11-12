@@ -27,6 +27,16 @@ if (typeof window !== "undefined" && !window.__kalemKutu) {
   window.__kalemKutu = {
     kare: [],
     ekle(tur, ad, x, y, w, h) {
+      // Çizim anındaki dönüşüm (grup küçülmesi, kaydırma) kutuya uygulanır; ctx'i sahne kare() kancası verir
+      const m = this.ctx && this.ctx.getTransform ? this.ctx.getTransform() : null;
+      if (m && !m.isIdentity && w > 0 && h > 0) {
+        const xs = [], ys = [];
+        for (const [px, py] of [[x, y], [x + w, y], [x, y + h], [x + w, y + h]]) {
+          xs.push(m.a * px + m.c * py + m.e);
+          ys.push(m.b * px + m.d * py + m.f);
+        }
+        x = Math.min(...xs); y = Math.min(...ys); w = Math.max(...xs) - x; h = Math.max(...ys) - y;
+      }
       if (w > 0 && h > 0) {
         this.kare.push({
           tur,
@@ -49,6 +59,16 @@ if (typeof window !== "undefined" && !window.__kalemKutu) {
   window.__kalemKutu = {
     kare: [],
     ekle(tur, ad, x, y, w, h) {
+      // Çizim anındaki dönüşüm (grup küçülmesi, kaydırma) kutuya uygulanır; ctx'i sahne kare() kancası verir
+      const m = this.ctx && this.ctx.getTransform ? this.ctx.getTransform() : null;
+      if (m && !m.isIdentity && w > 0 && h > 0) {
+        const xs = [], ys = [];
+        for (const [px, py] of [[x, y], [x + w, y], [x, y + h], [x + w, y + h]]) {
+          xs.push(m.a * px + m.c * py + m.e);
+          ys.push(m.b * px + m.d * py + m.f);
+        }
+        x = Math.min(...xs); y = Math.min(...ys); w = Math.max(...xs) - x; h = Math.max(...ys) - y;
+      }
       if (w > 0 && h > 0) {
         this.kare.push({
           tur,
@@ -1075,6 +1095,7 @@ export function kancaSahneOrtak(icerik, dosyaYol) {
   const YENI_KARE = `  async kare(f, hepsi) {
     if (typeof window !== "undefined" && window.__kalemKutu) {
       window.__kalemKutu.kare = [];
+      window.__kalemKutu.ctx = this.ctx;
     }
     const ctx = this.ctx;`;
   metin = metin.replace(CAPA_KARE, YENI_KARE);

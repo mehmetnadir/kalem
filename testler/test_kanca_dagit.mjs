@@ -30,6 +30,21 @@ test("kancaKalemCanvas: çapa bulunur, kanca eklenir, eşgüçlüdür (ikinci ko
   const hatali = `export const kis = 1;\n`;
   const res3 = kancaKalemCanvas(hatali, "kalem-canvas.js");
   assert.equal(res3.durum, "CAPA_YOK");
+
+  // ekle() kutuyu çizim anındaki ctx dönüşümünden geçirir (12.11: S.grup 0,42 küçültmesi dikeyde yanlış hata verdi)
+  const bas = res1.icerik.indexOf("if (typeof window");
+  const son = res1.icerik.indexOf("// ---------- küçük yardımcılar");
+  const pencere = {};
+  new Function("window", res1.icerik.slice(bas, son))(pencere);
+  const K = pencere.__kalemKutu;
+  K.ekle("cizim", "duz", 100, 200, 80, 40);
+  K.ctx = { getTransform: () => ({ a: 1, b: 0, c: 0, d: 1, e: 0, f: 0, isIdentity: true }) };
+  K.ekle("cizim", "birim", 100, 200, 80, 40);
+  // (540, 830) çevresinde 0,5 ölçek: x' = 0,5x + 270, y' = 0,5y + 415
+  K.ctx = { getTransform: () => ({ a: 0.5, b: 0, c: 0, d: 0.5, e: 270, f: 415, isIdentity: false }) };
+  K.ekle("cizim", "kucuk", 100, 200, 80, 40);
+  assert.deepEqual(K.kare.map((k) => [k.ad, k.x, k.y, k.w, k.h]), [
+    ["duz", 100, 200, 80, 40], ["birim", 100, 200, 80, 40], ["kucuk", 320, 515, 40, 20]]);
 });
 
 test("kancaKunye: çapa bulunur, kanca eklenir, eşgüçlüdür, çapa yoksa CAPA_YOK", () => {
@@ -165,6 +180,7 @@ test("kancaSahneOrtak: çapa bulunur, kanca eklenir, eşgüçlüdür, çapa yoks
   const res1 = kancaSahneOrtak(mini, "sahne-ortak.js");
   assert.equal(res1.durum, "DEGISTI");
   assert.ok(res1.icerik.includes("__kalemKutu"));
+  assert.ok(res1.icerik.includes("window.__kalemKutu.ctx = this.ctx;"));
 
   // Çizim kutusu donusum'den geçer (12.11: kalkan uçağın kutusu pistte kalıyordu)
   const gecici = fs.mkdtempSync(path.join(os.tmpdir(), "kanca-"));

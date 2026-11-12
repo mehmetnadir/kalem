@@ -14,6 +14,16 @@ if (typeof window !== "undefined" && !window.__kalemKutu) {
   window.__kalemKutu = {
     kare: [],
     ekle(tur, ad, x, y, w, h) {
+      // Çizim anındaki dönüşüm (grup küçülmesi, kaydırma) kutuya uygulanır; ctx'i sahne kare() kancası verir
+      const m = this.ctx && this.ctx.getTransform ? this.ctx.getTransform() : null;
+      if (m && !m.isIdentity && w > 0 && h > 0) {
+        const xs = [], ys = [];
+        for (const [px, py] of [[x, y], [x + w, y], [x, y + h], [x + w, y + h]]) {
+          xs.push(m.a * px + m.c * py + m.e);
+          ys.push(m.b * px + m.d * py + m.f);
+        }
+        x = Math.min(...xs); y = Math.min(...ys); w = Math.max(...xs) - x; h = Math.max(...ys) - y;
+      }
       if (w > 0 && h > 0) {
         this.kare.push({
           tur,
