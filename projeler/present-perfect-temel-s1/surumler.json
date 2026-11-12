@@ -35,5 +35,13 @@
       "tarih": "2026-11-05T01:30:00Z"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "s1",
+      "no": "r1",
+      "tarih": "2026-11-12T22:26:00Z",
+      "degisiklik": "3. cümle anlatımından 6 dakika iddiası kaldırıldı; CTA sahnesi süresiz biçime uyarlandı",
+      "cikti": "cikti.mp4"
+    }
+  ]
 }

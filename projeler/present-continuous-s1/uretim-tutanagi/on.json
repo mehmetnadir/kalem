@@ -1,0 +1,181 @@
+{
+  "adimlar": [
+    {
+      "adim": "ses",
+      "aktor": {
+        "ad": "el.py",
+        "surum": null,
+        "tur": "betik"
+      },
+      "zaman": "2026-11-12T17:32:22Z"
+    },
+    {
+      "adim": "sahne",
+      "aktor": {
+        "ad": "kalem",
+        "surum": "128c33c",
+        "tur": "betik"
+      },
+      "zaman": "2026-11-09T11:55:18Z"
+    }
+  ],
+  "arac": {
+    "kalem_commit": "128c33c",
+    "motorlar": [
+      "Paper.js",
+      "HyperFrames",
+      "canvas"
+    ],
+    "python": "3.15.2"
+  },
+  "git": {
+    "dijital-anlatim": {
+      "commit": "6663e7c"
+    },
+    "kalem": {
+      "commit": "128c33c"
+    }
+  },
+  "imza": {
+    "alg": "sha256",
+    "deger": "c7fca570ab8de3b903838c55eb98f0ecd43ef96162017475a4d1b89e629ce299"
+  },
+  "kaynaklar": [
+    {
+      "kimlik": "transkript:869524450",
+      "kullanilan": true,
+      "sha256": "9bb4c8668cae785c230ead0b4e07fe6de626717d1ca53d7d917a870494e3c169",
+      "tur": "onceki-anlatim",
+      "yol": "varlik/grammar/transkript-whisper/869524450.json"
+    },
+    {
+      "kimlik": "vimeo:863572654",
+      "kullanilan": true,
+      "sha256": null,
+      "tur": "onceki-anlatim",
+      "yol": null
+    },
+    {
+      "kimlik": "vimeo:869524450",
+      "kullanilan": true,
+      "sha256": null,
+      "tur": "onceki-anlatim",
+      "yol": null
+    },
+    {
+      "kimlik": "unit-1_sunum-1-çekildi",
+      "kullanilan": true,
+      "sha256": "fe29e699247006093a9320b631899419524cf7313df6d719b1776b99e1f380ec",
+      "tur": "sunum",
+      "yol": "varlik/grammar/kaynak-pptx/YEDEK/Tenses/unit-1_sunum-1-çekildi.pptx"
+    }
+  ],
+  "kimlik": "UT-20261112-c7fc",
+  "sema": "ut-on/v1",
+  "senaryo": {
+    "sha256": "dca7f1a8b16267e488966d9d4d07ce5c9f619635c06118ba9eca4ea65c15c08b",
+    "yazan": {
+      "ad": "bilinmiyor",
+      "surum": null,
+      "tur": "model"
+    },
+    "yol": "ortak/anlatim/METIN.md"
+  },
+  "ses": [
+    {
+      "benzerlik": null,
+      "cumle": 1,
+      "dosya": "ortak/anlatim/cumle-1.wav",
+      "metin_sha256": "a5705221fbdf33584959809e790b388fafde67b2c334cce40227fab5b3e26f7a",
+      "model": "elevenlabs-v4",
+      "ses_kimligi": "bilinmiyor",
+      "sha256": "495e90272dc7886aca8fbfc7c06dfc8b70b4257e6ffac4764fd0e136e4d5b220",
+      "sure": 6.66
+    },
+    {
+      "benzerlik": null,
+      "cumle": 2,
+      "dosya": "ortak/anlatim/cumle-2.wav",
+      "metin_sha256": "2bca6833151ef154e0d672d6b0dc6f13f1f9730ae2be5fc48cd387120c093605",
+      "model": "elevenlabs-v4",
+      "ses_kimligi": "bilinmiyor",
+      "sha256": "a9b19593f32b116a40cd784516d231069a2ce47681e7f6e836de9ed5978144ee",
+      "sure": 9.76
+    },
+    {
+      "benzerlik": null,
+      "cumle": 3,
+      "dosya": "ortak/anlatim/cumle-3.wav",
+      "metin_sha256": "ec32cf14824291ceb157b6c150d6606fe178b22930cc335d024e89b916d3a675",
+      "model": "elevenlabs-v4",
+      "ses_kimligi": "bilinmiyor",
+      "sha256": "9b254ae7dbb0d49eee9db508f16a16ade4a85046820ee3b258139d26c60c64c2",
+      "sure": 4.47
+    }
+  ],
+  "seviye_politikasi": {
+    "durum": "tam",
+    "seviye": "temel",
+    "zorunlu_kaynak_turleri": [
+      "onceki-anlatim"
+    ]
+  },
+  "sozlesme": {
+    "dosya": ".claude/docs/sozlesme.md",
+    "kapsayan_kararlar": [
+      "K24",
+      "K25",
+      "K27",
+      "K30",
+      "K33",
+      "K34"
+    ],
+    "sha256": "5dfad7fe8575a7b3e039da8644dffc383a21d077e35045367aa5deb84833aecc"
+  },
+  "tarih": "2026-11-12T17:41:57Z",
+  "varliklar": [
+    {
+      "ad": "coco",
+      "kapsam": "katalog",
+      "kaynak": "varlik/cizim/katalog.json",
+      "lisans": "CC0-1.0",
+      "tur": "cizim"
+    },
+    {
+      "ad": "open-doodles",
+      "kapsam": "katalog",
+      "kaynak": "varlik/cizim/katalog.json",
+      "lisans": "CC0-1.0",
+      "tur": "cizim"
+    },
+    {
+      "ad": "open-peeps",
+      "kapsam": "katalog",
+      "kaynak": "varlik/cizim/katalog.json",
+      "lisans": "CC0-1.0",
+      "tur": "cizim"
+    },
+    {
+      "ad": "peeps-kit",
+      "kapsam": "katalog",
+      "kaynak": "varlik/cizim/katalog.json",
+      "lisans": "MIT",
+      "tur": "cizim"
+    },
+    {
+      "ad": "tabler",
+      "kapsam": "katalog",
+      "kaynak": "varlik/cizim/katalog.json",
+      "lisans": "MIT",
+      "tur": "cizim"
+    }
+  ],
+  "video": {
+    "kimlik": "present-continuous-s1",
+    "kod": "ING-YDT-GR-02-01-T-S1",
+    "paket": "present-continuous-s1"
+  },
+  "yayin": {
+    "manifest_imza": null
+  }
+}

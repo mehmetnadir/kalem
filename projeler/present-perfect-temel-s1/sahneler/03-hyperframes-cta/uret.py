@@ -39,7 +39,7 @@ def uret():
     cav = "Tam ders:"
     cav_w = Y.genislik("Caveat", 700, cav, CAV_BOY) + 24
     # alt satır: saat simgesi + "@ydspublishing · 6 dk"
-    t_a, t_b = "@ydspublishing", " · 6 dk"   # karar A 05.11: tek kimlik
+    t_a, t_b = "@ydspublishing", ""
     wa = Y.genislik("Lexend", 700, t_a, L_BOY)
     wb = Y.genislik("Lexend", 700, t_b, L_BOY)
     ic = 108 + 28                   # saat çapı + boşluk

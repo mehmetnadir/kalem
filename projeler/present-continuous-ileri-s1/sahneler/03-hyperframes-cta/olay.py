@@ -16,7 +16,6 @@ ol = [{"kare": f(Z["bant_kontur"][0]), "tur": "cizgi", "guc": 0.6},
       {"kare": f(Z["satir2"][0]), "tur": "tik", "guc": 0.5},
       {"kare": f(Z["ileri"][0]), "tur": "hisirti", "guc": 0.5},
       {"kare": f(Z["ileri_alt"][0]), "tur": "cizgi", "guc": 0.5},
-      {"kare": f(Z["dakika"][0]) + 1, "tur": "hisirti", "guc": 0.5},
       {"kare": f(Z["pill"][0]), "tur": "tik", "guc": 0.6},
       {"kare": f(Z["cta"][0]), "tur": "hisirti", "guc": 0.5},
       {"kare": f(Z["parilti"]), "tur": "parilti", "guc": 0.5}]

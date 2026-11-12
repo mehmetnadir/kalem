@@ -1,6 +1,6 @@
 # Sahne 03 CTA (HyperFrames, 268 kare, t_bas 15,82)
 
-Tema: acik + koyu
+Tema: koyu
 
 - Kare: 268 (iki tema). Olay: 12. Çip `Full lesson`. Son söz 22,76 sn (yerel 6,94) sonrası durgun + hafif nabız.
 - Baktığım kareler: `k/45.png` (1,5 sn) · `k/102.png` (3,4 sn) · `k/168.png` (5,6 sn) · `k/192.png` (6,4 sn, koyu) · `kontrol.png`.

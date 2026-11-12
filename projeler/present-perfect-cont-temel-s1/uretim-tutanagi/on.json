@@ -7,38 +7,38 @@
         "surum": null,
         "tur": "betik"
       },
-      "zaman": "2026-11-04T22:19:25Z"
+      "zaman": "2026-11-12T18:21:48Z"
     },
     {
       "adim": "sahne",
       "aktor": {
         "ad": "kalem",
-        "surum": "72aedbe",
+        "surum": "5ba5c03",
         "tur": "betik"
       },
       "zaman": "2026-11-09T11:55:21Z"
     }
   ],
   "arac": {
-    "kalem_commit": "72aedbe",
+    "kalem_commit": "5ba5c03",
     "motorlar": [
       "Paper.js",
       "HyperFrames",
       "canvas"
     ],
-    "python": "3.9.6"
+    "python": "3.15.2"
   },
   "git": {
     "dijital-anlatim": {
-      "commit": "fd0a18f"
+      "commit": "6663e7c"
     },
     "kalem": {
-      "commit": "72aedbe"
+      "commit": "5ba5c03"
     }
   },
   "imza": {
     "alg": "sha256",
-    "deger": "e002a0cd869d66f6bb3a807c3268ce1432548b8d25eefc7f11a830c5d533b5f9"
+    "deger": "5ab6b9f05a00dc0e38749906f2ad9df3c5fe37572baf051d1e3268c27f943097"
   },
   "kaynaklar": [
     {
@@ -63,10 +63,10 @@
       "yol": "varlik/grammar/kaynak-pptx/YEDEK/Tenses/unit-1_sunum-5 uygun.pptx"
     }
   ],
-  "kimlik": "UT-20261112-e002",
+  "kimlik": "UT-20261112-5ab6",
   "sema": "ut-on/v1",
   "senaryo": {
-    "sha256": "0b5569e3c4b5625671515cb0a9a3caed6b4f42453849b7ae4edc842fe87aea60",
+    "sha256": "bb5e77b5f8ba551ae811e2031f266a8395ce68e3a63dad80344064e25b978c3b",
     "yazan": {
       "ad": "bilinmiyor",
       "surum": null,
@@ -99,11 +99,11 @@
       "benzerlik": null,
       "cumle": 3,
       "dosya": "ortak/anlatim/cumle-3.wav",
-      "metin_sha256": "504b348b2abf7401c4e33329f25d9e17cb95a67f322ebd3ff2a80899d63652db",
+      "metin_sha256": "74874ed5d3dcf16aa0072cbe2d35b520b956749e1fca73fd79d061f0fa9b4174",
       "model": "elevenlabs-v4",
       "ses_kimligi": "gsJ9nrlXYbPztJxC4fwc",
-      "sha256": "984ca01e215660c3c4832d72666d74f5bc21b762260a477d2c1b8ca97e8b9463",
-      "sure": 5.67
+      "sha256": "c5957a56e8c869927f457596b63d5941a8a07a13484f7eb9cade52e62c53b195",
+      "sure": 4.79
     }
   ],
   "seviye_politikasi": {
@@ -125,7 +125,7 @@
     ],
     "sha256": "5dfad7fe8575a7b3e039da8644dffc383a21d077e35045367aa5deb84833aecc"
   },
-  "tarih": "2026-11-12T06:47:28Z",
+  "tarih": "2026-11-12T18:23:26Z",
   "varliklar": [
     {
       "ad": "coco",

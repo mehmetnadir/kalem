@@ -4,7 +4,7 @@
 |---|---|---|---|---|
 | 1 | 1.00 | 7.33 | öğretmen | Sınav tek şey sorar: süreç mi, sonuç mu? Have been plus the -ing form. |
 | 2 | 7.80 | 16.77 | öğretmen | I have been reading this novel all week, but I have only finished two chapters. Süreç, been reading. Sonuç, have finished. |
-| 3 | 17.24 | 22.99 | öğretmen | Tam ders: Present Perfect Continuous, 6 dakika. Tam dersi kanalda izle. |
+| 3 | 17.24 | 22.99 | öğretmen | Tam ders: Present Perfect Continuous. Tam dersi kanalda izle. |
 
 ## Parçalar (cümle içi dil/duraklama parçaları, küresel sn)
 

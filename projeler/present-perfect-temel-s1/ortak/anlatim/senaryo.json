@@ -1,135 +1,135 @@
 {
- "ders": "İngilizce",
- "baslik": "Present Perfect",
- "duzen": "konu",
- "seviye": "temel",
- "kitle": "YDT",
- "sesler": {
-  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
-  "ogrenci": "oPC5I9GKjMReiaM29gjY"
- },
- "kadro": {
-  "ogretmen": {
-   "ses": "gsJ9nrlXYbPztJxC4fwc",
-   "cinsiyet": "erkek",
-   "yas": "yetiskin",
-   "govde": "ShirtPantsWB",
-   "yuz": "Smile",
-   "sac": "Short"
-  }
- },
- "kartlar": {
-  "kanca": {
-   "tip": "ornek",
-   "en": "I have lost my keys.",
-   "tr": "Anahtarımı kaybettim, kapıda kaldım."
-  }
- },
- "cumleler": [
-  {
-   "ses": "ogretmen",
-   "parcalar": [
-    [
-     "tr",
-     "Anahtarımı kaybettim, kapıda kaldım."
-    ],
-    [
-     "tr",
-     "Türkçede geçmiş gibi durur, ama etkisi şimdi sürer."
-    ]
-   ],
-   "olaylar": [],
-   "metin": "Anahtarımı kaybettim, kapıda kaldım. Türkçede geçmiş gibi durur, ama etkisi şimdi sürer."
-  },
-  {
-   "ses": "ogretmen",
-   "parcalar": [
-    [
-     "en",
-     "I have lost my keys."
-    ],
-    [
-     "tr",
-     "Anahtarlarımı kaybettim, hâlâ bulamadım."
-    ],
-    [
-     "tr",
-     "Have, artı fiilin üçüncü hâli."
-    ]
-   ],
-   "olaylar": [],
-   "metin": "I have lost my keys. Anahtarlarımı kaybettim, hâlâ bulamadım. Have, artı fiilin üçüncü hâli."
-  },
-  {
-   "ses": "ogretmen",
-   "parcalar": [
-    [
-     "tr",
-     "Tam ders: Present Perfect, altı dakika."
-    ],
-    [
-     "tr",
-     "Tam dersi kanalda izle."
-    ]
-   ],
-   "olaylar": [],
-   "metin": "Tam ders: Present Perfect, altı dakika. Tam dersi kanalda izle."
-  }
- ],
- "zaman": {
-  "giris": {
-   "sure": 3,
-   "ilkSoz": 1
-  }
- },
- "giris": {
-  "logo": "varlik/logo/yds-publishing.svg",
-  "satir1": "KAYBETTİM",
-  "satir2": "= I HAVE LOST",
-  "rozetler": [
-   "YDT · BASIC",
-   "GRAMMAR"
-  ],
-  "sahne": [
-   {
-    "figur": "ogretmen",
-    "x": 32,
-    "y": 58,
-    "olcek": 0.8
-   },
-   {
-    "ad": "home",
-    "x": 72,
-    "y": 52,
-    "olcek": 0.5
-   }
-  ]
- },
- "meta": {
-  "kimlik": "02-06-ydt-temel-s1",
-  "kod": "ING-YDT-GR-02-06-T-S1",
   "ders": "İngilizce",
-  "konu": "Present Perfect",
-  "kitle": "ydt",
+  "baslik": "Present Perfect",
+  "duzen": "konu",
   "seviye": "temel",
-  "kapak": {
-   "satir1": "KAYBETTİM",
-   "satir2": "= I HAVE LOST",
-   "canAlici": "Türkçede -dı, İngilizcede sonucu şimdi olan geçmiş"
+  "kitle": "YDT",
+  "sesler": {
+    "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+    "ogrenci": "oPC5I9GKjMReiaM29gjY"
   },
-  "amaclar": [
-   "Present Perfect ile sonucu şimdi olan geçmişi anlatmak"
+  "kadro": {
+    "ogretmen": {
+      "ses": "gsJ9nrlXYbPztJxC4fwc",
+      "cinsiyet": "erkek",
+      "yas": "yetiskin",
+      "govde": "ShirtPantsWB",
+      "yuz": "Smile",
+      "sac": "Short"
+    }
+  },
+  "kartlar": {
+    "kanca": {
+      "tip": "ornek",
+      "en": "I have lost my keys.",
+      "tr": "Anahtarımı kaybettim, kapıda kaldım."
+    }
+  },
+  "cumleler": [
+    {
+      "ses": "ogretmen",
+      "parcalar": [
+        [
+          "tr",
+          "Anahtarımı kaybettim, kapıda kaldım."
+        ],
+        [
+          "tr",
+          "Türkçede geçmiş gibi durur, ama etkisi şimdi sürer."
+        ]
+      ],
+      "olaylar": [],
+      "metin": "Anahtarımı kaybettim, kapıda kaldım. Türkçede geçmiş gibi durur, ama etkisi şimdi sürer."
+    },
+    {
+      "ses": "ogretmen",
+      "parcalar": [
+        [
+          "en",
+          "I have lost my keys."
+        ],
+        [
+          "tr",
+          "Anahtarlarımı kaybettim, hâlâ bulamadım."
+        ],
+        [
+          "tr",
+          "Have, artı fiilin üçüncü hâli."
+        ]
+      ],
+      "olaylar": [],
+      "metin": "I have lost my keys. Anahtarlarımı kaybettim, hâlâ bulamadım. Have, artı fiilin üçüncü hâli."
+    },
+    {
+      "ses": "ogretmen",
+      "parcalar": [
+        [
+          "tr",
+          "Tam ders: Present Perfect."
+        ],
+        [
+          "tr",
+          "Tam dersi kanalda izle."
+        ]
+      ],
+      "olaylar": [],
+      "metin": "Tam ders: Present Perfect. Tam dersi kanalda izle."
+    }
   ],
-  "canAlici": [
-   "Türkçede -dı, İngilizcede have + üçüncü hâl"
-  ],
-  "kazanim": [],
-  "etiketler": [
-   "İngilizce",
-   "temel",
-   "gramer",
-   "Present Perfect",
-   "shorts"
-  ]
- }
+  "zaman": {
+    "giris": {
+      "sure": 3,
+      "ilkSoz": 1
+    }
+  },
+  "giris": {
+    "logo": "varlik/logo/yds-publishing.svg",
+    "satir1": "KAYBETTİM",
+    "satir2": "= I HAVE LOST",
+    "rozetler": [
+      "YDT · BASIC",
+      "GRAMMAR"
+    ],
+    "sahne": [
+      {
+        "figur": "ogretmen",
+        "x": 32,
+        "y": 58,
+        "olcek": 0.8
+      },
+      {
+        "ad": "home",
+        "x": 72,
+        "y": 52,
+        "olcek": 0.5
+      }
+    ]
+  },
+  "meta": {
+    "kimlik": "02-06-ydt-temel-s1",
+    "kod": "ING-YDT-GR-02-06-T-S1",
+    "ders": "İngilizce",
+    "konu": "Present Perfect",
+    "kitle": "ydt",
+    "seviye": "temel",
+    "kapak": {
+      "satir1": "KAYBETTİM",
+      "satir2": "= I HAVE LOST",
+      "canAlici": "Türkçede -dı, İngilizcede sonucu şimdi olan geçmiş"
+    },
+    "amaclar": [
+      "Present Perfect ile sonucu şimdi olan geçmişi anlatmak"
+    ],
+    "canAlici": [
+      "Türkçede -dı, İngilizcede have + üçüncü hâl"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Present Perfect",
+      "shorts"
+    ]
+  }
 }

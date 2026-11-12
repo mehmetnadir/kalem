@@ -29,9 +29,7 @@ L_BOY, L_Y = 64, 1337
 
 
 def yapi():
-    saat = Y.tabler("clock")
-    sz = Y.cizgi_zamanlari([57.0, 8.0], Z["saat"][0], Z["saat"][0] + Z["saat"][1])
-    return saat, sz
+    return [], []
 
 
 def uret():
@@ -40,9 +38,9 @@ def uret():
     cav_w = Y.genislik("Caveat", 700, cav, CAV_BOY) + 24
     il = "ileri seviye"
     il_w = Y.genislik("Fredoka", 700, il, IL_BOY)
-    dk = "6 dakika"
-    dk_w = Y.genislik("Fredoka", 700, dk, DK_BOY) + 24
-    t_a, t_b = "@ydspublishing", " · 6 dk"   # karar A 05.11: tek kimlik
+    dk = ""
+    dk_w = 0
+    t_a, t_b = "@ydspublishing", ""
     wa = Y.genislik("Fredoka", 700, t_a, L_BOY)
     wb = Y.genislik("Fredoka", 700, t_b, L_BOY)
     lx = CX - (wa + wb) / 2

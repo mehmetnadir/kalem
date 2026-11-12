@@ -1,66 +1,66 @@
 [
- {
-  "cumle": 1,
-  "dil": "tr",
-  "t0": 1.0,
-  "t1": 2.2,
-  "metin": "Bu akşam gidiyorum.",
-  "konusan": "ogretmen"
- },
- {
-  "cumle": 1,
-  "dil": "en",
-  "t0": 2.45,
-  "t1": 4.13,
-  "metin": "I am going tonight.",
-  "konusan": "ogretmen"
- },
- {
-  "cumle": 1,
-  "dil": "tr",
-  "t0": 4.38,
-  "t1": 7.74,
-  "metin": "İki dilde de şimdiki zaman, ama gelecek demek.",
-  "konusan": "ogretmen"
- },
- {
-  "cumle": 2,
-  "dil": "en",
-  "t0": 8.21,
-  "t1": 9.97,
-  "metin": "I'm going to my uncle's tonight.",
-  "konusan": "ogretmen"
- },
- {
-  "cumle": 2,
-  "dil": "tr",
-  "t0": 10.22,
-  "t1": 12.62,
-  "metin": "Bu akşam amcamlara gidiyorum.",
-  "konusan": "ogretmen"
- },
- {
-  "cumle": 2,
-  "dil": "tr",
-  "t0": 12.77,
-  "t1": 18.05,
-  "metin": "Fiil artı -ing. Önüne de am, is ya da are gelir.",
-  "konusan": "ogretmen"
- },
- {
-  "cumle": 3,
-  "dil": "tr",
-  "t0": 18.52,
-  "t1": 21.88,
-  "metin": "Tam ders: Present Continuous, 6 dakika.",
-  "konusan": "ogretmen"
- },
- {
-  "cumle": 3,
-  "dil": "tr",
-  "t0": 22.03,
-  "t1": 23.87,
-  "metin": "Tam dersi kanalda izle.",
-  "konusan": "ogretmen"
- }
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 2.2,
+"metin": "Bu akşam gidiyorum.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 1,
+"dil": "en",
+"t0": 2.45,
+"t1": 4.13,
+"metin": "I am going tonight.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 4.38,
+"t1": 7.74,
+"metin": "İki dilde de şimdiki zaman, ama gelecek demek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 8.21,
+"t1": 9.97,
+"metin": "I'm going to my uncle's tonight.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 10.22,
+"t1": 12.62,
+"metin": "Bu akşam amcamlara gidiyorum.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 12.77,
+"t1": 18.05,
+"metin": "Fiil artı -ing. Önüne de am, is ya da are gelir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 18.52,
+"t1": 21.0,
+"metin": "Tam ders: Present Continuous.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 21.15,
+"t1": 23.07,
+"metin": "Tam dersi kanalda izle.",
+"konusan": "ogretmen"
+}
 ]

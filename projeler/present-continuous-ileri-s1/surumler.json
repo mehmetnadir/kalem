@@ -43,5 +43,13 @@
       "tarih": "2026-11-05T01:10:00Z"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "s1",
+      "no": "r1",
+      "tarih": "2026-11-12T18:00:00Z",
+      "degisiklik": "S1 Shorts ileri: 3 sahne, 1080x1920, süre iddiası kaldırıldı",
+      "cikti": "cikti.mp4"
+    }
+  ]
 }

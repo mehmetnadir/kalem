@@ -1,9 +1,58 @@
 [
-{"cumle": 1, "dil": "tr", "t0": 1.0, "t1": 1.56, "metin": "Biliyorum", "konusan": "ogretmen"},
-{"cumle": 1, "dil": "en", "t0": 1.81, "t1": 2.61, "metin": "I am knowing", "konusan": "ogretmen"},
-{"cumle": 1, "dil": "tr", "t0": 2.86, "t1": 6.38, "metin": "diyemezsin. YDT tam burada tuzak kurar.", "konusan": "ogretmen"},
-{"cumle": 2, "dil": "en", "t0": 6.93, "t1": 10.45, "metin": "I know the answer, but I am not telling anyone.", "konusan": "ogretmen"},
-{"cumle": 2, "dil": "tr", "t0": 10.7, "t1": 15.82, "metin": "Cevabı biliyorum ama kimseye söylemiyorum. Bilmek durumdur, -ing almaz.", "konusan": "ogretmen"},
-{"cumle": 3, "dil": "tr", "t0": 16.37, "t1": 20.85, "metin": "Tam ders: Present Continuous, ileri seviye, 6 dakika.", "konusan": "ogretmen"},
-{"cumle": 3, "dil": "tr", "t0": 21.0, "t1": 22.76, "metin": "Tam dersi kanalda izle.", "konusan": "ogretmen"}
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 1.56,
+"metin": "Biliyorum",
+"konusan": "ogretmen"
+},
+{
+"cumle": 1,
+"dil": "en",
+"t0": 1.81,
+"t1": 2.61,
+"metin": "I am knowing",
+"konusan": "ogretmen"
+},
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 2.86,
+"t1": 6.46,
+"metin": "diyemezsin. YDT tam burada tuzak kurar.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 6.93,
+"t1": 10.45,
+"metin": "I know the answer, but I am not telling anyone.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 10.7,
+"t1": 15.9,
+"metin": "Cevabı biliyorum ama kimseye söylemiyorum. Bilmek durumdur, -ing almaz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 16.37,
+"t1": 19.65,
+"metin": "Tam ders: Present Continuous, ileri seviye.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 19.8,
+"t1": 21.64,
+"metin": "Tam dersi kanalda izle.",
+"konusan": "ogretmen"
+}
 ]

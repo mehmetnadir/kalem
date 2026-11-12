@@ -4,7 +4,7 @@
 |---|---|---|---|---|
 | 1 | 1.00 | 6.38 | öğretmen | Biliyorum I am knowing diyemezsin. YDT tam burada tuzak kurar. |
 | 2 | 6.93 | 15.82 | öğretmen | I know the answer, but I am not telling anyone. Cevabı biliyorum ama kimseye söylemiyorum. Bilmek durumdur, -ing almaz. |
-| 3 | 16.37 | 22.76 | öğretmen | Tam ders: Present Continuous, ileri seviye, 6 dakika. Tam dersi kanalda izle. |
+| 3 | 16.37 | 22.76 | öğretmen | Tam ders: Present Continuous, ileri seviye. Tam dersi kanalda izle. |
 
 ## Parçalar (cümle içi dil/duraklama parçaları, küresel sn)
 

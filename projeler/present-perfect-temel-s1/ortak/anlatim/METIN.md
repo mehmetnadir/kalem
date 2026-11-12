@@ -4,7 +4,7 @@
 |---|---|---|---|---|
 | 1 | 1.00 | 7.15 | ogretmen | Anahtarımı kaybettim, kapıda kaldım. Türkçede geçmiş gibi durur, ama etkisi şimdi sürer. |
 | 2 | 7.70 | 15.78 | ogretmen | I have lost my keys. Anahtarlarımı kaybettim, hâlâ bulamadım. Have, artı fiilin üçüncü hâli. |
-| 3 | 16.33 | 21.52 | ogretmen | Tam ders: Present Perfect, altı dakika. Tam dersi kanalda izle. |
+| 3 | 16.33 | 21.52 | ogretmen | Tam ders: Present Perfect. Tam dersi kanalda izle. |
 
 ## Parçalar (cümle içi dil/duraklama parçaları, küresel sn)
 

@@ -1,0 +1,53 @@
+{
+  "asr": {
+    "dil": "tr",
+    "model": "mlx-community/whisper-large-v3-turbo",
+    "surum": "0.4.3"
+  },
+  "cumleler": [
+    {
+      "beklenen": "Anahtarımı kaybettim, kapıda kaldım. Türkçede geçmiş gibi durur, ama etkisi şimdi sürer.",
+      "benzerlik": 1.0,
+      "duyulan": "Anahtarımı kaybettim, kapıda kaldım. Türkçe'de geçmiş gibi durur ama etkisi şimdi sürer.",
+      "i": 1,
+      "t0": 1.0,
+      "t1": 7.23
+    },
+    {
+      "beklenen": "I have lost my keys. Anahtarlarımı kaybettim, hâlâ bulamadım. Have, artı fiilin üçüncü hâli.",
+      "benzerlik": 1.0,
+      "duyulan": "I have lost my keys. Anahtarlarımı kaybettim, hala bulamadım. Have artı fiilin üçüncü hali.",
+      "i": 2,
+      "t0": 7.7,
+      "t1": 15.86
+    },
+    {
+      "beklenen": "Tam ders: Present Perfect. Tam dersi kanalda izle.",
+      "benzerlik": 1.0,
+      "duyulan": "Tam ders. Present Perfect. Tam dersi kanalda izle.",
+      "i": 3,
+      "t0": 16.33,
+      "t1": 20.64
+    }
+  ],
+  "kimlik": "UA-20261112-f364",
+  "on_kimlik": "UT-20261112-a0f5",
+  "ozet": {
+    "en_dusuk": 1.0,
+    "esik": 0.85,
+    "gecen": 3,
+    "ortalama": 1.0,
+    "toplam": 3
+  },
+  "paket": "present-perfect-temel-s1",
+  "sema": "ut-art/v1",
+  "sonuc": "GEÇTİ",
+  "video": {
+    "bayt": 6320667,
+    "dosya": "cikti.mp4",
+    "sha256": "04facd1ca0c2ca258ff9f9c31ae3e05326fa99a127f32425478fa62bf6d4ca67",
+    "sure_sn": 23.5,
+    "tema": "acik"
+  },
+  "zaman": "2026-11-12T19:34:20Z"
+}

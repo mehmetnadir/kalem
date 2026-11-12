@@ -1,6 +1,6 @@
 {
   "fps": 30, "kare": 268, "sure": 8.9333,
-  "tam_ders": [0.55, 0.9], "bant_kontur": [0.45, 0.9], "bant": [1.67, 0.35], "satir2": [2.35, 0.35],
-  "ileri": [3.15, 0.9], "ileri_alt": [4.0, 0.3], "saat": [4.19, 0.6], "dakika": [4.19, 0.85],
-  "pill": [5.05, 0.3], "cta": [5.18, 1.4], "parilti": 6.5, "vurus_kare": 50
+  "tam_ders": [0.55, 0.9], "bant_kontur": [0.45, 0.9], "bant": [1.59, 0.35], "satir2": [1.99, 0.35],
+  "ileri": [2.95, 0.8], "ileri_alt": [3.8, 0.3], "saat": [3.8, 0.1], "dakika": [3.8, 0.1],
+  "pill": [3.95, 0.3], "cta": [4.05, 1.8], "parilti": 6.2, "vurus_kare": 48
 }

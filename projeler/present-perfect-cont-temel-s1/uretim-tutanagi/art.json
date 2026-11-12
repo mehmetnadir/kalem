@@ -1,0 +1,53 @@
+{
+  "asr": {
+    "dil": "tr",
+    "model": "mlx-community/whisper-large-v3-turbo",
+    "surum": "0.4.3"
+  },
+  "cumleler": [
+    {
+      "beklenen": "İki saattir çalışıyorum. İngilizcede kalıp tek: have been, artı fiile -ing.",
+      "benzerlik": 1.0,
+      "duyulan": "İki saattir çalışıyorum. İngilizce'de kalıp tek. Have been artı fiile ing.",
+      "i": 1,
+      "t0": 1.0,
+      "t1": 7.39
+    },
+    {
+      "beklenen": "My brother has been playing the guitar since this morning. Kardeşim sabahtan beri gitar çalıyor. Tekil kişide has been, artı -ing.",
+      "benzerlik": 0.98,
+      "duyulan": "My brother has been playing the guitar since this morning. Kardeşim sabahtan beri gitar çalıyor. Tek ilk işi de has been artı ing.",
+      "i": 2,
+      "t0": 7.86,
+      "t1": 16.83
+    },
+    {
+      "beklenen": "Tam ders: Present Perfect Continuous. Tam dersi kanalda izle.",
+      "benzerlik": 1.0,
+      "duyulan": "Tam ders. Present perfect continuous. Tam dersi kanalda izle.",
+      "i": 3,
+      "t0": 17.3,
+      "t1": 22.17
+    }
+  ],
+  "kimlik": "UA-20261112-2d45",
+  "on_kimlik": "UT-20261112-5ab6",
+  "ozet": {
+    "en_dusuk": 0.98,
+    "esik": 0.85,
+    "gecen": 3,
+    "ortalama": 0.99,
+    "toplam": 3
+  },
+  "paket": "present-perfect-cont-temel-s1",
+  "sema": "ut-art/v1",
+  "sonuc": "GEÇTİ",
+  "video": {
+    "bayt": 6727319,
+    "dosya": "cikti.mp4",
+    "sha256": "818a7389cd984c8d060274e2ed3a146f63eeb3f22a48bda9b8b12242bb7cfafc",
+    "sure_sn": 24.97,
+    "tema": "acik"
+  },
+  "zaman": "2026-11-12T18:41:06Z"
+}

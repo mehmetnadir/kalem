@@ -1,0 +1,53 @@
+{
+  "asr": {
+    "dil": "tr",
+    "model": "mlx-community/whisper-large-v3-turbo",
+    "surum": "0.4.3"
+  },
+  "cumleler": [
+    {
+      "beklenen": "Bu akşam gidiyorum. I am going tonight. İki dilde de şimdiki zaman, ama gelecek demek.",
+      "benzerlik": 0.95,
+      "duyulan": "akşam gidiyorum. I'm going tonight. İki dilde de şimdiki zaman ama gelecek demek. I'm",
+      "i": 1,
+      "t0": 1.0,
+      "t1": 7.74
+    },
+    {
+      "beklenen": "I'm going to my uncle's tonight. Bu akşam amcamlara gidiyorum. Fiil artı -ing. Önüne de am, is ya da are gelir.",
+      "benzerlik": 1.0,
+      "duyulan": "I'm going to my uncles tonight. Bu akşam amcamlara gidiyorum. Fiil artı ing. Önüne de am, is ya da are gelir.",
+      "i": 2,
+      "t0": 8.21,
+      "t1": 18.05
+    },
+    {
+      "beklenen": "Tam ders: Present Continuous. Tam dersi kanalda izle.",
+      "benzerlik": 0.98,
+      "duyulan": "Tam ders. Present continuous. Kam dersi kanalda izle.",
+      "i": 3,
+      "t0": 18.52,
+      "t1": 23.07
+    }
+  ],
+  "kimlik": "UA-20261112-c80a",
+  "on_kimlik": "UT-20261112-c7fc",
+  "ozet": {
+    "en_dusuk": 0.95,
+    "esik": 0.85,
+    "gecen": 3,
+    "ortalama": 0.98,
+    "toplam": 3
+  },
+  "paket": "present-continuous-s1",
+  "sema": "ut-art/v1",
+  "sonuc": "GEÇTİ",
+  "video": {
+    "bayt": 7001656,
+    "dosya": "cikti.mp4",
+    "sha256": "3a54a86f0b25965e4174f3140f804231bcfa18ad985d238b95dd2ab380f2afc7",
+    "sure_sn": 26.4,
+    "tema": "acik"
+  },
+  "zaman": "2026-11-12T17:52:43Z"
+}

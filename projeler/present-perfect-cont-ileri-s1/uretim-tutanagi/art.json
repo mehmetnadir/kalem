@@ -1,0 +1,53 @@
+{
+  "asr": {
+    "dil": "tr",
+    "model": "mlx-community/whisper-large-v3-turbo",
+    "surum": "0.4.3"
+  },
+  "cumleler": [
+    {
+      "beklenen": "Sınav tek şey sorar: süreç mi, sonuç mu? Have been plus the -ing form.",
+      "benzerlik": 1.0,
+      "duyulan": "Sınav tek şey sorar. Süreç mi, sonuç mu? Have been plus the ING form.",
+      "i": 1,
+      "t0": 1.0,
+      "t1": 7.33
+    },
+    {
+      "beklenen": "I have been reading this novel all week, but I have only finished two chapters. Süreç, been reading. Sonuç, have finished.",
+      "benzerlik": 1.0,
+      "duyulan": "I have been reading this novel all week, but I have only finished two chapters. Süreç, been reading. Sonuç, have finished.",
+      "i": 2,
+      "t0": 7.8,
+      "t1": 16.77
+    },
+    {
+      "beklenen": "Tam ders: Present Perfect Continuous. Tam dersi kanalda izle.",
+      "benzerlik": 1.0,
+      "duyulan": "Tam ders, present perfect continuous. Tam dersi kanalda izle.",
+      "i": 3,
+      "t0": 17.24,
+      "t1": 22.11
+    }
+  ],
+  "kimlik": "UA-20261112-7a80",
+  "on_kimlik": "UT-20261112-967d",
+  "ozet": {
+    "en_dusuk": 1.0,
+    "esik": 0.85,
+    "gecen": 3,
+    "ortalama": 1.0,
+    "toplam": 3
+  },
+  "paket": "present-perfect-cont-ileri-s1",
+  "sema": "ut-art/v1",
+  "sonuc": "GEÇTİ",
+  "video": {
+    "bayt": 6543476,
+    "dosya": "cikti.mp4",
+    "sha256": "c571ce238b7ea682085420cee03ce7ccadc17e92d33dda394b3f0eb02f35f7d8",
+    "sure_sn": 24.93,
+    "tema": "acik"
+  },
+  "zaman": "2026-11-12T19:24:06Z"
+}
