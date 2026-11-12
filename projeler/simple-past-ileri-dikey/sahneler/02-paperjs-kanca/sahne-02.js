@@ -32,20 +32,20 @@ export async function kur(P) {
     not("Perfect kırmızı çizili", 0);
   }
 
-  // --- orta: takvim (300 px) sahne başında, saat (300 px) 4,03'te + SURE_METNI (Caveat 96)
+  // --- orta: takvim (300 px) sahne başında, saat (300 px) 3,99'da + SURE_METNI (Caveat 96)
   await svgCiz("tabler/calendar.svg", { kutu: [48, 585, 270, 270], bas: 6, sure: 30, azami: 25, w: 4.4, sesAralik: 1 });
   not("takvim eskizi", 6);
-  await svgCiz("tabler/clock.svg", { kutu: [370, 585, 270, 270], bas: fr(4.03), sure: 24, azami: 25, w: 4.4, sesAralik: 1 });
-  // 4,70 anlatımsız etiket `6 min` (Caveat 104; sağ uç 907): hedef 20 kare (0,67 sn) → 5,37
-  elYazisi(SURE_METNI, { x: 700, y: 765, boyut: 104, renk: SARI, bas: fr(4.03) + 20, sure: 20 });
-  not("saat + 6 min", fr(4.03));
+  await svgCiz("tabler/clock.svg", { kutu: [370, 585, 270, 270], bas: fr(3.99), sure: 24, azami: 25, w: 4.4, sesAralik: 1 });
+  // anlatımsız etiket SURE_METNI (Caveat 104; sağ uç 907): hedef 20 kare
+  elYazisi(SURE_METNI, { x: 700, y: 765, boyut: 104, renk: SARI, bas: fr(3.99) + 20, sure: 20 });
+  not("saat etiketi", fr(3.99));
   parilti(650, 598, { bas: fr(5.2), r: 28, periyot: 0, adet: 1 });
   parilti(335, 590, { bas: 40, r: 26, periyot: 0, adet: 1 });
   parilti(1000, 880, { bas: fr(9.3), r: 26, periyot: 0, adet: 1 });
 
-  // --- 3,71–9,07: madde kartı (y 895–1165), 3 madde + tik (rule 5,55 · time words 6,99 · traps 8,51)
+  // --- 3,71–9,07: madde kartı (y 895–1165), 3 madde + tik (rule 5,39 · time words 6,59 · traps 8,15)
   kutu(48, 890, 984, 292, { bas: fr(3.71), sure: 36, w: 4.4 }); not("madde kartı", fr(3.71));
-  [["rule", 5.55, 972], ["time words", 6.99, 1056], ["traps", 8.51, 1140]].forEach(([s, t, y]) => {
+  [["rule", 5.39, 972], ["time words", 6.59, 1056], ["traps", 8.15, 1140]].forEach(([s, t, y]) => {
     yazi(s, { x: 150, y, boyut: 72, aile: "Fredoka", agirlik: 700, renk: KRE, bas: fr(t), sure: 8, olcek: true, ses: true });
     tik(100, y - 26, { bas: fr(t) + 6 }); not("madde " + s, fr(t));
   });

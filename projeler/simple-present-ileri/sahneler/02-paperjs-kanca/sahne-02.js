@@ -98,12 +98,12 @@ export async function kur(P) {
     koy("+", 12.6, { renk: IKI, ses: false }); koy("base", 12.92); koy("verb", 13.24); not("base verb", fr(12.92));
   }
 
-  // --- 13,97–17,25: ajanda kutusu (sağ alt): form · time expressions · 3 YDT roots; saat 6 min
+  // --- 13,97–17,25: ajanda kutusu (sağ alt): form · time expressions · 3 YDT roots; saat etiketi
   kutu(1000, 650, 840, 340, { bas: fr(13.97), sure: 30, w: 4 }); not("ajanda kutusu", fr(13.97));
   await svgCiz("tabler/clock.svg", { kutu: [1640, 700, 160, 160], bas: fr(14.1), sure: 24, azami: 25, w: 4, sesAralik: 2 });
   elYazisi(SURE_METNI, { x: 1720 - eyGen(SURE_METNI, 64) / 2, y: 950, boyut: 64, renk: SARI,
     bas: fr(14.4), sure: 12 });
-  not("saat + 6 min", fr(14.1));
+  not("saat etiketi", fr(14.1));
   [["form", 14.85, 745], ["time expressions", 15.41, 835], ["3 YDT roots", 16.05, 925]].forEach(([s, t, y]) => {
     const z = yazi(s, { x: 1040, y, boyut: 56, aile: "Fredoka", agirlik: 700, renk: KRE, bas: fr(t), sure: 8, olcek: true, ses: true });
     tik(z.x1 + 44, y - 20, { bas: fr(t) + 9 }); not("madde " + s, fr(t));

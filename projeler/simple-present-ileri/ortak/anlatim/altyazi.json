@@ -3,7 +3,7 @@
 "cumle": 1,
 "dil": "tr",
 "t0": 1.0,
-"t1": 3.0,
+"t1": 3.08,
 "metin": "Uçak yarın dokuzda kalkıyor.",
 "konusan": "ogretmen"
 },
@@ -28,7 +28,7 @@
 "dil": "tr",
 "t0": 13.97,
 "t1": 17.65,
-"metin": "Altı dakikada kuralı ve üç YDT kökünü bitiriyoruz.",
+"metin": "Bu derste kuralı ve üç YDT kökünü görüyoruz.",
 "konusan": "ogretmen"
 },
 {
@@ -43,7 +43,7 @@
 "cumle": 3,
 "dil": "en",
 "t0": 19.41,
-"t1": 24.05,
+"t1": 24.13,
 "metin": "Although the sun looks small from here, it gives plants the energy they need.",
 "konusan": "ogretmen"
 },
@@ -59,7 +59,7 @@
 "cumle": 3,
 "dil": "tr",
 "t0": 28.93,
-"t1": 32.45,
+"t1": 32.53,
 "metin": "Bağlaç var, zaman değişmez: gives.",
 "konusan": "ogretmen"
 },
@@ -75,7 +75,7 @@
 "cumle": 4,
 "dil": "en",
 "t0": 34.13,
-"t1": 39.65,
+"t1": 39.73,
 "metin": "Mike owns two cars, but he usually takes the bus because parking costs so much.",
 "konusan": "ogretmen"
 },
@@ -91,7 +91,7 @@
 "cumle": 4,
 "dil": "tr",
 "t0": 44.29,
-"t1": 48.29,
+"t1": 48.37,
 "metin": "Owns ve costs durum fiilidir: ing almaz.",
 "konusan": "ogretmen"
 },
@@ -107,7 +107,7 @@
 "cumle": 5,
 "dil": "en",
 "t0": 50.05,
-"t1": 54.69,
+"t1": 54.77,
 "metin": "Our flight takes off at eleven tomorrow morning, so we have to leave home at nine.",
 "konusan": "ogretmen"
 },
@@ -115,7 +115,7 @@
 "cumle": 5,
 "dil": "tr",
 "t0": 54.94,
-"t1": 57.26,
+"t1": 57.34,
 "metin": "Uçuşumuz yarın on birde kalkıyor.",
 "konusan": "ogretmen"
 },
@@ -123,7 +123,7 @@
 "cumle": 5,
 "dil": "tr",
 "t0": 57.41,
-"t1": 61.41,
+"t1": 61.49,
 "metin": "Tarife kesin, Simple Present. Tomorrow tuzaktır.",
 "konusan": "ogretmen"
 },
@@ -131,7 +131,7 @@
 "cumle": 6,
 "dil": "tr",
 "t0": 61.96,
-"t1": 65.88,
+"t1": 65.96,
 "metin": "Hocam, yarın dediği için will take off olmaz mıydı?",
 "konusan": "ogrenci"
 },
@@ -171,7 +171,7 @@
 "cumle": 7,
 "dil": "tr",
 "t0": 84.87,
-"t1": 89.43,
+"t1": 89.51,
 "metin": "Kod: tarife varsa Simple Present, tahmin varsa will.",
 "konusan": "ogretmen"
 }

@@ -25,45 +25,45 @@
 },
 {
 "cumle": 2,
-"sozcuk": "Altı",
+"sozcuk": "Bu",
 "t0": 3.71,
-"t1": 3.99
+"t1": 3.87
 },
 {
 "cumle": 2,
-"sozcuk": "dakikada",
-"t0": 4.03,
-"t1": 4.59
+"sozcuk": "derste",
+"t0": 3.99,
+"t1": 4.35
 },
 {
 "cumle": 2,
 "sozcuk": "Simple",
-"t0": 4.75,
-"t1": 4.99
+"t0": 4.59,
+"t1": 4.83
 },
 {
 "cumle": 2,
 "sozcuk": "Past'in",
-"t0": 5.07,
-"t1": 5.47
+"t0": 4.91,
+"t1": 5.31
 },
 {
 "cumle": 2,
 "sozcuk": "kuralını,",
-"t0": 5.55,
-"t1": 6.19
+"t0": 5.39,
+"t1": 6.03
 },
 {
 "cumle": 2,
 "sozcuk": "zaman",
-"t0": 6.35,
-"t1": 6.59
+"t0": 6.19,
+"t1": 6.51
 },
 {
 "cumle": 2,
 "sozcuk": "belirteçlerini",
-"t0": 6.67,
-"t1": 7.47
+"t0": 6.59,
+"t1": 7.39
 },
 {
 "cumle": 2,
@@ -80,12 +80,12 @@
 {
 "cumle": 2,
 "sozcuk": "tuzaklarını",
-"t0": 8.19,
+"t0": 8.15,
 "t1": 8.67
 },
 {
 "cumle": 2,
-"sozcuk": "bitiriyoruz.",
+"sozcuk": "görüyoruz.",
 "t0": 8.75,
 "t1": 9.47
 },

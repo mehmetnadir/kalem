@@ -3,7 +3,7 @@
 | # | başlar | biter | konuşan | metin |
 |---|---|---|---|---|
 | 1 | 1.00 | 2.76 | öğretmen | Her sabah yedide kalkarım. |
-| 2 | 3.31 | 15.45 | öğretmen | Türkçede buna geniş zaman deriz: kalkar, gider, yapar. İngilizcedeki karşılığı Simple Present. Altı dakikada formunu, zaman ifadelerini ve kullanımlarını bitiriyoruz. |
+| 2 | 3.31 | 15.45 | öğretmen | Türkçede buna geniş zaman deriz: kalkar, gider, yapar. İngilizcedeki karşılığı Simple Present. Bu derste formunu, zaman ifadelerini ve kullanımlarını görüyoruz. |
 | 3 | 16.00 | 27.69 | öğretmen | Birinci örnek. The sun rises in the east. Güneş doğudan doğar. Doğa kanunu: hep böyledir. Fiile bak: rises. Sonunda s harfi var. |
 | 4 | 28.24 | 43.36 | öğretmen | İkinci örnek. My brother usually goes to school by bus. Kardeşim genellikle okula otobüsle gider. Usually, always, every day: alışkanlık işareti. Fiil goes. Yine s harfi var. |
 | 5 | 43.91 | 60.47 | öğretmen | Üçüncü örnek. Our plane takes off at nine tomorrow. Uçağımız yarın dokuzda kalkar. Gelecek, ama tarifede yazılı. Tarife, program, takvim: Türkçe gibi geniş zaman. Fiil takes off. Yine s harfi. |

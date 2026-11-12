@@ -41,21 +41,20 @@ export async function kur(P) {
       { w: 8, renk: KIR, alfa: 0.9, bas: -30, sure: 10, uc0: 8, uc1: 12, amp: 0.7, ses: false });
     not("Perfect kırmızı çizili", 0);
   }
-  // --- sağda eskiz: takvim (260 px) 0,2 sn'den; saat 4,03'te + 6 min
+  // --- sağda eskiz: takvim (260 px) 0,2 sn'den; saat 3,99'da + süre etiketi
   await svgCiz("tabler/calendar.svg", { kutu: [1340, 190, 260, 260], bas: 6, sure: 30, azami: 25,
     w: 4, sesAralik: 1 });
   not("takvim eskizi", 6);
-  await svgCiz("tabler/clock.svg", { kutu: [1650, 210, 200, 200], bas: fr(4.03), sure: 24,
+  await svgCiz("tabler/clock.svg", { kutu: [1650, 210, 200, 200], bas: fr(3.99), sure: 24,
     azami: 25, w: 4, sesAralik: 1 });
-  // 4,70 anlatımsız etiket `6 min` (saat çizimi 4,03'te; eski belirme fr(4,03)+20): hedef 16 kare →
-  // 5,23
-  elYazisi(SURE_METNI, { x: 1670, y: 480, boyut: 64, renk: SARI, bas: fr(4.03) + 20, sure: 16,
+  // anlatımsız etiket SURE_METNI (saat çizimi 3,99'da): hedef 16 kare
+  elYazisi(SURE_METNI, { x: 1670, y: 480, boyut: 64, renk: SARI, bas: fr(3.99) + 20, sure: 16,
     ses: true });
-  not("saat + 6 min", fr(4.03));
+  not("saat etiketi", fr(3.99));
 
-  // --- 3,71–9,07: el çizimi kutu, 3 madde tik (rule 5,55 · time words 6,99 · traps 8,51)
+  // --- 3,71–9,07: el çizimi kutu, 3 madde tik (rule 5,39 · time words 6,59 · traps 8,15)
   kutu(140, 400, 860, 270, { bas: fr(3.71), sure: 34, w: 4 }); not("madde kutusu", fr(3.71));
-  [["rule", 5.55, 480], ["time words", 6.99, 565], ["traps", 8.51, 650]].forEach(([s, t, y]) => {
+  [["rule", 5.39, 480], ["time words", 6.59, 565], ["traps", 8.15, 650]].forEach(([s, t, y]) => {
     yazi(s, { x: 220, y, boyut: 64, aile: "Fredoka", agirlik: 700, renk: KRE, bas: fr(t), sure: 8,
       olcek: true, ses: true });
     tik(185, y - 22, { bas: fr(t) + 6 }); not("madde " + s, fr(t));

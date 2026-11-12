@@ -265,7 +265,7 @@ export async function kur(P) {
   }
 
   // --- 13,97–17,25: ajanda kartı (y 1150–1390): form · zaman ifadeleri ·
-  // 3 YDT kökü; saat + 6 min
+  // 3 YDT kökü; saat etiketi
   kutu(48, 1150, 984, 240, { bas: fr(13.97), sure: 30, w: 4.4 });
   not("ajanda kartı", fr(13.97));
   await svgCiz("tabler/clock.svg", {
@@ -276,7 +276,7 @@ export async function kur(P) {
     w: 4.4,
     sesAralik: 2
   });
-  // 14,40 anlatımsız etiket `6 min`: hedef 14 kare (0,47 sn) → 14,87; orta x 905
+  // anlatımsız etiket SURE_METNI: hedef 14 kare; orta x 905
   elYazisi(SURE_METNI, {
     x: 905 - eyGen(SURE_METNI, 64) / 2,
     y: 1372,
@@ -285,7 +285,7 @@ export async function kur(P) {
     bas: fr(14.4),
     sure: 14
   });
-  not("saat + 6 min", fr(14.1));
+  not("saat etiketi", fr(14.1));
   [
     ["form", 14.85, 1224],
     ["zaman ifadeleri", 15.41, 1294],

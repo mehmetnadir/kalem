@@ -35,7 +35,7 @@ export async function kur(P) {
   not("cümle 1 başı (Her)", c1[0].bas); not("kalkarım.", c1[3].bas);
 
   // --- küpür kadro: öğrenci (k9) sahne başında, öğretmen (sabit) cümle 2 başında,
-  // ikinci öğrenci (k11) "Altı dakikada" anında yapışır. Baş yüksekliği 60 px.
+  // ikinci öğrenci (k11) "Bu derste" anında yapışır. Baş yüksekliği 60 px.
   const K = kadro(12, TOHUM);
   const OGRT = { ...K[1], ogretmen: true, sac: 5, aks: 0, etek: false, ten: 1, ust: 4, alt: 1,
     sacRenk: 0 };
@@ -46,7 +46,7 @@ export async function kur(P) {
   not("öğretmen yapışır", 34);
   kupur(S, { x: 780, y: AYAK, h: BAS_K, kimlik: K[11], yas: YAS, duygu: "sevinc", bas: fr(10.65),
     sure: 46 });
-  not("öğrenci k11 (6 dk) yapışır", fr(10.65));
+  not("öğrenci k11 (bu derste) yapışır", fr(10.65));
   await S.svgCiz("coco/bed.svg", { kutu: [1410, 400, 420, 290], bas: GB + 20, sure: 44, azami: 30,
     w: 3.6, sesAralik: 4 });
   not("yatak çizimi başı", GB + 20);
@@ -86,15 +86,15 @@ export async function kur(P) {
     parilti(s.x1 + 20, y - 62, { bas: fr(10.1), r: 22, periyot: 160, adet: 3 });
   }
 
-  // --- 10,65–15,45: el kutusu, saat (6 min), 3 madde
+  // --- 10,65–15,45: el kutusu, saat, 3 madde
   {
     kutu(1060, 700, 760, 280, { bas: fr(10.65) - 4, sure: 36 }); not("kutu çizimi", fr(10.65) - 4);
     await S.svgCiz("tabler/clock.svg", { kutu: [1096, 722, 76, 76], bas: fr(10.8), sure: 20,
       azami: 25, w: 3.4, sesAralik: 3 });
     elYazisi(SURE_METNI, { x: 1196, y: 782, boyut: 56, renk: SARI, bas: fr(10.8) + 14,
-      sure: 14 }); not("saat + 6 min", fr(10.8));
+      sure: 14 }); not("saat etiketi", fr(10.8));
     parilti(1176, 724, { bas: fr(11.2), r: 22, periyot: 170, adet: 3 });
-    const m = [["form", 11.61, 845], ["time expressions", 12.41, 900], ["uses", 13.77, 955]];
+    const m = [["form", 11.53, 845], ["time expressions", 12.41, 900], ["uses", 13.77, 955]];
     for (const [s, t, y] of m) {
       yazi(s, { x: 1140, y, boyut: 44, aile: "Fredoka", agirlik: 700, renk: RT.murekkep,
         bas: fr(t), sure: 8 });

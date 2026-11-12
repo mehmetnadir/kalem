@@ -97,21 +97,21 @@
 },
 {
 "cumle": 2,
-"sozcuk": "Altı",
+"sozcuk": "Bu",
 "t0": 10.65,
-"t1": 10.93
+"t1": 10.81
 },
 {
 "cumle": 2,
-"sozcuk": "dakikada",
-"t0": 10.97,
-"t1": 11.53
+"sozcuk": "derste",
+"t0": 10.93,
+"t1": 11.29
 },
 {
 "cumle": 2,
 "sozcuk": "formunu,",
-"t0": 11.61,
-"t1": 12.37
+"t0": 11.53,
+"t1": 12.17
 },
 {
 "cumle": 2,
@@ -123,12 +123,12 @@
 "cumle": 2,
 "sozcuk": "ifadelerini",
 "t0": 12.73,
-"t1": 13.53
+"t1": 13.45
 },
 {
 "cumle": 2,
 "sozcuk": "ve",
-"t0": 13.61,
+"t0": 13.53,
 "t1": 13.69
 },
 {
@@ -139,9 +139,9 @@
 },
 {
 "cumle": 2,
-"sozcuk": "bitiriyoruz.",
+"sozcuk": "görüyoruz.",
 "t0": 14.49,
-"t1": 15.53
+"t1": 15.29
 },
 {
 "cumle": 3,

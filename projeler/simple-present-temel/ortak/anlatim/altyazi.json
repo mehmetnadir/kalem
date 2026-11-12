@@ -3,7 +3,7 @@
 "cumle": 1,
 "dil": "tr",
 "t0": 1.0,
-"t1": 2.76,
+"t1": 2.84,
 "metin": "Her sabah yedide kalkarım.",
 "konusan": "ogretmen"
 },
@@ -19,7 +19,7 @@
 "cumle": 2,
 "dil": "tr",
 "t0": 7.78,
-"t1": 10.5,
+"t1": 10.58,
 "metin": "İngilizcedeki karşılığı Simple Present.",
 "konusan": "ogretmen"
 },
@@ -27,8 +27,8 @@
 "cumle": 2,
 "dil": "tr",
 "t0": 10.65,
-"t1": 15.45,
-"metin": "Altı dakikada formunu, zaman ifadelerini ve kullanımlarını bitiriyoruz.",
+"t1": 15.29,
+"metin": "Bu derste formunu, zaman ifadelerini ve kullanımlarını görüyoruz.",
 "konusan": "ogretmen"
 },
 {
@@ -59,7 +59,7 @@
 "cumle": 3,
 "dil": "tr",
 "t0": 23.85,
-"t1": 27.69,
+"t1": 27.77,
 "metin": "Fiile bak: rises. Sonunda s harfi var.",
 "konusan": "ogretmen"
 },
@@ -75,7 +75,7 @@
 "cumle": 4,
 "dil": "en",
 "t0": 29.53,
-"t1": 32.49,
+"t1": 32.57,
 "metin": "My brother usually goes to school by bus.",
 "konusan": "ogretmen"
 },
@@ -99,7 +99,7 @@
 "cumle": 4,
 "dil": "tr",
 "t0": 40.32,
-"t1": 43.36,
+"t1": 43.44,
 "metin": "Fiil goes. Yine s harfi var.",
 "konusan": "ogretmen"
 },
@@ -115,7 +115,7 @@
 "cumle": 5,
 "dil": "en",
 "t0": 45.2,
-"t1": 47.76,
+"t1": 47.84,
 "metin": "Our plane takes off at nine tomorrow.",
 "konusan": "ogretmen"
 },
@@ -123,7 +123,7 @@
 "cumle": 5,
 "dil": "tr",
 "t0": 48.01,
-"t1": 52.73,
+"t1": 52.81,
 "metin": "Uçağımız yarın dokuzda kalkar. Gelecek, ama tarifede yazılı.",
 "konusan": "ogretmen"
 },
@@ -139,7 +139,7 @@
 "cumle": 5,
 "dil": "tr",
 "t0": 57.35,
-"t1": 60.47,
+"t1": 60.55,
 "metin": "Fiil takes off. Yine s harfi.",
 "konusan": "ogretmen"
 },
@@ -147,7 +147,7 @@
 "cumle": 6,
 "dil": "tr",
 "t0": 61.02,
-"t1": 65.18,
+"t1": 65.26,
 "metin": "Hocam, üçünde de fiilin sonunda s var. Neden hep s?",
 "konusan": "ogrenci"
 },
@@ -187,7 +187,7 @@
 "cumle": 7,
 "dil": "en",
 "t0": 80.47,
-"t1": 83.43,
+"t1": 83.51,
 "metin": "He does not go. Does he go?",
 "konusan": "ogretmen"
 },
@@ -203,7 +203,7 @@
 "cumle": 7,
 "dil": "tr",
 "t0": 87.75,
-"t1": 92.47,
+"t1": 92.55,
 "metin": "Kod: always, usually, every day, Simple Present.",
 "konusan": "ogretmen"
 }

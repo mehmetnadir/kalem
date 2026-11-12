@@ -124,9 +124,9 @@ export async function kur(P) {
   // --- 10,65–15,45: ajanda: form · zaman ifadeleri · kullanımlar (üç kutu, sırayla tik),
   // y 1262-1382
   {
-    // pencere: formunu, 11,61–12,37 · zaman 12,41–12,65 + ifadelerini 12,73–13,53 ·
+    // pencere: formunu, 11,53–12,17 · zaman 12,41–12,65 + ifadelerini 12,73–13,45 ·
     // kullanımlarını 13,77–14,41
-    const ad = [["form", 11.61, pen("formunu,", 1, 11.6)],
+    const ad = [["form", 11.53, pen("formunu,", 1, 11.5)],
       ["zaman ifadeleri", 12.41, pen("zaman", 2, 12.4)],
       ["kullanımlar", 13.77, pen("kullanımlarını", 1, 13.7)]];
     const f = "700 64px Caveat", pad = 56, bos = 16;

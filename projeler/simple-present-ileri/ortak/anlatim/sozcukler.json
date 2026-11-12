@@ -139,15 +139,15 @@
 },
 {
 "cumle": 2,
-"sozcuk": "Altı",
+"sozcuk": "Bu",
 "t0": 13.97,
-"t1": 14.25
+"t1": 14.13
 },
 {
 "cumle": 2,
-"sozcuk": "dakikada",
-"t0": 14.29,
-"t1": 14.77
+"sozcuk": "derste",
+"t0": 14.25,
+"t1": 14.61
 },
 {
 "cumle": 2,
@@ -165,7 +165,7 @@
 "cumle": 2,
 "sozcuk": "üç",
 "t0": 15.73,
-"t1": 15.89
+"t1": 15.97
 },
 {
 "cumle": 2,
@@ -181,9 +181,9 @@
 },
 {
 "cumle": 2,
-"sozcuk": "bitiriyoruz.",
+"sozcuk": "görüyoruz.",
 "t0": 16.85,
-"t1": 17.73
+"t1": 17.65
 },
 {
 "cumle": 3,

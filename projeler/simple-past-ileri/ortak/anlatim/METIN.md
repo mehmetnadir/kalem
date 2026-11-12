@@ -3,7 +3,7 @@
 | # | başlar | biter | konuşan | metin |
 |---|---|---|---|---|
 | 1 | 1.00 | 3.16 | öğretmen | Ago varsa Perfect yok. |
-| 2 | 3.71 | 12.92 | öğretmen | Altı dakikada Simple Past'in kuralını, zaman belirteçlerini ve sınav tuzaklarını bitiriyoruz. A finished action at a definite time in the past. |
+| 2 | 3.71 | 12.92 | öğretmen | Bu derste Simple Past'in kuralını, zaman belirteçlerini ve sınav tuzaklarını görüyoruz. A finished action at a definite time in the past. |
 | 3 | 13.47 | 32.60 | öğretmen | Birinci kök. Marie Curie won her second Nobel Prize in 1911, three years before the war began. In 1911 belirli zaman, yani Simple Past. Won ve began düzensiz. Tuzak: begin, began, begun. Burada begun yanlış. |
 | 4 | 33.15 | 48.44 | öğretmen | İkinci kök. We used to live in a village, and we would walk to school every morning. Used to durumu da alışkanlığı da anlatır. Would yalnız tekrarlanan eylemde olur: would walk doğru, would live yanlış. |
 | 5 | 48.99 | 65.64 | öğretmen | Üçüncü kök, asıl tuzak. The manager resigned two weeks ago, and the board has not found a replacement yet. Resigned: ago var, zaman belli, Simple Past. Has not found: yet var, zaman belirsiz, Present Perfect. |

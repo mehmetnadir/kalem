@@ -3,7 +3,7 @@
 | # | başlar | biter | konuşan | metin |
 |---|---|---|---|---|
 | 1 | 1.00 | 3.00 | öğretmen | Uçak yarın dokuzda kalkıyor. |
-| 2 | 3.55 | 17.65 | öğretmen | İngilizcede hangi zamanla kurarsın? Önce kural. Positive: he, she, it takes s. Negative and question: does plus base verb. Altı dakikada kuralı ve üç YDT kökünü bitiriyoruz. |
+| 2 | 3.55 | 17.65 | öğretmen | İngilizcede hangi zamanla kurarsın? Önce kural. Positive: he, she, it takes s. Negative and question: does plus base verb. Bu derste kuralı ve üç YDT kökünü görüyoruz. |
 | 3 | 18.20 | 32.45 | öğretmen | Birinci kök. Although the sun looks small from here, it gives plants the energy they need. Güneş küçük görünse de bitkilere gereken enerjiyi verir. Bağlaç var, zaman değişmez: gives. |
 | 4 | 33.00 | 48.29 | öğretmen | İkinci kök. Mike owns two cars, but he usually takes the bus because parking costs so much. Mike'ın iki arabası var, ama genellikle otobüse biner. Owns ve costs durum fiilidir: ing almaz. |
 | 5 | 48.84 | 61.41 | öğretmen | Üçüncü kök. Our flight takes off at eleven tomorrow morning, so we have to leave home at nine. Uçuşumuz yarın on birde kalkıyor. Tarife kesin, Simple Present. Tomorrow tuzaktır. |
