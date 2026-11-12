@@ -5,6 +5,16 @@
 import { sahneKur, RT } from "/projeler/simple-past-ileri/sahneler/02-paperjs-kanca/kalem-paper.js";
 import { yaziNoktalari } from "/projeler/simple-past-ileri/ortak/kalem-canvas.js";
 
+// Kart süresi (12.11, g-29): paket zaman.json son t_son'dan; sabit 6 dakika iddiası yanlıştı.
+// Göreli yol: sahneler/<sahne>/ → paket kökü (yayında da aynı). Okunamazsa etiket boş kalır.
+const SURE_METNI = await fetch(new URL("../../zaman.json", location.href))
+  .then((r) => (r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))))
+  .then((z) => {
+    const t = z.sahneler[z.sahneler.length - 1].t_son;
+    return t < 60 ? `${Math.round(t)} sec` : `${Math.round(t / 30) / 2} min`;
+  })
+  .catch((e) => { console.warn("zaman.json süre okunamadı:", e); return ""; });
+
 export const KARE = 326, T_BAS = 3.0;
 
 export async function kur(P) {
@@ -39,7 +49,7 @@ export async function kur(P) {
     azami: 25, w: 4, sesAralik: 1 });
   // 4,70 anlatımsız etiket `6 min` (saat çizimi 4,03'te; eski belirme fr(4,03)+20): hedef 16 kare →
   // 5,23
-  elYazisi("6 min", { x: 1670, y: 480, boyut: 64, renk: SARI, bas: fr(4.03) + 20, sure: 16,
+  elYazisi(SURE_METNI, { x: 1670, y: 480, boyut: 64, renk: SARI, bas: fr(4.03) + 20, sure: 16,
     ses: true });
   not("saat + 6 min", fr(4.03));
 

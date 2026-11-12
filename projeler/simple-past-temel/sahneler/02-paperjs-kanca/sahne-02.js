@@ -2,6 +2,16 @@
 // Cümle 1 (Dün akşam amcamlara gittim.) sahne 01'de söylendi; yazı sahne başında hazır belirir (kare 0–9).
 import { sahneKur, RT } from "/projeler/simple-past-temel/sahneler/02-paperjs-kanca/kalem-paper.js";
 
+// Kart süresi (12.11, g-29): paket zaman.json son t_son'dan; sabit 6 dakika iddiası yanlıştı.
+// Göreli yol: sahneler/<sahne>/ → paket kökü (yayında da aynı). Okunamazsa etiket boş kalır.
+const SURE_METNI = await fetch(new URL("../../zaman.json", location.href))
+  .then((r) => (r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))))
+  .then((z) => {
+    const t = z.sahneler[z.sahneler.length - 1].t_son;
+    return t < 60 ? `${Math.round(t)} sec` : `${Math.round(t / 30) / 2} min`;
+  })
+  .catch((e) => { console.warn("zaman.json süre okunamadı:", e); return ""; });
+
 export const KARE = 366, T_BAS = 3.0;
 
 export async function kur(P) {
@@ -71,7 +81,7 @@ export async function kur(P) {
   {
     kutu(1060, 690, 760, 280, { bas: fr(8.25) - 4, sure: 36 }); not("kutu çizimi", fr(8.25) - 4);
     await S.svgCiz("tabler/clock.svg", { kutu: [1096, 712, 76, 76], bas: fr(8.57), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
-    elYazisi("6 min", { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(8.57) + 14,
+    elYazisi(SURE_METNI, { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(8.57) + 14,
       sure: 14 }); not("saat + 6 min", fr(8.57));
     parilti(1176, 714, { bas: fr(9.6), r: 22, periyot: 170, adet: 3 });
     const m = [["form", 10.17, 835], ["time expressions", 11.29, 890], ["irregular verbs", 13.01, 945]];

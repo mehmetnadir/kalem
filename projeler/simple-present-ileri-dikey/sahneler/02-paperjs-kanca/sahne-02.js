@@ -13,6 +13,16 @@ import {
   yaziNoktalari
 } from "/projeler/simple-present-ileri-dikey/ortak/kalem-canvas.js";
 
+// Kart süresi (12.11, g-29): paket zaman.json son t_son'dan; sabit 6 dakika iddiası yanlıştı.
+// Göreli yol: sahneler/<sahne>/ → paket kökü (yayında da aynı). Okunamazsa etiket boş kalır.
+const SURE_METNI = await fetch(new URL("../../zaman.json", location.href))
+  .then((r) => (r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))))
+  .then((z) => {
+    const t = z.sahneler[z.sahneler.length - 1].t_son;
+    return t < 60 ? `${Math.round(t)} sec` : `${Math.round(t / 30) / 2} min`;
+  })
+  .catch((e) => { console.warn("zaman.json süre okunamadı:", e); return ""; });
+
 export const KARE = 451, T_BAS = 3.0;
 
 export async function kur(P) {
@@ -267,8 +277,8 @@ export async function kur(P) {
     sesAralik: 2
   });
   // 14,40 anlatımsız etiket `6 min`: hedef 14 kare (0,47 sn) → 14,87; orta x 905
-  elYazisi("6 min", {
-    x: 905 - eyGen("6 min", 64) / 2,
+  elYazisi(SURE_METNI, {
+    x: 905 - eyGen(SURE_METNI, 64) / 2,
     y: 1372,
     boyut: 64,
     renk: SARI,

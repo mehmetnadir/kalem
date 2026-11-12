@@ -6,6 +6,16 @@ import { sahneKur, RT, renkCoz }
   from "/projeler/deneme-wb-spi/sahneler/02-paperjs-kanca/kalem-paper.js";
 import { yaziNoktalari } from "/projeler/deneme-wb-spi/ortak/kalem-canvas.js";
 
+// Kart süresi (12.11, g-29): paket zaman.json son t_son'dan; sabit 6 dakika iddiası yanlıştı.
+// Göreli yol: sahneler/<sahne>/ → paket kökü (yayında da aynı). Okunamazsa etiket boş kalır.
+const SURE_METNI = await fetch(new URL("../../zaman.json", location.href))
+  .then((r) => (r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))))
+  .then((z) => {
+    const t = z.sahneler[z.sahneler.length - 1].t_son;
+    return t < 60 ? `${Math.round(t)} sec` : `${Math.round(t / 30) / 2} min`;
+  })
+  .catch((e) => { console.warn("zaman.json süre okunamadı:", e); return ""; });
+
 export const KARE = 451, T_BAS = 3.0;
 // Bölge kökleri (dünya px): R1 kanca (sol üst, 0. karede ekranla BİREBİR), R2 ? + kutular, R3 kural
 const B1 = [0, 0], B2 = [0, 0], B3 = [0, 0];
@@ -119,7 +129,7 @@ export async function kur(P) {
   r3.kutu(1000, 650, 840, 340, { bas: fr(13.97), sure: 30, w: 4 }); not("ajanda kutusu", fr(13.97));
   await r3.svgCiz("tabler/clock.svg", { kutu: [1640, 700, 160, 160], bas: fr(14.1), sure: 24,
     azami: 25, w: 4, sesAralik: 2 });
-  r3.elYazisi("6 min", { x: 1720 - eyGen("6 min", 64) / 2, y: 950, boyut: 64, renk: SARI,
+  r3.elYazisi(SURE_METNI, { x: 1720 - eyGen(SURE_METNI, 64) / 2, y: 950, boyut: 64, renk: SARI,
     bas: fr(14.4), sure: 12 });
   not("saat + 6 min", fr(14.1));
   [["form", 14.85, 745], ["time expressions", 15.41, 835], ["3 YDT roots", 16.05, 925]].forEach(([s, t, y]) => {

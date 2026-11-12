@@ -2,6 +2,16 @@
 // Cümle 1 (`Ago` kırmızı alt çizgili) 0. karede yerinde (sahne 01 ile aynı yer, x 140 y 300); içerik 17,54 sn'de biter.
 import { sahneKur, RT } from "/projeler/present-perfect-ileri/sahneler/02-paperjs-kanca/kalem-paper.js";
 
+// Kart süresi (12.11, g-29): paket zaman.json son t_son'dan; sabit 6 dakika iddiası yanlıştı.
+// Göreli yol: sahneler/<sahne>/ → paket kökü (yayında da aynı). Okunamazsa etiket boş kalır.
+const SURE_METNI = await fetch(new URL("../../zaman.json", location.href))
+  .then((r) => (r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))))
+  .then((z) => {
+    const t = z.sahneler[z.sahneler.length - 1].t_son;
+    return t < 60 ? `${Math.round(t)} sec` : `${Math.round(t / 30) / 2} min`;
+  })
+  .catch((e) => { console.warn("zaman.json süre okunamadı:", e); return ""; });
+
 export const KARE = 461, T_BAS = 3.0;
 
 export async function kur(P) {
@@ -29,7 +39,7 @@ export async function kur(P) {
   });
   await svgCiz("tabler/clock.svg", { kutu: [1000, 120, 200, 200], bas: FR(4.2), sure: 26, azami: 25, w: 4, sesAralik: 2 });
   // 4,60–5,07 el yazısı `6 min` (anlatımsız etiket; sure 14 kare = 0,47 sn)
-  elYazisi("6 min", { x: 1235, y: 250, boyut: 64, renk: SARI, bas: FR(4.6), sure: 14, ses: true });
+  elYazisi(SURE_METNI, { x: 1235, y: 250, boyut: 64, renk: SARI, bas: FR(4.6), sure: 14, ses: true });
   not("saat + 6 min", FR(4.2));
   parilti(1215, 130, { bas: FR(5.2), r: 26, periyot: 0, adet: 1 });
 
