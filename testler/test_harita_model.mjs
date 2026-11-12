@@ -42,7 +42,12 @@ test('ünite durum dağılımı toplamı = ünite video sayısı; genel toplam 6
   }
   assert.equal(toplam, 612);
   const u2 = M.uniteOzet(agac.unite.get('02'));
-  assert.equal(u2.dagilim.uretimde, 1);
+  const u2Ham = katalog.uniteler.find((u) => u.kod === '02');
+  const u2BeklenenUretimde = (u2Ham?.konular || [])
+    .flatMap((k) => k.videolar || [])
+    .filter((v) => v.durum === 'uretimde').length;
+  assert.equal(u2.dagilim.uretimde, u2BeklenenUretimde);
+  assert.ok(u2.dagilim.uretimde > 0);
   assert.ok(u2.sureDk > 0 && u2.ortYuzde > 0);
 });
 
