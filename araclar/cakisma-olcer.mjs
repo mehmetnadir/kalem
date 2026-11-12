@@ -26,6 +26,34 @@ export function icinde(a, b) {
 }
 
 /**
+ * Maskeli bir öğenin görünür kutusunu hesaplar.
+ * İçerik ile maskenin AABB kesişimini döner. Kesişim yoksa null döner.
+ *
+ * @param {Object} icerik { x, y, w, h } veya bounds { x, y, width, height }
+ * @param {Object} maske  { x, y, w, h } veya bounds { x, y, width, height }
+ * @returns {Object|null} { x, y, w, h }
+ */
+export function gorunurKutu(icerik, maske) {
+  if (!icerik || !maske) return null;
+  const iw = icerik.w ?? icerik.width ?? 0;
+  const ih = icerik.h ?? icerik.height ?? 0;
+  const mw = maske.w ?? maske.width ?? 0;
+  const mh = maske.h ?? maske.height ?? 0;
+  if (iw <= 0 || ih <= 0 || mw <= 0 || mh <= 0) return null;
+
+  const x0 = Math.max(icerik.x, maske.x);
+  const y0 = Math.max(icerik.y, maske.y);
+  const x1 = Math.min(icerik.x + iw, maske.x + mw);
+  const y1 = Math.min(icerik.y + ih, maske.y + mh);
+  const w = x1 - x0;
+  const h = y1 - y0;
+  if (w > 0 && h > 0) {
+    return { x: x0, y: y0, w, h };
+  }
+  return null;
+}
+
+/**
  * Kutular listesindeki çakışmaları kurallara göre bulur.
  * Kurallar:
  *  - yazi × cizim, yazi × kunye, cizim × kunye -> 'hata'

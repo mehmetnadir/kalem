@@ -318,7 +318,37 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
         if (!item || item.visible === false) return;
         if (item.opacity != null && item.opacity < 0.2) return;
         if (item.data && item.data.kalemTur) {
-          const b = item.bounds;
+          let b = item.bounds;
+          if (item.clipped && item.children && item.children.length > 0) {
+            const mask = item.children.find((c) => c.clipMask);
+            const icerikler = item.children.filter((c) => !c.clipMask && c.visible !== false);
+            if (mask && icerikler.length > 0) {
+              let ix0 = Infinity, iy0 = Infinity, ix1 = -Infinity, iy1 = -Infinity;
+              for (const c of icerikler) {
+                const cb = c.bounds;
+                if (cb.width > 0 && cb.height > 0) {
+                  ix0 = Math.min(ix0, cb.x);
+                  iy0 = Math.min(iy0, cb.y);
+                  ix1 = Math.max(ix1, cb.x + cb.width);
+                  iy1 = Math.max(iy1, cb.y + cb.height);
+                }
+              }
+              if (ix0 < ix1 && iy0 < iy1) {
+                const mb = mask.bounds;
+                const x0 = Math.max(ix0, mb.x);
+                const y0 = Math.max(iy0, mb.y);
+                const x1 = Math.min(ix1, mb.x + mb.width);
+                const y1 = Math.min(iy1, mb.y + mb.height);
+                const w = x1 - x0;
+                const h = y1 - y0;
+                if (w > 0 && h > 0) {
+                  b = { x: x0, y: y0, width: w, height: h };
+                } else {
+                  return;
+                }
+              }
+            }
+          }
           if (b && b.width > 0 && b.height > 0) {
             window.__kalemKutu.ekle(item.data.kalemTur, item.data.kalemAd || "", b.x, b.y, b.width, b.height);
             return;

@@ -1,7 +1,7 @@
 // testler/test_cakisma_olcer.mjs
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { kesisim, icinde, carpisma, olaylariBirlestir } from "../araclar/cakisma-olcer.mjs";
+import { kesisim, icinde, carpisma, olaylariBirlestir, gorunurKutu } from "../araclar/cakisma-olcer.mjs";
 
 test("kesisim ve icinde fonksiyonları doğru çalışır", () => {
   const k1 = { x: 10, y: 10, w: 50, h: 50 };
@@ -124,4 +124,39 @@ test("ardışık örnek birleştirme doğru çalışır", () => {
   assert.equal(olaylar[1].t1, 2.0);
   assert.equal(olaylar[1].tip, "hata");
   assert.equal(olaylar[1].png, "kare-2.0.png");
+});
+
+test("gorunurKutu: açılış maskesi taşsa bile görünür yazı kutusu harf sınırında kalır", () => {
+  // Pilot örneği: "time expressions" açılış maskesi y=831, harfler y=838
+  const harfler = { x: 216, y: 838, w: 302, h: 48 };
+  const acilisMaskesi = { x: 208, y: 831, w: 240, h: 66 };
+
+  const gorunur = gorunurKutu(harfler, acilisMaskesi);
+  assert.ok(gorunur);
+  assert.equal(gorunur.x, 216);
+  assert.equal(gorunur.y, 838); // Üst kenar 831'e taşmaz, harf sınırı 838'de kalır
+  assert.equal(gorunur.h, 48);
+  assert.equal(gorunur.w, 232); // Maskenin bittiği x=448'de kesilir
+
+  // Üst satır: "form" (x: 216, y: 792, w: 87, h: 48, alt sınır: 840)
+  const ustSatir = { tur: "yazi", ad: "form", x: 216, y: 792, w: 87, h: 48 };
+
+  // Eski maskeli kutu kullanılsaydı: y: 831, h: 66 -> kesişim h: 9 px -> UYARI
+  const eskiMaskeliKutu = { tur: "yazi", ad: "time expressions", x: 208, y: 831, w: 240, h: 66 };
+  const eskiCakisma = carpisma([ustSatir, eskiMaskeliKutu], { pay: 4 });
+  assert.equal(eskiCakisma.length, 1);
+  assert.equal(eskiCakisma[0].tip, "uyari");
+  assert.equal(eskiCakisma[0].kesisim.h, 9);
+
+  // Düzeltilmiş görünür kutu: y: 838, h: 48 -> kesişim h: 2 px <= 4 px pay -> ÇAKIŞMA YOK
+  const duzeltilmisKutu = { tur: "yazi", ad: "time expressions", ...gorunur };
+  const yeniCakisma = carpisma([ustSatir, duzeltilmisKutu], { pay: 4 });
+  assert.equal(yeniCakisma.length, 0);
+});
+
+test("gorunurKutu: maske henüz harflere ulaşmamışsa null döner", () => {
+  const harfler = { x: 216, y: 838, w: 302, h: 48 };
+  const sifirMaske = { x: 208, y: 831, w: 5, h: 66 }; // Henüz x=216'ya ulaşmamış
+  const gorunur = gorunurKutu(harfler, sifirMaske);
+  assert.equal(gorunur, null);
 });
