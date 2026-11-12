@@ -190,7 +190,7 @@ Sunucu: `node ortak/onizle-sunucu.mjs --port 3012` (sunucu kodu değişince yeni
 
 | Sayfa | Adres |
 |---|---|
-| Harita | `/p/simple-present-ileri/harita.html?ac=02,02-04,02-04-ydt-ileri&sec=<kimlik>` |
-| Editör | `/p/simple-present-ileri/onizle.html?surum=ana-yatay&t=0&tema=acik&yan=1&yol=02,02-04,02-04-ydt-ileri` |
+| Harita | `/p/simple-present-ileri/harita.html?ac=02,02-02,02-04-ydt-ileri&sec=<kimlik>` |
+| Editör | `/p/simple-present-ileri/onizle.html?surum=ana-yatay&t=0&tema=acik&yan=1&yol=02,02-02,02-04-ydt-ileri` |
 | API | `/api/simple-present-ileri/{gorevler,surumler,yorumlar,konum}` |
 | Eski adres | `/projeler/simple-present-ileri/{harita,onizle}.html` → 302, sorgu korunur |
