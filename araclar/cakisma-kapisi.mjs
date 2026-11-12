@@ -98,6 +98,7 @@ let toplamHata = 0;
 let toplamUyari = 0;
 let olculenSayisi = 0;
 let olculmediSayisi = 0;
+let kutusuzSahne = 0;
 
 for (const S of sahneler) {
   if (S.motor === "HyperFrames") {
@@ -138,11 +139,15 @@ for (const S of sahneler) {
 
     const satirlar = await sahneKareCalistir(args);
     const ornekler = [];
+    // Kancasız sahne hiç kutu üretmez; "çakışma yok" sanılmasın (12.11: present-perfect-temel 03/05
+    // kancasızken 0 uyarı raporlanmıştı).
+    let kutuToplam = 0;
 
     for (const sat of satirlar) {
       try {
         const veri = JSON.parse(sat);
         const kutular = JSON.parse(veri.olc || "[]");
+        kutuToplam += Array.isArray(kutular) ? kutular.length : 0;
         const carpismalar = carpisma(kutular, { pay });
         ornekler.push({
           t: veri.t,
@@ -154,6 +159,21 @@ for (const S of sahneler) {
       }
     }
 
+    if (kutuToplam === 0) {
+      console.log(`${S.klasor} | ölçülmedi (kanca kutu üretmedi, ${ornekler.length} örnek)`);
+      sonuclar.push({
+        sahne: S.klasor,
+        motor: S.motor,
+        durum: "olculmedi",
+        neden: "kutu yok (kanca eksik)",
+        ornekSayisi: ornekler.length,
+        olaylar: [],
+      });
+      olculmediSayisi++;
+      kutusuzSahne++;
+      continue;
+    }
+
     const olaylar = olaylariBirlestir(ornekler);
     const sahneHatalar = olaylar.filter((o) => o.tip === "hata");
     const sahneUyarilar = olaylar.filter((o) => o.tip === "uyari");
@@ -163,7 +183,7 @@ for (const S of sahneler) {
     olculenSayisi++;
 
     if (olaylar.length === 0) {
-      console.log(`${S.klasor} | çakışma yok (${ornekler.length} örnek)`);
+      console.log(`${S.klasor} | çakışma yok (${ornekler.length} örnek, ${kutuToplam} kutu)`);
     } else {
       for (const o of olaylar) {
         const kesMetin = `${o.kesisim.w}x${o.kesisim.h} px`;
@@ -183,6 +203,7 @@ for (const S of sahneler) {
       motor: S.motor,
       durum: "olculdu",
       ornekSayisi: ornekler.length,
+      kutuSayisi: kutuToplam,
       t_bas: S.t_bas,
       t_son: S.t_son,
       olaylar,
@@ -222,6 +243,10 @@ if (sec.json) {
 
 if (toplamHata > 0) {
   process.exit(1);
+} else if (kutusuzSahne > 0) {
+  // Canvas/Paper.js sahnesi ölçülemedi: geçti sayılmaz.
+  console.error(`UYARI: ${kutusuzSahne} sahne kutu üretmedi (kanca eksik); kapı geçti sayılmaz`);
+  process.exit(2);
 } else {
   process.exit(0);
 }
