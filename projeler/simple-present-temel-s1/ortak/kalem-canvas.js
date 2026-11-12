@@ -4,6 +4,25 @@
 
 import { renkCoz } from "./kunye.js";
 
+// Kanca (yalnız kayıt): pencerede yoksa oluştur
+if (typeof window !== "undefined" && !window.__kalemKutu) {
+  window.__kalemKutu = {
+    kare: [],
+    ekle(tur, ad, x, y, w, h) {
+      if (w > 0 && h > 0) {
+        this.kare.push({
+          tur,
+          ad: String(ad || ""),
+          x: Math.round(x),
+          y: Math.round(y),
+          w: Math.round(w),
+          h: Math.round(h),
+        });
+      }
+    },
+  };
+}
+
 // ---------- küçük yardımcılar ----------
 // [a,b] aralığına sıkıştırır.
 export const kis = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));

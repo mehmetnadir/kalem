@@ -9,6 +9,25 @@ export const TEMALAR = {
     logoSari: "#fece00", logoMetin: "#13204D", kirmizi: "#d6453a" } };
 // Canlı renk nesnesi: temaSec() alanları yerinde değiştirir; çizim anında RENK.x okunur.
 export const RENK = { ...TEMALAR.koyu };
+// Kanca (yalnız kayıt): pencerede yoksa oluştur
+if (typeof window !== "undefined" && !window.__kalemKutu) {
+  window.__kalemKutu = {
+    kare: [],
+    ekle(tur, ad, x, y, w, h) {
+      if (w > 0 && h > 0) {
+        this.kare.push({
+          tur,
+          ad: String(ad || ""),
+          x: Math.round(x),
+          y: Math.round(y),
+          w: Math.round(w),
+          h: Math.round(h),
+        });
+      }
+    },
+  };
+}
+
 // Renk adı belirteçleri ("@vurgu"): kur() anında saklanır, çizim anında renkCoz() ile RENK'ten çözülür (tema sonradan değişebilir).
 export const RT = Object.fromEntries(Object.keys(TEMALAR.koyu).map((a) => [a, "@" + a]));
 export const renkCoz = (r) => (typeof r === "string" && r[0] === "@" ? RENK[r.slice(1)] : r);
@@ -103,9 +122,12 @@ export function kunyeCiz(ctx, { bolum, etkin = 0, logo, alfa = 1 }) {
   ctx.fillText(k.ders, k.kenar, k.ustTaban);
   const dw = ctx.measureText(k.ders).width;
   ctx.fillStyle = R.ikincil; ctx.font = `500 ${k.seviyeYazi}px Lexend`; ctx.fillText(`· ${k.seviye}`, k.kenar + dw + 14, k.ustTaban);
+  const sw = ctx.measureText(`· ${k.seviye}`).width;
   ctx.textAlign = "right"; ctx.fillStyle = R.vurgu; ctx.font = `700 ${k.bolumYazi}px Lexend`;
   ctx.fillText(bolum || "", W - k.kenar, k.ustTaban);
-  if (logo) { const h = k.logoYuk, w = h * 1920 / 476.3; ctx.drawImage(logo, k.kenar, H - 44 - h, w, h); }
+  const bw = bolum ? ctx.measureText(bolum).width : 0;
+  let logoW = 0, logoH = 0;
+  if (logo) { logoH = k.logoYuk; logoW = logoH * 1920 / 476.3; ctx.drawImage(logo, k.kenar, H - 44 - logoH, logoW, logoH); }
   ctx.font = `500 ${k.ajandaYazi}px Lexend`; let x = W - k.kenar;
   for (let i = k.ajanda.length - 1; i >= 0; i--) {
     const ad = k.ajanda[i], w = ctx.measureText(ad).width;
@@ -114,4 +136,20 @@ export function kunyeCiz(ctx, { bolum, etkin = 0, logo, alfa = 1 }) {
     x -= w + 36;
   }
   ctx.restore();
+
+  // Kanca: künye bölgelerini 'kunye' türü olarak ekle (alfa >= 0.2 ise)
+  if (typeof window !== "undefined" && window.__kalemKutu && alfa >= 0.2) {
+    window.__kalemKutu.ekle("kunye", "kunye:sol-ust", k.kenar, k.ustTaban - k.dersYazi, dw + 14 + sw, k.dersYazi + 6);
+    if (bolum && bw > 0) {
+      window.__kalemKutu.ekle("kunye", "kunye:sag-ust", W - k.kenar - bw, k.ustTaban - k.bolumYazi, bw, k.bolumYazi + 6);
+    }
+    if (logo && logoW > 0) {
+      window.__kalemKutu.ekle("kunye", "kunye:logo", k.kenar, H - 44 - logoH, logoW, logoH);
+    }
+    const ajandaGen = (W - k.kenar) - x;
+    if (ajandaGen > 0) {
+      window.__kalemKutu.ekle("kunye", "kunye:ajanda", x, k.altTaban - k.ajandaYazi - 4, ajandaGen, k.ajandaYazi + 8);
+    }
+  }
+
 }

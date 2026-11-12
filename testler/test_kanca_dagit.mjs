@@ -2,6 +2,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import {
@@ -81,6 +82,12 @@ test("kancaKalemPaper: çapa bulunur, kanca eklenir, eşgüçlüdür, çapa yoks
   function yazi(str, o = {}) {
     if (o.oge) o.oge.g.addChild(g);
   }
+  function elYazisi(str, o) {
+    const darbeler = Y.darbeler.map((d) => {
+      const c = d.nokta ? null : ciz(d.pts, { duz: true, w: Math.max(1.4, d.gen), amp: 0.25, uc0: 2.5,
+        uc1: 3, aralik: 1.6, renk, alfa, bas: fb, sure: fs, oge: o.oge, ses: false });
+    });
+  }
   // ---------- kare ----------
   async function kare(f) {
     c.yolP = cokgen(c, t); c.og.g.addChild(c.yolP); c.tam = t >= 1;
@@ -90,6 +97,14 @@ test("kancaKalemPaper: çapa bulunur, kanca eklenir, eşgüçlüdür, çapa yoks
   assert.equal(res1.durum, "DEGISTI");
   assert.ok(res1.icerik.includes("paperTopla"));
   assert.ok(res1.icerik.includes("kalemTur"));
+  // El yazısı darbeleri yazı türüyle etiketlenir (yoksa kapı yazıyı kendi harfleriyle çakışık bulur)
+  assert.ok(res1.icerik.includes('ses: false, tur: "yazi", ad: str });'));
+
+  // El yazısı çapası yoksa dosya değişmez
+  const yazisiz = mini.replace("oge: o.oge, ses: false });", "oge: o.oge });");
+  const res4 = kancaKalemPaper(yazisiz, "kalem-paper.js");
+  assert.equal(res4.durum, "CAPA_YOK");
+  assert.equal(res4.capa, "elYazisi darbe ciz");
 
   // Eşgüçlülük
   const res2 = kancaKalemPaper(res1.icerik, "kalem-paper.js");
@@ -101,7 +116,7 @@ test("kancaKalemPaper: çapa bulunur, kanca eklenir, eşgüçlüdür, çapa yoks
   assert.equal(res3.durum, "CAPA_YOK");
 });
 
-test("kancaSahneOrtak: çapa bulunur, kanca eklenir, eşgüçlüdür, çapa yoksa CAPA_YOK", () => {
+test("kancaSahneOrtak: çapa bulunur, kanca eklenir, eşgüçlüdür, çapa yoksa CAPA_YOK", async () => {
   const mini = `export class Sahne {
   cumle(a) {
     return { x: a.x, w: Y.gen, Y, sure: Y.sure, ciz: (ctx, f) => {
@@ -109,10 +124,15 @@ test("kancaSahneOrtak: çapa bulunur, kanca eklenir, eşgüçlüdür, çapa yoks
       yaziCiz(ctx, Y, t, 1);
     } };
   }
+  fr(t) { return t * 30; }
   gorsel(a) {
+    const g = { donusum: a.donusum || null };
     g.ciz = (ctx, f) => {
       ctx.save();
+      const d = g.donusum ? g.donusum(f) : null;
+      ctx.restore();
     };
+    return g;
   }
   metinPop(a) {
     return { x: x0, w: tw, y: a.y, fb, ciz: (ctx, f) => {
@@ -145,6 +165,31 @@ test("kancaSahneOrtak: çapa bulunur, kanca eklenir, eşgüçlüdür, çapa yoks
   const res1 = kancaSahneOrtak(mini, "sahne-ortak.js");
   assert.equal(res1.durum, "DEGISTI");
   assert.ok(res1.icerik.includes("__kalemKutu"));
+
+  // Çizim kutusu donusum'den geçer (12.11: kalkan uçağın kutusu pistte kalıyordu)
+  const gecici = fs.mkdtempSync(path.join(os.tmpdir(), "kanca-"));
+  const modYol = path.join(gecici, "sahne-ortak.mjs");
+  fs.writeFileSync(modYol, res1.icerik);
+  const kayit = [];
+  const eskiWindow = globalThis.window;
+  globalThis.window = { __kalemKutu: { ekle: (tur, ad, x, y, w, h) => kayit.push({ tur, ad, x, y, w, h }) } };
+  try {
+    const { Sahne } = await import(modYol);
+    const S = new Sahne();
+    const ctx = { save() {}, restore() {} };
+    const kutu = { x: 100, y: 200, w: 80, h: 40 };
+    S.gorsel({ tb: 0, ad: "duz", kutu }).ciz(ctx, 10);
+    S.gorsel({ tb: 0, ad: "tasinan", kutu, donusum: () => ({ cx: 0, cy: 0, tx: 300, ty: -150, dondur: 0, olcek: 1 }) })
+      .ciz(ctx, 10);
+    S.gorsel({ tb: 0, ad: "donen", kutu, donusum: () => ({ cx: 140, cy: 220, tx: 0, ty: 0, dondur: Math.PI / 2, olcek: 1 }) })
+      .ciz(ctx, 10);
+    const yuvarla = (k) => [k.x, k.y, k.w, k.h].map((v) => Math.round(v));
+    assert.deepEqual(yuvarla(kayit[0]), [100, 200, 80, 40]);
+    assert.deepEqual(yuvarla(kayit[1]), [400, 50, 80, 40]);
+    assert.deepEqual(yuvarla(kayit[2]), [120, 180, 40, 80]);
+  } finally {
+    globalThis.window = eskiWindow;
+  }
 
   // Eşgüçlülük
   const res2 = kancaSahneOrtak(res1.icerik, "sahne-ortak.js");
@@ -189,4 +234,144 @@ test("CLI: present-perfect-temel --kuru çıktısı tüm dosyalarda VAR olmalı 
   for (const s of satirlar) {
     assert.ok(s.startsWith("VAR "), `Beklenen VAR: ${s}`);
   }
+});
+
+test("kancaKunye (dikey/s1 varyantı): çapa bulunur, kanca eklenir, eşgüçlüdür", () => {
+  const miniDikey = `export const RENK = { ...TEMALAR.koyu };
+export function kunyeCiz(ctx, { bolum, logo, alfa = 1 }) {
+  const k = KUNYE, R = RENK; ctx.save(); ctx.globalAlpha = alfa; ctx.textBaseline = "alphabetic"; ctx.textAlign = "left";
+  if (logo) { const h = k.logoYuk, w = h * 1920 / 476.3; ctx.drawImage(logo, k.kenar, k.logoY, w, h); }
+  ctx.fillStyle = R.murekkep; ctx.font = \`700 \${k.dersYazi}px Fredoka\`; ctx.fillText(k.ders, k.kenar, k.dersTaban);
+  if (bolum) {
+    ctx.font = \`700 \${k.cipYazi}px Lexend\`; const cw = ctx.measureText(bolum).width + 64, cx = W - k.kenar - cw;
+  }
+  ctx.restore();
+}
+`;
+  const res1 = kancaKunye(miniDikey, "kunye.js");
+  assert.equal(res1.durum, "DEGISTI");
+  assert.ok(res1.icerik.includes("__kalemKutu"));
+  assert.ok(res1.icerik.includes("kunye:logo"));
+  assert.ok(res1.icerik.includes("kunye:ders"));
+  assert.ok(res1.icerik.includes("kunye:sag-ust"));
+
+  // Eşgüçlülük
+  const res2 = kancaKunye(res1.icerik, "kunye.js");
+  assert.equal(res2.durum, "VAR");
+});
+
+test("kancaSahneOrtak (dikey varyant 2: elYazisi/cizim/not/metinPop/kart): çapa bulunur, kanca eklenir, eşgüçlüdür", () => {
+  const miniDikeySahne = `export class Sahne {
+  elYazisi(a) {
+    return { x: a.x, w: Y.gen, Y, sure: Y.sure, ciz: (ctx, f) => {
+      const t = mutlak ? this.zm(f) : (f - fb) / 30;
+      if (t <= (mutlak ? a.sozcukler[0].t0 : 0)) return;
+      yaziCiz(ctx, Y, t, 1);
+    } };
+  }
+  cizim(a) {
+    g.ciz = (ctx, f) => {
+      ctx.save();
+      const d = g.donusum ? g.donusum(f) : null;
+    };
+  }
+  metinPop(a) {
+    return { x: x0, w: tw, y: a.y, fb, ciz: (ctx, f) => {
+      const u = yavasla((f - fb) / n); if (u <= 0) return;
+      ctx.save();
+      ctx.globalAlpha = u * (a.alfa == null ? 1 : a.alfa);
+      ctx.font = a.font;
+      ctx.textAlign = "left";
+    } };
+  }
+  not(a) {
+    return { x: a.x, w: tw, ciz: (ctx, f) => {
+      const u = kis((f - fb) / n); if (u <= 0) return;
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(a.x - 8, a.y - boy * 1.1, (tw + 16) * u, boy * 1.6);
+      ctx.clip();
+    } };
+  }
+  halka(k, tb, sure = 0.35, tohum = 1, pay = 6) {
+    const el = elips(
+      k.x + k.w / 2, k.y - 22, k.w / 2 + pay, 52,
+      -0.04 + 0.03 * hash(tohum, 3, 3), tohum
+    );
+    return this.darbe(el, { w: 6, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+  }
+  kart(a) {
+    const o = [];
+    this.darbeler(
+      kutu(a.x, a.y, a.w, a.h, 90 + (a.tohum || 0)),
+      { w: 3.6, renk: RT.ikincil, uc0: 10, uc1: 18 }, a.tb, a.kutuSure || 0.14,
+      a.kutuAralik || 0.1, 0.55).forEach((e) => o.push(e));
+    a.satirlar.forEach((s, i) => o.push(this.metinPop({ ...s, ses: i === 0 ? 0.5 : false })));
+    return o;
+  }
+  async kare(f, hepsi) {
+    const ctx = this.ctx;
+  }
+}
+`;
+  const res1 = kancaSahneOrtak(miniDikeySahne, "sahne-ortak.js");
+  assert.equal(res1.durum, "DEGISTI");
+  assert.ok(res1.icerik.includes("__kalemKutu"));
+  assert.ok(res1.icerik.includes("halka:"));
+  assert.ok(res1.icerik.includes("kart"));
+
+  // Eşgüçlülük
+  const res2 = kancaSahneOrtak(res1.icerik, "sahne-ortak.js");
+  assert.equal(res2.durum, "VAR");
+});
+
+test("kancaSahneOrtak (halka varyantları: renk parametreli / k.boy boyutlu): çapa bulunur, kanca eklenir, eşgüçlüdür", () => {
+  const miniHalkaRenk = `export class Sahne {
+  cumle(a) {
+    return { x: a.x, w: Y.gen, Y, sure: Y.sure, ciz: (ctx, f) => {
+      const t = mutlak ? this.zm(f) : (f - fb) / 30; if (t <= (mutlak ? a.sozcukler[0].t0 : 0)) return;
+      yaziCiz(ctx, Y, t, 1);
+    } };
+  }
+  gorsel(a) {
+    g.ciz = (ctx, f) => {
+      ctx.save();
+      const d = g.donusum ? g.donusum(f) : null;
+    };
+  }
+  metinPop(a) {
+    return { x: x0, w: tw, y: a.y, fb, ciz: (ctx, f) => {
+      const u = yavasla((f - fb) / n); if (u <= 0) return;
+      ctx.save(); ctx.globalAlpha = u * (a.alfa == null ? 1 : a.alfa); ctx.font = a.font; ctx.textAlign = "left";
+    } };
+  }
+  metinDaktilo(a) {
+    return { x: a.x, w: tw, ciz: (ctx, f) => {
+      const u = kis((f - fb) / n); if (u <= 0) return;
+      ctx.save(); ctx.beginPath(); ctx.rect(a.x - 8, a.y - boy * 1.1, (tw + 16) * u, boy * 1.6); ctx.clip();
+    } };
+  }
+  halka(k, tb, sure = 0.35, tohum = 1, pay = 6, renk = RT.vurgu) {
+    const el = elips(k.x + k.w / 2, k.y - 22, k.w / 2 + pay, 52, -0.04 + 0.03 * hash(tohum, 3, 3), tohum);
+    return this.darbe(el, { w: 6, renk, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+  }
+  kart(a) {
+    const o = [];
+    this.darbeler(kutu(a.x, a.y, a.w, a.h, 90 + (a.tohum || 0)), { w: 3.6, renk: RT.ikincil, uc0: 10, uc1: 18 }, a.tb, a.kutuSure || 0.14,
+      a.kutuAralik || 0.1, 0.55).forEach((e) => o.push(e));
+    a.satirlar.forEach((s, i) => o.push(this.metinPop({ ...s, ses: i === 0 ? 0.5 : false })));
+    return o;
+  }
+  async kare(f, hepsi) {
+    const ctx = this.ctx;
+  }
+}
+`;
+  const res1 = kancaSahneOrtak(miniHalkaRenk, "sahne-ortak.js");
+  assert.equal(res1.durum, "DEGISTI");
+  assert.ok(res1.icerik.includes("__kalemKutu"));
+  assert.ok(res1.icerik.includes("halka:"));
+
+  const res2 = kancaSahneOrtak(res1.icerik, "sahne-ortak.js");
+  assert.equal(res2.durum, "VAR");
 });

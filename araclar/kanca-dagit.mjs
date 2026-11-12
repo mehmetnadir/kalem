@@ -82,6 +82,40 @@ const KANCA_KUNYE_CIZ_EK = `
   }
 `;
 
+const KANCA_DIKEY_KUNYE_CIZ_EK = `
+
+  // Kanca: dikey künye bölgelerini 'kunye' türü olarak ekle (alfa >= 0.2 ise)
+  if (typeof window !== "undefined" && window.__kalemKutu && alfa >= 0.2) {
+    if (logo) {
+      const h = k.logoYuk, w = h * 1920 / 476.3;
+      window.__kalemKutu.ekle("kunye", "kunye:logo", k.kenar, k.logoY, w, h);
+    }
+    ctx.save();
+    ctx.font = \`700 \${k.dersYazi}px Fredoka\`;
+    const dw = ctx.measureText(k.ders).width;
+    window.__kalemKutu.ekle("kunye", "kunye:ders", k.kenar, k.dersTaban - k.dersYazi, dw, k.dersYazi + 6);
+    ctx.font = \`700 \${k.rozetYazi}px Lexend\`;
+    if (Array.isArray(k.rozet)) {
+      let rx = k.kenar;
+      for (const m of k.rozet) {
+        const rw = ctx.measureText(m).width + 56;
+        window.__kalemKutu.ekle("kunye", "kunye:rozet", rx, k.rozetY, rw, k.rozetH);
+        rx += rw + 12;
+      }
+    } else if (k.rozet) {
+      const rw = ctx.measureText(k.rozet).width + 56;
+      window.__kalemKutu.ekle("kunye", "kunye:rozet", k.kenar, k.rozetY, rw, k.rozetH);
+    }
+    if (bolum) {
+      ctx.font = \`700 \${k.cipYazi}px Lexend\`;
+      const dolgu = k.cipDolgu || 64;
+      const cw = ctx.measureText(bolum).width + dolgu;
+      window.__kalemKutu.ekle("kunye", "kunye:sag-ust", W - k.kenar - cw, k.cipY, cw, k.cipH);
+    }
+    ctx.restore();
+  }
+`;
+
 const KANCA_PAPER_TOPLA = `  // ---------- Kanca (paperTopla) ----------
   if (typeof window !== "undefined") {
     if (!window.__kalemKutu) {
@@ -179,19 +213,19 @@ export function kancaKunye(icerik, dosyaYol) {
     return { durum: "CAPA_YOK", capa: CAPA1, dosyaYol };
   }
 
-  // kunyeCiz içi çapa
-  const CAPA2 =
+  // 1) Yatay kunyeCiz içi çapa
+  const CAPA2_YATAY =
 `  const dw = ctx.measureText(k.ders).width;
   ctx.fillStyle = R.ikincil; ctx.font = \`500 \${k.seviyeYazi}px Lexend\`; ctx.fillText(\`· \${k.seviye}\`, k.kenar + dw + 14, k.ustTaban);
   ctx.textAlign = "right"; ctx.fillStyle = R.vurgu; ctx.font = \`700 \${k.bolumYazi}px Lexend\`;
   ctx.fillText(bolum || "", W - k.kenar, k.ustTaban);
   if (logo) { const h = k.logoYuk, w = h * 1920 / 476.3; ctx.drawImage(logo, k.kenar, H - 44 - h, w, h); }`;
 
-  if (!icerik.includes(CAPA2)) {
-    return { durum: "CAPA_YOK", capa: "kunyeCiz ders/bolum/logo", dosyaYol };
-  }
+  // 2) Dikey/S1 kunyeCiz içi çapa
+  const CAPA2_DIKEY = "if (logo) { const h = k.logoYuk, w = h * 1920 / 476.3; ctx.drawImage(logo, k.kenar, k.logoY, w, h); }";
 
-  const YENI_KUNYE_CIZ_BAS =
+  if (icerik.includes(CAPA2_YATAY)) {
+    const YENI_KUNYE_CIZ_BAS =
 `  const dw = ctx.measureText(k.ders).width;
   ctx.fillStyle = R.ikincil; ctx.font = \`500 \${k.seviyeYazi}px Lexend\`; ctx.fillText(\`· \${k.seviye}\`, k.kenar + dw + 14, k.ustTaban);
   const sw = ctx.measureText(\`· \${k.seviye}\`).width;
@@ -201,26 +235,40 @@ export function kancaKunye(icerik, dosyaYol) {
   let logoW = 0, logoH = 0;
   if (logo) { logoH = k.logoYuk; logoW = logoH * 1920 / 476.3; ctx.drawImage(logo, k.kenar, H - 44 - logoH, logoW, logoH); }`;
 
-  // Restore sonrası ekleme çapası
-  const CAPA3 = `  ctx.restore();`;
-  const idx2 = icerik.indexOf(CAPA2);
-  const idxRestore = icerik.indexOf(CAPA3, idx2);
-  if (idxRestore === -1) {
-    return { durum: "CAPA_YOK", capa: "kunyeCiz ctx.restore()", dosyaYol };
+    const CAPA3 = `  ctx.restore();`;
+    const idx2 = icerik.indexOf(CAPA2_YATAY);
+    const idxRestore = icerik.indexOf(CAPA3, idx2);
+    if (idxRestore === -1) {
+      return { durum: "CAPA_YOK", capa: "kunyeCiz ctx.restore()", dosyaYol };
+    }
+
+    let metin = icerik.replace(CAPA1, CAPA1 + KANCA_KUNYE_TANIM);
+    metin = metin.replace(CAPA2_YATAY, YENI_KUNYE_CIZ_BAS);
+
+    const idxRestoreSonrasi = metin.indexOf(CAPA3, metin.indexOf(YENI_KUNYE_CIZ_BAS));
+    if (idxRestoreSonrasi === -1) {
+      return { durum: "CAPA_YOK", capa: "kunyeCiz ctx.restore() sonra", dosyaYol };
+    }
+    metin = metin.slice(0, idxRestoreSonrasi + CAPA3.length) + KANCA_KUNYE_CIZ_EK + metin.slice(idxRestoreSonrasi + CAPA3.length);
+    return { durum: "DEGISTI", icerik: metin };
+  } else if (icerik.includes(CAPA2_DIKEY)) {
+    const CAPA3 = `  ctx.restore();`;
+    const idx2 = icerik.indexOf(CAPA2_DIKEY);
+    const idxRestore = icerik.indexOf(CAPA3, idx2);
+    if (idxRestore === -1) {
+      return { durum: "CAPA_YOK", capa: "dikey kunyeCiz ctx.restore()", dosyaYol };
+    }
+
+    let metin = icerik.replace(CAPA1, CAPA1 + KANCA_KUNYE_TANIM);
+    const idxRestoreSonrasi = metin.indexOf(CAPA3, metin.indexOf(CAPA2_DIKEY));
+    if (idxRestoreSonrasi === -1) {
+      return { durum: "CAPA_YOK", capa: "dikey kunyeCiz ctx.restore() sonra", dosyaYol };
+    }
+    metin = metin.slice(0, idxRestoreSonrasi + CAPA3.length) + KANCA_DIKEY_KUNYE_CIZ_EK + metin.slice(idxRestoreSonrasi + CAPA3.length);
+    return { durum: "DEGISTI", icerik: metin };
   }
 
-  let metin = icerik.replace(CAPA1, CAPA1 + KANCA_KUNYE_TANIM);
-  metin = metin.replace(CAPA2, YENI_KUNYE_CIZ_BAS);
-
-  // Restore sonrasına KANCA_KUNYE_CIZ_EK ekle
-  // Sadece kunyeCiz içindeki ilk restore'a eklemek için:
-  const idxRestoreSonrasi = metin.indexOf(CAPA3, metin.indexOf(YENI_KUNYE_CIZ_BAS));
-  if (idxRestoreSonrasi === -1) {
-    return { durum: "CAPA_YOK", capa: "kunyeCiz ctx.restore() sonra", dosyaYol };
-  }
-  metin = metin.slice(0, idxRestoreSonrasi + CAPA3.length) + KANCA_KUNYE_CIZ_EK + metin.slice(idxRestoreSonrasi + CAPA3.length);
-
-  return { durum: "DEGISTI", icerik: metin };
+  return { durum: "CAPA_YOK", capa: "kunyeCiz ders/bolum/logo", dosyaYol };
 }
 
 export function kancaKalemPaper(icerik, dosyaYol) {
@@ -278,6 +326,13 @@ export function kancaKalemPaper(icerik, dosyaYol) {
   }
   metin = metin.replace(CAPA_YAZI, "g.data = { kalemTur: \"yazi\", kalemAd: str };\n    if (o.oge) { o.oge.g.addChild(g); o.oge.g.data = { kalemTur: \"yazi\", kalemAd: str }; }");
 
+  // 6b. el yazısı darbeleri yazı sayılır (12.11: 'cizim' kalınca kapı yazıyı kendi harfleriyle çakışık buldu)
+  const CAPA_ELYAZI = "uc1: 3, aralik: 1.6, renk, alfa, bas: fb, sure: fs, oge: o.oge, ses: false });";
+  if (!metin.includes(CAPA_ELYAZI)) {
+    return { durum: "CAPA_YOK", capa: "elYazisi darbe ciz", dosyaYol };
+  }
+  metin = metin.replace(CAPA_ELYAZI, "uc1: 3, aralik: 1.6, renk, alfa, bas: fb, sure: fs, oge: o.oge, ses: false, tur: \"yazi\", ad: str });");
+
   // 7. paperTopla kancası
   const CAPA_KARE_BOLUM = "  // ---------- kare ----------";
   if (!metin.includes(CAPA_KARE_BOLUM)) {
@@ -314,9 +369,6 @@ export function kancaSahneOrtak(icerik, dosyaYol) {
       const t = mutlak ? this.zm(f) : (f - fb) / 30; if (t <= (mutlak ? a.sozcukler[0].t0 : 0)) return;
       yaziCiz(ctx, Y, t, 1);
     } };`;
-  if (!metin.includes(CAPA_CUMLE)) {
-    return { durum: "CAPA_YOK", capa: "cumle yaziCiz", dosyaYol };
-  }
   const YENI_CUMLE = `    return { x: a.x, w: Y.gen, Y, sure: Y.sure, ciz: (ctx, f) => {
       const t = mutlak ? this.zm(f) : (f - fb) / 30; if (t <= (mutlak ? a.sozcukler[0].t0 : 0)) return;
       if (a.alfa == null || a.alfa >= 0.2) {
@@ -324,28 +376,122 @@ export function kancaSahneOrtak(icerik, dosyaYol) {
       }
       yaziCiz(ctx, Y, t, 1);
     } };`;
-  metin = metin.replace(CAPA_CUMLE, YENI_CUMLE);
+
+  const CAPA_CUMLE_V2 = `    return { x: a.x, w: Y.gen, Y, sure: Y.sure, ciz: (ctx, f) => {
+      const t = mutlak ? this.zm(f) : (f - fb) / 30;
+      if (t <= (mutlak ? a.sozcukler[0].t0 : 0)) return;
+      yaziCiz(ctx, Y, t, 1);
+    } };`;
+  const YENI_CUMLE_V2 = `    return { x: a.x, w: Y.gen, Y, sure: Y.sure, ciz: (ctx, f) => {
+      const t = mutlak ? this.zm(f) : (f - fb) / 30;
+      if (t <= (mutlak ? a.sozcukler[0].t0 : 0)) return;
+      if (a.alfa == null || a.alfa >= 0.2) {
+        window.__kalemKutu?.ekle("yazi", a.metin, a.x, a.y - boy * 0.9, Y.gen, boy * 1.1);
+      }
+      yaziCiz(ctx, Y, t, 1);
+    } };`;
+
+  const CAPA_CUMLE_V3 = `    return {
+      x: a.x, w: Y.gen, Y, sure: Y.sure, ciz: (ctx, f) => {
+        const t = mutlak ? this.zm(f) : (f - fb) / 30;
+        if (t <= (mutlak ? a.sozcukler[0].t0 : 0)) return;
+        yaziCiz(ctx, Y, t, 1);
+      }
+    };`;
+  const YENI_CUMLE_V3 = `    return {
+      x: a.x, w: Y.gen, Y, sure: Y.sure, ciz: (ctx, f) => {
+        const t = mutlak ? this.zm(f) : (f - fb) / 30;
+        if (t <= (mutlak ? a.sozcukler[0].t0 : 0)) return;
+        if (a.alfa == null || a.alfa >= 0.2) {
+          window.__kalemKutu?.ekle("yazi", a.metin, a.x, a.y - boy * 0.9, Y.gen, boy * 1.1);
+        }
+        yaziCiz(ctx, Y, t, 1);
+      }
+    };`;
+
+  const CAPA_CUMLE_V4 = `      Y,
+      sure: Y.sure,
+      ciz: (ctx, f) => {
+        const t = mutlak ? this.zm(f) : (f - fb) / 30;
+        if (t <= (mutlak ? a.sozcukler[0].t0 : 0)) return;
+        yaziCiz(ctx, Y, t, 1);
+      }
+    };`;
+  const YENI_CUMLE_V4 = `      Y,
+      sure: Y.sure,
+      ciz: (ctx, f) => {
+        const t = mutlak ? this.zm(f) : (f - fb) / 30;
+        if (t <= (mutlak ? a.sozcukler[0].t0 : 0)) return;
+        if (a.alfa == null || a.alfa >= 0.2) {
+          window.__kalemKutu?.ekle("yazi", a.metin, a.x, a.y - boy * 0.9, Y.gen, boy * 1.1);
+        }
+        yaziCiz(ctx, Y, t, 1);
+      }
+    };`;
+
+  const CAPA_CUMLE_V5 = `    return {
+      x: a.x, w: Y.gen, Y, sure: Y.sure, ciz: (ctx, f) => {
+        const t = mutlak ? this.zm(f) : (f - fb) / 30;
+        if (t <= (mutlak ? a.sozcukler[0].t0 : 0)) return;
+        yaziCiz(ctx, Y, t, 1);
+      },
+    };`;
+  const YENI_CUMLE_V5 = `    return {
+      x: a.x, w: Y.gen, Y, sure: Y.sure, ciz: (ctx, f) => {
+        const t = mutlak ? this.zm(f) : (f - fb) / 30;
+        if (t <= (mutlak ? a.sozcukler[0].t0 : 0)) return;
+        if (a.alfa == null || a.alfa >= 0.2) {
+          window.__kalemKutu?.ekle("yazi", a.metin, a.x, a.y - boy * 0.9, Y.gen, boy * 1.1);
+        }
+        yaziCiz(ctx, Y, t, 1);
+      },
+    };`;
+
+  if (metin.includes(CAPA_CUMLE)) {
+    metin = metin.replace(CAPA_CUMLE, YENI_CUMLE);
+  } else if (metin.includes(CAPA_CUMLE_V2)) {
+    metin = metin.replace(CAPA_CUMLE_V2, YENI_CUMLE_V2);
+  } else if (metin.includes(CAPA_CUMLE_V3)) {
+    metin = metin.replace(CAPA_CUMLE_V3, YENI_CUMLE_V3);
+  } else if (metin.includes(CAPA_CUMLE_V4)) {
+    metin = metin.replace(CAPA_CUMLE_V4, YENI_CUMLE_V4);
+  } else if (metin.includes(CAPA_CUMLE_V5)) {
+    metin = metin.replace(CAPA_CUMLE_V5, YENI_CUMLE_V5);
+  } else {
+    return { durum: "CAPA_YOK", capa: "cumle yaziCiz", dosyaYol };
+  }
 
   // 2. gorsel
+  // Kutu çizimle aynı dönüşümden geçer (12.11: kalkan uçağın kutusu pistte kalıyordu).
   const CAPA_GORSEL = `    g.ciz = (ctx, f) => {
-      ctx.save();`;
+      ctx.save();
+      const d = g.donusum ? g.donusum(f) : null;`;
   if (!metin.includes(CAPA_GORSEL)) {
     return { durum: "CAPA_YOK", capa: "gorsel g.ciz", dosyaYol };
   }
   const YENI_GORSEL = `    g.ciz = (ctx, f) => {
+      ctx.save();
+      const d = g.donusum ? g.donusum(f) : null;
       if (f >= this.fr(a.tb) && (a.alfa == null || a.alfa >= 0.2)) {
-        window.__kalemKutu?.ekle("cizim", a.ad || "cizim", a.kutu.x, a.kutu.y, a.kutu.w, a.kutu.h);
-      }
-      ctx.save();`;
+        // Kanca: kutu çizimle aynı dönüşümden geçer (kalkan uçak, nefes ölçeği)
+        let { x, y, w, h } = a.kutu;
+        if (d) {
+          const c = Math.cos(d.dondur || 0), s = Math.sin(d.dondur || 0), xs = [], ys = [];
+          for (const [px, py] of [[x, y], [x + w, y], [x, y + h], [x + w, y + h]]) {
+            const dx = (px - d.cx) * d.olcek, dy = (py - d.cy) * d.olcek;
+            xs.push(d.cx + d.tx + dx * c - dy * s);
+            ys.push(d.cy + d.ty + dx * s + dy * c);
+          }
+          x = Math.min(...xs); y = Math.min(...ys); w = Math.max(...xs) - x; h = Math.max(...ys) - y;
+        }
+        window.__kalemKutu?.ekle("cizim", a.ad || "cizim", x, y, w, h);
+      }`;
   metin = metin.replace(CAPA_GORSEL, YENI_GORSEL);
 
   // 3. metinPop
   const CAPA_METIN_POP = `    return { x: x0, w: tw, y: a.y, fb, ciz: (ctx, f) => {
       const u = yavasla((f - fb) / n); if (u <= 0) return;
       ctx.save(); ctx.globalAlpha = u * (a.alfa == null ? 1 : a.alfa); ctx.font = a.font; ctx.textAlign = "left";`;
-  if (!metin.includes(CAPA_METIN_POP)) {
-    return { durum: "CAPA_YOK", capa: "metinPop ciz", dosyaYol };
-  }
   const YENI_METIN_POP = `    return { x: x0, w: tw, y: a.y, fb, ciz: (ctx, f) => {
       const u = yavasla((f - fb) / n); if (u <= 0) return;
       const al = u * (a.alfa == null ? 1 : a.alfa);
@@ -353,22 +499,155 @@ export function kancaSahneOrtak(icerik, dosyaYol) {
         window.__kalemKutu?.ekle("yazi", a.parca.map(([m]) => m).join(""), x0, a.y - boy * 0.9, tw, boy * 1.1);
       }
       ctx.save(); ctx.globalAlpha = al; ctx.font = a.font; ctx.textAlign = "left";`;
-  metin = metin.replace(CAPA_METIN_POP, YENI_METIN_POP);
 
-  // 4. metinDaktilo
+  const CAPA_METIN_POP_V2 = `      const u = yavasla((f - fb) / n); if (u <= 0) return;
+      ctx.save();
+      ctx.globalAlpha = u * (a.alfa == null ? 1 : a.alfa);
+      ctx.font = a.font;
+      ctx.textAlign = "left";`;
+  const YENI_METIN_POP_V2 = `      const u = yavasla((f - fb) / n); if (u <= 0) return;
+      const al = u * (a.alfa == null ? 1 : a.alfa);
+      if (al >= 0.2) {
+        window.__kalemKutu?.ekle("yazi", a.parca.map(([m]) => m).join(""), x0, a.y - boy * 0.9, tw, boy * 1.1);
+      }
+      ctx.save();
+      ctx.globalAlpha = al;
+      ctx.font = a.font;
+      ctx.textAlign = "left";`;
+
+  const CAPA_METIN_POP_V3 = `        const u = yavasla((f - fb) / n); if (u <= 0) return;
+        ctx.save(); ctx.globalAlpha = u * (a.alfa == null ? 1 : a.alfa); ctx.font = a.font;
+        ctx.textAlign = "left";`;
+  const YENI_METIN_POP_V3 = `        const u = yavasla((f - fb) / n); if (u <= 0) return;
+        const al = u * (a.alfa == null ? 1 : a.alfa);
+        if (al >= 0.2) {
+          window.__kalemKutu?.ekle("yazi", a.parca.map(([m]) => m).join(""), x0, a.y - boy * 0.9, tw, boy * 1.1);
+        }
+        ctx.save(); ctx.globalAlpha = al; ctx.font = a.font;
+        ctx.textAlign = "left";`;
+
+  const CAPA_METIN_POP_V4 = `        const u = yavasla((f - fb) / n);
+        if (u <= 0) return;
+        ctx.save();
+        ctx.globalAlpha = u * (a.alfa == null ? 1 : a.alfa);
+        ctx.font = a.font;
+        ctx.textAlign = "left";`;
+  const YENI_METIN_POP_V4 = `        const u = yavasla((f - fb) / n);
+        if (u <= 0) return;
+        const al = u * (a.alfa == null ? 1 : a.alfa);
+        if (al >= 0.2) {
+          window.__kalemKutu?.ekle("yazi", a.parca.map(([m]) => m).join(""), x0, a.y - boy * 0.9, tw, boy * 1.1);
+        }
+        ctx.save();
+        ctx.globalAlpha = al;
+        ctx.font = a.font;
+        ctx.textAlign = "left";`;
+
+  const CAPA_METIN_POP_V5 = `        const u = yavasla((f - fb) / n); if (u <= 0) return;
+        ctx.save();
+        ctx.globalAlpha = u * (a.alfa == null ? 1 : a.alfa);
+        ctx.font = a.font;
+        ctx.textAlign = "left";`;
+  const YENI_METIN_POP_V5 = `        const u = yavasla((f - fb) / n); if (u <= 0) return;
+        const al = u * (a.alfa == null ? 1 : a.alfa);
+        if (al >= 0.2) {
+          window.__kalemKutu?.ekle("yazi", a.parca.map(([m]) => m).join(""), x0, a.y - boy * 0.9, tw, boy * 1.1);
+        }
+        ctx.save();
+        ctx.globalAlpha = al;
+        ctx.font = a.font;
+        ctx.textAlign = "left";`;
+
+  if (metin.includes(CAPA_METIN_POP)) {
+    metin = metin.replace(CAPA_METIN_POP, YENI_METIN_POP);
+  } else if (metin.includes(CAPA_METIN_POP_V2)) {
+    metin = metin.replace(CAPA_METIN_POP_V2, YENI_METIN_POP_V2);
+  } else if (metin.includes(CAPA_METIN_POP_V3)) {
+    metin = metin.replace(CAPA_METIN_POP_V3, YENI_METIN_POP_V3);
+  } else if (metin.includes(CAPA_METIN_POP_V4)) {
+    metin = metin.replace(CAPA_METIN_POP_V4, YENI_METIN_POP_V4);
+  } else if (metin.includes(CAPA_METIN_POP_V5)) {
+    metin = metin.replace(CAPA_METIN_POP_V5, YENI_METIN_POP_V5);
+  } else {
+    return { durum: "CAPA_YOK", capa: "metinPop ciz", dosyaYol };
+  }
+
+  // 4. metinDaktilo / not
   const CAPA_DAKTILO = `    return { x: a.x, w: tw, ciz: (ctx, f) => {
       const u = kis((f - fb) / n); if (u <= 0) return;
       ctx.save(); ctx.beginPath(); ctx.rect(a.x - 8, a.y - boy * 1.1, (tw + 16) * u, boy * 1.6); ctx.clip();`;
-  if (!metin.includes(CAPA_DAKTILO)) {
-    return { durum: "CAPA_YOK", capa: "metinDaktilo ciz", dosyaYol };
-  }
   const YENI_DAKTILO = `    return { x: a.x, w: tw, ciz: (ctx, f) => {
       const u = kis((f - fb) / n); if (u <= 0) return;
       if (u >= 0.2) {
         window.__kalemKutu?.ekle("yazi", a.parca.map(([m]) => m).join(""), a.x, a.y - boy * 0.9, tw * u, boy * 1.1);
       }
       ctx.save(); ctx.beginPath(); ctx.rect(a.x - 8, a.y - boy * 1.1, (tw + 16) * u, boy * 1.6); ctx.clip();`;
-  metin = metin.replace(CAPA_DAKTILO, YENI_DAKTILO);
+
+  const CAPA_NOT_V1 = `      const u = kis((f - fb) / n); if (u <= 0) return;
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(a.x - 8, a.y - boy * 1.1, (tw + 16) * u, boy * 1.6);
+      ctx.clip();`;
+  const YENI_NOT_V1 = `      const u = kis((f - fb) / n); if (u <= 0) return;
+      if (u >= 0.2) {
+        window.__kalemKutu?.ekle("yazi", a.parca.map(([m]) => m).join(""), a.x, a.y - boy * 0.9, tw * u, boy * 1.1);
+      }
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(a.x - 8, a.y - boy * 1.1, (tw + 16) * u, boy * 1.6);
+      ctx.clip();`;
+
+  const CAPA_NOT_V2A = `        const u = kis((f - fb) / n); if (u <= 0) return;
+        ctx.save(); ctx.beginPath();
+        ctx.rect(a.x - 8, a.y - boy * 1.1, (tw + 16) * u, boy * 1.6); ctx.clip();`;
+  const YENI_NOT_V2A = `        const u = kis((f - fb) / n); if (u <= 0) return;
+        if (u >= 0.2) {
+          window.__kalemKutu?.ekle("yazi", a.parca.map(([m]) => m).join(""), a.x, a.y - boy * 0.9, tw * u, boy * 1.1);
+        }
+        ctx.save(); ctx.beginPath();
+        ctx.rect(a.x - 8, a.y - boy * 1.1, (tw + 16) * u, boy * 1.6); ctx.clip();`;
+
+  const CAPA_NOT_V2B = `        const u = kis((f - fb) / n); if (u <= 0) return;
+        ctx.save(); ctx.beginPath();
+        ctx.rect(a.x - 8, a.y - boy * 1.1, (tw + 16) * u, boy * 1.6);
+        ctx.clip();`;
+  const YENI_NOT_V2B = `        const u = kis((f - fb) / n); if (u <= 0) return;
+        if (u >= 0.2) {
+          window.__kalemKutu?.ekle("yazi", a.parca.map(([m]) => m).join(""), a.x, a.y - boy * 0.9, tw * u, boy * 1.1);
+        }
+        ctx.save(); ctx.beginPath();
+        ctx.rect(a.x - 8, a.y - boy * 1.1, (tw + 16) * u, boy * 1.6);
+        ctx.clip();`;
+
+  const CAPA_NOT_V3 = `        const u = kis((f - fb) / n);
+        if (u <= 0) return;
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(a.x - 8, a.y - boy * 1.1, (tw + 16) * u, boy * 1.6);
+        ctx.clip();`;
+  const YENI_NOT_V3 = `        const u = kis((f - fb) / n);
+        if (u <= 0) return;
+        if (u >= 0.2) {
+          window.__kalemKutu?.ekle("yazi", a.parca.map(([m]) => m).join(""), a.x, a.y - boy * 0.9, tw * u, boy * 1.1);
+        }
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(a.x - 8, a.y - boy * 1.1, (tw + 16) * u, boy * 1.6);
+        ctx.clip();`;
+
+  if (metin.includes(CAPA_DAKTILO)) {
+    metin = metin.replace(CAPA_DAKTILO, YENI_DAKTILO);
+  } else if (metin.includes(CAPA_NOT_V1)) {
+    metin = metin.replace(CAPA_NOT_V1, YENI_NOT_V1);
+  } else if (metin.includes(CAPA_NOT_V2A)) {
+    metin = metin.replace(CAPA_NOT_V2A, YENI_NOT_V2A);
+  } else if (metin.includes(CAPA_NOT_V2B)) {
+    metin = metin.replace(CAPA_NOT_V2B, YENI_NOT_V2B);
+  } else if (metin.includes(CAPA_NOT_V3)) {
+    metin = metin.replace(CAPA_NOT_V3, YENI_NOT_V3);
+  } else {
+    return { durum: "CAPA_YOK", capa: "metinDaktilo / not ciz", dosyaYol };
+  }
 
   // 5. altCizgiPop (varsa uygula)
   const CAPA_ALT1 = `        const u = yavasla((T - kel[idx].t0) / 0.1);
@@ -401,9 +680,6 @@ export function kancaSahneOrtak(icerik, dosyaYol) {
     const el = elips(k.x + k.w / 2, k.y - 22, k.w / 2 + pay, 52, -0.04 + 0.03 * hash(tohum, 3, 3), tohum);
     return this.darbe(el, { w: 6, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
   }`;
-  if (!metin.includes(CAPA_HALKA)) {
-    return { durum: "CAPA_YOK", capa: "halka", dosyaYol };
-  }
   const YENI_HALKA = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6) {
     const el = elips(k.x + k.w / 2, k.y - 22, k.w / 2 + pay, 52, -0.04 + 0.03 * hash(tohum, 3, 3), tohum);
     const d = this.darbe(el, { w: 6, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
@@ -418,7 +694,230 @@ export function kancaSahneOrtak(icerik, dosyaYol) {
     };
     return d;
   }`;
-  metin = metin.replace(CAPA_HALKA, YENI_HALKA);
+
+  const CAPA_HALKA_V2 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6, renk = RT.vurgu) {
+    const el = elips(k.x + k.w / 2, k.y - 22, k.w / 2 + pay, 52, -0.04 + 0.03 * hash(tohum, 3, 3), tohum);
+    return this.darbe(el, { w: 6, renk, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+  }`;
+  const YENI_HALKA_V2 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6, renk = RT.vurgu) {
+    const el = elips(k.x + k.w / 2, k.y - 22, k.w / 2 + pay, 52, -0.04 + 0.03 * hash(tohum, 3, 3), tohum);
+    const d = this.darbe(el, { w: 6, renk, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+    const eskiCiz = d.ciz;
+    d.ciz = (ctx, f) => {
+      const fb = this.fr(tb), n = Math.max(1, sure * 30);
+      const t = yavasla((f - fb) / n);
+      if (t >= 0.2) {
+        window.__kalemKutu?.ekle("isaret", "halka:" + (k.m || ""), k.x - pay, k.y - 48, k.w + 2 * pay, 52);
+      }
+      eskiCiz(ctx, f);
+    };
+    return d;
+  }`;
+
+  const CAPA_HALKA_V3 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6) {
+    const el = elips(k.x + k.w / 2, k.y - k.boy * 0.3, k.w / 2 + pay, k.boy * 0.72, -0.04 + 0.03 * hash(tohum, 3, 3), tohum);
+    return this.darbe(el, { w: 10, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+  }`;
+  const YENI_HALKA_V3 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6) {
+    const el = elips(k.x + k.w / 2, k.y - k.boy * 0.3, k.w / 2 + pay, k.boy * 0.72, -0.04 + 0.03 * hash(tohum, 3, 3), tohum);
+    const d = this.darbe(el, { w: 10, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+    const eskiCiz = d.ciz;
+    d.ciz = (ctx, f) => {
+      const fb = this.fr(tb), n = Math.max(1, sure * 30);
+      const t = yavasla((f - fb) / n);
+      if (t >= 0.2) {
+        window.__kalemKutu?.ekle("isaret", "halka:" + (k.m || ""), k.x - pay, k.y - (k.boy || 52) * 0.72, k.w + 2 * pay, (k.boy || 52) * 0.72);
+      }
+      eskiCiz(ctx, f);
+    };
+    return d;
+  }`;
+
+  const CAPA_HALKA_V4 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6) {
+    const el = elips(
+      k.x + k.w / 2, k.y - 22, k.w / 2 + pay, 52,
+      -0.04 + 0.03 * hash(tohum, 3, 3), tohum
+    );
+    return this.darbe(el, { w: 6, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+  }`;
+  const YENI_HALKA_V4 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6) {
+    const el = elips(
+      k.x + k.w / 2, k.y - 22, k.w / 2 + pay, 52,
+      -0.04 + 0.03 * hash(tohum, 3, 3), tohum
+    );
+    const d = this.darbe(el, { w: 6, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+    const eskiCiz = d.ciz;
+    d.ciz = (ctx, f) => {
+      const fb = this.fr(tb), n = Math.max(1, sure * 30);
+      const t = yavasla((f - fb) / n);
+      if (t >= 0.2) {
+        window.__kalemKutu?.ekle("isaret", "halka:" + (k.m || ""), k.x - pay, k.y - 48, k.w + 2 * pay, 52);
+      }
+      eskiCiz(ctx, f);
+    };
+    return d;
+  }`;
+
+  const CAPA_HALKA_V5 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6) {
+    const el = elips(
+      k.x + k.w / 2, k.y - 22, k.w / 2 + pay, 52, -0.04 + 0.03 * hash(tohum, 3, 3), tohum
+    );
+    return this.darbe(el, { w: 6, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+  }`;
+  const YENI_HALKA_V5 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6) {
+    const el = elips(
+      k.x + k.w / 2, k.y - 22, k.w / 2 + pay, 52, -0.04 + 0.03 * hash(tohum, 3, 3), tohum
+    );
+    const d = this.darbe(el, { w: 6, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+    const eskiCiz = d.ciz;
+    d.ciz = (ctx, f) => {
+      const fb = this.fr(tb), n = Math.max(1, sure * 30);
+      const t = yavasla((f - fb) / n);
+      if (t >= 0.2) {
+        window.__kalemKutu?.ekle("isaret", "halka:" + (k.m || ""), k.x - pay, k.y - 48, k.w + 2 * pay, 52);
+      }
+      eskiCiz(ctx, f);
+    };
+    return d;
+  }`;
+
+  const CAPA_HALKA_V6 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6) {
+    const el = elips(
+      k.x + k.w / 2,
+      k.y - 22,
+      k.w / 2 + pay,
+      52,
+      -0.04 + 0.03 * hash(tohum, 3, 3),
+      tohum
+    );
+    return this.darbe(el, { w: 6, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+  }`;
+  const YENI_HALKA_V6 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6) {
+    const el = elips(
+      k.x + k.w / 2,
+      k.y - 22,
+      k.w / 2 + pay,
+      52,
+      -0.04 + 0.03 * hash(tohum, 3, 3),
+      tohum
+    );
+    const d = this.darbe(el, { w: 6, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+    const eskiCiz = d.ciz;
+    d.ciz = (ctx, f) => {
+      const fb = this.fr(tb), n = Math.max(1, sure * 30);
+      const t = yavasla((f - fb) / n);
+      if (t >= 0.2) {
+        window.__kalemKutu?.ekle("isaret", "halka:" + (k.m || ""), k.x - pay, k.y - 48, k.w + 2 * pay, 52);
+      }
+      eskiCiz(ctx, f);
+    };
+    return d;
+  }`;
+
+  const CAPA_HALKA_V7 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6, renk = RT.vurgu, w = 6) {
+    const el = elips(
+      k.x + k.w / 2,
+      k.y - 22,
+      k.w / 2 + pay,
+      52,
+      -0.04 + 0.03 * hash(tohum, 3, 3),
+      tohum
+    );
+    return this.darbe(el, { w, renk, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+  }`;
+  const YENI_HALKA_V7 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6, renk = RT.vurgu, w = 6) {
+    const el = elips(
+      k.x + k.w / 2,
+      k.y - 22,
+      k.w / 2 + pay,
+      52,
+      -0.04 + 0.03 * hash(tohum, 3, 3),
+      tohum
+    );
+    const d = this.darbe(el, { w, renk, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+    const eskiCiz = d.ciz;
+    d.ciz = (ctx, f) => {
+      const fb = this.fr(tb), n = Math.max(1, sure * 30);
+      const t = yavasla((f - fb) / n);
+      if (t >= 0.2) {
+        window.__kalemKutu?.ekle("isaret", "halka:" + (k.m || ""), k.x - pay, k.y - 48, k.w + 2 * pay, 52);
+      }
+      eskiCiz(ctx, f);
+    };
+    return d;
+  }`;
+
+  const CAPA_HALKA_V8 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6) {
+    const el = elips(
+      k.x + k.w / 2, k.y - k.boy * 0.3, k.w / 2 + pay,
+      k.boy * 0.72, -0.04 + 0.03 * hash(tohum, 3, 3), tohum
+    );
+    return this.darbe(el, { w: 6, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+  }`;
+  const YENI_HALKA_V8 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6) {
+    const el = elips(
+      k.x + k.w / 2, k.y - k.boy * 0.3, k.w / 2 + pay,
+      k.boy * 0.72, -0.04 + 0.03 * hash(tohum, 3, 3), tohum
+    );
+    const d = this.darbe(el, { w: 6, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+    const eskiCiz = d.ciz;
+    d.ciz = (ctx, f) => {
+      const fb = this.fr(tb), n = Math.max(1, sure * 30);
+      const t = yavasla((f - fb) / n);
+      if (t >= 0.2) {
+        window.__kalemKutu?.ekle("isaret", "halka:" + (k.m || ""), k.x - pay, k.y - (k.boy || 52) * 0.72, k.w + 2 * pay, (k.boy || 52) * 0.72);
+      }
+      eskiCiz(ctx, f);
+    };
+    return d;
+  }`;
+
+  const CAPA_HALKA_V9 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6) {
+    const el = elips(
+      k.x + k.w / 2, k.y - k.boy * 0.3, k.w / 2 + pay, k.boy * 0.72,
+      -0.04 + 0.03 * hash(tohum, 3, 3), tohum
+    );
+    return this.darbe(el, { w: 6, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+  }`;
+  const YENI_HALKA_V9 = `  halka(k, tb, sure = 0.35, tohum = 1, pay = 6) {
+    const el = elips(
+      k.x + k.w / 2, k.y - k.boy * 0.3, k.w / 2 + pay, k.boy * 0.72,
+      -0.04 + 0.03 * hash(tohum, 3, 3), tohum
+    );
+    const d = this.darbe(el, { w: 6, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+    const eskiCiz = d.ciz;
+    d.ciz = (ctx, f) => {
+      const fb = this.fr(tb), n = Math.max(1, sure * 30);
+      const t = yavasla((f - fb) / n);
+      if (t >= 0.2) {
+        window.__kalemKutu?.ekle("isaret", "halka:" + (k.m || ""), k.x - pay, k.y - (k.boy || 52) * 0.72, k.w + 2 * pay, (k.boy || 52) * 0.72);
+      }
+      eskiCiz(ctx, f);
+    };
+    return d;
+  }`;
+
+  if (metin.includes(CAPA_HALKA)) {
+    metin = metin.replace(CAPA_HALKA, YENI_HALKA);
+  } else if (metin.includes(CAPA_HALKA_V2)) {
+    metin = metin.replace(CAPA_HALKA_V2, YENI_HALKA_V2);
+  } else if (metin.includes(CAPA_HALKA_V3)) {
+    metin = metin.replace(CAPA_HALKA_V3, YENI_HALKA_V3);
+  } else if (metin.includes(CAPA_HALKA_V4)) {
+    metin = metin.replace(CAPA_HALKA_V4, YENI_HALKA_V4);
+  } else if (metin.includes(CAPA_HALKA_V5)) {
+    metin = metin.replace(CAPA_HALKA_V5, YENI_HALKA_V5);
+  } else if (metin.includes(CAPA_HALKA_V6)) {
+    metin = metin.replace(CAPA_HALKA_V6, YENI_HALKA_V6);
+  } else if (metin.includes(CAPA_HALKA_V7)) {
+    metin = metin.replace(CAPA_HALKA_V7, YENI_HALKA_V7);
+  } else if (metin.includes(CAPA_HALKA_V8)) {
+    metin = metin.replace(CAPA_HALKA_V8, YENI_HALKA_V8);
+  } else if (metin.includes(CAPA_HALKA_V9)) {
+    metin = metin.replace(CAPA_HALKA_V9, YENI_HALKA_V9);
+  } else {
+    return { durum: "CAPA_YOK", capa: "halka", dosyaYol };
+  }
 
   // 7. kart
   const CAPA_KART = `  kart(a) {
@@ -428,9 +927,6 @@ export function kancaSahneOrtak(icerik, dosyaYol) {
     a.satirlar.forEach((s, i) => o.push(this.metinPop({ ...s, ses: i === 0 ? 0.5 : false })));
     return o;
   }`;
-  if (!metin.includes(CAPA_KART)) {
-    return { durum: "CAPA_YOK", capa: "kart", dosyaYol };
-  }
   const YENI_KART = `  kart(a) {
     const o = [];
     const fb = this.fr(a.tb);
@@ -451,7 +947,124 @@ export function kancaSahneOrtak(icerik, dosyaYol) {
     a.satirlar.forEach((s, i) => o.push(this.metinPop({ ...s, ses: i === 0 ? 0.5 : false })));
     return o;
   }`;
-  metin = metin.replace(CAPA_KART, YENI_KART);
+
+  const CAPA_KART_V2 = `  kart(a) {
+    const o = [];
+    this.darbeler(
+      kutu(a.x, a.y, a.w, a.h, 90 + (a.tohum || 0)),
+      { w: 3.6, renk: RT.ikincil, uc0: 10, uc1: 18 }, a.tb, a.kutuSure || 0.14,
+      a.kutuAralik || 0.1, 0.55).forEach((e) => o.push(e));
+    a.satirlar.forEach((s, i) => o.push(this.metinPop({ ...s, ses: i === 0 ? 0.5 : false })));
+    return o;
+  }`;
+  const YENI_KART_V2 = `  kart(a) {
+    const o = [];
+    const fb = this.fr(a.tb);
+    const darbeler = this.darbeler(
+      kutu(a.x, a.y, a.w, a.h, 90 + (a.tohum || 0)),
+      { w: 3.6, renk: RT.ikincil, uc0: 10, uc1: 18 }, a.tb, a.kutuSure || 0.14,
+      a.kutuAralik || 0.1, 0.55);
+    darbeler.forEach((e, i) => {
+      if (i === 0) {
+        const eskiCiz = e.ciz;
+        e.ciz = (ctx, f) => {
+          if (f >= fb) {
+            window.__kalemKutu?.ekle("kart", a.ad || "kart", a.x, a.y, a.w, a.h);
+          }
+          eskiCiz(ctx, f);
+        };
+      }
+      o.push(e);
+    });
+    a.satirlar.forEach((s, i) => o.push(this.metinPop({ ...s, ses: i === 0 ? 0.5 : false })));
+    return o;
+  }`;
+
+  const CAPA_KART_V3 = `  kart(a) {
+    const o = [];
+    this.darbeler(
+      kutu(a.x, a.y, a.w, a.h, 90 + (a.tohum || 0)),
+      { w: 3.6, renk: RT.ikincil, uc0: 10, uc1: 18 }, a.tb, a.kutuSure || 0.14,
+      a.kutuAralik || 0.1, 0.55
+    ).forEach((e) => o.push(e));
+    a.satirlar.forEach((s, i) => o.push(this.metinPop({ ...s, ses: i === 0 ? 0.5 : false })));
+    return o;
+  }`;
+  const YENI_KART_V3 = `  kart(a) {
+    const o = [];
+    const fb = this.fr(a.tb);
+    const darbeler = this.darbeler(
+      kutu(a.x, a.y, a.w, a.h, 90 + (a.tohum || 0)),
+      { w: 3.6, renk: RT.ikincil, uc0: 10, uc1: 18 }, a.tb, a.kutuSure || 0.14,
+      a.kutuAralik || 0.1, 0.55
+    );
+    darbeler.forEach((e, i) => {
+      if (i === 0) {
+        const eskiCiz = e.ciz;
+        e.ciz = (ctx, f) => {
+          if (f >= fb) {
+            window.__kalemKutu?.ekle("kart", a.ad || "kart", a.x, a.y, a.w, a.h);
+          }
+          eskiCiz(ctx, f);
+        };
+      }
+      o.push(e);
+    });
+    a.satirlar.forEach((s, i) => o.push(this.metinPop({ ...s, ses: i === 0 ? 0.5 : false })));
+    return o;
+  }`;
+
+  const CAPA_KART_V4 = `  kart(a) {
+    const o = [];
+    this.darbeler(
+      kutu(a.x, a.y, a.w, a.h, 90 + (a.tohum || 0)),
+      { w: 3.6, renk: RT.ikincil, uc0: 10, uc1: 18 },
+      a.tb,
+      a.kutuSure || 0.14,
+      a.kutuAralik || 0.1,
+      0.55
+    ).forEach((e) => o.push(e));
+    a.satirlar.forEach((s, i) => o.push(this.metinPop({ ...s, ses: i === 0 ? 0.5 : false })));
+    return o;
+  }`;
+  const YENI_KART_V4 = `  kart(a) {
+    const o = [];
+    const fb = this.fr(a.tb);
+    const darbeler = this.darbeler(
+      kutu(a.x, a.y, a.w, a.h, 90 + (a.tohum || 0)),
+      { w: 3.6, renk: RT.ikincil, uc0: 10, uc1: 18 },
+      a.tb,
+      a.kutuSure || 0.14,
+      a.kutuAralik || 0.1,
+      0.55
+    );
+    darbeler.forEach((e, i) => {
+      if (i === 0) {
+        const eskiCiz = e.ciz;
+        e.ciz = (ctx, f) => {
+          if (f >= fb) {
+            window.__kalemKutu?.ekle("kart", a.ad || "kart", a.x, a.y, a.w, a.h);
+          }
+          eskiCiz(ctx, f);
+        };
+      }
+      o.push(e);
+    });
+    a.satirlar.forEach((s, i) => o.push(this.metinPop({ ...s, ses: i === 0 ? 0.5 : false })));
+    return o;
+  }`;
+
+  if (metin.includes(CAPA_KART)) {
+    metin = metin.replace(CAPA_KART, YENI_KART);
+  } else if (metin.includes(CAPA_KART_V2)) {
+    metin = metin.replace(CAPA_KART_V2, YENI_KART_V2);
+  } else if (metin.includes(CAPA_KART_V3)) {
+    metin = metin.replace(CAPA_KART_V3, YENI_KART_V3);
+  } else if (metin.includes(CAPA_KART_V4)) {
+    metin = metin.replace(CAPA_KART_V4, YENI_KART_V4);
+  } else {
+    return { durum: "CAPA_YOK", capa: "kart", dosyaYol };
+  }
 
   // 8. kare(f, hepsi)
   const CAPA_KARE = `  async kare(f, hepsi) {
@@ -520,9 +1133,9 @@ export function paketDosyalariniBul(paketAdi) {
   return dosyalar;
 }
 
-export function paketYedekle(paketAdi, dosyalar) {
+export function paketYedekle(paketAdi, dosyalar, hedefDizin = "dagit2") {
   const pAd = path.basename(paketAdi);
-  const yedekDizin = path.join(KOK, "_is", "cakisma", "dagit", pAd, "yedek");
+  const yedekDizin = path.join(KOK, "_is", "cakisma", hedefDizin, pAd, "yedek");
   fs.mkdirSync(yedekDizin, { recursive: true });
 
   const paketKok = path.isAbsolute(paketAdi)
@@ -537,9 +1150,12 @@ export function paketYedekle(paketAdi, dosyalar) {
   }
 }
 
-export function paketGeriYukle(paketAdi) {
+export function paketGeriYukle(paketAdi, hedefDizin = "dagit2") {
   const pAd = path.basename(paketAdi);
-  const yedekDizin = path.join(KOK, "_is", "cakisma", "dagit", pAd, "yedek");
+  let yedekDizin = path.join(KOK, "_is", "cakisma", hedefDizin, pAd, "yedek");
+  if (!fs.existsSync(yedekDizin)) {
+    yedekDizin = path.join(KOK, "_is", "cakisma", "dagit", pAd, "yedek");
+  }
   if (!fs.existsSync(yedekDizin)) {
     console.error(`Yedek bulunamadı: ${yedekDizin}`);
     return false;

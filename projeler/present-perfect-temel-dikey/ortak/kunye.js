@@ -9,6 +9,25 @@ export const TEMALAR = {
   acik: { zemin: "#f7f3ea", murekkep: "#1b2440", ikincil: "#5a6275", vurgu: "#d9900f", vurguDolgu: "#ffe066",
     logoSari: "#fece00", logoMetin: "#13204D", kirmizi: "#d6453a", pilMetin: "#1b2440" } };
 export const RENK = { ...TEMALAR.koyu };
+// Kanca (yalnız kayıt): pencerede yoksa oluştur
+if (typeof window !== "undefined" && !window.__kalemKutu) {
+  window.__kalemKutu = {
+    kare: [],
+    ekle(tur, ad, x, y, w, h) {
+      if (w > 0 && h > 0) {
+        this.kare.push({
+          tur,
+          ad: String(ad || ""),
+          x: Math.round(x),
+          y: Math.round(y),
+          w: Math.round(w),
+          h: Math.round(h),
+        });
+      }
+    },
+  };
+}
+
 export const RT = Object.fromEntries(Object.keys(TEMALAR.koyu).map((a) => [a, "@" + a]));
 export const renkCoz = (r) => (typeof r === "string" && r[0] === "@" ? RENK[r.slice(1)] : r);
 let temaAd = "koyu", surum = 0;
@@ -115,6 +134,38 @@ export function kunyeCiz(ctx, { bolum, logo, alfa = 1 }) {
     ctx.fillStyle = R.vurgu; ctx.fillText(bolum, cx + cw / 2, k.cipY + k.cipH / 2 + 14);
   }
   ctx.restore();
+
+  // Kanca: dikey künye bölgelerini 'kunye' türü olarak ekle (alfa >= 0.2 ise)
+  if (typeof window !== "undefined" && window.__kalemKutu && alfa >= 0.2) {
+    if (logo) {
+      const h = k.logoYuk, w = h * 1920 / 476.3;
+      window.__kalemKutu.ekle("kunye", "kunye:logo", k.kenar, k.logoY, w, h);
+    }
+    ctx.save();
+    ctx.font = `700 ${k.dersYazi}px Fredoka`;
+    const dw = ctx.measureText(k.ders).width;
+    window.__kalemKutu.ekle("kunye", "kunye:ders", k.kenar, k.dersTaban - k.dersYazi, dw, k.dersYazi + 6);
+    ctx.font = `700 ${k.rozetYazi}px Lexend`;
+    if (Array.isArray(k.rozet)) {
+      let rx = k.kenar;
+      for (const m of k.rozet) {
+        const rw = ctx.measureText(m).width + 56;
+        window.__kalemKutu.ekle("kunye", "kunye:rozet", rx, k.rozetY, rw, k.rozetH);
+        rx += rw + 12;
+      }
+    } else if (k.rozet) {
+      const rw = ctx.measureText(k.rozet).width + 56;
+      window.__kalemKutu.ekle("kunye", "kunye:rozet", k.kenar, k.rozetY, rw, k.rozetH);
+    }
+    if (bolum) {
+      ctx.font = `700 ${k.cipYazi}px Lexend`;
+      const dolgu = k.cipDolgu || 64;
+      const cw = ctx.measureText(bolum).width + dolgu;
+      window.__kalemKutu.ekle("kunye", "kunye:sag-ust", W - k.kenar - cw, k.cipY, cw, k.cipH);
+    }
+    ctx.restore();
+  }
+
 }
 
 // Altyazı bandı (y 1400–1536): konuşulan parça, en çok 2 satır, ortalı. Sessiz izleme için zorunlu (kalıp §1 kural 3).

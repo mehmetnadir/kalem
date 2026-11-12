@@ -93,6 +93,7 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
   // ciz(pts, {bas, sure, w, renk, alfa, duz, uc0, uc1, amp, oge, ses}) ; ses: false | "tik" | "parilti" | (varsayılan "cizgi")
   function ciz(pts, o = {}) {
     const c = kalemGeo(pts, o); c.bas = o.bas || 0; c.sure = Math.max(2, o.sure || 20); c.og = o.oge || kok; c.yolP = null; c.tam = false;
+    c.tur = o.tur || "cizim"; c.ad = o.ad || "cizgi";
     CIZGILER.push(c);
     if (o.ses !== false) {
       if (o.ses === "tik") olay(c.bas, "tik", 0.5); else if (o.ses === "parilti") olay(c.bas, "parilti", 0.5);
@@ -108,7 +109,7 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
     const per = Math.PI * (rx + ry), n = Math.max(24, Math.ceil(per * tur / 6)), ce = Math.cos(egim), se = Math.sin(egim);
     const pts = Array.from({ length: n }, (_, i) => { const u = i / (n - 1), a = a0 + u * tur * 2 * Math.PI, k = 1 + 0.05 * gurul(u * 4, sd) + 0.05 * (u - 0.5);
       const x = Math.cos(a) * rx * k, y = Math.sin(a) * ry * k; return [cx + x * ce - y * se, cy + x * se + y * ce]; });
-    return ciz(pts, { w: 7.5, renk: RT.vurgu, alfa: 0.85, amp: 0.4, uc0: 14, uc1: 40, ...o });
+    return ciz(pts, { w: 7.5, renk: RT.vurgu, alfa: 0.85, amp: 0.4, uc0: 14, uc1: 40, tur: "isaret", ad: o.ad || "daire", ...o });
   }
   // eğri: a'dan b'ye dik yönde sin profiliyle bükülmüş nokta dizisi
   function egri(a, b, bukum, yon, n = 9) {
@@ -119,10 +120,10 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
   // kalemle ok: gövde + uç çizgileri (cift: iki yönlü)
   function ok(a, b, o = {}) {
     const pts = egri(a, b, o.bukum == null ? 0.06 : o.bukum, o.yon), sure = o.sure || 18, w = o.w || 7, renk = o.renk || RT.vurgu, alfa = o.alfa == null ? 0.85 : o.alfa;
-    const g = ciz(pts, { w, renk, alfa, bas: o.bas, sure, uc0: 10, uc1: 14, amp: 0.7, oge: o.oge });
+    const g = ciz(pts, { w, renk, alfa, bas: o.bas, sure, uc0: 10, uc1: 14, amp: 0.7, oge: o.oge, tur: "isaret", ad: o.ad || "ok" });
     const uc = (tip, ard, ses) => { const dx = tip[0] - ard[0], dy = tip[1] - ard[1], l = Math.hypot(dx, dy) || 1, ux = dx / l, uy = dy / l, k = o.uzun || 24;
       const rot = (a_) => [-(ux * Math.cos(a_) - uy * Math.sin(a_)) * k + tip[0], -(ux * Math.sin(a_) + uy * Math.cos(a_)) * k + tip[1]];
-      return ciz([rot(0.5), tip, rot(-0.5)], { w: w * 0.9, renk, alfa, bas: o.bas + sure - 2, sure: 8, uc0: 6, uc1: 6, amp: 0.4, duz: true, oge: o.oge, ses }); };
+      return ciz([rot(0.5), tip, rot(-0.5)], { w: w * 0.9, renk, alfa, bas: o.bas + sure - 2, sure: 8, uc0: 6, uc1: 6, amp: 0.4, duz: true, oge: o.oge, ses, tur: "isaret", ad: (o.ad || "ok") + ":uc" }); };
     uc(pts[pts.length - 1], pts[pts.length - 3], false);
     if (o.cift) uc(pts[0], pts[2], false);
     return g;
@@ -134,12 +135,12 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
     const top = k.reduce((s, q) => s + Math.hypot(q[1][0] - q[0][0], q[1][1] - q[0][1]), 0); let cur = o.bas;
     k.forEach((q, i) => { const l = Math.hypot(q[1][0] - q[0][0], q[1][1] - q[0][1]), sr = Math.max(4, sure * l / top);
       ciz([q[0], [(q[0][0] + q[1][0]) / 2 + 1.5 * (i % 2 ? 1 : -1), (q[0][1] + q[1][1]) / 2 + 1.2], q[1]], { w: o.w || 3.6, renk: o.renk || RT.ikincil, alfa: 0.9,
-        bas: cur, sure: sr, uc0: 10, uc1: 12, oge: o.oge, ses: i === 0 ? true : false }); cur += sr; });
+        bas: cur, sure: sr, uc0: 10, uc1: 12, oge: o.oge, ses: i === 0 ? true : false, tur: "kart", ad: o.ad || "kutu" }); cur += sr; });
     return { bit: cur };
   }
   // sarı tik
   function tik(cx, cy, o = {}) {
-    return ciz([[cx - 14, cy + 1], [cx - 4, cy + 12], [cx + 17, cy - 15]], { w: 7, renk: RT.vurgu, alfa: 0.9, bas: o.bas, sure: 9, uc0: 5, uc1: 8, amp: 0.3, ses: "tik", oge: o.oge });
+    return ciz([[cx - 14, cy + 1], [cx - 4, cy + 12], [cx + 17, cy - 15]], { w: 7, renk: RT.vurgu, alfa: 0.9, bas: o.bas, sure: 9, uc0: 5, uc1: 8, amp: 0.3, ses: "tik", oge: o.oge, tur: "isaret", ad: o.ad || "tik" });
   }
 
   // ---------- SVG (figür / nesne) ----------
@@ -178,7 +179,8 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
     const w = genislik(str, font), x0 = o.hizala === "orta" ? o.x - w / 2 : o.hizala === "sag" ? o.x - w : o.x;
     const g = new P.Group({ applyMatrix: false });
     const tx = new P.PointText({ point: [x0, o.y], content: str, fillColor: renkCoz(o.renk || RT.murekkep), fontFamily: aile, fontWeight: agirlik, fontSize: boyut });
-    g.addChild(tx); g.visible = false; if (o.oge) o.oge.g.addChild(g);
+    g.addChild(tx); g.visible = false; g.data = { kalemTur: "yazi", kalemAd: str };
+    if (o.oge) { o.oge.g.addChild(g); o.oge.g.data = { kalemTur: "yazi", kalemAd: str }; }
     const y = { g, tx, renk: o.renk || RT.murekkep, str, x0, x1: x0 + w, y: o.y, boyut, bas: o.bas, sure: o.sure || 4, olcek: !!o.olcek, w, oge: o.oge };
     YAZILAR.push(y);
     if (o.ses) olay(o.bas, o.ses === true ? "tik" : o.ses, 0.5);
@@ -261,7 +263,7 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
     const darbeler = Y.darbeler.map((d) => {
       const fb = bas0 + d.bas * 30, fs = Math.max(2, d.sure * 30);
       const c = d.nokta ? null : ciz(d.pts, { duz: true, w: Math.max(1.4, d.gen), amp: 0.25, uc0: 2.5,
-        uc1: 3, aralik: 1.6, renk, alfa, bas: fb, sure: fs, oge: o.oge, ses: false });
+        uc1: 3, aralik: 1.6, renk, alfa, bas: fb, sure: fs, oge: o.oge, ses: false, tur: "yazi", ad: str });
       return { c, fb, fs, nib: d.nib };
     });
     if (o.ses !== false) (soz ? soz.map((q) => q.t0 * 30) : [bas0]).forEach((f) => olay(f, "cizgi", 0.35));
@@ -285,6 +287,77 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
   const sozcukler = (cumleNo) => sozcukJson.filter((s) => s.cumle === cumleNo).map((s) => ({ s: s.sozcuk, t: s.t0 + kayma, f: fr(s.t0 + kayma),
     t1: s.t1 + kayma, f1: fr(s.t1 + kayma) }));
 
+  // ---------- Kanca (paperTopla) ----------
+  if (typeof window !== "undefined") {
+    if (!window.__kalemKutu) {
+      window.__kalemKutu = {
+        kare: [],
+        ekle(tur, ad, x, y, w, h) {
+          if (w > 0 && h > 0) {
+            this.kare.push({
+              tur,
+              ad: String(ad || ""),
+              x: Math.round(x),
+              y: Math.round(y),
+              w: Math.round(w),
+              h: Math.round(h),
+            });
+          }
+        },
+      };
+    }
+    window.__kalemKutu.paperTopla = function () {
+      if (!P || !P.project) return;
+      const kunyeler = (this.kare || []).filter((k) => k.tur === "kunye");
+      this.kare = kunyeler;
+      function topla(item) {
+        if (!item || item.visible === false) return;
+        if (item.opacity != null && item.opacity < 0.2) return;
+        if (item.data && item.data.kalemTur) {
+          let b = item.bounds;
+          if (item.clipped && item.children && item.children.length > 0) {
+            const mask = item.children.find((c) => c.clipMask);
+            const icerikler = item.children.filter((c) => !c.clipMask && c.visible !== false);
+            if (mask && icerikler.length > 0) {
+              let ix0 = Infinity, iy0 = Infinity, ix1 = -Infinity, iy1 = -Infinity;
+              for (const c of icerikler) {
+                const cb = c.bounds;
+                if (cb.width > 0 && cb.height > 0) {
+                  ix0 = Math.min(ix0, cb.x);
+                  iy0 = Math.min(iy0, cb.y);
+                  ix1 = Math.max(ix1, cb.x + cb.width);
+                  iy1 = Math.max(iy1, cb.y + cb.height);
+                }
+              }
+              if (ix0 < ix1 && iy0 < iy1) {
+                const mb = mask.bounds;
+                const x0 = Math.max(ix0, mb.x);
+                const y0 = Math.max(iy0, mb.y);
+                const x1 = Math.min(ix1, mb.x + mb.width);
+                const y1 = Math.min(iy1, mb.y + mb.height);
+                const w = x1 - x0;
+                const h = y1 - y0;
+                if (w > 0 && h > 0) {
+                  b = { x: x0, y: y0, width: w, height: h };
+                } else {
+                  return;
+                }
+              }
+            }
+          }
+          if (b && b.width > 0 && b.height > 0) {
+            window.__kalemKutu.ekle(item.data.kalemTur, item.data.kalemAd || "", b.x, b.y, b.width, b.height);
+            return;
+          }
+        }
+        if (item.children && item.children.length > 0) {
+          for (const child of item.children) topla(child);
+        }
+      }
+      for (const layer of P.project.layers) topla(layer);
+    };
+  }
+
   // ---------- kare ----------
   function matrisUygula(e, f) {
     let tx = 0, ty = 0, s = 1, cx = 0, cy = 0;
@@ -300,6 +373,9 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
     if (e.alfa) e.g.opacity = e.alfa(f);
   }
   async function kare(f) {
+    if (typeof window !== "undefined" && window.__kalemKutu) {
+      window.__kalemKutu.kare = [];
+    }
     const fe = Math.min(f, SON);
     if (temaSurum() !== sonSurum) { sonSurum = temaSurum(); for (const c of CIZGILER) c.tam = false; }   // tema değişti: biten darbeler yeniden boyanır
     for (const c of CIZGILER) {
@@ -307,7 +383,9 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0 }) {   /
       if (t <= 0) { if (c.yolP) { c.yolP.remove(); c.yolP = null; c.tam = false; } continue; }
       if (c.tam && t >= 1) continue;
       if (c.yolP) c.yolP.remove();
-      c.yolP = cokgen(c, t); c.og.g.addChild(c.yolP); c.tam = t >= 1;
+      c.yolP = cokgen(c, t);
+      c.yolP.data = { kalemTur: c.tur, kalemAd: c.ad };
+      c.og.g.addChild(c.yolP); c.tam = t >= 1;
     }
     for (const y of YAZILAR) yaziGuncelle(y, fe);
     for (const d of DINAMIK) d(fe);

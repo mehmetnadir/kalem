@@ -143,6 +143,9 @@ export class Sahne {
       x: a.x, w: Y.gen, Y, sure: Y.sure, ciz: (ctx, f) => {
         const t = mutlak ? this.zm(f) : (f - fb) / 30;
         if (t <= (mutlak ? a.sozcukler[0].t0 : 0)) return;
+        if (a.alfa == null || a.alfa >= 0.2) {
+          window.__kalemKutu?.ekle("yazi", a.metin, a.x, a.y - boy * 0.9, Y.gen, boy * 1.1);
+        }
         yaziCiz(ctx, Y, t, 1);
       }
     };
@@ -180,6 +183,20 @@ export class Sahne {
     g.ciz = (ctx, f) => {
       ctx.save();
       const d = g.donusum ? g.donusum(f) : null;
+      if (f >= this.fr(a.tb) && (a.alfa == null || a.alfa >= 0.2)) {
+        // Kanca: kutu çizimle aynı dönüşümden geçer (kalkan uçak, nefes ölçeği)
+        let { x, y, w, h } = a.kutu;
+        if (d) {
+          const c = Math.cos(d.dondur || 0), s = Math.sin(d.dondur || 0), xs = [], ys = [];
+          for (const [px, py] of [[x, y], [x + w, y], [x, y + h], [x + w, y + h]]) {
+            const dx = (px - d.cx) * d.olcek, dy = (py - d.cy) * d.olcek;
+            xs.push(d.cx + d.tx + dx * c - dy * s);
+            ys.push(d.cy + d.ty + dx * s + dy * c);
+          }
+          x = Math.min(...xs); y = Math.min(...ys); w = Math.max(...xs) - x; h = Math.max(...ys) - y;
+        }
+        window.__kalemKutu?.ekle("cizim", a.ad || "cizim", x, y, w, h);
+      }
       if (d) {
         ctx.translate(d.cx + d.tx, d.cy + d.ty);
         if (d.dondur) ctx.rotate(d.dondur);
@@ -217,8 +234,12 @@ export class Sahne {
     return {
       x: x0, w: tw, y: a.y, fb, ciz: (ctx, f) => {
         const u = yavasla((f - fb) / n); if (u <= 0) return;
+        const al = u * (a.alfa == null ? 1 : a.alfa);
+        if (al >= 0.2) {
+          window.__kalemKutu?.ekle("yazi", a.parca.map(([m]) => m).join(""), x0, a.y - boy * 0.9, tw, boy * 1.1);
+        }
         ctx.save();
-        ctx.globalAlpha = u * (a.alfa == null ? 1 : a.alfa);
+        ctx.globalAlpha = al;
         ctx.font = a.font;
         ctx.textAlign = "left";
         ctx.textBaseline = "alphabetic";
@@ -242,6 +263,9 @@ export class Sahne {
     return {
       x: a.x, w: tw, ciz: (ctx, f) => {
         const u = kis((f - fb) / n); if (u <= 0) return;
+        if (u >= 0.2) {
+          window.__kalemKutu?.ekle("yazi", a.parca.map(([m]) => m).join(""), a.x, a.y - boy * 0.9, tw * u, boy * 1.1);
+        }
         ctx.save(); ctx.beginPath();
         ctx.rect(a.x - 8, a.y - boy * 1.1, (tw + 16) * u, boy * 1.6);
         ctx.clip();
@@ -321,7 +345,17 @@ export class Sahne {
     const el = elips(
       k.x + k.w / 2, k.y - 22, k.w / 2 + pay, 52, -0.04 + 0.03 * hash(tohum, 3, 3), tohum
     );
-    return this.darbe(el, { w: 6, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+    const d = this.darbe(el, { w: 6, renk: RT.vurgu, alfa: 0.85, uc0: 14, uc1: 30 }, tb, sure, 0.55);
+    const eskiCiz = d.ciz;
+    d.ciz = (ctx, f) => {
+      const fb = this.fr(tb), n = Math.max(1, sure * 30);
+      const t = yavasla((f - fb) / n);
+      if (t >= 0.2) {
+        window.__kalemKutu?.ekle("isaret", "halka:" + (k.m || ""), k.x - pay, k.y - 48, k.w + 2 * pay, 52);
+      }
+      eskiCiz(ctx, f);
+    };
+    return d;
   }
 
   // Daire içinde sayı (1,2,3): krem el dairesi + Fredoka sayı pop.
@@ -380,17 +414,33 @@ export class Sahne {
   // Formül kartı: el kutusu + satırlar. a: {x, y, w, h, tb, satirlar:[{parca, x, y, font, tb}]}.
   kart(a) {
     const o = [];
-    this.darbeler(
+    const fb = this.fr(a.tb);
+    const darbeler = this.darbeler(
       kutu(a.x, a.y, a.w, a.h, 90 + (a.tohum || 0)),
       { w: 3.6, renk: RT.ikincil, uc0: 10, uc1: 18 }, a.tb, a.kutuSure || 0.14,
       a.kutuAralik || 0.1, 0.55
-    ).forEach((e) => o.push(e));
+    );
+    darbeler.forEach((e, i) => {
+      if (i === 0) {
+        const eskiCiz = e.ciz;
+        e.ciz = (ctx, f) => {
+          if (f >= fb) {
+            window.__kalemKutu?.ekle("kart", a.ad || "kart", a.x, a.y, a.w, a.h);
+          }
+          eskiCiz(ctx, f);
+        };
+      }
+      o.push(e);
+    });
     a.satirlar.forEach((s, i) => o.push(this.metinPop({ ...s, ses: i === 0 ? 0.5 : false })));
     return o;
   }
 
   // Bir kareyi çizer ve canvas'ı döndürür (sürücü kare(f)).
   async kare(f, hepsi) {
+    if (typeof window !== "undefined" && window.__kalemKutu) {
+      window.__kalemKutu.kare = [];
+    }
     const ctx = this.ctx;
     zeminCiz(ctx, f, this.K);
     for (const e of this.ogeler) e.ciz(ctx, f);
