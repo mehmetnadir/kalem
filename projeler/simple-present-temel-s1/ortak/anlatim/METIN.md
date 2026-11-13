@@ -4,7 +4,7 @@
 |---|---|---|---|---|
 | 1 | 1.00 | 5.80 | öğretmen | Gider, İngilizcede goes olur: fiilin sonuna s gelir. |
 | 2 | 6.35 | 16.03 | öğretmen | My brother goes to school by bus. Kardeşim okula otobüsle gider. Özne he, she ya da it olunca fiile s gelir. |
-| 3 | 16.58 | 21.77 | öğretmen | Tam ders: Simple Present, altı dakika. Tam dersi kanalda izle. |
+| 3 | 16.58 | 21.77 | öğretmen | Tam ders: Simple Present. Tam dersi kanalda izle. |
 
 ## Parçalar (cümle içi dil/duraklama parçaları, küresel sn)
 

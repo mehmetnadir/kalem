@@ -1,0 +1,127 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Simple Past",
+ "duzen": "konu",
+ "seviye": "ileri",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogretmen": {
+   "ses": "gsJ9nrlXYbPztJxC4fwc",
+   "cinsiyet": "erkek",
+   "yas": "yetiskin",
+   "govde": "ShirtPantsWB",
+   "yuz": "Smile",
+   "sac": "Short"
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Ago görürsen Present Perfect yazma."
+    ],
+    [
+     "tr",
+     "Sınav bu tuzağı sever."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Ago görürsen Present Perfect yazma. Sınav bu tuzağı sever."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "The manager resigned two weeks ago."
+    ],
+    [
+     "tr",
+     "Müdür iki hafta önce istifa etti."
+    ],
+    [
+     "tr",
+     "Ago belirli zaman, yani Simple Past."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "The manager resigned two weeks ago. Müdür iki hafta önce istifa etti. Ago belirli zaman, yani Simple Past."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Tam ders: Simple Past."
+    ],
+    [
+     "tr",
+     "Tam dersi kanalda izle."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Tam ders: Simple Past. Tam dersi kanalda izle."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "AGO",
+  "satir2": "= PAST",
+  "rozetler": [
+   "YDT · ADVANCED",
+   "GRAMMAR"
+  ],
+  "sahne": [
+   {
+    "figur": "ogretmen",
+    "x": 32,
+    "y": 58,
+    "olcek": 0.8
+   },
+   {
+    "ad": "calendar",
+    "x": 72,
+    "y": 52,
+    "olcek": 0.5
+   }
+  ]
+ },
+ "meta": {
+  "kimlik": "02-10-ydt-ileri-s1",
+  "kod": "ING-YDT-GR-02-10-I-S1",
+  "ders": "İngilizce",
+  "konu": "Simple Past",
+  "kitle": "ydt",
+  "seviye": "ileri",
+  "amaclar": [
+   "ago ile Present Perfect tuzağını görmek"
+  ],
+  "canAlici": [
+   "ago görürsen Present Perfect yazma"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "ileri",
+   "gramer",
+   "Simple Past"
+  ],
+  "kapak": {
+   "satir1": "AGO",
+   "satir2": "= PAST",
+   "canAlici": "ago görürsen Present Perfect yazma"
+  }
+ }
+}

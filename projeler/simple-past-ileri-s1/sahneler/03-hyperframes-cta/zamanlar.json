@@ -1,6 +1,5 @@
 {
   "fps": 30, "kare": 223, "sure": 7.4333,
   "tam_ders": [0.05, 0.7], "bant_kontur": [0.3, 0.7], "bant": [1.12, 0.35], "satir2": [1.52, 0.35],
-  "saat": [2.4, 0.6], "dakika": [2.4, 0.85],
-  "pill": [3.5, 0.3], "cta": [3.62, 1.5], "parilti": 5.6, "vurus_kare": 34
+  "pill": [2.31, 0.3], "cta": [2.45, 1.5], "parilti": 5.6, "vurus_kare": 34
 }

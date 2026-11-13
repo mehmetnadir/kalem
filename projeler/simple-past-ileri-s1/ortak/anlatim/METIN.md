@@ -4,7 +4,7 @@
 |---|---|---|---|---|
 | 1 | 1.00 | 5.47 | öğretmen | Ago görürsen Present Perfect yazma. Sınav bu tuzağı sever. |
 | 2 | 6.02 | 14.10 | öğretmen | The manager resigned two weeks ago. Müdür iki hafta önce istifa etti. Ago belirli zaman, yani Simple Past. |
-| 3 | 14.65 | 20.08 | öğretmen | Tam ders: Simple Past, 6 dakika. Tam dersi kanalda izle. |
+| 3 | 14.65 | 20.08 | öğretmen | Tam ders: Simple Past. Tam dersi kanalda izle. |
 
 ## Parçalar (cümle içi dil/duraklama parçaları, küresel sn)
 
