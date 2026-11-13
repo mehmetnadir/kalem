@@ -28,7 +28,7 @@ export async function kur(P) {
     x: o.x + eyGen(soz.join(" "), o.boyut) - eyGen(soz.slice(i).join(" "), o.boyut),
     sozcukler: [pn[i]] }));
   const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],
-    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
+    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, tur: "isaret", ad: o.ad || "altCiz", ...o });
 
   // ---------- Faz A (3,0–6,93): kanca cümlesi 4 satır + figür + kitap; 6,5–6,85 söner ----------
   const A0 = fr(6.5), A1 = fr(6.85);

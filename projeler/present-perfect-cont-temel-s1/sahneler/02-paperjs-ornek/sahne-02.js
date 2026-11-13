@@ -21,7 +21,7 @@ export async function kur(P) {
   const saOge = oge({ alfa: eskizAlfa });
   const alt2 = oge({ alfa: solma(13.3, 13.65) });          // kardeş + gitar + güneş + ok (13,65'te solar)
   const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],
-    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
+    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, tur: "isaret", ad: o.ad || "altCiz", ...o });
   // sıra: Fredoka formül sözcükleri bant genişliğine (900) sığacak boyda, ortalı; her öğe {s, renk, f, ara}
   const sira = (ogeler, { y, bz, ust: o, bos = 40 }) => {
     const f100 = (s) => genislik(s, "700 100px Fredoka");

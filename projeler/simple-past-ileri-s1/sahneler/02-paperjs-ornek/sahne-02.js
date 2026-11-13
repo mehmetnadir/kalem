@@ -32,7 +32,7 @@ export async function kur(P) {
   // söner + 36 px yukarı kayar (eski yazi `son` davranışı)
   const sonKay = (f0, f1) => oge({ alfa: sol(f0, f1), kay: { f0, f1, dx: 0, dy: -36 } });
   const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],
-    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
+    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, tur: "isaret", ad: o.ad || "altCiz", ...o });
 
   // ---------- Faz A (3,0–3,68): sahne 01'in son hali; 3,50–3,68 söner ----------
   const A0 = fr(3.50), A1 = fr(3.68);

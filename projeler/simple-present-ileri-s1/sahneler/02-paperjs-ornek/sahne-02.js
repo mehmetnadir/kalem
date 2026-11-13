@@ -14,7 +14,7 @@ export async function kur(P) {
   const sol = (f0, f1) => (f) => 1 - kis((f - f0) / (f1 - f0));     // oge: [f0, f1] arası söner
   const s1 = S.sozcukler(1), s2 = S.sozcukler(2);
   const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],
-    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
+    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, tur: "isaret", ad: o.ad || "altCiz", ...o });
 
   // ---------- Faz A (3,0–3,58): sahne 01'in son hali hazır; 3,40–3,58 söner ----------
   const A0 = fr(3.40), A1 = fr(3.58);

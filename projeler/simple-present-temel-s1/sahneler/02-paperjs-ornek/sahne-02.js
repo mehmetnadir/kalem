@@ -20,7 +20,7 @@ export async function kur(P) {
   const evOge = oge({ alfa: eskizAlfa });
   const okulOge = oge({ alfa: eskizAlfa });
   const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],
-    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
+    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, tur: "isaret", ad: o.ad || "altCiz", ...o });
 
   // --- cümle 1 (sahne 01'in son hali + devamı): Caveat 80, x 72, y 440 / 530
   // satır 1: Gider, İngilizcede goes olur:   satır 2: fiilin sonuna s gelir.

@@ -22,7 +22,7 @@ export async function kur(P) {
   const tvFig = oge({ nefes: { bas: fr(10.0), cx: 226, cy: 975 } });
   const tvOge = oge({});
   const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],
-    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
+    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, tur: "isaret", ad: o.ad || "altCiz", ...o });
   // Caveat satırı el yazısıyla: her sözcük kendi penceresinde [{ s, f0, f1 }];
   // sözcük arası 0,3 × boyut. Geçiş altındaki ilk 12 kare durgun: yazı en erken 12. karede başlar
   const satir = (kel, o) => {
@@ -138,7 +138,7 @@ export async function kur(P) {
   {
     const a = en[4], b = en[5], y = a.y;
     const c = ciz([[a.x0 - 4, y + 14], [b.x1 + 4, y + 8]], { w: 10, renk: DOLGU, alfa: 0.9, bas: fr(13.86),
-      sure: 24, uc0: 8, uc1: 12, amp: 1.0 });
+      sure: 24, uc0: 8, uc1: 12, amp: 1.0, tur: "isaret", ad: "altCiz:lastNight" });
     not("last night altı çizgi", c.bas);
     parilti(b.x1 + 36, y - 70, { bas: fr(14.38), r: 22, periyot: 0, adet: 1 });
   }
