@@ -13,7 +13,7 @@
 ## Parçalar (cümle içi dil/duraklama parçaları, küresel sn)
 
 - cümle 1: [1.00–2.84]
-- cümle 2: [3.39–5.87], [6.02–8.10], [8.25–14.25]
+- cümle 2: [3.39–5.87], [6.02–8.10], [8.25–13.85]
 - cümle 3: [14.80–15.84], [16.09–18.09], [18.34–23.70], [23.85–26.89], [27.04–28.80]
 - cümle 4: [29.35–30.39], [30.64–33.60], [33.85–39.93], [40.08–43.36], [43.51–47.27]
 - cümle 5: [47.82–48.86], [49.11–51.27], [51.52–55.36], [55.51–60.15], [60.30–62.62], [62.87–64.23]
@@ -26,7 +26,7 @@
 Dün(1.00) akşam(1.24) amcamlara(1.64) gittim.(2.24)
 
 ### cümle 2
-Türkçede(3.39) biten(3.99) işe(4.43) -di(4.83) ekleriz.(5.15) İngilizce(6.02) de(6.58) -ed(6.90) ekler.(7.14) Bu(8.25) derste(8.45) Simple(9.05) Past'in(9.37) formunu,(9.85) zaman(10.73) ifadelerini(11.05) ve(12.01) düzensiz(12.17) fiilleri(12.73) görüyoruz.(13.17)
+Türkçede(3.39) biten(3.99) işe(4.43) -di(4.83) ekleriz.(5.15) İngilizce(6.02) de(6.58) -ed(6.90) ekler.(7.14) Bu(8.25) derste(8.53) Simple(9.13) Past'in(9.45) formunu,(9.93) zaman(10.73) ifadelerini(11.05) ve(11.93) düzensiz(12.17) fiilleri(12.73) görüyoruz.(13.13)
 
 ### cümle 3
 Birinci(14.80) örnek.(15.28) I(16.09) watched(16.25) a(16.57) movie(16.65) last(16.97) night.(17.37) Dün(18.34) gece(18.58) bir(18.82) film(19.10) izledim.(19.30) Olay(20.22) bitti,(20.63) zamanı(21.22) da(21.66) belli:(21.78) last(22.50) night.(22.90) İki(23.85) parça(24.09) var:(24.53) watch(25.21) ve(25.97) -ed.(26.17) Fiile(27.04) -ed(27.76) eklersin.(28.00)

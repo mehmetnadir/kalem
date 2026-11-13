@@ -84,7 +84,7 @@ export async function kur(P) {
   elYazisi(SURE_METNI, { x: 80, y: 1385, boyut: 72, renk: SARI, bas: fr(10.85), sure: 14 });
   not("saat etiketi", fr(10.69));
   parilti(235, 1205, { bas: fr(11.85), r: 26, periyot: 0, adet: 1 });
-  kutu(300, 1180, 732, 212, { bas: fr(11.8), sure: 28, w: 4.4 }); not("madde kutusu", fr(11.8));
+  kutu(300, 1180, 732, 212, { bas: fr(11.49), sure: 28, w: 4.4 }); not("madde kutusu", fr(11.49));
   [["form", 13.01, 1246], ["time clues", 14.21, 1309], ["2 traps", 15.41, 1372]].forEach(([s, t, y]) => {
     yazi(s, { x: 400, y, boyut: 64, aile: "Fredoka", agirlik: 700, renk: KRE, bas: fr(t), sure: 8, olcek: true });
     tik(355, y - 20, { bas: fr(t) + 6 }); not("madde " + s, fr(t));
