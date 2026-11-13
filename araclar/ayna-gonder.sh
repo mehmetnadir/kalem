@@ -12,7 +12,7 @@ KALEM="$(cd "$(dirname "$0")/.." && pwd)"
 HEDEF="${AYNA_HEDEF:-root@100.117.187.26}"
 PORT="${AYNA_PORT:-2222}"
 UZAK_KOK="/home/sef/kalem-ayna"
-SSH=(ssh -p "$PORT" -o ConnectTimeout=12 -o BatchMode=yes)
+SSH=(ssh -p "$PORT" -o ConnectTimeout=12 -o BatchMode=yes -o ControlPath=none)
 HARIC=(--exclude 'k/' --exclude 'renders/' --exclude '_is/' --exclude 'manifest/' --exclude 'kareler/'
   --exclude 'node_modules/' --exclude '*.mp4' --exclude 'cumle-*.wav' --exclude 'sentez.wav'
   --exclude '.DS_Store' --exclude '__pycache__/')
@@ -31,7 +31,7 @@ for a in "$@"; do
 done
 [ "${#paketler[@]}" -gt 0 ] || [ "$ortak" = 1 ] || { echo "kullanım: ayna-gonder.sh [--ortak] [--kuru] <paket>…" >&2; exit 1; }
 
-RS=(rsync -az --delete "${HARIC[@]}" -e "ssh -p $PORT -o ConnectTimeout=12 -o BatchMode=yes")
+RS=(rsync -az --delete "${HARIC[@]}" -e "ssh -p $PORT -o ConnectTimeout=12 -o BatchMode=yes -o ControlPath=none")
 [ "$kuru" = 1 ] && RS+=(-n --itemize-changes)
 
 "${SSH[@]}" "$HEDEF" "install -d -o sef -g sef $UZAK_KOK/projeler $UZAK_KOK/motorlar/paperjs/node_modules/paper/dist"
