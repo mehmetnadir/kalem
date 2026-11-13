@@ -145,14 +145,14 @@ export async function kur(P) {
     olay(bitis(di), "tik", 0.5); not("-ing daire", di.bas);
   }
 
-  // --- 10,73–17,13: ajanda kartı (sağ üst): saat + "6 dakikada:" + 3 madde
+  // --- 10,73–17,13: ajanda kartı (sağ üst): saat + "Bu derste:" + 3 madde
   {
     kutu(430, 655, 602, 340, { bas: fr(10.73), sure: 30, w: 4.4 }); not("kart çizimi", fr(10.73));
-    // 10,73–11,61 «Altı dakikada» (pencere: 10,73–11,01 · 11,05–11,61)
-    elYazisi("6 dakikada:", { x: 570, y: 740, boyut: 72, renk: SARI, sozcukler: pen("Altı", 2) });
-    not("6 dakikada", fr(11.05));
-    parilti(520, 668, { bas: fr(12.2), r: 24, periyot: 170, adet: 3 });
-    const m = [["form", 13.29, 825], ["time expressions", 14.17, 900], ["result clue", 15.61, 975]];
+    // 10,73–11,37 «Bu derste» (pencere: 10,73–10,81 · 10,93–11,37)
+    elYazisi("Bu derste:", { x: 570, y: 740, boyut: 72, renk: SARI, sozcukler: pen("Bu", 2) });
+    not("Bu derste", fr(10.93));
+    parilti(520, 668, { bas: fr(11.96), r: 24, periyot: 170, adet: 3 });
+    const m = [["form", 13.05, 825], ["time expressions", 13.93, 900], ["result clue", 15.45, 975]];
     for (const [s, t, y] of m) {
       yazi(s,
         { x: 505, y, boyut: 64, aile: "Fredoka", agirlik: 700, renk: MUR, bas: fr(t), sure: 8 });

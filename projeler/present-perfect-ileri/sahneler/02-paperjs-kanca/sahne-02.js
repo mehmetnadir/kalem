@@ -2,7 +2,7 @@
 // Cümle 1 (`Ago` kırmızı alt çizgili) 0. karede yerinde (sahne 01 ile aynı yer, x 140 y 300); içerik 17,54 sn'de biter.
 import { sahneKur, RT } from "/projeler/present-perfect-ileri/sahneler/02-paperjs-kanca/kalem-paper.js";
 
-// Kart süresi (12.11, g-29): paket zaman.json son t_son'dan; sabit 6 dakika iddiası yanlıştı.
+// Kart süresi (12.11, g-29): paket zaman.json son t_son'dan; sabit süre iddiası yanlıştı.
 // Göreli yol: sahneler/<sahne>/ → paket kökü (yayında da aynı). Okunamazsa etiket boş kalır.
 const SURE_METNI = await fetch(new URL("../../zaman.json", location.href))
   .then((r) => (r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))))
@@ -30,17 +30,17 @@ export async function kur(P) {
   }
   not("cümle 1 yerinde (ago kırmızı çizgi)", 0);
 
-  // --- 4,03–9,71: sol el kutusu, 3 madde (tik zamanlı) + küçük saat `6 min`
+  // --- 4,03–9,71: sol el kutusu, 3 madde (tik zamanlı) + küçük saat + süre etiketi
   kutu(120, 390, 590, 390, { bas: FR(4.03), sure: 36, w: 4 }); not("sol kutu", FR(4.03));
-  [["formula", 4.91], ["since / for", 6.19], ["Simple Past trap", 7.79]].forEach(([s, t], i) => {
+  [["formula", 4.71], ["since / for", 6.07], ["Simple Past trap", 7.71]].forEach(([s, t], i) => {
     const y = 495 + i * 105;
     yazi(s, { x: 215, y, boyut: 56, aile: "Fredoka", agirlik: 700, renk: KRE, bas: FR(t), sure: 9, olcek: true, ses: false });
     tik(160, y - 20, { bas: FR(t) + 6 }); not("madde " + s, FR(t));
   });
   await svgCiz("tabler/clock.svg", { kutu: [1000, 120, 200, 200], bas: FR(4.2), sure: 26, azami: 25, w: 4, sesAralik: 2 });
-  // 4,60–5,07 el yazısı `6 min` (anlatımsız etiket; sure 14 kare = 0,47 sn)
+  // 4,60–5,07 el yazısı süre etiketi (zaman.json'dan; "Bu derste" 4,03–4,59 sonrası; anlatımsız etiket; sure 14 kare = 0,47 sn)
   elYazisi(SURE_METNI, { x: 1235, y: 250, boyut: 64, renk: SARI, bas: FR(4.6), sure: 14, ses: true });
-  not("saat + 6 min", FR(4.2));
+  not("saat + süre etiketi", FR(4.2));
   parilti(1215, 130, { bas: FR(5.2), r: 26, periyot: 0, adet: 1 });
 
   // --- 9,96–15,32: formül kartı (orta) + EN cümle sözcük zamanlı

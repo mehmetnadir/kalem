@@ -3,7 +3,7 @@
 | # | başlar | biter | konuşan | metin |
 |---|---|---|---|---|
 | 1 | 1.00 | 2.84 | öğretmen | Süreç mi, sonuç mu? |
-| 2 | 3.39 | 17.25 | öğretmen | Sınav bunu sorar. Önce kural. Have or has, plus been, plus the -ing form. Altı dakikada Present Perfect Continuous'ın formunu, süre ipuçlarını ve iki tuzağı bitiriyoruz. |
+| 2 | 3.39 | 17.25 | öğretmen | Sınav bunu sorar. Önce kural. Have or has, plus been, plus the -ing form. Bu derste Present Perfect Continuous'ın formunu, süre ipuçlarını ve iki tuzağı görüyoruz. |
 | 3 | 17.80 | 33.68 | öğretmen | Birinci örnek. Since the school changed the timetable, students have been complaining. Program değişeli beri öğrenciler yakınıyor. Since, plus a simple past clause. Ana cümlede have been ve -ing gelir. |
 | 4 | 34.23 | 49.20 | öğretmen | İkinci örnek. I have been reading this novel all week, but I have only finished two chapters. Bütün hafta okuyorum, ama yalnızca iki bölümü bitirdim. Süreç, been reading. Sonuç ve sayı, have finished. |
 | 5 | 49.75 | 61.87 | öğretmen | Üçüncü örnek. We have known each other since we were at primary school. İlkokuldan beri birbirimizi tanıyoruz. Know is a state verb. Durum fiili -ing almaz. |

@@ -2,7 +2,7 @@
 // Bantlar: içerik 352–1392 (dolu), altyazı 1400–1536 (kalem-paper.js çizer), platform 1536–1920 boş.
 import { sahneKur, RT } from "/projeler/present-perfect-ileri-dikey/sahneler/02-paperjs-kanca/kalem-paper.js";
 
-// Kart süresi (12.11, g-29): paket zaman.json son t_son'dan; sabit 6 dakika iddiası yanlıştı.
+// Kart süresi (12.11, g-29): paket zaman.json son t_son'dan; sabit süre iddiası yanlıştı.
 // Göreli yol: sahneler/<sahne>/ → paket kökü (yayında da aynı). Okunamazsa etiket boş kalır.
 const SURE_METNI = await fetch(new URL("../../zaman.json", location.href))
   .then((r) => (r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))))
@@ -29,14 +29,14 @@ export async function kur(P) {
   }
   not("cümle 1 yerinde (ago kırmızı çizgi)", 0);
 
-  // --- 4,03–9,71: saat (230 px) + `6 min`; sol kutu: 3 madde (tik zamanlı), Fredoka 64
+  // --- 4,03–9,71: saat (230 px) + süre etiketi; sol kutu: 3 madde (tik zamanlı), Fredoka 64
   await svgCiz("tabler/clock.svg", { kutu: [800, 372, 190, 190], bas: fr(4.2), sure: 26, azami: 25, w: 4.4, sesAralik: 2 });
-  // 4,70 anlatımsız etiket `6 min` (Altı dakikada 4,03–4,83): hedef 14 kare (0,47 sn) → 5,17
+  // 4,70 anlatımsız süre etiketi ("Bu derste" 4,03–4,59): hedef 14 kare (0,47 sn) → 5,17
   elYazisi(SURE_METNI, { x: 800, y: 622, boyut: 72, renk: SARI, bas: fr(4.7), sure: 14 });
-  not("saat + 6 min", fr(4.2));
+  not("saat + süre etiketi", fr(4.2));
   parilti(990, 385, { bas: fr(5.2), r: 28, periyot: 0, adet: 1 });
   kutu(48, 650, 984, 345, { bas: fr(4.03), sure: 36, w: 4.4 }); not("sol kutu", fr(4.03));
-  [["formula", 4.91], ["since / for", 6.19], ["Simple Past trap", 7.79]].forEach(([s, t], i) => {
+  [["formula", 4.71], ["since / for", 6.07], ["Simple Past trap", 7.71]].forEach(([s, t], i) => {
     const y = 746 + i * 96;
     yazi(s, { x: 160, y, boyut: 64, aile: "Fredoka", agirlik: 700, renk: KRE, bas: fr(t), sure: 9, olcek: true, ses: false });
     tik(104, y - 22, { bas: fr(t) + 6 }); not("madde " + s, fr(t));

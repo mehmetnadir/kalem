@@ -3,7 +3,7 @@
 | # | başlar | biter | konuşan | metin |
 |---|---|---|---|---|
 | 1 | 1.00 | 2.84 | öğretmen | İki saattir çalışıyorum. |
-| 2 | 3.39 | 17.13 | öğretmen | Türkçede süre için -dir, süren iş için -yor deriz. İngilizce de iki parçayla yapar. Altı dakikada Present Perfect Continuous'ın formunu, süre ifadelerini ve sonuç ipucunu bitiriyoruz. |
+| 2 | 3.39 | 17.13 | öğretmen | Türkçede süre için -dir, süren iş için -yor deriz. İngilizce de iki parçayla yapar. Bu derste Present Perfect Continuous'ın formunu, süre ifadelerini ve sonuç ipucunu görüyoruz. |
 | 3 | 17.68 | 32.28 | öğretmen | Birinci örnek. I have been waiting for the bus for twenty minutes. Yirmi dakikadır otobüs bekliyorum. İş sürüyor. For twenty minutes. Süre bu. Kalıp: have been, artı fiile -ing. |
 | 4 | 32.83 | 47.27 | öğretmen | İkinci örnek. My brother has been playing the guitar since this morning. Kardeşim sabahtan beri gitar çalıyor. Since this morning. Başlangıç noktası. Tekil kişide has been, artı -ing. |
 | 5 | 47.82 | 61.51 | öğretmen | Üçüncü örnek. Look! The street is wet. It has been raining. Bak, sokak ıslak. Yağmur bir süredir yağıyor. İzi şimdi görünüyor. Kalıp yine aynı: has been, artı -ing. |

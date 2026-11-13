@@ -2,7 +2,7 @@
 import { sahneKur, RT } from "/projeler/present-perfect-cont-temel/sahneler/02-paperjs-kanca/kalem-paper.js";
 import { yaziNoktalari } from "/projeler/present-perfect-cont-temel/ortak/kalem-canvas.js";
 
-// Kart süresi (12.11, g-29): paket zaman.json son t_son'dan; sabit 6 dakika iddiası yanlıştı.
+// Kart süresi (12.11, g-29): paket zaman.json son t_son'dan; sabit süre iddiası yanlıştı.
 // Göreli yol: sahneler/<sahne>/ → paket kökü (yayında da aynı). Okunamazsa etiket boş kalır.
 const SURE_METNI = await fetch(new URL("../../zaman.json", location.href))
   .then((r) => (r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))))
@@ -108,15 +108,15 @@ export async function kur(P) {
       sure: 18, ses: true });
     not("ok -dir…-yor ⇄ have been…-ing", ar.bas);
   }
-  // --- 10,73–17,13: alt sağ el kutusu, saat + 6 min, 3 madde
+  // --- 10,73–17,13: alt sağ el kutusu, saat etiketi, 3 madde
   {
     S.kutu(1100, 700, 720, 290, { bas: fr(10.73) - 8, sure: 38 }); not("kutu çizimi", fr(10.73) - 8);
-    await S.svgCiz("tabler/clock.svg", { kutu: [1136, 722, 76, 76], bas: fr(11.05), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
-    // 11,52–11,99 anlatımsız etiket `6 min`: hedef 14 kare
-    elYazisi(SURE_METNI, { x: 1236, y: 782, boyut: 56, renk: SARI, bas: fr(11.05) + 14, sure: 14 });
-    not("saat + 6 min", fr(11.05));
-    parilti(1216, 724, { bas: fr(12.2), r: 22, periyot: 170, adet: 3 });
-    const m = [["form", 13.29, 850], ["time expressions", 14.17, 905], ["result clue", 15.61, 960]];
+    await S.svgCiz("tabler/clock.svg", { kutu: [1136, 722, 76, 76], bas: fr(10.93), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
+    // 10,93 "derste" anında saat; süre etiketi anlatımsız, hedef 14 kare
+    elYazisi(SURE_METNI, { x: 1236, y: 782, boyut: 56, renk: SARI, bas: fr(10.93) + 14, sure: 14 });
+    not("saat etiketi", fr(10.93));
+    parilti(1216, 724, { bas: fr(11.96), r: 22, periyot: 170, adet: 3 });
+    const m = [["form", 13.05, 850], ["time expressions", 13.93, 905], ["result clue", 15.45, 960]];
     for (const [s, t, y] of m) {
       yazi(s, { x: 1180, y, boyut: 44, aile: "Fredoka", agirlik: 700, renk: RT.murekkep, bas: fr(t), sure: 8 });
       tik(1148, y - 12, { bas: fr(t) + 4 }); not("madde " + s, fr(t));

@@ -3,7 +3,7 @@
 "cumle": 1,
 "dil": "tr",
 "t0": 1.0,
-"t1": 2.84,
+"t1": 2.92,
 "metin": "Süreç mi, sonuç mu?",
 "konusan": "ogretmen"
 },
@@ -11,24 +11,24 @@
 "cumle": 2,
 "dil": "tr",
 "t0": 3.39,
-"t1": 5.79,
+"t1": 5.87,
 "metin": "Sınav bunu sorar. Önce kural.",
 "konusan": "ogretmen"
 },
 {
 "cumle": 2,
 "dil": "en",
-"t0": 6.04,
-"t1": 10.76,
+"t0": 6.12,
+"t1": 10.44,
 "metin": "Have or has, plus been, plus the -ing form.",
 "konusan": "ogretmen"
 },
 {
 "cumle": 2,
 "dil": "tr",
-"t0": 11.01,
-"t1": 17.25,
-"metin": "Altı dakikada Present Perfect Continuous'ın formunu, süre ipuçlarını ve iki tuzağı bitiriyoruz.",
+"t0": 10.69,
+"t1": 16.85,
+"metin": "Bu derste Present Perfect Continuous'ın formunu, süre ipuçlarını ve iki tuzağı görüyoruz.",
 "konusan": "ogretmen"
 },
 {
@@ -83,7 +83,7 @@
 "cumle": 4,
 "dil": "en",
 "t0": 35.52,
-"t1": 40.16,
+"t1": 40.24,
 "metin": "I have been reading this novel all week, but I have only finished two chapters.",
 "konusan": "ogretmen"
 },
@@ -99,7 +99,7 @@
 "cumle": 4,
 "dil": "tr",
 "t0": 44.72,
-"t1": 49.2,
+"t1": 49.28,
 "metin": "Süreç, been reading. Sonuç ve sayı, have finished.",
 "konusan": "ogretmen"
 },
@@ -115,7 +115,7 @@
 "cumle": 5,
 "dil": "en",
 "t0": 51.04,
-"t1": 54.08,
+"t1": 54.16,
 "metin": "We have known each other since we were at primary school.",
 "konusan": "ogretmen"
 },
@@ -139,7 +139,7 @@
 "cumle": 5,
 "dil": "tr",
 "t0": 59.63,
-"t1": 61.87,
+"t1": 61.95,
 "metin": "Durum fiili -ing almaz.",
 "konusan": "ogretmen"
 },
@@ -203,7 +203,7 @@
 "cumle": 7,
 "dil": "tr",
 "t0": 79.97,
-"t1": 84.93,
+"t1": 85.01,
 "metin": "Aklında kalsın: süreç varsa been var, sonuç varsa been yok.",
 "konusan": "ogretmen"
 }

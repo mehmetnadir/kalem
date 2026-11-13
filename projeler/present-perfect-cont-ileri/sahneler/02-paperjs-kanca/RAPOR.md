@@ -1,6 +1,6 @@
 # Sahne 02-paperjs-kanca (present-perfect-cont-ileri, yatay) RAPOR
 
-Tema: acik ve koyu (ikisi de koşuldu; video-acik.mp4 + video-koyu.mp4; video.mp4 son koşu = koyu).
+Tema: koyu
 Kare: 440 (zaman.json ile birebir; ffprobe yuv420p, 30 fps). Olay: 20 (olaylar.json).
 Kapı: editör başsız, konsol hatası 0; slot hazir:true, goster:true (t=1,5 sahne 01; t=9 sahne 02).
 Bakılan kareler: k/0054.png, k/0165.png, k/0285.png, k/0427.png, kontrol.png

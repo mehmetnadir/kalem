@@ -19,7 +19,7 @@
 "cumle": 2,
 "dil": "tr",
 "t0": 8.1,
-"t1": 10.58,
+"t1": 10.66,
 "metin": "İngilizce de iki parçayla yapar.",
 "konusan": "ogretmen"
 },
@@ -27,8 +27,8 @@
 "cumle": 2,
 "dil": "tr",
 "t0": 10.73,
-"t1": 17.13,
-"metin": "Altı dakikada Present Perfect Continuous'ın formunu, süre ifadelerini ve sonuç ipucunu bitiriyoruz.",
+"t1": 17.05,
+"metin": "Bu derste Present Perfect Continuous'ın formunu, süre ifadelerini ve sonuç ipucunu görüyoruz.",
 "konusan": "ogretmen"
 },
 {
@@ -43,7 +43,7 @@
 "cumle": 3,
 "dil": "en",
 "t0": 18.89,
-"t1": 21.85,
+"t1": 21.93,
 "metin": "I have been waiting for the bus for twenty minutes.",
 "konusan": "ogretmen"
 },
@@ -67,7 +67,7 @@
 "cumle": 3,
 "dil": "tr",
 "t0": 27.64,
-"t1": 32.28,
+"t1": 32.36,
 "metin": "Süre bu. Kalıp: have been, artı fiile -ing.",
 "konusan": "ogretmen"
 },
@@ -107,7 +107,7 @@
 "cumle": 4,
 "dil": "tr",
 "t0": 42.47,
-"t1": 47.27,
+"t1": 47.35,
 "metin": "Başlangıç noktası. Tekil kişide has been, artı -ing.",
 "konusan": "ogretmen"
 },
@@ -139,7 +139,7 @@
 "cumle": 5,
 "dil": "tr",
 "t0": 57.91,
-"t1": 61.51,
+"t1": 61.59,
 "metin": "Kalıp yine aynı: has been, artı -ing.",
 "konusan": "ogretmen"
 },
@@ -163,7 +163,7 @@
 "cumle": 7,
 "dil": "tr",
 "t0": 71.32,
-"t1": 74.28,
+"t1": 74.36,
 "metin": "Türkçedeki -dir ve -yor gibi düşün:",
 "konusan": "ogretmen"
 },
@@ -171,7 +171,7 @@
 "cumle": 7,
 "dil": "en",
 "t0": 74.53,
-"t1": 76.85,
+"t1": 76.93,
 "metin": "I have been working for two hours.",
 "konusan": "ogretmen"
 },
@@ -179,7 +179,7 @@
 "cumle": 7,
 "dil": "tr",
 "t0": 77.1,
-"t1": 82.22,
+"t1": 82.3,
 "metin": "İki saattir çalışıyorum. Kod: have been, artı -ing.",
 "konusan": "ogretmen"
 }

@@ -3,7 +3,7 @@
 | # | başlar | biter | konuşan | metin |
 |---|---|---|---|---|
 | 1 | 1.00 | 3.48 | ogretmen | Ago varsa Present Perfect yok. |
-| 2 | 4.03 | 17.97 | ogretmen | Altı dakikada formülü, since ile for ayrımını ve Simple Past tuzağını bitiriyoruz. The formula: subject plus have or has plus past participle. Önce kural, sonra sınav kökleri. |
+| 2 | 4.03 | 17.97 | ogretmen | Bu derste formülü, since ile for ayrımını ve Simple Past tuzağını görüyoruz. The formula: subject plus have or has plus past participle. Önce kural, sonra sınav kökleri. |
 | 3 | 18.52 | 33.89 | ogretmen | Birinci kök. Ever since the company launched its new app, the number of users has doubled. Şirket yeni uygulamasını çıkardığından beri kullanıcı sayısı ikiye katlandı. Since cümleciği Simple Past alır, ana cümle Present Perfect. |
 | 4 | 34.44 | 51.25 | ogretmen | İkinci kök. Selim has worked at this bank for thirty years, so he knows every customer. Selim bu bankada otuz yıldır çalışıyor, bu yüzden her müşteriyi tanıyor. For süreyi söyler: otuz yıl. Yıl adı verseydin since gelirdi. |
 | 5 | 51.80 | 68.60 | ogretmen | Üçüncü kök. Tuzak burada. The plane took off two hours ago, but it hasn't landed yet. Uçak iki saat önce kalktı, ama henüz inmedi. Ago var, zaman bitmiş: Simple Past. Yet var, etki sürüyor: Present Perfect. |
@@ -26,7 +26,7 @@
 Ago(1.00) varsa(1.48) Present(2.12) Perfect(2.52) yok.(3.00)
 
 ### cümle 2
-Altı(4.03) dakikada(4.35) formülü,(4.91) since(5.79) ile(6.19) for(6.51) ayrımını(6.83) ve(7.55) Simple(7.79) Past(8.19) tuzağını(8.51) bitiriyoruz.(8.99) The(9.96) formula:(10.12) subject(11.24) plus(11.88) have(12.28) or(12.68) has(13.12) plus(13.56) past(13.80) participle.(14.12) Önce(15.57) kural,(15.93) sonra(16.61) sınav(17.01) kökleri.(17.33)
+Bu(4.03) derste(4.31) formülü,(4.71) since(5.55) ile(6.07) for(6.35) ayrımını(6.67) ve(7.39) Simple(7.71) Past(8.11) tuzağını(8.43) görüyoruz.(8.88) The(9.96) formula:(10.12) subject(11.24) plus(11.88) have(12.28) or(12.68) has(13.12) plus(13.56) past(13.80) participle.(14.12) Önce(15.57) kural,(15.93) sonra(16.61) sınav(17.01) kökleri.(17.33)
 
 ### cümle 3
 Birinci(18.52) kök.(19.00) Ever(19.65) since(20.01) the(20.17) company(20.29) launched(20.69) its(21.09) new(21.25) app,(21.49) the(22.08) number(22.25) of(22.45) users(22.61) has(23.01) doubled.(23.25) Şirket(24.46) yeni(25.02) uygulamasını(25.26) çıkardığından(25.86) beri(26.62) kullanıcı(27.10) sayısı(27.58) ikiye(28.06) katlandı.(28.38) Since(29.73) cümleciği(30.13) Simple(30.77) Past(31.17) alır,(31.57) ana(32.25) cümle(32.41) Present(32.85) Perfect.(33.25)

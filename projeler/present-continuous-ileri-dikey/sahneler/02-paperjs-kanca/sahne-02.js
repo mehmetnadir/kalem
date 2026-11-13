@@ -2,7 +2,7 @@
 // Bantlar: içerik 352–1392 (dolu), altyazı 1400–1536 (kalem-paper.js çizer), platform 1536–1920 boş.
 import { sahneKur, RT } from "/projeler/present-continuous-ileri-dikey/sahneler/02-paperjs-kanca/kalem-paper.js";
 
-// Kart süresi (12.11, g-29): paket zaman.json son t_son'dan; sabit 6 dakika iddiası yanlıştı.
+// Kart süresi (12.11, g-29): paket zaman.json son t_son'dan; sabit süre iddiası yanlıştı.
 // Göreli yol: sahneler/<sahne>/ → paket kökü (yayında da aynı). Okunamazsa etiket boş kalır.
 const SURE_METNI = await fetch(new URL("../../zaman.json", location.href))
   .then((r) => (r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))))
@@ -54,25 +54,25 @@ export async function kur(P) {
     void sub;
   }
 
-  // --- 10,93–12,57: saat (210 px) + 6 min (Caveat 80)
+  // --- 10,93–12,37: saat (210 px) + süre etiketi (Caveat 80)
   await svgCiz("tabler/clock.svg", { kutu: [64, 992, 196, 196], bas: fr(10.93), sure: 26, azami: 25, w: 4.2, sesAralik: 2 });
-  // 11,50 etiket `6 min` (Altı dakikada 10,93–11,73): hedef 14 kare → 11,97
+  // 11,50 süre etiketi (Bu derste 10,93–11,49): hedef 14 kare → 11,97
   elYazisi(SURE_METNI, { x: 320, y: 1112, boyut: 96, renk: SARI, bas: fr(11.5), sure: 14 });
-  not("saat + 6 min", fr(10.93));
+  not("saat etiketi", fr(10.93));
   parilti(290, 1005, { bas: fr(12.2), r: 28, periyot: 0, adet: 1 });
 
-  // --- 12,57–14,05: üç sınav kökü: 3 el kutusu (y 1215–1385), rakam + tik
-  [[1, 48, 12.57], [2, 262, 13.09], [3, 476, 13.65]].forEach(([n, x, t]) => {
+  // --- 12,37–13,97: üç sınav kökü: 3 el kutusu (y 1215–1385), rakam + tik
+  [[1, 48, 12.37], [2, 262, 12.93], [3, 476, 13.49]].forEach(([n, x, t]) => {
     kutu(x, 1215, 190, 170, { bas: fr(t), sure: 16, w: 4.2 });
     yazi(String(n), { x: x + 95, y: 1335, boyut: 120, aile: "Fredoka", agirlik: 700, hizala: "orta", renk: KRE, bas: fr(t) + 8, sure: 8, olcek: true });
     tik(x + 160, 1255, { bas: fr(t) + 16 }); not("kutu " + n, fr(t));
   });
 
-  // --- 14,05–15,25: bir tuzak: dördüncü kutu, kırmızı ünlem + "1 tuzak" (kırmızı yalnız burada)
-  kutu(690, 1215, 342, 170, { bas: fr(14.05), sure: 16, w: 4.2, renk: KIR }); not("tuzak kutusu", fr(14.05));
-  yazi("!", { x: 715, y: 1340, boyut: 130, aile: "Fredoka", agirlik: 700, renk: KIR, bas: fr(14.3), sure: 8, olcek: true, ses: "vurus" });
-  // 14,60 etiket `1 tuzak` (tuzağı 14,05–14,37 · bitiriyoruz 14,45–15,33): hedef 18 kare → 15,20
-  elYazisi("1 tuzak", { x: 775, y: 1320, boyut: 72, renk: KIR, bas: fr(14.6), sure: 18 });
-  not("1 tuzak", fr(14.6));
+  // --- 13,97–15,25: bir tuzak: dördüncü kutu, kırmızı ünlem + "1 tuzak" (kırmızı yalnız burada)
+  kutu(690, 1215, 342, 170, { bas: fr(13.97), sure: 16, w: 4.2, renk: KIR }); not("tuzak kutusu", fr(13.97));
+  yazi("!", { x: 715, y: 1340, boyut: 130, aile: "Fredoka", agirlik: 700, renk: KIR, bas: fr(14.22), sure: 8, olcek: true, ses: "vurus" });
+  // 14,52 etiket `1 tuzak` (tuzağı 13,97–14,37 · görüyoruz 14,41–15,25): hedef 18 kare → 15,12
+  elYazisi("1 tuzak", { x: 775, y: 1320, boyut: 72, renk: KIR, bas: fr(14.52), sure: 18 });
+  not("1 tuzak", fr(14.52));
   return S;
 }

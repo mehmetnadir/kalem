@@ -135,7 +135,7 @@ Karar (Nadir 04.11, K23): giriş 3 sn, ilk söz ≤ 1 sn, kalem sesi 0. kareden.
 | 3,00–3,40 | Cümle 1 yazısı hazır: Caveat 64 sol üst `Süreç mi, sonuç mu?` |
 | 3,39–5,79 | Merkezde el çizimi kural kartı (Fredoka 96, tümdengelim: kural önce); Caveat not `sınav bunu sorar` |
 | 6,04–10,76 | Kart sözcük zamanında dolar: `have / has` (Have or has) · `+ been` (been) · `+ -ing` (-ing); üç parça farklı sarı daire sırayla |
-| 11,01–17,25 | Alt sağ el çizimi kutu, 3 madde tik zamanlı: `form` (formunu) · `time clues` (ipuçlarını) · `2 traps` (tuzağı); küçük saat `6 min` |
+| 10,69–16,85 | Alt sağ el çizimi kutu, 3 madde tik zamanlı: `form` (formunu) · `time clues` (ipuçlarını) · `2 traps` (tuzağı); küçük saat + süre etiketi (zaman.json) |
 
 ### 03 Örnek 1 — since + geçmiş yan cümle (Paper.js, 505 kare, t 17,25–33,68; cümle 3)
 

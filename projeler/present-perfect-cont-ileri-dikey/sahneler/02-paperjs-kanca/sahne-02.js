@@ -52,7 +52,7 @@ export async function kur(P) {
     const B = 110, gap = 22, X0 = 96, Y1 = 810, Y2 = 950, Y3 = 1090;
     const koy = (s, x, y, t, o = {}) => yazi(s, { x, y, boyut: B, aile: "Fredoka", agirlik: 700,
       renk: o.renk || KRE, bas: fr(t), sure: 8, olcek: true, ses: o.ses !== false });
-    const have = koy("have", X0, Y1, 6.04); not("have", fr(6.04));
+    const have = koy("have", X0, Y1, 6.12); not("have", fr(6.12));
     const sl = yazi("/", { x: have.x1 + gap, y: Y1, boyut: B, aile: "Fredoka", agirlik: 700, renk: SARI, bas: fr(6.52), sure: 6 });
     const has = koy("has", sl.x1 + gap, Y1, 6.76); not("has", fr(6.76));
     const d1 = daire((have.x0 + has.x1) / 2, Y1 - 36, (has.x1 - have.x0) / 2 + 22, 70, { bas: fr(7.1), sure: 22, w: 10 });
@@ -70,7 +70,7 @@ export async function kur(P) {
       sure: 14 });
 
     const p2 = koy("+", X0, Y3, 8.64, { renk: SARI, ses: false });
-    const ing = koy("-ing", p2.x1 + gap, Y3, 9.08); not("-ing", fr(9.08));
+    const ing = koy("-ing", p2.x1 + gap, Y3, 9.0); not("-ing", fr(9.0));
     const d3 = daire((ing.x0 + ing.x1) / 2, Y3 - 36, ing.w / 2 + 22, 70, { bas: fr(9.6), sure: 22, a0: -1.9, w: 10 });
     olay(bitis(d3), "tik", 0.5); not("-ing daire", d3.bas);
     // 10,00 anlatımsız etiket: hedef 14 kare → 10,47
@@ -78,14 +78,14 @@ export async function kur(P) {
       sure: 14 });
   }
 
-  // --- 11,01–: saat + 6 min (sol alt), üç maddelik kutu (sağ alt); bant 1180–1392
-  await svgCiz("tabler/clock.svg", { kutu: [80, 1192, 140, 140], bas: fr(11.01), sure: 26, azami: 25, w: 4.4, sesAralik: 2 });
-  // 11,33 «dakikada» anında etiket: hedef 14 kare → 11,80 (kutu 12,05'ten önce)
-  elYazisi(SURE_METNI, { x: 80, y: 1385, boyut: 72, renk: SARI, bas: fr(11.33), sure: 14 });
-  not("saat + 6 min", fr(11.01));
-  parilti(235, 1205, { bas: fr(12.3), r: 26, periyot: 0, adet: 1 });
-  kutu(300, 1180, 732, 212, { bas: fr(12.05), sure: 28, w: 4.4 }); not("madde kutusu", fr(12.05));
-  [["form", 13.57, 1246], ["time clues", 14.77, 1309], ["2 traps", 16.05, 1372]].forEach(([s, t, y]) => {
+  // --- 10,69–: saat etiketi (sol alt), üç maddelik kutu (sağ alt); bant 1180–1392
+  await svgCiz("tabler/clock.svg", { kutu: [80, 1192, 140, 140], bas: fr(10.69), sure: 26, azami: 25, w: 4.4, sesAralik: 2 });
+  // 10,85 «derste» anında etiket: 14 kare
+  elYazisi(SURE_METNI, { x: 80, y: 1385, boyut: 72, renk: SARI, bas: fr(10.85), sure: 14 });
+  not("saat etiketi", fr(10.69));
+  parilti(235, 1205, { bas: fr(11.85), r: 26, periyot: 0, adet: 1 });
+  kutu(300, 1180, 732, 212, { bas: fr(11.8), sure: 28, w: 4.4 }); not("madde kutusu", fr(11.8));
+  [["form", 13.01, 1246], ["time clues", 14.21, 1309], ["2 traps", 15.41, 1372]].forEach(([s, t, y]) => {
     yazi(s, { x: 400, y, boyut: 64, aile: "Fredoka", agirlik: 700, renk: KRE, bas: fr(t), sure: 8, olcek: true });
     tik(355, y - 20, { bas: fr(t) + 6 }); not("madde " + s, fr(t));
   });

@@ -45,12 +45,12 @@ export async function kur(P) {
   elYazisi("KURAL", { x: 180, y: 478, boyut: 48, renk: SARI, sozcukler: pen("kural.", 1) });
   not("KURAL etiketi", fr(5.27));
 
-  // --- 6,04–10,76: formül tek satır (Fredoka 112, taban y 620), sözcük zamanlı, üç parça üç daire
+  // --- 6,12–10,44: formül tek satır (Fredoka 112, taban y 620), sözcük zamanlı, üç parça üç daire
   {
     const Y = 620, B = 112, gap = 24; let x = 200;
     const koy = (s, t, o = {}) => { const z = yazi(s, { x, y: Y, boyut: B, aile: "Fredoka", agirlik: 700,
       renk: o.renk || KRE, bas: fr(t), sure: 8, olcek: true, ses: o.ses !== false }); x = z.x1 + gap; return z; };
-    const have = koy("have", 6.04);
+    const have = koy("have", 6.12);
     const s1 = yazi("/", { x: x - 8, y: Y, boyut: B, aile: "Fredoka", agirlik: 700, renk: SARI, bas: fr(6.52), sure: 6 });
     x = s1.x1 + gap - 12;
     const has = koy("has", 6.76); not("have / has", fr(6.04));
@@ -60,8 +60,8 @@ export async function kur(P) {
     const been = koy("been", 7.88); not("been", fr(7.88));
     const d2 = daire((been.x0 + been.x1) / 2, Y - 36, been.w / 2 + 20, 66, { bas: fr(8.4), sure: 22, a0: -2.2, w: 7 });
     olay(bitis(d2), "tik", 0.5); not("been daire", d2.bas);
-    koy("+", 8.64, { renk: SARI, ses: false });
-    const ing = koy("-ing", 9.08); not("-ing", fr(9.08));
+    koy("+", 8.56, { renk: SARI, ses: false });
+    const ing = koy("-ing", 9.0); not("-ing", fr(9.0));
     const d3 = daire((ing.x0 + ing.x1) / 2, Y - 36, ing.w / 2 + 20, 66, { bas: fr(9.6), sure: 22, a0: -1.9, w: 7 });
     olay(bitis(d3), "tik", 0.5); not("-ing daire", d3.bas);
     // üç parçanın altında kısa TR not (Caveat 56, vurgu): anlatımsız etiketler, sure 0,67–0,73 sn
@@ -75,14 +75,14 @@ export async function kur(P) {
     not("üç not", fr(7.5));
   }
 
-  // --- 11,01–: altı dakika: saat + 6 min (sol alt), 3 madde kutusu (sağ alt)
-  await svgCiz("tabler/clock.svg", { kutu: [140, 790, 200, 200], bas: fr(11.01), sure: 26, azami: 25, w: 4, sesAralik: 2 });
-  // 11,33–11,90 «dakikada» penceresi (iki sözcüklü metin: tek pencere yetmez → sure 17 kare)
-  elYazisi(SURE_METNI, { x: 400, y: 900, boyut: 80, renk: SARI, bas: fr(11.33), sure: 17 });
-  not("saat + 6 min", fr(11.01));
-  parilti(380, 810, { bas: fr(12.3), r: 26, periyot: 0, adet: 1 });
-  kutu(900, 790, 880, 205, { bas: fr(12.05), sure: 28, w: 4 }); not("madde kutusu", fr(12.05));
-  [["form", 13.57, 850], ["time clues", 14.77, 910], ["2 traps", 16.05, 970]].forEach(([s, t, y]) => {
+  // --- 10,69–: saat etiketi (sol alt), 3 madde kutusu (sağ alt)
+  await svgCiz("tabler/clock.svg", { kutu: [140, 790, 200, 200], bas: fr(10.69), sure: 26, azami: 25, w: 4, sesAralik: 2 });
+  // 10,85– «derste» penceresi
+  elYazisi(SURE_METNI, { x: 400, y: 900, boyut: 80, renk: SARI, bas: fr(10.85), sure: 17 });
+  not("saat etiketi", fr(10.69));
+  parilti(380, 810, { bas: fr(11.85), r: 26, periyot: 0, adet: 1 });
+  kutu(900, 790, 880, 205, { bas: fr(11.8), sure: 28, w: 4 }); not("madde kutusu", fr(11.8));
+  [["form", 13.01, 850], ["time clues", 14.21, 910], ["2 traps", 15.41, 970]].forEach(([s, t, y]) => {
     yazi(s, { x: 990, y, boyut: 56, aile: "Fredoka", agirlik: 700, renk: KRE, bas: fr(t), sure: 8, olcek: true });
     tik(945, y - 18, { bas: fr(t) + 6 }); not("madde " + s, fr(t));
   });

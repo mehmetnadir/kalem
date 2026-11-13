@@ -3,7 +3,7 @@
 "cumle": 1,
 "dil": "tr",
 "t0": 1.0,
-"t1": 3.48,
+"t1": 3.56,
 "metin": "Ago varsa Present Perfect yok.",
 "konusan": "ogretmen"
 },
@@ -11,8 +11,8 @@
 "cumle": 2,
 "dil": "tr",
 "t0": 4.03,
-"t1": 9.71,
-"metin": "Altı dakikada formülü, since ile for ayrımını ve Simple Past tuzağını bitiriyoruz.",
+"t1": 9.63,
+"metin": "Bu derste formülü, since ile for ayrımını ve Simple Past tuzağını görüyoruz.",
 "konusan": "ogretmen"
 },
 {
@@ -27,7 +27,7 @@
 "cumle": 2,
 "dil": "tr",
 "t0": 15.57,
-"t1": 17.97,
+"t1": 18.05,
 "metin": "Önce kural, sonra sınav kökleri.",
 "konusan": "ogretmen"
 },
@@ -43,7 +43,7 @@
 "cumle": 3,
 "dil": "en",
 "t0": 19.65,
-"t1": 24.21,
+"t1": 24.29,
 "metin": "Ever since the company launched its new app, the number of users has doubled.",
 "konusan": "ogretmen"
 },
@@ -59,7 +59,7 @@
 "cumle": 3,
 "dil": "tr",
 "t0": 29.73,
-"t1": 33.89,
+"t1": 33.97,
 "metin": "Since cümleciği Simple Past alır, ana cümle Present Perfect.",
 "konusan": "ogretmen"
 },
@@ -75,7 +75,7 @@
 "cumle": 4,
 "dil": "en",
 "t0": 35.57,
-"t1": 40.45,
+"t1": 40.53,
 "metin": "Selim has worked at this bank for thirty years, so he knows every customer.",
 "konusan": "ogretmen"
 },
@@ -91,7 +91,7 @@
 "cumle": 4,
 "dil": "tr",
 "t0": 45.89,
-"t1": 51.25,
+"t1": 51.33,
 "metin": "For süreyi söyler: otuz yıl. Yıl adı verseydin since gelirdi.",
 "konusan": "ogretmen"
 },
@@ -107,7 +107,7 @@
 "cumle": 5,
 "dil": "en",
 "t0": 54.21,
-"t1": 58.05,
+"t1": 58.13,
 "metin": "The plane took off two hours ago, but it hasn't landed yet.",
 "konusan": "ogretmen"
 },
@@ -115,7 +115,7 @@
 "cumle": 5,
 "dil": "tr",
 "t0": 58.3,
-"t1": 61.5,
+"t1": 61.58,
 "metin": "Uçak iki saat önce kalktı, ama henüz inmedi.",
 "konusan": "ogretmen"
 },
@@ -131,7 +131,7 @@
 "cumle": 5,
 "dil": "tr",
 "t0": 65.48,
-"t1": 68.6,
+"t1": 68.68,
 "metin": "Yet var, etki sürüyor: Present Perfect.",
 "konusan": "ogretmen"
 },
@@ -139,7 +139,7 @@
 "cumle": 6,
 "dil": "tr",
 "t0": 69.15,
-"t1": 73.07,
+"t1": 73.15,
 "metin": "Hocam, ago varken de has landed diyemez miyiz?",
 "konusan": "ogrenci"
 },
@@ -171,7 +171,7 @@
 "cumle": 7,
 "dil": "tr",
 "t0": 87.09,
-"t1": 92.77,
+"t1": 92.85,
 "metin": "Kodu aklında tut: ago varsa Simple Past, yet varsa Present Perfect.",
 "konusan": "ogretmen"
 }
