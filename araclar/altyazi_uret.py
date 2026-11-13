@@ -33,6 +33,8 @@ for i, c in enumerate(sen["cumleler"], 1):
     sl = sure[i]["sozcukler"]
     k = 0
     for dil, metin in c["parcalar"]:
+        if dil == "sus":  # sessizlik parçası (metin = saniye): sözcüğü yok, altyazıya girmez
+            continue
         n = sozcuk_sayisi(metin)
         dilim = sl[k:k + n]
         if not dilim:
