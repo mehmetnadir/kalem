@@ -14,7 +14,8 @@ KALEM="$(cd "$(dirname "$0")/.." && pwd)"
 HEDEF="${QA_HEDEF:-root@100.117.187.26}"
 PORT="${QA_PORT:-2222}"
 UZAK="/home/sef/01dev/kalem"
-SSH_SEC="-p $PORT -o ConnectTimeout=12 -o BatchMode=yes -o ServerAliveInterval=20"
+# ControlPath=none: ortak ssh çoklama soketi asılı kalınca bütün koşular asılıyordu (13.11); her çağrı kendi bağlantısı.
+SSH_SEC="-p $PORT -o ConnectTimeout=12 -o BatchMode=yes -o ServerAliveInterval=20 -o ControlPath=none"
 HARIC=(--exclude 'k/' --exclude 'renders/' --exclude '_is/' --exclude 'manifest/' --exclude 'kareler/'
   --exclude 'node_modules/' --exclude '*.mp4' --exclude 'cumle-*.wav' --exclude 'sentez.wav'
   --exclude '.DS_Store' --exclude '__pycache__/')
@@ -62,7 +63,9 @@ if [ -z "$YUVA" ]; then
 fi
 echo "yuva $YUVA"
 cd "$K" || exit 4
-flock "$C/qa-baslat.lock" bash araclar/sunucu-onizle.sh baslat > /dev/null \
+# -o ve 9>&-: başlatılan uzun ömürlü önizleme/Chrome süreçleri kilit dosyalarını devralmasın (13.11: devraldı,
+# yuva 1 ve başlatma kilidi kalıcı tutuldu, bütün koşular kilitlendi).
+flock -o "$C/qa-baslat.lock" bash araclar/sunucu-onizle.sh baslat > /dev/null 9>&- \
   || { echo "HATA: önizleme/Chrome açılamadı"; bash araclar/sunucu-onizle.sh durum; exit 4; }
 if [ "$HAZ" = 1 ]; then
   echo "== HAZIRLA"

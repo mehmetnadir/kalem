@@ -51,13 +51,14 @@ baslat() {
   for p in "$ONIZLE_PORT" "$CDP_PORT"; do
     if (echo > "/dev/tcp/127.0.0.1/$p") 2>/dev/null; then echo "HATA port dolu: $p" >&2; return 1; fi
   done
+  # Çağıranın açık dosya tanıtıcıları (flock kilitleri, 3–9) uzun ömürlü süreçlere geçmesin (13.11).
   setsid node "$KOK/ortak/onizle-sunucu.mjs" --port "$ONIZLE_PORT" --kok "$KOK" \
-    > "$LOGD/kalem-onizle.log" 2>&1 < /dev/null &
+    > "$LOGD/kalem-onizle.log" 2>&1 < /dev/null 3>&- 4>&- 5>&- 6>&- 7>&- 8>&- 9>&- &
   echo "onizle $!" > "$PIDF"
   setsid google-chrome --headless=new --no-sandbox --disable-gpu \
     --remote-debugging-address=127.0.0.1 --remote-debugging-port="$CDP_PORT" \
     --user-data-dir=/home/sef/.cache/kalem-chrome about:blank \
-    > "$LOGD/kalem-chrome.log" 2>&1 < /dev/null &
+    > "$LOGD/kalem-chrome.log" 2>&1 < /dev/null 3>&- 4>&- 5>&- 6>&- 7>&- 8>&- 9>&- &
   echo "chrome $!" >> "$PIDF"
   for _ in $(seq 1 20); do saglik >/dev/null 2>&1 && break; sleep 1; done
   saglik
