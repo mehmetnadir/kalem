@@ -1419,8 +1419,9 @@
        "kitle": "ydt",
        "seviye": "temel",
        "durum": "uretimde",
-       "proje": "simple-present-temel",
-       "not": "13.11: paket kodu ING-YDT-GR-02-02 (surumler.json) ve kaynak (sunum-2a, Vimeo 863572777) Simple Present; 02-04 (sunum-3, Vimeo 863572960) PC ile SP farkı. Eşleme 02-04'ten buraya taşındı."
+       "proje": "02-02-ydt-temel",
+       "not": "13.11: paket kodu ING-YDT-GR-02-02 (surumler.json) ve kaynak (sunum-2a, Vimeo 863572777) Simple Present; 02-04 (sunum-3, Vimeo 863572960) PC ile SP farkı. Eşleme 02-04'ten buraya taşındı.",
+       "prototip": "simple-present-temel"
       },
       {
        "kimlik": "02-02-ydt-ileri",
@@ -1428,8 +1429,9 @@
        "kitle": "ydt",
        "seviye": "ileri",
        "durum": "uretimde",
-       "proje": "simple-present-ileri",
-       "not": "13.11: paket kodu ING-YDT-GR-02-02 (surumler.json) ve kaynak (sunum-2a, Vimeo 863572777) Simple Present; 02-04 (sunum-3, Vimeo 863572960) PC ile SP farkı. Eşleme 02-04'ten buraya taşındı."
+       "proje": "02-02-ydt-ileri",
+       "not": "13.11: paket kodu ING-YDT-GR-02-02 (surumler.json) ve kaynak (sunum-2a, Vimeo 863572777) Simple Present; 02-04 (sunum-3, Vimeo 863572960) PC ile SP farkı. Eşleme 02-04'ten buraya taşındı.",
+       "prototip": "simple-present-ileri"
       },
       {
        "kimlik": "02-02-maarif-temel",
@@ -1472,14 +1474,16 @@
        "kod": "ING-YDT-GR-02-03-T",
        "kitle": "ydt",
        "seviye": "temel",
-       "durum": "planli"
+       "durum": "uretimde",
+       "proje": "02-03-ydt-temel"
       },
       {
        "kimlik": "02-03-ydt-ileri",
        "kod": "ING-YDT-GR-02-03-I",
        "kitle": "ydt",
        "seviye": "ileri",
-       "durum": "planli"
+       "durum": "uretimde",
+       "proje": "02-03-ydt-ileri"
       },
       {
        "kimlik": "02-03-maarif-temel",
