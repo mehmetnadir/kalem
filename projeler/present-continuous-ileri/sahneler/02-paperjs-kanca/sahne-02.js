@@ -21,12 +21,12 @@ export async function kur(P) {
   const { fr, daire, yazi, elYazisi, cumle, tik, parilti, olay, not, bitis, kutu, svgCiz } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil, KRE = RT.murekkep, KIR = RT.kirmizi;
 
-  // --- cümle 1: "YDT'nin -ing tuzağına düşme." (Caveat 64, x 140, y 300); 0. karede hazır
-  const c1 = cumle(["YDT'nin", "-ing", "tuzağına", "düşme."].map((s) => ({ s, f: -10 })),
+  // --- cümle 1: "Dil sınavındaki -ing tuzağına düşme." (Caveat 64, x 140, y 300); 0. karede hazır
+  const c1 = cumle(["Dil", "sınavındaki", "-ing", "tuzağına", "düşme."].map((s) => ({ s, f: -10 })),
     { x: 140, y: 300, boyut: 64, aile: "Caveat", agirlik: 700 });
   not("cümle 1 yerinde", 0);
   {   // -ing sarı daire titrer (3,00–3,71)
-    const g = c1[1], tit = S.oge({ tit: { f0: 0, f1: fr(3.71), g: 2.4 } });
+    const g = c1[2], tit = S.oge({ tit: { f0: 0, f1: fr(3.71), g: 2.4 } });
     daire((g.x0 + g.x1) / 2, g.y - 22, g.w / 2 + 12, 38, { bas: -30, sure: 20, ses: false,
       oge: tit });
     not("-ing daire titrer", 0);

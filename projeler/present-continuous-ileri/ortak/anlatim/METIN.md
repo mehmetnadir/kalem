@@ -2,7 +2,7 @@
 
 | # | başlar | biter | konuşan | metin |
 |---|---|---|---|---|
-| 1 | 1.00 | 3.16 | öğretmen | YDT'nin -ing tuzağına düşme. |
+| 1 | 1.00 | 3.16 | öğretmen | Dil sınavındaki -ing tuzağına düşme. |
 | 2 | 3.71 | 15.25 | öğretmen | Formül tek satır. Subject, plus am, is, are, plus verb-ing. Bu derste formülü, üç sınav kökünü ve bir tuzağı görüyoruz. |
 | 3 | 15.80 | 29.58 | öğretmen | Birinci kök. Please be quiet! The baby is sleeping in the next room while I am talking on the phone. Bebek uyuyor, ben telefonda konuşuyorum. İki iş de şu anda sürüyor. While, tam anı gösterir. |
 | 4 | 30.13 | 42.07 | öğretmen | İkinci kök. Because the roof is leaking, we are staying at my uncle's house this week. Çatı aktığı için bu hafta amcamlarda kalıyoruz. Geçici bir durum. This week bunu söyler. |

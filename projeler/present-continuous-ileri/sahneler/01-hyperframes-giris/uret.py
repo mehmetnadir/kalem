@@ -67,8 +67,9 @@ def uret():
                     for n, y in ((1, T1_Y), (2, T2_Y)))
     clips += ('<clipPath id="cp3"><rect id="cr3" x="%d" y="%d" width="0" height="%d"/></clipPath>'
               % (SOL - 12, CUMLE_Y - CUMLE_BOY, int(CUMLE_BOY * 1.5)))
-    ing = SOZ[1]
-    ing_x0 = SOL + Y.genislik("Caveat", 700, SOZ[0]["sozcuk"] + " ", CUMLE_BOY)
+    ing_i = next(i for i, w in enumerate(SOZ) if w["sozcuk"] == "-ing")
+    ing = SOZ[ing_i]
+    ing_x0 = SOL + Y.genislik("Caveat", 700, " ".join(w["sozcuk"] for w in SOZ[:ing_i]) + " ", CUMLE_BOY)
     ing_w = Y.genislik("Caveat", 700, ing["sozcuk"], CUMLE_BOY)
     hcx, hcy, hrx, hry = ing_x0 + ing_w / 2, CUMLE_Y - 22, ing_w / 2 + 16, 36
     import math
