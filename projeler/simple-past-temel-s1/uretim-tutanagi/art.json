@@ -1,0 +1,53 @@
+{
+  "asr": {
+    "dil": "tr",
+    "model": "mlx-community/whisper-large-v3-turbo",
+    "surum": "0.4.3"
+  },
+  "cumleler": [
+    {
+      "beklenen": "Dün akşam amcamlara gittim. Türkçede biten işe -di ekleriz. İngilizce de -ed ekler.",
+      "benzerlik": 0.99,
+      "duyulan": "Dün akşam amcamlara gittim. Türkçe'de biten işe D ekleriz. İngilizce'de Ed ekler.",
+      "i": 1,
+      "t0": 1.0,
+      "t1": 7.63
+    },
+    {
+      "beklenen": "I watched a movie last night. Dün gece film izledim. Fiile -ed, zaman belli: last night.",
+      "benzerlik": 1.0,
+      "duyulan": "I watched a movie last night. Dün gece film izledim. Fiile Ed, zaman belli. Last night.",
+      "i": 2,
+      "t0": 8.1,
+      "t1": 14.82
+    },
+    {
+      "beklenen": "Tam ders: Simple Past. Tam dersi kanalda izle.",
+      "benzerlik": 1.0,
+      "duyulan": "Tam ders. Simple past. Tam dersi kanalda izle.",
+      "i": 3,
+      "t0": 15.29,
+      "t1": 19.44
+    }
+  ],
+  "kimlik": "UA-20261112-37d7",
+  "on_kimlik": "UT-20261112-27bb",
+  "ozet": {
+    "en_dusuk": 0.99,
+    "esik": 0.85,
+    "gecen": 3,
+    "ortalama": 1.0,
+    "toplam": 3
+  },
+  "paket": "simple-past-temel-s1",
+  "sema": "ut-art/v1",
+  "sonuc": "GEÇTİ",
+  "video": {
+    "bayt": 5858902,
+    "dosya": "cikti.mp4",
+    "sha256": "82c309af7fb54433bf839d0269563f1c2d57f8c2d055513f17056f0c4271e807",
+    "sure_sn": 22.73,
+    "tema": "acik"
+  },
+  "zaman": "2026-11-12T19:24:08Z"
+}

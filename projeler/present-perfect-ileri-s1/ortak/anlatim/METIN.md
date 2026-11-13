@@ -4,7 +4,7 @@
 |---|---|---|---|---|
 | 1 | 1.00 | 5.79 | ogretmen | Ago gördün mü, Present Perfect elenir. Bu sınav tuzağına düşme. |
 | 2 | 6.34 | 15.38 | ogretmen | She moved to Berlin two years ago. İki yıl önce Berlin'e taşındı. Ago var, yani Simple Past. Has moved yanlış olurdu. |
-| 3 | 15.93 | 21.12 | ogretmen | Tam ders: Present Perfect, altı dakika. Tam dersi kanalda izle. |
+| 3 | 15.93 | 21.12 | ogretmen | Tam ders: Present Perfect. Tam dersi kanalda izle. |
 
 ## Parçalar (cümle içi dil/duraklama parçaları, küresel sn)
 

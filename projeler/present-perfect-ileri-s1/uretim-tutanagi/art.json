@@ -1,0 +1,53 @@
+{
+  "asr": {
+    "dil": "tr",
+    "model": "mlx-community/whisper-large-v3-turbo",
+    "surum": "0.4.3"
+  },
+  "cumleler": [
+    {
+      "beklenen": "Ago gördün mü, Present Perfect elenir. Bu sınav tuzağına düşme.",
+      "benzerlik": 1.0,
+      "duyulan": "AGO, gördün mü? Present Perfect elenir. Bu sınav tuzağına düşme.",
+      "i": 1,
+      "t0": 1.0,
+      "t1": 5.87
+    },
+    {
+      "beklenen": "She moved to Berlin two years ago. İki yıl önce Berlin'e taşındı. Ago var, yani Simple Past. Has moved yanlış olurdu.",
+      "benzerlik": 1.0,
+      "duyulan": "She moved to Berlin two years ago. İki yıl önce Berlin 'e taşındı. AGO var, yani Simple Past. Has moved, yanlış olurdu.",
+      "i": 2,
+      "t0": 6.34,
+      "t1": 15.46
+    },
+    {
+      "beklenen": "Tam ders: Present Perfect. Tam dersi kanalda izle.",
+      "benzerlik": 1.0,
+      "duyulan": "Tam ders. Present Perfect. Tam dersi kanalda izle.",
+      "i": 3,
+      "t0": 15.93,
+      "t1": 20.24
+    }
+  ],
+  "kimlik": "UA-20261112-ccdd",
+  "on_kimlik": "UT-20261112-ec39",
+  "ozet": {
+    "en_dusuk": 1.0,
+    "esik": 0.85,
+    "gecen": 3,
+    "ortalama": 1.0,
+    "toplam": 3
+  },
+  "paket": "present-perfect-ileri-s1",
+  "sema": "ut-art/v1",
+  "sonuc": "GEÇTİ",
+  "video": {
+    "bayt": 5994776,
+    "dosya": "cikti.mp4",
+    "sha256": "ff7f14a3c21684b49117302306b72657529c87684b21569b48bfd272d77c2300",
+    "sure_sn": 23.1,
+    "tema": "acik"
+  },
+  "zaman": "2026-11-12T17:41:50Z"
+}

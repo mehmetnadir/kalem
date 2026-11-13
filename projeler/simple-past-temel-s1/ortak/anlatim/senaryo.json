@@ -1,0 +1,127 @@
+{
+  "ders": "İngilizce",
+  "baslik": "Simple Past",
+  "duzen": "konu",
+  "seviye": "temel",
+  "kitle": "YDT",
+  "sesler": {
+    "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+    "ogrenci": "oPC5I9GKjMReiaM29gjY"
+  },
+  "kadro": {
+    "ogretmen": {
+      "ses": "gsJ9nrlXYbPztJxC4fwc",
+      "cinsiyet": "erkek",
+      "yas": "yetiskin",
+      "govde": "ShirtPantsWB",
+      "yuz": "Smile",
+      "sac": "Short"
+    }
+  },
+  "cumleler": [
+    {
+      "ses": "ogretmen",
+      "parcalar": [
+        [
+          "tr",
+          "Dün akşam amcamlara gittim."
+        ],
+        [
+          "tr",
+          "Türkçede biten işe -di ekleriz. İngilizce de -ed ekler."
+        ]
+      ],
+      "olaylar": [],
+      "metin": "Dün akşam amcamlara gittim. Türkçede biten işe -di ekleriz. İngilizce de -ed ekler."
+    },
+    {
+      "ses": "ogretmen",
+      "parcalar": [
+        [
+          "en",
+          "I watched a movie last night."
+        ],
+        [
+          "tr",
+          "Dün gece film izledim."
+        ],
+        [
+          "tr",
+          "Fiile -ed, zaman belli: last night."
+        ]
+      ],
+      "olaylar": [],
+      "metin": "I watched a movie last night. Dün gece film izledim. Fiile -ed, zaman belli: last night."
+    },
+    {
+      "ses": "ogretmen",
+      "parcalar": [
+        [
+          "tr",
+          "Tam ders: Simple Past."
+        ],
+        [
+          "tr",
+          "Tam dersi kanalda izle."
+        ]
+      ],
+      "olaylar": [],
+      "metin": "Tam ders: Simple Past. Tam dersi kanalda izle."
+    }
+  ],
+  "zaman": {
+    "giris": {
+      "sure": 3,
+      "ilkSoz": 1
+    }
+  },
+  "giris": {
+    "logo": "varlik/logo/yds-publishing.svg",
+    "satir1": "-Dİ",
+    "satir2": "= -ED",
+    "rozetler": [
+      "YDT · BASIC",
+      "GRAMMAR"
+    ],
+    "sahne": [
+      {
+        "figur": "ogretmen",
+        "x": 32,
+        "y": 58,
+        "olcek": 0.8
+      },
+      {
+        "ad": "device-tv",
+        "x": 72,
+        "y": 52,
+        "olcek": 0.5
+      }
+    ]
+  },
+  "meta": {
+    "kimlik": "02-10-ydt-temel-s1",
+    "kod": "ING-YDT-GR-02-10-T-S1",
+    "ders": "İngilizce",
+    "konu": "Simple Past",
+    "kitle": "ydt",
+    "seviye": "temel",
+    "amaclar": [
+      "Simple Past'te -ed ekini Türkçe -di ile bağlamak"
+    ],
+    "canAlici": [
+      "Türkçedeki -di = İngilizcedeki -ed"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Simple Past"
+    ],
+    "kapak": {
+      "satir1": "-Dİ",
+      "satir2": "= -ED",
+      "canAlici": "Türkçedeki -di = İngilizcedeki -ed"
+    }
+  }
+}
