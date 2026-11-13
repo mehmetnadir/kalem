@@ -39,9 +39,9 @@ P="${konum[0]}" S="${konum[1]}" ACIK="${konum[2]}" KOYU="${konum[3]}"
 [ -d "$KALEM/projeler/$P/sahneler/$S" ] || { echo "HATA: sahne yok: $P/$S" >&2; exit 1; }
 
 echo "→ rsync $P"
-rsync -az --delete "${HARIC[@]}" -e "ssh $SSH_SEC" "$KALEM/projeler/$P/" "$HEDEF:$UZAK/projeler/$P/"
+rsync -az --delete "${HARIC[@]}" -e "ssh $SSH_SEC" "$KALEM/projeler/$P/" "$HEDEF:$UZAK/projeler/$P/" < /dev/null
 # shellcheck disable=SC2086
-ssh $SSH_SEC "$HEDEF" "chown -R sef:sef $UZAK/projeler/$P"
+ssh $SSH_SEC "$HEDEF" "chown -R sef:sef $UZAK/projeler/$P" < /dev/null
 
 echo "→ sunucuda QA: $S"
 # shellcheck disable=SC2086
@@ -89,9 +89,9 @@ UZAK_BETIK
 if [ "$hazirla" = 1 ]; then
   echo "→ hazırlanan sahne Mac'e"
   rsync -az --exclude 'k/' --exclude 'kareler/' -e "ssh $SSH_SEC" \
-    "$HEDEF:$UZAK/projeler/$P/sahneler/$S/" "$KALEM/projeler/$P/sahneler/$S/"
+    "$HEDEF:$UZAK/projeler/$P/sahneler/$S/" "$KALEM/projeler/$P/sahneler/$S/" < /dev/null
 fi
 echo "→ kareler Mac'e"
 mkdir -p "$KALEM/projeler/$P/sahneler/$S/k"
-rsync -az -e "ssh $SSH_SEC" "$HEDEF:/home/sef/qa-kare/$P/$S/" "$KALEM/projeler/$P/sahneler/$S/k/"
+rsync -az -e "ssh $SSH_SEC" "$HEDEF:/home/sef/qa-kare/$P/$S/" "$KALEM/projeler/$P/sahneler/$S/k/" < /dev/null
 ls "$KALEM/projeler/$P/sahneler/$S/k/" "$KALEM/projeler/$P/sahneler/$S/k/koyu/" 2>/dev/null | grep -F "$S-" || true
