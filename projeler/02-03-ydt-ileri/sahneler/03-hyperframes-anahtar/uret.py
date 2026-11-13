@@ -69,8 +69,8 @@ def uret():
     etiket("td", LX, Y1B, "THESE DAYS /", T(7), 0.45)
     etiket("nd", LX + gen(pa), Y1B, "NOWADAYS", T(10), 0.5)
     belirtec("m_td", LX, Y1B, lab_max, T(10) + 0.05, 0.55)
-    s.yazi("tc1", LX, Y1B + 52, [("(temporary,", IKN)], "Caveat", 700, 46, L(T(15)), 0.5, tur="tik", guc=0.4)
-    s.yazi("tc2", LX + Y.genislik("Caveat", 700, "(temporary, ", 46), Y1B + 52, [("changing)", IKN)], "Caveat", 700, 46,
+    s.yazi("tc1", LX, Y1B + 68, [("(temporary,", IKN)], "Caveat", 700, 46, L(T(15)), 0.5, tur="tik", guc=0.4)
+    s.yazi("tc2", LX + Y.genislik("Caveat", 700, "(temporary, ", 46), Y1B + 68, [("changing)", IKN)], "Caveat", 700, 46,
            L(T(17)), 0.45, tur=None)
     ok("o_td", AX, Y1B, T(25))
     hint("h_td", HX, Y1B, "V-ing", T(25) + 0.1, T(25) + 0.4)

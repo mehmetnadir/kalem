@@ -79,7 +79,8 @@ def uret():
     g0 = len(s.svg)
     y1, y2 = 330, 500
     yer1 = kart("w1", y1, tt(40, 0) - 0.05, [
-        {"m": "She ", "t": tt(40, 0), "tik": True}, {"m": "doesn't", "t": tt(40, 1)}, {"m": " eat", "t": tt(40, 2)},
+        {"m": "She ", "t": tt(40, 0), "tik": True}, {"m": "doe", "t": tt(40, 1), "bos": 18}, {"m": "s", "t": tt(40, 1), "bos": 18},
+        {"m": "n't", "t": tt(40, 1)}, {"m": " eat", "t": tt(40, 2)},
         {"m": "s", "t": tt(40, 2) + 0.12}, {"m": " fish.", "t": tt(40, 3)}])
     carp("x1", KX + KW - 96, y1 + 36, 56, tt(40, 3) + 0.15)
     yer2 = kart("w2", y2, tt(41, 0) - 0.05, [
@@ -140,18 +141,18 @@ def uret():
     grup("gD", g0)
     sol("gD", tt(44, 0) - 0.15)
     # kart 1: eats'in s'si (yer1: She , doesn't, eat, s, fish.) ve doesn't içindeki s
-    xs_e = yer1[3][1]                                     # "s" parçasının x'i
-    wd = Y.genislik("Fredoka", 700, "doe", FS)
-    xs_d = yer1[1][1] + wd                                # "doesn't" içinde s'nin x'i
+    xs_e = yer1[5][1]                                     # "s" parçasının x'i (eats)
+    xs_d = yer1[2][1]                                     # "doesn't" içinde s'nin x'i (iki yanı 18 px açık: kutu komşu harfe değmez, QA 13.11)
     ws = Y.genislik("Fredoka", 700, "s", FS)
     pad = 14
     tf = tt(43, 7)
     s.kutulu("sk", xs_e - pad, y1 + 88, "s", "Fredoka", 700, FS, tf, 0.25, pad)
-    s.to("#" + yer1[3][0], tf, {"opacity": 0, "duration": 0.05})
+    s.to("#" + yer1[5][0], tf, {"opacity": 0, "duration": 0.05})
     dx = xs_d - xs_e
     s.to("#sk", tf + 0.4, {"x": dx, "duration": 0.8, "ease": "power2.inOut"})
     s.to("#sk", tf + 0.4, {"y": -64, "duration": 0.4, "ease": "power2.out"})
     s.to("#sk", tf + 0.8, {"y": 0, "duration": 0.4, "ease": "power2.in"})
+    s.to("#" + yer1[2][0], tf + 1.15, {"opacity": 0, "duration": 0.05})   # kutu inince alttaki düz s gizlenir (üst üste yok)
     s.olay(tf + 0.4, "cizgi", 0.5)
     s.olay(tf + 1.2, "tik", 0.55)
     sol("sk", tt(45, 0) - 0.3)
@@ -161,7 +162,10 @@ def uret():
     e, _ = dizi(s, "sh", RX, 480, [
         {"m": "she", "t": tt(44, 3)}, {"ok": 90, "t": tt(44, 5), "bos": 20},
         {"kutu": True, "m": "s", "t": tt(44, 6)}], boy=104)
-    s.yazi("is", RX + 20, 560, [("zihin se ister", IKN)], "Caveat", 700, 56, tt(44, 6), 0.8, tur="tik", guc=0.45)
+    # QA 13.11: not oklarla kesişiyordu → notu s kutusunun sağına al (oklar 530'dan aşağı çıkar)
+    wnot = Y.genislik("Caveat", 700, "zihin se ister", 56)
+    assert e + 40 + wnot < RX + RW + 80, "not sığmadı %.0f" % (e + 40 + wnot)
+    s.yazi("is", e + 40, 480, [("zihin se ister", IKN)], "Caveat", 700, 56, tt(44, 6), 0.8, tur="tik", guc=0.45)
     s.yazi("ew", RX, 760, [("eats", KRE)], "Fredoka", 700, 92, tt(44, 8), 0.3, tur="tik", guc=0.5)
     s.yazi("dw", RX + 400, 760, [("does", KRE)], "Fredoka", 700, 92, tt(44, 8), 0.3, tur="tik", guc=0.5)
     wew = Y.genislik("Fredoka", 700, "eats", 92)

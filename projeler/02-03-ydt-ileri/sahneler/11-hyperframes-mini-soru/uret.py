@@ -247,8 +247,8 @@ def uret():
             s.yol("fm0", Y.el_cizgi(p["x"] + 6, p["base"] + 16, p["x"] + p["w"] - 6, p["base"] + 15, 1), td + 0.25,
                   0.35, SAR, 9, 0.85, "cizgi", 0.5)
         else:
-            s.yol("fm1", Y.el_daire(p["x"] + p["w"] / 2, p["base"] - 20, fw / 2 + 22, 46, 1.3), td + 0.25, 0.45,
-                  SAR, 7, 0.85, "parilti", 0.5)
+            s.yol("fm1", Y.el_cizgi(p["x"] + 6, p["base"] + 16, p["x"] + p["w"] - 6, p["base"] + 15, 1.3), td + 0.25,
+                  0.35, SAR, 9, 0.85, "cizgi", 0.5)
 
     # ---------------- doğru şık B (315,44 «B»): yeşil satır + onay + boşlukta yeşil çizgi ----------------
     tdg = S(T17(22))
@@ -312,19 +312,21 @@ def uret():
     s.to("#pt" + onceki, S(T17(52)), {"opacity": 0, "duration": 0.2})
 
     # ---------------- 332,97 «Check the signal first, then check the verb.» ----------------
-    # önce sinyal (this week: sarı halka), sonra fiil (am staying: sarı halka)
-    a, b2 = pos[3], pos[4]
-    if a["satir"] == b2["satir"]:
-        s.yol("sg", Y.el_daire((a["x"] + b2["x"] + b2["w"]) / 2, a["base"] - 20, (b2["x"] + b2["w"] - a["x"]) / 2 + 22,
-                               48, 0.6), S(T17(56)), 0.45, SAR, 7, 0.85, "parilti", 0.5)
-    else:
-        for n, ad in ((3, "sg1"), (4, "sg2")):
-            p = pos[n]
-            s.yol(ad, Y.el_daire(p["x"] + p["w"] / 2, p["base"] - 20, p["w"] / 2 + 22, 48, 0.6 + n), S(T17(56)),
-                  0.45, SAR, 7, 0.85, "parilti", 0.5)
+    # önce sinyal (this week: sarı çift altçizgi), sonra fiil (am staying: çift altçizgi) — halka yok (13.11 QA: sıkışık satır)
+    def cift_alti(idler, t0, kimlik, tohum):
+        grup = {}
+        for n in idler:
+            grup.setdefault(pos[n]["satir"], []).append(n)
+        for li, ns in grup.items():
+            x0 = pos[ns[0]]["x"] - 4
+            x1 = pos[ns[-1]]["x"] + pos[ns[-1]]["w"] + 4
+            yb = pos[ns[0]]["base"] + 25
+            s.yol("%s_%d" % (kimlik, li), Y.el_cizgi(x0 + 8, yb, x1 - 8, yb - 1, tohum), t0, 0.4, SAR, 6, 0.9, "cizgi", 0.5)
+
+    cift_alti([3, 4], S(T17(56)), "sg", 0.6)
     p0 = bpos[0]
-    s.yol("vb", Y.el_daire(p0["x"] + p0["w"] / 2, p0["base"] - 20, p0["w"] / 2 + 30, 52, 2.1), S(T17(59)), 0.45, SAR, 7,
-          0.85, "parilti", 0.5)
+    s.yol("vb", Y.el_cizgi(p0["x"] + 14, p0["base"] + 28, p0["x"] + p0["w"] - 14, p0["base"] + 27, 2.1), S(T17(59)), 0.4,
+          SAR, 6, 0.9, "cizgi", 0.5)
     return s, {"kun": kunye(), "pos": pos, "nsat": nsat, "bal_ids": bal_ids}
 
 

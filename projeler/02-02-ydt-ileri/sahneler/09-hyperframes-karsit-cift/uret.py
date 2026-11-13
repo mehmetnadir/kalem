@@ -112,7 +112,7 @@ def uret():
         {"m": "Mike ", "t": tt(31, 0), "tik": True}, {"m": "is ", "t": tt(31, 1)},
         {"m": "staying ", "t": tt(31, 2)}, {"m": "in", "t": tt(31, 3)}], boy=FS)
     e4, yer4 = Y.dizi(s, "r2", rx, B2, [
-        {"m": "a ", "t": tt(31, 4)}, {"m": "hotel ", "t": tt(31, 5)}, {"m": "this ", "t": tt(31, 6)},
+        {"m": "a ", "t": tt(31, 4)}, {"m": "hotel ", "t": tt(31, 5), "bos": 16}, {"m": "this ", "t": tt(31, 6)},
         {"m": "week.", "t": tt(31, 7)}], boy=FS)
     assert max(e3, e4) < RX + CW - 20, "sağ kart taştı: %.0f" % max(e3, e4)
     bx0, bx1 = yer4[2][1] - 14, yer4[3][1] + yer4[3][2] + 14
