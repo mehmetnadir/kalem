@@ -137,18 +137,18 @@ export async function kur(P) {
     not("ok -di ⇄ -ed", ar.bas);
   }
 
-  // --- 8,25–14,25: sağ sütun: saat (6 min) + ajanda kartı (3 madde);
+  // --- 8,25–14,25: sağ sütun: saat + süre etiketi + ajanda kartı (3 madde);
   // figür sol sütunda tam boy kalır
   {
-    await S.svgCiz("tabler/clock.svg", { kutu: [380, 750, 110, 110], bas: fr(8.57), sure: 20,
+    await S.svgCiz("tabler/clock.svg", { kutu: [380, 750, 110, 110], bas: fr(8.45), sure: 20,
       azami: 25, w: 4.4, sesAralik: 3 });
-    // 8,57 anlatımsız etiket `6 min` (dakikada 8,57–9,21): hedef 14 kare (0,47 sn)
-    elYazisi(SURE_METNI, { x: 510, y: 835, boyut: 84, renk: SARI, bas: fr(8.57) + 14, sure: 14 });
-    not("saat + 6 min", fr(8.57));
-    parilti(680, 750, { bas: fr(9.6), r: 26, periyot: 170, adet: 3 });
-    kutu(360, 880, 672, 330, { bas: fr(9.7), sure: 30, w: 4 }); not("kart çizimi", fr(9.7));
+    // 8,45 anlatımsız etiket SURE_METNI (derste 8,45–8,89): hedef 14 kare (0,47 sn)
+    elYazisi(SURE_METNI, { x: 510, y: 835, boyut: 84, renk: SARI, bas: fr(8.45) + 14, sure: 14 });
+    not("saat + süre etiketi", fr(8.45));
+    parilti(680, 750, { bas: fr(9.48), r: 26, periyot: 170, adet: 3 });
+    kutu(360, 880, 672, 330, { bas: fr(9.58), sure: 30, w: 4 }); not("kart çizimi", fr(9.58));
     const m = [
-      ["form", 10.17, 955], ["time expressions", 11.29, 1045], ["irregular verbs", 13.01, 1135]
+      ["form", 9.85, 955], ["time expressions", 11.05, 1045], ["irregular verbs", 12.73, 1135]
     ];
     for (const [s, t, y] of m) {
       yazi(s, {

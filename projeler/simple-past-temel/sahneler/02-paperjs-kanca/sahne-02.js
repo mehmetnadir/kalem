@@ -77,14 +77,14 @@ export async function kur(P) {
       ses: true }); not("ok -di ⇄ -ed", ar.bas);
   }
 
-  // --- 8,25–14,25: el kutusu, saat (6 min), 3 madde
+  // --- 8,25–14,25: el kutusu, saat + süre etiketi (derste 8,45), 3 madde
   {
     kutu(1060, 690, 760, 280, { bas: fr(8.25) - 4, sure: 36 }); not("kutu çizimi", fr(8.25) - 4);
-    await S.svgCiz("tabler/clock.svg", { kutu: [1096, 712, 76, 76], bas: fr(8.57), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
-    elYazisi(SURE_METNI, { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(8.57) + 14,
-      sure: 14 }); not("saat + 6 min", fr(8.57));
-    parilti(1176, 714, { bas: fr(9.6), r: 22, periyot: 170, adet: 3 });
-    const m = [["form", 10.17, 835], ["time expressions", 11.29, 890], ["irregular verbs", 13.01, 945]];
+    await S.svgCiz("tabler/clock.svg", { kutu: [1096, 712, 76, 76], bas: fr(8.45), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
+    elYazisi(SURE_METNI, { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(8.45) + 14,
+      sure: 14 }); not("saat + süre etiketi", fr(8.45));
+    parilti(1176, 714, { bas: fr(9.48), r: 22, periyot: 170, adet: 3 });
+    const m = [["form", 9.85, 835], ["time expressions", 11.05, 890], ["irregular verbs", 12.73, 945]];
     for (const [s, t, y] of m) {
       yazi(s, { x: 1140, y, boyut: 44, aile: "Fredoka", agirlik: 700, renk: RT.murekkep, bas: fr(t), sure: 8 });
       tik(1108, y - 12, { bas: fr(t) + 4 }); not("madde " + s, fr(t));

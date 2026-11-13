@@ -3,7 +3,7 @@
 | # | başlar | biter | konuşan | metin |
 |---|---|---|---|---|
 | 1 | 1.00 | 2.84 | öğretmen | Dün akşam amcamlara gittim. |
-| 2 | 3.39 | 14.25 | öğretmen | Türkçede biten işe -di ekleriz. İngilizce de -ed ekler. Altı dakikada Simple Past'in formunu, zaman ifadelerini ve düzensiz fiilleri bitiriyoruz. |
+| 2 | 3.39 | 14.25 | öğretmen | Türkçede biten işe -di ekleriz. İngilizce de -ed ekler. Bu derste Simple Past'in formunu, zaman ifadelerini ve düzensiz fiilleri görüyoruz. |
 | 3 | 14.80 | 28.80 | öğretmen | Birinci örnek. I watched a movie last night. Dün gece bir film izledim. Olay bitti, zamanı da belli: last night. İki parça var: watch ve -ed. Fiile -ed eklersin. |
 | 4 | 29.35 | 47.27 | öğretmen | İkinci örnek. My uncle went to London two years ago. Amcam iki yıl önce Londra'ya gitti. Ago, yani önce: zaman belli. Burada -ed yok, çünkü go düzensiz. Go değil, went. İkinci hâlini ezberlersin. |
 | 5 | 47.82 | 64.23 | öğretmen | Üçüncü örnek. We didn't play football yesterday. Dün futbol oynamadık. Olumsuzda didn't gelir. Did zaten geçmişi taşır, fiil yalın kalır: play. Soruda did başa geçer. Did you play football? |
@@ -26,7 +26,7 @@
 Dün(1.00) akşam(1.24) amcamlara(1.64) gittim.(2.24)
 
 ### cümle 2
-Türkçede(3.39) biten(3.99) işe(4.43) -di(4.83) ekleriz.(5.15) İngilizce(6.02) de(6.58) -ed(6.90) ekler.(7.14) Altı(8.25) dakikada(8.57) Simple(9.29) Past'in(9.69) formunu,(10.17) zaman(10.97) ifadelerini(11.29) ve(12.25) düzensiz(12.45) fiilleri(13.01) bitiriyoruz.(13.45)
+Türkçede(3.39) biten(3.99) işe(4.43) -di(4.83) ekleriz.(5.15) İngilizce(6.02) de(6.58) -ed(6.90) ekler.(7.14) Bu(8.25) derste(8.45) Simple(9.05) Past'in(9.37) formunu,(9.85) zaman(10.73) ifadelerini(11.05) ve(12.01) düzensiz(12.17) fiilleri(12.73) görüyoruz.(13.17)
 
 ### cümle 3
 Birinci(14.80) örnek.(15.28) I(16.09) watched(16.25) a(16.57) movie(16.65) last(16.97) night.(17.37) Dün(18.34) gece(18.58) bir(18.82) film(19.10) izledim.(19.30) Olay(20.22) bitti,(20.63) zamanı(21.22) da(21.66) belli:(21.78) last(22.50) night.(22.90) İki(23.85) parça(24.09) var:(24.53) watch(25.21) ve(25.97) -ed.(26.17) Fiile(27.04) -ed(27.76) eklersin.(28.00)
