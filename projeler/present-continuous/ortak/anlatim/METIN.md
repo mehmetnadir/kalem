@@ -26,7 +26,7 @@
 Bu(1.00) akşam(1.24) amcamlara(1.64) gidiyorum.(2.25)
 
 ### cümle 2
-Türkçede(3.39) şimdiki(4.19) zamanla(4.63) geleceği(5.15) anlatırız.(5.63) İngilizce(6.50) de(7.06) aynısını(7.22) yapar.(7.62) Altı(8.73) dakikada(9.05) Present(9.77) Continuous'ın(10.37) formunu,(10.97) zaman(11.65) ifadelerini(12.01) ve(12.97) altı(13.29) kullanımını(13.53) bitiriyoruz.(14.17)
+Türkçede(3.39) şimdiki(4.19) zamanla(4.59) geleceği(5.07) anlatırız.(5.55) İngilizce(6.42) de(6.98) aynısını(7.14) yapar.(7.54) Bu(8.49) derste(8.69) Present(9.21) Continuous'ın(9.89) formunu,(10.41) zaman(11.25) ifadelerini(11.61) ve(12.49) altı(12.73) kullanımını(13.05) görüyoruz.(13.61)
 
 ### cümle 3
 Birinci(15.44) örnek.(15.92) I(16.73) am(16.89) sitting(17.05) in(17.37) front(17.53) of(17.65) the(17.77) camera(18.05) now.(18.65) Şu(19.30) anda(19.58) oturuyorum.(19.78) Olay(20.78) tam(21.14) konuşma(21.46) anında(21.86) sürüyor.(22.26) İki(23.29) parça(23.61) var:(23.93) am(24.73) ve(25.37) sitting.(25.85) Be(27.04) fiili,(27.28) artı(28.12) fiile(28.40) -ing.(28.96)

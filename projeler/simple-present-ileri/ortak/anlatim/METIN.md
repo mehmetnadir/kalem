@@ -26,7 +26,7 @@
 Uçak(1.00) yarın(1.56) dokuzda(1.88) kalkıyor.(2.28)
 
 ### cümle 2
-İngilizcede(3.55) hangi(4.51) zamanla(4.79) kurarsın?(5.23) Önce(6.19) kural.(6.51) Positive:(7.24) he,(8.32) she,(8.52) it(8.84) takes(9.16) s.(9.56) Negative(10.60) and(11.08) question:(11.24) does(12.28) plus(12.60) base(12.92) verb.(13.24) Altı(13.97) dakikada(14.29) kuralı(14.85) ve(15.41) üç(15.73) YDT(16.05) kökünü(16.53) bitiriyoruz.(16.85)
+İngilizcede(3.55) hangi(4.51) zamanla(4.79) kurarsın?(5.23) Önce(6.19) kural.(6.51) Positive:(7.24) he,(8.32) she,(8.52) it(8.84) takes(9.16) s.(9.56) Negative(10.60) and(11.08) question:(11.24) does(12.28) plus(12.60) base(12.92) verb.(13.24) Bu(13.97) derste(14.25) kuralı(14.85) ve(15.41) üç(15.73) YDT(16.05) kökünü(16.53) görüyoruz.(16.85)
 
 ### cümle 3
 Birinci(18.20) kök.(18.68) Although(19.41) the(19.77) sun(19.97) looks(20.25) small(20.45) from(20.85) here,(21.01) it(21.57) gives(21.73) plants(22.13) the(22.37) energy(22.73) they(23.01) need.(23.17) Güneş(24.30) küçük(24.70) görünse(25.02) de(25.50) bitkilere(25.94) gereken(26.38) enerjiyi(26.94) verir.(27.34) Bağlaç(28.93) var,(29.53) zaman(29.97) değişmez:(30.37) gives.(31.65)

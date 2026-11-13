@@ -26,7 +26,7 @@
 Ago(1.00) varsa(1.48) Perfect(2.12) yok.(2.64)
 
 ### cümle 2
-Altı(3.71) dakikada(4.03) Simple(4.75) Past'in(5.07) kuralını,(5.55) zaman(6.35) belirteçlerini(6.67) ve(7.63) sınav(7.87) tuzaklarını(8.19) bitiriyoruz.(8.75) A(9.72) finished(9.88) action(10.36) at(10.84) a(11.00) definite(11.24) time(11.80) in(12.00) the(12.12) past.(12.44)
+Bu(3.71) derste(3.99) Simple(4.59) Past'in(4.91) kuralını,(5.39) zaman(6.19) belirteçlerini(6.59) ve(7.63) sınav(7.87) tuzaklarını(8.15) görüyoruz.(8.75) A(9.72) finished(9.88) action(10.36) at(10.84) a(11.00) definite(11.24) time(11.80) in(12.00) the(12.12) past.(12.44)
 
 ### cümle 3
 Birinci(13.47) kök.(13.95) Marie(14.68) Curie(15.08) won(15.56) her(15.84) second(16.12) Nobel(16.32) Prize(16.68) in(17.08) 1911,(17.24) three(18.36) years(18.68) before(19.00) the(19.28) war(19.40) began.(19.60) In(20.85) 1911(21.09) belirli(22.21) zaman,(22.61) yani(23.21) Simple(23.65) Past.(23.97) Won(25.05) ve(25.33) began(25.65) düzensiz.(26.37) Tuzak:(27.40) begin,(28.52) began,(29.04) begun.(29.92) Burada(30.84) begun(31.32) yanlış.(31.88)

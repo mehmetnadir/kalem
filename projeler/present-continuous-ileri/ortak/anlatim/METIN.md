@@ -26,7 +26,7 @@
 YDT'nin(1.00) -ing(1.80) tuzağına(2.04) düşme.(2.52)
 
 ### cümle 2
-Formül(3.71) tek(4.27) satır.(4.55) Subject,(5.32) plus(6.40) am,(6.84) is,(7.68) are,(8.32) plus(9.00) verb-ing.(9.40) Altı(10.93) dakikada(11.25) formülü,(11.89) üç(12.57) sınav(12.77) kökünü(13.09) ve(13.65) bir(13.89) tuzağı(14.05) bitiriyoruz.(14.45)
+Formül(3.71) tek(4.27) satır.(4.55) Subject,(5.32) plus(6.40) am,(6.84) is,(7.68) are,(8.32) plus(9.00) verb-ing.(9.40) Bu(10.93) derste(11.17) formülü,(11.61) üç(12.37) sınav(12.61) kökünü(12.93) ve(13.49) bir(13.81) tuzağı(13.97) görüyoruz.(14.41)
 
 ### cümle 3
 Birinci(15.80) kök.(16.28) Please(16.93) be(17.25) quiet!(17.49) The(18.21) baby(18.49) is(18.69) sleeping(19.01) in(19.29) the(19.37) next(19.49) room(19.81) while(20.13) I(20.29) am(20.40) talking(20.49) on(20.85) the(20.93) phone.(21.09) Bebek(22.30) uyuyor,(22.70) ben(23.54) telefonda(23.78) konuşuyorum.(24.22) İki(25.14) iş(25.34) de(25.58) şu(25.74) anda(25.90) sürüyor.(26.18) While,(27.66) tam(28.42) anı(28.62) gösterir.(28.90)

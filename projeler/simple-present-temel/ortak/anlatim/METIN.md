@@ -26,7 +26,7 @@
 Her(1.00) sabah(1.32) yedide(1.72) kalkarım.(2.12)
 
 ### cümle 2
-Türkçede(3.31) buna(3.83) geniş(4.27) zaman(4.59) deriz:(4.99) kalkar,(5.71) gider,(6.47) yapar.(7.07) İngilizcedeki(7.78) karşılığı(8.50) Simple(9.30) Present.(9.62) Altı(10.65) dakikada(10.97) formunu,(11.61) zaman(12.41) ifadelerini(12.73) ve(13.61) kullanımlarını(13.77) bitiriyoruz.(14.49)
+Türkçede(3.31) buna(3.83) geniş(4.27) zaman(4.59) deriz:(4.99) kalkar,(5.71) gider,(6.47) yapar.(7.07) İngilizcedeki(7.78) karşılığı(8.50) Simple(9.30) Present.(9.62) Bu(10.65) derste(10.93) formunu,(11.53) zaman(12.41) ifadelerini(12.73) ve(13.53) kullanımlarını(13.77) görüyoruz.(14.49)
 
 ### cümle 3
 Birinci(16.00) örnek.(16.48) The(17.21) sun(17.45) rises(17.77) in(18.33) the(18.49) east.(18.65) Güneş(19.86) doğudan(20.34) doğar.(20.86) Doğa(21.70) kanunu:(21.94) hep(22.74) böyledir.(23.06) Fiile(23.85) bak:(24.25) rises.(24.93) Sonunda(26.17) s(26.65) harfi(27.01) var.(27.29)

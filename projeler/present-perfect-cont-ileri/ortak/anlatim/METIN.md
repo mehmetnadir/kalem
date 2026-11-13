@@ -26,7 +26,7 @@
 Süreç(1.00) mi,(1.56) sonuç(2.12) mu?(2.52)
 
 ### cümle 2
-Sınav(3.39) bunu(3.83) sorar.(4.07) Önce(4.91) kural.(5.27) Have(6.04) or(6.52) has,(6.76) plus(7.56) been,(7.88) plus(8.64) the(8.84) -ing(9.08) form.(9.64) Altı(11.01) dakikada(11.33) Present(12.05) Perfect(12.45) Continuous'ın(12.85) formunu,(13.57) süre(14.45) ipuçlarını(14.77) ve(15.57) iki(15.81) tuzağı(16.05) bitiriyoruz.(16.45)
+Sınav(3.39) bunu(3.87) sorar.(4.11) Önce(4.99) kural.(5.31) Have(6.12) or(6.60) has,(6.76) plus(7.56) been,(7.88) plus(8.56) the(8.76) -ing(9.00) form.(9.56) Bu(10.69) derste(10.85) Present(11.49) Perfect(11.89) Continuous'ın(12.29) formunu,(13.01) süre(13.89) ipuçlarını(14.21) ve(15.09) iki(15.41) tuzağı(15.65) görüyoruz.(16.05)
 
 ### cümle 3
 Birinci(17.80) örnek.(18.28) Since(19.09) the(19.41) school(19.57) changed(19.89) the(20.25) timetable,(20.37) students(21.53) have(21.81) been(21.97) complaining.(22.17) Program(23.66) değişeli(24.10) beri(24.54) öğrenciler(24.94) yakınıyor.(25.50) Since,(27.11) plus(28.07) a(28.31) simple(28.47) past(28.79) clause.(29.11) Ana(30.32) cümlede(30.56) have(31.36) been(31.76) ve(32.24) -ing(32.56) gelir.(33.12)

@@ -26,7 +26,7 @@
 İki(1.00) saattir(1.32) çalışıyorum.(1.76)
 
 ### cümle 2
-Türkçede(3.39) süre(4.19) için(4.47) -dir,(4.91) süren(5.63) iş(6.19) için(6.43) -yor(6.91) deriz.(7.39) İngilizce(8.10) de(8.66) iki(8.98) parçayla(9.26) yapar.(9.66) Altı(10.73) dakikada(11.05) Present(11.77) Perfect(12.17) Continuous'ın(12.57) formunu,(13.29) süre(14.17) ifadelerini(14.41) ve(15.37) sonuç(15.61) ipucunu(15.93) bitiriyoruz.(16.33)
+Türkçede(3.39) süre(4.19) için(4.47) -dir,(4.91) süren(5.63) iş(6.19) için(6.43) -yor(6.91) deriz.(7.39) İngilizce(8.10) de(8.66) iki(8.98) parçayla(9.26) yapar.(9.66) Bu(10.73) derste(10.93) Present(11.53) Perfect(11.93) Continuous'ın(12.33) formunu,(13.05) süre(13.93) ifadelerini(14.17) ve(15.21) sonuç(15.45) ipucunu(15.77) görüyoruz.(16.21)
 
 ### cümle 3
 Birinci(17.68) örnek.(18.16) I(18.89) have(19.09) been(19.21) waiting(19.45) for(19.81) the(19.93) bus(20.17) for(20.41) twenty(20.57) minutes.(20.97) Yirmi(22.10) dakikadır(22.42) otobüs(23.06) bekliyorum.(23.50) İş(24.30) sürüyor.(24.50) For(25.87) twenty(26.19) minutes.(26.67) Süre(27.64) bu.(28.08) Kalıp:(28.84) have(29.72) been,(30.04) artı(30.68) fiile(31.08) -ing.(31.64)

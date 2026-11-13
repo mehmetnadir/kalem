@@ -26,7 +26,7 @@
 Kaybettim,(1.00) kapıda(2.20) kaldım.(2.60)
 
 ### cümle 2
-Anahtarı(3.71) kaybettim:(4.27) geçmişte(5.39) oldu,(5.87) ama(6.63) sonucu(6.91) şimdi(7.39) bizimle.(7.71) İngilizce(8.50) bunun(9.18) için(9.46) ayrı(9.86) bir(10.10) zaman(10.22) kullanır.(10.54) Altı(11.77) dakikada(12.05) Present(12.89) Perfect'in(13.29) formunu,(13.85) since(14.73) ile(15.17) for(15.45) farkını(15.77) ve(16.57) sinyal(16.89) sözcüklerini(17.25) bitiriyoruz.(17.93)
+Anahtarı(3.71) kaybettim:(4.27) geçmişte(5.39) oldu,(5.87) ama(6.59) sonucu(7.07) şimdi(7.63) bizimle.(7.95) İngilizce(8.74) bunun(9.43) için(9.66) ayrı(10.10) bir(10.34) zaman(10.46) kullanır.(10.82) Bu(11.93) derste(12.13) Present(12.65) Perfect'in(13.05) formunu,(13.77) since(14.65) ile(15.05) for(15.37) farkını(15.69) ve(16.49) sinyal(16.81) sözcüklerini(17.21) görüyoruz.(17.85)
 
 ### cümle 3
 Birinci(19.28) örnek.(19.68) I(20.49) have(20.77) broken(21.09) my(21.37) phone.(21.53) Telefonumu(22.66) kırdım.(23.30) Kırma(24.18) işi(24.46) geçmişte(24.74) oldu,(25.22) ama(25.70) ekran(26.10) şimdi(26.50) de(26.74) kırık.(26.90) İki(28.01) parça(28.25) var:(28.69) have(29.37) ve(29.93) broken.(30.33) Have,(31.44) artı(32.32) fiilin(32.92) üçüncü(33.32) hâli.(33.72)
