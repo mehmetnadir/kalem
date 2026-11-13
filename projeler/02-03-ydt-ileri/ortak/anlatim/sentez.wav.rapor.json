@@ -1,0 +1,466 @@
+[
+ {
+  "dil": "tr",
+  "metin": "İki gelecek. İki ayrı zaman.",
+  "duyulan": "2. Gelecek. İki ayrı zaman.",
+  "benzerlik": 0.95,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Sınav bir kökte şimdiki zamanı ve geniş zamanı yan yana koyar. Bu derste karar anahtarını, iki gelecek kalıbını, dört kökü ve bir tuzağı görüyoruz.",
+  "duyulan": "Sınav bir kökte şimdiki zamanı ve geniş zamanı yan yana koyar. Bu derste karar anahtarını, iki gelecek kalıbını, dört kökü ve bir tuzağı görüyoruz.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Karar anahtarı.",
+  "duyulan": "Karar Anahtarı",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Now points to the continuous. These days and nowadays usually come with a temporary or changing situation, and they usually call for the continuous. Usually calls for the simple present.",
+  "duyulan": "now points to the continuous. These days and nowadays usually come with a temporary or changing situation, and they usually call for the continuous, usually calls for the simple present.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Gelecekte ayrım başka.",
+  "duyulan": "Gelecekte ayrım başka.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "A personal arrangement takes the continuous. A fixed timetable takes the simple present. Usually a person makes the arrangement, and a thing follows the timetable.",
+  "duyulan": "A personal arrangement takes the continuous, a fixed timetable takes the simple present. Usually a person makes the arrangement, and a thing follows the timetable.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Fiil de karar verir. Believe, have ve recommend -ing almaz. Bunu tuzak bölümünde açacağız.",
+  "ses_metni": "Fiil de karar verir. Believe, /hæv/ ve recommend ing almaz. Bunu tuzak bölümünde açacağız.",
+  "duyulan": "Fiil de karar verir. Believe, have ve recommend inge almaz. Bunu tuzak bölümünde açacağız.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İki gelecek kalıbı.",
+  "duyulan": "İki Genecek Kalıbı",
+  "benzerlik": 0.94,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "We are leaving for the airport at nine, and our flight takes off at eleven.",
+  "duyulan": "We're leaving for the airport at 9, and our flight takes off at 11.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Dokuzda havalimanına çıkıyoruz, uçağımız on birde kalkıyor.",
+  "duyulan": "9'da havalimanına çıkıyoruz. Uçağımız 11'de kalkıyor.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hocam, ikisi de gelecek. Neden biri -ing, biri geniş zaman?",
+  "ses_metni": "Hocam, ikisi de gelecek. Neden biri ing, biri geniş zaman?",
+  "duyulan": "Hocam, ikisi de gelecek. Neden biri ink, biri geniş zaman?",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Anlama bak.",
+  "duyulan": "Anlama bak.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "We are leaving.",
+  "duyulan": "We're leaving.",
+  "benzerlik": 0.92,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Kişisel plan: şimdiki zaman.",
+  "duyulan": "Kişisel Plan, Şimdiki Zaman",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Our flight takes off.",
+  "duyulan": "Our flight takes off.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Sabit tarife: geniş zaman.",
+  "duyulan": "Sabit Tarife, Geniş Zaman",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Both mean the future. The structure differs because one is a personal arrangement and the other is a fixed timetable.",
+  "duyulan": "Both mean the future. The structure differs because one is a personal arrangement and the other is a fixed timetable.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Birinci kök.",
+  "duyulan": "1. Kök",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Nancy usually spends the weekend at home, but she is meeting her friends now.",
+  "duyulan": "Nancy usually spends the weekend at home, but she is meeting her friends now.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Usually points to a habit. Now points to this moment.",
+  "duyulan": "usually points to a habit. Now points to this moment.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İki boşluk, iki sinyal. Usually geniş zaman ister: spends. Now şimdiki zaman ister: is meeting. Doğru cevap B şıkkı. Çeldirici D şıkkı ve C şıkkı: usually ile -ing çelişir. Çeldirici A şıkkı: now ile geniş zaman çelişir. Çeldirici E şıkkı: özne Nancy ile uyumsuz.",
+  "ses_metni": "İki boşluk, iki sinyal. Usually geniş zaman ister: spends. Now şimdiki zaman ister: /ɪz/ meeting. Doğru cevap B şıkkı. Çeldirici D şıkkı ve C şıkkı: usually ile ing çelişir. Çeldirici A şıkkı: now ile geniş zaman çelişir. Çeldirici E şıkkı: özne Nancy ile uyumsuz.",
+  "duyulan": "İki boşluk, iki sinyal. Usually, geniş zaman ister. Spends. Now, şimdiki zaman ister. Is meeting. Doğru cevap, B şıkkı. Çeldirici, D şıkkı ve C şıkkı. Usually ile ING çelişir. Çeldirici, A şıkkı. Now ile geniş zaman çelişir. Çeldirici, E şıkkı. Özne, Nancy ile uyumsuz.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İkinci kök.",
+  "duyulan": "İkinci Kök",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Our company is going through a hard period these days, but we believe this situation is temporary.",
+  "duyulan": "Our company is going through a hard period these days, but we believe this situation is temporary.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "A hard period is temporary, so it takes the continuous. Believe takes the simple present in this sense: we believe, not we are believing.",
+  "duyulan": "A hard period is temporary, so it takes the continuous. Believe takes the simple present in this sense. We believe, not we are believing.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Doğru cevap C şıkkı: is going, believe. Çeldirici A şıkkı ve B şıkkı: zor dönem geçici bir dönemi anlatır, geniş zaman uymaz. Çeldirici D şıkkı: believe fiiline -ing eklemiş. Çeldirici E şıkkı: now değil, geçmiş.",
+  "ses_metni": "Doğru cevap C şıkkı: /ɪz/ going, believe. Çeldirici A şıkkı ve B şıkkı: zor dönem geçici bir dönemi anlatır, geniş zaman uymaz. Çeldirici D şıkkı: believe fiiline ing eklemiş. Çeldirici E şıkkı: now değil, geçmiş.",
+  "duyulan": "Doğru cevap C şıkkı, is going, believe. Çeldirici A şıkkı ve B şıkkı, zor dönem geçici bir dönemi anlatır, geniş zaman uymaz. Çeldirici D şıkkı, believe fiiline ing eklemiş. Çeldirici E şıkkı, now değil, geçmiş.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Üçüncü kök.",
+  "duyulan": "Üçüncü Kök",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "It is getting harder and harder to find a good job at the moment.",
+  "duyulan": "It is getting harder and harder to find a good job at the moment.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "At the moment points to a change in progress. Harder and harder shows the change.",
+  "duyulan": "At the moment points to a change in progress. Harder and harder shows the change.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Doğru cevap B şıkkı. Çeldirici A şıkkı ve C şıkkı: geniş zaman",
+  "duyulan": "Doğru cevap B şıkkı. Çeldirici A şıkkı ve C şıkkı. Geniş zaman",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "at the moment",
+  "duyulan": "At the moment,",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ile uyuşmaz. Çeldirici D şıkkı: özne",
+  "duyulan": "ile uyuşmaz. Çeldirici D şıkkı Özne",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "it",
+  "duyulan": "It's",
+  "benzerlik": 0.8,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ile uyumsuz. Çeldirici E şıkkı: gelecek, şu anı göstermez.",
+  "duyulan": "İLE UYUMSUZ Çeldirici E-Şıkkı Gelecek şu anı göstermez.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Dördüncü kök.",
+  "duyulan": "4. Kök",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Every summer the region offers some of the best beaches in the world, and right now people are enjoying themselves a lot here.",
+  "duyulan": "Every summer, the region offers some of the best beaches in the world, and right now people are enjoying themselves a lot here.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İlk boşlukta",
+  "duyulan": "İlk boşlukta,",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "every summer",
+  "duyulan": "every summer.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "genel durumu gösterir: geniş zaman. İkinci boşlukta",
+  "duyulan": "genel durumu gösterir, geniş zaman. İkinci boşlukta,",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "right now",
+  "duyulan": "right now.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "şu anı gösterir: şimdiki zaman. Doğru cevap B şıkkı. Çeldirici C şıkkı: genel durumda -ing çelişir. Çeldirici D şıkkı: iki boşluk da hatalı. Çeldirici A şıkkı: şu anda geniş zaman çelişir. Çeldirici E şıkkı: özne region ile uyumsuz.",
+  "ses_metni": "şu anı gösterir: şimdiki zaman. Doğru cevap B şıkkı. Çeldirici C şıkkı: genel durumda ing çelişir. Çeldirici D şıkkı: iki boşluk da hatalı. Çeldirici A şıkkı: şu anda geniş zaman çelişir. Çeldirici E şıkkı: özne region ile uyumsuz.",
+  "duyulan": "Şu anı gösterir. Şimdiki zaman. Doğru cevap B şıkkı. Çeldirici C şıkkı. Genel durumda ING çelişir. Çeldirici D şıkkı. İki boşlukta hatalı. Çeldirici A şıkkı. Şu anda geniş zaman çelişir. Çeldirici E şıkkı. Özne Region ile uyumsuz.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tuzak. Kartpostal bu kez otel odasından.",
+  "duyulan": "Tuzak. Kartpostal bu kez otel odasından.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "It has a great view of the sea.",
+  "duyulan": "It has a great view of the sea.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Manzara çok güzel.",
+  "duyulan": "Manzara çok güzel.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hocam, otelin manzarası şu anda var.",
+  "duyulan": "Hocam, otelin manzarası şu anda var.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "It is having?",
+  "duyulan": "It is having...",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Olmaz mı?",
+  "duyulan": "Olmaz mı?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Olmaz. Sahip olmak anlamındaki have -ing almaz. Believe de bu anlamda geniş zamanla gelir.",
+  "ses_metni": "Olmaz. Sahip olmak anlamındaki /hæv/ ing almaz. Believe de bu anlamda geniş zamanla gelir.",
+  "duyulan": "Olmaz. Sahip olmak anlamındaki have ing almaz. Believe de bu anlamda geniş zamanla gelir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "We believe, not we are believing.",
+  "duyulan": "We believe, not we are believing.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Recommend ise performative fiildir.",
+  "duyulan": "Recommend ise Performative Field'dir.",
+  "benzerlik": 0.96,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Saying it is doing the act.",
+  "duyulan": "Saying it is doing the act.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tavsiye ediyorum demek, tavsiyeyi yapmaktır.",
+  "duyulan": "Tavsiye ediyorum demek, tavsiyeyi yapmaktır.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I definitely recommend a holiday in this lovely city.",
+  "duyulan": "I definitely recommend a holiday in this lovely city.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Sinyal olsa bile -ing yok.",
+  "ses_metni": "Sinyal olsa bile ing yok.",
+  "duyulan": "Sinyal olsa bile ING yok.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Özet.",
+  "duyulan": "Özet",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Signal first. Then the verb.",
+  "duyulan": "Signal first, then the verb.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Now şimdiki zamanı, usually geniş zamanı çağırır. These days ve nowadays genellikle geçici ya da değişen durumu gösterir. Gelecekte kişisel düzenleme -ing, resmi tarife geniş zaman. Believe, have, recommend -ing almaz.",
+  "ses_metni": "Now şimdiki zamanı, usually geniş zamanı çağırır. These days ve nowadays genellikle geçici ya da değişen durumu gösterir. Gelecekte kişisel düzenleme ing, resmi tarife geniş zaman. Believe, /hæv/, recommend ing almaz.",
+  "duyulan": "Now, şimdiki zamanı, usually, geniş zamanı çağırır. These days ve nowadays genellikle geçici ya da değişen durumu gösterir. Gelecekte kişisel düzenleme, inge, resmi tarife, geniş zaman. Believe, have, recommend, inge almaz.",
+  "benzerlik": 0.97,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Mini soru. Kartpostaldan bir kök.",
+  "duyulan": "Mini Soru Kartpostaldan bir kök",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I",
+  "duyulan": "I.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "here this week, and I definitely",
+  "duyulan": "here this week and I definitely",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "a holiday in this lovely city.",
+  "duyulan": "A holiday in this lovely city.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Beş şık var.",
+  "duyulan": "Beş şık var.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bence D şıkkı. İkisi de geniş zaman.",
+  "duyulan": "Bence D şıkkı. İkisi de geniş zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hayır. İkinci boşluk doğru, ilk boşluk yanlış. This week geçici bir durumu gösterir: am staying. Recommend tavsiye bildirir: geniş zaman. Doğru cevap B şıkkı. Çeldirici A şıkkı: stay, this week ile çelişir. Çeldirici C şıkkı: am recommending, tavsiyede -ing yok. Çeldirici D şıkkı: yalnız ilk boşluk hatalı. Çeldirici E şıkkı: özne I ile uyumsuz.",
+  "ses_metni": "Hayır. İkinci boşluk doğru, ilk boşluk yanlış. This week geçici bir durumu gösterir: /æm/ staying. Recommend tavsiye bildirir: geniş zaman. Doğru cevap B şıkkı. Çeldirici A şıkkı: stay, this week ile çelişir. Çeldirici C şıkkı: /æm/ recommending, tavsiyede ing yok. Çeldirici D şıkkı: yalnız ilk boşluk hatalı. Çeldirici E şıkkı: özne /aɪ/ ile uyumsuz.",
+  "duyulan": "Hayır. İkinci boşluk doğru, ilk boşluk yanlış. This week geçici bir durumu gösterir. I'm staying. Recommend. Tavsiye bildirir. Geniş zaman. Doğru cevap B şıkkı. Çeldirici A şıkkı. Stay. This week ile çelişir. Çeldirici C şıkkı. I'm recommending. Tavsiyede İNG yok. Çeldirici D şıkkı. Yalnız ilk boşluk hatalı. Çeldirici E şıkkı. Özne A'yı ile uyumsuz.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Check the signal first, then check the verb.",
+  "duyulan": "Check the signal first, then check the verb.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Önce sinyal, sonra fiil. Sonraki derste görüşürüz.",
+  "duyulan": "Önce sinyal, sonra fiil. Sonraki derste görüşürüz.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ }
+]

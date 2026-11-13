@@ -1,0 +1,190 @@
+{
+ "no": 3,
+ "cumle": 9,
+ "kok": [
+  {
+   "w": "It",
+   "i": 2
+  },
+  {
+   "b": 0
+  },
+  {
+   "w": "harder",
+   "i": 5
+  },
+  {
+   "w": "and",
+   "i": 6
+  },
+  {
+   "w": "harder",
+   "i": 7
+  },
+  {
+   "w": "to",
+   "i": 8
+  },
+  {
+   "w": "find",
+   "i": 9
+  },
+  {
+   "w": "a",
+   "i": 10
+  },
+  {
+   "w": "good",
+   "i": 11
+  },
+  {
+   "w": "job",
+   "i": 12
+  },
+  {
+   "w": "at",
+   "i": 13
+  },
+  {
+   "w": "the",
+   "i": 14
+  },
+  {
+   "w": "moment.",
+   "i": 15
+  }
+ ],
+ "bosluklar": [
+  {
+   "dolgu": "is getting",
+   "i_ciz": 3,
+   "i_doldur": 33
+  }
+ ],
+ "isaretler": [
+  {
+   "tur": "belirtec",
+   "tok": [
+    10,
+    11,
+    12
+   ],
+   "i": 16
+  },
+  {
+   "tur": "ok_yukari",
+   "tok": 4,
+   "i": 25
+  }
+ ],
+ "sik": {
+  "A": [
+   "gets"
+  ],
+  "B": [
+   "is getting"
+  ],
+  "C": [
+   "get"
+  ],
+  "D": [
+   "are getting"
+  ],
+  "E": [
+   "will get"
+  ]
+ },
+ "panel_i": 16,
+ "dogru": {
+  "harf": "B",
+  "i": 33
+ },
+ "notlar": [
+  {
+   "harf": "A",
+   "i_isaret": 36,
+   "i_not": 41,
+   "parcalar": [
+    [
+     "t",
+     "at the moment"
+    ],
+    [
+     "<>"
+    ],
+    [
+     "t",
+     "simple"
+    ],
+    [
+     "x"
+    ]
+   ]
+  },
+  {
+   "harf": "C",
+   "i_isaret": 39,
+   "i_not": 41,
+   "gecikme": 0.15,
+   "parcalar": [
+    [
+     "t",
+     "at the moment"
+    ],
+    [
+     "<>"
+    ],
+    [
+     "t",
+     "simple"
+    ],
+    [
+     "x"
+    ]
+   ]
+  },
+  {
+   "harf": "D",
+   "i_isaret": 49,
+   "i_not": 51,
+   "parcalar": [
+    [
+     "t",
+     "it"
+    ],
+    [
+     "<>"
+    ],
+    [
+     "t",
+     "are"
+    ],
+    [
+     "x"
+    ]
+   ]
+  },
+  {
+   "harf": "E",
+   "i_isaret": 56,
+   "i_not": 58,
+   "parcalar": [
+    [
+     "t",
+     "at the moment"
+    ],
+    [
+     "<>"
+    ],
+    [
+     "t",
+     "will"
+    ],
+    [
+     "x"
+    ]
+   ]
+  }
+ ],
+ "kir_sonra": 4
+}

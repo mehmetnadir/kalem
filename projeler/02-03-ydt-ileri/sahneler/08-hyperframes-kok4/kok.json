@@ -1,0 +1,230 @@
+{
+ "no": 4,
+ "cumle": 10,
+ "kok": [
+  {
+   "w": "Every",
+   "i": 2
+  },
+  {
+   "w": "summer",
+   "i": 3
+  },
+  {
+   "w": "the",
+   "i": 4
+  },
+  {
+   "w": "region",
+   "i": 5
+  },
+  {
+   "b": 0
+  },
+  {
+   "w": "some",
+   "i": 7
+  },
+  {
+   "w": "of",
+   "i": 8
+  },
+  {
+   "w": "the",
+   "i": 9
+  },
+  {
+   "w": "best",
+   "i": 10
+  },
+  {
+   "w": "beaches",
+   "i": 11
+  },
+  {
+   "w": "in",
+   "i": 12
+  },
+  {
+   "w": "the",
+   "i": 13
+  },
+  {
+   "w": "world,",
+   "i": 14
+  },
+  {
+   "w": "and",
+   "i": 15
+  },
+  {
+   "w": "right",
+   "i": 16
+  },
+  {
+   "w": "now",
+   "i": 17
+  },
+  {
+   "w": "people",
+   "i": 18
+  },
+  {
+   "b": 1
+  },
+  {
+   "w": "themselves",
+   "i": 21
+  },
+  {
+   "w": "a",
+   "i": 22
+  },
+  {
+   "w": "lot",
+   "i": 23
+  },
+  {
+   "w": "here.",
+   "i": 24
+  }
+ ],
+ "bosluklar": [
+  {
+   "dolgu": "offers",
+   "i_ciz": 6,
+   "i_doldur": 32,
+   "isaret": "belirtec"
+  },
+  {
+   "dolgu": "are enjoying",
+   "i_ciz": 19,
+   "i_doldur": 41,
+   "isaret": "daire"
+  }
+ ],
+ "isaretler": [
+  {
+   "tur": "belirtec",
+   "tok": [
+    0,
+    1
+   ],
+   "i": 27
+  },
+  {
+   "tur": "belirtec",
+   "tok": [
+    14,
+    15
+   ],
+   "i": 36
+  }
+ ],
+ "sik": {
+  "A": [
+   "offers",
+   "enjoy"
+  ],
+  "B": [
+   "offers",
+   "are enjoying"
+  ],
+  "C": [
+   "is offering",
+   "are enjoying"
+  ],
+  "D": [
+   "is offering",
+   "enjoy"
+  ],
+  "E": [
+   "offer",
+   "enjoy"
+  ]
+ },
+ "panel_i": 25,
+ "dogru": {
+  "harf": "B",
+  "i": 45
+ },
+ "notlar": [
+  {
+   "harf": "C",
+   "i_isaret": 48,
+   "i_not": 50,
+   "parcalar": [
+    [
+     "t",
+     "every summer"
+    ],
+    [
+     "<>"
+    ],
+    [
+     "t",
+     "is offering"
+    ],
+    [
+     "x"
+    ]
+   ]
+  },
+  {
+   "harf": "D",
+   "i_isaret": 55,
+   "i_not": 57,
+   "parcalar": [
+    [
+     "t",
+     "iki boşluk"
+    ],
+    [
+     "x"
+    ]
+   ]
+  },
+  {
+   "harf": "A",
+   "i_isaret": 62,
+   "i_not": 64,
+   "parcalar": [
+    [
+     "t",
+     "right now"
+    ],
+    [
+     "<>"
+    ],
+    [
+     "t",
+     "enjoy"
+    ],
+    [
+     "x"
+    ]
+   ]
+  },
+  {
+   "harf": "E",
+   "i_isaret": 70,
+   "i_not": 72,
+   "parcalar": [
+    [
+     "t",
+     "region"
+    ],
+    [
+     "<>"
+    ],
+    [
+     "t",
+     "offer"
+    ],
+    [
+     "x"
+    ]
+   ]
+  }
+ ]
+}

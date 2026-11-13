@@ -1,0 +1,1162 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 2.92,
+"metin": "Her sabah yedide kalkıyorum.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 3.39,
+"t1": 5.63,
+"metin": "I get up at seven every morning.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 6.1,
+"t1": 8.9,
+"metin": "Türkçede kalkıyorum deriz. İngilizcede",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "en",
+"t0": 9.15,
+"t1": 9.55,
+"metin": "ing",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 9.8,
+"t1": 11.48,
+"metin": "yok. Neden?",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 12.03,
+"t1": 16.35,
+"metin": "Bu derste geniş zamanın formunu ve iki kullanımını görüyoruz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 16.82,
+"t1": 17.86,
+"metin": "Birinci örnek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 6,
+"dil": "en",
+"t0": 18.41,
+"t1": 22.01,
+"metin": "I go to Kaş every summer because I have a summer house there.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 22.48,
+"t1": 25.68,
+"metin": "Her yaz Kaş'a giderim, çünkü orada yazlığım var.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 8,
+"dil": "tr",
+"t0": 26.15,
+"t1": 27.99,
+"metin": "Önce zaman sözcüğüne bak:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 8,
+"dil": "en",
+"t0": 28.24,
+"t1": 29.36,
+"metin": "every summer.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 8,
+"dil": "tr",
+"t0": 29.61,
+"t1": 32.57,
+"metin": "Her yaz demek. Bu bir tekrar sinyali.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 9,
+"dil": "tr",
+"t0": 33.04,
+"t1": 39.2,
+"metin": "Gitmek bir rutin. Yazlığın olması kalıcı bir durum. İkisi de geniş zaman. Özne",
+"konusan": "ogretmen"
+},
+{
+"cumle": 9,
+"dil": "en",
+"t0": 39.45,
+"t1": 40.49,
+"metin": "I.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 9,
+"dil": "tr",
+"t0": 40.74,
+"t1": 42.5,
+"metin": "Fiiller yalın kalır:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 9,
+"dil": "en",
+"t0": 42.75,
+"t1": 43.15,
+"metin": "go",
+"konusan": "ogretmen"
+},
+{
+"cumle": 9,
+"dil": "tr",
+"t0": 43.4,
+"t1": 43.56,
+"metin": "ve",
+"konusan": "ogretmen"
+},
+{
+"cumle": 9,
+"dil": "en",
+"t0": 43.81,
+"t1": 44.45,
+"metin": "have.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 10,
+"dil": "tr",
+"t0": 45.0,
+"t1": 45.96,
+"metin": "İkinci örnek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 11,
+"dil": "en",
+"t0": 46.51,
+"t1": 50.11,
+"metin": "He gets up at seven every morning and swims in the pool.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 12,
+"dil": "tr",
+"t0": 50.58,
+"t1": 53.78,
+"metin": "O her sabah yedide kalkar ve havuzda yüzer.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 13,
+"dil": "tr",
+"t0": 54.25,
+"t1": 55.61,
+"metin": "Yine tekrar sinyali:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 13,
+"dil": "en",
+"t0": 55.86,
+"t1": 57.22,
+"metin": "every morning.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 13,
+"dil": "tr",
+"t0": 57.47,
+"t1": 59.95,
+"metin": "Her gün aynı iş. Bu da rutin.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 14,
+"dil": "tr",
+"t0": 60.42,
+"t1": 61.46,
+"metin": "Bu kez özne",
+"konusan": "ogretmen"
+},
+{
+"cumle": 14,
+"dil": "en",
+"t0": 61.71,
+"t1": 62.67,
+"metin": "he.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 14,
+"dil": "tr",
+"t0": 62.92,
+"t1": 64.92,
+"metin": "İki fiil de özneye uyar:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 14,
+"dil": "en",
+"t0": 65.17,
+"t1": 65.65,
+"metin": "gets",
+"konusan": "ogretmen"
+},
+{
+"cumle": 14,
+"dil": "tr",
+"t0": 65.9,
+"t1": 69.74,
+"metin": "ve swims. İkisinin sonunda da se var.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 15,
+"dil": "tr",
+"t0": 70.21,
+"t1": 71.25,
+"metin": "Üçüncü örnek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 16,
+"dil": "en",
+"t0": 71.8,
+"t1": 75.88,
+"metin": "The Moon completes its orbit around the Earth in twenty seven days.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 17,
+"dil": "tr",
+"t0": 76.35,
+"t1": 80.27,
+"metin": "Ay, Dünya çevresindeki turunu yirmi yedi günde tamamlar.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 18,
+"dil": "tr",
+"t0": 80.74,
+"t1": 88.42,
+"metin": "Bu bir genel gerçek. Dün de böyleydi, yarın da böyle olacak. Doğa olayları ve bilimsel gerçekler geniş zaman alır.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 19,
+"dil": "tr",
+"t0": 88.89,
+"t1": 89.29,
+"metin": "Özne",
+"konusan": "ogretmen"
+},
+{
+"cumle": 19,
+"dil": "en",
+"t0": 89.54,
+"t1": 90.58,
+"metin": "the Moon,",
+"konusan": "ogretmen"
+},
+{
+"cumle": 19,
+"dil": "tr",
+"t0": 90.83,
+"t1": 91.31,
+"metin": "yani",
+"konusan": "ogretmen"
+},
+{
+"cumle": 19,
+"dil": "en",
+"t0": 91.56,
+"t1": 92.52,
+"metin": "it.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 19,
+"dil": "tr",
+"t0": 92.77,
+"t1": 93.09,
+"metin": "Fiil",
+"konusan": "ogretmen"
+},
+{
+"cumle": 19,
+"dil": "en",
+"t0": 93.34,
+"t1": 94.7,
+"metin": "completes.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 19,
+"dil": "tr",
+"t0": 94.95,
+"t1": 96.39,
+"metin": "Burada da se var.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 20,
+"dil": "tr",
+"t0": 96.86,
+"t1": 97.5,
+"metin": "Hocam,",
+"konusan": "ogrenci"
+},
+{
+"cumle": 20,
+"dil": "en",
+"t0": 97.75,
+"t1": 100.79,
+"metin": "go, gets, completes.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 20,
+"dil": "tr",
+"t0": 101.04,
+"t1": 102.8,
+"metin": "Fiil neden değişiyor?",
+"konusan": "ogrenci"
+},
+{
+"cumle": 21,
+"dil": "tr",
+"t0": 103.42,
+"t1": 104.54,
+"metin": "Özneye bağlı.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 21,
+"dil": "en",
+"t0": 104.79,
+"t1": 106.95,
+"metin": "I, you, we, they",
+"konusan": "ogretmen"
+},
+{
+"cumle": 21,
+"dil": "tr",
+"t0": 107.2,
+"t1": 108.96,
+"metin": "ile fiil yalın kalır.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 21,
+"dil": "en",
+"t0": 109.21,
+"t1": 110.41,
+"metin": "He, she, it",
+"konusan": "ogretmen"
+},
+{
+"cumle": 21,
+"dil": "tr",
+"t0": 110.66,
+"t1": 113.38,
+"metin": "ile fiilin sonuna se takısı gelir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 22,
+"dil": "tr",
+"t0": 113.85,
+"t1": 121.29,
+"metin": "Üçüncü tekilde fiile se takısı gelir. Kimi fiilde takı e ve se ya da i e se olur:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 22,
+"dil": "en",
+"t0": 121.54,
+"t1": 124.1,
+"metin": "goes, studies.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 22,
+"dil": "tr",
+"t0": 124.35,
+"t1": 127.71,
+"metin": "Bu derste ayrıntıya girmiyoruz. Takıyı tanımak yeter.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 23,
+"dil": "en",
+"t0": 128.26,
+"t1": 130.98,
+"metin": "I eat fish. She eats fish.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 24,
+"dil": "tr",
+"t0": 131.45,
+"t1": 134.01,
+"metin": "Olumsuz cümlede yardımcı fiil gelir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 24,
+"dil": "en",
+"t0": 134.26,
+"t1": 136.82,
+"metin": "I, you, we, they",
+"konusan": "ogretmen"
+},
+{
+"cumle": 24,
+"dil": "tr",
+"t0": 137.07,
+"t1": 138.43,
+"metin": "ile /doʊnt/.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 24,
+"dil": "en",
+"t0": 138.68,
+"t1": 140.04,
+"metin": "He, she, it",
+"konusan": "ogretmen"
+},
+{
+"cumle": 24,
+"dil": "tr",
+"t0": 140.29,
+"t1": 143.81,
+"metin": "ile /ˈdʌzənt/. Arkasında yalın fiil durur.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 25,
+"dil": "en",
+"t0": 144.28,
+"t1": 145.96,
+"metin": "They don't eat fish.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 26,
+"dil": "tr",
+"t0": 146.43,
+"t1": 155.79,
+"metin": "Soruda yardımcı fiil başa geçer: do ya da does. Özneye göre seçilir. Bilgi sorusu için en başa soru sözcüğü gelir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 27,
+"dil": "en",
+"t0": 156.26,
+"t1": 157.62,
+"metin": "Do you eat fish?",
+"konusan": "ogretmen"
+},
+{
+"cumle": 28,
+"dil": "tr",
+"t0": 158.09,
+"t1": 160.01,
+"metin": "Şimdi bir karşıt çift.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 29,
+"dil": "en",
+"t0": 160.48,
+"t1": 162.56,
+"metin": "She eats fish every day.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 30,
+"dil": "tr",
+"t0": 163.03,
+"t1": 165.75,
+"metin": "Her gün balık yer. Bu onun alışkanlığı.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 30,
+"dil": "en",
+"t0": 166.0,
+"t1": 166.72,
+"metin": "Every day",
+"konusan": "ogretmen"
+},
+{
+"cumle": 30,
+"dil": "tr",
+"t0": 166.97,
+"t1": 168.33,
+"metin": "bir rutin sinyali.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 31,
+"dil": "en",
+"t0": 168.8,
+"t1": 170.56,
+"metin": "She is eating fish now.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 32,
+"dil": "tr",
+"t0": 171.03,
+"t1": 174.87,
+"metin": "Şu anda balık yiyor. Tabağı önünde, olay sürüyor.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 32,
+"dil": "en",
+"t0": 175.12,
+"t1": 175.52,
+"metin": "Now",
+"konusan": "ogretmen"
+},
+{
+"cumle": 32,
+"dil": "tr",
+"t0": 175.77,
+"t1": 178.17,
+"metin": "çoğu zaman şimdiki zaman sinyalidir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 33,
+"dil": "tr",
+"t0": 178.64,
+"t1": 182.48,
+"metin": "İki cümlede de balık var. Zaman sözcüğü farkı belirler.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 33,
+"dil": "en",
+"t0": 182.73,
+"t1": 185.85,
+"metin": "Every day, always, usually:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 33,
+"dil": "tr",
+"t0": 186.1,
+"t1": 187.46,
+"metin": "geniş zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 33,
+"dil": "en",
+"t0": 187.71,
+"t1": 188.19,
+"metin": "Now",
+"konusan": "ogretmen"
+},
+{
+"cumle": 33,
+"dil": "tr",
+"t0": 188.44,
+"t1": 188.6,
+"metin": "ve",
+"konusan": "ogretmen"
+},
+{
+"cumle": 33,
+"dil": "en",
+"t0": 188.85,
+"t1": 189.25,
+"metin": "look",
+"konusan": "ogretmen"
+},
+{
+"cumle": 33,
+"dil": "tr",
+"t0": 189.5,
+"t1": 191.42,
+"metin": "çoğunlukla şimdiki zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 34,
+"dil": "tr",
+"t0": 191.89,
+"t1": 200.53,
+"metin": "Türkçede her sabah kalkıyorum da deriz. Eki yor, anlamı rutin. İngilizcede o zaman geniş zaman gelir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 35,
+"dil": "tr",
+"t0": 201.0,
+"t1": 202.52,
+"metin": "Kanca cümlesine dönelim.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 36,
+"dil": "en",
+"t0": 202.99,
+"t1": 205.23,
+"metin": "I get up at seven every morning.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 37,
+"dil": "en",
+"t0": 205.7,
+"t1": 206.58,
+"metin": "Every morning",
+"konusan": "ogretmen"
+},
+{
+"cumle": 37,
+"dil": "tr",
+"t0": 206.83,
+"t1": 209.63,
+"metin": "var, yani rutin. O zaman",
+"konusan": "ogretmen"
+},
+{
+"cumle": 37,
+"dil": "en",
+"t0": 209.88,
+"t1": 211.08,
+"metin": "I get up.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 37,
+"dil": "en",
+"t0": 211.33,
+"t1": 212.13,
+"metin": "Ing",
+"konusan": "ogretmen"
+},
+{
+"cumle": 37,
+"dil": "tr",
+"t0": 212.38,
+"t1": 213.1,
+"metin": "yok,",
+"konusan": "ogretmen"
+},
+{
+"cumle": 37,
+"dil": "en",
+"t0": 213.35,
+"t1": 213.67,
+"metin": "am",
+"konusan": "ogretmen"
+},
+{
+"cumle": 37,
+"dil": "tr",
+"t0": 213.92,
+"t1": 214.64,
+"metin": "yok.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 38,
+"dil": "tr",
+"t0": 215.19,
+"t1": 219.59,
+"metin": "Kural: Türkçe ekine değil, zaman sözcüğüne ve anlama bak.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 39,
+"dil": "tr",
+"t0": 220.06,
+"t1": 225.34,
+"metin": "Şimdi bir tuzak. Hata iki yerde çıkar: olumsuzda ve soruda.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 40,
+"dil": "en",
+"t0": 225.81,
+"t1": 227.65,
+"metin": "She doesn't eats fish.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 41,
+"dil": "en",
+"t0": 228.12,
+"t1": 229.72,
+"metin": "Does she eats fish?",
+"konusan": "ogretmen"
+},
+{
+"cumle": 42,
+"dil": "tr",
+"t0": 230.19,
+"t1": 230.83,
+"metin": "Hocam,",
+"konusan": "ogrenci"
+},
+{
+"cumle": 42,
+"dil": "en",
+"t0": 231.08,
+"t1": 231.88,
+"metin": "she",
+"konusan": "ogrenci"
+},
+{
+"cumle": 42,
+"dil": "tr",
+"t0": 232.13,
+"t1": 233.49,
+"metin": "var. /ˈdʌzənt/",
+"konusan": "ogrenci"
+},
+{
+"cumle": 42,
+"dil": "en",
+"t0": 233.74,
+"t1": 234.14,
+"metin": "eats",
+"konusan": "ogrenci"
+},
+{
+"cumle": 42,
+"dil": "tr",
+"t0": 234.39,
+"t1": 235.35,
+"metin": "olmaz mı?",
+"konusan": "ogrenci"
+},
+{
+"cumle": 43,
+"dil": "tr",
+"t0": 236.05,
+"t1": 242.29,
+"metin": "Olmaz. does aslında do artı se takısı. Takı yardımcı fiilde zaten var.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 44,
+"dil": "tr",
+"t0": 242.76,
+"t1": 244.52,
+"metin": "Neden yapıyoruz? Çünkü",
+"konusan": "ogretmen"
+},
+{
+"cumle": 44,
+"dil": "en",
+"t0": 244.77,
+"t1": 245.01,
+"metin": "she",
+"konusan": "ogretmen"
+},
+{
+"cumle": 44,
+"dil": "tr",
+"t0": 245.26,
+"t1": 249.58,
+"metin": "görünce zihin se ister. Refleks doğru, yer yanlış.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 45,
+"dil": "tr",
+"t0": 250.05,
+"t1": 255.73,
+"metin": "be dışındaki fiillerde olumlu cümlede yardımcı fiil yok. Takı asıl fiile gelir:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 45,
+"dil": "en",
+"t0": 255.98,
+"t1": 257.18,
+"metin": "eats.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 45,
+"dil": "tr",
+"t0": 257.43,
+"t1": 263.43,
+"metin": "Olumsuzda ve soruda yardımcı fiil var. Takı ona gider. Asıl fiil yalın kalır.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 46,
+"dil": "en",
+"t0": 263.9,
+"t1": 266.94,
+"metin": "She doesn't eat fish. Does she eat fish?",
+"konusan": "ogretmen"
+},
+{
+"cumle": 47,
+"dil": "tr",
+"t0": 267.41,
+"t1": 269.49,
+"metin": "Aynısını kanca fiiliyle dene.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 48,
+"dil": "en",
+"t0": 270.04,
+"t1": 273.4,
+"metin": "He doesn't get up at seven. Does he get up at seven?",
+"konusan": "ogretmen"
+},
+{
+"cumle": 49,
+"dil": "en",
+"t0": 273.87,
+"t1": 274.19,
+"metin": "Get",
+"konusan": "ogretmen"
+},
+{
+"cumle": 49,
+"dil": "tr",
+"t0": 274.44,
+"t1": 275.4,
+"metin": "yalın kalır,",
+"konusan": "ogretmen"
+},
+{
+"cumle": 49,
+"dil": "en",
+"t0": 275.65,
+"t1": 275.97,
+"metin": "gets",
+"konusan": "ogretmen"
+},
+{
+"cumle": 49,
+"dil": "tr",
+"t0": 276.22,
+"t1": 276.94,
+"metin": "olmaz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 50,
+"dil": "tr",
+"t0": 277.49,
+"t1": 281.81,
+"metin": "Kod: takı bir kez gelir. Yardımcı fiil varsa ona.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 51,
+"dil": "tr",
+"t0": 282.28,
+"t1": 287.4,
+"metin": "Özetle. Geniş zaman rutini, kalıcı durumu ve genel gerçeği anlatır.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 52,
+"dil": "en",
+"t0": 287.87,
+"t1": 289.31,
+"metin": "He, she, it",
+"konusan": "ogretmen"
+},
+{
+"cumle": 52,
+"dil": "tr",
+"t0": 289.56,
+"t1": 294.52,
+"metin": "ile se gelir. Olumsuzda ve soruda se yardımcı fiile geçer.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 53,
+"dil": "tr",
+"t0": 294.99,
+"t1": 296.35,
+"metin": "Sinyal sözcükler:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 53,
+"dil": "en",
+"t0": 296.6,
+"t1": 303.24,
+"metin": "every, always, usually, often, sometimes, never.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 53,
+"dil": "tr",
+"t0": 303.49,
+"t1": 306.77,
+"metin": "Tekrar sayısı veren kalıplar da sinyaldir:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 53,
+"dil": "en",
+"t0": 307.02,
+"t1": 311.26,
+"metin": "once a week, on Mondays, in the mornings.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 53,
+"dil": "tr",
+"t0": 311.51,
+"t1": 317.51,
+"metin": "Bunları görünce önce geniş zamanı düşün. Kesin kural değil, ilk akla gelen zaman bu.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 54,
+"dil": "tr",
+"t0": 317.98,
+"t1": 318.78,
+"metin": "Mini soru.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 54,
+"dil": "en",
+"t0": 319.03,
+"t1": 320.63,
+"metin": "Every morning, my brother",
+"konusan": "ogretmen"
+},
+{
+"cumle": 54,
+"dil": "tr",
+"t0": 320.88,
+"t1": 321.44,
+"metin": "boşluk",
+"konusan": "ogretmen"
+},
+{
+"cumle": 54,
+"dil": "en",
+"t0": 321.69,
+"t1": 324.01,
+"metin": "the dog for a walk before school.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 55,
+"dil": "tr",
+"t0": 324.48,
+"t1": 326.48,
+"metin": "Şıklara bak. Üç saniye.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 56,
+"dil": "tr",
+"t0": 328.95,
+"t1": 330.55,
+"metin": "Bence A şıkkı:",
+"konusan": "ogrenci"
+},
+{
+"cumle": 56,
+"dil": "en",
+"t0": 330.8,
+"t1": 331.68,
+"metin": "take.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 57,
+"dil": "tr",
+"t0": 332.38,
+"t1": 334.7,
+"metin": "Yaklaştın, ama özneye bak.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 57,
+"dil": "en",
+"t0": 334.95,
+"t1": 335.91,
+"metin": "My brother,",
+"konusan": "ogretmen"
+},
+{
+"cumle": 57,
+"dil": "tr",
+"t0": 336.16,
+"t1": 336.56,
+"metin": "yani",
+"konusan": "ogretmen"
+},
+{
+"cumle": 57,
+"dil": "en",
+"t0": 336.81,
+"t1": 337.69,
+"metin": "he.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 57,
+"dil": "tr",
+"t0": 337.94,
+"t1": 341.38,
+"metin": "Fiile se gelir. Doğru cevap B şıkkı, yani",
+"konusan": "ogretmen"
+},
+{
+"cumle": 57,
+"dil": "en",
+"t0": 341.63,
+"t1": 342.59,
+"metin": "takes.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 58,
+"dil": "tr",
+"t0": 343.14,
+"t1": 346.58,
+"metin": "Yöntem üç adım. Önce zaman sözcüğüne bak:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 58,
+"dil": "en",
+"t0": 346.83,
+"t1": 348.03,
+"metin": "every morning,",
+"konusan": "ogretmen"
+},
+{
+"cumle": 58,
+"dil": "tr",
+"t0": 348.28,
+"t1": 351.64,
+"metin": "yani rutin. Sonra özneyi bul:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 58,
+"dil": "en",
+"t0": 351.89,
+"t1": 352.85,
+"metin": "my brother,",
+"konusan": "ogretmen"
+},
+{
+"cumle": 58,
+"dil": "tr",
+"t0": 353.1,
+"t1": 353.5,
+"metin": "yani",
+"konusan": "ogretmen"
+},
+{
+"cumle": 58,
+"dil": "en",
+"t0": 353.75,
+"t1": 354.39,
+"metin": "he.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 58,
+"dil": "tr",
+"t0": 354.64,
+"t1": 359.44,
+"metin": "Sonra yardımcı fiil var mı diye bak: yok, takı fiile gelir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 59,
+"dil": "tr",
+"t0": 359.91,
+"t1": 369.59,
+"metin": "Çeldiricilere bakalım. Şimdiki zaman olan D şıkkı, rutin anlamına uymaz. Tek başına cümle kuramayan iki şık var: C şıkkı ve E şıkkı.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 60,
+"dil": "tr",
+"t0": 370.06,
+"t1": 375.18,
+"metin": "Bu derste geniş zamanın formunu, iki kullanımını ve bir tuzağı gördük.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 61,
+"dil": "tr",
+"t0": 375.65,
+"t1": 378.21,
+"metin": "Formül: özne, yalın fiil.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 61,
+"dil": "en",
+"t0": 378.46,
+"t1": 379.74,
+"metin": "He, she, it",
+"konusan": "ogretmen"
+},
+{
+"cumle": 61,
+"dil": "tr",
+"t0": 379.99,
+"t1": 383.27,
+"metin": "ile se. Sinyal sözcüğü:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 61,
+"dil": "en",
+"t0": 383.52,
+"t1": 386.72,
+"metin": "every, always, usually.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 61,
+"dil": "tr",
+"t0": 386.97,
+"t1": 388.65,
+"metin": "Sıradaki derste görüşürüz.",
+"konusan": "ogretmen"
+}
+]

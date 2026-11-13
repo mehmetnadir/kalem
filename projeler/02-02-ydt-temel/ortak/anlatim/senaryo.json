@@ -1,0 +1,1035 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Simple Present",
+ "duzen": "konu",
+ "seviye": "temel",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Her sabah yedide kalkıyorum."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Her sabah yedide kalkıyorum."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "I get up at seven every morning."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "I get up at seven every morning."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Türkçede kalkıyorum deriz. İngilizcede"
+    ],
+    [
+     "en",
+     "ing"
+    ],
+    [
+     "tr",
+     "yok. Neden?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Türkçede kalkıyorum deriz. İngilizcede ing yok. Neden?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Bu derste geniş zamanın formunu ve iki kullanımını görüyoruz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bu derste geniş zamanın formunu ve iki kullanımını görüyoruz."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Birinci örnek."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Birinci örnek."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "I go to Kaş every summer because I have a summer house there."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "I go to Kaş every summer because I have a summer house there."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Her yaz Kaş'a giderim, çünkü orada yazlığım var."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Her yaz Kaş'a giderim, çünkü orada yazlığım var."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Önce zaman sözcüğüne bak:"
+    ],
+    [
+     "en",
+     "every summer."
+    ],
+    [
+     "tr",
+     "Her yaz demek. Bu bir tekrar sinyali."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Önce zaman sözcüğüne bak: every summer. Her yaz demek. Bu bir tekrar sinyali."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Gitmek bir rutin. Yazlığın olması kalıcı bir durum. İkisi de geniş zaman. Özne"
+    ],
+    [
+     "en",
+     "I."
+    ],
+    [
+     "tr",
+     "Fiiller yalın kalır:"
+    ],
+    [
+     "en",
+     "go"
+    ],
+    [
+     "tr",
+     "ve"
+    ],
+    [
+     "en",
+     "have."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Gitmek bir rutin. Yazlığın olması kalıcı bir durum. İkisi de geniş zaman. Özne I. Fiiller yalın kalır: go ve have."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İkinci örnek."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İkinci örnek."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "He gets up at seven every morning and swims in the pool."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "He gets up at seven every morning and swims in the pool."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "O her sabah yedide kalkar ve havuzda yüzer."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "O her sabah yedide kalkar ve havuzda yüzer."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Yine tekrar sinyali:"
+    ],
+    [
+     "en",
+     "every morning."
+    ],
+    [
+     "tr",
+     "Her gün aynı iş. Bu da rutin."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Yine tekrar sinyali: every morning. Her gün aynı iş. Bu da rutin."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Bu kez özne"
+    ],
+    [
+     "en",
+     "he."
+    ],
+    [
+     "tr",
+     "İki fiil de özneye uyar:"
+    ],
+    [
+     "en",
+     "gets"
+    ],
+    [
+     "tr",
+     "ve swims. İkisinin sonunda da se var."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bu kez özne he. İki fiil de özneye uyar: gets ve swims. İkisinin sonunda da se var."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Üçüncü örnek."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Üçüncü örnek."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "The Moon completes its orbit around the Earth in twenty seven days."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "The Moon completes its orbit around the Earth in twenty seven days."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Ay, Dünya çevresindeki turunu yirmi yedi günde tamamlar."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Ay, Dünya çevresindeki turunu yirmi yedi günde tamamlar."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Bu bir genel gerçek. Dün de böyleydi, yarın da böyle olacak. Doğa olayları ve bilimsel gerçekler geniş zaman alır."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bu bir genel gerçek. Dün de böyleydi, yarın da böyle olacak. Doğa olayları ve bilimsel gerçekler geniş zaman alır."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Özne"
+    ],
+    [
+     "en",
+     "the Moon,"
+    ],
+    [
+     "tr",
+     "yani"
+    ],
+    [
+     "en",
+     "it."
+    ],
+    [
+     "tr",
+     "Fiil"
+    ],
+    [
+     "en",
+     "completes."
+    ],
+    [
+     "tr",
+     "Burada da se var."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Özne the Moon, yani it. Fiil completes. Burada da se var."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Hocam,"
+    ],
+    [
+     "en",
+     "go, gets, completes."
+    ],
+    [
+     "tr",
+     "Fiil neden değişiyor?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Hocam, go, gets, completes. Fiil neden değişiyor?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Özneye bağlı."
+    ],
+    [
+     "en",
+     "I, you, we, they"
+    ],
+    [
+     "tr",
+     "ile fiil yalın kalır."
+    ],
+    [
+     "en",
+     "He, she, it"
+    ],
+    [
+     "tr",
+     "ile fiilin sonuna se takısı gelir."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Özneye bağlı. I, you, we, they ile fiil yalın kalır. He, she, it ile fiilin sonuna se takısı gelir."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Üçüncü tekilde fiile se takısı gelir. Kimi fiilde takı e ve se ya da i e se olur:"
+    ],
+    [
+     "en",
+     "goes, studies."
+    ],
+    [
+     "tr",
+     "Bu derste ayrıntıya girmiyoruz. Takıyı tanımak yeter."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Üçüncü tekilde fiile se takısı gelir. Kimi fiilde takı e ve se ya da i e se olur: goes, studies. Bu derste ayrıntıya girmiyoruz. Takıyı tanımak yeter."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "I eat fish. She eats fish."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "I eat fish. She eats fish."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Olumsuz cümlede yardımcı fiil gelir."
+    ],
+    [
+     "en",
+     "I, you, we, they"
+    ],
+    [
+     "tr",
+     "ile /doʊnt/."
+    ],
+    [
+     "en",
+     "He, she, it"
+    ],
+    [
+     "tr",
+     "ile /ˈdʌzənt/. Arkasında yalın fiil durur."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Olumsuz cümlede yardımcı fiil gelir. I, you, we, they ile /doʊnt/. He, she, it ile /ˈdʌzənt/. Arkasında yalın fiil durur."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "They don't eat fish."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "They don't eat fish."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Soruda yardımcı fiil başa geçer: do ya da does. Özneye göre seçilir. Bilgi sorusu için en başa soru sözcüğü gelir."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Soruda yardımcı fiil başa geçer: do ya da does. Özneye göre seçilir. Bilgi sorusu için en başa soru sözcüğü gelir."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "Do you eat fish?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Do you eat fish?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Şimdi bir karşıt çift."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Şimdi bir karşıt çift."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "She eats fish every day."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "She eats fish every day."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Her gün balık yer. Bu onun alışkanlığı."
+    ],
+    [
+     "en",
+     "Every day"
+    ],
+    [
+     "tr",
+     "bir rutin sinyali."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Her gün balık yer. Bu onun alışkanlığı. Every day bir rutin sinyali."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "She is eating fish now."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "She is eating fish now."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Şu anda balık yiyor. Tabağı önünde, olay sürüyor."
+    ],
+    [
+     "en",
+     "Now"
+    ],
+    [
+     "tr",
+     "çoğu zaman şimdiki zaman sinyalidir."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Şu anda balık yiyor. Tabağı önünde, olay sürüyor. Now çoğu zaman şimdiki zaman sinyalidir."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İki cümlede de balık var. Zaman sözcüğü farkı belirler."
+    ],
+    [
+     "en",
+     "Every day, always, usually:"
+    ],
+    [
+     "tr",
+     "geniş zaman."
+    ],
+    [
+     "en",
+     "Now"
+    ],
+    [
+     "tr",
+     "ve"
+    ],
+    [
+     "en",
+     "look"
+    ],
+    [
+     "tr",
+     "çoğunlukla şimdiki zaman."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İki cümlede de balık var. Zaman sözcüğü farkı belirler. Every day, always, usually: geniş zaman. Now ve look çoğunlukla şimdiki zaman."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Türkçede her sabah kalkıyorum da deriz. Eki yor, anlamı rutin. İngilizcede o zaman geniş zaman gelir."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Türkçede her sabah kalkıyorum da deriz. Eki yor, anlamı rutin. İngilizcede o zaman geniş zaman gelir."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Kanca cümlesine dönelim."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Kanca cümlesine dönelim."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "I get up at seven every morning."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "I get up at seven every morning."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "Every morning"
+    ],
+    [
+     "tr",
+     "var, yani rutin. O zaman"
+    ],
+    [
+     "en",
+     "I get up."
+    ],
+    [
+     "en",
+     "Ing"
+    ],
+    [
+     "tr",
+     "yok,"
+    ],
+    [
+     "en",
+     "am"
+    ],
+    [
+     "tr",
+     "yok."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Every morning var, yani rutin. O zaman I get up. Ing yok, am yok."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Kural: Türkçe ekine değil, zaman sözcüğüne ve anlama bak."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Kural: Türkçe ekine değil, zaman sözcüğüne ve anlama bak."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Şimdi bir tuzak. Hata iki yerde çıkar: olumsuzda ve soruda."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Şimdi bir tuzak. Hata iki yerde çıkar: olumsuzda ve soruda."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "She doesn't eats fish."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "She doesn't eats fish."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "Does she eats fish?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Does she eats fish?"
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Hocam,"
+    ],
+    [
+     "en",
+     "she"
+    ],
+    [
+     "tr",
+     "var. /ˈdʌzənt/"
+    ],
+    [
+     "en",
+     "eats"
+    ],
+    [
+     "tr",
+     "olmaz mı?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Hocam, she var. /ˈdʌzənt/ eats olmaz mı?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Olmaz. does aslında do artı se takısı. Takı yardımcı fiilde zaten var."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Olmaz. does aslında do artı se takısı. Takı yardımcı fiilde zaten var."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Neden yapıyoruz? Çünkü"
+    ],
+    [
+     "en",
+     "she"
+    ],
+    [
+     "tr",
+     "görünce zihin se ister. Refleks doğru, yer yanlış."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Neden yapıyoruz? Çünkü she görünce zihin se ister. Refleks doğru, yer yanlış."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "be dışındaki fiillerde olumlu cümlede yardımcı fiil yok. Takı asıl fiile gelir:"
+    ],
+    [
+     "en",
+     "eats."
+    ],
+    [
+     "tr",
+     "Olumsuzda ve soruda yardımcı fiil var. Takı ona gider. Asıl fiil yalın kalır."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "be dışındaki fiillerde olumlu cümlede yardımcı fiil yok. Takı asıl fiile gelir: eats. Olumsuzda ve soruda yardımcı fiil var. Takı ona gider. Asıl fiil yalın kalır."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "She doesn't eat fish. Does she eat fish?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "She doesn't eat fish. Does she eat fish?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Aynısını kanca fiiliyle dene."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Aynısını kanca fiiliyle dene."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "He doesn't get up at seven. Does he get up at seven?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "He doesn't get up at seven. Does he get up at seven?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "Get"
+    ],
+    [
+     "tr",
+     "yalın kalır,"
+    ],
+    [
+     "en",
+     "gets"
+    ],
+    [
+     "tr",
+     "olmaz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Get yalın kalır, gets olmaz."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Kod: takı bir kez gelir. Yardımcı fiil varsa ona."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Kod: takı bir kez gelir. Yardımcı fiil varsa ona."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Özetle. Geniş zaman rutini, kalıcı durumu ve genel gerçeği anlatır."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Özetle. Geniş zaman rutini, kalıcı durumu ve genel gerçeği anlatır."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "He, she, it"
+    ],
+    [
+     "tr",
+     "ile se gelir. Olumsuzda ve soruda se yardımcı fiile geçer."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "He, she, it ile se gelir. Olumsuzda ve soruda se yardımcı fiile geçer."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Sinyal sözcükler:"
+    ],
+    [
+     "en",
+     "every, always, usually, often, sometimes, never."
+    ],
+    [
+     "tr",
+     "Tekrar sayısı veren kalıplar da sinyaldir:"
+    ],
+    [
+     "en",
+     "once a week, on Mondays, in the mornings."
+    ],
+    [
+     "tr",
+     "Bunları görünce önce geniş zamanı düşün. Kesin kural değil, ilk akla gelen zaman bu."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Sinyal sözcükler: every, always, usually, often, sometimes, never. Tekrar sayısı veren kalıplar da sinyaldir: once a week, on Mondays, in the mornings. Bunları görünce önce geniş zamanı düşün. Kesin kural değil, ilk akla gelen zaman bu."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Mini soru."
+    ],
+    [
+     "en",
+     "Every morning, my brother"
+    ],
+    [
+     "tr",
+     "boşluk"
+    ],
+    [
+     "en",
+     "the dog for a walk before school."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Mini soru. Every morning, my brother boşluk the dog for a walk before school."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Şıklara bak. Üç saniye."
+    ],
+    [
+     "sus",
+     "2.0"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Şıklara bak. Üç saniye."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Bence A şıkkı:"
+    ],
+    [
+     "en",
+     "take."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bence A şıkkı: take."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Yaklaştın, ama özneye bak."
+    ],
+    [
+     "en",
+     "My brother,"
+    ],
+    [
+     "tr",
+     "yani"
+    ],
+    [
+     "en",
+     "he."
+    ],
+    [
+     "tr",
+     "Fiile se gelir. Doğru cevap B şıkkı, yani"
+    ],
+    [
+     "en",
+     "takes."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Yaklaştın, ama özneye bak. My brother, yani he. Fiile se gelir. Doğru cevap B şıkkı, yani takes."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Yöntem üç adım. Önce zaman sözcüğüne bak:"
+    ],
+    [
+     "en",
+     "every morning,"
+    ],
+    [
+     "tr",
+     "yani rutin. Sonra özneyi bul:"
+    ],
+    [
+     "en",
+     "my brother,"
+    ],
+    [
+     "tr",
+     "yani"
+    ],
+    [
+     "en",
+     "he."
+    ],
+    [
+     "tr",
+     "Sonra yardımcı fiil var mı diye bak: yok, takı fiile gelir."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Yöntem üç adım. Önce zaman sözcüğüne bak: every morning, yani rutin. Sonra özneyi bul: my brother, yani he. Sonra yardımcı fiil var mı diye bak: yok, takı fiile gelir."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Çeldiricilere bakalım. Şimdiki zaman olan D şıkkı, rutin anlamına uymaz. Tek başına cümle kuramayan iki şık var: C şıkkı ve E şıkkı."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Çeldiricilere bakalım. Şimdiki zaman olan D şıkkı, rutin anlamına uymaz. Tek başına cümle kuramayan iki şık var: C şıkkı ve E şıkkı."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Bu derste geniş zamanın formunu, iki kullanımını ve bir tuzağı gördük."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bu derste geniş zamanın formunu, iki kullanımını ve bir tuzağı gördük."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Formül: özne, yalın fiil."
+    ],
+    [
+     "en",
+     "He, she, it"
+    ],
+    [
+     "tr",
+     "ile se. Sinyal sözcüğü:"
+    ],
+    [
+     "en",
+     "every, always, usually."
+    ],
+    [
+     "tr",
+     "Sıradaki derste görüşürüz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Formül: özne, yalın fiil. He, she, it ile se. Sinyal sözcüğü: every, always, usually. Sıradaki derste görüşürüz."
+  }
+ ]
+}

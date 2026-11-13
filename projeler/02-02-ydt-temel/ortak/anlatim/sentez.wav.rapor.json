@@ -1,0 +1,1034 @@
+[
+ {
+  "dil": "tr",
+  "metin": "Her sabah yedide kalkıyorum.",
+  "duyulan": "Her sabah 7'de kalkıyorum.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I get up at seven every morning.",
+  "duyulan": "I get up at 7 every morning.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Türkçede kalkıyorum deriz. İngilizcede",
+  "duyulan": "Türkçe'de kalkıyorum deriz. İngilizce'de...",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "ing",
+  "duyulan": "Ing.",
+  "benzerlik": 1.0,
+  "tohum": 1
+ },
+ {
+  "dil": "tr",
+  "metin": "yok. Neden?",
+  "duyulan": "Yok. Neden?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu derste geniş zamanın formunu ve iki kullanımını görüyoruz.",
+  "duyulan": "Bu derste geniş zamanın formunu ve iki kullanımını görüyoruz.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Birinci örnek.",
+  "duyulan": "Birinci Örnek",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I go to Kaş every summer because I have a summer house there.",
+  "duyulan": "I go to Kosh every summer because I have a summer house there.",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Her yaz Kaş'a giderim, çünkü orada yazlığım var.",
+  "duyulan": "Her yaz Kaş'a giderim. Çünkü orada yazlığım var.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Önce zaman sözcüğüne bak:",
+  "duyulan": "Önce zaman sözcüğüne bak.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "every summer.",
+  "duyulan": "every summer.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Her yaz demek. Bu bir tekrar sinyali.",
+  "duyulan": "Her yaz demek. Bu bir tekrar sinyali.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Gitmek bir rutin. Yazlığın olması kalıcı bir durum. İkisi de geniş zaman. Özne",
+  "duyulan": "Gitmek bir rutin. Yazlığın olması kalıcı bir durum. İkisi de geniş zaman. Özne",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I.",
+  "duyulan": "E",
+  "benzerlik": 0.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Fiiller yalın kalır:",
+  "duyulan": "Fiiller yalın kalır.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "go",
+  "duyulan": "Go.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ve",
+  "duyulan": "Ve...",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "have.",
+  "duyulan": "Have.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İkinci örnek.",
+  "duyulan": "İkinci örnek",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "He gets up at seven every morning and swims in the pool.",
+  "duyulan": "He gets up at seven every morning and swims in the pool.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "O her sabah yedide kalkar ve havuzda yüzer.",
+  "duyulan": "O her sabah 7'de kalkar ve havuzda yüzer.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Yine tekrar sinyali:",
+  "duyulan": "Yine tekrar sinyali.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "every morning.",
+  "duyulan": "every morning.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Her gün aynı iş. Bu da rutin.",
+  "duyulan": "Her gün aynı iş. Bu da rutin.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu kez özne",
+  "duyulan": "Bu kez özne.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "he.",
+  "duyulan": "He.",
+  "benzerlik": 1.0,
+  "tohum": 2
+ },
+ {
+  "dil": "tr",
+  "metin": "İki fiil de özneye uyar:",
+  "duyulan": "İki fiil de özneye uyar.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "gets",
+  "duyulan": "gets",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ve",
+  "duyulan": "Evet.",
+  "benzerlik": 0.67,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "swims.",
+  "duyulan": "swims.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İkisinin sonunda da se var.",
+  "duyulan": "İkisinin sonunda da S var.",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Üçüncü örnek.",
+  "duyulan": "Üçüncü örnek",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "The Moon completes its orbit around the Earth in twenty seven days.",
+  "duyulan": "The Moon completes its orbit around the Earth in 27 days.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Ay, Dünya çevresindeki turunu yirmi yedi günde tamamlar.",
+  "duyulan": "Dünya çevresindeki turunu 27 günde tamamlar.",
+  "benzerlik": 0.97,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu bir genel gerçek. Dün de böyleydi, yarın da böyle olacak. Doğa olayları ve bilimsel gerçekler geniş zaman alır.",
+  "duyulan": "Bu bir genel gerçek. Dün de böyleydi, yarın da böyle olacak. Doğa olayları ve bilimsel gerçekler geniş zaman alır.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Özne",
+  "duyulan": "Öz ne?",
+  "benzerlik": 0.89,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "the Moon,",
+  "duyulan": "The Moon",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "yani",
+  "duyulan": "Yani",
+  "benzerlik": 1.0,
+  "tohum": 1
+ },
+ {
+  "dil": "en",
+  "metin": "it.",
+  "duyulan": "at",
+  "benzerlik": 0.5,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Fiil",
+  "duyulan": "FİL",
+  "benzerlik": 0.86,
+  "tohum": 1
+ },
+ {
+  "dil": "en",
+  "metin": "completes.",
+  "duyulan": "completes.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Burada da se var.",
+  "duyulan": "Burada da s var.",
+  "benzerlik": 0.97,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hocam,",
+  "duyulan": "Hocam",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "go, gets, completes.",
+  "duyulan": "Go, gets, completes.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Fiil neden değişiyor?",
+  "duyulan": "Fiil neden değişiyor?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Özneye bağlı.",
+  "duyulan": "Özneye bağlı",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I, you, we, they",
+  "duyulan": "I, you, we, they.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ile fiil yalın kalır.",
+  "duyulan": "ile fiil yalın kalır.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "He, she, it",
+  "duyulan": "He, she, it.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ile fiilin sonuna se takısı gelir.",
+  "duyulan": "İle fiilin sonuna S takısı gelir.",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Üçüncü tekilde fiile se takısı gelir. Kimi fiilde takı e ve se ya da i e se olur:",
+  "duyulan": "Üçüncü tekilde fiile s takısı gelir. Kimi fiilde takı e ve s ya da i e s olur.",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "goes, studies.",
+  "duyulan": "goes, studies.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu derste ayrıntıya girmiyoruz. Takıyı tanımak yeter.",
+  "duyulan": "Bu derste ayrıntıya girmiyoruz. Takıyı tanımak yeter.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I eat fish. She eats fish.",
+  "duyulan": "I eat fish. She eats fish.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Olumsuz cümlede yardımcı fiil gelir.",
+  "duyulan": "Olumsuz cümlede yardımcı fiil gelir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I, you, we, they",
+  "duyulan": "I, you, we, they.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ile /doʊnt/.",
+  "duyulan": "ile dond.",
+  "benzerlik": 0.88,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "He, she, it",
+  "duyulan": "He, she, it.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ile /ˈdʌzənt/. Arkasında yalın fiil durur.",
+  "duyulan": "İle dözent. Arkasında yalın fiil durur.",
+  "benzerlik": 0.97,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "They don't eat fish.",
+  "duyulan": "They don't eat fish.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Soruda yardımcı fiil başa geçer: do ya da does. Özneye göre seçilir. Bilgi sorusu için en başa soru sözcüğü gelir.",
+  "ses_metni": "Soruda yardımcı fiil başa geçer: /duː/ ya da /dʌz/. Özneye göre seçilir. Bilgi sorusu için en başa soru sözcüğü gelir.",
+  "duyulan": "Soruda yardımcı fiil başa geçer. Do ya da Döz. Özneye göre seçilir. Bilgi sorusu için en başa soru sözcüğü gelir.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Do you eat fish?",
+  "duyulan": "Do you eat fish?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Şimdi bir karşıt çift.",
+  "duyulan": "Şimdi bir karşıt çift.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "She eats fish every day.",
+  "duyulan": "She eats fish every day.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Her gün balık yer. Bu onun alışkanlığı.",
+  "duyulan": "Her gün balık yer. Bu onun alışkanlığı.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Every day",
+  "duyulan": "Every day.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "bir rutin sinyali.",
+  "duyulan": "Bir rutin sinyali",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "She is eating fish now.",
+  "duyulan": "She is eating fish now.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Şu anda balık yiyor. Tabağı önünde, olay sürüyor.",
+  "duyulan": "Şu anda balık yiyor. Tabağı önünde olay sürüyor.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Now",
+  "duyulan": "Now,",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "çoğu zaman şimdiki zaman sinyalidir.",
+  "duyulan": "Çoğu zaman şimdiki zaman sinyalidir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İki cümlede de balık var. Zaman sözcüğü farkı belirler.",
+  "duyulan": "İki cümlede de balık var. Zaman sözcüğü farkı belirler.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Every day, always, usually:",
+  "duyulan": "Every day, always, usually.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "geniş zaman.",
+  "duyulan": "Geniş Zaman",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Now",
+  "duyulan": "Now,",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ve",
+  "duyulan": "Web.",
+  "benzerlik": 0.4,
+  "tohum": 2
+ },
+ {
+  "dil": "en",
+  "metin": "look",
+  "duyulan": "Look.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "çoğunlukla şimdiki zaman.",
+  "duyulan": "Çoğunlukla şimdiki zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Türkçede her sabah kalkıyorum da deriz. Eki yor, anlamı rutin. İngilizcede o zaman geniş zaman gelir.",
+  "duyulan": "Türkçe'de her sabah kalkıyorum da deriz. Ekiyor. Anlamı rutin. İngilizce'de o zaman, geniş zaman gelir.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Kanca cümlesine dönelim.",
+  "duyulan": "Kanca cümlesine dönelim.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I get up at seven every morning.",
+  "duyulan": "I get up at 7 every morning.",
+  "benzerlik": 0.89,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Every morning",
+  "duyulan": "Every morning",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "var, yani rutin. O zaman",
+  "duyulan": "Var, yani rutin. O zaman,",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I get up.",
+  "duyulan": "I get up.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Ing",
+  "duyulan": "In.",
+  "benzerlik": 0.8,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "yok,",
+  "duyulan": "Yok.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "am",
+  "duyulan": "am",
+  "benzerlik": 1.0,
+  "tohum": 1
+ },
+ {
+  "dil": "tr",
+  "metin": "yok.",
+  "duyulan": "Yok.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Kural: Türkçe ekine değil, zaman sözcüğüne ve anlama bak.",
+  "duyulan": "Kural. Türkçe ekine değil, zaman sözcüğüne ve anlama bak.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Şimdi bir tuzak. Hata iki yerde çıkar: olumsuzda ve soruda.",
+  "duyulan": "Şimdi bir tuzak. Hata iki yerde çıkar. Olumsuzda ve soruda.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "She doesn't eats fish.",
+  "duyulan": "She doesn't eats fish.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Does she eats fish?",
+  "duyulan": "Does she eats fish?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hocam,",
+  "duyulan": "Hocam,",
+  "benzerlik": 1.0,
+  "tohum": 1
+ },
+ {
+  "dil": "en",
+  "metin": "she",
+  "duyulan": "See",
+  "benzerlik": 0.67,
+  "tohum": 1
+ },
+ {
+  "dil": "tr",
+  "metin": "var. /ˈdʌzənt/",
+  "duyulan": "Var, doesn't it?",
+  "benzerlik": 0.67,
+  "tohum": 2
+ },
+ {
+  "dil": "en",
+  "metin": "eats",
+  "duyulan": "Eats?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "olmaz mı?",
+  "duyulan": "Olmaz mı?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Olmaz. does aslında do artı se takısı. Takı yardımcı fiilde zaten var.",
+  "ses_metni": "Olmaz. /dʌz/ aslında /duː/ artı se takısı. Takı yardımcı fiilde zaten var.",
+  "duyulan": "Olmaz. Döz aslında do artı se takısı. Takı yardımcı fiilde zaten var.",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Neden yapıyoruz? Çünkü",
+  "duyulan": "Neden yapıyoruz? Çünkü...",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "she",
+  "duyulan": "She",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "görünce zihin se ister. Refleks doğru, yer yanlış.",
+  "duyulan": "Görünce zihin S ister. Refleks doğru, yer yanlış.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "be dışındaki fiillerde olumlu cümlede yardımcı fiil yok. Takı asıl fiile gelir:",
+  "ses_metni": "/biː/ dışındaki fiillerde olumlu cümlede yardımcı fiil yok. Takı asıl fiile gelir:",
+  "duyulan": "Bir dışındaki fiillerde olumlu cümlede yardımcı fiil yok. Takı asıl fiile gelir.",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "eats.",
+  "duyulan": "eats.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Olumsuzda ve soruda yardımcı fiil var. Takı ona gider. Asıl fiil yalın kalır.",
+  "duyulan": "Olumsuzda ve soruda yardımcı fiil var. Takı ona gider. Asıl fiil yalın kalır.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "She doesn't eat fish. Does she eat fish?",
+  "duyulan": "She doesn't eat fish. Does she eat fish?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Aynısını kanca fiiliyle dene.",
+  "duyulan": "Aynısını kanca fiiliyle dene.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "He doesn't get up at seven. Does he get up at seven?",
+  "duyulan": "He doesn't get up at 7. Does he get up at 7?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Get",
+  "duyulan": "Get",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "yalın kalır,",
+  "duyulan": "YALIN KALIR",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "gets",
+  "duyulan": "gets",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "olmaz.",
+  "duyulan": "Olmaz.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Kod: takı bir kez gelir. Yardımcı fiil varsa ona.",
+  "duyulan": "Kod. Takı bir kez gelir. Yardımcı fiil varsa ona.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Özetle. Geniş zaman rutini, kalıcı durumu ve genel gerçeği anlatır.",
+  "duyulan": "Özetle, geniş zaman rutini, kalıcı durumu ve genel gerçeği anlatır.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "He, she, it",
+  "duyulan": "He, she, it.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ile se gelir. Olumsuzda ve soruda se yardımcı fiile geçer.",
+  "duyulan": "İlese gelir. Olumsuzda ve soruda S yardımcı fiile geçer.",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Sinyal sözcükler:",
+  "duyulan": "SİNYAL SÖZCÜKLER",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "every, always, usually, often, sometimes, never.",
+  "duyulan": "Every, always, usually, often, sometimes, never.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tekrar sayısı veren kalıplar da sinyaldir:",
+  "duyulan": "Tekrar sayısı veren kalıplar da sinyaldir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "once a week, on Mondays, in the mornings.",
+  "duyulan": "Once a week, on Mondays, in the mornings.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bunları görünce önce geniş zamanı düşün. Kesin kural değil, ilk akla gelen zaman bu.",
+  "duyulan": "Bunları görünce önce geniş zamanı düşün. Kesin kural değil, ilk akla gelen zaman bu.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Mini soru.",
+  "duyulan": "Mini soru.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Every morning, my brother",
+  "duyulan": "Every morning, my brother",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "boşluk",
+  "duyulan": "Boşluk",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "the dog for a walk before school.",
+  "duyulan": "The dog for a walk before school.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Şıklara bak. Üç saniye.",
+  "duyulan": "Şıklara bak. 3 saniye.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bence A şıkkı:",
+  "duyulan": "Bence A şıkkı.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "take.",
+  "duyulan": "Take.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Yaklaştın, ama özneye bak.",
+  "duyulan": "Yaklaştın ama özneye bak.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "My brother,",
+  "duyulan": "my brother.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "yani",
+  "duyulan": "Yani",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "he.",
+  "duyulan": "Hey.",
+  "benzerlik": 0.8,
+  "tohum": 1
+ },
+ {
+  "dil": "tr",
+  "metin": "Fiile se gelir. Doğru cevap B şıkkı, yani",
+  "duyulan": "Fiile S gelir. Doğru cevap B şıkkı. Yani...",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "takes.",
+  "duyulan": "takes.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Yöntem üç adım. Önce zaman sözcüğüne bak:",
+  "duyulan": "Yöntem 3 adım. Önce zaman sözcüğüne bak.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "every morning,",
+  "duyulan": "every morning.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "yani rutin. Sonra özneyi bul:",
+  "duyulan": "Yani rutin. Sonra özneyi bul.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "my brother,",
+  "duyulan": "my brother.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "yani",
+  "duyulan": "Yani,",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "he.",
+  "duyulan": "he.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Sonra yardımcı fiil var mı diye bak: yok, takı fiile gelir.",
+  "duyulan": "Sonra yardımcı fiil var mı diye bak. Yok, takı fiile gelir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Çeldiricilere bakalım. Şimdiki zaman olan D şıkkı, rutin anlamına uymaz. Tek başına cümle kuramayan iki şık var: C şıkkı ve E şıkkı.",
+  "duyulan": "Çeldiricilere bakalım. Şimdiki zaman olan D şıkkı, rutin anlamına uymaz. Tek başına cümle kuramayan iki şık var. C şıkkı ve E şıkkı.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu derste geniş zamanın formunu, iki kullanımını ve bir tuzağı gördük.",
+  "duyulan": "Bu derste geniş zamanın formunu, iki kullanımını ve bir tuzağı gördük.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Formül: özne, yalın fiil.",
+  "duyulan": "Formül, özne, yalın fiil.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "He, she, it",
+  "duyulan": "He, she, it.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ile se. Sinyal sözcüğü:",
+  "duyulan": "İLE SE SİNYAL SÖZCÜĞÜ",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "every, always, usually.",
+  "duyulan": "Every. Always. Usually.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Sıradaki derste görüşürüz.",
+  "duyulan": "Sıradaki derste görüşürüz.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ }
+]

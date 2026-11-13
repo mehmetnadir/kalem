@@ -1,0 +1,141 @@
+{
+  "fps": 30,
+  "genislik": 1920,
+  "yukseklik": 1080,
+  "gecis_kare": 12,
+  "tema": "acik",
+  "anlatim": "ortak/anlatim/anlatim.m4a",
+  "sahneler": [
+    {
+      "no": 1,
+      "klasor": "01-hyperframes-giris",
+      "motor": "HyperFrames",
+      "kare": 102,
+      "t_bas": 0.0,
+      "t_son": 3.0,
+      "icerik_kare": 90,
+      "gecis": "BookFlip",
+      "ad": "Giriş",
+      "bolum": "Kanca"
+    },
+    {
+      "no": 2,
+      "klasor": "02-paperjs-kanca",
+      "motor": "Paper.js",
+      "kare": 410,
+      "t_bas": 3.0,
+      "t_son": 16.27,
+      "icerik_kare": 398,
+      "gecis": "BookFlip",
+      "ad": "Kanca",
+      "bolum": "Kanca"
+    },
+    {
+      "no": 3,
+      "klasor": "03-paperjs-ornek1",
+      "motor": "Paper.js",
+      "kare": 857,
+      "t_bas": 16.27,
+      "t_son": 44.45,
+      "icerik_kare": 845,
+      "gecis": "BookFlip",
+      "ad": "Örnek 1",
+      "bolum": "Örnekler"
+    },
+    {
+      "no": 4,
+      "klasor": "04-canvas-ornek2",
+      "motor": "Düz canvas",
+      "kare": 768,
+      "t_bas": 44.45,
+      "t_son": 69.66,
+      "icerik_kare": 756,
+      "gecis": "BookFlip",
+      "ad": "Örnek 2",
+      "bolum": "Örnekler"
+    },
+    {
+      "no": 5,
+      "klasor": "05-canvas-ornek3",
+      "motor": "Düz canvas",
+      "kare": 812,
+      "t_bas": 69.66,
+      "t_son": 96.31,
+      "icerik_kare": 800,
+      "gecis": "BookFlip",
+      "ad": "Örnek 3",
+      "bolum": "Örnekler"
+    },
+    {
+      "no": 6,
+      "klasor": "06-hyperframes-kural",
+      "motor": "HyperFrames",
+      "kare": 1849,
+      "t_bas": 96.31,
+      "t_son": 157.54,
+      "icerik_kare": 1837,
+      "gecis": "BookFlip",
+      "ad": "Kural kartı",
+      "bolum": "Kural kartı"
+    },
+    {
+      "no": 7,
+      "klasor": "07-canvas-karsit",
+      "motor": "Düz canvas",
+      "kare": 1871,
+      "t_bas": 157.54,
+      "t_son": 219.51,
+      "icerik_kare": 1859,
+      "gecis": "BookFlip",
+      "ad": "Karşıt çift",
+      "bolum": "Karşıt çift"
+    },
+    {
+      "no": 8,
+      "klasor": "08-hyperframes-tuzak",
+      "motor": "HyperFrames",
+      "kare": 1879,
+      "t_bas": 219.51,
+      "t_son": 281.73,
+      "icerik_kare": 1867,
+      "gecis": "BookFlip",
+      "ad": "Tuzak",
+      "bolum": "Tuzak"
+    },
+    {
+      "no": 9,
+      "klasor": "09-hyperframes-ozet",
+      "motor": "HyperFrames",
+      "kare": 1083,
+      "t_bas": 281.73,
+      "t_son": 317.43,
+      "icerik_kare": 1071,
+      "gecis": "BookFlip",
+      "ad": "Ara özet",
+      "bolum": "Ara özet"
+    },
+    {
+      "no": 10,
+      "klasor": "10-hyperframes-soru",
+      "motor": "HyperFrames",
+      "kare": 1574,
+      "t_bas": 317.43,
+      "t_son": 369.51,
+      "icerik_kare": 1562,
+      "gecis": "BookFlip",
+      "ad": "Mini soru",
+      "bolum": "Mini soru"
+    },
+    {
+      "no": 11,
+      "klasor": "11-hyperframes-kapanis",
+      "motor": "HyperFrames",
+      "kare": 599,
+      "t_bas": 369.51,
+      "t_son": 389.07,
+      "icerik_kare": 587,
+      "ad": "Kapanış",
+      "bolum": "Kapanış"
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "fps": 30,
+  "genislik": 1920,
+  "yukseklik": 1080,
+  "gecis_kare": 12,
+  "tema": "acik",
+  "anlatim": "ortak/anlatim/anlatim.m4a",
+  "sahneler": [
+    {
+      "no": 1,
+      "klasor": "01-hyperframes-giris",
+      "motor": "HyperFrames",
+      "kare": 102,
+      "t_bas": 0.0,
+      "t_son": 3.0,
+      "icerik_kare": 90,
+      "gecis": "BookFlip",
+      "ad": "Giriş",
+      "bolum": "1 Kanca",
+      "cumleler": [
+        1
+      ]
+    },
+    {
+      "no": 2,
+      "klasor": "02-paperjs-kanca",
+      "motor": "Paper.js",
+      "kare": 384,
+      "t_bas": 3.0,
+      "t_son": 15.39,
+      "icerik_kare": 372,
+      "gecis": "BookFlip",
+      "ad": "Kanca",
+      "bolum": "1 Kanca",
+      "cumleler": [
+        2
+      ]
+    },
+    {
+      "no": 3,
+      "klasor": "03-hyperframes-anahtar",
+      "motor": "HyperFrames",
+      "kare": 1008,
+      "t_bas": 15.39,
+      "t_son": 48.59,
+      "icerik_kare": 996,
+      "gecis": "BookFlip",
+      "ad": "Karar anahtarı",
+      "bolum": "2 Karar anahtarı",
+      "cumleler": [
+        3
+      ]
+    },
+    {
+      "no": 4,
+      "klasor": "04-canvas-gelecek",
+      "motor": "Düz canvas",
+      "kare": 1053,
+      "t_bas": 48.59,
+      "t_son": 83.28,
+      "icerik_kare": 1041,
+      "gecis": "BookFlip",
+      "ad": "Gelecek ayrımı",
+      "bolum": "3 Karşıt çift",
+      "cumleler": [
+        4,
+        6
+      ]
+    },
+    {
+      "no": 5,
+      "klasor": "05-hyperframes-kok1",
+      "motor": "HyperFrames",
+      "kare": 1077,
+      "t_bas": 83.28,
+      "t_son": 118.79,
+      "icerik_kare": 1065,
+      "gecis": "fade",
+      "ad": "Kök 1",
+      "bolum": "4 Dört sınav kökü",
+      "cumleler": [
+        7
+      ]
+    },
+    {
+      "no": 6,
+      "klasor": "06-hyperframes-kok2",
+      "motor": "HyperFrames",
+      "kare": 1112,
+      "t_bas": 118.79,
+      "t_son": 155.45,
+      "icerik_kare": 1100,
+      "gecis": "fade",
+      "ad": "Kök 2",
+      "bolum": "4 Dört sınav kökü",
+      "cumleler": [
+        8
+      ]
+    },
+    {
+      "no": 7,
+      "klasor": "07-hyperframes-kok3",
+      "motor": "HyperFrames",
+      "kare": 885,
+      "t_bas": 155.45,
+      "t_son": 184.55,
+      "icerik_kare": 873,
+      "gecis": "fade",
+      "ad": "Kök 3",
+      "bolum": "4 Dört sınav kökü",
+      "cumleler": [
+        9
+      ]
+    },
+    {
+      "no": 8,
+      "klasor": "08-hyperframes-kok4",
+      "motor": "HyperFrames",
+      "kare": 1115,
+      "t_bas": 184.55,
+      "t_son": 221.32,
+      "icerik_kare": 1103,
+      "gecis": "BookFlip",
+      "ad": "Kök 4",
+      "bolum": "4 Dört sınav kökü",
+      "cumleler": [
+        10
+      ]
+    },
+    {
+      "no": 9,
+      "klasor": "09-paperjs-tuzak",
+      "motor": "Paper.js",
+      "kare": 1277,
+      "t_bas": 221.32,
+      "t_son": 263.48,
+      "icerik_kare": 1265,
+      "gecis": "BookFlip",
+      "ad": "Tuzak",
+      "bolum": "5 Tuzak",
+      "cumleler": [
+        11,
+        13
+      ]
+    },
+    {
+      "no": 10,
+      "klasor": "10-hyperframes-ozet",
+      "motor": "HyperFrames",
+      "kare": 724,
+      "t_bas": 263.48,
+      "t_son": 287.22,
+      "icerik_kare": 712,
+      "gecis": "BookFlip",
+      "ad": "Ara özet",
+      "bolum": "6 Ara özet",
+      "cumleler": [
+        14
+      ]
+    },
+    {
+      "no": 11,
+      "klasor": "11-hyperframes-mini-soru",
+      "motor": "HyperFrames",
+      "kare": 1478,
+      "t_bas": 287.22,
+      "t_son": 336.09,
+      "icerik_kare": 1466,
+      "gecis": "BookFlip",
+      "ad": "Mini soru",
+      "bolum": "7 Mini soru",
+      "cumleler": [
+        15,
+        17
+      ]
+    },
+    {
+      "no": 12,
+      "klasor": "12-canvas-kapanis",
+      "motor": "Düz canvas",
+      "kare": 190,
+      "t_bas": 336.09,
+      "t_son": 341.43,
+      "icerik_kare": 160,
+      "ad": "Kapanış",
+      "bolum": "8 Kapanış",
+      "cumleler": [
+        18
+      ]
+    }
+  ]
+}

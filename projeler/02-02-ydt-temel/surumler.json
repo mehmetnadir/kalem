@@ -1,0 +1,46 @@
+{
+  "video": {
+    "kimlik": "02-02-ydt-temel",
+    "ders": "İngilizce",
+    "konu": "Simple Present",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-02-T",
+    "amaclar": [
+      "Simple Present formunu kurmak (fiil, fiil + s, do / does)",
+      "zaman sözcüklerini tanımak (every, always, usually)",
+      "rutin, kalıcı durum ve genel gerçek kullanımlarını ayırt etmek",
+      "olumsuz ve soruda yardımcı fiilden sonra fiili yalın bırakmak (doesn't eats tuzağı)"
+    ],
+    "canAlici": [
+      "I, you, we, they ile fiil yalın kalır; he, she, it ile fiile s gelir",
+      "Olumsuzda ve soruda s yardımcı fiile geçer: she doesn't eat, does she eat?",
+      "every day, always, usually: rutin sinyali; now: şimdiki zaman sinyali",
+      "Türkçe -yor ekine değil, zaman sözcüğüne ve anlama bak",
+      "Yöntem: zaman sözcüğü, özne, yardımcı fiil var mı"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Simple Present"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "02-02-ydt-temel",
+      "tur": "ana-yatay",
+      "ad": "Ana video temel (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "temel",
+      "kaynak": null,
+      "durum": "taslak",
+      "onizleme": "/p/02-02-ydt-temel/onizle.html",
+      "tarih": "2026-11-13T09:00:00Z"
+    }
+  ],
+  "revizyonlar": []
+}

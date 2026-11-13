@@ -1,0 +1,216 @@
+{
+ "no": 2,
+ "cumle": 8,
+ "kok": [
+  {
+   "w": "Our",
+   "i": 2
+  },
+  {
+   "w": "company",
+   "i": 3
+  },
+  {
+   "b": 0
+  },
+  {
+   "w": "through",
+   "i": 6
+  },
+  {
+   "w": "a",
+   "i": 7
+  },
+  {
+   "w": "hard",
+   "i": 8
+  },
+  {
+   "w": "period",
+   "i": 9
+  },
+  {
+   "w": "these",
+   "i": 10
+  },
+  {
+   "w": "days,",
+   "i": 11
+  },
+  {
+   "w": "but",
+   "i": 12
+  },
+  {
+   "w": "we",
+   "i": 13
+  },
+  {
+   "b": 1
+  },
+  {
+   "w": "this",
+   "i": 15
+  },
+  {
+   "w": "situation",
+   "i": 16
+  },
+  {
+   "w": "is",
+   "i": 17
+  },
+  {
+   "w": "temporary.",
+   "i": 18
+  }
+ ],
+ "bosluklar": [
+  {
+   "dolgu": "is going",
+   "i_ciz": 4,
+   "i_doldur": 47
+  },
+  {
+   "dolgu": "believe",
+   "i_ciz": 14,
+   "i_doldur": 49
+  }
+ ],
+ "isaretler": [
+  {
+   "tur": "belirtec",
+   "tok": [
+    5,
+    6
+   ],
+   "i": 20
+  },
+  {
+   "tur": "belirtec",
+   "tok": [
+    15
+   ],
+   "i": 23
+  },
+  {
+   "tur": "daire",
+   "b": 1,
+   "i": 29
+  }
+ ],
+ "sik": {
+  "A": [
+   "goes",
+   "believe"
+  ],
+  "B": [
+   "goes",
+   "are believing"
+  ],
+  "C": [
+   "is going",
+   "believe"
+  ],
+  "D": [
+   "is going",
+   "are believing"
+  ],
+  "E": [
+   "went",
+   "believe"
+  ]
+ },
+ "panel_i": 19,
+ "dogru": {
+  "harf": "C",
+  "i": 45
+ },
+ "notlar": [
+  {
+   "harf": "A",
+   "i_isaret": 51,
+   "i_not": 56,
+   "parcalar": [
+    [
+     "t",
+     "hard period"
+    ],
+    [
+     "<>"
+    ],
+    [
+     "t",
+     "goes"
+    ],
+    [
+     "x"
+    ]
+   ]
+  },
+  {
+   "harf": "B",
+   "i_isaret": 54,
+   "i_not": 56,
+   "gecikme": 0.15,
+   "parcalar": [
+    [
+     "t",
+     "hard period"
+    ],
+    [
+     "<>"
+    ],
+    [
+     "t",
+     "goes"
+    ],
+    [
+     "x"
+    ]
+   ]
+  },
+  {
+   "harf": "D",
+   "i_isaret": 66,
+   "i_not": 68,
+   "parcalar": [
+    [
+     "t",
+     "believe"
+    ],
+    [
+     "->"
+    ],
+    [
+     "t",
+     "no -ing"
+    ],
+    [
+     "x"
+    ]
+   ]
+  },
+  {
+   "harf": "E",
+   "i_isaret": 73,
+   "i_not": 75,
+   "parcalar": [
+    [
+     "t",
+     "these days"
+    ],
+    [
+     "<>"
+    ],
+    [
+     "t",
+     "went"
+    ],
+    [
+     "x"
+    ]
+   ]
+  }
+ ]
+}

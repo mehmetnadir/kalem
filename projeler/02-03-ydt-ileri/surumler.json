@@ -1,0 +1,47 @@
+{
+  "video": {
+    "kimlik": "02-03-ydt-ileri",
+    "ders": "İngilizce",
+    "konu": "Present Continuous ve Simple Present: ayrım alıştırması",
+    "seviye": "ileri",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-03-I",
+    "amaclar": [
+      "sinyal sözcüğünden (now, usually, these days, nowadays) doğru zamanı seçmek",
+      "kişisel plan (are leaving) ile sabit tarifeyi (takes off) ayırmak",
+      "iki boşluklu YDT köklerini sinyalle çözmek ve çeldiricileri elemek",
+      "have, believe, recommend fiillerinin -ing almadığı tuzağı tanımak"
+    ],
+    "canAlici": [
+      "Önce sinyale bak, sonra fiile bak",
+      "Now şimdiki zamanı, usually geniş zamanı çağırır; these days ve nowadays genellikle geçici ya da değişen durumu gösterir",
+      "Gelecekte kişisel düzenleme -ing alır, resmi tarife geniş zaman alır",
+      "Sahip olmak anlamındaki have, believe ve recommend sinyal olsa bile -ing almaz",
+      "Her yanlış şık bir sinyalle çelişir; çeldiriciyi nedeniyle ele"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "ileri",
+      "gramer",
+      "Present Continuous",
+      "Simple Present"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "02-03-ydt-ileri",
+      "tur": "ana-yatay",
+      "ad": "Ana video ileri (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "ileri",
+      "kaynak": null,
+      "durum": "taslak",
+      "onizleme": "/p/02-03-ydt-ileri/onizle.html",
+      "tarih": "2026-11-13T12:00:00Z"
+    }
+  ],
+  "revizyonlar": []
+}

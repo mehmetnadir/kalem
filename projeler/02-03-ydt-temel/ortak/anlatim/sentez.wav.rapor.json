@@ -1,0 +1,377 @@
+[
+ {
+  "dil": "tr",
+  "metin": "Aynı fiil, iki zaman. Karar sinyal sözcüğünde.",
+  "duyulan": "Aynı fiil iki zaman. Karar sinyal sözcüğünde.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Önceki derslerde şimdiki zamanı ve geniş zamanı ayrı ayrı gördük. Bu derste ikisini yan yana koyuyoruz. Alıştırma cümleleriyle farkı yakalıyoruz.",
+  "duyulan": "Önceki derslerde şimdiki zamanı ve geniş zamanı ayrı ayrı gördük. Bu derste ikisini yan yana koyuyoruz. Alıştırma cümleleriyle farkı yakalıyoruz.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Birinci örnek.",
+  "duyulan": "Birinci örnek.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "We are leaving for the airport at nine.",
+  "duyulan": "We're leaving for the airport at 9.",
+  "benzerlik": 0.97,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Saat dokuzda havalimanına çıkıyoruz. Plan belli, saat belli. Planı yapan biziz. Kişisel plan gelecek için de şimdiki zaman kullanır. Yapı bildiğimiz yapı: are artı leaving.",
+  "ses_metni": "Saat dokuzda havalimanına çıkıyoruz. Plan belli, saat belli. Planı yapan biziz. Kişisel plan gelecek için de şimdiki zaman kullanır. Yapı bildiğimiz yapı: /ɑr/ artı leaving.",
+  "duyulan": "Saat 9'da havalimanına çıkıyoruz. Plan belli, saat belli. Planı yapan biziz. Kişisel plan gelecek için de şimdiki zaman kullanır. Yapı bildiğimiz yapı. Are artı leaving.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İkinci örnek.",
+  "duyulan": "İkinci örnek.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Our company is going through a hard period these days.",
+  "duyulan": "Our company is going through a hard period these days.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Şirketimiz bugünlerde zor bir dönemden geçiyor. These days bir dönemi gösterir. Dönem geçici. Geçici dönem şimdiki zaman ister. Yapı yine aynı: is artı going.",
+  "ses_metni": "Şirketimiz bugünlerde zor bir dönemden geçiyor. These days bir dönemi gösterir. Dönem geçici. Geçici dönem şimdiki zaman ister. Yapı yine aynı: /ɪz/ artı going.",
+  "duyulan": "Şirketimiz bugünlerde zor bir dönemden geçiyor. These days bir dönemi gösterir. Dönem geçici. Geçici dönem şimdiki zaman ister. Yapı yine aynı. Is artı going.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Üçüncü örnek.",
+  "duyulan": "Üçüncü örnek",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "It is getting harder and harder to find a good job nowadays.",
+  "duyulan": "It is getting harder and harder to find a good job nowadays.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bugünlerde iş bulmak gittikçe zorlaşıyor. Nowadays da bugünleri gösterir. Üstelik",
+  "duyulan": "Bugünlerde iş bulmak gittikçe zorlaşıyor. Nowadays da bugünleri gösterir. Üstelik...",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "harder and harder",
+  "duyulan": "Harder and harder.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "var. Bu ifade durumun değiştiğini söyler.",
+  "duyulan": "War. Bu ifade, durumun değiştiğini söyler.",
+  "benzerlik": 0.97,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hocam, zorlaşmak genel bir durum değil mi? Neden -ing?",
+  "ses_metni": "Hocam, zorlaşmak genel bir durum değil mi? Neden ing?",
+  "duyulan": "Hocam zorlaşmak genel bir durum değil mi? Neden İngi?",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Durum zamanla değişiyor. Vurgu, süren değişimde. Değişen durum çoğunlukla şimdiki zamanla gelir. Üç örnekte de bir ipucu var: plan, dönem, değişim. İpucu şimdiki zamanı çağırıyor.",
+  "duyulan": "Durum zamanla değişiyor. Vurgu süren değişimde. Değişen durum çoğunlukla şimdiki zamanla gelir. Üç örnekte de bir ipucu var. Plan, dönem, değişim. İpucu şimdiki zamanı çağırıyor.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Karar kartı. Bu cümlelerde now net bir ipucudur: şimdiki zaman. These days ve nowadays genellikle şimdiki zamanı çağırır: geçici ya da değişen durum. Planlı gelecek de şimdiki zaman ister. Usually gibi sıklık sözcükleri ve genel durumlar geniş zaman ister. Önce sinyal sözcüğünü ara.",
+  "duyulan": "Karar kartı Bu cümlelerde now net bir ipucudur. Şimdiki zaman These days ve nowadays genellikle şimdiki zamanı çağırır. Geçici ya da değişen durum. Planlı gelecek de şimdiki zaman ister. Usually gibi sıklık sözcükleri ve genel durumlar geniş zaman ister. Önce sinyal sözcüğünü ara.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Karşıt çift.",
+  "duyulan": "Karşıt Çift",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Nancy usually spends the weekend at home, but she is meeting her friends now.",
+  "duyulan": "Nancy usually spends the weekend at home, but she's meeting her friends now.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Nancy hafta sonunu genellikle evde geçiriyor. Ama şu anda arkadaşlarıyla buluşuyor. Tek cümlede iki sinyal, iki fiil var. Usually alışkanlığı çağırır: spends. Now şu anı çağırır: is meeting.",
+  "ses_metni": "Nancy hafta sonunu genellikle evde geçiriyor. Ama şu anda arkadaşlarıyla buluşuyor. Tek cümlede iki sinyal, iki fiil var. Usually alışkanlığı çağırır: spends. Now şu anı çağırır: /ɪz/ meeting.",
+  "duyulan": "Nancy hafta sonunu genellikle evde geçiriyor ama şu anda arkadaşlarıyla buluşuyor. Tek cümlede iki sinyal, iki fiil var. Usually alışkanlığı çağırır. Spends. Now şu anı çağırır. Is meeting.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Kartpostaldan bir çift.",
+  "duyulan": "Kartpostaldan bir çift.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I am staying here for a week.",
+  "duyulan": "I'm staying here for a week.",
+  "benzerlik": 0.96,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Otelde kalmak geçici.",
+  "duyulan": "Otelde kalmak geçici.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "My holiday package includes trips to dozens of nearby places.",
+  "duyulan": "My holiday package includes trips to dozens of nearby places.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Paketin genel özelliği, yalnız şu an değil. Geçici: şimdiki zaman. Genel: geniş zaman.",
+  "duyulan": "Kaketin genel özelliği yalnız şu an değil. Geçici, şimdiki zaman. Genel, geniş zaman.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bir çift daha.",
+  "duyulan": "Bir çift daha.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "The region offers some of the best beaches in the world.",
+  "duyulan": "the region offers some of the best beaches in the world.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bölgenin sahilleri hep orada. Genel durum: geniş zaman.",
+  "duyulan": "Bölgenin sahilleri hep orada. Genel durum, geniş zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "People are really enjoying themselves a lot here.",
+  "duyulan": "People are really enjoying themselves a lot here.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu şu anki durum, genel değil. Şimdiki zaman.",
+  "duyulan": "Bu şu anki durum, genel değil. Şimdiki zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tuzak. İkinci örneği hatırla. Sinyal var ama -ing yok.",
+  "ses_metni": "Tuzak. İkinci örneği hatırla. Sinyal var ama ing yok.",
+  "duyulan": "Tuzak. İkinci örneği hatırla. Sinyal var ama ı, n, g yok.",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "We believe this situation is temporary.",
+  "duyulan": "We believe this situation is temporary.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu durumun geçici olduğuna inanıyoruz. Bugünler, geçici durum: -ing koymak istersin.",
+  "ses_metni": "Bu durumun geçici olduğuna inanıyoruz. Bugünler, geçici durum: ing koymak istersin.",
+  "duyulan": "Bu durumun geçici olduğuna inanıyoruz. Bugünler geçici durum. ING'yi koymak istersin.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hocam, şu anda inanıyoruz.",
+  "duyulan": "Hocam şu anda inanıyoruz.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "We are believing.",
+  "duyulan": "We are believing.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Olmaz mı?",
+  "duyulan": "Olmaz mı?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Olmaz. Believe ve think bu anlamda geniş zamanla gelir.",
+  "duyulan": "Olmaz. Believe ve Think bu anlamda geniş zamanda gelir.",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "We believe.",
+  "duyulan": "We believe.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Böyle denir.",
+  "duyulan": "Böyle denir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "We are believing.",
+  "duyulan": "We're believing.",
+  "benzerlik": 0.93,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Denmez. Promise, agree ve recommend ise performative fiillerdir: söylemek, eylemi yapmaktır. Onlar da -ing almaz. İki tuzak daha.",
+  "ses_metni": "Denmez. Promise, agree ve recommend ise performative fiillerdir: söylemek, eylemi yapmaktır. Onlar da ing almaz. İki tuzak daha.",
+  "duyulan": "Denmez. Promise, agree ve recommend ise performatif fiillerdir. Söylemek, eylemi yapmaktır. Onlar da ing'i almaz. İki tuzak daha.",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "It has a great view of the sea.",
+  "duyulan": "It has a great view of the sea.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Have sahip olmak anlamındaysa -ing almaz.",
+  "ses_metni": "/hæv/ sahip olmak anlamındaysa ing almaz.",
+  "duyulan": "Have, sahip olmak anlamında ise INEG almaz.",
+  "benzerlik": 0.93,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I definitely recommend a holiday in this lovely city.",
+  "duyulan": "I'd definitely recommend a holiday in this lovely city.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tavsiye edince tavsiyeyi yapmış olursun. Eylem ayrıca sürmez. Geniş zaman.",
+  "duyulan": "Tavsiye edince tavsiyeyi yapmış olursun. Eylem ayrıca sürmez. Geniş zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Özet. Now, these days ve nowadays şimdiki zamanı çağırır: geçici ya da değişen durum. Usually ve genel durum: geniş zaman. Believe ve have gibi fiiller: sinyal olsa da -ing yok.",
+  "ses_metni": "Özet. Now, these days ve nowadays şimdiki zamanı çağırır: geçici ya da değişen durum. Usually ve genel durum: geniş zaman. Believe ve /hæv/ gibi fiiller: sinyal olsa da ing yok.",
+  "duyulan": "Özet. Now. These days ve nowadays şimdiki zamanı çağırır. Geçici ya da değişen durum. Usually ve genel durum. Geniş zaman. Believe ve have gibi fiiller. Sinyal olsa da iğenge yok.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Mini soru. Kartpostaldan bir cümle.",
+  "duyulan": "Minisoru Kartpostaldan bir cümle",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I",
+  "duyulan": "I.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "this postcard now.",
+  "duyulan": "This postcard now.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Boşlukta hangisi? Beş şık var.",
+  "duyulan": "Boşlukta hangisi? Beş şık var.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bence A şıkkı. Kartpostal yazmak bir alışkanlık.",
+  "duyulan": "Bence A şıkkı. Kartpostal yazmak bir alışkanlık.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hayır. Now şu anı gösterir, alışkanlığı değil. Doğru cevap B şıkkı, yani am writing. Çeldirici D şıkkı: now ile geçmiş çelişir. Çeldirici C şıkkı ve E şıkkı: özne I ile uyumsuz.",
+  "ses_metni": "Hayır. Now şu anı gösterir, alışkanlığı değil. Doğru cevap B şıkkı, yani /æm/ writing. Çeldirici D şıkkı: now ile geçmiş çelişir. Çeldirici C şıkkı ve E şıkkı: özne /aɪ/ ile uyumsuz.",
+  "duyulan": "Hayır, now, şu anı gösterir, alışkanlığı değil. Doğru cevap B şıkkı, yani I'm writing. Çeldirici D şıkkı, now ile geçmiş çelişir. Çeldirici C şıkkı ve E şıkkı, özne A ile uyumsuz.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Sınavda ilk iş sinyal sözcüğünün altını çiz. Sonra fiile bak: believe gibi fiiller -ing almaz. Sonraki derste görüşürüz.",
+  "ses_metni": "Sınavda ilk iş sinyal sözcüğünün altını çiz. Sonra fiile bak: believe gibi fiiller ing almaz. Sonraki derste görüşürüz.",
+  "duyulan": "Sınavda ilk iş, sinyal sözcüğünün altını çiz. Sonra fiile bak. Believe gibi fiiller inge almaz. Sonraki derste görüşürüz.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ }
+]

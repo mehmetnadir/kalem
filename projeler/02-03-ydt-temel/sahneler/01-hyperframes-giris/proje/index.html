@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:"Fredoka";font-weight:700;font-display:block;src:url("assets/fonts/fredoka-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fredoka";font-weight:700;font-display:block;src:url("assets/fonts/fredoka-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Fredoka";font-weight:600;font-display:block;src:url("assets/fonts/fredoka-latin-600-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fredoka";font-weight:600;font-display:block;src:url("assets/fonts/fredoka-latin-ext-600-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Lexend";font-weight:500;font-display:block;src:url("assets/fonts/lexend-latin-500-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Lexend";font-weight:500;font-display:block;src:url("assets/fonts/lexend-latin-ext-500-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Lexend";font-weight:700;font-display:block;src:url("assets/fonts/lexend-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Lexend";font-weight:700;font-display:block;src:url("assets/fonts/lexend-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Caveat";font-weight:700;font-display:block;src:url("assets/fonts/caveat-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Caveat";font-weight:700;font-display:block;src:url("assets/fonts/caveat-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:var(--zemin);}#zemin{position:absolute;inset:0;background:var(--zemin);}#gren{position:absolute;left:0;top:0;opacity:var(--gren);mix-blend-mode:overlay;}#vinyet{position:absolute;inset:0;background:radial-gradient(circle 1026px at 50% 50%,rgba(0,0,0,0) 47.4%,rgba(0,0,0,var(--vin)) 100%);}.abs{position:absolute;}
+#sahne{position:absolute;left:0;top:0;}
+#root{--zemin:#1b1a17;--murekkep:#f3efe6;--ikincil:#c9c2b3;--vurgu:#f2a93b;--vurguDolgu:#f2a93b;--logoSari:#fece00;--logoMetin:#ffffff;--kirmizi:#e0473b;--pilMetin:#1b1a17;--gren:.045;--vin:.38;}
+#root.tema-acik{--zemin:#f7f3ea;--murekkep:#1b2440;--ikincil:#5a6275;--vurgu:#d9900f;--vurguDolgu:#ffe066;--logoMetin:#13204D;--kirmizi:#d6453a;--pilMetin:#1b2440;--gren:.03;--vin:.10;}
+#root [fill="#f3efe6"]{fill:var(--murekkep)}#root [stroke="#f3efe6"]{stroke:var(--murekkep)}
+#root [fill="#c9c2b3"]{fill:var(--ikincil)}#root [stroke="#c9c2b3"]{stroke:var(--ikincil)}
+#root [fill="#f2a93b"]{fill:var(--vurgu)}#root [stroke="#f2a93b"]{stroke:var(--vurgu)}
+#root rect[fill="#f2a93b"],#root circle[fill="#f2a93b"]:not(#ku-nokta){fill:var(--vurguDolgu)}
+#root [fill="#e0473b"]{fill:var(--kirmizi)}#root [stroke="#e0473b"]{stroke:var(--kirmizi)}
+#root [stroke="#1b1a17"]{stroke:var(--zemin)}#root text[fill="#1b1a17"]{fill:var(--pilMetin)}#root #rz1 text{fill:var(--zemin)}
+#root.tema-acik #t2{fill:var(--vurgu)}
+</style></head><body>
+<div id="root" class="tema-acik" data-composition-id="main" data-start="0" data-duration="3.4" data-fps="30" data-width="1920" data-height="1080">
+<div id="zemin"></div><svg id="gren" width="1920" height="1080" xmlns="http://www.w3.org/2000/svg"><filter id="grenf" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1920" height="1080" filter="url(#grenf)"/></svg><div id="vinyet"></div>
+<svg id="sahne" width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+<defs><clipPath id="c_tA"><rect id="r_tA" x="1357.2" y="341.0" width="0" height="150.0"/></clipPath><clipPath id="c_tB"><rect id="r_tB" x="1291.5" y="601.0" width="0" height="150.0"/></clipPath><clipPath id="c_w1a"><rect id="r_w1a" x="88.0" y="233.0" width="0" height="210.0"/></clipPath><clipPath id="c_w1b"><rect id="r_w1b" x="400.1" y="233.0" width="0" height="210.0"/></clipPath><clipPath id="c_w2a"><rect id="r_w2a" x="88.0" y="383.0" width="0" height="210.0"/></clipPath><clipPath id="c_w2b"><rect id="r_w2b" x="444.0" y="383.0" width="0" height="210.0"/></clipPath></defs>
+<g id="icerik"><g id="rz0" style="opacity:0"><rect x="96.0" y="150" width="207.6" height="48" rx="24" fill="#f2a93b"/><text x="199.8" y="183.1" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#1b1a17">YDT · BASIC</text></g><g id="rz1" style="opacity:0"><rect x="315.6" y="150" width="182.6" height="48" rx="24" fill="#f3efe6"/><text x="406.9" y="183.1" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#1b1a17">GRAMMAR</text></g><g id="eskiz"><path id="cA" d="M1164 313 Q1470 307 1777 311 Q1783 410 1779 508 Q1470 514 1165 511 Q1157 410 1162 316 Q1161 312 1165 312" fill="none" stroke="#f3efe6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0" /><g id="tA" font-family="Fredoka" font-weight="700" font-size="100" clip-path="url(#c_tA)" ><text x="1365.20" y="446.00" fill="#f3efe6" xml:space="preserve">goes</text></g><path id="cB" d="M1164 573 Q1470 567 1777 571 Q1783 670 1779 768 Q1470 774 1165 771 Q1157 670 1162 576 Q1161 572 1165 572" fill="none" stroke="#f3efe6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0" /><g id="tB" font-family="Fredoka" font-weight="700" font-size="100" clip-path="url(#c_tB)" ><text x="1299.50" y="706.00" fill="#f3efe6" xml:space="preserve">is going</text></g><path id="mk" d="M1393.8 722.0 Q1517.2 723.5 1640.5 721.4" fill="none" stroke="#f2a93b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" style="opacity:0" /></g><g id="t1"><g id="w1a" font-family="Fredoka" font-weight="700" font-size="140" clip-path="url(#c_w1a)" stroke="#1b1a17" stroke-width="10" stroke-linejoin="round" style="paint-order:stroke fill"><text x="96.00" y="380.00" fill="#f3efe6" xml:space="preserve">ONE</text></g><g id="w1b" font-family="Fredoka" font-weight="700" font-size="140" clip-path="url(#c_w1b)" stroke="#1b1a17" stroke-width="10" stroke-linejoin="round" style="paint-order:stroke fill"><text x="408.06" y="380.00" fill="#f2a93b" xml:space="preserve">VERB</text></g></g><g id="t2"><g id="w2a" font-family="Fredoka" font-weight="700" font-size="140" clip-path="url(#c_w2a)" stroke="#1b1a17" stroke-width="10" stroke-linejoin="round" style="paint-order:stroke fill"><text x="96.00" y="530.00" fill="#f3efe6" xml:space="preserve">TWO</text></g><g id="w2b" font-family="Fredoka" font-weight="700" font-size="140" clip-path="url(#c_w2b)" stroke="#1b1a17" stroke-width="10" stroke-linejoin="round" style="paint-order:stroke fill"><text x="452.02" y="530.00" fill="#f2a93b" xml:space="preserve">TENSES</text></g></g></g>
+
+<g id="kunye"><text id="ku-ders" x="56" y="72" font-family="Fredoka" font-weight="700" font-size="30" fill="#f3efe6" style="opacity:0">PRESENT CONTINUOUS vs SIMPLE PRESENT<tspan id="ku-sev" dx="14" font-family="Lexend" font-weight="500" font-size="22" fill="#c9c2b3">· YDT BASIC</tspan></text><text id="ku-bolum" x="1864" y="72" text-anchor="end" font-family="Lexend" font-weight="700" font-size="24" fill="#f2a93b" style="opacity:0">Hook</text><text id="ku-ajanda" x="1864" y="1030" text-anchor="end" font-family="Lexend" font-weight="500" font-size="20" style="opacity:0"><tspan fill="#f2a93b">Hook</tspan><tspan fill="#c9c2b3" dx="36">Examples</tspan><tspan fill="#c9c2b3" dx="36">Rule</tspan><tspan fill="#c9c2b3" dx="36">Trap</tspan></text><circle id="ku-nokta" cx="1507.06" cy="1023" r="4" fill="#f2a93b" style="opacity:0"/></g>
+<g id="logo"><image id="logoimg" href="assets/logo.svg" x="80.29561200923787" y="880.0" width="443.42" height="110"/></g>
+
+</svg></div>
+<script src="lib/gsap.min.js"></script>
+<script>
+(function () {
+  var C = {"cmd": [{"m": "set", "s": "#logoimg", "t": 0.0, "v": {"svgOrigin": "302.0 935.0"}}, {"m": "fromTo", "s": "#logoimg", "t": 0.0, "a": {"opacity": 0, "scale": 1.18, "rotation": -2}, "v": {"opacity": 1, "scale": 1, "rotation": 0, "duration": 0.4, "ease": "power3.out"}}, {"m": "set", "s": "#logo", "t": 0.0, "v": {"svgOrigin": "80.3 880.0"}}, {"m": "draw", "id": "cA", "t": 0.2, "d": 0.6, "a": 1}, {"m": "fromTo", "s": "#rz0", "t": 0.3, "a": {"y": 26, "opacity": 0}, "v": {"y": 0, "opacity": 1, "duration": 0.4, "ease": "power3.out"}}, {"m": "fromTo", "s": "#rz1", "t": 0.4, "a": {"y": 26, "opacity": 0}, "v": {"y": 0, "opacity": 1, "duration": 0.4, "ease": "power3.out"}}, {"m": "draw", "id": "cB", "t": 0.85, "d": 0.6, "a": 1}, {"m": "rev", "id": "r_w1a", "t": 1.0, "d": 0.3, "w": 299.2}, {"m": "rev", "id": "r_tA", "t": 1.4, "d": 0.3, "w": 229.6}, {"m": "rev", "id": "r_w1b", "t": 1.4, "d": 0.45, "w": 376.2}, {"m": "rev", "id": "r_tB", "t": 2.04, "d": 0.3, "w": 361.0}, {"m": "rev", "id": "r_w2a", "t": 2.04, "d": 0.25, "w": 343.1}, {"m": "draw", "id": "mk", "t": 2.28, "d": 0.35, "a": 0.85}, {"m": "rev", "id": "r_w2b", "t": 2.28, "d": 0.45, "w": 524.0}, {"m": "to", "s": "#t1", "t": 2.5, "v": {"svgOrigin": "96 380", "x": -40, "duration": 0.5, "ease": "power3.inOut"}}, {"m": "to", "s": "#t1", "t": 2.5, "v": {"svgOrigin": "96 380", "y": -308, "duration": 0.5, "ease": "power3.inOut"}}, {"m": "to", "s": "#t1", "t": 2.5, "v": {"svgOrigin": "96 380", "scale": 0.21428571428571427, "duration": 0.4, "ease": "power3.out"}}, {"m": "to", "s": "#t2", "t": 2.5, "v": {"svgOrigin": "96 530", "x": 110.24000000000004, "duration": 0.5, "ease": "power3.inOut"}}, {"m": "to", "s": "#t2", "t": 2.5, "v": {"svgOrigin": "96 530", "y": -458, "duration": 0.5, "ease": "power3.inOut"}}, {"m": "to", "s": "#t2", "t": 2.5, "v": {"svgOrigin": "96 530", "scale": 0.21428571428571427, "duration": 0.4, "ease": "power3.out"}}, {"m": "to", "s": "#logo", "t": 2.5, "v": {"x": -24.29561200923787, "y": 122.0, "scale": 0.3090909090909091, "duration": 0.5, "ease": "power3.inOut"}}, {"m": "to", "s": "#eskiz", "t": 2.5, "v": {"opacity": 0, "scale": 1.06, "svgOrigin": "1470 540", "duration": 0.4, "ease": "power1.in"}}, {"m": "to", "s": "#rz0", "t": 2.5, "v": {"opacity": 0, "duration": 0.3, "ease": "power1.in"}}, {"m": "to", "s": "#rz1", "t": 2.54, "v": {"opacity": 0, "duration": 0.3, "ease": "power1.in"}}, {"m": "to", "s": "#t1", "t": 2.75, "v": {"opacity": 0, "duration": 0.25, "ease": "power1.in"}}, {"m": "to", "s": "#t2", "t": 2.75, "v": {"opacity": 0, "duration": 0.25, "ease": "power1.in"}}, {"m": "to", "s": "#ku-ders,#ku-bolum,#ku-ajanda,#ku-nokta", "t": 2.75, "v": {"opacity": 1, "duration": 0.25, "ease": "power1.out"}}]};
+  var tl = gsap.timeline({ paused: true });
+  var $ = function (q) { return document.querySelector(q); };
+  C.cmd.forEach(function (c) {
+    var t = c.t, v;
+    if (c.m === "draw") {
+      var p = $("#" + c.id), L = p.getTotalLength();
+      p.style.strokeDasharray = L + " " + (L + 2); p.style.strokeDashoffset = L;
+      tl.set(p, { opacity: c.a, immediateRender: false }, t);
+      tl.to(p, { strokeDashoffset: 0, duration: c.d, ease: "power1.inOut", immediateRender: false }, t);
+    } else if (c.m === "rev") {
+      tl.to("#" + c.id, { attr: { width: c.w }, duration: c.d, ease: "power1.out", immediateRender: false }, t);
+    } else if (c.m === "set") {
+      v = Object.assign({ immediateRender: false }, c.v); tl.set(c.s, v, t);
+    } else if (c.m === "to") {
+      v = Object.assign({ immediateRender: false }, c.v); tl.to(c.s, v, t);
+    } else if (c.m === "fromTo") {
+      v = Object.assign({ immediateRender: false }, c.v); tl.fromTo(c.s, c.a, v, t);
+    }
+  });
+  window.__timelines = window.__timelines || {};
+  window.__timelines["main"] = tl;
+})();
+</script><script>/* kalem-tema */(function () {  /* canlı önizleme (?canli=1): ?tema=acik ya da message {tip:"tema", ad}; sorgu yoksa koyu. Render sırasında çalışmaz, tema dosyaya gömülüdür */
+  if (!/[?&]canli=1/.test(location.search)) return;
+  var R = document.getElementById("root"), L = document.getElementById("logoimg") || document.getElementById("logo");
+  function t(a) { R.classList.toggle("tema-acik", a === "acik");
+    if (L) L.setAttribute("href", "/projeler/present-continuous/ortak/logo/" + (a === "acik" ? "yds-publishing-lacivert.svg" : "yds-publishing-seffaf.svg")); }
+  t(new URLSearchParams(location.search).get("tema") || "koyu");
+  addEventListener("message", function (e) { if (e.data && e.data.tip === "tema") t(e.data.ad); });
+  var tl = window.__timelines && window.__timelines.main;  /* canlı sürücü: zaman çizelgesi kare sayacına/editör mesajına bağlanır (hazir mesajı) */
+  if (tl) import("/ortak/surucu.js").then(function (m) { m.canliHF(tl, +R.dataset.fps || 30); });
+})();</script>
+</body></html>

@@ -1,0 +1,31 @@
+{
+  "no": 1,
+  "cumle": 7,
+  "kok": [
+    {"w": "Nancy", "i": 2}, {"w": "usually", "i": 3}, {"b": 0}, {"w": "the", "i": 5},
+    {"w": "weekend", "i": 6}, {"w": "at", "i": 7}, {"w": "home,", "i": 8}, {"w": "but", "i": 9},
+    {"w": "she", "i": 10}, {"b": 1}, {"w": "her", "i": 13}, {"w": "friends", "i": 14}, {"w": "now.", "i": 15}
+  ],
+  "bosluklar": [
+    {"dolgu": "spends", "i_ciz": 4, "i_doldur": 34},
+    {"dolgu": "is meeting", "i_ciz": 11, "i_doldur": 39}
+  ],
+  "isaretler": [
+    {"tur": "belirtec", "tok": [1], "i": 16},
+    {"tur": "belirtec", "tok": [12], "i": 21},
+    {"tur": "bosluk", "b": 0, "i": 27},
+    {"tur": "bosluk", "b": 1, "i": 28}
+  ],
+  "sik": {
+    "A": ["spends", "meets"], "B": ["spends", "is meeting"], "C": ["is spending", "meets"],
+    "D": ["is spending", "is meeting"], "E": ["spend", "is meeting"]
+  },
+  "panel_i": 16,
+  "dogru": {"harf": "B", "i": 43},
+  "notlar": [
+    {"harf": "D", "i_isaret": 46, "i_not": 51, "parcalar": [["t", "usually"], ["<>"], ["t", "is spending"], ["x"]]},
+    {"harf": "C", "i_isaret": 49, "i_not": 51, "gecikme": 0.15, "parcalar": [["t", "usually"], ["<>"], ["t", "is spending"], ["x"]]},
+    {"harf": "A", "i_isaret": 56, "i_not": 58, "parcalar": [["t", "now"], ["<>"], ["t", "meets"], ["x"]]},
+    {"harf": "E", "i_isaret": 64, "i_not": 66, "parcalar": [["t", "Nancy"], ["<>"], ["t", "spend"], ["x"]]}
+  ]
+}

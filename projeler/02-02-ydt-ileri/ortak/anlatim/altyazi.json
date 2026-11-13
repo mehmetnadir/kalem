@@ -1,0 +1,850 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 3.08,
+"metin": "Sizi karı koca ilan ediyorum.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 3.63,
+"t1": 6.59,
+"metin": "I now pronounce you husband and wife.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 7.06,
+"t1": 15.22,
+"metin": "Türkçede ediyorum, yani şimdiki zaman. İngilizcede ing yok. Çeviriye güvenirsen seçenekler seni şimdiki zamana götürür.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 15.69,
+"t1": 20.01,
+"metin": "Bu derste formülü, üç sınav kökünü ve bir tuzağı görüyoruz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 20.48,
+"t1": 24.24,
+"metin": "Formül tek satır. Özne, artı yalın fiil.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "en",
+"t0": 24.49,
+"t1": 25.77,
+"metin": "He, she, it",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 26.02,
+"t1": 27.78,
+"metin": "ile fiile se gelir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 6,
+"dil": "tr",
+"t0": 28.25,
+"t1": 31.45,
+"metin": "Olumsuzda ve soruda yük yardımcı fiildedir:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 6,
+"dil": "en",
+"t0": 31.7,
+"t1": 35.22,
+"metin": "don't, doesn't, do, does.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 6,
+"dil": "tr",
+"t0": 35.47,
+"t1": 39.07,
+"metin": "Özneye göre seçilir. Asıl fiil yalın kalır.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 39.54,
+"t1": 46.58,
+"metin": "Kullanım iki grup. Birinci grup bildiğin kullanımlar: tekrar, kalıcı durum, genel gerçek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 8,
+"dil": "tr",
+"t0": 47.05,
+"t1": 54.33,
+"metin": "İkinci grupta Türkçe yanıltır. Türkçede şimdiki, geçmiş ya da gelecek görünen dört çerçeve var.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 9,
+"dil": "tr",
+"t0": 54.8,
+"t1": 62.56,
+"metin": "Özet: haber başlığı, film, kitap, spor yorumu. Tabela ve mektup. Tören ve söz fiilleri:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 9,
+"dil": "en",
+"t0": 62.81,
+"t1": 63.29,
+"metin": "promise",
+"konusan": "ogretmen"
+},
+{
+"cumle": 9,
+"dil": "tr",
+"t0": 63.54,
+"t1": 65.7,
+"metin": "gibi. Tarife.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 10,
+"dil": "tr",
+"t0": 66.25,
+"t1": 74.97,
+"metin": "Her çerçevede aynı şey olur: Türkçe seni başka zamana çeker. Üç çerçeveyi kök olarak göreceksin. Dördüncüsü tuzak.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 11,
+"dil": "tr",
+"t0": 75.44,
+"t1": 80.32,
+"metin": "Birinci kök: özet. Haber başlığı, film, spor yorumu.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 12,
+"dil": "en",
+"t0": 80.79,
+"t1": 84.47,
+"metin": "Truck accident blocks traffic on motorway for hours.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 13,
+"dil": "tr",
+"t0": 84.94,
+"t1": 91.74,
+"metin": "Kamyon kazası otoyolu saatlerce kilitledi. Haber sunumunda var olan olay geniş zamanla verilir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 14,
+"dil": "en",
+"t0": 92.21,
+"t1": 98.61,
+"metin": "Elisabeth Moss acts brilliantly in the movie 'The Invisible Man', and the story keeps the audience on edge.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 15,
+"dil": "tr",
+"t0": 99.08,
+"t1": 104.92,
+"metin": "Elisabeth Moss, Görünmez Adam filminde harika oynuyor; hikâye izleyiciyi tedirgin ediyor.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 16,
+"dil": "tr",
+"t0": 105.39,
+"t1": 108.91,
+"metin": "Hocam, film bitti. Neden oynadı değil,",
+"konusan": "ogrenci"
+},
+{
+"cumle": 16,
+"dil": "en",
+"t0": 109.16,
+"t1": 109.88,
+"metin": "acts?",
+"konusan": "ogrenci"
+},
+{
+"cumle": 17,
+"dil": "tr",
+"t0": 110.58,
+"t1": 116.74,
+"metin": "Özetin kuralı bu: olay bitmiş olsa bile geniş zaman. Kitap özeti ve öykü de aynı.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 18,
+"dil": "en",
+"t0": 117.21,
+"t1": 120.57,
+"metin": "Chris runs with the ball halfway to the fifty yard line.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 19,
+"dil": "tr",
+"t0": 121.12,
+"t1": 127.68,
+"metin": "Chris topla birlikte elli yarda çizgisine giden yolun yarısına kadar koşuyor. Spor yorumunda çoğunlukla",
+"konusan": "ogretmen"
+},
+{
+"cumle": 19,
+"dil": "en",
+"t0": 127.93,
+"t1": 128.41,
+"metin": "runs",
+"konusan": "ogretmen"
+},
+{
+"cumle": 19,
+"dil": "tr",
+"t0": 128.66,
+"t1": 129.38,
+"metin": "gelir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 20,
+"dil": "tr",
+"t0": 129.93,
+"t1": 131.93,
+"metin": "İkinci kök: tabela.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 21,
+"dil": "en",
+"t0": 132.4,
+"t1": 138.8,
+"metin": "Because the sign says it is forbidden to feed the animals in the cages, the children keep their snacks in their bags.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 22,
+"dil": "tr",
+"t0": 139.27,
+"t1": 146.39,
+"metin": "Tabela, kafesteki hayvanları beslemenin yasak olduğunu söylüyor; bu yüzden çocuklar atıştırmalıklarını çantada tutuyor.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 23,
+"dil": "tr",
+"t0": 146.86,
+"t1": 153.42,
+"metin": "Tabelanın mesajı değişmez. Mektup ve kitap da sabit içerik verir. Bu içerik geniş zamanla gelir:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 23,
+"dil": "en",
+"t0": 153.67,
+"t1": 157.67,
+"metin": "the sign says, the letter says, the book says.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 24,
+"dil": "tr",
+"t0": 158.14,
+"t1": 164.14,
+"metin": "Üçüncü kök: söz fiilleri ve durum fiilleri. Açılıştaki tören cümlesi de burada.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 25,
+"dil": "en",
+"t0": 164.61,
+"t1": 169.89,
+"metin": "We think we have done the most difficult part of the job, so I promise to finish the report tonight.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 26,
+"dil": "tr",
+"t0": 170.44,
+"t1": 176.28,
+"metin": "İşin en zor kısmını yaptığımızı düşünüyoruz; bu yüzden raporu bu gece bitireceğime söz veriyorum.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 27,
+"dil": "en",
+"t0": 176.75,
+"t1": 177.23,
+"metin": "Promise",
+"konusan": "ogretmen"
+},
+{
+"cumle": 27,
+"dil": "tr",
+"t0": 177.48,
+"t1": 180.92,
+"metin": "bir söz fiili: söylemek yapmak demektir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 27,
+"dil": "en",
+"t0": 181.17,
+"t1": 184.53,
+"metin": "Pronounce, accept, deny, inform",
+"konusan": "ogretmen"
+},
+{
+"cumle": 27,
+"dil": "tr",
+"t0": 184.78,
+"t1": 186.14,
+"metin": "da öyle.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 27,
+"dil": "en",
+"t0": 186.39,
+"t1": 186.87,
+"metin": "Think",
+"konusan": "ogretmen"
+},
+{
+"cumle": 27,
+"dil": "tr",
+"t0": 187.12,
+"t1": 187.28,
+"metin": "ve",
+"konusan": "ogretmen"
+},
+{
+"cumle": 27,
+"dil": "en",
+"t0": 187.53,
+"t1": 187.93,
+"metin": "hope",
+"konusan": "ogretmen"
+},
+{
+"cumle": 27,
+"dil": "tr",
+"t0": 188.18,
+"t1": 194.58,
+"metin": "durum fiilidir: onlar da geniş zaman alır. Türkçesi yor alır, bu cümlelerde İngilizcesi",
+"konusan": "ogretmen"
+},
+{
+"cumle": 27,
+"dil": "en",
+"t0": 194.83,
+"t1": 195.15,
+"metin": "ing",
+"konusan": "ogretmen"
+},
+{
+"cumle": 27,
+"dil": "tr",
+"t0": 195.4,
+"t1": 196.44,
+"metin": "almaz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 28,
+"dil": "tr",
+"t0": 196.99,
+"t1": 198.91,
+"metin": "Şimdi bir karşıt çift.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 29,
+"dil": "en",
+"t0": 199.38,
+"t1": 202.02,
+"metin": "Mike lives and works in Birmingham.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 30,
+"dil": "tr",
+"t0": 202.49,
+"t1": 206.33,
+"metin": "Mike Birmingham'da yaşıyor ve çalışıyor. Kalıcı bir durum.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 30,
+"dil": "en",
+"t0": 206.58,
+"t1": 206.98,
+"metin": "Live",
+"konusan": "ogretmen"
+},
+{
+"cumle": 30,
+"dil": "tr",
+"t0": 207.23,
+"t1": 209.95,
+"metin": "ve work süreklilik taşır.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 31,
+"dil": "en",
+"t0": 210.42,
+"t1": 212.74,
+"metin": "Mike is staying in a hotel this week.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 32,
+"dil": "tr",
+"t0": 213.21,
+"t1": 216.33,
+"metin": "Mike bu hafta otelde kalıyor. Geçici bir durum.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 33,
+"dil": "tr",
+"t0": 216.8,
+"t1": 224.64,
+"metin": "İkisi de Türkçede yor alır. Fark kalıcılıkta. Kalıcı: geniş zaman. Geçici: şimdiki zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 34,
+"dil": "tr",
+"t0": 225.11,
+"t1": 226.39,
+"metin": "Geçici sinyaller:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 34,
+"dil": "en",
+"t0": 226.64,
+"t1": 230.4,
+"metin": "this week, this semester, these days.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 34,
+"dil": "tr",
+"t0": 230.57,
+"t1": 232.17,
+"metin": "Kalıcı sinyaller:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 34,
+"dil": "en",
+"t0": 232.42,
+"t1": 234.74,
+"metin": "every, always.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 35,
+"dil": "tr",
+"t0": 235.29,
+"t1": 244.41,
+"metin": "Kalıcı olan kimliğin parçasıdır: yaşadığın şehir. Geçici olan bir haftalık oteldir. Kendine sor: bu durum yarın da sürer mi?",
+"konusan": "ogretmen"
+},
+{
+"cumle": 36,
+"dil": "en",
+"t0": 244.88,
+"t1": 248.48,
+"metin": "Farmers grow mainly wheat and sunflowers in Thrace.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 37,
+"dil": "tr",
+"t0": 248.95,
+"t1": 260.07,
+"metin": "Çiftçiler Trakya'da çoğunlukla buğday ve ayçiçeği yetiştirir. Bu da kalıcı. Bazen zaman sözcüğü verilmez. O zaman anlama bak: bu iş sürekli mi, geçici mi?",
+"konusan": "ogretmen"
+},
+{
+"cumle": 38,
+"dil": "tr",
+"t0": 260.54,
+"t1": 263.5,
+"metin": "Şimdi tuzak. Gelecek anlamı var.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 39,
+"dil": "en",
+"t0": 263.97,
+"t1": 268.61,
+"metin": "The concert begins at eight o'clock tomorrow evening and ends at around eleven.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 40,
+"dil": "tr",
+"t0": 269.08,
+"t1": 273.56,
+"metin": "Konser yarın akşam saat sekizde başlayacak ve on bir civarı bitecek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 41,
+"dil": "tr",
+"t0": 274.03,
+"t1": 275.79,
+"metin": "Hocam, konser yarın.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 41,
+"dil": "en",
+"t0": 276.04,
+"t1": 276.6,
+"metin": "Will begin",
+"konusan": "ogrenci"
+},
+{
+"cumle": 41,
+"dil": "tr",
+"t0": 276.85,
+"t1": 277.81,
+"metin": "olmaz mı?",
+"konusan": "ogrenci"
+},
+{
+"cumle": 42,
+"dil": "tr",
+"t0": 278.51,
+"t1": 290.11,
+"metin": "Anlam gelecek, yapı geniş zaman. Konser tarifeye bağlı. Program yazılı, saat değişmez. Özne cansız ya da kişi olabilir. Ölçüt resmî program.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 43,
+"dil": "en",
+"t0": 290.58,
+"t1": 295.14,
+"metin": "My flight takes off at six in the morning, so I should be at the airport by four.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 44,
+"dil": "tr",
+"t0": 295.61,
+"t1": 300.25,
+"metin": "Uçağım sabah altıda kalkıyor; bu yüzden dörde kadar havalimanında olmalıyım.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 45,
+"dil": "tr",
+"t0": 300.72,
+"t1": 308.4,
+"metin": "Tren, uçak, konser, ders programı: hepsi tarife. Tarife varsa gelecek anlamı geniş zamanla gelir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 46,
+"dil": "tr",
+"t0": 308.87,
+"t1": 316.23,
+"metin": "Kendi planın varsa şimdiki zaman düşün: yarın sabah İzmir'e gidiyoruz. Resmî program varsa geniş zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 47,
+"dil": "tr",
+"t0": 316.7,
+"t1": 321.9,
+"metin": "Özet: geniş zaman tekrarı, kalıcı durumu ve genel gerçeği anlatır.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 48,
+"dil": "tr",
+"t0": 322.37,
+"t1": 331.73,
+"metin": "Dört çerçeve de geniş zaman alır: özet, tabela, tören, tarife. Türkçesi şimdiki, geçmiş ya da gelecek görünür.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 49,
+"dil": "tr",
+"t0": 332.2,
+"t1": 336.68,
+"metin": "Sınavda sırayla bak: çerçeve, özne, yardımcı fiil.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 50,
+"dil": "tr",
+"t0": 337.15,
+"t1": 340.19,
+"metin": "Kod: Türkçeye değil, çerçeveye bak.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 51,
+"dil": "tr",
+"t0": 340.66,
+"t1": 341.46,
+"metin": "Mini soru.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 51,
+"dil": "en",
+"t0": 341.71,
+"t1": 344.35,
+"metin": "Look at the notice on the library door: it",
+"konusan": "ogretmen"
+},
+{
+"cumle": 51,
+"dil": "tr",
+"t0": 344.6,
+"t1": 345.08,
+"metin": "boşluk",
+"konusan": "ogretmen"
+},
+{
+"cumle": 51,
+"dil": "en",
+"t0": 345.33,
+"t1": 348.37,
+"metin": "that the library closes at six on Fridays.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 52,
+"dil": "tr",
+"t0": 348.84,
+"t1": 350.84,
+"metin": "Şıklara bak. Üç saniye.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 53,
+"dil": "tr",
+"t0": 353.31,
+"t1": 354.91,
+"metin": "Bence C şıkkı:",
+"konusan": "ogrenci"
+},
+{
+"cumle": 53,
+"dil": "en",
+"t0": 355.16,
+"t1": 356.2,
+"metin": "is saying.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 53,
+"dil": "tr",
+"t0": 356.45,
+"t1": 358.29,
+"metin": "Tabela şu an diyor.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 54,
+"dil": "tr",
+"t0": 358.91,
+"t1": 366.51,
+"metin": "Yöntem: önce çerçeveyi bul. Sonra özneyi bul. Sonra Türkçe karşılığı değil, çerçeveyi izle.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 55,
+"dil": "tr",
+"t0": 366.98,
+"t1": 369.7,
+"metin": "Bu soruda çerçeve tabela. Özne",
+"konusan": "ogretmen"
+},
+{
+"cumle": 55,
+"dil": "en",
+"t0": 369.95,
+"t1": 370.75,
+"metin": "it,",
+"konusan": "ogretmen"
+},
+{
+"cumle": 55,
+"dil": "tr",
+"t0": 371.0,
+"t1": 373.08,
+"metin": "yani tek. Cevap",
+"konusan": "ogretmen"
+},
+{
+"cumle": 55,
+"dil": "en",
+"t0": 373.33,
+"t1": 374.29,
+"metin": "says.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 56,
+"dil": "tr",
+"t0": 374.84,
+"t1": 379.72,
+"metin": "Tuzak bu. Türkçe diyor, şimdiki zaman gibi. Ama tabela sabit:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 56,
+"dil": "en",
+"t0": 379.97,
+"t1": 381.01,
+"metin": "says.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 56,
+"dil": "tr",
+"t0": 381.26,
+"t1": 383.5,
+"metin": "Doğru cevap B şıkkı, yani",
+"konusan": "ogretmen"
+},
+{
+"cumle": 56,
+"dil": "en",
+"t0": 383.75,
+"t1": 384.79,
+"metin": "says.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 57,
+"dil": "tr",
+"t0": 385.34,
+"t1": 388.54,
+"metin": "Çeldiricilere bakalım. Çeldirici A şıkkında",
+"konusan": "ogretmen"
+},
+{
+"cumle": 57,
+"dil": "en",
+"t0": 388.79,
+"t1": 388.95,
+"metin": "it",
+"konusan": "ogretmen"
+},
+{
+"cumle": 57,
+"dil": "tr",
+"t0": 389.2,
+"t1": 393.2,
+"metin": "için se yok. Çeldirici D şıkkı: kökte",
+"konusan": "ogretmen"
+},
+{
+"cumle": 57,
+"dil": "en",
+"t0": 393.45,
+"t1": 394.01,
+"metin": "Look at",
+"konusan": "ogretmen"
+},
+{
+"cumle": 57,
+"dil": "tr",
+"t0": 394.26,
+"t1": 397.7,
+"metin": "var, tabela şimdi önümüzde; sabit içerik",
+"konusan": "ogretmen"
+},
+{
+"cumle": 57,
+"dil": "en",
+"t0": 397.95,
+"t1": 398.27,
+"metin": "says",
+"konusan": "ogretmen"
+},
+{
+"cumle": 57,
+"dil": "tr",
+"t0": 398.52,
+"t1": 403.4,
+"metin": "ile gelir. Çeldirici E şıkkı: tabela sürekli duruyor,",
+"konusan": "ogretmen"
+},
+{
+"cumle": 57,
+"dil": "en",
+"t0": 403.65,
+"t1": 403.97,
+"metin": "says",
+"konusan": "ogretmen"
+},
+{
+"cumle": 57,
+"dil": "tr",
+"t0": 404.22,
+"t1": 405.02,
+"metin": "yeter.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 58,
+"dil": "tr",
+"t0": 405.57,
+"t1": 410.61,
+"metin": "Bu derste geniş zamanın formunu, dört çerçevesini ve tuzağını gördük.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 59,
+"dil": "tr",
+"t0": 411.08,
+"t1": 413.64,
+"metin": "Formül: özne, yalın fiil.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 59,
+"dil": "en",
+"t0": 413.89,
+"t1": 415.33,
+"metin": "He, she, it",
+"konusan": "ogretmen"
+},
+{
+"cumle": 59,
+"dil": "tr",
+"t0": 415.58,
+"t1": 418.7,
+"metin": "ile se. Sıradaki derste görüşürüz.",
+"konusan": "ogretmen"
+}
+]

@@ -1,0 +1,924 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Simple Present",
+ "duzen": "konu",
+ "seviye": "ileri",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Sizi karı koca ilan ediyorum."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Sizi karı koca ilan ediyorum.",
+   "satir": "1.1"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "I now pronounce you husband and wife."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "I now pronounce you husband and wife.",
+   "satir": "1.2"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Türkçede ediyorum, yani şimdiki zaman. İngilizcede ing yok. Çeviriye güvenirsen seçenekler seni şimdiki zamana götürür."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Türkçede ediyorum, yani şimdiki zaman. İngilizcede ing yok. Çeviriye güvenirsen seçenekler seni şimdiki zamana götürür.",
+   "satir": "1.3"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Bu derste formülü, üç sınav kökünü ve bir tuzağı görüyoruz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bu derste formülü, üç sınav kökünü ve bir tuzağı görüyoruz.",
+   "satir": "1.4"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Formül tek satır. Özne, artı yalın fiil."
+    ],
+    [
+     "en",
+     "He, she, it"
+    ],
+    [
+     "tr",
+     "ile fiile se gelir."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Formül tek satır. Özne, artı yalın fiil. He, she, it ile fiile se gelir.",
+   "satir": "2.1"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Olumsuzda ve soruda yük yardımcı fiildedir:"
+    ],
+    [
+     "en",
+     "don't, doesn't, do, does."
+    ],
+    [
+     "tr",
+     "Özneye göre seçilir. Asıl fiil yalın kalır."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Olumsuzda ve soruda yük yardımcı fiildedir: don't, doesn't, do, does. Özneye göre seçilir. Asıl fiil yalın kalır.",
+   "satir": "2.2"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Kullanım iki grup. Birinci grup bildiğin kullanımlar: tekrar, kalıcı durum, genel gerçek."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Kullanım iki grup. Birinci grup bildiğin kullanımlar: tekrar, kalıcı durum, genel gerçek.",
+   "satir": "2.3"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İkinci grupta Türkçe yanıltır. Türkçede şimdiki, geçmiş ya da gelecek görünen dört çerçeve var."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İkinci grupta Türkçe yanıltır. Türkçede şimdiki, geçmiş ya da gelecek görünen dört çerçeve var.",
+   "satir": "2.4"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Özet: haber başlığı, film, kitap, spor yorumu. Tabela ve mektup. Tören ve söz fiilleri:"
+    ],
+    [
+     "en",
+     "promise"
+    ],
+    [
+     "tr",
+     "gibi. Tarife."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Özet: haber başlığı, film, kitap, spor yorumu. Tabela ve mektup. Tören ve söz fiilleri: promise gibi. Tarife.",
+   "satir": "2.5"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Her çerçevede aynı şey olur: Türkçe seni başka zamana çeker. Üç çerçeveyi kök olarak göreceksin. Dördüncüsü tuzak."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Her çerçevede aynı şey olur: Türkçe seni başka zamana çeker. Üç çerçeveyi kök olarak göreceksin. Dördüncüsü tuzak.",
+   "satir": "2.6"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Birinci kök: özet. Haber başlığı, film, spor yorumu."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Birinci kök: özet. Haber başlığı, film, spor yorumu.",
+   "satir": "3.1"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "Truck accident blocks traffic on motorway for hours."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Truck accident blocks traffic on motorway for hours.",
+   "satir": "3.2"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Kamyon kazası otoyolu saatlerce kilitledi. Haber sunumunda var olan olay geniş zamanla verilir."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Kamyon kazası otoyolu saatlerce kilitledi. Haber sunumunda var olan olay geniş zamanla verilir.",
+   "satir": "3.3"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "Elisabeth Moss acts brilliantly in the movie 'The Invisible Man', and the story keeps the audience on edge."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Elisabeth Moss acts brilliantly in the movie 'The Invisible Man', and the story keeps the audience on edge.",
+   "satir": "3.4"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Elisabeth Moss, Görünmez Adam filminde harika oynuyor; hikâye izleyiciyi tedirgin ediyor."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Elisabeth Moss, Görünmez Adam filminde harika oynuyor; hikâye izleyiciyi tedirgin ediyor.",
+   "satir": "3.5"
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Hocam, film bitti. Neden oynadı değil,"
+    ],
+    [
+     "en",
+     "acts?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Hocam, film bitti. Neden oynadı değil, acts?",
+   "satir": "3.6"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Özetin kuralı bu: olay bitmiş olsa bile geniş zaman. Kitap özeti ve öykü de aynı."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Özetin kuralı bu: olay bitmiş olsa bile geniş zaman. Kitap özeti ve öykü de aynı.",
+   "satir": "3.7"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "Chris runs with the ball halfway to the fifty yard line."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Chris runs with the ball halfway to the fifty yard line.",
+   "satir": "3.8"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Chris topla birlikte elli yarda çizgisine giden yolun yarısına kadar koşuyor. Spor yorumunda çoğunlukla"
+    ],
+    [
+     "en",
+     "runs"
+    ],
+    [
+     "tr",
+     "gelir."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Chris topla birlikte elli yarda çizgisine giden yolun yarısına kadar koşuyor. Spor yorumunda çoğunlukla runs gelir.",
+   "satir": "3.9"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İkinci kök: tabela."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İkinci kök: tabela.",
+   "satir": "3.10"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "Because the sign says it is forbidden to feed the animals in the cages, the children keep their snacks in their bags."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Because the sign says it is forbidden to feed the animals in the cages, the children keep their snacks in their bags.",
+   "satir": "3.11"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Tabela, kafesteki hayvanları beslemenin yasak olduğunu söylüyor; bu yüzden çocuklar atıştırmalıklarını çantada tutuyor."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Tabela, kafesteki hayvanları beslemenin yasak olduğunu söylüyor; bu yüzden çocuklar atıştırmalıklarını çantada tutuyor.",
+   "satir": "3.12"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Tabelanın mesajı değişmez. Mektup ve kitap da sabit içerik verir. Bu içerik geniş zamanla gelir:"
+    ],
+    [
+     "en",
+     "the sign says, the letter says, the book says."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Tabelanın mesajı değişmez. Mektup ve kitap da sabit içerik verir. Bu içerik geniş zamanla gelir: the sign says, the letter says, the book says.",
+   "satir": "3.13"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Üçüncü kök: söz fiilleri ve durum fiilleri. Açılıştaki tören cümlesi de burada."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Üçüncü kök: söz fiilleri ve durum fiilleri. Açılıştaki tören cümlesi de burada.",
+   "satir": "3.14"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "We think we have done the most difficult part of the job, so I promise to finish the report tonight."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "We think we have done the most difficult part of the job, so I promise to finish the report tonight.",
+   "satir": "3.15"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İşin en zor kısmını yaptığımızı düşünüyoruz; bu yüzden raporu bu gece bitireceğime söz veriyorum."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İşin en zor kısmını yaptığımızı düşünüyoruz; bu yüzden raporu bu gece bitireceğime söz veriyorum.",
+   "satir": "3.16"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "Promise"
+    ],
+    [
+     "tr",
+     "bir söz fiili: söylemek yapmak demektir."
+    ],
+    [
+     "en",
+     "Pronounce, accept, deny, inform"
+    ],
+    [
+     "tr",
+     "da öyle."
+    ],
+    [
+     "en",
+     "Think"
+    ],
+    [
+     "tr",
+     "ve"
+    ],
+    [
+     "en",
+     "hope"
+    ],
+    [
+     "tr",
+     "durum fiilidir: onlar da geniş zaman alır. Türkçesi yor alır, bu cümlelerde İngilizcesi"
+    ],
+    [
+     "en",
+     "ing"
+    ],
+    [
+     "tr",
+     "almaz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Promise bir söz fiili: söylemek yapmak demektir. Pronounce, accept, deny, inform da öyle. Think ve hope durum fiilidir: onlar da geniş zaman alır. Türkçesi yor alır, bu cümlelerde İngilizcesi ing almaz.",
+   "satir": "3.17"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Şimdi bir karşıt çift."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Şimdi bir karşıt çift.",
+   "satir": "4.1"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "Mike lives and works in Birmingham."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Mike lives and works in Birmingham.",
+   "satir": "4.2"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Mike Birmingham'da yaşıyor ve çalışıyor. Kalıcı bir durum."
+    ],
+    [
+     "en",
+     "Live"
+    ],
+    [
+     "tr",
+     "ve work süreklilik taşır."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Mike Birmingham'da yaşıyor ve çalışıyor. Kalıcı bir durum. Live ve work süreklilik taşır.",
+   "satir": "4.3"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "Mike is staying in a hotel this week."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Mike is staying in a hotel this week.",
+   "satir": "4.4"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Mike bu hafta otelde kalıyor. Geçici bir durum."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Mike bu hafta otelde kalıyor. Geçici bir durum.",
+   "satir": "4.5"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İkisi de Türkçede yor alır. Fark kalıcılıkta. Kalıcı: geniş zaman. Geçici: şimdiki zaman."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İkisi de Türkçede yor alır. Fark kalıcılıkta. Kalıcı: geniş zaman. Geçici: şimdiki zaman.",
+   "satir": "4.6"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Geçici sinyaller:"
+    ],
+    [
+     "en",
+     "this week, this semester, these days."
+    ],
+    [
+     "tr",
+     "Kalıcı sinyaller:"
+    ],
+    [
+     "en",
+     "every, always."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Geçici sinyaller: this week, this semester, these days. Kalıcı sinyaller: every, always.",
+   "satir": "4.7"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Kalıcı olan kimliğin parçasıdır: yaşadığın şehir. Geçici olan bir haftalık oteldir. Kendine sor: bu durum yarın da sürer mi?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Kalıcı olan kimliğin parçasıdır: yaşadığın şehir. Geçici olan bir haftalık oteldir. Kendine sor: bu durum yarın da sürer mi?",
+   "satir": "4.8"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "Farmers grow mainly wheat and sunflowers in Thrace."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Farmers grow mainly wheat and sunflowers in Thrace.",
+   "satir": "4.9"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Çiftçiler Trakya'da çoğunlukla buğday ve ayçiçeği yetiştirir. Bu da kalıcı. Bazen zaman sözcüğü verilmez. O zaman anlama bak: bu iş sürekli mi, geçici mi?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Çiftçiler Trakya'da çoğunlukla buğday ve ayçiçeği yetiştirir. Bu da kalıcı. Bazen zaman sözcüğü verilmez. O zaman anlama bak: bu iş sürekli mi, geçici mi?",
+   "satir": "4.10"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Şimdi tuzak. Gelecek anlamı var."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Şimdi tuzak. Gelecek anlamı var.",
+   "satir": "5.1"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "The concert begins at eight o'clock tomorrow evening and ends at around eleven."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "The concert begins at eight o'clock tomorrow evening and ends at around eleven.",
+   "satir": "5.2"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Konser yarın akşam saat sekizde başlayacak ve on bir civarı bitecek."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Konser yarın akşam saat sekizde başlayacak ve on bir civarı bitecek.",
+   "satir": "5.3"
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Hocam, konser yarın."
+    ],
+    [
+     "en",
+     "Will begin"
+    ],
+    [
+     "tr",
+     "olmaz mı?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Hocam, konser yarın. Will begin olmaz mı?",
+   "satir": "5.4"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Anlam gelecek, yapı geniş zaman. Konser tarifeye bağlı. Program yazılı, saat değişmez. Özne cansız ya da kişi olabilir. Ölçüt resmî program."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Anlam gelecek, yapı geniş zaman. Konser tarifeye bağlı. Program yazılı, saat değişmez. Özne cansız ya da kişi olabilir. Ölçüt resmî program.",
+   "satir": "5.5"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "My flight takes off at six in the morning, so I should be at the airport by four."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "My flight takes off at six in the morning, so I should be at the airport by four.",
+   "satir": "5.6"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Uçağım sabah altıda kalkıyor; bu yüzden dörde kadar havalimanında olmalıyım."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Uçağım sabah altıda kalkıyor; bu yüzden dörde kadar havalimanında olmalıyım.",
+   "satir": "5.7"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Tren, uçak, konser, ders programı: hepsi tarife. Tarife varsa gelecek anlamı geniş zamanla gelir."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Tren, uçak, konser, ders programı: hepsi tarife. Tarife varsa gelecek anlamı geniş zamanla gelir.",
+   "satir": "5.8"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Kendi planın varsa şimdiki zaman düşün: yarın sabah İzmir'e gidiyoruz. Resmî program varsa geniş zaman."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Kendi planın varsa şimdiki zaman düşün: yarın sabah İzmir'e gidiyoruz. Resmî program varsa geniş zaman.",
+   "satir": "5.9"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Özet: geniş zaman tekrarı, kalıcı durumu ve genel gerçeği anlatır."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Özet: geniş zaman tekrarı, kalıcı durumu ve genel gerçeği anlatır.",
+   "satir": "6.1"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Dört çerçeve de geniş zaman alır: özet, tabela, tören, tarife. Türkçesi şimdiki, geçmiş ya da gelecek görünür."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Dört çerçeve de geniş zaman alır: özet, tabela, tören, tarife. Türkçesi şimdiki, geçmiş ya da gelecek görünür.",
+   "satir": "6.2"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Sınavda sırayla bak: çerçeve, özne, yardımcı fiil."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Sınavda sırayla bak: çerçeve, özne, yardımcı fiil.",
+   "satir": "6.3"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Kod: Türkçeye değil, çerçeveye bak."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Kod: Türkçeye değil, çerçeveye bak.",
+   "satir": "6.4"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Mini soru."
+    ],
+    [
+     "en",
+     "Look at the notice on the library door: it"
+    ],
+    [
+     "tr",
+     "boşluk"
+    ],
+    [
+     "en",
+     "that the library closes at six on Fridays."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Mini soru. Look at the notice on the library door: it boşluk that the library closes at six on Fridays.",
+   "satir": "7.1"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Şıklara bak. Üç saniye."
+    ],
+    [
+     "sus",
+     "2.0"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Şıklara bak. Üç saniye.",
+   "satir": "7.2"
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Bence C şıkkı:"
+    ],
+    [
+     "en",
+     "is saying."
+    ],
+    [
+     "tr",
+     "Tabela şu an diyor."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bence C şıkkı: is saying. Tabela şu an diyor.",
+   "satir": "7.3"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Yöntem: önce çerçeveyi bul. Sonra özneyi bul. Sonra Türkçe karşılığı değil, çerçeveyi izle."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Yöntem: önce çerçeveyi bul. Sonra özneyi bul. Sonra Türkçe karşılığı değil, çerçeveyi izle.",
+   "satir": "7.4"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Bu soruda çerçeve tabela. Özne"
+    ],
+    [
+     "en",
+     "it,"
+    ],
+    [
+     "tr",
+     "yani tek. Cevap"
+    ],
+    [
+     "en",
+     "says."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bu soruda çerçeve tabela. Özne it, yani tek. Cevap says.",
+   "satir": "7.5"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Tuzak bu. Türkçe diyor, şimdiki zaman gibi. Ama tabela sabit:"
+    ],
+    [
+     "en",
+     "says."
+    ],
+    [
+     "tr",
+     "Doğru cevap B şıkkı, yani"
+    ],
+    [
+     "en",
+     "says."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Tuzak bu. Türkçe diyor, şimdiki zaman gibi. Ama tabela sabit: says. Doğru cevap B şıkkı, yani says.",
+   "satir": "7.6"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Çeldiricilere bakalım. Çeldirici A şıkkında"
+    ],
+    [
+     "en",
+     "it"
+    ],
+    [
+     "tr",
+     "için se yok. Çeldirici D şıkkı: kökte"
+    ],
+    [
+     "en",
+     "Look at"
+    ],
+    [
+     "tr",
+     "var, tabela şimdi önümüzde; sabit içerik"
+    ],
+    [
+     "en",
+     "says"
+    ],
+    [
+     "tr",
+     "ile gelir. Çeldirici E şıkkı: tabela sürekli duruyor,"
+    ],
+    [
+     "en",
+     "says"
+    ],
+    [
+     "tr",
+     "yeter."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Çeldiricilere bakalım. Çeldirici A şıkkında it için se yok. Çeldirici D şıkkı: kökte Look at var, tabela şimdi önümüzde; sabit içerik says ile gelir. Çeldirici E şıkkı: tabela sürekli duruyor, says yeter.",
+   "satir": "7.7"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Bu derste geniş zamanın formunu, dört çerçevesini ve tuzağını gördük."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bu derste geniş zamanın formunu, dört çerçevesini ve tuzağını gördük.",
+   "satir": "8.1"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Formül: özne, yalın fiil."
+    ],
+    [
+     "en",
+     "He, she, it"
+    ],
+    [
+     "tr",
+     "ile se. Sıradaki derste görüşürüz."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Formül: özne, yalın fiil. He, she, it ile se. Sıradaki derste görüşürüz.",
+   "satir": "8.2"
+  }
+ ]
+}

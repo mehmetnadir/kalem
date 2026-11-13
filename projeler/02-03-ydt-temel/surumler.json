@@ -1,0 +1,48 @@
+{
+  "video": {
+    "kimlik": "02-03-ydt-temel",
+    "ders": "İngilizce",
+    "konu": "Present Continuous ve Simple Present: ayrım alıştırması",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-03-T",
+    "amaclar": [
+      "Present Continuous ile Simple Present'ı sinyal sözcüğüyle ayırmak",
+      "now, these days, nowadays, planlı gelecek ve değişen durumda şimdiki zamanı seçmek",
+      "usually ve genel durumda geniş zamanı seçmek",
+      "believe, have, recommend gibi fiillerin -ing almadığını bilmek"
+    ],
+    "canAlici": [
+      "Önce sinyal sözcüğünü ara, sonra fiile bak",
+      "now net bir ipucudur: am / is / are + V-ing",
+      "these days ve nowadays genellikle şimdiki zamanı çağırır: geçici ya da değişen durum",
+      "usually ve genel durum: geniş zaman",
+      "believe, think, have (sahip olmak), recommend: sinyal olsa da -ing almaz"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Present Continuous",
+      "Simple Present",
+      "YDT"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "02-03-ydt-temel",
+      "tur": "ana-yatay",
+      "ad": "Ana video temel (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "temel",
+      "kaynak": null,
+      "durum": "taslak",
+      "onizleme": "/p/02-03-ydt-temel/onizle.html",
+      "tarih": "2026-11-13T09:00:00Z"
+    }
+  ],
+  "revizyonlar": []
+}

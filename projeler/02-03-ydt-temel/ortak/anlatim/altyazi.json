@@ -1,0 +1,418 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 5.08,
+"metin": "Aynı fiil, iki zaman. Karar sinyal sözcüğünde.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 5.55,
+"t1": 15.39,
+"metin": "Önceki derslerde şimdiki zamanı ve geniş zamanı ayrı ayrı gördük. Bu derste ikisini yan yana koyuyoruz. Alıştırma cümleleriyle farkı yakalıyoruz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 15.86,
+"t1": 16.82,
+"metin": "Birinci örnek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "en",
+"t0": 17.07,
+"t1": 19.55,
+"metin": "We are leaving for the airport at nine.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 19.72,
+"t1": 33.08,
+"metin": "Saat dokuzda havalimanına çıkıyoruz. Plan belli, saat belli. Planı yapan biziz. Kişisel plan gelecek için de şimdiki zaman kullanır. Yapı bildiğimiz yapı: are artı leaving.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 33.55,
+"t1": 34.59,
+"metin": "İkinci örnek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "en",
+"t0": 34.84,
+"t1": 38.36,
+"metin": "Our company is going through a hard period these days.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 38.53,
+"t1": 51.65,
+"metin": "Şirketimiz bugünlerde zor bir dönemden geçiyor. These days bir dönemi gösterir. Dönem geçici. Geçici dönem şimdiki zaman ister. Yapı yine aynı: is artı going.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 52.12,
+"t1": 53.16,
+"metin": "Üçüncü örnek.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "en",
+"t0": 53.41,
+"t1": 57.17,
+"metin": "It is getting harder and harder to find a good job nowadays.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 57.34,
+"t1": 63.58,
+"metin": "Bugünlerde iş bulmak gittikçe zorlaşıyor. Nowadays da bugünleri gösterir. Üstelik",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "en",
+"t0": 63.83,
+"t1": 65.11,
+"metin": "harder and harder",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 65.36,
+"t1": 68.64,
+"metin": "var. Bu ifade durumun değiştiğini söyler.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 6,
+"dil": "tr",
+"t0": 69.11,
+"t1": 73.27,
+"metin": "Hocam, zorlaşmak genel bir durum değil mi? Neden -ing?",
+"konusan": "ogrenci"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 73.94,
+"t1": 87.78,
+"metin": "Durum zamanla değişiyor. Vurgu, süren değişimde. Değişen durum çoğunlukla şimdiki zamanla gelir. Üç örnekte de bir ipucu var: plan, dönem, değişim. İpucu şimdiki zamanı çağırıyor.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 8,
+"dil": "tr",
+"t0": 88.25,
+"t1": 109.61,
+"metin": "Karar kartı. Bu cümlelerde now net bir ipucudur: şimdiki zaman. These days ve nowadays genellikle şimdiki zamanı çağırır: geçici ya da değişen durum. Planlı gelecek de şimdiki zaman ister. Usually gibi sıklık sözcükleri ve genel durumlar geniş zaman ister. Önce sinyal sözcüğünü ara.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 9,
+"dil": "tr",
+"t0": 110.08,
+"t1": 111.2,
+"metin": "Karşıt çift.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 9,
+"dil": "en",
+"t0": 111.45,
+"t1": 115.93,
+"metin": "Nancy usually spends the weekend at home, but she is meeting her friends now.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 9,
+"dil": "tr",
+"t0": 116.18,
+"t1": 130.74,
+"metin": "Nancy hafta sonunu genellikle evde geçiriyor. Ama şu anda arkadaşlarıyla buluşuyor. Tek cümlede iki sinyal, iki fiil var. Usually alışkanlığı çağırır: spends. Now şu anı çağırır: is meeting.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 10,
+"dil": "tr",
+"t0": 131.21,
+"t1": 132.81,
+"metin": "Kartpostaldan bir çift.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 10,
+"dil": "en",
+"t0": 133.06,
+"t1": 135.14,
+"metin": "I am staying here for a week.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 10,
+"dil": "tr",
+"t0": 135.39,
+"t1": 137.31,
+"metin": "Otelde kalmak geçici.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 10,
+"dil": "en",
+"t0": 137.56,
+"t1": 141.8,
+"metin": "My holiday package includes trips to dozens of nearby places.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 10,
+"dil": "tr",
+"t0": 141.97,
+"t1": 148.93,
+"metin": "Paketin genel özelliği, yalnız şu an değil. Geçici: şimdiki zaman. Genel: geniş zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 11,
+"dil": "tr",
+"t0": 149.4,
+"t1": 150.44,
+"metin": "Bir çift daha.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 11,
+"dil": "en",
+"t0": 150.69,
+"t1": 154.05,
+"metin": "The region offers some of the best beaches in the world.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 11,
+"dil": "tr",
+"t0": 154.22,
+"t1": 159.58,
+"metin": "Bölgenin sahilleri hep orada. Genel durum: geniş zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 11,
+"dil": "en",
+"t0": 159.83,
+"t1": 163.43,
+"metin": "People are really enjoying themselves a lot here.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 11,
+"dil": "tr",
+"t0": 163.68,
+"t1": 167.6,
+"metin": "Bu şu anki durum, genel değil. Şimdiki zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 12,
+"dil": "tr",
+"t0": 168.07,
+"t1": 172.63,
+"metin": "Tuzak. İkinci örneği hatırla. Sinyal var ama -ing yok.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 12,
+"dil": "en",
+"t0": 172.88,
+"t1": 175.68,
+"metin": "We believe this situation is temporary.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 12,
+"dil": "tr",
+"t0": 175.93,
+"t1": 181.93,
+"metin": "Bu durumun geçici olduğuna inanıyoruz. Bugünler, geçici durum: -ing koymak istersin.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 13,
+"dil": "tr",
+"t0": 182.4,
+"t1": 184.64,
+"metin": "Hocam, şu anda inanıyoruz.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 13,
+"dil": "en",
+"t0": 184.89,
+"t1": 186.33,
+"metin": "We are believing.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 13,
+"dil": "tr",
+"t0": 186.58,
+"t1": 187.54,
+"metin": "Olmaz mı?",
+"konusan": "ogrenci"
+},
+{
+"cumle": 14,
+"dil": "tr",
+"t0": 188.29,
+"t1": 192.69,
+"metin": "Olmaz. Believe ve think bu anlamda geniş zamanla gelir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 14,
+"dil": "en",
+"t0": 192.94,
+"t1": 194.22,
+"metin": "We believe.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 14,
+"dil": "tr",
+"t0": 194.47,
+"t1": 195.35,
+"metin": "Böyle denir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 14,
+"dil": "en",
+"t0": 195.6,
+"t1": 197.04,
+"metin": "We are believing.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 14,
+"dil": "tr",
+"t0": 197.29,
+"t1": 208.41,
+"metin": "Denmez. Promise, agree ve recommend ise performative fiillerdir: söylemek, eylemi yapmaktır. Onlar da -ing almaz. İki tuzak daha.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 14,
+"dil": "en",
+"t0": 208.66,
+"t1": 211.14,
+"metin": "It has a great view of the sea.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 14,
+"dil": "tr",
+"t0": 211.31,
+"t1": 215.07,
+"metin": "Have sahip olmak anlamındaysa -ing almaz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 14,
+"dil": "en",
+"t0": 215.32,
+"t1": 219.0,
+"metin": "I definitely recommend a holiday in this lovely city.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 14,
+"dil": "tr",
+"t0": 219.25,
+"t1": 224.93,
+"metin": "Tavsiye edince tavsiyeyi yapmış olursun. Eylem ayrıca sürmez. Geniş zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 15,
+"dil": "tr",
+"t0": 225.4,
+"t1": 240.44,
+"metin": "Özet. Now, these days ve nowadays şimdiki zamanı çağırır: geçici ya da değişen durum. Usually ve genel durum: geniş zaman. Believe ve have gibi fiiller: sinyal olsa da -ing yok.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 16,
+"dil": "tr",
+"t0": 240.91,
+"t1": 243.55,
+"metin": "Mini soru. Kartpostaldan bir cümle.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 16,
+"dil": "en",
+"t0": 243.8,
+"t1": 243.96,
+"metin": "I",
+"konusan": "ogretmen"
+},
+{
+"cumle": 16,
+"dil": "en",
+"t0": 244.71,
+"t1": 246.47,
+"metin": "this postcard now.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 16,
+"dil": "tr",
+"t0": 246.72,
+"t1": 249.36,
+"metin": "Boşlukta hangisi? Beş şık var.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 17,
+"dil": "tr",
+"t0": 249.83,
+"t1": 253.83,
+"metin": "Bence A şıkkı. Kartpostal yazmak bir alışkanlık.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 18,
+"dil": "tr",
+"t0": 254.5,
+"t1": 270.42,
+"metin": "Hayır. Now şu anı gösterir, alışkanlığı değil. Doğru cevap B şıkkı, yani am writing. Çeldirici D şıkkı: now ile geçmiş çelişir. Çeldirici C şıkkı ve E şıkkı: özne I ile uyumsuz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 19,
+"dil": "tr",
+"t0": 270.89,
+"t1": 280.01,
+"metin": "Sınavda ilk iş sinyal sözcüğünün altını çiz. Sonra fiile bak: believe gibi fiiller -ing almaz. Sonraki derste görüşürüz.",
+"konusan": "ogretmen"
+}
+]

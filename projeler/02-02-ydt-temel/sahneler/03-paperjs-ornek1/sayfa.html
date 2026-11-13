@@ -1,0 +1,10 @@
+<!doctype html><meta charset="utf-8"><body style="margin:0;background:#1b1a17">
+<canvas id="cv" width="1920" height="1080" hidpi="off"></canvas>
+<script src="/motorlar/paperjs/node_modules/paper/dist/paper-core.js"></script>
+<script type="module">
+// SAHNE 03-paperjs-ornek1 (02-02-ydt-temel): Paper.js, 1920x1080, 30 fps, 855 kare. Ortak kalem modülü: kalem-paper.js.
+import { surucu } from "/ortak/surucu.js";
+import { kur, KARE } from "/projeler/02-02-ydt-temel/sahneler/03-paperjs-ornek1/sahne-03.js";
+let S;
+surucu(async () => { S = await kur(paper); }, (f) => S.kare(f), KARE);
+</script>

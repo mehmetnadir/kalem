@@ -1,0 +1,758 @@
+[
+ {
+  "dil": "tr",
+  "metin": "Sizi karı koca ilan ediyorum.",
+  "duyulan": "Sizi karı koca ilan ediyorum.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I now pronounce you husband and wife.",
+  "duyulan": "I now pronounce you husband and wife.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Türkçede ediyorum, yani şimdiki zaman. İngilizcede ing yok. Çeviriye güvenirsen seçenekler seni şimdiki zamana götürür.",
+  "duyulan": "Türkçe'de ediyorum, yani şimdiki zaman. İngilizce'de ink yok. Çeviriye güvenirsen seçenekler seni şimdiki zamana götürür.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu derste formülü, üç sınav kökünü ve bir tuzağı görüyoruz.",
+  "duyulan": "Bu derste formülü, 3 sınav kökünü ve 1 tuzağı görüyoruz.",
+  "benzerlik": 0.89,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Formül tek satır. Özne, artı yalın fiil.",
+  "duyulan": "Formül tek satır Özne artı yalın fiil",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "He, she, it",
+  "duyulan": "He, she, it.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ile fiile se gelir.",
+  "duyulan": "ile fiile s gelir.",
+  "benzerlik": 0.97,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Olumsuzda ve soruda yük yardımcı fiildedir:",
+  "duyulan": "Olumsuzda ve soruda yük yardımcı fiildedir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "don't, doesn't, do, does.",
+  "duyulan": "Don't, doesn't, do, does.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Özneye göre seçilir. Asıl fiil yalın kalır.",
+  "duyulan": "Özneye göre seçilir. Asıl fiil yalın kalır.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Kullanım iki grup. Birinci grup bildiğin kullanımlar: tekrar, kalıcı durum, genel gerçek.",
+  "duyulan": "Kullanım 2 grup. Birinci grup, bildiğin kullanımlar. Tekrar, kalıcı durum, genel gerçek.",
+  "benzerlik": 0.96,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İkinci grupta Türkçe yanıltır. Türkçede şimdiki, geçmiş ya da gelecek görünen dört çerçeve var.",
+  "duyulan": "İkinci grup da Türkçe yanıltır. Türkçe'de şimdiki, geçmiş ya da gelecek görünen dört çerçeve var.",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Özet: haber başlığı, film, kitap, spor yorumu. Tabela ve mektup. Tören ve söz fiilleri:",
+  "duyulan": "Özet. Haber başlığı, film, kitap, spor yorumu. Tabela ve mektup. Tören ve söz fiilleri.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "promise",
+  "duyulan": "promised.",
+  "benzerlik": 0.93,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "gibi. Tarife.",
+  "duyulan": "Gibi tarife.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Her çerçevede aynı şey olur: Türkçe seni başka zamana çeker. Üç çerçeveyi kök olarak göreceksin. Dördüncüsü tuzak.",
+  "duyulan": "Her çerçevede aynı şey olur. Türkçe seni başka zamana çeker. Üç çerçeveyi kök olarak göreceksin. Dördüncüsü, tuzak.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Birinci kök: özet. Haber başlığı, film, spor yorumu.",
+  "duyulan": "1. Kök Özet Haber başlığı Film Spor Yorumu",
+  "benzerlik": 0.91,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Truck accident blocks traffic on motorway for hours.",
+  "duyulan": "Truck accident blocks traffic on motorway for hours.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Kamyon kazası otoyolu saatlerce kilitledi. Haber sunumunda var olan olay geniş zamanla verilir.",
+  "duyulan": "Kamyon kazası otoyolu saatlerce kilitledi. Haber sunumunda var olan olay geniş zamanla verilir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Elisabeth Moss acts brilliantly in the movie 'The Invisible Man', and the story keeps the audience on edge.",
+  "duyulan": "Elizabeth Moss acts brilliantly in the movie The Invisible Man, and the story keeps the audience on edge.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Elisabeth Moss, Görünmez Adam filminde harika oynuyor; hikâye izleyiciyi tedirgin ediyor.",
+  "duyulan": "Elizabeth Moss, Görünmez Adam filminde harika oynuyor. Hikaye izleyiciyi tedirgin ediyor.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hocam, film bitti. Neden oynadı değil,",
+  "duyulan": "Hocam film bitti. Neden oynadı değil?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "acts?",
+  "duyulan": "Acts",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Özetin kuralı bu: olay bitmiş olsa bile geniş zaman. Kitap özeti ve öykü de aynı.",
+  "duyulan": "Özetin kuralı bu. Olay bitmiş olsa bile geniş zaman. Kitap özeti ve öykü de aynı.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Chris runs with the ball halfway to the fifty yard line.",
+  "duyulan": "Chris runs with the ball halfway to the 50-yard line.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Chris topla birlikte elli yarda çizgisine giden yolun yarısına kadar koşuyor. Spor yorumunda çoğunlukla",
+  "duyulan": "Chris, topla birlikte 50 yarda çizgisine giden yolun yarısına kadar koşuyor. Spor yorumunda çoğunlukla…",
+  "benzerlik": 0.97,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "runs",
+  "duyulan": "Runs.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "gelir.",
+  "duyulan": "Gelir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İkinci kök: tabela.",
+  "duyulan": "İkinci kök Tabela",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Because the sign says it is forbidden to feed the animals in the cages, the children keep their snacks in their bags.",
+  "duyulan": "Because the sign says it is forbidden to feed the animals in the cages, the children keep their snacks in their bags.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tabela, kafesteki hayvanları beslemenin yasak olduğunu söylüyor; bu yüzden çocuklar atıştırmalıklarını çantada tutuyor.",
+  "duyulan": "Tabela, kafesteki hayvanları beslemenin yasak olduğunu söylüyor. Bu yüzden çocuklar atıştırmalıklarını çantada tutuyor.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tabelanın mesajı değişmez. Mektup ve kitap da sabit içerik verir. Bu içerik geniş zamanla gelir:",
+  "duyulan": "Tabelanın mesajı değişmez. Mektup ve kitap da sabit içerik verir. Bu içerik geniş zamanla gelir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "the sign says, the letter says, the book says.",
+  "duyulan": "The sign says, the letter says, the book says.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Üçüncü kök: söz fiilleri ve durum fiilleri. Açılıştaki tören cümlesi de burada.",
+  "duyulan": "Üçüncü kök, söz fiilleri ve durum fiilleri. Açılıştaki tören cümlesi de burada.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "We think we have done the most difficult part of the job, so I promise to finish the report tonight.",
+  "duyulan": "We think we have done the most difficult part of the job, so I promise to finish the report tonight.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İşin en zor kısmını yaptığımızı düşünüyoruz; bu yüzden raporu bu gece bitireceğime söz veriyorum.",
+  "duyulan": "İşin en zor kısmını yaptığımızı düşünüyoruz. Bu yüzden raporu bu gece bitireceğime söz veriyorum.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Promise",
+  "duyulan": "Promise.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "bir söz fiili: söylemek yapmak demektir.",
+  "duyulan": "Bir söz fiili. Söylemek, yapmak demektir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Pronounce, accept, deny, inform",
+  "duyulan": "Pronounce, accept, deny, inform.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "da öyle.",
+  "duyulan": "da öyle.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Think",
+  "duyulan": "Think.",
+  "benzerlik": 1.0,
+  "tohum": 1
+ },
+ {
+  "dil": "tr",
+  "metin": "ve",
+  "duyulan": "www.feyyaz.tv",
+  "benzerlik": 0.15,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "hope",
+  "duyulan": "Hope.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "durum fiilidir: onlar da geniş zaman alır. Türkçesi yor alır, bu cümlelerde İngilizcesi",
+  "duyulan": "durum fiilidir. Onlar da geniş zaman alır. Türkçesi yor alır. Bu cümlelerde İngilizcesi",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "ing",
+  "duyulan": "Ing.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "almaz.",
+  "duyulan": "Almaz.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Şimdi bir karşıt çift.",
+  "duyulan": "Şimdi bir karşıt çift.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Mike lives and works in Birmingham.",
+  "duyulan": "Mike lives and works in Birmingham.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Mike Birmingham'da yaşıyor ve çalışıyor. Kalıcı bir durum.",
+  "duyulan": "Mike Birmingham'da yaşıyor ve çalışıyor. Kalıcı bir durum.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Live",
+  "duyulan": "Live.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ve",
+  "duyulan": "abone ol",
+  "benzerlik": 0.2,
+  "tohum": 2
+ },
+ {
+  "dil": "en",
+  "metin": "work",
+  "duyulan": "Work.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "süreklilik taşır.",
+  "duyulan": "Süreklilik taşır.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Mike is staying in a hotel this week.",
+  "duyulan": "Mike is staying in a hotel this week.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Mike bu hafta otelde kalıyor. Geçici bir durum.",
+  "duyulan": "Mike bu hafta otelde kalıyor. Geçici bir durum.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İkisi de Türkçede yor alır. Fark kalıcılıkta. Kalıcı: geniş zaman. Geçici: şimdiki zaman.",
+  "duyulan": "İkisi de Türkçe'de yor alır. Fark kalıcılıkta. Kalıcı, geniş zaman. Geçici, şimdiki zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Geçici sinyaller:",
+  "duyulan": "Geçici Sinyaller",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "this week, this semester, these days.",
+  "duyulan": "This week, this semester, these days.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Kalıcı sinyaller:",
+  "duyulan": "Kalıcı Sinyaller",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "every, always.",
+  "duyulan": "Every. Always.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Kalıcı olan kimliğin parçasıdır: yaşadığın şehir. Geçici olan bir haftalık oteldir. Kendine sor: bu durum yarın da sürer mi?",
+  "duyulan": "Kalıcı olan kimliğin parçasıdır, yaşadığın şehir. Geçici olan bir haftalık oteldir. Kendine sor, bu durum yarın da sürer mi?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Farmers grow mainly wheat and sunflowers in Thrace.",
+  "duyulan": "Farmers grow mainly wheat and sunflowers in Thrace.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Çiftçiler Trakya'da çoğunlukla buğday ve ayçiçeği yetiştirir. Bu da kalıcı. Bazen zaman sözcüğü verilmez. O zaman anlama bak: bu iş sürekli mi, geçici mi?",
+  "duyulan": "Çiftçiler Trakya'da çoğunlukla buğday ve ayçiçeği yetiştirir. Bu da kalıcı. Bazen zaman sözcüğü verilmez. O zaman anlama bak. Bu iş sürekli mi, geçici mi?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Şimdi tuzak. Gelecek anlamı var.",
+  "duyulan": "Şimdi tuzak. Gelecek anlamı var.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "The concert begins at eight o'clock tomorrow evening and ends at around eleven.",
+  "duyulan": "The concert begins at 8 o'clock tomorrow evening and ends at around 11.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Konser yarın akşam saat sekizde başlayacak ve on bir civarı bitecek.",
+  "duyulan": "Konser yarın akşam saat 8'de başlayacak ve 11 civarı bitecek.",
+  "benzerlik": 0.88,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hocam, konser yarın.",
+  "duyulan": "Hocam, komiser yarın.",
+  "benzerlik": 0.92,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Will begin",
+  "duyulan": "We'll begin.",
+  "benzerlik": 0.9,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "olmaz mı?",
+  "duyulan": "Olmaz mı?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Anlam gelecek, yapı geniş zaman. Konser tarifeye bağlı. Program yazılı, saat değişmez. Özne cansız ya da kişi olabilir. Ölçüt resmî program.",
+  "duyulan": "Anlam gelecek, yapı geniş zaman. Konser tarifeye bağlı. Program yazılı, saat değişmez. Özne cansız ya da kişi olabilir. Ölçüt resmi program.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "My flight takes off at six in the morning, so I should be at the airport by four.",
+  "duyulan": "My flight takes off at 6 in the morning, so I should be at the airport by 4.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Uçağım sabah altıda kalkıyor; bu yüzden dörde kadar havalimanında olmalıyım.",
+  "duyulan": "Uçağım sabah 6'da kalkıyor. Bu yüzden 4'e kadar havalimanında olmalıyım.",
+  "benzerlik": 0.94,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tren, uçak, konser, ders programı: hepsi tarife. Tarife varsa gelecek anlamı geniş zamanla gelir.",
+  "duyulan": "Tren, uçak, konser, ders programı, hepsi tarife. Tarife varsa gelecek anlamı geniş zamanla gelir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Kendi planın varsa şimdiki zaman düşün: yarın sabah İzmir'e gidiyoruz. Resmî program varsa geniş zaman.",
+  "duyulan": "Kendi planın varsa şimdiki zaman düşün. Yarın sabah İzmir'e gidiyoruz. Resmi program varsa geniş zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Özet: geniş zaman tekrarı, kalıcı durumu ve genel gerçeği anlatır.",
+  "duyulan": "Özet, geniş zaman tekrarı, kalıcı durumu ve genel gerçeği anlatır.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Dört çerçeve de geniş zaman alır: özet, tabela, tören, tarife. Türkçesi şimdiki, geçmiş ya da gelecek görünür.",
+  "duyulan": "Dört çerçevede geniş zaman alır. Özet, tabela, tören, tarife. Türkçesi şimdiki, geçmiş ya da gelecek görünür.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Sınavda sırayla bak: çerçeve, özne, yardımcı fiil.",
+  "duyulan": "Sınavda sırayla bak. Çerçeve, özne, yardımcı fiil.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Kod: Türkçeye değil, çerçeveye bak.",
+  "duyulan": "Kod, Türkçe'ye değil, çerçeveye bak.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Mini soru.",
+  "duyulan": "Mini soru.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Look at the notice on the library door: it",
+  "duyulan": "Look at the notice on the library door. It",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "boşluk",
+  "duyulan": "Boşluk",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "that the library closes at six on Fridays.",
+  "duyulan": "that the library closes at 6 on Fridays.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Şıklara bak. Üç saniye.",
+  "duyulan": "Şıklara bak. 3 saniye.",
+  "benzerlik": 0.84,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bence C şıkkı:",
+  "duyulan": "Bence C şıkkı.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "is saying.",
+  "duyulan": "is saying.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tabela şu an diyor.",
+  "duyulan": "Tabela şu an diyor.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Yöntem: önce çerçeveyi bul. Sonra özneyi bul. Sonra Türkçe karşılığı değil, çerçeveyi izle.",
+  "duyulan": "Yöntem. Önce çerçeveyi bul. Sonra özneyi bul. Sonra Türkçe karşılığı değil, çerçeveyi izle.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu soruda çerçeve tabela. Özne",
+  "duyulan": "Bu soru da çerçeve tabela. Özne,",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "it,",
+  "duyulan": "it",
+  "benzerlik": 1.0,
+  "tohum": 1
+ },
+ {
+  "dil": "tr",
+  "metin": "yani tek. Cevap",
+  "duyulan": "Yani tek. Cevap?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "says.",
+  "duyulan": "6.",
+  "benzerlik": 0.29,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tuzak bu. Türkçe diyor, şimdiki zaman gibi. Ama tabela sabit:",
+  "duyulan": "Tuzak bu. Türkçe diyor, şimdiki zaman gibi. Ama tabene sabit.",
+  "benzerlik": 0.96,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "says.",
+  "duyulan": "Says.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Doğru cevap B şıkkı, yani",
+  "duyulan": "Doğru cevap B şıkkı. Yani,",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "says.",
+  "duyulan": "Says.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Çeldiricilere bakalım. Çeldirici A şıkkında",
+  "duyulan": "Çeldiricilere bakalım. Çeldirici A şıkkında,",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "it",
+  "duyulan": "It's...",
+  "benzerlik": 0.8,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "için se yok. Çeldirici D şıkkı: kökte",
+  "duyulan": "İçin S yok. Çeldirici D şıkkı. Kökte S yok.",
+  "benzerlik": 0.91,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Look at",
+  "duyulan": "Look at.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "var, tabela şimdi önümüzde; sabit içerik",
+  "duyulan": "Var. Tabela şimdi önümüzde. Sabit içerik,",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "says",
+  "duyulan": "say",
+  "benzerlik": 0.86,
+  "tohum": 1
+ },
+ {
+  "dil": "tr",
+  "metin": "ile gelir. Çeldirici E şıkkı: tabela sürekli duruyor,",
+  "duyulan": "İle gelir. Çeldirici E şıkkı. Tabela sürekli duruyor.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "says",
+  "duyulan": "say",
+  "benzerlik": 0.86,
+  "tohum": 1
+ },
+ {
+  "dil": "tr",
+  "metin": "yeter.",
+  "duyulan": "Yeter.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu derste geniş zamanın formunu, dört çerçevesini ve tuzağını gördük.",
+  "duyulan": "Bu derste geniş zamanın formunu, dört çerçevesini ve tuzağını gördük.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Formül: özne, yalın fiil.",
+  "duyulan": "Formül, özne, yalın fiil.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "He, she, it",
+  "duyulan": "He, she, it.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ile se. Sıradaki derste görüşürüz.",
+  "duyulan": "Sıradaki derste görüşürüz.",
+  "benzerlik": 0.88,
+  "tohum": 0
+ }
+]

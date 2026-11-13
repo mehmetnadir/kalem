@@ -1,0 +1,429 @@
+[
+{
+"i": 1,
+"baslar": 1.0,
+"biter": 2.84,
+"ilk_soz": 1.0,
+"ses": "ogretmen"
+},
+{
+"i": 2,
+"baslar": 3.39,
+"biter": 5.55,
+"ilk_soz": 3.39,
+"ses": "ogretmen"
+},
+{
+"i": 3,
+"baslar": 6.1,
+"biter": 11.48,
+"ilk_soz": 6.1,
+"ses": "ogretmen"
+},
+{
+"i": 4,
+"baslar": 12.03,
+"biter": 16.27,
+"ilk_soz": 12.03,
+"ses": "ogretmen"
+},
+{
+"i": 5,
+"baslar": 16.82,
+"biter": 17.86,
+"ilk_soz": 16.82,
+"ses": "ogretmen"
+},
+{
+"i": 6,
+"baslar": 18.41,
+"biter": 21.93,
+"ilk_soz": 18.41,
+"ses": "ogretmen"
+},
+{
+"i": 7,
+"baslar": 22.48,
+"biter": 25.6,
+"ilk_soz": 22.48,
+"ses": "ogretmen"
+},
+{
+"i": 8,
+"baslar": 26.15,
+"biter": 32.49,
+"ilk_soz": 26.15,
+"ses": "ogretmen"
+},
+{
+"i": 9,
+"baslar": 33.04,
+"biter": 44.45,
+"ilk_soz": 33.04,
+"ses": "ogretmen"
+},
+{
+"i": 10,
+"baslar": 45.0,
+"biter": 45.96,
+"ilk_soz": 45.0,
+"ses": "ogretmen"
+},
+{
+"i": 11,
+"baslar": 46.51,
+"biter": 50.03,
+"ilk_soz": 46.51,
+"ses": "ogretmen"
+},
+{
+"i": 12,
+"baslar": 50.58,
+"biter": 53.7,
+"ilk_soz": 50.58,
+"ses": "ogretmen"
+},
+{
+"i": 13,
+"baslar": 54.25,
+"biter": 59.87,
+"ilk_soz": 54.25,
+"ses": "ogretmen"
+},
+{
+"i": 14,
+"baslar": 60.42,
+"biter": 69.66,
+"ilk_soz": 60.42,
+"ses": "ogretmen"
+},
+{
+"i": 15,
+"baslar": 70.21,
+"biter": 71.25,
+"ilk_soz": 70.21,
+"ses": "ogretmen"
+},
+{
+"i": 16,
+"baslar": 71.8,
+"biter": 75.8,
+"ilk_soz": 71.8,
+"ses": "ogretmen"
+},
+{
+"i": 17,
+"baslar": 76.35,
+"biter": 80.19,
+"ilk_soz": 76.35,
+"ses": "ogretmen"
+},
+{
+"i": 18,
+"baslar": 80.74,
+"biter": 88.34,
+"ilk_soz": 80.74,
+"ses": "ogretmen"
+},
+{
+"i": 19,
+"baslar": 88.89,
+"biter": 96.31,
+"ilk_soz": 88.89,
+"ses": "ogretmen"
+},
+{
+"i": 20,
+"baslar": 96.86,
+"biter": 102.72,
+"ilk_soz": 96.86,
+"ses": "ogrenci"
+},
+{
+"i": 21,
+"baslar": 103.42,
+"biter": 113.3,
+"ilk_soz": 103.42,
+"ses": "ogretmen"
+},
+{
+"i": 22,
+"baslar": 113.85,
+"biter": 127.71,
+"ilk_soz": 113.85,
+"ses": "ogretmen"
+},
+{
+"i": 23,
+"baslar": 128.26,
+"biter": 130.9,
+"ilk_soz": 128.26,
+"ses": "ogretmen"
+},
+{
+"i": 24,
+"baslar": 131.45,
+"biter": 143.73,
+"ilk_soz": 131.45,
+"ses": "ogretmen"
+},
+{
+"i": 25,
+"baslar": 144.28,
+"biter": 145.88,
+"ilk_soz": 144.28,
+"ses": "ogretmen"
+},
+{
+"i": 26,
+"baslar": 146.43,
+"biter": 155.71,
+"ilk_soz": 146.43,
+"ses": "ogretmen"
+},
+{
+"i": 27,
+"baslar": 156.26,
+"biter": 157.54,
+"ilk_soz": 156.26,
+"ses": "ogretmen"
+},
+{
+"i": 28,
+"baslar": 158.09,
+"biter": 159.93,
+"ilk_soz": 158.09,
+"ses": "ogretmen"
+},
+{
+"i": 29,
+"baslar": 160.48,
+"biter": 162.48,
+"ilk_soz": 160.48,
+"ses": "ogretmen"
+},
+{
+"i": 30,
+"baslar": 163.03,
+"biter": 168.25,
+"ilk_soz": 163.03,
+"ses": "ogretmen"
+},
+{
+"i": 31,
+"baslar": 168.8,
+"biter": 170.48,
+"ilk_soz": 168.8,
+"ses": "ogretmen"
+},
+{
+"i": 32,
+"baslar": 171.03,
+"biter": 178.09,
+"ilk_soz": 171.03,
+"ses": "ogretmen"
+},
+{
+"i": 33,
+"baslar": 178.64,
+"biter": 191.34,
+"ilk_soz": 178.64,
+"ses": "ogretmen"
+},
+{
+"i": 34,
+"baslar": 191.89,
+"biter": 200.45,
+"ilk_soz": 191.89,
+"ses": "ogretmen"
+},
+{
+"i": 35,
+"baslar": 201.0,
+"biter": 202.44,
+"ilk_soz": 201.0,
+"ses": "ogretmen"
+},
+{
+"i": 36,
+"baslar": 202.99,
+"biter": 205.15,
+"ilk_soz": 202.99,
+"ses": "ogretmen"
+},
+{
+"i": 37,
+"baslar": 205.7,
+"biter": 214.64,
+"ilk_soz": 205.7,
+"ses": "ogretmen"
+},
+{
+"i": 38,
+"baslar": 215.19,
+"biter": 219.51,
+"ilk_soz": 215.19,
+"ses": "ogretmen"
+},
+{
+"i": 39,
+"baslar": 220.06,
+"biter": 225.26,
+"ilk_soz": 220.06,
+"ses": "ogretmen"
+},
+{
+"i": 40,
+"baslar": 225.81,
+"biter": 227.57,
+"ilk_soz": 225.81,
+"ses": "ogretmen"
+},
+{
+"i": 41,
+"baslar": 228.12,
+"biter": 229.64,
+"ilk_soz": 228.12,
+"ses": "ogretmen"
+},
+{
+"i": 42,
+"baslar": 230.19,
+"biter": 235.35,
+"ilk_soz": 230.19,
+"ses": "ogrenci"
+},
+{
+"i": 43,
+"baslar": 236.05,
+"biter": 242.21,
+"ilk_soz": 236.05,
+"ses": "ogretmen"
+},
+{
+"i": 44,
+"baslar": 242.76,
+"biter": 249.5,
+"ilk_soz": 242.76,
+"ses": "ogretmen"
+},
+{
+"i": 45,
+"baslar": 250.05,
+"biter": 263.35,
+"ilk_soz": 250.05,
+"ses": "ogretmen"
+},
+{
+"i": 46,
+"baslar": 263.9,
+"biter": 266.86,
+"ilk_soz": 263.9,
+"ses": "ogretmen"
+},
+{
+"i": 47,
+"baslar": 267.41,
+"biter": 269.49,
+"ilk_soz": 267.41,
+"ses": "ogretmen"
+},
+{
+"i": 48,
+"baslar": 270.04,
+"biter": 273.32,
+"ilk_soz": 270.04,
+"ses": "ogretmen"
+},
+{
+"i": 49,
+"baslar": 273.87,
+"biter": 276.94,
+"ilk_soz": 273.87,
+"ses": "ogretmen"
+},
+{
+"i": 50,
+"baslar": 277.49,
+"biter": 281.73,
+"ilk_soz": 277.49,
+"ses": "ogretmen"
+},
+{
+"i": 51,
+"baslar": 282.28,
+"biter": 287.32,
+"ilk_soz": 282.28,
+"ses": "ogretmen"
+},
+{
+"i": 52,
+"baslar": 287.87,
+"biter": 294.44,
+"ilk_soz": 287.87,
+"ses": "ogretmen"
+},
+{
+"i": 53,
+"baslar": 294.99,
+"biter": 317.43,
+"ilk_soz": 294.99,
+"ses": "ogretmen"
+},
+{
+"i": 54,
+"baslar": 317.98,
+"biter": 323.93,
+"ilk_soz": 317.98,
+"ses": "ogretmen"
+},
+{
+"i": 55,
+"baslar": 324.48,
+"biter": 328.4,
+"ilk_soz": 324.48,
+"ses": "ogretmen"
+},
+{
+"i": 56,
+"baslar": 328.95,
+"biter": 331.68,
+"ilk_soz": 328.95,
+"ses": "ogrenci"
+},
+{
+"i": 57,
+"baslar": 332.38,
+"biter": 342.59,
+"ilk_soz": 332.38,
+"ses": "ogretmen"
+},
+{
+"i": 58,
+"baslar": 343.14,
+"biter": 359.36,
+"ilk_soz": 343.14,
+"ses": "ogretmen"
+},
+{
+"i": 59,
+"baslar": 359.91,
+"biter": 369.51,
+"ilk_soz": 359.91,
+"ses": "ogretmen"
+},
+{
+"i": 60,
+"baslar": 370.06,
+"biter": 375.1,
+"ilk_soz": 370.06,
+"ses": "ogretmen"
+},
+{
+"i": 61,
+"baslar": 375.65,
+"biter": 388.57,
+"ilk_soz": 375.65,
+"ses": "ogretmen"
+}
+]

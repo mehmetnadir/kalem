@@ -1,0 +1,46 @@
+{
+  "video": {
+    "kimlik": "02-02-ydt-ileri",
+    "ders": "İngilizce",
+    "konu": "Simple Present",
+    "seviye": "ileri",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-02-I",
+    "amaclar": [
+      "Simple Present formülünü (S + V, he/she/it + V-s) ve yardımcı fiilleri (do, does) kurmak",
+      "Türkçede başka zamana benzeyen dört çerçeveyi tanımak: özet, tabela, tören ve söz fiilleri, tarife",
+      "kalıcı durumu geçici durumdan ayırmak (geniş zaman ve şimdiki zaman)",
+      "çerçeve, özne, yardımcı fiil sırasıyla YDT sorusunu çözmek ve çeldiriciyi elemek"
+    ],
+    "canAlici": [
+      "Türkçeye değil, çerçeveye bak: Türkçe seni başka zamana çeker",
+      "Özet (haber başlığı, film, spor yorumu) ve tabela içeriği geniş zamanla verilir",
+      "Söz fiilleri (promise, pronounce) ve durum fiilleri (think, hope) -ing almaz",
+      "Kalıcı durum geniş zaman, geçici durum şimdiki zaman: bu durum yarın da sürer mi?",
+      "Resmî program (konser, uçuş) geniş zaman; kişisel plan şimdiki zaman"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "ileri",
+      "gramer",
+      "Simple Present"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "02-02-ydt-ileri",
+      "tur": "ana-yatay",
+      "ad": "Ana video ileri (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "ileri",
+      "kaynak": null,
+      "durum": "taslak",
+      "onizleme": "/p/02-02-ydt-ileri/onizle.html",
+      "tarih": "2026-11-13T12:00:00Z"
+    }
+  ],
+  "revizyonlar": []
+}
