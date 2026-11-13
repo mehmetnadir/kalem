@@ -15,6 +15,7 @@ import path from "node:path";
 import { spawn } from "node:child_process";
 import readline from "node:readline";
 import { carpisma, olaylariBirlestir } from "./cakisma-olcer.mjs";
+import { HF_TOPLA_JS, hfKutular } from "./hf-kutu.mjs";
 
 const argv = process.argv.slice(2), sec = {}, kon = [];
 for (let i = 0; i < argv.length; i++) {
@@ -102,18 +103,9 @@ let kutusuzSahne = 0;
 let olcumHatasi = 0;
 
 for (const S of sahneler) {
-  if (S.motor === "HyperFrames") {
-    console.log(`${S.klasor} | ölçülmedi (HyperFrames)`);
-    sonuclar.push({
-      sahne: S.klasor,
-      motor: S.motor,
-      durum: "olculmedi",
-      neden: "HyperFrames",
-      olaylar: [],
-    });
-    olculmediSayisi++;
-    continue;
-  }
+  // HyperFrames (DOM/SVG): kanca yok; sayfaya HF_TOPLA_JS enjekte edilir, ham öğeler hfKutular ile
+  // aynı kutu şemasına çevrilir (araclar/hf-kutu.mjs). Eskiden "ölçülmedi (HyperFrames)" deyip geçiyordu.
+  const hf = S.motor === "HyperFrames";
 
   // Örnekleme zamanlarını oluştur (saniyede 'sikilik' örnek)
   const dt = 1 / sikilik;
@@ -135,7 +127,7 @@ for (const S of sahneler) {
       "--bekle", String(bekle),
       "--port", String(port),
       "--sunucu", String(sunucu),
-      "--olc", olcKod,
+      "--olc", hf ? HF_TOPLA_JS : olcKod,
     ];
     if (!sec.gorsel) {
       args.push("--png", "0");
@@ -150,9 +142,11 @@ for (const S of sahneler) {
     for (const sat of satirlar) {
       try {
         const veri = JSON.parse(sat);
-        const kutular = JSON.parse(veri.olc || "[]");
+        const kutular = hf ? hfKutular(JSON.parse(veri.olc || "{}")) : JSON.parse(veri.olc || "[]");
         kutuToplam += Array.isArray(kutular) ? kutular.length : 0;
-        const carpismalar = carpisma(kutular, { pay });
+        // HyperFrames: yazı kutusu glif iç boşluğunu (yan yatak) da kapsar; 5 px'lik kutu teması gerçek
+        // kusur değildir. Açık --pay verilmişse o kullanılır, yoksa en az 6 px.
+        const carpismalar = carpisma(kutular, { pay: hf && !sec.pay ? Math.max(pay, 6) : pay });
         ornekler.push({
           t: veri.t,
           carpismalar,
@@ -177,12 +171,12 @@ for (const S of sahneler) {
     }
 
     if (kutuToplam === 0 && ornekler.length > 0) {
-      console.log(`${S.klasor} | ölçülmedi (kanca kutu üretmedi, ${ornekler.length} örnek)`);
+      console.log(`${S.klasor} | ölçülmedi (${hf ? "HyperFrames ölçümü" : "kanca"} kutu üretmedi, ${ornekler.length} örnek)`);
       sonuclar.push({
         sahne: S.klasor,
         motor: S.motor,
         durum: "olculmedi",
-        neden: "kutu yok (kanca eksik)",
+        neden: hf ? "kutu yok (HyperFrames ölçümü)" : "kutu yok (kanca eksik)",
         ornekSayisi: ornekler.length,
         olaylar: [],
       });
@@ -268,7 +262,7 @@ if (toplamHata > 0) {
   process.exit(2);
 } else if (kutusuzSahne > 0) {
   // Canvas/Paper.js sahnesi ölçülemedi: geçti sayılmaz.
-  console.error(`UYARI: ${kutusuzSahne} sahne kutu üretmedi (kanca eksik); kapı geçti sayılmaz`);
+  console.error(`UYARI: ${kutusuzSahne} sahne kutu üretmedi (kanca/HyperFrames ölçümü eksik); kapı geçti sayılmaz`);
   process.exit(2);
 } else {
   process.exit(0);

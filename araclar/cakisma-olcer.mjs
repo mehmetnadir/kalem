@@ -60,6 +60,8 @@ export function gorunurKutu(icerik, maske) {
  *  - yazi × yazi (farklı ad) -> 'uyari'
  *  - yazi tamamen kart içindeyse ya da öğelerden biri 'isaret' ise sayılmaz
  *  - aynı ad sayılmaz
+ *  - kutunun 'muaf' listesindeki ad sayılmaz (kasıtlı örtüşme, HyperFrames)
+ *  - altcizgi x altcizgi (farklı ad) -> 'hata'; halka/altcizgi diğer kurallarda 'cizim' sayılır
  *  - kesişim iki boyutta da > pay değilse sayılmaz
  *
  * @param {Array} kutular [{tur, ad, x, y, w, h}]
@@ -73,6 +75,10 @@ export function carpisma(kutular = [], { pay = 4 } = {}) {
   // Bir yazının herhangi bir kart içinde olup olmadığını kontrol et
   const kartIcindeYazi = (yazi) => kartlar.some((kart) => icinde(yazi, kart));
 
+  // 'halka' ve 'altcizgi' (HyperFrames ölçümü, hf-kutu.mjs) çizim ailesindendir; 'isaret' gibi
+  // sayılmaz, çünkü komşu sözcüğü kesen halka ve üst üste altçizgi gerçek kusurdur.
+  const aile = (tur) => (tur === "halka" || tur === "altcizgi" ? "cizim" : tur);
+
   for (let i = 0; i < kutular.length; i++) {
     const a = kutular[i];
     for (let j = i + 1; j < kutular.length; j++) {
@@ -84,23 +90,31 @@ export function carpisma(kutular = [], { pay = 4 } = {}) {
       // Öğelerden biri 'isaret' ise sayılmaz
       if (a.tur === "isaret" || b.tur === "isaret") continue;
 
+      // Kasıtlı örtüşme: kutu kendi hedefini 'muaf' listesinde taşır (halkanın içindeki sözcük,
+      // altçizginin üstündeki sözcük)
+      if (a.muaf?.includes(b.ad) || b.muaf?.includes(a.ad)) continue;
+
+      const ta = aile(a.tur), tb = aile(b.tur);
+
       // Yazı tamamen kart içindeyse sayılmaz (a veya b kart ise ya da sahnedeki bir kartın içindeyse)
-      if (a.tur === "yazi" && b.tur === "kart" && icinde(a, b)) continue;
-      if (b.tur === "yazi" && a.tur === "kart" && icinde(b, a)) continue;
+      if (ta === "yazi" && tb === "kart" && icinde(a, b)) continue;
+      if (tb === "yazi" && ta === "kart" && icinde(b, a)) continue;
 
       // Tip belirle
       let tip = null;
-      if ((a.tur === "yazi" && b.tur === "cizim") || (a.tur === "cizim" && b.tur === "yazi")) {
+      if ((ta === "yazi" && tb === "cizim") || (ta === "cizim" && tb === "yazi")) {
         // Eğer yazı sahnedeki bir kartın içindeyse ve çizim de o kart ise sayılmaz
-        if (a.tur === "yazi" && kartIcindeYazi(a) && b.tur === "cizim" && b.ad === "kart") continue;
-        if (b.tur === "yazi" && kartIcindeYazi(b) && a.tur === "cizim" && a.ad === "kart") continue;
+        if (ta === "yazi" && kartIcindeYazi(a) && tb === "cizim" && b.ad === "kart") continue;
+        if (tb === "yazi" && kartIcindeYazi(b) && ta === "cizim" && a.ad === "kart") continue;
         tip = "hata";
-      } else if ((a.tur === "yazi" && b.tur === "kunye") || (a.tur === "kunye" && b.tur === "yazi")) {
+      } else if ((ta === "yazi" && tb === "kunye") || (ta === "kunye" && tb === "yazi")) {
         tip = "hata";
-      } else if ((a.tur === "cizim" && b.tur === "kunye") || (a.tur === "kunye" && b.tur === "cizim")) {
+      } else if ((ta === "cizim" && tb === "kunye") || (ta === "kunye" && tb === "cizim")) {
         tip = "hata";
-      } else if (a.tur === "yazi" && b.tur === "yazi") {
+      } else if (ta === "yazi" && tb === "yazi") {
         tip = "uyari";
+      } else if (a.tur === "altcizgi" && b.tur === "altcizgi") {
+        tip = "hata";
       }
 
       if (!tip) continue;
@@ -153,6 +167,7 @@ export function olaylariBirlestir(ornekler = [], { tolerans = 0.3 } = {}) {
           t1: t,
           a: isimler[0],
           b: isimler[1],
+          turler: [c.a?.tur, c.b?.tur],
           tip: c.tip,
           kesisim: c.kesisim,
           png: png || null,
