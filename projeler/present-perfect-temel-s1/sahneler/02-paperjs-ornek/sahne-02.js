@@ -23,7 +23,7 @@ export async function kur(P) {
   const figOge = oge({ nefes: { bas: fr(4.0), cx: 437, cy: 1150 } });
   const evOge = oge({});
   const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],
-    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
+    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, tur: "isaret", ad: o.ad || "altCiz", ...o });
 
   // Caveat el yazısı cümlesi: sözcük başına kendi konuşma penceresi {f0, f1}; satır başı x'e döner,
   // sözcük arası 0,3 × boyut (motor aralığı).
@@ -93,7 +93,7 @@ export async function kur(P) {
     ciz([[274, 1272], [274, 1302]], { w: 8, renk: SARI, bas: b + 30, sure: 6, uc0: 4, uc1: 4, oge: evOge });
     not("anahtar işareti", b); parilti(292, 1240, { bas: b + 36, r: 22, periyot: 130, adet: 1, oge: evOge });
     yazi("?", { x: 150, y: 1190, boyut: 120, aile: "Fredoka", agirlik: 700, renk: SARI, bas: fr(11.71), sure: 8,
-      olcek: true, ses: "tik", oge: evOge });
+      olcek: true, ses: "tik", oge: oge({}) });
     not("soru işareti", fr(11.71));
   }
 

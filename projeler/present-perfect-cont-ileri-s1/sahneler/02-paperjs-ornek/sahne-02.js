@@ -15,7 +15,7 @@ export async function kur(P) {
   const sol = (f0, f1) => (f) => 1 - kis((f - f0) / (f1 - f0));     // oge: [f0, f1] arası söner
   const s1 = S.sozcukler(1), s2 = S.sozcukler(2);
   const altCiz = (z, f0, o = {}) => ciz([[z.x0 - 4, z.y + 12], [z.x1 + 4, z.y + 8]],
-    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, ...o });
+    { w: 9, renk: DOLGU, alfa: 0.9, bas: f0, sure: 12, uc0: 8, uc1: 12, amp: 1.0, tur: "isaret", ad: o.ad || "altCiz", ...o });
   const SOL = 72;
   // El yazısı (Caveat 700 tegaki, dalga 5 / K26): ortalı yazının genişliği
   // tegaki verisinden ölçülür
@@ -28,6 +28,7 @@ export async function kur(P) {
   // ---------- Faz A (3,0–7,75): cümle 1 sonu + kalıp (Have been plus the -ing form.) + figür + kitap ----------
   const A0 = fr(7.5), A1 = fr(7.75);
   const gA = oge({ alfa: sol(A0, A1) }), fSon = [A0, A1];
+  const gY = oge({ alfa: sol(A0, A1) });   // elYazisi oge grubunu "yazı" etiketler; figürle paylaşılmasın
   const B0 = fr(12.45), B1 = fr(12.68);
   const kitapOge = oge({ alfa: sol(B0, B1) });                  // kitap + zemin çizgisi Faz B sonuna kadar kalır
   // satır 1–2 sahne 01'den hazır (f −30): Sınav tek şey sorar: / süreç; kalanı sözcük zamanlı
@@ -41,7 +42,7 @@ export async function kur(P) {
   let tx2 = t2[0].x1 + 0.3 * 88, m1 = null;
   ["mi,", "sonuç", "mu?"].forEach((k, i) => {
     const w = s1[5 + i];
-    const q = elYazisi(k, { x: tx2, y: 620, boyut: 88, oge: gA,
+    const q = elYazisi(k, { x: tx2, y: 620, boyut: 88, oge: gY,
       sozcukler: [{ f0: w.f, f1: w.f1 }] });
     tx2 = q.x1 + 0.3 * 88; if (i === 0) m1 = q;
   });
