@@ -87,7 +87,8 @@ export async function surucu(kur, kare, KARE = 240, fps = 30) {
     for (let f = 0; f < KARE; f++) {
       const cv = await kare(f);
       const b = await new Promise((ok) => cv.toBlob(ok, "image/png"));
-      await fetch("/kare?i=" + f, { method: "POST", body: b });
+      // Blob gövdesi Chrome blob deposunda birikir; koyu temada ~520 MB'ta ERR_BLOB_OUT_OF_MEMORY (13.11 srv21)
+      await fetch("/kare?i=" + f, { method: "POST", body: await b.arrayBuffer() });
     }
     await fetch("/bitti", { method: "POST", body: "tamam" });
   } catch (e) { await log("HATA " + (e.stack || e)); await fetch("/bitti", { method: "POST", body: "hata " + e }); }
