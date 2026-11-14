@@ -1,0 +1,339 @@
+[
+ {
+  "dil": "tr",
+  "metin": "İstanbul'da yaşıyorum. Amcamla yaşıyorum. Türkçede ikisi de yaşıyorum.",
+  "duyulan": "İstanbul'da yaşıyorum, amcamla yaşıyorum, Türkçe'de ikisi de yaşıyorum.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I live in Istanbul.",
+  "duyulan": "I live in Istanbul.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Biri geniş zaman.",
+  "duyulan": "Biri geniş zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I am living with my uncle.",
+  "duyulan": "I'm living with my uncle.",
+  "benzerlik": 0.96,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Öteki şimdiki zaman. Bu derste iki zamanın üç kullanım farkını görüyoruz. Farkı anlam belirler.",
+  "duyulan": "Öteki, şimdiki zaman. Bu derste iki zamanın üç kullanım farkını görüyoruz. Farkı anlam belirler.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Birinci örnek. Fiil aynı: wear.",
+  "duyulan": "1. Örnek Fiil aynı Where",
+  "benzerlik": 0.95,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "She wears her coat in the winter.",
+  "duyulan": "She wears her coat in the winter.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Kışın montunu giyer. Her kış böyle. Genel durum: geniş zaman.",
+  "duyulan": "Kışın montunu giyer. Her kış böyle. Genel durum, geniş zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "She is wearing her pink T-shirt today.",
+  "ses_metni": "She is wearing her pink T shirt today.",
+  "duyulan": "She is wearing her pink t-shirt today.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bugün pembe tişörtünü giyiyor. Bu yalnız bugüne ait, konuşma anında oluyor. Şimdiki zaman: is wearing.",
+  "ses_metni": "Bugün pembe tişörtünü giyiyor. Bu yalnız bugüne ait, konuşma anında oluyor. Şimdiki zaman: /ɪz/ wearing.",
+  "duyulan": "Bugün pembe tişörtünü giyiyor. Bu yalnız bugüne ait, konuşma anında oluyor. Şimdiki zaman. Is wearing.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İkinci örnek. Kancadaki fiil: live.",
+  "duyulan": "İkinci örnek. Kancadaki fiil. Live.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I live in Istanbul with my family.",
+  "duyulan": "I live in Istanbul with my family.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Ailemle İstanbul'da yaşıyorum. Orada hep yaşıyorum. Kalıcı durum: geniş zaman.",
+  "duyulan": "Ailemle İstanbul'da yaşıyorum. Orada hep yaşıyorum. Kalıcı durum geniş zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "My parents are out of town, so I am living with my uncle.",
+  "duyulan": "My parents are out of town, so I'm living with my uncle.",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Ailem şehir dışında, bu yüzden amcamla yaşıyorum. Bu yalnız şimdilik. Geçici durum: şimdiki zaman.",
+  "duyulan": "Ailem şehir dışında, bu yüzden amcamla yaşıyorum. Bu yalnız şimdilik. Geçici durum, şimdiki zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Üçüncü örnek. İki cümle de geleceği anlatıyor.",
+  "duyulan": "Üçüncü örnek, iki cümlede geleceği anlatıyor.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "The train to Izmir leaves at seven p.m. today.",
+  "duyulan": "The train to Izmir leaves at 7 p.m. today.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İzmir treni bugün akşam yedide kalkıyor. Kalkış saati tarifede yazılı. Tarifeli gelecek: geniş zaman.",
+  "duyulan": "İzmir treni bugün akşam 7'de kalkıyor. Kalkış saati tarifede yazılı. Tarifeli gelecek, geniş zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I am going to the movie theater tonight.",
+  "duyulan": "I'm going to the movie theater tonight.",
+  "benzerlik": 0.97,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu akşam sinemaya gidiyorum. Planı ben yaptım. Planlanmış gelecek: şimdiki zaman.",
+  "duyulan": "Bu akşam sinemaya gidiyorum. Planı ben yaptım. Planlanmış gelecek. Şimdiki zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hocam, tren de plana göre kalkmıyor mu? Neden -ing yok?",
+  "ses_metni": "Hocam, tren de plana göre kalkmıyor mu? Neden /ɪŋ/ yok?",
+  "duyulan": "Hocam trende plana göre kalkmıyor mu? Neden ingi yok?",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Planı bir kişi yapar: ben, biz, arkadaşım. Tren plan yapmaz, tarifeye uyar. Tarife ya da program varsa geniş zaman kullanırız. Tarife cümlelerinde özne genelde cansızdır: tren, uçak, ders.",
+  "duyulan": "Planı bir kişi yapar. Ben, biz, arkadaşım. Tren plan yapmaz, tarifeye uyar. Tarife ya da program varsa geniş zaman kullanırız. Tarife cümlelerinde özne genelde cansızdır. Tren, uçak, ders.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Kural kartı. Bu derste üç fark gördük. Genel durum ile konuşma anı. Kalıcı durum ile geçici durum. Tarifeli gelecek ile planlanmış gelecek. Soldakiler geniş zaman, sağdakiler şimdiki zaman. Seçmeden önce cümlenin anlamına bak.",
+  "duyulan": "Kural kartı Bu derste üç fark gördük. Genel durum ile konuşma anı. Kalıcı durum ile geçici durum. Tarifeli gelecek ile planlanmış gelecek. Soldakiler geniş zaman, sağdakiler şimdiki zaman. Seçmeden önce cümlenin anlamına bak.",
+  "benzerlik": 1.0,
+  "tohum": 1
+ },
+ {
+  "dil": "tr",
+  "metin": "Karşıt çift. İki cümlede aynı sözcük var: today.",
+  "duyulan": "Karşıt çift. İki cümlede aynı sözcük var. Today.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "She is wearing her pink T-shirt today.",
+  "ses_metni": "She is wearing her pink T shirt today.",
+  "duyulan": "She is wearing her pink t-shirt today.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Burada today bugünü gösterir. Bugünkü kıyafet: konuşma anında olan durum, şimdiki zaman.",
+  "duyulan": "Burada Today bugünü gösterir. Bugünkü kıyafet, konuşma anında olan durum, şimdiki zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "The train to Izmir leaves at seven p.m. today.",
+  "duyulan": "The train to Izmir leaves at 7 p.m. today.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Burada today bir saatle geliyor: akşam yedi. Kalkış henüz olmadı, saati tarifede yazılı. Geniş zaman. Today iki cümlede de var. Farkı anlam yapıyor: konuşma anı mı, tarife mi?",
+  "duyulan": "Burada Today bir saatle geliyor. Akşam 7. Kalkış henüz olmadı. Saati tarifede yazılı. Geniş zaman. Today iki cümlede de var. Farkı anlam yapıyor. Konuşma anı mı, tarife mi?",
+  "benzerlik": 0.99,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tuzak. Türkçe ek seni yanıltabilir.",
+  "duyulan": "Tuzak. Türkçe ek seni yanıltabilir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I live in Istanbul with my family.",
+  "duyulan": "I live in Istanbul with my family.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Türkçesi yaşıyorum. Fiilde yor eki var. Yor eki şimdiki zamanı akla getirir. Ama bu cümlede -ing eki yok.",
+  "ses_metni": "Türkçesi yaşıyorum. Fiilde yor eki var. Yor eki şimdiki zamanı akla getirir. Ama bu cümlede /ɪŋ/ eki yok.",
+  "duyulan": "Türkçesi yaşıyorum. Fiilde yor eki var. Yor eki şimdiki zamanı akla getirir. Ama bu cümlede ing eki yok.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hocam, Türkçesi yaşıyorum.",
+  "duyulan": "Hocam, Türkçesi yaşıyorum.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I am living in Istanbul.",
+  "duyulan": "I am living in Istanbul.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Olmaz mı?",
+  "duyulan": "Olmaz mı?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Olur, ama anlam değişir.",
+  "duyulan": "Olur ama anlam değişir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I am living in Istanbul.",
+  "duyulan": "I'm living in Istanbul.",
+  "benzerlik": 0.95,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Şimdilik İstanbul'da yaşıyorum demek. Geçici. Ailenle hep orada yaşıyorsan:",
+  "duyulan": "Şimdilik İstanbul'da yaşıyorum demek. Geçici. Ailenle hep orada yaşıyorsan…",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I live in Istanbul.",
+  "duyulan": "I live in Istanbul.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Türkçede yor eki iki durumu da anlatır. İngilizcede ikisi ayrılır. Kalıcı mı, geçici mi? Önce bunu sor.",
+  "duyulan": "Türkçe'de yor eki iki durumu da anlatır. İngilizce'de ikisi ayrılır. Kalıcı mı, geçici mi? Önce bunu sor.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Özet. Genel durum, kalıcı durum ve tarifeli gelecek: geniş zaman. Konuşma anı, geçici durum ve planlanmış gelecek: şimdiki zaman. Zaman sözcüğü ve Türkçe ek ipucu verir. Kararı anlam verir.",
+  "ses_metni": "Özet. Genel durum, kalıcı durum ve, tarifeli gelecek: geniş zaman. Konuşma anı, geçici durum ve planlanmış gelecek: şimdiki zaman. Zaman sözcüğü ve Türkçe ek ipucu verir. Kararı anlam verir.",
+  "duyulan": "Özet. Genel durum, kalıcı durum ve tarifeli gelecek, geniş zaman. Konuşma anı, geçici durum ve planlanmış gelecek, şimdiki zaman. Zaman sözcüğü ve Türkçe ek ipucu verir. Kararı anlam verir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Mini soru.",
+  "duyulan": "Mini soru.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "My brother lives in Ankara, but this month he",
+  "duyulan": "My brother lives in Ankara, but this month he",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "with us.",
+  "duyulan": "with us.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Boşluğa hangi şık gelir? Beş şık var.",
+  "duyulan": "Boşluğa hangi şık gelir? 5 şık var.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bence A şıkkı. Yaşamak kalıcı bir durum.",
+  "duyulan": "Bence A şıkkı. Yaşamak kalıcı bir durum.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Ankara'da yaşaması kalıcı, evet. Ama boşluk bu ayı anlatıyor. Bu ay bizimle yaşıyor: geçici durum. Doğru cevap B şıkkı, yani is living. C şıkkı ve E şıkkı özneyle uyumsuz. D şıkkı tek başına cümle kuramaz.",
+  "ses_metni": "Ankara'da yaşaması kalıcı, evet. Ama boşluk bu ayı anlatıyor. Bu ay bizimle yaşıyor: geçici durum. Doğru cevap B şıkkı, yani /ɪz/ living. C şıkkı ve E şıkkı özneyle uyumsuz. D şıkkı tek başına cümle kuramaz.",
+  "duyulan": "Ankara'da yaşaması kalıcı, evet. Ama boşluk bu ayı anlatıyor. Bu ay bizimle yaşıyor. Geçici durum. Doğru cevap B şıkkı, yani is living. C şıkkı ve E şıkkı özneyle uyumsuz. D şıkkı tek başına cümle kuramaz.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Dil sınavında boşluğu görünce üç soru sor. Genel mi, şu an mı? Kalıcı mı, geçici mi? Tarife mi, plan mı? Sonraki derste -ing almayan fiilleri görüyoruz. Görüşürüz.",
+  "ses_metni": "Dil sınavında boşluğu görünce üç soru sor. Genel mi, şu an mı? Kalıcı mı, geçici mi? Tarife mi, plan mı? Sonraki derste /ɪŋ/ almayan fiilleri görüyoruz. Görüşürüz.",
+  "duyulan": "Dil sınavında boşluğu görünce 3 soru sor. Genel mi? Şu an mı? Kalıcı mı? Geçici mi? Tarife mi? Plan mı? Sonraki derste İENG'ye almayan fiilleri görüyoruz. Görüşürüz.",
+  "benzerlik": 0.99,
+  "tohum": 0
+ }
+]

@@ -1,0 +1,378 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 6.44,
+"metin": "İstanbul'da yaşıyorum. Amcamla yaşıyorum. Türkçede ikisi de yaşıyorum.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 6.91,
+"t1": 8.35,
+"metin": "I live in Istanbul.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 8.6,
+"t1": 10.44,
+"metin": "Biri geniş zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 10.69,
+"t1": 12.61,
+"metin": "I am living with my uncle.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 12.86,
+"t1": 20.3,
+"metin": "Öteki şimdiki zaman. Bu derste iki zamanın üç kullanım farkını görüyoruz. Farkı anlam belirler.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 20.77,
+"t1": 23.97,
+"metin": "Birinci örnek. Fiil aynı: wear.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "en",
+"t0": 24.22,
+"t1": 26.54,
+"metin": "She wears her coat in the winter.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 26.79,
+"t1": 32.15,
+"metin": "Kışın montunu giyer. Her kış böyle. Genel durum: geniş zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "en",
+"t0": 35.37,
+"t1": 38.49,
+"metin": "She is wearing her pink T-shirt today.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 38.65,
+"t1": 43.93,
+"metin": "Bugün pembe tişörtünü giyiyor. Bu yalnız bugüne ait, konuşma anında oluyor. Şimdiki zaman: is wearing.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 44.4,
+"t1": 47.84,
+"metin": "İkinci örnek. Kancadaki fiil: live.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "en",
+"t0": 48.09,
+"t1": 50.65,
+"metin": "I live in Istanbul with my family.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 50.82,
+"t1": 56.82,
+"metin": "Ailemle İstanbul'da yaşıyorum. Orada hep yaşıyorum. Kalıcı durum: geniş zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "en",
+"t0": 56.99,
+"t1": 61.23,
+"metin": "My parents are out of town, so I am living with my uncle.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 61.48,
+"t1": 68.92,
+"metin": "Ailem şehir dışında, bu yüzden amcamla yaşıyorum. Bu yalnız şimdilik. Geçici durum: şimdiki zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 69.39,
+"t1": 72.75,
+"metin": "Üçüncü örnek. İki cümle de geleceği anlatıyor.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "en",
+"t0": 73.0,
+"t1": 76.44,
+"metin": "The train to Izmir leaves at seven p.m. today.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 76.61,
+"t1": 84.69,
+"metin": "İzmir treni bugün akşam yedide kalkıyor. Kalkış saati tarifede yazılı. Tarifeli gelecek: geniş zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "en",
+"t0": 84.94,
+"t1": 87.42,
+"metin": "I am going to the movie theater tonight.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 87.59,
+"t1": 93.43,
+"metin": "Bu akşam sinemaya gidiyorum. Planı ben yaptım. Planlanmış gelecek: şimdiki zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 6,
+"dil": "tr",
+"t0": 93.9,
+"t1": 97.74,
+"metin": "Hocam, tren de plana göre kalkmıyor mu? Neden -ing yok?",
+"konusan": "ogrenci"
+},
+{
+"cumle": 7,
+"dil": "tr",
+"t0": 98.41,
+"t1": 113.45,
+"metin": "Planı bir kişi yapar: ben, biz, arkadaşım. Tren plan yapmaz, tarifeye uyar. Tarife ya da program varsa geniş zaman kullanırız. Tarife cümlelerinde özne genelde cansızdır: tren, uçak, ders.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 8,
+"dil": "tr",
+"t0": 113.92,
+"t1": 130.48,
+"metin": "Kural kartı. Bu derste üç fark gördük. Genel durum ile konuşma anı. Kalıcı durum ile geçici durum. Tarifeli gelecek ile planlanmış gelecek. Soldakiler geniş zaman, sağdakiler şimdiki zaman. Seçmeden önce cümlenin anlamına bak.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 9,
+"dil": "tr",
+"t0": 130.95,
+"t1": 135.35,
+"metin": "Karşıt çift. İki cümlede aynı sözcük var: today.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 9,
+"dil": "en",
+"t0": 138.57,
+"t1": 142.97,
+"metin": "She is wearing her pink T-shirt today.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 9,
+"dil": "tr",
+"t0": 143.05,
+"t1": 145.37,
+"metin": "Burada today bugünü gösterir. Bugünkü kıyafet: konuşma anında olan durum, şimdiki zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 10,
+"dil": "en",
+"t0": 145.84,
+"t1": 148.8,
+"metin": "The train to Izmir leaves at seven p.m. today.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 10,
+"dil": "tr",
+"t0": 149.05,
+"t1": 162.41,
+"metin": "Burada today bir saatle geliyor: akşam yedi. Kalkış henüz olmadı, saati tarifede yazılı. Geniş zaman. Today iki cümlede de var. Farkı anlam yapıyor: konuşma anı mı, tarife mi?",
+"konusan": "ogretmen"
+},
+{
+"cumle": 11,
+"dil": "tr",
+"t0": 162.88,
+"t1": 165.84,
+"metin": "Tuzak. Türkçe ek seni yanıltabilir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 11,
+"dil": "en",
+"t0": 166.09,
+"t1": 168.49,
+"metin": "I live in Istanbul with my family.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 11,
+"dil": "tr",
+"t0": 168.66,
+"t1": 177.38,
+"metin": "Türkçesi yaşıyorum. Fiilde yor eki var. Yor eki şimdiki zamanı akla getirir. Ama bu cümlede -ing eki yok.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 12,
+"dil": "tr",
+"t0": 177.85,
+"t1": 180.41,
+"metin": "Hocam, Türkçesi yaşıyorum.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 12,
+"dil": "en",
+"t0": 180.66,
+"t1": 182.58,
+"metin": "I am living in Istanbul.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 12,
+"dil": "tr",
+"t0": 182.83,
+"t1": 183.79,
+"metin": "Olmaz mı?",
+"konusan": "ogrenci"
+},
+{
+"cumle": 13,
+"dil": "tr",
+"t0": 184.54,
+"t1": 186.86,
+"metin": "Olur, ama anlam değişir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 13,
+"dil": "en",
+"t0": 187.11,
+"t1": 188.95,
+"metin": "I am living in Istanbul.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 13,
+"dil": "tr",
+"t0": 189.12,
+"t1": 194.72,
+"metin": "Şimdilik İstanbul'da yaşıyorum demek. Geçici. Ailenle hep orada yaşıyorsan:",
+"konusan": "ogretmen"
+},
+{
+"cumle": 13,
+"dil": "en",
+"t0": 194.89,
+"t1": 196.65,
+"metin": "I live in Istanbul.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 13,
+"dil": "tr",
+"t0": 196.9,
+"t1": 205.38,
+"metin": "Türkçede yor eki iki durumu da anlatır. İngilizcede ikisi ayrılır. Kalıcı mı, geçici mi? Önce bunu sor.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 14,
+"dil": "tr",
+"t0": 205.85,
+"t1": 220.41,
+"metin": "Özet. Genel durum, kalıcı durum ve tarifeli gelecek: geniş zaman. Konuşma anı, geçici durum ve planlanmış gelecek: şimdiki zaman. Zaman sözcüğü ve Türkçe ek ipucu verir. Kararı anlam verir.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 15,
+"dil": "tr",
+"t0": 220.88,
+"t1": 221.68,
+"metin": "Mini soru.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 15,
+"dil": "en",
+"t0": 221.93,
+"t1": 224.65,
+"metin": "My brother lives in Ankara, but this month he",
+"konusan": "ogretmen"
+},
+{
+"cumle": 15,
+"dil": "en",
+"t0": 225.4,
+"t1": 227.0,
+"metin": "with us.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 15,
+"dil": "tr",
+"t0": 227.25,
+"t1": 230.29,
+"metin": "Boşluğa hangi şık gelir? Beş şık var.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 16,
+"dil": "tr",
+"t0": 230.76,
+"t1": 234.36,
+"metin": "Bence A şıkkı. Yaşamak kalıcı bir durum.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 17,
+"dil": "tr",
+"t0": 235.03,
+"t1": 251.35,
+"metin": "Ankara'da yaşaması kalıcı, evet. Ama boşluk bu ayı anlatıyor. Bu ay bizimle yaşıyor: geçici durum. Doğru cevap B şıkkı, yani is living. C şıkkı ve E şıkkı özneyle uyumsuz. D şıkkı tek başına cümle kuramaz.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 18,
+"dil": "tr",
+"t0": 251.82,
+"t1": 264.22,
+"metin": "Dil sınavında boşluğu görünce üç soru sor. Genel mi, şu an mı? Kalıcı mı, geçici mi? Tarife mi, plan mı? Sonraki derste -ing almayan fiilleri görüyoruz. Görüşürüz.",
+"konusan": "ogretmen"
+}
+]
