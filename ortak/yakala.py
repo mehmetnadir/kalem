@@ -4,9 +4,12 @@
 <sayfa> paket köküne göre yol (ör. ornek/ucan-makine/sahneler/01-paperjs/sayfa.html).
 Sayfa ortak/surucu.js'i kur()/kare(f) ile çağırır; kareler cikis/0000.png ... olarak yazılır.
 Zaman kare numarasından gelir; Math.random yok, iki koşu aynı kareyi verir."""
-import http.server, os, sys, subprocess, threading, shutil, tempfile
+import http.server, os, sys, subprocess, threading, shutil, tempfile, platform
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import yakala_platform as yp
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CHROME = os.environ.get("CHROME", "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+SISTEM = platform.system()
+CHROME = yp.chrome_yolu(SISTEM, os.environ)
 sayfa, cikis = sys.argv[1], os.path.abspath(sys.argv[2])
 W, H = (int(sys.argv[3]), int(sys.argv[4])) if len(sys.argv) > 4 else (1920, 1080)
 shutil.rmtree(cikis, ignore_errors=True); os.makedirs(cikis)
@@ -31,8 +34,8 @@ http.server.ThreadingHTTPServer.allow_reuse_address = True
 srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), I); port = srv.server_address[1]
 threading.Thread(target=srv.serve_forever, daemon=True).start()
 prof = tempfile.mkdtemp(prefix="vm-yakala-")
-p = subprocess.Popen([CHROME, "--headless=new", f"--user-data-dir={prof}", "--no-first-run", "--use-angle=metal", "--enable-gpu",
-                      "--ignore-gpu-blocklist", f"--window-size={W},{H}", f"http://127.0.0.1:{port}/{sayfa}"],
+p = subprocess.Popen([CHROME, "--headless=new", f"--user-data-dir={prof}", "--no-first-run", *yp.gpu_bayraklari(SISTEM),
+                      f"--window-size={W},{H}", f"http://127.0.0.1:{port}/{sayfa}"],
                      stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 try:
     ok = False
