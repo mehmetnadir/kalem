@@ -202,6 +202,20 @@ class KapiOnTesti(unittest.TestCase):
         self._sahte(0)
         self.assertEqual(b.kapi_on(self.paket)[0], 0)
 
+class FfmpegSurumu(unittest.TestCase):
+  def test_fps_mode_destekli_degismez(self):
+    a = ("-i", "x", "-fps_mode", "passthrough", "o.png")
+    self.assertEqual(b.ff_arg(a, True), list(a))
+
+  def test_fps_mode_yoksa_vsync(self):
+    a = ("-i", "x", "-fps_mode", "passthrough", "o.png")
+    self.assertEqual(b.ff_arg(a, False), ["-i", "x", "-vsync", "passthrough", "o.png"])
+
+  def test_yardim_algilama(self):
+    self.assertTrue(b.fps_mode_var("  -fps_mode  video sync"))
+    self.assertFalse(b.fps_mode_var("  -vsync  video sync method"))
+
+
 if __name__ == "__main__":
     unittest.main()
 

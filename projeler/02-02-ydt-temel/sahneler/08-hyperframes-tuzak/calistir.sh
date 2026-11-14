@@ -2,7 +2,7 @@
 # Sahne 08 tuzak (HyperFrames, 1864 kare): üret -> olaylar -> (önizleme hazır | render -> video.mp4 + kontrol.png)
 # Tema: --tema acik|koyu (varsayılan acik, K19). Önizleme: ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu]
 set -e
-export PATH="/opt/homebrew/bin:$PATH"   # arm64 node >= 22 (hyperframes şartı)
+[ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"   # arm64 node >= 22 (hyperframes şartı)
 AD="$(cd "$(dirname "$0")" && pwd)"
 . "$AD/../../ortak/tema.sh" "$@"
 KOK="$AD/../../../.."                       # paket kökü (kalem)
@@ -18,7 +18,7 @@ tema_hf "$AD/proje/index.html"
 [ -n "$ONIZLE_YALNIZ" ] && { echo "önizleme hazır"; exit 0; }
 # yük bekçisi: 1 dk yük > 24 ise 60 sn bekle (en çok 5 dk)
 for i in 1 2 3 4 5; do
-  Y=$(uptime | sed 's/.*averages*: *//' | awk '{gsub(",","",$1);print int($1)}')
+  Y=$(yuk1)
   [ "$Y" -le 24 ] && break; sleep 60
 done
 cd "$AD/proje"

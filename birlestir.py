@@ -209,7 +209,24 @@ def arg_degeri(argv: list[str], bayrak: str) -> str | None:
 
 # ---------- ffmpeg / ffprobe sarmalayıcıları ----------
 
-def ff(*a: str) -> None: subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *a], check=True)
+def fps_mode_var(yardim: str) -> bool:
+    """ffmpeg -h full çıktısında -fps_mode var mı (5.1+). ffmpeg 4.4'te yok: -vsync kullanılır (aynı anlam)."""
+    return "-fps_mode" in yardim
+
+
+def ff_arg(a: tuple[str, ...], fps_mode: bool) -> list[str]:
+    """fps_mode desteklenmiyorsa '-fps_mode' -> '-vsync' (değer aynı: passthrough). Destekliyorsa değişmez (Mac)."""
+    return list(a) if fps_mode else ["-vsync" if x == "-fps_mode" else x for x in a]
+
+
+_FPS_MODE: list[bool] = []
+
+
+def ff(*a: str) -> None:
+    if not _FPS_MODE:
+        h = subprocess.run(["ffmpeg", "-hide_banner", "-h", "full"], capture_output=True, text=True)
+        _FPS_MODE.append(fps_mode_var(h.stdout + h.stderr))
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *ff_arg(a, _FPS_MODE[0])], check=True)
 
 
 def kare_say(v: str) -> int:

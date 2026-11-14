@@ -4,7 +4,8 @@ const KOK = path.resolve(import.meta.dirname, "..");
 const mime = { ".json": "application/json", ".html": "text/html", ".js": "text/javascript", ".mjs": "text/javascript" };
 const srv = http.createServer((q, r) => { const p = path.join(KOK, decodeURIComponent(q.url.split("?")[0])); fs.readFile(p, (e, d) => { if (e) { r.writeHead(404); r.end(); } else { r.writeHead(200, { "content-type": mime[path.extname(p)] || "application/octet-stream" }); r.end(d); } }); }).listen(0);
 const port = srv.address().port;
-const br = await puppeteer.launch({ executablePath: process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", headless: "new", args: ["--autoplay-policy=no-user-gesture-required"] });
+const MAC = process.platform === "darwin";   // Mac dalı eski değerlerle aynı; Linux: sistem Chrome + sandbox kapalı (sunucuda kök dışı kullanıcı)
+const br = await puppeteer.launch({ executablePath: process.env.CHROME || (MAC ? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" : "/usr/bin/google-chrome"), headless: "new", args: ["--autoplay-policy=no-user-gesture-required", ...(MAC ? [] : ["--no-sandbox"])] });
 try {
   const pg = await br.newPage(); pg.on("pageerror", (e) => console.log("[hata]", e.message));
   await pg.goto(`http://127.0.0.1:${port}/ses/ses.html?o=/${process.argv[2]}`); await pg.waitForFunction("window.hazir", { timeout: 20000 });
