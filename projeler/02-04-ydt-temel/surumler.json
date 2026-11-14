@@ -1,0 +1,48 @@
+{
+  "video": {
+    "kimlik": "02-04-ydt-temel",
+    "ders": "İngilizce",
+    "konu": "Simple Present ve Present Continuous: kullanım farkları",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-04-T",
+    "amaclar": [
+      "Genel durumda geniş zamanı, konuşma anında şimdiki zamanı seçmek",
+      "Kalıcı durumda geniş zamanı, geçici durumda şimdiki zamanı seçmek",
+      "Tarifeli gelecekte geniş zamanı, planlanmış gelecekte şimdiki zamanı seçmek",
+      "Türkçe -yor ekinin iki zamana da karşılık geldiğini bilmek; kararı anlamla vermek"
+    ],
+    "canAlici": [
+      "Önce anlama bak: genel mi, şu an mı? Kalıcı mı, geçici mi? Tarife mi, plan mı?",
+      "Genel durum, kalıcı durum, tarifeli gelecek: V1 / V-s",
+      "Konuşma anı, geçici durum, planlanmış gelecek: am / is / are + V-ing",
+      "today iki zamanda da geçer; farkı anlam yapar",
+      "Türkçe yaşıyorum iki zamana karşılık gelir: I live (kalıcı), I am living (geçici)"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Simple Present",
+      "Present Continuous",
+      "YDT"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "02-04-ydt-temel",
+      "tur": "ana-yatay",
+      "ad": "Ana video temel (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "temel",
+      "kaynak": null,
+      "durum": "taslak",
+      "onizleme": "/p/02-04-ydt-temel/onizle.html",
+      "tarih": "2026-11-14T17:56:59Z"
+    }
+  ],
+  "revizyonlar": []
+}
