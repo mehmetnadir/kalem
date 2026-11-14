@@ -1,7 +1,7 @@
 # 02-paperjs-kanca — RAPOR (14.11, P2; render yok)
 
 Motor: Paper.js · 1920×1080 · 30 fps · 529 kare (içerik 517 + geçiş 12) · t_bas 3,00 · t_son 20,22 · cümle 1 (sonu) + cümle 2.
-Tema: açık + koyu (künye ve renkler `ortak/kunye.js`); `ONIZLE_YALNIZ=1` hazırlık koştu (son koşu açık). mp4 yok.
+Tema: acik
 
 ## Yapım
 

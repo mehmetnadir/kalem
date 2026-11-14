@@ -1,5 +1,7 @@
 # Sahne 06 — Soru anı 1 (HyperFrames, 613 kare, t_bas 93,35; cümle 6 öğrenci + 7 öğretmen) · 14.11
 
+Tema: acik
+
 | Alan | Durum |
 |---|---|
 | Kapı (`qa-yerel.sh … --hazirla`) | çıkış kodu **0** · `çakışma yok (81 örnek, 57243 kutu)` |

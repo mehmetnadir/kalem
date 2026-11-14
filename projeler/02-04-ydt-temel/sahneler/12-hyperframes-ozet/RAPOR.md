@@ -1,7 +1,7 @@
 # Sahne 12 · ara özet (HyperFrames, 463 kare, 205,30–220,33 sn; cümle 14)
 
 Durum: P2 yazıldı. `ONIZLE_YALNIZ=1` hazırlığı koşuldu (son koşu AÇIK). Render yok. Kapı (`qa-yerel.sh --hazirla`) çıkış kodu 0.
-Tema: acik (koyu kareler canlı kipte `?tema=koyu` ile çekildi).
+Tema: acik
 
 ## İçerik
 BRIEF §3 No 12: `ozet` 3 madde kademeli. Her madde, kural kartının (sahne 07) karşılığına ince kalem çizgisiyle bağlanır. Perde yok, sonda geçiş çizgisi.

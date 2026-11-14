@@ -1,7 +1,7 @@
 # Sahne 07 · kural kartı (HyperFrames, 523 kare, 113,37–130,40 sn; cümle 8)
 
 Durum: P2 yazıldı. `ONIZLE_YALNIZ=1` hazırlığı koşuldu, son koşu AÇIK tema. Render yok. Kapı GEÇTİ (çıkış kodu 0).
-Tema: acik (koyu kare ayrıca çekildi).
+Tema: acik
 
 ## İçerik
 

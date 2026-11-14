@@ -1,7 +1,7 @@
 # Sahne 10 · tuzak + soru anı 2 (HyperFrames, 656 kare, 162,33–183,79 sn + 12 kare geçiş payı; cümle 11–12)
 
 Durum: P2 yazıldı (istem D, 14.11.2026, srv21). Önizleme hazırlığı `ONIZLE_YALNIZ=1` ile koştu. Render yok, commit yok.
-Tema: açık (render varsayılanı) + koyu kare denetimi.
+Tema: acik
 
 ## İçerik (BRIEF §3 No 10)
 

@@ -1,5 +1,7 @@
 # 04-canvas-ornek2 — RAPOR (14.11, P2; render yok)
 
+Tema: acik
+
 Motor: Düz canvas · 1920×1080 · 30 fps · 762 kare (içerik 750) · t_bas 43,85 · t_son 68,84 · cümle 4.
 BRIEF §3 satır 4 uygulandı: `kart` sol/sag, `cizim` (ev, bavul), `zaman_cizgisi` (uzun bant / kısa aralık bandı, now iki
 bandın içinde), `odak` (*live*, *am living*). Ekran metni senaryo-taslak satır 4'ten alındı; Türkçe çeviri yok. Çip: Example 2 / 3.

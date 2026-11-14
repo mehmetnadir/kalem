@@ -1,5 +1,7 @@
 # 05-canvas-ornek3 — RAPOR (14.11, P2; render yok)
 
+Tema: acik
+
 | Alan | Değer |
 |---|---|
 | Motor | Düz canvas · 1920×1080 · 30 fps · 747 kare (içerik 735) · t_bas 68,84 · cümle 5 |

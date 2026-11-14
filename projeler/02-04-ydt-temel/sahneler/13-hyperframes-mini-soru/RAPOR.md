@@ -1,5 +1,7 @@
 # Sahne 13 — Mini soru (02-04 YDT temel, HyperFrames, 940 kare)
 
+Tema: acik
+
 | Alan | Değer |
 |---|---|
 | Durum | P2 yazıldı · önizleme hazır (`ONIZLE_YALNIZ=1`) · kapı GEÇTİ (çıkış 0) · render YOK |

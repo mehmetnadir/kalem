@@ -1,7 +1,7 @@
 # Sahne 14 — Kapanış (02-04 YDT temel, HyperFrames, 431 kare, t_bas 251,27; cümle 18; son sahne, geçişsiz)
 
 Durum: P2 yazıldı. `ONIZLE_YALNIZ=1` hazırlığı koşuldu, son koşu AÇIK tema. Render yok. Kapı GEÇTİ (çıkış kodu 0, çakışma yok).
-Tema: acik (koyu kare ayrıca çekildi).
+Tema: acik
 Dosyalar: `uret.py` · `olay.py` · `yardim.py` · `calistir.sh` · `proje/index.html` · `olaylar.json` (16 ses olayı, 6 çizgi).
 
 ## İçerik (BRIEF §3 No 14)

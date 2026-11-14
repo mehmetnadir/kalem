@@ -1,7 +1,7 @@
 # Sahne 01 · giriş (HyperFrames, 102 kare, 0,00–3,00 sn + 12 kare geçiş payı)
 
 Durum: P2 yazıldı (istem D, 14.11.2026, srv21). Önizleme hazırlığı `ONIZLE_YALNIZ=1` ile koştu. Render yok, commit yok.
-Tema: açık (render varsayılanı) + koyu kare denetimi.
+Tema: acik
 
 ## İçerik (BRIEF §3 No 1)
 Soğuk açılış (K23). Logo damgası 0,00 sn ortada, 0,50–0,95 künye köşesine uçar. Bölüm (`Hook`) ve ajanda 0,70–0,95 açılır.

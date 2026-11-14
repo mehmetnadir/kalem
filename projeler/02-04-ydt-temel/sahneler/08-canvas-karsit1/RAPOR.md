@@ -1,7 +1,7 @@
 # Sahne 08 Karşıt çift 1 (yatay) — RAPOR (14.11)
 
 Motor: Düz canvas · 1920×1080 · 30 fps · 459 kare (içerik 447; zaman.json ile birebir) · t_bas 130,40 · t_son 145,29 · cümle 9
-Tema: açık (render varsayılanı) + koyu (`ortak/kunye.js` TEMALAR). Künye bölüm çipi `Contrast 1 / 2`.
+Tema: acik
 
 ## Durum
 

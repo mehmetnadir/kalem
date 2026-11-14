@@ -1,7 +1,7 @@
 # Sahne 11 Tuzak cevabı (yatay) — RAPOR (14.11)
 
 Motor: Düz canvas · 1920×1080 · 30 fps · 657 kare (içerik 645; zaman.json ile birebir) · t_bas 183,79 · t_son 205,30 · cümle 13
-Tema: açık (render varsayılanı) + koyu (`ortak/kunye.js` TEMALAR). Künye bölüm çipi `Trap · answer`, ajanda etkin `Trap`.
+Tema: acik
 
 ## Durum
 

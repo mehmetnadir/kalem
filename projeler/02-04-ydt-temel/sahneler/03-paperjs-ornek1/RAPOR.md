@@ -1,7 +1,7 @@
 # 03-paperjs-ornek1 — RAPOR (14.11, P2; render yok)
 
 Motor: Paper.js · 1920×1080 · 30 fps · 721 kare (içerik 709 + 12 geçiş) · t_bas 20,22 · t_son 43,85 · cümle 3.
-Tema: açık + koyu (`ortak/kunye.js`), künye bölümü `Example 1 / 3`, ajanda `Examples`.
+Tema: acik
 Dosyalar: `sayfa.html` · `sahne-03.js` · `kalem-paper.js` (02-03 sahne 03 kopyası; yollar 02-04, `yazi()` kutusu kapıya görünür) ·
 `calistir.sh` (homebrew koşullu, `Y=$(yuk1)`, geçici kareler `~/Silinecekler/2026-11-14-0204/`).
 

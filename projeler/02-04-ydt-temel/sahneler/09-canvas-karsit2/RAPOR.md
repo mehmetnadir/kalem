@@ -1,5 +1,7 @@
 # 09-canvas-karsit2 — RAPOR (14.11, P2; render yok)
 
+Tema: acik
+
 | Alan | Değer |
 |---|---|
 | Motor | Düz canvas · 1920×1080 · 30 fps · 523 kare (içerik 511) · t_bas 145,29 · t_son 162,33 · cümle 10 |
