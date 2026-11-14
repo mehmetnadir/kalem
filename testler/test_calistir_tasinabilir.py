@@ -67,6 +67,17 @@ class Tasinabilir(unittest.TestCase):
       c = subprocess.run(["bash", "-c", f'. "{tm}" >/dev/null 2>&1; yuk1'], capture_output=True, text=True)
       self.assertRegex(c.stdout.strip(), r"^\d+$", tm)
 
+  def test_kur_ffmpeg_yolu_tasinabilir(self):
+    # 14.11: kur.py sabit /opt/homebrew/bin/ffmpeg yazıyordu; sunucuda (Linux) PATH'teki ffmpeg önce gelir.
+    kurlar = sorted(glob.glob(os.path.join(KOK, "projeler", "*", "ortak", "anlatim", "kur.py")))
+    self.assertGreater(len(kurlar), 0)
+    for k in kurlar:
+      with open(k, encoding="utf-8") as f:
+        s = f.read()
+      self.assertNotRegex(s, r'(?m)^FFMPEG = "/opt/homebrew/bin/ffmpeg"\s*$', k)
+      if "FFMPEG =" in s:
+        self.assertIn('shutil.which("ffmpeg")', s, k)
+
 
 if __name__ == "__main__":
   unittest.main()

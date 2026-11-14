@@ -3,13 +3,14 @@ Tek kaynak: cumle-baslar.json (sozcuk_uret.py: ilk söz 1,00 sn; sonraki başlar
 toplam süre = zaman.json son sahne t_son. Çıktı 48 kHz mono 16 bit.
 Kullanım: /usr/bin/python3 -I kur.py [cikti.wav]   (varsayılan: anlatim.wav, bu dizinde)"""
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
 
 AD = Path(__file__).resolve().parent
 PROJE = AD.parent.parent
-FFMPEG = "/opt/homebrew/bin/ffmpeg"
+FFMPEG = shutil.which("ffmpeg") or "/opt/homebrew/bin/ffmpeg"  # 14.11: Linux sunucuda /usr/bin/ffmpeg
 
 
 def baslar() -> dict[int, float]:

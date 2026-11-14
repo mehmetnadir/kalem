@@ -6,12 +6,13 @@ Sayaç sessizliği (2,0 sn, satır 7.2) cümlenin kendi `sus` parçasıdır, sur
 Toplam süre = son cümlenin bitişi + 0,5 sn (zaman.json son sahne t_son ile aynı kural).
 Kullanım: /usr/bin/python3 -I kur.py [cikti.wav]   (varsayılan: anlatim.wav, bu dizinde)"""
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
 
 AD = Path(__file__).resolve().parent
-FFMPEG = "/opt/homebrew/bin/ffmpeg"
+FFMPEG = shutil.which("ffmpeg") or "/opt/homebrew/bin/ffmpeg"  # 14.11: Linux sunucuda /usr/bin/ffmpeg
 ILK_SOZ = 1.00
 BOSLUK = 0.55
 BOSLUK_OGRENCI = 0.70

@@ -3,13 +3,14 @@ Tek kaynak: sozcukler.json (cümle başı = ilk sözcüğün t0'ı − sureler.j
 cümle başlarını sureler.json + cümle arası sessizlikten hesaplar), toplam süre = zaman.json son sahne t_son (anlatım sonu + 0,5 sn). Çıktı 48 kHz mono 16 bit.
 Kullanım: /usr/bin/python3 -I kur.py [cikti.wav]   (varsayılan: anlatim.wav, bu dizinde)"""
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
 
 AD = Path(__file__).resolve().parent
 PROJE = AD.parent.parent
-FFMPEG = "/opt/homebrew/bin/ffmpeg"
+FFMPEG = shutil.which("ffmpeg") or "/opt/homebrew/bin/ffmpeg"  # 14.11: Linux sunucuda /usr/bin/ffmpeg
 
 
 def baslar() -> dict[int, float]:
