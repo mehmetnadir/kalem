@@ -2,14 +2,14 @@
 # Sahne 05 DİKEY (düz canvas, 517 kare): yakala -> OLAYLAR -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png.
 # Tema: --tema acik|koyu (varsayılan acik, K19). Paket kökünden bağımsız.
 set -eo pipefail
-export PATH="/opt/homebrew/bin:$PATH"
+[ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"
 D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KAREDIR="$D/kareler"
 . "$D/../../ortak/tema.sh" "$@"
 N=517; TBAS=45.98; KLASOR=05-canvas-ornek3; GLOBAL_SN="51.0 55.0 61.5"
 cd "$K"
 BAS=$(date +%s)
 for i in 1 2 3 4 5; do
-  Y=$(uptime | sed 's/.*load averages*: //' | awk '{gsub(",","",$1); print int($1)}')
+  Y=$(yuk1)
   [ "$Y" -le 24 ] && break; echo "yük $Y > 24, 60 sn bekle"; sleep 60
 done
 perl -e 'alarm 480; exec @ARGV' /usr/bin/python3 ortak/yakala.py \

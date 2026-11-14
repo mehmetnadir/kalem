@@ -3,7 +3,7 @@
 # yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png. Tema: --tema acik|koyu (varsayılan acik, K19).
 # Geçici kareler bitince ~/Silinecekler/2026-11-13-02-03-ydt-temel/ altına taşınır (silme yok).
 set -eo pipefail
-export PATH=/opt/homebrew/bin:$PATH
+[ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"
 D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=543
 KLASOR=03-paperjs-ornek1; PROJE=02-03-ydt-temel; TBAS=15.31; GLOBAL_SN="19.0 24.5 29.5"
 . "$D/../../ortak/tema.sh" "$@"
@@ -11,7 +11,7 @@ KLASOR=03-paperjs-ornek1; PROJE=02-03-ydt-temel; TBAS=15.31; GLOBAL_SN="19.0 24.
 cd "$K"
 BAS=$(date +%s)
 for i in 1 2 3 4 5; do
-  Y=$(uptime | sed 's/.*averages*: *//' | awk '{gsub(",","",$1); print int($1)}')
+  Y=$(yuk1)
   [ "$Y" -le 24 ] && break; echo "yük $Y > 24, 60 sn bekle"; sleep 60
 done
 perl -e 'alarm 480; exec @ARGV' /usr/bin/python3 ortak/yakala.py projeler/$PROJE/sahneler/$KLASOR/sayfa.html$SORGU "$KARE_DIR" | tee "$D/yakala.log"

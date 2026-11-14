@@ -7,7 +7,7 @@ N=521; TBAS=47.82; KLASOR=05-canvas-ornek3; GLOBAL_SN="51.5 57.5 63.8"
 cd "$K"
 BAS=$(date +%s)
 for i in 1 2 3 4 5; do
-  Y=$(uptime | sed 's/.*load averages*: //' | awk '{gsub(",","",$1); print int($1)}')
+  Y=$(yuk1)
   [ "$Y" -le 24 ] && break; echo "yük $Y > 24, 60 sn bekle"; sleep 60
 done
 perl -e 'alarm 480; exec @ARGV' /usr/bin/python3 ortak/yakala.py projeler/simple-past-temel/sahneler/$KLASOR/sayfa.html$SORGU "$KAREDIR" | tee "$D/yakala.log"

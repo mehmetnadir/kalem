@@ -3,7 +3,7 @@
 # Tema: --tema acik|koyu (varsayılan acik, K19). Geçici kareler ~/Silinecekler/2026-11-13-02-02-ydt-ileri/ altına taşınır (silme yok).
 # P2 (render yok): ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu] → yalnız önizleme hazırlığı (canvas sahnesinde hazırlık yok).
 set -eo pipefail
-export PATH=/opt/homebrew/bin:$PATH
+[ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"
 D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=858
 KLASOR=07-canvas-kok2-tabela; PROJE=02-02-ydt-ileri; TBAS=129.38; GLOBAL_SN="133.5 140.5 148.0 152.9 156.9"
 . "$D/../../ortak/tema.sh" "$@"
@@ -11,7 +11,7 @@ KLASOR=07-canvas-kok2-tabela; PROJE=02-02-ydt-ileri; TBAS=129.38; GLOBAL_SN="133
 cd "$K"
 BAS=$(date +%s)
 for i in 1 2 3 4 5; do
-  Y=$(uptime | sed 's/.*averages*: *//' | awk '{gsub(",","",$1); print int($1)}')
+  Y=$(yuk1)
   [ "$Y" -le 24 ] && break; echo "yük $Y > 24, 60 sn bekle"; sleep 60
 done
 perl -e 'alarm 900; exec @ARGV' /usr/bin/python3 ortak/yakala.py projeler/$PROJE/sahneler/$KLASOR/sayfa.html$SORGU "$KARE_DIR" | tee "$D/yakala.log"

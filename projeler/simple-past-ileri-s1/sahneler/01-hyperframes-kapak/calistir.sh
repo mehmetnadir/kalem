@@ -2,7 +2,7 @@
 # Sahne 01 kapak (HyperFrames DİKEY 1080x1920, 102 kare): üret -> olaylar -> render -> video.mp4 + kontrol.png + k/*.png
 # Tema: --tema acik|koyu (varsayılan acik, K19).
 set -e
-export PATH="/opt/homebrew/bin:$PATH"   # arm64 node >= 22 (hyperframes şartı)
+[ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"   # arm64 node >= 22 (hyperframes şartı)
 AD="$(cd "$(dirname "$0")" && pwd)"
 . "$AD/../../ortak/tema.sh" "$@"
 KOK="$AD/../../../.."                       # paket kökü (kalem)
@@ -16,7 +16,7 @@ cp "$ORTAK/logo/$LOGO_DOSYA" "$AD/proje/assets/logo.svg"
 tema_hf "$AD/proje/index.html"
 # yük bekçisi: 1 dk yük > 24 ise 60 sn bekle (en çok 5 dk)
 for i in 1 2 3 4 5; do
-  Y=$(uptime | sed 's/.*averages*: *//' | awk '{gsub(",","",$1);print int($1)}')
+  Y=$(yuk1)
   [ "$Y" -le 24 ] && break; sleep 60
 done
 cd "$AD/proje"

@@ -3,7 +3,7 @@
 # Geçici kareler bitince ~/Silinecekler/2026-11-13-02-03-ydt-ileri/ altına taşınır (silme yok).
 # P2 (render yok): ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu] → yalnız önizleme hazırlığı (Paper.js sahnesinde hazırlık yok).
 set -eo pipefail
-export PATH=/opt/homebrew/bin:$PATH
+[ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"
 D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=${KARE_SAYISI:-1277}
 KLASOR=09-paperjs-tuzak; PROJE=02-03-ydt-ileri; TBAS=221.32; GLOBAL_SN="223.5 227.5 234.5 240.0 249.0 258.5 262.9"
 . "$D/../../ortak/tema.sh" "$@"
@@ -11,7 +11,7 @@ KLASOR=09-paperjs-tuzak; PROJE=02-03-ydt-ileri; TBAS=221.32; GLOBAL_SN="223.5 22
 cd "$K"
 BAS=$(date +%s)
 for i in 1 2 3 4 5; do
-  Y=$(uptime | sed 's/.*averages*: *//' | awk '{gsub(",","",$1); print int($1)}')
+  Y=$(yuk1)
   [ "$Y" -le 24 ] && break; echo "yük $Y > 24, 60 sn bekle"; sleep 60
 done
 perl -e 'alarm 900; exec @ARGV' /usr/bin/python3 ortak/yakala.py projeler/$PROJE/sahneler/$KLASOR/sayfa.html$SORGU "$KARE_DIR" | tee "$D/yakala.log"

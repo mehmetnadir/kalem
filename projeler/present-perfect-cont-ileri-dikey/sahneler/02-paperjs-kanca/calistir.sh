@@ -8,7 +8,7 @@ KLASOR=02-paperjs-kanca; TBAS=3.0; GLOBAL_SN="4.8 8.5 13.0"
 cd "$K"
 BAS=$(date +%s)
 for i in 1 2 3 4 5; do
-  Y=$(uptime | sed 's/.*averages*: *//' | awk '{gsub(",","",$1); print int($1)}')
+  Y=$(yuk1)
   [ "$Y" -le 24 ] && break; echo "yük $Y > 24, 60 sn bekle"; sleep 60
 done
 perl -e 'alarm 1200; exec @ARGV' /usr/bin/python3 ortak/yakala.py projeler/present-perfect-cont-ileri-dikey/sahneler/$KLASOR/sayfa.html$SORGU "$KARE_DIR" 1080 1920 | tee "$D/yakala.log"

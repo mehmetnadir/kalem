@@ -4,7 +4,7 @@
 # Çıktı: <proje>/cikti.mp4 (açık) ve <proje>/cikti-koyu.mp4 (koyu); günlük <proje>/_matris.log (süreler, yük).
 # Sahne sırası zaman.json'daki klasör sırasıdır; her sahnenin calistir.sh'ı kendi yük bekçisini taşır.
 set -eo pipefail
-export PATH=/opt/homebrew/bin:$PATH
+[ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"
 P="${1:?proje dizini gerekli (ör. projeler/present-continuous)}"; T="${2:-ikisi}"
 K="$(cd "$(dirname "$0")/.." && pwd)"; cd "$K"
 [ -f "$P/zaman.json" ] || { echo "zaman.json yok: $P" >&2; exit 2; }

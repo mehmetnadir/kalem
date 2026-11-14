@@ -8,7 +8,7 @@ KLASOR=02-paperjs-ornek; TBAS=3.0; GLOBAL_SN="3.2 5.0 7.0 8.2 10.0 12.7 15.0"
 cd "$K"
 BAS=$(date +%s)
 for i in 1 2 3 4 5; do
-  Y=$(uptime | sed 's/.*averages*: *//' | awk '{gsub(",","",$1); print int($1)}')
+  Y=$(yuk1)
   [ "$Y" -le 24 ] && break; echo "yük $Y > 24, 60 sn bekle"; sleep 60
 done
 perl -e 'alarm 1200; exec @ARGV' /usr/bin/python3 ortak/yakala.py \

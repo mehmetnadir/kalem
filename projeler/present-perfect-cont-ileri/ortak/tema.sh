@@ -21,3 +21,8 @@ tema_hf() { /usr/bin/python3 -I "$_TEMA_DIZIN/hf_tema.py" "$1" "$TEMA"; }
 # iki tema art arda yakalanınca biri diğerini ezmez.
 tema_bitir() { /usr/bin/python3 "$_TEMA_DIZIN/tema_damga.py" "$1" "$TEMA"; [ -f "$1/video.mp4" ] && cp "$1/video.mp4" "$1/video-$TEMA.mp4"; true; }
 echo "tema: $TEMA" >&2
+# 1 dk yük ortalaması (tam sayı): Linux /proc/loadavg, yoksa uptime (macOS "averages: 3.1 3.4" ve Linux "average: 3.10, ..." biçimleri).
+yuk1() {
+  if [ -r /proc/loadavg ]; then awk '{print int($1)}' /proc/loadavg
+  else uptime | sed 's/.*averages*: *//' | awk '{gsub(",","",$1); print int($1)}'; fi
+}
