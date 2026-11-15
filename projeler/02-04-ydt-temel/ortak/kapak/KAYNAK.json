@@ -1,0 +1,30 @@
+{
+  "kaynak": "imagen.ndr.ist (imagen MCP)",
+  "standart": "dijital-anlatim/.claude/docs/kapak-standardi.md",
+  "gorseller": [
+    {
+      "dosya": "karakter.png",
+      "uretim_id": "3c22184a-e98e-4fbd-892f-e0f028e2490d",
+      "kaynak_uretim_id": "98187b83-d153-4bbb-8ef2-6abcc17564e7",
+      "tarif": "genç kadın öğrenci, uzun düz saç, uzun kâkül, yuvarlak gözlük, kazak; bel üstü; iki avuç açık 'hangisi?' ifadesi",
+      "model": "nano-banana-2",
+      "kalite": "1k",
+      "usd": 0.04,
+      "tarih": "2026-11-15",
+      "stil": "bold flat sticker, thick confident black outline, hand-drawn doodle feel, palette limited to warm yellow #fece00, off-white cream and black, flat shading, no gradients",
+      "zemin": "şeffaf (panel arka plan temizleyici)"
+    },
+    {
+      "dosya": "nesne.png",
+      "uretim_id": "ef03d9f7-88eb-4d23-92b7-212faa78968b",
+      "kaynak_uretim_id": "0a14a880-f7e7-4a64-a232-9ffa6f4f6854",
+      "tarif": "tek direkte zıt yönlü iki boş ok tabelası",
+      "model": "nano-banana-2",
+      "kalite": "1k",
+      "usd": 0.04,
+      "tarih": "2026-11-15",
+      "stil": "bold flat sticker, thick confident black outline, hand-drawn doodle feel, palette limited to warm yellow #fece00, off-white cream and black, flat shading, no gradients",
+      "zemin": "şeffaf (panel arka plan temizleyici)"
+    }
+  ]
+}
