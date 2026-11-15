@@ -1,0 +1,30 @@
+{
+  "kaynak": "imagen.ndr.ist (imagen MCP)",
+  "standart": "dijital-anlatim/.claude/docs/kapak-standardi.md",
+  "gorseller": [
+    {
+      "dosya": "karakter.png",
+      "uretim_id": "2a771f8e-4583-437f-9e53-d62603e5de5c",
+      "kaynak_uretim_id": "98187b83-d153-4bbb-8ef2-6abcc17564e7",
+      "tarif": "genç kız, uzun düz sarı saç ve kâkül, yuvarlak gözlük, sarı kazak; bel üstü; açık kitabın üstüne yorgun eğilmiş, eli yanağında, yorgun ama gülümsüyor, ter damlası",
+      "model": "nano-banana-2",
+      "kalite": "1k",
+      "usd": 0.04,
+      "tarih": "2026-11-15",
+      "stil": "bold flat sticker, thick confident black outline, hand-drawn doodle feel, palette limited to warm yellow #fece00, off-white cream and black, flat shading, no gradients",
+      "zemin": "şeffaf (panel arka plan temizleyici)"
+    },
+    {
+      "dosya": "nesne.png",
+      "uretim_id": "f1d2fe73-d18e-40b7-aca3-5e8878ceef8a",
+      "kaynak_uretim_id": "50256ed7-298b-4c24-bde9-9693426d6c41",
+      "tarif": "çalar saat, kadranda rakam yok, yalnız çizgiler",
+      "model": "nano-banana-2",
+      "kalite": "1k",
+      "usd": 0.04,
+      "tarih": "2026-11-15",
+      "stil": "bold flat sticker, thick confident black outline, hand-drawn doodle feel, palette limited to warm yellow #fece00, off-white cream and black, flat shading, no gradients",
+      "zemin": "şeffaf (panel arka plan temizleyici)"
+    }
+  ]
+}

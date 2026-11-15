@@ -1,0 +1,30 @@
+{
+  "kaynak": "imagen.ndr.ist (imagen MCP)",
+  "standart": "dijital-anlatim/.claude/docs/kapak-standardi.md",
+  "gorseller": [
+    {
+      "dosya": "karakter.png",
+      "uretim_id": "631dbcf2-36b7-4451-a283-e9972119a24a",
+      "kaynak_uretim_id": "5debca50-1608-4f92-8f9c-3c5095b64fe0",
+      "tarif": "genç erkek, iri kıvırcık saç, yuvarlak gözlük, koyu düğmeli ceket; bel üstü; avucu öne açık 'dur' işareti, öteki el belde, kaşlar çatık",
+      "model": "nano-banana-2",
+      "kalite": "1k",
+      "usd": 0.04,
+      "tarih": "2026-11-15",
+      "stil": "bold flat sticker, thick confident black outline, hand-drawn doodle feel, palette limited to warm yellow #fece00, off-white cream and black, flat shading, no gradients",
+      "zemin": "şeffaf (panel arka plan temizleyici)"
+    },
+    {
+      "dosya": "nesne.png",
+      "uretim_id": "f0919742-1bf4-430d-b238-306d13860337",
+      "kaynak_uretim_id": "50256ed7-298b-4c24-bde9-9693426d6c41",
+      "tarif": "boş sekizgen dur tabelası, yazısız",
+      "model": "nano-banana-2",
+      "kalite": "1k",
+      "usd": 0.04,
+      "tarih": "2026-11-15",
+      "stil": "bold flat sticker, thick confident black outline, hand-drawn doodle feel, palette limited to warm yellow #fece00, off-white cream and black, flat shading, no gradients",
+      "zemin": "şeffaf (panel arka plan temizleyici)"
+    }
+  ]
+}

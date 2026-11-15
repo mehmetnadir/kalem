@@ -1,0 +1,30 @@
+{
+  "kaynak": "imagen.ndr.ist (imagen MCP)",
+  "standart": "dijital-anlatim/.claude/docs/kapak-standardi.md",
+  "gorseller": [
+    {
+      "dosya": "karakter.png",
+      "uretim_id": "c7746076-b995-4dee-be3c-3eecb488e4e3",
+      "kaynak_uretim_id": "5debca50-1608-4f92-8f9c-3c5095b64fe0",
+      "tarif": "genç erkek, iri kıvırcık saç, yuvarlak gözlük, koyu düğmeli ceket; bel üstü; iki eliyle terazi gibi tartıyor (bir el yukarı, bir el aşağı), düşünceli",
+      "model": "nano-banana-2",
+      "kalite": "1k",
+      "usd": 0.04,
+      "tarih": "2026-11-15",
+      "stil": "bold flat sticker, thick confident black outline, hand-drawn doodle feel, palette limited to warm yellow #fece00, off-white cream and black, flat shading, no gradients",
+      "zemin": "şeffaf (panel arka plan temizleyici)"
+    },
+    {
+      "dosya": "nesne.png",
+      "uretim_id": "861649d6-5293-4593-adb5-68039a62c03f",
+      "kaynak_uretim_id": "50256ed7-298b-4c24-bde9-9693426d6c41",
+      "tarif": "kum saati",
+      "model": "nano-banana-2",
+      "kalite": "1k",
+      "usd": 0.04,
+      "tarih": "2026-11-15",
+      "stil": "bold flat sticker, thick confident black outline, hand-drawn doodle feel, palette limited to warm yellow #fece00, off-white cream and black, flat shading, no gradients",
+      "zemin": "şeffaf (panel arka plan temizleyici)"
+    }
+  ]
+}

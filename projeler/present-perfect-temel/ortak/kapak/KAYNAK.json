@@ -1,0 +1,30 @@
+{
+  "kaynak": "imagen.ndr.ist (imagen MCP)",
+  "standart": "dijital-anlatim/.claude/docs/kapak-standardi.md",
+  "gorseller": [
+    {
+      "dosya": "karakter.png",
+      "uretim_id": "391d3931-7572-409d-bd3d-975a7c710b29",
+      "kaynak_uretim_id": "98187b83-d153-4bbb-8ef2-6abcc17564e7",
+      "tarif": "genç kız, uzun düz sarı saç ve kâkül, yuvarlak gözlük, sarı kazak; bel üstü; iki eliyle boş ceplerini dışarı çevirmiş, şaşkın 'eyvah' ifadesi (yeniden üretildi: ilk denemede cepler kol gibi görünüyordu)",
+      "model": "nano-banana-2",
+      "kalite": "1k",
+      "usd": 0.08,
+      "tarih": "2026-11-15",
+      "stil": "bold flat sticker, thick confident black outline, hand-drawn doodle feel, palette limited to warm yellow #fece00, off-white cream and black, flat shading, no gradients",
+      "zemin": "şeffaf (panel arka plan temizleyici)"
+    },
+    {
+      "dosya": "nesne.png",
+      "uretim_id": "55d83803-d87a-4fad-a502-4a95173437e4",
+      "kaynak_uretim_id": "50256ed7-298b-4c24-bde9-9693426d6c41",
+      "tarif": "tek eski tip anahtar",
+      "model": "nano-banana-2",
+      "kalite": "1k",
+      "usd": 0.04,
+      "tarih": "2026-11-15",
+      "stil": "bold flat sticker, thick confident black outline, hand-drawn doodle feel, palette limited to warm yellow #fece00, off-white cream and black, flat shading, no gradients",
+      "zemin": "şeffaf (panel arka plan temizleyici)"
+    }
+  ]
+}

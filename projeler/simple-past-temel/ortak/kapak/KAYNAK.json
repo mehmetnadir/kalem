@@ -1,0 +1,30 @@
+{
+  "kaynak": "imagen.ndr.ist (imagen MCP)",
+  "standart": "dijital-anlatim/.claude/docs/kapak-standardi.md",
+  "gorseller": [
+    {
+      "dosya": "karakter.png",
+      "uretim_id": "f99c942d-b8ac-44a0-af1d-20fa63cd7e6f",
+      "kaynak_uretim_id": "98187b83-d153-4bbb-8ef2-6abcc17564e7",
+      "tarif": "genç kız, uzun düz sarı saç ve kâkül, yuvarlak gözlük, sarı kazak; bel üstü; omzunun üstünden geriye bakıp el sallıyor, hafif özlemli gülümseme",
+      "model": "nano-banana-2",
+      "kalite": "1k",
+      "usd": 0.04,
+      "tarih": "2026-11-15",
+      "stil": "bold flat sticker, thick confident black outline, hand-drawn doodle feel, palette limited to warm yellow #fece00, off-white cream and black, flat shading, no gradients",
+      "zemin": "şeffaf (panel arka plan temizleyici)"
+    },
+    {
+      "dosya": "nesne.png",
+      "uretim_id": "67f2be3c-15d8-47c6-8b95-7222efd1199e",
+      "kaynak_uretim_id": "50256ed7-298b-4c24-bde9-9693426d6c41",
+      "tarif": "saat yönünün tersine dönen kalın geri sarma oku (yeniden üretildi: ilk denemede ok saat yönündeydi)",
+      "model": "nano-banana-2",
+      "kalite": "1k",
+      "usd": 0.08,
+      "tarih": "2026-11-15",
+      "stil": "bold flat sticker, thick confident black outline, hand-drawn doodle feel, palette limited to warm yellow #fece00, off-white cream and black, flat shading, no gradients",
+      "zemin": "şeffaf (panel arka plan temizleyici)"
+    }
+  ]
+}

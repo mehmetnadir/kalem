@@ -1,0 +1,30 @@
+{
+  "kaynak": "imagen.ndr.ist (imagen MCP)",
+  "standart": "dijital-anlatim/.claude/docs/kapak-standardi.md",
+  "gorseller": [
+    {
+      "dosya": "karakter.png",
+      "uretim_id": "8c6efa9f-5042-48a4-9a12-8b946e21893e",
+      "kaynak_uretim_id": "5debca50-1608-4f92-8f9c-3c5095b64fe0",
+      "tarif": "genç erkek, iri kıvırcık saç, yuvarlak gözlük, koyu düğmeli ceket; bel üstü; işaret parmağı havada 'dikkat' uyarısı, tek kaş kalkık, bilmiş gülümseme",
+      "model": "nano-banana-2",
+      "kalite": "1k",
+      "usd": 0.04,
+      "tarih": "2026-11-15",
+      "stil": "bold flat sticker, thick confident black outline, hand-drawn doodle feel, palette limited to warm yellow #fece00, off-white cream and black, flat shading, no gradients",
+      "zemin": "şeffaf (panel arka plan temizleyici)"
+    },
+    {
+      "dosya": "nesne.png",
+      "uretim_id": "dff9e8c1-fa0e-45a2-b320-7d100e8c8dd9",
+      "kaynak_uretim_id": "50256ed7-298b-4c24-bde9-9693426d6c41",
+      "tarif": "yaprakları kopan duvar takvimi, boş kareler, rakam ve yazı yok",
+      "model": "nano-banana-2",
+      "kalite": "1k",
+      "usd": 0.04,
+      "tarih": "2026-11-15",
+      "stil": "bold flat sticker, thick confident black outline, hand-drawn doodle feel, palette limited to warm yellow #fece00, off-white cream and black, flat shading, no gradients",
+      "zemin": "şeffaf (panel arka plan temizleyici)"
+    }
+  ]
+}
