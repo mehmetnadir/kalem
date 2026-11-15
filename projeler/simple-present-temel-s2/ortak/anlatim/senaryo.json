@@ -1,0 +1,147 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Simple Present",
+ "duzen": "konu",
+ "seviye": "temel",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Usually görünce hangi zaman?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Usually görünce hangi zaman?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "My brother usually goes to school by bus."
+    ],
+    [
+     "tr",
+     "Alışkanlık işareti."
+    ],
+    [
+     "tr",
+     "Şu an değil, her sabah yedide kalkarım gibi."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "My brother usually goes to school by bus. Alışkanlık işareti. Şu an değil, her sabah yedide kalkarım gibi."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "Usually, always, every day: Simple Present."
+    ],
+    [
+     "tr",
+     "Bu kuralı kaybetme. Kaydet."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Usually, always, every day: Simple Present. Bu kuralı kaybetme. Kaydet."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Bitmedi, gel."
+    ],
+    [
+     "tr",
+     "Dersin tamamı YDS Publishing YouTube kanalında."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bitmedi, gel. Dersin tamamı YDS Publishing YouTube kanalında."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "USUALLY",
+  "satir2": "= ALIŞKANLIK",
+  "rozetler": [
+   "YDT · BASIC"
+  ],
+  "sahne": [
+   {
+    "ad": "calendar",
+    "x": 26,
+    "y": 60,
+    "olcek": 0.45
+   },
+   {
+    "figur": "ogrenci",
+    "x": 70,
+    "y": 58,
+    "olcek": 0.8
+   }
+  ]
+ },
+ "meta": {
+  "kimlik": "02-02-ydt-temel-s2",
+  "kod": "ING-YDT-GR-02-02-T-S2",
+  "ders": "İngilizce",
+  "konu": "Simple Present",
+  "kitle": "ydt",
+  "seviye": "temel",
+  "kapak": {
+   "satir1": "USUALLY",
+   "satir2": "= ALIŞKANLIK",
+   "canAlici": "usually, always, every day = tekrar eden iş sinyali"
+  },
+  "amaclar": [
+   "Simple Present formunu kurmak (fiil, fiil + s, do / does)",
+   "zaman ifadelerini tanımak",
+   "genelleme, alışkanlık ve tarife kullanımlarını ayırt etmek",
+   "Türkçe geniş zaman eki ile köprü"
+  ],
+  "canAlici": [
+   "Türkçedeki geniş zaman eki = İngilizcedeki s: gider = goes",
+   "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
+   "usually, always, every day = tekrar eden iş sinyali",
+   "he, she, it fiile s alır; I, you, we, they almaz",
+   "3 örnek, 1 kural: üçünde de fiilin sonunda s"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "temel",
+   "gramer",
+   "Simple Present",
+   "YDT",
+   "shorts"
+  ]
+ }
+}

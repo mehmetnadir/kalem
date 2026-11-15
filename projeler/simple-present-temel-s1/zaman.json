@@ -8,38 +8,81 @@
   "sahneler": [
     {
       "no": 1,
-      "klasor": "01-hyperframes-kapak",
+      "klasor": "01-hyperframes-kanca",
       "motor": "HyperFrames",
       "kare": 102,
       "t_bas": 0.0,
       "t_son": 3.0,
       "icerik_kare": 90,
-      "ad": "Kapak",
-      "bolum": "Kapak",
-      "gecis": "BookFlip"
+      "ad": "Kanca",
+      "bolum": "Kanca"
     },
     {
       "no": 2,
-      "klasor": "02-paperjs-ornek",
+      "klasor": "02-paperjs-deger",
       "motor": "Paper.js",
-      "kare": 403,
+      "kare": 361,
       "t_bas": 3.0,
-      "t_son": 16.03,
-      "icerik_kare": 391,
-      "ad": "Örnek",
-      "bolum": "Örnek",
-      "gecis": "BookFlip"
+      "t_son": 14.63,
+      "icerik_kare": 349,
+      "ad": "Değer",
+      "bolum": "Değer"
     },
     {
       "no": 3,
-      "klasor": "03-hyperframes-cta",
+      "klasor": "03-hyperframes-kaydet",
       "motor": "HyperFrames",
-      "kare": 232,
-      "t_bas": 16.03,
-      "t_son": 22.77,
-      "icerik_kare": 202,
+      "kare": 105,
+      "t_bas": 14.63,
+      "t_son": 17.74,
+      "icerik_kare": 93,
+      "ad": "Kaydet",
+      "bolum": "Kaydet"
+    },
+    {
+      "no": 4,
+      "klasor": "04-hyperframes-cagri",
+      "motor": "HyperFrames",
+      "kare": 218,
+      "t_bas": 17.74,
+      "t_son": 24.0,
+      "icerik_kare": 188,
       "ad": "Çağrı",
       "bolum": "Çağrı"
+    }
+  ],
+  "hikaye": {
+    "klasor": "05-hyperframes-hikaye-a",
+    "motor": "HyperFrames",
+    "kare": 1,
+    "cikti": "hikaye.png",
+    "ad": "Hikâye karesi A (kural kartı)",
+    "not": "anlatımdan bağımsız durağan kare; zaman çizelgesine girmez; hikaye-a.png + hikaye.png"
+  },
+  "duragan": [
+    {
+      "klasor": "06-hyperframes-kapak-b",
+      "motor": "HyperFrames",
+      "kare": 1,
+      "cikti": "kapak-b.png",
+      "ad": "Kapak B (soru, karakter)",
+      "not": "durağan kare; zaman çizelgesine girmez"
+    },
+    {
+      "klasor": "07-hyperframes-kapak-c",
+      "motor": "HyperFrames",
+      "kare": 1,
+      "cikti": "kapak-c.png",
+      "ad": "Kapak C (karşıt çift)",
+      "not": "durağan kare; zaman çizelgesine girmez"
+    },
+    {
+      "klasor": "08-hyperframes-hikaye-b",
+      "motor": "HyperFrames",
+      "kare": 1,
+      "cikti": "hikaye-b.png",
+      "ad": "Hikâye karesi B (soru kartı)",
+      "not": "durağan kare; zaman çizelgesine girmez"
     }
   ]
 }

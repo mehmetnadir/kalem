@@ -1,0 +1,129 @@
+{
+  "fps": 30,
+  "kare": 228,
+  "sure": 7.6,
+  "t_bas": 11.87,
+  "kart_giris": [
+    0.55,
+    0.45
+  ],
+  "s1_giris": [
+    0.55,
+    0.25
+  ],
+  "s2_giris": [
+    1.83,
+    0.25
+  ],
+  "s3_giris": [
+    2.63,
+    0.25
+  ],
+  "hap_giris": [
+    3.67,
+    0.3
+  ],
+  "kart_sabit": [
+    3.99,
+    3.21
+  ],
+  "imi_ciz": [
+    6.6,
+    0.3
+  ],
+  "yazi_giris": [
+    6.7,
+    0.25
+  ],
+  "kuyruk_durgun": [
+    7.2,
+    0.4
+  ],
+  "olaylar": [
+    [
+      0.55,
+      "vurus",
+      0.5
+    ],
+    [
+      3.67,
+      "tik",
+      0.5
+    ],
+    [
+      6.6,
+      "cizgi",
+      0.6
+    ],
+    [
+      6.7,
+      "tik",
+      0.4
+    ]
+  ],
+  "olay_listesi": [
+    {
+      "olay": "kart_giris",
+      "kare": 16,
+      "yerel": 0.55,
+      "kuresel": 12.42,
+      "sozcuk": "Usually,"
+    },
+    {
+      "olay": "s1_giris",
+      "kare": 16,
+      "yerel": 0.55,
+      "kuresel": 12.42,
+      "sozcuk": "Usually,"
+    },
+    {
+      "olay": "s2_giris",
+      "kare": 55,
+      "yerel": 1.83,
+      "kuresel": 13.7,
+      "sozcuk": "always,"
+    },
+    {
+      "olay": "s3_giris",
+      "kare": 79,
+      "yerel": 2.63,
+      "kuresel": 14.5,
+      "sozcuk": "every day:"
+    },
+    {
+      "olay": "hap_giris",
+      "kare": 110,
+      "yerel": 3.67,
+      "kuresel": 15.54,
+      "sozcuk": "Simple Present."
+    },
+    {
+      "olay": "kart_sabit",
+      "kare": 120,
+      "yerel": 3.99,
+      "kuresel": 15.86,
+      "sozcuk": "Present."
+    },
+    {
+      "olay": "imi_ciz",
+      "kare": 198,
+      "yerel": 6.6,
+      "kuresel": 18.47,
+      "sozcuk": "Kaydet."
+    },
+    {
+      "olay": "yazi_giris",
+      "kare": 201,
+      "yerel": 6.7,
+      "kuresel": 18.57,
+      "sozcuk": "Kaydet."
+    },
+    {
+      "olay": "kuyruk_durgun",
+      "kare": 216,
+      "yerel": 7.2,
+      "kuresel": 19.07,
+      "sozcuk": "sahne sonu"
+    }
+  ]
+}

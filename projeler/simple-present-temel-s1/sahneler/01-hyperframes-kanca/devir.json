@@ -1,0 +1,72 @@
+{
+  "satir": {
+    "metin": "Kardeşim gider:",
+    "font": "Caveat",
+    "agirlik": 700,
+    "boy": 72,
+    "x": 60,
+    "taban": 560,
+    "sag": 438.14
+  },
+  "kart_go": {
+    "x": 60,
+    "y": 620,
+    "w": 380,
+    "h": 200,
+    "rx": 28,
+    "cizgi": 4,
+    "metin": "go",
+    "font": "Fredoka",
+    "agirlik": 700,
+    "boy": 120,
+    "orta_x": 250,
+    "taban": 750
+  },
+  "grup": {
+    "kutu": [
+      700,
+      465,
+      256.0,
+      130.06
+    ],
+    "olcek": 0.29425,
+    "kaynak": [
+      80,
+      932,
+      870,
+      442
+    ],
+    "figur_kutu": [
+      711.77,
+      465.0,
+      37.62,
+      129.47
+    ],
+    "otobus_kutu": [
+      776.51,
+      524.73,
+      176.55,
+      68.56
+    ],
+    "cizgi_px": {
+      "figur": 4,
+      "otobus": 4.4,
+      "zemin": 4
+    },
+    "otobus_ayna": true,
+    "figur": "open-peeps/standing-2",
+    "otobus": "coco/bus"
+  },
+  "konu": {
+    "metin": "Simple Present",
+    "boy": 34,
+    "x": 60,
+    "taban": 420
+  },
+  "rozet": {
+    "x": 309.67,
+    "w": 203.57
+  },
+  "t": 3.0,
+  "not": "huni v2 (15.11): sahne 02 kare 0 = bu son hal"
+}

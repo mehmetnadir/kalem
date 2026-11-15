@@ -9,20 +9,14 @@
   "ogrenci": "oPC5I9GKjMReiaM29gjY"
  },
  "kadro": {
-  "ogretmen": {
-   "ses": "gsJ9nrlXYbPztJxC4fwc",
-   "cinsiyet": "erkek",
-   "yas": "yetiskin",
-   "govde": "ShirtPantsWB",
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
    "yuz": "Smile",
-   "sac": "Short"
-  }
- },
- "kartlar": {
-  "can": {
-   "tip": "ornek",
-   "en": "My brother goes to school by bus.",
-   "tr": "Kardeşim okula otobüsle gider."
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
   }
  },
  "cumleler": [
@@ -31,11 +25,11 @@
    "parcalar": [
     [
      "tr",
-     "Gider, İngilizcede goes olur: fiilin sonuna s gelir."
+     "Kardeşim gider: go mu, goes mu?"
     ]
    ],
    "olaylar": [],
-   "metin": "Gider, İngilizcede goes olur: fiilin sonuna s gelir."
+   "metin": "Kardeşim gider: go mu, goes mu?"
   },
   {
    "ses": "ogretmen",
@@ -45,31 +39,50 @@
      "My brother goes to school by bus."
     ],
     [
-     "tr",
-     "Kardeşim okula otobüsle gider."
+     "en",
+     "He, she, it"
     ],
     [
      "tr",
-     "Özne he, she ya da it olunca fiile s gelir."
+     "ile fiile s gelir."
+    ],
+    [
+     "en",
+     "I, you, we, they"
+    ],
+    [
+     "tr",
+     "ile gelmez."
     ]
    ],
    "olaylar": [],
-   "metin": "My brother goes to school by bus. Kardeşim okula otobüsle gider. Özne he, she ya da it olunca fiile s gelir."
+   "metin": "My brother goes to school by bus. He, she, it ile fiile s gelir. I, you, we, they ile gelmez."
   },
   {
    "ses": "ogretmen",
    "parcalar": [
     [
      "tr",
-     "Tam ders: Simple Present."
-    ],
-    [
-     "tr",
-     "Tam dersi kanalda izle."
+     "Sınavdan önce lazım olacak. Kaydet."
     ]
    ],
    "olaylar": [],
-   "metin": "Tam ders: Simple Present. Tam dersi kanalda izle."
+   "metin": "Sınavdan önce lazım olacak. Kaydet."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Gerisi bizde."
+    ],
+    [
+     "tr",
+     "Dersin tamamı YDS Publishing YouTube kanalında."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Gerisi bizde. Dersin tamamı YDS Publishing YouTube kanalında."
   }
  ],
  "zaman": {
@@ -80,11 +93,24 @@
  },
  "giris": {
   "logo": "varlik/logo/yds-publishing.svg",
-  "satir1": "GİDER",
-  "satir2": "= GOES",
+  "satir1": "GO mu,",
+  "satir2": "GOES mu?",
   "rozetler": [
-   "YDT · BASIC",
-   "GRAMMAR"
+   "YDT · BASIC"
+  ],
+  "sahne": [
+   {
+    "figur": "open-peeps/standing-2",
+    "x": 34,
+    "y": 60,
+    "olcek": 0.8
+   },
+   {
+    "ad": "bus",
+    "x": 70,
+    "y": 64,
+    "olcek": 0.45
+   }
   ]
  },
  "meta": {
@@ -94,6 +120,11 @@
   "konu": "Simple Present",
   "kitle": "ydt",
   "seviye": "temel",
+  "kapak": {
+   "satir1": "GO mu,",
+   "satir2": "GOES mu?",
+   "canAlici": "Türkçedeki geniş zaman eki = İngilizcedeki s: gider = goes"
+  },
   "amaclar": [
    "Simple Present formunu kurmak (fiil, fiil + s, do / does)",
    "zaman ifadelerini tanımak",
@@ -112,8 +143,9 @@
    "İngilizce",
    "temel",
    "gramer",
-   "Simple Present"
-  ],
-  "kancaKapak": "GİDER = GOES"
+   "Simple Present",
+   "YDT",
+   "shorts"
+  ]
  }
 }

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:"Fredoka";font-weight:700;font-display:block;src:url("assets/fonts/fredoka-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fredoka";font-weight:700;font-display:block;src:url("assets/fonts/fredoka-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Fredoka";font-weight:600;font-display:block;src:url("assets/fonts/fredoka-latin-600-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fredoka";font-weight:600;font-display:block;src:url("assets/fonts/fredoka-latin-ext-600-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Lexend";font-weight:500;font-display:block;src:url("assets/fonts/lexend-latin-500-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Lexend";font-weight:500;font-display:block;src:url("assets/fonts/lexend-latin-ext-500-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Lexend";font-weight:700;font-display:block;src:url("assets/fonts/lexend-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Lexend";font-weight:700;font-display:block;src:url("assets/fonts/lexend-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Caveat";font-weight:700;font-display:block;src:url("assets/fonts/caveat-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Caveat";font-weight:700;font-display:block;src:url("assets/fonts/caveat-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--zemin);}#zemin{position:absolute;inset:0;background:var(--zemin);}#gren{position:absolute;left:0;top:0;opacity:var(--gren);mix-blend-mode:overlay;}#vinyet{position:absolute;inset:0;background:radial-gradient(circle 1026px at 50% 50%,rgba(0,0,0,0) 47.4%,rgba(0,0,0,var(--vin)) 100%);}.abs{position:absolute;}
+#sahne{position:absolute;left:0;top:0;}
+#root{--zemin:#1b1a17;--murekkep:#f3efe6;--ikincil:#c9c2b3;--vurgu:#f2a93b;--vurguDolgu:#f2a93b;--logoSari:#fece00;--logoMetin:#ffffff;--kirmizi:#e0473b;--pilMetin:#1b1a17;--gren:.045;--vin:.38;}
+#root.tema-acik{--zemin:#f7f3ea;--murekkep:#1b2440;--ikincil:#5a6275;--vurgu:#d9900f;--vurguDolgu:#ffe066;--logoMetin:#13204D;--kirmizi:#d6453a;--pilMetin:#1b2440;--gren:.03;--vin:.10;}
+#root [fill="#f3efe6"]{fill:var(--murekkep)}#root [stroke="#f3efe6"]{stroke:var(--murekkep)}
+#root [fill="#c9c2b3"]{fill:var(--ikincil)}#root [stroke="#c9c2b3"]{stroke:var(--ikincil)}
+#root [fill="#f2a93b"]{fill:var(--vurgu)}#root [stroke="#f2a93b"]{stroke:var(--vurgu)}
+#root rect[fill="#f2a93b"],#root circle[fill="#f2a93b"]:not(#ku-nokta){fill:var(--vurguDolgu)}
+#root [fill="#e0473b"]{fill:var(--kirmizi)}#root [stroke="#e0473b"]{stroke:var(--kirmizi)}
+#root [stroke="#1b1a17"]{stroke:var(--zemin)}#root text[fill="#1b1a17"]{fill:var(--pilMetin)}#root #rz1 text{fill:var(--zemin)}
+#root.tema-acik #t2{fill:var(--vurgu)}
+</style></head><body>
+<div id="root" class="tema-acik" data-composition-id="main" data-start="0" data-duration="7.9667"
+ data-fps="30" data-width="1080" data-height="1920">
+<div id="zemin"></div><svg id="gren" width="1080" height="1920" xmlns="http://www.w3.org/2000/svg"><filter id="grenf" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1080" height="1920" filter="url(#grenf)"/></svg><div id="vinyet"></div>
+<svg id="sahne" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<clipPath id="kart-kirp"><rect x="60" y="620" width="900" height="506" rx="24"/></clipPath>
+</defs>
+
+<!-- Kapak kartı (16:9) -->
+<g id="kart">
+<image id="kapakimg" href="assets/ana-kapak.png" x="60" y="620" width="900" height="506"
+ preserveAspectRatio="xMidYMid slice" clip-path="url(#kart-kirp)" style="opacity:0"/>
+<rect id="kart-cerceve" x="62" y="622" width="896" height="502" rx="22" fill="none"
+ stroke="#f3efe6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+
+<!-- Kinetik metinler -->
+<text id="bs0" x="60" y="560" font-family="Fredoka" font-weight="700"
+ font-size="96" fill="#f3efe6" style="font-kerning:none;opacity:0">Bu</text>
+<text id="bs1" x="195.6" y="560" font-family="Fredoka" font-weight="700"
+ font-size="96" fill="#f3efe6" style="font-kerning:none;opacity:0">sadece</text>
+<text id="bs2" x="519.6" y="560" font-family="Fredoka" font-weight="700"
+ font-size="96" fill="#f3efe6" style="font-kerning:none;opacity:0">başlangıç.</text>
+
+<!-- Çağrı hapı ve YouTube -->
+<g id="hap" style="opacity:0">
+<rect x="60" y="1180" width="507.9" height="80" rx="40" fill="#f2a93b"/>
+<text x="313.9" y="1240" text-anchor="middle" font-family="Lexend" font-weight="700"
+ font-size="56" fill="#1b1a17">@ydspublishing</text>
+</g>
+<text id="yt" x="585.9" y="1240" font-family="Lexend" font-weight="700"
+ font-size="56" fill="#f3efe6" style="opacity:0">· YouTube</text>
+
+<!-- Künye ve kanal katmanı -->
+<g id="kunye"><g id="kanal"><image id="logoimg" href="assets/logo.svg" x="53.2" y="291" width="193.5" height="48"/><text id="kanal-yazi" x="263" y="330" font-family="Lexend" font-weight="700" font-size="42" fill="#f3efe6">@ydspublishing</text></g><text id="ku-konu" x="60" y="420" font-family="Fredoka" font-weight="700" font-size="34" fill="#f3efe6">Simple Present</text><g id="rz0"><rect x="309.7" y="386" width="203.6" height="48" rx="24" fill="#f2a93b"/><text x="411.5" y="419" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#1b1a17">YDT · BASIC</text></g></g>
+
+<!-- Altyazı -->
+<g id="altyazi"><g id="al0" style="opacity:0"><path id="ab0" d="M150 1407 L629 1403 Q661 1404 659 1432 L655 1518 Q657 1549 629 1547 L150 1549 Q120 1546 122 1518 L122 1516 L64 1470 L124 1436 L121 1432 Q123 1405 150 1407 Z" fill="none" stroke="#f3efe6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="162.0" y="1490" text-anchor="start" font-family="Lexend" font-weight="500" font-size="44" fill="#f3efe6" style="font-kerning:none">Bu sadece başlangıç.</text><line id="ak0_0" x1="162.0" y1="1502" x2="219.5" y2="1502" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak0_1" x1="232.4" y1="1502" x2="385.5" y2="1502" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak0_2" x1="398.4" y1="1502" x2="607.1" y2="1502" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/></g><g id="al1" style="opacity:0"><path id="ab1" d="M150 1407 L834 1403 Q866 1404 864 1432 L860 1518 Q862 1549 834 1547 L150 1549 Q120 1546 122 1518 L122 1516 L64 1470 L124 1436 L121 1432 Q123 1405 150 1407 Z" fill="none" stroke="#f3efe6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="162.0" y="1461" text-anchor="start" font-family="Lexend" font-weight="500" font-size="44" fill="#f3efe6" style="font-kerning:none">Dersin tamamı YDS Publishing</text><text x="276.7" y="1517" text-anchor="start" font-family="Lexend" font-weight="500" font-size="44" fill="#f3efe6" style="font-kerning:none">YouTube kanalında.</text><line id="ak1_0" x1="162.0" y1="1473" x2="300.6" y2="1473" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak1_1" x1="313.6" y1="1473" x2="481.0" y2="1473" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak1_2" x1="493.9" y1="1473" x2="584.3" y2="1473" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak1_3" x1="597.2" y1="1473" x2="822.4" y2="1473" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak1_4" x1="276.7" y1="1529" x2="468.5" y2="1529" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak1_5" x1="481.5" y1="1529" x2="697.2" y2="1529" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/></g></g>
+</svg>
+</div>
+<script>
+(function () {
+  var root = document.getElementById("root");
+  var img = document.getElementById("kapakimg");
+  var p1 = new Image(); p1.src = "assets/ana-kapak.png";
+  var p2 = new Image(); p2.src = "assets/ana-kapak-koyu.png";
+  function k() {
+    if (!img || !root) return;
+    var acik = root.classList.contains("tema-acik");
+    img.setAttribute("href", acik ? "assets/ana-kapak.png" : "assets/ana-kapak-koyu.png");
+  }
+  k();
+  if (root && window.MutationObserver) {
+    new MutationObserver(k).observe(root, { attributes: true, attributeFilter: ["class"] });
+  }
+})();
+</script>
+<script src="lib/gsap.min.js"></script>
+<script>
+(function () {
+  var V = {"Z": {"bu_giris": [0.55, 0.22], "sadece_giris": [0.79, 0.22], "baslangic_giris": [1.35, 0.22], "kart_cerceve": [2.46, 0.4], "kapak_belir": [2.46, 0.3], "hap_giris": [3.74, 0.3], "youtube_giris": [4.86, 0.3]}, "alt": [["al0", 0.5, 2.41], ["al1", 2.41, 6.41]], "karaoke": [["ak0_0", 0.55, 0.79, 57.46], ["ak0_1", 0.79, 1.35, 153.08], ["ak0_2", 1.35, 2.41, 208.65], ["ak1_0", 2.46, 3.02, 138.64], ["ak1_1", 3.02, 3.74, 167.38], ["ak1_2", 3.74, 4.22, 90.38], ["ak1_3", 4.22, 4.86, 225.15], ["ak1_4", 4.86, 5.26, 191.84], ["ak1_5", 5.26, 6.31, 215.73]]};
+  var Z = V.Z;
+  var $ = function (s) { return document.querySelector(s); };
+  var tl = gsap.timeline({ paused: true });
+
+  function ac(o) { o.immediateRender = false; return o; }
+
+  V.alt.forEach(function (a) {
+    tl.set("#" + a[0], ac({ opacity: 1 }), a[1]);
+    tl.set("#" + a[0], ac({ opacity: 0 }), a[2]);
+  });
+
+  V.karaoke.forEach(function (k) {
+    var id = "#" + k[0], ac_t = k[1], kapat_t = k[2], uz = k[3];
+    var el = $(id);
+    if (el) {
+      el.style.strokeDasharray = uz + " " + (uz + 2);
+      el.style.strokeDashoffset = uz;
+      tl.set(id, ac({ opacity: 1 }), ac_t);
+      tl.fromTo(id, { strokeDashoffset: uz },
+        { strokeDashoffset: 0, duration: 0.15, ease: "power2.out", immediateRender: false }, ac_t);
+      tl.set(id, ac({ opacity: 0 }), kapat_t);
+    }
+  });
+
+  var cerceve = $("#kart-cerceve");
+  if (cerceve) {
+    var L = cerceve.getTotalLength();
+    cerceve.style.strokeDasharray = L + " " + (L + 2);
+    cerceve.style.strokeDashoffset = L;
+    tl.fromTo(cerceve, { strokeDashoffset: L },
+      { strokeDashoffset: 0, duration: Z.kart_cerceve[1], ease: "sine.inOut", immediateRender: false },
+      Z.kart_cerceve[0]);
+  }
+
+  tl.fromTo("#kapakimg", { opacity: 0 },
+    { opacity: 1, duration: Z.kapak_belir[1], ease: "power2.out", immediateRender: false },
+    Z.kapak_belir[0]);
+
+  tl.fromTo("#bs0", { opacity: 0, y: 24 },
+    { opacity: 1, y: 0, duration: Z.bu_giris[1], ease: "back.out(1.6)", immediateRender: false },
+    Z.bu_giris[0]);
+  tl.fromTo("#bs1", { opacity: 0, y: 24 },
+    { opacity: 1, y: 0, duration: Z.sadece_giris[1], ease: "back.out(1.6)", immediateRender: false },
+    Z.sadece_giris[0]);
+  tl.fromTo("#bs2", { opacity: 0, y: 24 },
+    { opacity: 1, y: 0, duration: Z.baslangic_giris[1], ease: "back.out(1.6)", immediateRender: false },
+    Z.baslangic_giris[0]);
+
+  gsap.set("#hap", { svgOrigin: "60 1220" });
+  tl.fromTo("#hap", { opacity: 0, scale: 0.9 },
+    { opacity: 1, scale: 1, duration: Z.hap_giris[1], ease: "back.out(1.6)", immediateRender: false },
+    Z.hap_giris[0]);
+
+  tl.fromTo("#yt", { opacity: 0, x: -12 },
+    { opacity: 1, x: 0, duration: Z.youtube_giris[1], ease: "power3.out", immediateRender: false },
+    Z.youtube_giris[0]);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["main"] = tl;
+})();
+</script><script>/* kalem-tema */(function () {  /* canlı önizleme (?canli=1): ?tema=acik ya da message {tip:"tema", ad}; sorgu yoksa koyu. Render sırasında çalışmaz, tema dosyaya gömülüdür */
+  if (!/[?&]canli=1/.test(location.search)) return;
+  var R = document.getElementById("root"), L = document.getElementById("logoimg") || document.getElementById("logo");
+  function t(a) { R.classList.toggle("tema-acik", a === "acik");
+    if (L) L.setAttribute("href", "/projeler/present-continuous/ortak/logo/" + (a === "acik" ? "yds-publishing-lacivert.svg" : "yds-publishing-seffaf.svg")); }
+  t(new URLSearchParams(location.search).get("tema") || "koyu");
+  addEventListener("message", function (e) { if (e.data && e.data.tip === "tema") t(e.data.ad); });
+  var tl = window.__timelines && window.__timelines.main;  /* canlı sürücü: zaman çizelgesi kare sayacına/editör mesajına bağlanır (hazir mesajı) */
+  if (tl) import("/ortak/surucu.js").then(function (m) { m.canliHF(tl, +R.dataset.fps || 30); });
+})();</script>
+</body></html>

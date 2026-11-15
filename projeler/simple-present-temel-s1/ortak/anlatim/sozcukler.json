@@ -1,224 +1,236 @@
 [
 {
 "cumle": 1,
-"sozcuk": "Gider,",
+"sozcuk": "Kardeşim",
 "t0": 1.0,
-"t1": 1.56
+"t1": 1.48
 },
 {
 "cumle": 1,
-"sozcuk": "İngilizcede",
-"t0": 1.96,
-"t1": 2.6
+"sozcuk": "gider:",
+"t0": 1.56,
+"t1": 2.24
 },
 {
 "cumle": 1,
-"sozcuk": "goes",
+"sozcuk": "go",
+"t0": 2.52,
+"t1": 2.76
+},
+{
+"cumle": 1,
+"sozcuk": "mu,",
 "t0": 2.84,
 "t1": 3.24
 },
 {
 "cumle": 1,
-"sozcuk": "olur:",
-"t0": 3.32,
-"t1": 4.04
+"sozcuk": "goes",
+"t0": 3.4,
+"t1": 3.72
 },
 {
 "cumle": 1,
-"sozcuk": "fiilin",
-"t0": 4.08,
-"t1": 4.36
-},
-{
-"cumle": 1,
-"sozcuk": "sonuna",
-"t0": 4.44,
-"t1": 4.84
-},
-{
-"cumle": 1,
-"sozcuk": "s",
-"t0": 5.0,
-"t1": 5.24
-},
-{
-"cumle": 1,
-"sozcuk": "gelir.",
-"t0": 5.32,
-"t1": 5.88
+"sozcuk": "mu?",
+"t0": 3.8,
+"t1": 4.2
 },
 {
 "cumle": 2,
 "sozcuk": "My",
-"t0": 6.35,
-"t1": 6.59
+"t0": 4.67,
+"t1": 4.91
 },
 {
 "cumle": 2,
 "sozcuk": "brother",
-"t0": 6.67,
-"t1": 6.91
+"t0": 4.99,
+"t1": 5.15
 },
 {
 "cumle": 2,
 "sozcuk": "goes",
-"t0": 6.99,
-"t1": 7.15
+"t0": 5.23,
+"t1": 5.47
 },
 {
 "cumle": 2,
 "sozcuk": "to",
-"t0": 7.23,
-"t1": 7.27
+"t0": 5.51,
+"t1": 5.55
 },
 {
 "cumle": 2,
 "sozcuk": "school",
-"t0": 7.31,
-"t1": 7.63
+"t0": 5.63,
+"t1": 5.95
 },
 {
 "cumle": 2,
 "sozcuk": "by",
-"t0": 7.71,
-"t1": 7.87
+"t0": 6.03,
+"t1": 6.11
 },
 {
 "cumle": 2,
 "sozcuk": "bus.",
-"t0": 7.95,
-"t1": 8.51
+"t0": 6.19,
+"t1": 6.83
 },
 {
 "cumle": 2,
-"sozcuk": "Kardeşim",
-"t0": 8.76,
-"t1": 9.32
+"sozcuk": "He,",
+"t0": 7.08,
+"t1": 7.56
 },
 {
 "cumle": 2,
-"sozcuk": "okula",
-"t0": 9.4,
-"t1": 9.72
-},
-{
-"cumle": 2,
-"sozcuk": "otobüsle",
-"t0": 9.8,
-"t1": 10.28
-},
-{
-"cumle": 2,
-"sozcuk": "gider.",
-"t0": 10.387,
-"t1": 11.24
-},
-{
-"cumle": 2,
-"sozcuk": "Özne",
-"t0": 11.39,
-"t1": 12.03
-},
-{
-"cumle": 2,
-"sozcuk": "he,",
-"t0": 12.11,
-"t1": 12.59
-},
-{
-"cumle": 2,
-"sozcuk": "she",
-"t0": 12.75,
-"t1": 13.23
-},
-{
-"cumle": 2,
-"sozcuk": "ya",
-"t0": 13.27,
-"t1": 13.31
-},
-{
-"cumle": 2,
-"sozcuk": "da",
-"t0": 13.39,
-"t1": 13.63
+"sozcuk": "she,",
+"t0": 7.64,
+"t1": 8.04
 },
 {
 "cumle": 2,
 "sozcuk": "it",
-"t0": 13.75,
-"t1": 13.87
+"t0": 8.12,
+"t1": 8.28
 },
 {
 "cumle": 2,
-"sozcuk": "olunca",
-"t0": 13.95,
-"t1": 14.59
+"sozcuk": "ile",
+"t0": 8.53,
+"t1": 8.77
 },
 {
 "cumle": 2,
 "sozcuk": "fiile",
-"t0": 14.67,
-"t1": 15.15
+"t0": 8.85,
+"t1": 9.17
 },
 {
 "cumle": 2,
 "sozcuk": "s",
-"t0": 15.23,
-"t1": 15.47
+"t0": 9.25,
+"t1": 9.49
 },
 {
 "cumle": 2,
 "sozcuk": "gelir.",
-"t0": 15.55,
-"t1": 16.11
+"t0": 9.57,
+"t1": 10.37
+},
+{
+"cumle": 2,
+"sozcuk": "I,",
+"t0": 10.62,
+"t1": 11.26
+},
+{
+"cumle": 2,
+"sozcuk": "you,",
+"t0": 11.42,
+"t1": 12.06
+},
+{
+"cumle": 2,
+"sozcuk": "we,",
+"t0": 12.14,
+"t1": 12.78
+},
+{
+"cumle": 2,
+"sozcuk": "they",
+"t0": 12.86,
+"t1": 13.02
+},
+{
+"cumle": 2,
+"sozcuk": "ile",
+"t0": 13.27,
+"t1": 13.51
+},
+{
+"cumle": 2,
+"sozcuk": "gelmez.",
+"t0": 13.59,
+"t1": 14.63
 },
 {
 "cumle": 3,
-"sozcuk": "Tam",
-"t0": 16.58,
+"sozcuk": "Sınavdan",
+"t0": 15.18,
+"t1": 15.66
+},
+{
+"cumle": 3,
+"sozcuk": "önce",
+"t0": 15.74,
+"t1": 15.9
+},
+{
+"cumle": 3,
+"sozcuk": "lazım",
+"t0": 15.94,
+"t1": 16.22
+},
+{
+"cumle": 3,
+"sozcuk": "olacak.",
+"t0": 16.3,
 "t1": 16.9
 },
 {
 "cumle": 3,
-"sozcuk": "ders:",
+"sozcuk": "Kaydet.",
 "t0": 17.1,
-"t1": 17.54
+"t1": 17.82
 },
 {
-"cumle": 3,
-"sozcuk": "Simple",
-"t0": 17.78,
-"t1": 18.1
+"cumle": 4,
+"sozcuk": "Gerisi",
+"t0": 18.29,
+"t1": 18.69
 },
 {
-"cumle": 3,
-"sozcuk": "Present.",
-"t0": 18.18,
-"t1": 18.9
+"cumle": 4,
+"sozcuk": "bizde.",
+"t0": 18.77,
+"t1": 19.33
 },
 {
-"cumle": 3,
-"sozcuk": "Tam",
-"t0": 19.05,
-"t1": 19.29
+"cumle": 4,
+"sozcuk": "Dersin",
+"t0": 19.48,
+"t1": 19.96
 },
 {
-"cumle": 3,
-"sozcuk": "dersi",
-"t0": 19.45,
-"t1": 19.77
+"cumle": 4,
+"sozcuk": "tamamı",
+"t0": 20.04,
+"t1": 20.68
 },
 {
-"cumle": 3,
-"sozcuk": "kanalda",
-"t0": 19.93,
-"t1": 20.33
+"cumle": 4,
+"sozcuk": "YDS",
+"t0": 20.76,
+"t1": 21.24
 },
 {
-"cumle": 3,
-"sozcuk": "izle.",
-"t0": 20.45,
-"t1": 20.97
+"cumle": 4,
+"sozcuk": "Publishing",
+"t0": 21.44,
+"t1": 21.8
+},
+{
+"cumle": 4,
+"sozcuk": "YouTube",
+"t0": 21.88,
+"t1": 22.2
+},
+{
+"cumle": 4,
+"sozcuk": "kanalında.",
+"t0": 22.28,
+"t1": 23.08
 }
 ]

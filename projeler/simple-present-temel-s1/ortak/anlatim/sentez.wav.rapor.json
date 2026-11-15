@@ -1,0 +1,66 @@
+[
+ {
+  "dil": "tr",
+  "metin": "Kardeşim gider: go mu, goes mu?",
+  "duyulan": "Kardeşim gider. Go mu, goes mu?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "My brother goes to school by bus.",
+  "duyulan": "My brother goes to school by bus.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "He, she, it",
+  "duyulan": "He, she, it.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ile fiile s gelir.",
+  "duyulan": "İle fiile s gelir.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I, you, we, they",
+  "duyulan": "I, you, we, they.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ile gelmez.",
+  "duyulan": "ile gelmez.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Sınavdan önce lazım olacak. Kaydet.",
+  "duyulan": "Sınavdan önce lazım olacak. Kaydet.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Gerisi bizde.",
+  "duyulan": "Gerisi bizde.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Dersin tamamı YDS Publishing YouTube kanalında.",
+  "ses_metni": "Dersin tamamı YeDeSe Publishing YouTube kanalında.",
+  "duyulan": "Dersin tamamı YEDESE Publishing YouTube kanalında.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ }
+]

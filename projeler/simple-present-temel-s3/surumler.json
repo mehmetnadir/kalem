@@ -1,0 +1,105 @@
+{
+  "video": {
+    "kimlik": "02-02-ydt-temel",
+    "ders": "İngilizce",
+    "konu": "Simple Present",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-02-T",
+    "amaclar": [
+      "Simple Present formunu kurmak (fiil, fiil + s, do / does)",
+      "zaman ifadelerini tanımak",
+      "genelleme, alışkanlık ve tarife kullanımlarını ayırt etmek",
+      "Türkçe geniş zaman eki ile köprü"
+    ],
+    "canAlici": [
+      "Türkçedeki geniş zaman eki = İngilizcedeki s: gider = goes",
+      "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
+      "usually, always, every day = tekrar eden iş sinyali",
+      "he, she, it fiile s alır; I, you, we, they almaz",
+      "3 örnek, 1 kural: üçünde de fiilin sonunda s"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Simple Present"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "s3",
+      "tur": "shorts",
+      "ad": "S3 Shorts (25,08 sn)",
+      "durum": "inceleme",
+      "onizleme": "/p/simple-present-temel-s3/onizle.html",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s3-kapak-a",
+      "tur": "kapak",
+      "ad": "S3 Kapak A",
+      "durum": "inceleme",
+      "dosya": "kapak-a.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s3-kapak-b",
+      "tur": "kapak",
+      "ad": "S3 Kapak B",
+      "durum": "inceleme",
+      "dosya": "kapak-b.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s3-kapak-c",
+      "tur": "kapak",
+      "ad": "S3 Kapak C",
+      "durum": "inceleme",
+      "dosya": "kapak-c.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s3-hikaye-a",
+      "tur": "hikaye",
+      "ad": "S3 Hikâye A",
+      "durum": "inceleme",
+      "dosya": "hikaye-a.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s3-hikaye-b",
+      "tur": "hikaye",
+      "ad": "S3 Hikâye B",
+      "durum": "inceleme",
+      "dosya": "hikaye-b.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s3-aciklama-a",
+      "tur": "aciklama",
+      "ad": "S3 Açıklama A",
+      "durum": "inceleme",
+      "dosya": "aciklama-a.md",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s3-aciklama-b",
+      "tur": "aciklama",
+      "ad": "S3 Açıklama B",
+      "durum": "inceleme",
+      "dosya": "aciklama-b.md",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    }
+  ],
+  "revizyonlar": []
+}

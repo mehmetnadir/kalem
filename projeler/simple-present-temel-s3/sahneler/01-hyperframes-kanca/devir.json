@@ -1,0 +1,53 @@
+{
+  "kart": {
+    "x": 60,
+    "y": 480.0,
+    "w": 677.04,
+    "h": 160.0,
+    "rx": 18.0,
+    "kenar": 4,
+    "kenarRenk": "pilMetin",
+    "dolgu": {
+      "koyu": "#fff9e6",
+      "acik": "#fffdf8"
+    }
+  },
+  "yazi": {
+    "metin": "He doesn't goes.",
+    "font": "Fredoka",
+    "agirlik": 700,
+    "boy": 80,
+    "kerning": "none",
+    "x": 100.0,
+    "taban": 588.0,
+    "renk": "pilMetin"
+  },
+  "sozcuk": {
+    "He": [
+      100.0,
+      194.8
+    ],
+    "doesn't": [
+      213.6,
+      476.96
+    ],
+    "goes.": [
+      495.76,
+      681.04
+    ],
+    "does": [
+      213.6,
+      381.92
+    ],
+    "go": [
+      495.76,
+      584.08
+    ],
+    "es": [
+      584.08,
+      663.44
+    ]
+  },
+  "t": 3.89,
+  "not": "huni v2 (15.11): sahne 02 kare 0 kartı; x değerleri mürekkep değil ilerleme genişliği (kerning yok)"
+}

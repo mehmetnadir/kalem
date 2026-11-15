@@ -29,18 +29,76 @@
   },
   "surumler": [
     {
-      "kimlik": "shorts",
-      "video": "simple-present-temel",
+      "kimlik": "s1",
       "tur": "shorts",
-      "ad": "S1 Shorts (23 sn)",
-      "senaryo": "../simple-present-temel-s1/BRIEF-S1.md",
-      "kapak": "kapak.png",
+      "ad": "S1 Shorts (24,00 sn)",
+      "durum": "inceleme",
+      "onizleme": "/p/simple-present-temel-s1/onizle.html",
       "seviye": "temel",
-      "kaynak": "ana-yatay",
-      "durum": "hazir",
-      "onizleme": "/p/simple-present-temel-s1/onizle.html?surum=shorts",
-      "tarih": "2026-11-05T01:30:00Z",
-      "proje": "simple-present-temel-s1"
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s1-kapak-a",
+      "tur": "kapak",
+      "ad": "S1 Kapak A",
+      "durum": "inceleme",
+      "dosya": "kapak-a.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s1-kapak-b",
+      "tur": "kapak",
+      "ad": "S1 Kapak B",
+      "durum": "inceleme",
+      "dosya": "kapak-b.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s1-kapak-c",
+      "tur": "kapak",
+      "ad": "S1 Kapak C",
+      "durum": "inceleme",
+      "dosya": "kapak-c.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s1-hikaye-a",
+      "tur": "hikaye",
+      "ad": "S1 Hikâye A",
+      "durum": "inceleme",
+      "dosya": "hikaye-a.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s1-hikaye-b",
+      "tur": "hikaye",
+      "ad": "S1 Hikâye B",
+      "durum": "inceleme",
+      "dosya": "hikaye-b.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s1-aciklama-a",
+      "tur": "aciklama",
+      "ad": "S1 Açıklama A",
+      "durum": "inceleme",
+      "dosya": "aciklama-a.md",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s1-aciklama-b",
+      "tur": "aciklama",
+      "ad": "S1 Açıklama B",
+      "durum": "inceleme",
+      "dosya": "aciklama-b.md",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
     }
   ],
   "revizyonlar": []
