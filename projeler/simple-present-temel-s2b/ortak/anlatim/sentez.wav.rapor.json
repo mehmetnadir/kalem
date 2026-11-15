@@ -1,0 +1,59 @@
+[
+ {
+  "dil": "tr",
+  "metin": "Usually görünce hangi zaman?",
+  "duyulan": "Usually görünce hangi zaman?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "My brother usually goes to school by bus.",
+  "duyulan": "My brother usually goes to school by bus.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Alışkanlık işareti.",
+  "duyulan": "Alışkanlık işareti",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Şu an değil, her sabah yedide kalkarım gibi.",
+  "duyulan": "Şu an değil, her sabah 7'de kalkarım gibi.",
+  "benzerlik": 0.92,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "Usually, always, every day: Simple Present.",
+  "duyulan": "Usually, always, every day, simple present.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Ekran görüntüsü al, sınav günü bak.",
+  "duyulan": "Ekran görüntüsü al. Sınav günü bak.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Konu burada bitmiyor.",
+  "duyulan": "Konu burada bitmiyor.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Dersin tamamı YDS Publishing YouTube kanalında.",
+  "ses_metni": "Dersin tamamı YeDeSe Publishing YouTube kanalında.",
+  "duyulan": "Dersin tamamı YEDESE Publishing YouTube kanalında.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ }
+]

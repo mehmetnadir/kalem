@@ -1,0 +1,88 @@
+{
+  "fps": 30,
+  "genislik": 1080,
+  "yukseklik": 1920,
+  "gecis_kare": 12,
+  "tema": "acik",
+  "anlatim": "ortak/anlatim/anlatim.m4a",
+  "sahneler": [
+    {
+      "no": 1,
+      "klasor": "01-hyperframes-kanca",
+      "motor": "HyperFrames",
+      "kare": 102,
+      "t_bas": 0.0,
+      "t_son": 3.0,
+      "icerik_kare": 90,
+      "ad": "Kanca",
+      "bolum": "Kanca"
+    },
+    {
+      "no": 2,
+      "klasor": "02-paperjs-deger",
+      "motor": "Paper.js",
+      "kare": 278,
+      "t_bas": 3.0,
+      "t_son": 11.87,
+      "icerik_kare": 266,
+      "ad": "Değer",
+      "bolum": "Değer"
+    },
+    {
+      "no": 3,
+      "klasor": "03-hyperframes-kaydet",
+      "motor": "HyperFrames",
+      "kare": 228,
+      "t_bas": 11.87,
+      "t_son": 19.07,
+      "icerik_kare": 216,
+      "ad": "Kaydet",
+      "bolum": "Kaydet"
+    },
+    {
+      "no": 4,
+      "klasor": "04-hyperframes-cagri",
+      "motor": "HyperFrames",
+      "kare": 230,
+      "t_bas": 19.07,
+      "t_son": 25.73,
+      "icerik_kare": 200,
+      "ad": "Çağrı",
+      "bolum": "Çağrı"
+    }
+  ],
+  "hikaye": {
+    "klasor": "05-hyperframes-hikaye-a",
+    "motor": "HyperFrames",
+    "kare": 1,
+    "cikti": "hikaye-a.png",
+    "ad": "Hikâye karesi A (kural kartı)",
+    "not": "durağan kare; zaman çizelgesine girmez; paket kökü hikaye.png = hikaye-a.png kopyası"
+  },
+  "duragan": [
+    {
+      "klasor": "06-hyperframes-kapak-b",
+      "motor": "HyperFrames",
+      "kare": 1,
+      "cikti": "kapak-b.png",
+      "ad": "Kapak B (soru)",
+      "not": "durağan kare; zaman çizelgesine girmez"
+    },
+    {
+      "klasor": "07-hyperframes-kapak-c",
+      "motor": "HyperFrames",
+      "kare": 1,
+      "cikti": "kapak-c.png",
+      "ad": "Kapak C (kural kartı)",
+      "not": "durağan kare; zaman çizelgesine girmez"
+    },
+    {
+      "klasor": "08-hyperframes-hikaye-b",
+      "motor": "HyperFrames",
+      "kare": 1,
+      "cikti": "hikaye-b.png",
+      "ad": "Hikâye karesi B (soru kartı)",
+      "not": "durağan kare; zaman çizelgesine girmez"
+    }
+  ]
+}

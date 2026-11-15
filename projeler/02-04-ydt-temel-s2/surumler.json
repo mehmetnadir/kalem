@@ -37,7 +37,13 @@
       "durum": "inceleme",
       "onizleme": "/p/02-04-ydt-temel-s2/onizle.html",
       "seviye": "temel",
-      "kaynak": "ana-yatay"
+      "kaynak": "ana-yatay",
+      "varyant": {
+        "grup": "s2",
+        "kol": "a",
+        "degisken": "kapanis",
+        "deger": "kaydet"
+      }
     },
     {
       "kimlik": "s2-kapak-a",

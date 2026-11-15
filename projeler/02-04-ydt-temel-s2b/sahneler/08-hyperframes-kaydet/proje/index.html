@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:"Fredoka";font-weight:700;font-display:block;src:url("assets/fonts/fredoka-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fredoka";font-weight:700;font-display:block;src:url("assets/fonts/fredoka-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Fredoka";font-weight:600;font-display:block;src:url("assets/fonts/fredoka-latin-600-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fredoka";font-weight:600;font-display:block;src:url("assets/fonts/fredoka-latin-ext-600-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Lexend";font-weight:500;font-display:block;src:url("assets/fonts/lexend-latin-500-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Lexend";font-weight:500;font-display:block;src:url("assets/fonts/lexend-latin-ext-500-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Lexend";font-weight:700;font-display:block;src:url("assets/fonts/lexend-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Lexend";font-weight:700;font-display:block;src:url("assets/fonts/lexend-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Caveat";font-weight:700;font-display:block;src:url("assets/fonts/caveat-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Caveat";font-weight:700;font-display:block;src:url("assets/fonts/caveat-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--zemin);}#zemin{position:absolute;inset:0;background:var(--zemin);}#gren{position:absolute;left:0;top:0;opacity:var(--gren);mix-blend-mode:overlay;}#vinyet{position:absolute;inset:0;background:radial-gradient(circle 1026px at 50% 50%,rgba(0,0,0,0) 47.4%,rgba(0,0,0,var(--vin)) 100%);}.abs{position:absolute;}
+#sahne{position:absolute;left:0;top:0;}
+#root #vizor-dolgu{fill:var(--vurguDolgu,#f2a93b);}
+/* açık temada pilMetin = mürekkep (#1b2440): Today yazısı geçişsiz kalır (karşılıklı solma kaplamayı %75'e indiriyordu) */
+.tema-acik #today-yazi{opacity:1 !important;}.tema-acik #today-yazi2{display:none;}
+#root{--zemin:#1b1a17;--murekkep:#f3efe6;--ikincil:#c9c2b3;--vurgu:#f2a93b;--vurguDolgu:#f2a93b;--logoSari:#fece00;--logoMetin:#ffffff;--kirmizi:#e0473b;--pilMetin:#1b1a17;--gren:.045;--vin:.38;}
+#root.tema-acik{--zemin:#f7f3ea;--murekkep:#1b2440;--ikincil:#5a6275;--vurgu:#d9900f;--vurguDolgu:#ffe066;--logoMetin:#13204D;--kirmizi:#d6453a;--pilMetin:#1b2440;--gren:.03;--vin:.10;}
+#root [fill="#f3efe6"]{fill:var(--murekkep)}#root [stroke="#f3efe6"]{stroke:var(--murekkep)}
+#root [fill="#c9c2b3"]{fill:var(--ikincil)}#root [stroke="#c9c2b3"]{stroke:var(--ikincil)}
+#root [fill="#f2a93b"]{fill:var(--vurgu)}#root [stroke="#f2a93b"]{stroke:var(--vurgu)}
+#root rect[fill="#f2a93b"],#root circle[fill="#f2a93b"]:not(#ku-nokta){fill:var(--vurguDolgu)}
+#root [fill="#e0473b"]{fill:var(--kirmizi)}#root [stroke="#e0473b"]{stroke:var(--kirmizi)}
+#root [stroke="#1b1a17"]{stroke:var(--zemin)}#root text[fill="#1b1a17"]{fill:var(--pilMetin)}#root #rz1 text{fill:var(--zemin)}
+#root.tema-acik #t2{fill:var(--vurgu)}
+</style></head><body>
+<div id="root" class="tema-acik" data-composition-id="main" data-start="0" data-duration="5.8333"
+ data-fps="30" data-width="1080" data-height="1920">
+<div id="zemin"></div><svg id="gren" width="1080" height="1920" xmlns="http://www.w3.org/2000/svg"><filter id="grenf" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1080" height="1920" filter="url(#grenf)"/></svg><div id="vinyet"></div>
+<svg id="sahne" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+
+<!-- Kart grubu -->
+<g id="kart" style="opacity:0">
+<rect id="kart-crv" x="62" y="562" width="896" height="436" rx="32"
+ fill="none" stroke="#f3efe6" stroke-width="4"/>
+<g id="today-hap">
+<rect id="today-kutu" x="102" y="639" width="251.7" height="88" rx="44"
+ fill="#f2a93b"/>
+<rect id="today-cerceve" x="102" y="639" width="251.7" height="88" rx="44"
+ fill="none" stroke="#f3efe6" stroke-width="3" style="opacity:0"/>
+<text id="today-yazi" x="124" y="703" font-family="Fredoka" font-weight="700"
+ font-size="72" fill="#1b1a17">Today</text>
+<text id="today-yazi2" x="124" y="703" font-family="Fredoka" font-weight="700"
+ font-size="72" fill="#f3efe6" style="opacity:0">Today</text>
+</g>
+<text id="s1" x="373.7" y="703" font-family="Fredoka" font-weight="700"
+ font-size="72" fill="#f3efe6">iki zamanda</text>
+<text id="s2" x="124" y="803" font-family="Fredoka" font-weight="700"
+ font-size="72" fill="#f3efe6">da geçebilir;</text>
+<text id="s3" x="124" y="903" font-family="Fredoka" font-weight="700"
+ font-size="72" fill="#f3efe6">farkı anlam yapar.</text>
+</g>
+
+<!-- Noktalar -->
+<g id="noktalar">
+<circle id="nokta0" cx="115" cy="1040" r="13" fill="#f3efe6" style="opacity:0"/>
+<circle id="nokta1" cx="159" cy="1040" r="11" fill="none" stroke="#f3efe6" stroke-width="4" style="opacity:0"/>
+<circle id="nokta2" cx="203" cy="1040" r="11" fill="none" stroke="#f3efe6" stroke-width="4" style="opacity:0"/>
+</g>
+
+<!-- Vizör grubu (kol b; cizim/vizor.svg) -->
+<g id="vizor" transform="translate(102.0 1120.0)">
+<rect id="vizor-dolgu" x="24" y="24" width="92" height="92" rx="12" fill="#f2a93b" style="opacity:0"/>
+<path id="vizor-kose0" class="vizor-kose" d="M0 40V0H40" fill="none" stroke="#f3efe6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" style="opacity:0"/><path id="vizor-kose1" class="vizor-kose" d="M100 0H140V40" fill="none" stroke="#f3efe6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" style="opacity:0"/><path id="vizor-kose2" class="vizor-kose" d="M140 100V140H100" fill="none" stroke="#f3efe6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" style="opacity:0"/><path id="vizor-kose3" class="vizor-kose" d="M40 140H0V100" fill="none" stroke="#f3efe6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" style="opacity:0"/>
+</g>
+
+<!-- Kalıp yazısı: satır 1 parça 1 + 2, satır 2 parça 3 -->
+<text id="kalip-p1" x="281.0" y="1176" font-family="Fredoka" font-weight="700"
+ font-size="72" fill="#f3efe6" style="opacity:0">Ekran görüntüsü</text>
+<text id="kalip-p2" x="844.9" y="1176" font-family="Fredoka" font-weight="700"
+ font-size="72" fill="#f3efe6" style="opacity:0">al,</text>
+<text id="kalip-p3" x="281.0" y="1256" font-family="Fredoka" font-weight="700"
+ font-size="72" fill="#f3efe6" style="opacity:0">sınav günü bak.</text>
+
+<!-- Künye ve kanal katmanı -->
+<g id="kunye"><g id="kanal"><image id="logoimg" href="assets/logo.svg" x="53.2" y="291" width="193.5" height="48"/><text id="kanal-yazi" x="263" y="330" font-family="Lexend" font-weight="700" font-size="42" fill="#f3efe6">@ydspublishing</text></g><text id="ku-konu" x="60" y="420" font-family="Fredoka" font-weight="700" font-size="34" fill="#f3efe6">Simple Present vs Present Continuous</text><g id="rz0"><rect x="664.6" y="386" width="203.6" height="48" rx="24" fill="#f2a93b"/><text x="766.4" y="419" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#1b1a17">YDT · BASIC</text></g></g>
+
+<!-- Altyazı -->
+<g id="altyazi"><g id="al0" style="opacity:0"><text x="238.0" y="1484" text-anchor="start" font-family="Lexend" font-weight="500" font-size="44" fill="#f3efe6" style="font-kerning:none">Bu, üç farktan yalnız biri.</text><line id="ak0_0" x1="238.0" y1="1496" x2="295.4" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak0_1" x1="320.4" y1="1496" x2="371.3" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak0_2" x1="384.3" y1="1496" x2="546.4" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak0_3" x1="559.3" y1="1496" x2="686.2" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak0_4" x1="699.1" y1="1496" x2="771.6" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/></g><g id="al1" style="opacity:0"><text x="119.1" y="1484" text-anchor="start" font-family="Lexend" font-weight="500" font-size="44" fill="#f3efe6" style="font-kerning:none">Ekran görüntüsü al, sınav günü bak.</text><line id="ak1_0" x1="119.1" y1="1496" x2="246.1" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak1_1" x1="259.0" y1="1496" x2="480.7" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak1_2" x1="493.6" y1="1496" x2="533.7" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak1_3" x1="558.7" y1="1496" x2="672.2" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak1_4" x1="685.1" y1="1496" x2="795.2" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak1_5" x1="808.1" y1="1496" x2="890.4" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/></g></g>
+</svg>
+</div>
+<script src="lib/gsap.min.js"></script>
+<script>
+(function () {
+  var V = {"Z": {"kart_giris": [0.55, 0.4], "nokta_giris": [1.07, 0.46], "vizor_ciz": [2.86, 0.5], "parca1_giris": [2.86, 0.3], "deklansor": [3.94, 0.3], "parca2_giris": [3.94, 0.3], "parca3_giris": [4.38, 0.3], "kuyruk_durgun": [5.4333, 0.4]}, "alt": [["al0", 0.5, 2.81], ["al1", 2.81, 5.77]], "karaoke": [["ak0_0", 0.55, 1.07, 57.46], ["ak0_1", 1.07, 1.27, 50.91], ["ak0_2", 1.27, 1.83, 162.14], ["ak0_3", 1.83, 2.31, 126.81], ["ak0_4", 2.31, 2.81, 72.47], ["ak1_0", 2.86, 3.3, 126.98], ["ak1_1", 3.3, 3.94, 221.67], ["ak1_2", 3.94, 4.38, 40.13], ["ak1_3", 4.38, 4.74, 113.48], ["ak1_4", 4.74, 5.1, 110.04], ["ak1_5", 5.1, 5.75, 82.32]]};
+  var Z = V.Z;
+  var $ = function (s) { return document.querySelector(s); };
+  var tl = gsap.timeline({ paused: true });
+
+  function ac(o) { o.immediateRender = false; return o; }
+
+  V.alt.forEach(function (a) {
+    tl.set("#" + a[0], ac({ opacity: 1 }), a[1]);
+    tl.set("#" + a[0], ac({ opacity: 0 }), a[2]);
+  });
+
+  V.karaoke.forEach(function (k) {
+    var id = "#" + k[0], ac_t = k[1], kapat_t = k[2], uz = k[3];
+    var el = $(id);
+    if (el) {
+      el.style.strokeDasharray = uz + " " + (uz + 2);
+      el.style.strokeDashoffset = uz;
+      tl.set(id, ac({ opacity: 1 }), ac_t);
+      tl.fromTo(id, { strokeDashoffset: uz },
+        { strokeDashoffset: 0, duration: 0.15, ease: "power2.out", immediateRender: false }, ac_t);
+      tl.set(id, ac({ opacity: 0 }), kapat_t);
+    }
+  });
+
+  gsap.set("#kart", { svgOrigin: "510 780" });
+  tl.fromTo("#kart", { scale: 0.96 },
+    { scale: 1, duration: 0.40, ease: "power3.out", immediateRender: false }, Z.kart_giris[0]);
+  tl.fromTo("#kart", { opacity: 0 },
+    { opacity: 1, duration: 0.40, ease: "power3.out", immediateRender: false }, Z.kart_giris[0]);
+
+  ["#nokta0", "#nokta1", "#nokta2"].forEach(function (id, idx) {
+    var t = Z.nokta_giris[0] + idx * 0.08;
+    tl.fromTo(id, { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.30, ease: "power3.out", immediateRender: false }, t);
+  });
+
+  // vizör köşeleri kalemle, sırayla (her biri 0,2 sn, 0,1 sn aralık; toplam 0,5 sn)
+  document.querySelectorAll(".vizor-kose").forEach(function (el, idx) {
+    var L = el.getTotalLength(), t = Z.vizor_ciz[0] + idx * 0.10;
+    el.style.strokeDasharray = L + " " + (L + 2);
+    el.style.strokeDashoffset = L;
+    tl.set(el, ac({ opacity: 1 }), t);
+    tl.fromTo(el, { strokeDashoffset: L },
+      { strokeDashoffset: 0, duration: 0.20, ease: "sine.inOut", immediateRender: false }, t);
+  });
+
+  ["#kalip-p1", "#kalip-p2", "#kalip-p3"].forEach(function (id, idx) {
+    tl.fromTo(id, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.30, ease: "power3.out",
+      immediateRender: false }, [Z.parca1_giris, Z.parca2_giris, Z.parca3_giris][idx][0]);
+  });
+  // deklanşör: vizör içine sarı kare (ölçek 1,08 → 1); aynı anda Today hapı mürekkep çerçeveye döner (tek sarı)
+  tl.fromTo("#vizor-dolgu", { opacity: 0, scale: 1.08, transformOrigin: "50% 50%" },
+    { opacity: 1, scale: 1, duration: 0.30, ease: "power2.out", immediateRender: false }, Z.deklansor[0]);
+  tl.fromTo("#today-kutu", { opacity: 1 },
+    { opacity: 0, duration: 0.30, ease: "power2.out", immediateRender: false }, Z.deklansor[0]);
+  tl.fromTo("#today-yazi", { opacity: 1 },
+    { opacity: 0, duration: 0.30, ease: "power2.out", immediateRender: false }, Z.deklansor[0]);
+  tl.fromTo("#today-cerceve", { opacity: 0 },
+    { opacity: 1, duration: 0.30, ease: "power2.out", immediateRender: false }, Z.deklansor[0]);
+  tl.fromTo("#today-yazi2", { opacity: 0 },
+    { opacity: 1, duration: 0.30, ease: "power2.out", immediateRender: false }, Z.deklansor[0]);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["main"] = tl;
+})();
+</script><script>/* kalem-tema */(function () {  /* canlı önizleme (?canli=1): ?tema=acik ya da message {tip:"tema", ad}; sorgu yoksa koyu. Render sırasında çalışmaz, tema dosyaya gömülüdür */
+  if (!/[?&]canli=1/.test(location.search)) return;
+  var R = document.getElementById("root"), L = document.getElementById("logoimg") || document.getElementById("logo");
+  function t(a) { R.classList.toggle("tema-acik", a === "acik");
+    if (L) L.setAttribute("href", "/projeler/present-continuous/ortak/logo/" + (a === "acik" ? "yds-publishing-lacivert.svg" : "yds-publishing-seffaf.svg")); }
+  t(new URLSearchParams(location.search).get("tema") || "koyu");
+  addEventListener("message", function (e) { if (e.data && e.data.tip === "tema") t(e.data.ad); });
+  var tl = window.__timelines && window.__timelines.main;  /* canlı sürücü: zaman çizelgesi kare sayacına/editör mesajına bağlanır (hazir mesajı) */
+  if (tl) import("/ortak/surucu.js").then(function (m) { m.canliHF(tl, +R.dataset.fps || 30); });
+})();</script>
+</body></html>

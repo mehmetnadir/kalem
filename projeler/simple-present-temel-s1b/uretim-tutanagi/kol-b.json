@@ -1,0 +1,32 @@
+{
+  "paket": "simple-present-temel-s1b",
+  "kol_a": "simple-present-temel-s1",
+  "varyant": {
+    "grup": "s1",
+    "kol": "b",
+    "degisken": "kanca",
+    "deger": "yanlis-cumle"
+  },
+  "kol_a_deger": "kopru",
+  "degisen_sahneler": [
+    "01-hyperframes-kanca",
+    "02-paperjs-deger"
+  ],
+  "ayni_sahneler": [
+    "03-hyperframes-kaydet",
+    "04-hyperframes-cagri"
+  ],
+  "yeni_cumleler": [
+    {
+      "sahne": "01-hyperframes-kanca",
+      "konusan": "ogretmen",
+      "metin": "My brother go to school by bus. Hata nerede?"
+    }
+  ],
+  "onbellekten_cumleler": [
+    "My brother goes to school by bus. He, she, it ile fiile s gelir. I, you, we, they ile gelmez.",
+    "Sınavdan önce lazım olacak. Kaydet.",
+    "Gerisi bizde. Dersin tamamı YDS Publishing YouTube kanalında."
+  ],
+  "sure_tahmini_sn": 24.49
+}

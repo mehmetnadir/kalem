@@ -1,0 +1,66 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 3.48,
+"metin": "Usually görünce hangi zaman?",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 3.95,
+"t1": 6.59,
+"metin": "My brother usually goes to school by bus.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 6.84,
+"t1": 8.52,
+"metin": "Alışkanlık işareti.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 8.67,
+"t1": 11.95,
+"metin": "Şu an değil, her sabah yedide kalkarım gibi.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "en",
+"t0": 12.42,
+"t1": 16.42,
+"metin": "Usually, always, every day: Simple Present.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 16.67,
+"t1": 19.15,
+"metin": "Ekran görüntüsü al, sınav günü bak.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 19.62,
+"t1": 21.06,
+"metin": "Konu burada bitmiyor.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 21.21,
+"t1": 24.81,
+"metin": "Dersin tamamı YDS Publishing YouTube kanalında.",
+"konusan": "ogrenci"
+}
+]

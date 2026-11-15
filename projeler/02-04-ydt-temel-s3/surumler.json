@@ -37,7 +37,13 @@
       "durum": "inceleme",
       "onizleme": "/p/02-04-ydt-temel-s3/onizle.html",
       "seviye": "temel",
-      "kaynak": "ana-yatay"
+      "kaynak": "ana-yatay",
+      "varyant": {
+        "grup": "s3",
+        "kol": "a",
+        "degisken": "kanca",
+        "deger": "kopru"
+      }
     },
     {
       "kimlik": "s3-kapak-a",

@@ -1,0 +1,75 @@
+{
+  "video": {
+    "kimlik": "02-02-ydt-temel",
+    "ders": "İngilizce",
+    "konu": "Simple Present",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-02-T",
+    "amaclar": [
+      "Simple Present formunu kurmak (fiil, fiil + s, do / does)",
+      "zaman ifadelerini tanımak",
+      "genelleme, alışkanlık ve tarife kullanımlarını ayırt etmek",
+      "Türkçe geniş zaman eki ile köprü"
+    ],
+    "canAlici": [
+      "Gider = goes; ama yalnız he, she, it ile. I, you, we, they ile go.",
+      "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
+      "usually, always, every day = tekrar eden iş sinyali",
+      "he, she, it fiile s alır; I, you, we, they almaz",
+      "3 örnek, 1 kural: üçünde de fiilin sonunda s"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Simple Present"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "s1b",
+      "tur": "shorts",
+      "ad": "S1b Shorts (24,33 sn)",
+      "durum": "inceleme",
+      "onizleme": "/p/simple-present-temel-s1b/onizle.html",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "varyant": {
+        "grup": "s1",
+        "kol": "b",
+        "degisken": "kanca",
+        "deger": "yanlis-cumle"
+      }
+    },
+    {
+      "kimlik": "s1b-kapak-a",
+      "tur": "kapak",
+      "ad": "S1b Kapak A",
+      "durum": "inceleme",
+      "dosya": "kapak-a.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s1b-aciklama-a",
+      "tur": "aciklama",
+      "ad": "S1b Açıklama A",
+      "durum": "inceleme",
+      "dosya": "aciklama-a.md",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s1b-aciklama-b",
+      "tur": "aciklama",
+      "ad": "S1b Açıklama B",
+      "durum": "inceleme",
+      "dosya": "aciklama-b.md",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    }
+  ],
+  "revizyonlar": []
+}

@@ -1,0 +1,170 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Simple Present ve Present Continuous",
+ "duzen": "konu",
+ "seviye": "temel",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogretmen": {
+   "ses": "gsJ9nrlXYbPztJxC4fwc",
+   "cinsiyet": "erkek",
+   "yas": "yetiskin",
+   "govde": "ShirtPantsWB",
+   "yuz": "Smile",
+   "sac": "Short"
+  },
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Bu iki yaşıyorum aynı mı?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bu iki yaşıyorum aynı mı?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "İngilizcede ikisi ayrılır."
+    ],
+    [
+     "en",
+     "I live in Istanbul."
+    ],
+    [
+     "tr",
+     "Hep orada: kalıcı durum, geniş zaman."
+    ],
+    [
+     "en",
+     "I am living with my uncle."
+    ],
+    [
+     "tr",
+     "Şimdilik: geçici durum, şimdiki zaman."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "İngilizcede ikisi ayrılır. I live in Istanbul. Hep orada: kalıcı durum, geniş zaman. I am living with my uncle. Şimdilik: geçici durum, şimdiki zaman."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Bu, üç farktan yalnız biri."
+    ],
+    [
+     "tr",
+     "Sınavdan önce lazım olacak. Kaydet."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bu, üç farktan yalnız biri. Sınavdan önce lazım olacak. Kaydet."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Gerisi bizde."
+    ],
+    [
+     "tr",
+     "Dersin tamamı YDS Publishing YouTube kanalında."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Gerisi bizde. Dersin tamamı YDS Publishing YouTube kanalında."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "YAŞIYORUM",
+  "satir2": "= İKİ ZAMAN",
+  "rozetler": [
+   "YDT · BASIC"
+  ],
+  "sahne": [
+   {
+    "ad": "house",
+    "x": 30,
+    "y": 58,
+    "olcek": 0.6
+   },
+   {
+    "figur": "ogretmen",
+    "x": 68,
+    "y": 58,
+    "olcek": 0.8
+   },
+   {
+    "ad": "suitcase",
+    "x": 80,
+    "y": 66,
+    "olcek": 0.35
+   }
+  ]
+ },
+ "meta": {
+  "kimlik": "02-04-ydt-temel-s1",
+  "kod": "ING-YDT-GR-02-04-T-S1",
+  "ders": "İngilizce",
+  "konu": "Simple Present ve Present Continuous",
+  "kitle": "ydt",
+  "seviye": "temel",
+  "kapak": {
+   "satir1": "YAŞIYORUM",
+   "satir2": "= İKİ ZAMAN",
+   "canAlici": "Türkçe yaşıyorum iki zamana karşılık gelir: I live (kalıcı), I am living (geçici)"
+  },
+  "amaclar": [
+   "Genel durumda geniş zamanı, konuşma anında şimdiki zamanı seçmek",
+   "Kalıcı durumda geniş zamanı, geçici durumda şimdiki zamanı seçmek",
+   "Tarifeli gelecekte geniş zamanı, planlanmış gelecekte şimdiki zamanı seçmek",
+   "Türkçe -yor ekinin iki zamana da karşılık geldiğini bilmek; kararı anlamla vermek"
+  ],
+  "canAlici": [
+   "Önce anlama bak: genel mi, şu an mı? Kalıcı mı, geçici mi? Tarife mi, plan mı?",
+   "Genel durum, kalıcı durum, tarifeli gelecek: V1 / V-s",
+   "Konuşma anı, geçici durum, planlanmış gelecek: am / is / are + V-ing",
+   "today iki zamanda da geçer; farkı anlam yapar",
+   "Türkçe yaşıyorum iki zamana karşılık gelir: I live (kalıcı), I am living (geçici)"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "temel",
+   "gramer",
+   "Simple Present",
+   "Present Continuous",
+   "YDT",
+   "shorts"
+  ]
+ }
+}

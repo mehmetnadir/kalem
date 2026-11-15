@@ -1,0 +1,170 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Simple Present ve Present Continuous",
+ "duzen": "konu",
+ "seviye": "temel",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogretmen": {
+   "ses": "gsJ9nrlXYbPztJxC4fwc",
+   "cinsiyet": "erkek",
+   "yas": "yetiskin",
+   "govde": "ShirtPantsWB",
+   "yuz": "Smile",
+   "sac": "Short"
+  },
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Genel mi, şu an mı?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Genel mi, şu an mı?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "She wears her coat in the winter."
+    ],
+    [
+     "tr",
+     "Genel durum: geniş zaman."
+    ],
+    [
+     "en",
+     "She is wearing her pink T-shirt today."
+    ],
+    [
+     "tr",
+     "Today iki zamanda da geçebilir; farkı anlam yapar."
+    ],
+    [
+     "tr",
+     "Konuşma anı: şimdiki zaman."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "She wears her coat in the winter. Genel durum: geniş zaman. She is wearing her pink T-shirt today. Today iki zamanda da geçebilir; farkı anlam yapar. Konuşma anı: şimdiki zaman."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Bu, üç farktan yalnız biri."
+    ],
+    [
+     "tr",
+     "Ekran görüntüsü al, sınav günü bak."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bu, üç farktan yalnız biri. Ekran görüntüsü al, sınav günü bak."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Konu burada bitmiyor."
+    ],
+    [
+     "tr",
+     "Dersin tamamı YDS Publishing YouTube kanalında."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Konu burada bitmiyor. Dersin tamamı YDS Publishing YouTube kanalında."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "GENEL",
+  "satir2": "≠ ŞU AN",
+  "rozetler": [
+   "YDT · BASIC"
+  ],
+  "sahne": [
+   {
+    "ad": "coat",
+    "x": 24,
+    "y": 58,
+    "olcek": 0.45
+   },
+   {
+    "figur": "ogretmen",
+    "x": 50,
+    "y": 58,
+    "olcek": 0.8
+   },
+   {
+    "ad": "t-shirt",
+    "x": 76,
+    "y": 60,
+    "olcek": 0.4
+   }
+  ]
+ },
+ "meta": {
+  "kimlik": "02-04-ydt-temel-s2",
+  "kod": "ING-YDT-GR-02-04-T-S2",
+  "ders": "İngilizce",
+  "konu": "Simple Present ve Present Continuous",
+  "kitle": "ydt",
+  "seviye": "temel",
+  "kapak": {
+   "satir1": "GENEL",
+   "satir2": "≠ ŞU AN",
+   "canAlici": "Önce anlama bak: genel mi, şu an mı? Kalıcı mı, geçici mi? Tarife mi, plan mı?"
+  },
+  "amaclar": [
+   "Genel durumda geniş zamanı, konuşma anında şimdiki zamanı seçmek",
+   "Kalıcı durumda geniş zamanı, geçici durumda şimdiki zamanı seçmek",
+   "Tarifeli gelecekte geniş zamanı, planlanmış gelecekte şimdiki zamanı seçmek",
+   "Türkçe -yor ekinin iki zamana da karşılık geldiğini bilmek; kararı anlamla vermek"
+  ],
+  "canAlici": [
+   "Önce anlama bak: genel mi, şu an mı? Kalıcı mı, geçici mi? Tarife mi, plan mı?",
+   "Genel durum, kalıcı durum, tarifeli gelecek: V1 / V-s",
+   "Konuşma anı, geçici durum, planlanmış gelecek: am / is / are + V-ing",
+   "today iki zamanda da geçer; farkı anlam yapar",
+   "Türkçe yaşıyorum iki zamana karşılık gelir: I live (kalıcı), I am living (geçici)"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "temel",
+   "gramer",
+   "Simple Present",
+   "Present Continuous",
+   "YDT",
+   "shorts"
+  ]
+ }
+}

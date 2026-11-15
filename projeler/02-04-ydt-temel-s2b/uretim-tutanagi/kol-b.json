@@ -1,0 +1,30 @@
+{
+  "paket": "02-04-ydt-temel-s2b",
+  "kol_a": "02-04-ydt-temel-s2",
+  "varyant": {
+    "grup": "s2",
+    "kol": "b",
+    "degisken": "kapanis",
+    "deger": "Ekran görüntüsü al, sınav günü bak. | Konu burada bitmiyor."
+  },
+  "kol_a_deger": "Bu kuralı kaybetme. Kaydet. | Bitmedi, gel.",
+  "degisen_sahneler": ["08-hyperframes-kaydet", "03-hyperframes-cta"],
+  "ayni_sahneler": ["01-hyperframes-kapak", "02-paperjs-ornek"],
+  "yeni_cumleler": [
+    {
+      "sahne": "08-hyperframes-kaydet",
+      "konusan": "ogretmen",
+      "metin": "Bu, üç farktan yalnız biri. Ekran görüntüsü al, sınav günü bak."
+    },
+    {
+      "sahne": "03-hyperframes-cta",
+      "konusan": "ogrenci",
+      "metin": "Konu burada bitmiyor. Dersin tamamı YDS Publishing YouTube kanalında."
+    }
+  ],
+  "onbellekten_cumleler": [
+    "Genel mi, şu an mı?",
+    "She wears her coat in the winter. Genel durum: geniş zaman. She is wearing her pink T-shirt today. Today iki zamanda da geçebilir; farkı anlam yapar. Konuşma anı: şimdiki zaman."
+  ],
+  "sure_tahmini_sn": 30.22
+}

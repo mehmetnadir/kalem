@@ -1,0 +1,73 @@
+[
+ {
+  "dil": "tr",
+  "metin": "Bu iki yaşıyorum aynı mı?",
+  "duyulan": "Bu iki yaşıyorum aynı mı?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İngilizcede ikisi ayrılır.",
+  "duyulan": "İngilizce'de ikisi ayrılır.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I live in Istanbul.",
+  "duyulan": "I live in Istanbul.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hep orada: kalıcı durum, geniş zaman.",
+  "duyulan": "Hep orada. Kalıcı durum, geniş zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I am living with my uncle.",
+  "duyulan": "I'm living with my uncle.",
+  "benzerlik": 0.96,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Şimdilik: geçici durum, şimdiki zaman.",
+  "duyulan": "Şimdilik, geçici durum, şimdiki zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu, üç farktan yalnız biri.",
+  "duyulan": "Bu 3 farktan yalnız biri.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Sınavdan önce lazım olacak. Kaydet.",
+  "duyulan": "Sınavdan önce lazım olacak. Kaydet.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Gerisi bizde.",
+  "duyulan": "Gerisi bizde.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Dersin tamamı YDS Publishing YouTube kanalında.",
+  "ses_metni": "Dersin tamamı YeDeSe Publishing YouTube kanalında.",
+  "duyulan": "Dersin tamamı YEDESE Publishing YouTube kanalında.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ }
+]

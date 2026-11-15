@@ -1,0 +1,73 @@
+{
+  "kart_yanlis": {
+    "kutu": [
+      70,
+      630,
+      880,
+      220
+    ],
+    "kenar": "kutuHazir",
+    "cizgi": 4,
+    "renk": "ikincil",
+    "satirlar": [
+      "My brother go",
+      "to school by bus."
+    ],
+    "font": "Fredoka",
+    "agirlik": 700,
+    "boy": 72,
+    "x": 110,
+    "tabanlar": [
+      712,
+      804
+    ],
+    "go_x": 495.78
+  },
+  "grup": {
+    "kutu": [
+      700,
+      465,
+      256.0,
+      130.06
+    ],
+    "olcek": 0.29425,
+    "kaynak": [
+      80,
+      932,
+      870,
+      442
+    ],
+    "figur_kutu": [
+      711.77,
+      465.0,
+      37.62,
+      129.47
+    ],
+    "otobus_kutu": [
+      776.51,
+      524.73,
+      176.55,
+      68.56
+    ],
+    "cizgi_px": {
+      "figur": 4,
+      "otobus": 4.4,
+      "zemin": 4
+    },
+    "otobus_ayna": true,
+    "figur": "open-peeps/standing-2",
+    "otobus": "coco/bus"
+  },
+  "konu": {
+    "metin": "Simple Present",
+    "boy": 34,
+    "x": 60,
+    "taban": 420
+  },
+  "rozet": {
+    "x": 309.67,
+    "w": 203.57
+  },
+  "t": 3.0,
+  "not": "huni v2 (15.11) kol b: sahne 02 kare 0 = bu son hal"
+}

@@ -1,0 +1,32 @@
+{
+  "font": "Caveat",
+  "agirlik": 700,
+  "boy": 80,
+  "kerning": "none",
+  "sol": 84,
+  "taban": [
+    560,
+    680
+  ],
+  "satir": [
+    "İstanbul'da yaşı-yor-um.",
+    "Amcamla yaşı-yor-um."
+  ],
+  "yor": [
+    [
+      550.08,
+      635.12
+    ],
+    [
+      481.28,
+      566.32
+    ]
+  ],
+  "sag": [
+    752.16,
+    683.36
+  ],
+  "yor_kutusu": "kol b: sahne 01'de çizilir; sahne 02 kare 0'da hazır",
+  "t": 2.5,
+  "not": "kol b (KBC-0204S1, 15.11): sahne 02 Y_L1/Y_L2 560/680, SOL = kenar 60 + 24"
+}

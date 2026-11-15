@@ -1,0 +1,17 @@
+{
+  "paket": "02-04-ydt-temel-s1b",
+  "kol_a": "02-04-ydt-temel-s1",
+  "varyant": {"grup": "s1", "kol": "b", "degisken": "kanca", "deger": "soru"},
+  "kol_a_deger": "kopru",
+  "degisen_sahneler": ["01-hyperframes-kapak"],
+  "ayni_sahneler": ["02-paperjs-ornek", "08-hyperframes-kaydet", "03-hyperframes-cta"],
+  "yeni_cumleler": [
+    {"sahne": "01-hyperframes-kapak", "konusan": "ogretmen", "metin": "Bu iki yaşıyorum aynı mı?"}
+  ],
+  "onbellekten_cumleler": [
+    "İngilizcede ikisi ayrılır. I live in Istanbul. Hep orada: kalıcı durum, geniş zaman. I am living with my uncle. Şimdilik: geçici durum, şimdiki zaman.",
+    "Bu, üç farktan yalnız biri. Sınavdan önce lazım olacak. Kaydet.",
+    "Gerisi bizde. Dersin tamamı YDS Publishing YouTube kanalında."
+  ],
+  "sure_tahmini_sn": 27.79
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<!-- Vizör: dört köşe (L) + deklanşör karesi; elle yazıldı (KBC-0204S2, 15.11.2026). Emoji değil. Sıra: sol üst, sağ üst, sağ alt, sol alt. -->
+<path d="M0 40V0H40"/>
+<path d="M100 0H140V40"/>
+<path d="M140 100V140H100"/>
+<path d="M40 140H0V100"/>
+<rect x="24" y="24" width="92" height="92" rx="12" fill="currentColor" stroke="none"/>
+</svg>

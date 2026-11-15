@@ -35,7 +35,13 @@
       "durum": "inceleme",
       "onizleme": "/p/simple-present-temel-s1/onizle.html",
       "seviye": "temel",
-      "kaynak": "ana-yatay"
+      "kaynak": "ana-yatay",
+      "varyant": {
+        "grup": "s1",
+        "kol": "a",
+        "degisken": "kanca",
+        "deger": "kopru"
+      }
     },
     {
       "kimlik": "s1-kapak-a",

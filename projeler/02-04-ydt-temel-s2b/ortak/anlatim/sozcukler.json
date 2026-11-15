@@ -1,0 +1,290 @@
+[
+{
+"cumle": 1,
+"sozcuk": "Genel",
+"t0": 1.0,
+"t1": 1.4
+},
+{
+"cumle": 1,
+"sozcuk": "mi,",
+"t0": 1.48,
+"t1": 1.92
+},
+{
+"cumle": 1,
+"sozcuk": "şu",
+"t0": 2.12,
+"t1": 2.24
+},
+{
+"cumle": 1,
+"sozcuk": "an",
+"t0": 2.28,
+"t1": 2.44
+},
+{
+"cumle": 1,
+"sozcuk": "mı?",
+"t0": 2.52,
+"t1": 2.92
+},
+{
+"cumle": 2,
+"sozcuk": "She",
+"t0": 3.39,
+"t1": 3.63
+},
+{
+"cumle": 2,
+"sozcuk": "wears",
+"t0": 3.67,
+"t1": 3.87
+},
+{
+"cumle": 2,
+"sozcuk": "her",
+"t0": 3.99,
+"t1": 4.11
+},
+{
+"cumle": 2,
+"sozcuk": "coat",
+"t0": 4.27,
+"t1": 4.43
+},
+{
+"cumle": 2,
+"sozcuk": "in",
+"t0": 4.47,
+"t1": 4.51
+},
+{
+"cumle": 2,
+"sozcuk": "the",
+"t0": 4.59,
+"t1": 4.63
+},
+{
+"cumle": 2,
+"sozcuk": "winter.",
+"t0": 4.67,
+"t1": 5.31
+},
+{
+"cumle": 2,
+"sozcuk": "Genel",
+"t0": 5.56,
+"t1": 5.96
+},
+{
+"cumle": 2,
+"sozcuk": "durum:",
+"t0": 6.04,
+"t1": 6.6
+},
+{
+"cumle": 2,
+"sozcuk": "geniş",
+"t0": 6.68,
+"t1": 6.92
+},
+{
+"cumle": 2,
+"sozcuk": "zaman.",
+"t0": 7.0,
+"t1": 8.12
+},
+{
+"cumle": 2,
+"sozcuk": "Today",
+"t0": 11.42,
+"t1": 11.9
+},
+{
+"cumle": 2,
+"sozcuk": "iki",
+"t0": 12.22,
+"t1": 12.38
+},
+{
+"cumle": 2,
+"sozcuk": "zamanda",
+"t0": 12.46,
+"t1": 12.78
+},
+{
+"cumle": 2,
+"sozcuk": "da",
+"t0": 12.86,
+"t1": 12.94
+},
+{
+"cumle": 2,
+"sozcuk": "geçebilir;",
+"t0": 13.02,
+"t1": 13.74
+},
+{
+"cumle": 2,
+"sozcuk": "farkı",
+"t0": 13.78,
+"t1": 14.06
+},
+{
+"cumle": 2,
+"sozcuk": "anlam",
+"t0": 14.14,
+"t1": 14.46
+},
+{
+"cumle": 2,
+"sozcuk": "yapar.",
+"t0": 14.513,
+"t1": 15.1
+},
+{
+"cumle": 2,
+"sozcuk": "Konuşma",
+"t0": 15.25,
+"t1": 15.73
+},
+{
+"cumle": 2,
+"sozcuk": "anı:",
+"t0": 15.81,
+"t1": 16.45
+},
+{
+"cumle": 2,
+"sozcuk": "şimdiki",
+"t0": 16.49,
+"t1": 16.85
+},
+{
+"cumle": 2,
+"sozcuk": "zaman.",
+"t0": 16.89,
+"t1": 17.49
+},
+{
+"cumle": 3,
+"sozcuk": "Bu,",
+"t0": 17.96,
+"t1": 18.44
+},
+{
+"cumle": 3,
+"sozcuk": "üç",
+"t0": 18.48,
+"t1": 18.6
+},
+{
+"cumle": 3,
+"sozcuk": "farktan",
+"t0": 18.68,
+"t1": 19.16
+},
+{
+"cumle": 3,
+"sozcuk": "yalnız",
+"t0": 19.24,
+"t1": 19.64
+},
+{
+"cumle": 3,
+"sozcuk": "biri.",
+"t0": 19.72,
+"t1": 20.12
+},
+{
+"cumle": 3,
+"sozcuk": "Ekran",
+"t0": 20.27,
+"t1": 20.67
+},
+{
+"cumle": 3,
+"sozcuk": "görüntüsü",
+"t0": 20.71,
+"t1": 21.23
+},
+{
+"cumle": 3,
+"sozcuk": "al,",
+"t0": 21.35,
+"t1": 21.71
+},
+{
+"cumle": 3,
+"sozcuk": "sınav",
+"t0": 21.79,
+"t1": 22.11
+},
+{
+"cumle": 3,
+"sozcuk": "günü",
+"t0": 22.15,
+"t1": 22.35
+},
+{
+"cumle": 3,
+"sozcuk": "bak.",
+"t0": 22.51,
+"t1": 22.91
+},
+{
+"cumle": 4,
+"sozcuk": "Konu",
+"t0": 23.38,
+"t1": 23.66
+},
+{
+"cumle": 4,
+"sozcuk": "burada",
+"t0": 23.7,
+"t1": 24.02
+},
+{
+"cumle": 4,
+"sozcuk": "bitmiyor.",
+"t0": 24.14,
+"t1": 24.82
+},
+{
+"cumle": 4,
+"sozcuk": "Dersin",
+"t0": 24.97,
+"t1": 25.45
+},
+{
+"cumle": 4,
+"sozcuk": "tamamı",
+"t0": 25.53,
+"t1": 26.17
+},
+{
+"cumle": 4,
+"sozcuk": "YDS",
+"t0": 26.25,
+"t1": 26.65
+},
+{
+"cumle": 4,
+"sozcuk": "Publishing",
+"t0": 26.73,
+"t1": 27.29
+},
+{
+"cumle": 4,
+"sozcuk": "YouTube",
+"t0": 27.37,
+"t1": 27.69
+},
+{
+"cumle": 4,
+"sozcuk": "kanalında.",
+"t0": 27.77,
+"t1": 28.57
+}
+]

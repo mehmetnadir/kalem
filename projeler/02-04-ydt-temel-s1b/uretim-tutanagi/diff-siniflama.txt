@@ -1,0 +1,97 @@
+# diff -rq projeler/02-04-ydt-temel-s1 projeler/02-04-ydt-temel-s1b — satır satır sınıf (KBC-0204S1, 15.11)
+beklenen | 6 açıklamada utm_content | Files projeler/02-04-ydt-temel-s1/aciklama-a.md and projeler/02-04-ydt-temel-s1b/aciklama-a.md differ
+beklenen | 6 açıklamada utm_content | Files projeler/02-04-ydt-temel-s1/aciklama-b.md and projeler/02-04-ydt-temel-s1b/aciklama-b.md differ
+beklenen | 6 açıklamada utm_content | Files projeler/02-04-ydt-temel-s1/aciklama.md and projeler/02-04-ydt-temel-s1b/aciklama.md differ
+beklenen | 8 çıkarılan grup türevleri | Only in projeler/02-04-ydt-temel-s1: hikaye-a.png
+beklenen | 8 çıkarılan grup türevleri | Only in projeler/02-04-ydt-temel-s1: hikaye-b.png
+beklenen | 8 çıkarılan grup türevleri | Only in projeler/02-04-ydt-temel-s1: hikaye.png
+beklenen | 7 kapak A | Files projeler/02-04-ydt-temel-s1/kapak-a.png and projeler/02-04-ydt-temel-s1b/kapak-a.png differ
+beklenen | 8 çıkarılan grup türevleri | Only in projeler/02-04-ydt-temel-s1: kapak-b.png
+beklenen | 8 çıkarılan grup türevleri | Only in projeler/02-04-ydt-temel-s1: kapak-c.png
+beklenen | 7 kapak A | Files projeler/02-04-ydt-temel-s1/kapak.png and projeler/02-04-ydt-temel-s1b/kapak.png differ
+beklenen | 4 senaryo ve zaman türevleri | Files projeler/02-04-ydt-temel-s1/ortak/anlatim/altyazi.json and projeler/02-04-ydt-temel-s1b/ortak/anlatim/altyazi.json differ
+beklenen | 4 senaryo ve zaman türevleri | Files projeler/02-04-ydt-temel-s1/ortak/anlatim/anlatim.m4a and projeler/02-04-ydt-temel-s1b/ortak/anlatim/anlatim.m4a differ
+beklenen | 4 senaryo ve zaman türevleri | Files projeler/02-04-ydt-temel-s1/ortak/anlatim/anlatim.m4a.imza and projeler/02-04-ydt-temel-s1b/ortak/anlatim/anlatim.m4a.imza differ
+beklenen | 4 senaryo ve zaman türevleri | Files projeler/02-04-ydt-temel-s1/ortak/anlatim/anlatim.wav and projeler/02-04-ydt-temel-s1b/ortak/anlatim/anlatim.wav differ
+beklenen | 4 senaryo ve zaman türevleri | Files projeler/02-04-ydt-temel-s1/ortak/anlatim/baslar.json and projeler/02-04-ydt-temel-s1b/ortak/anlatim/baslar.json differ
+beklenen | 3 yeni ses (cümle 1) | Files projeler/02-04-ydt-temel-s1/ortak/anlatim/cumle-1.wav and projeler/02-04-ydt-temel-s1b/ortak/anlatim/cumle-1.wav differ
+beklenen | 4 senaryo ve zaman türevleri | Files projeler/02-04-ydt-temel-s1/ortak/anlatim/METIN.md and projeler/02-04-ydt-temel-s1b/ortak/anlatim/METIN.md differ
+beklenen | 2 senaryo (cümle 1) | Files projeler/02-04-ydt-temel-s1/ortak/anlatim/senaryo.json and projeler/02-04-ydt-temel-s1b/ortak/anlatim/senaryo.json differ
+beklenen | 4 senaryo ve zaman türevleri | Files projeler/02-04-ydt-temel-s1/ortak/anlatim/sentez.wav and projeler/02-04-ydt-temel-s1b/ortak/anlatim/sentez.wav differ
+beklenen | 4 senaryo ve zaman türevleri | Files projeler/02-04-ydt-temel-s1/ortak/anlatim/sentez.wav.rapor.json and projeler/02-04-ydt-temel-s1b/ortak/anlatim/sentez.wav.rapor.json differ
+beklenen | 4 senaryo ve zaman türevleri | Files projeler/02-04-ydt-temel-s1/ortak/anlatim/sozcukler.json and projeler/02-04-ydt-temel-s1b/ortak/anlatim/sozcukler.json differ
+beklenen | 4 senaryo ve zaman türevleri | Files projeler/02-04-ydt-temel-s1/ortak/anlatim/sozcuk_uret.py and projeler/02-04-ydt-temel-s1b/ortak/anlatim/sozcuk_uret.py differ
+beklenen | 4 senaryo ve zaman türevleri | Files projeler/02-04-ydt-temel-s1/ortak/anlatim/sureler.json and projeler/02-04-ydt-temel-s1b/ortak/anlatim/sureler.json differ
+AÇIK     | A sahne 02 yolu (kunye.js KOK) | Files projeler/02-04-ydt-temel-s1/ortak/kunye.js and projeler/02-04-ydt-temel-s1b/ortak/kunye.js differ
+beklenen | 1 değişen sahne 01 (kanca) | Files projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/calistir.sh and projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/calistir.sh differ
+beklenen | 1 değişen sahne 01 (kanca) | Files projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/devir.json and projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/devir.json differ
+beklenen | 1 değişen sahne 01 (kanca) | Only in projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-0.9.png
+beklenen | 1 değişen sahne 01 (kanca) | Files projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-0.png and projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-0.png differ
+beklenen | 1 değişen sahne 01 (kanca) | Only in projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-1.3.png
+beklenen | 1 değişen sahne 01 (kanca) | Only in projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-1.5.png
+beklenen | 1 değişen sahne 01 (kanca) | Only in projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-1.75.png
+beklenen | 1 değişen sahne 01 (kanca) | Only in projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-2.2.png
+beklenen | 1 değişen sahne 01 (kanca) | Only in projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-2.5.png
+beklenen | 1 değişen sahne 01 (kanca) | Only in projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-2.95.png
+beklenen | 1 değişen sahne 01 (kanca) | Only in projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/k: ara
+beklenen | 1 değişen sahne 01 (kanca) | Only in projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/k/ka-acik: at-1.75s.png
+beklenen | 1 değişen sahne 01 (kanca) | Only in projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/k/ka-acik: at-1.97s.png
+beklenen | 1 değişen sahne 01 (kanca) | Only in projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/k/ka-koyu: at-1.75s.png
+beklenen | 1 değişen sahne 01 (kanca) | Only in projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/k/ka-koyu: at-1.97s.png
+beklenen | 1 değişen sahne 01 (kanca) | Only in projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/k/koyu: 01-hyperframes-kapak-1.5.png
+beklenen | 1 değişen sahne 01 (kanca) | Only in projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/k/koyu: 01-hyperframes-kapak-1.75.png
+beklenen | 1 değişen sahne 01 (kanca) | Only in projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/k/koyu: 01-hyperframes-kapak-2.2.png
+beklenen | 1 değişen sahne 01 (kanca) | Files projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/k/koyu/kapak-a-koyu.png and projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/k/koyu/kapak-a-koyu.png differ
+beklenen | 1 değişen sahne 01 (kanca) | Files projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/olaylar.json and projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/olaylar.json differ
+beklenen | 1 değişen sahne 01 (kanca) | Files projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/olay.py and projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/olay.py differ
+beklenen | 1 değişen sahne 01 (kanca) | Files projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/proje/index.html and projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/proje/index.html differ
+beklenen | 1 değişen sahne 01 (kanca) | Files projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/proje-ka/.hyperframes/history-id and projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/proje-ka/.hyperframes/history-id differ
+beklenen | 1 değişen sahne 01 (kanca) | Files projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/proje-ka/.hyperframes/video-state.json and projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/proje-ka/.hyperframes/video-state.json differ
+beklenen | 1 değişen sahne 01 (kanca) | Files projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/proje-ka/index.html and projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/proje-ka/index.html differ
+beklenen | 1 değişen sahne 01 (kanca) | Files projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/__pycache__/uret.cpython-310.pyc and projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/__pycache__/uret.cpython-310.pyc differ
+beklenen | 1 değişen sahne 01 (kanca) | Files projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/RAPOR.md and projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/RAPOR.md differ
+beklenen | 1 değişen sahne 01 (kanca) | Files projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/SPEC.md and projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/SPEC.md differ
+beklenen | 1 değişen sahne 01 (kanca) | Files projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/uret.py and projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/uret.py differ
+beklenen | 1 değişen sahne 01 (kanca) | Files projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/zamanlar.json and projeler/02-04-ydt-temel-s1b/sahneler/01-hyperframes-kapak/zamanlar.json differ
+AÇIK     | A sahne 02 baş kırpımı | Files projeler/02-04-ydt-temel-s1/sahneler/02-paperjs-ornek/calistir.sh and projeler/02-04-ydt-temel-s1b/sahneler/02-paperjs-ornek/calistir.sh differ
+AÇIK     | A sahne 02 baş kırpımı | Only in projeler/02-04-ydt-temel-s1b/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-10.png
+AÇIK     | A sahne 02 baş kırpımı | Only in projeler/02-04-ydt-temel-s1/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-11.5.png
+AÇIK     | A sahne 02 baş kırpımı | Only in projeler/02-04-ydt-temel-s1b/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-14.png
+AÇIK     | A sahne 02 baş kırpımı | Only in projeler/02-04-ydt-temel-s1b/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-16.13.png
+AÇIK     | A sahne 02 baş kırpımı | Only in projeler/02-04-ydt-temel-s1/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-19.9.png
+AÇIK     | A sahne 02 baş kırpımı | Only in projeler/02-04-ydt-temel-s1b/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-2.5.png
+AÇIK     | A sahne 02 baş kırpımı | Only in projeler/02-04-ydt-temel-s1b/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-3.04.png
+AÇIK     | A sahne 02 baş kırpımı | Only in projeler/02-04-ydt-temel-s1/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-3.05.png
+AÇIK     | A sahne 02 baş kırpımı | Only in projeler/02-04-ydt-temel-s1b/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-6.png
+AÇIK     | A sahne 02 baş kırpımı | Only in projeler/02-04-ydt-temel-s1b/sahneler/02-paperjs-ornek/k/koyu: 02-paperjs-ornek-10.png
+AÇIK     | A sahne 02 baş kırpımı | Only in projeler/02-04-ydt-temel-s1/sahneler/02-paperjs-ornek/k/koyu: 02-paperjs-ornek-11.5.png
+AÇIK     | A sahne 02 baş kırpımı | Only in projeler/02-04-ydt-temel-s1b/sahneler/02-paperjs-ornek/k/koyu: 02-paperjs-ornek-2.5.png
+AÇIK     | A sahne 02 baş kırpımı | Files projeler/02-04-ydt-temel-s1/sahneler/02-paperjs-ornek/kalem-paper.js and projeler/02-04-ydt-temel-s1b/sahneler/02-paperjs-ornek/kalem-paper.js differ
+AÇIK     | A sahne 02 baş kırpımı | Files projeler/02-04-ydt-temel-s1/sahneler/02-paperjs-ornek/RAPOR.md and projeler/02-04-ydt-temel-s1b/sahneler/02-paperjs-ornek/RAPOR.md differ
+AÇIK     | A sahne 02 baş kırpımı | Files projeler/02-04-ydt-temel-s1/sahneler/02-paperjs-ornek/sahne-02.js and projeler/02-04-ydt-temel-s1b/sahneler/02-paperjs-ornek/sahne-02.js differ
+AÇIK     | A sahne 02 baş kırpımı | Files projeler/02-04-ydt-temel-s1/sahneler/02-paperjs-ornek/sayfa.html and projeler/02-04-ydt-temel-s1b/sahneler/02-paperjs-ornek/sayfa.html differ
+AÇIK     | A sahne 02 baş kırpımı | Files projeler/02-04-ydt-temel-s1/sahneler/02-paperjs-ornek/SPEC.md and projeler/02-04-ydt-temel-s1b/sahneler/02-paperjs-ornek/SPEC.md differ
+beklenen | 5 surumler.json | Files projeler/02-04-ydt-temel-s1/surumler.json and projeler/02-04-ydt-temel-s1b/surumler.json differ
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1/uretim-tutanagi: aciklama-taslak.md
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1b/uretim-tutanagi: BK-RAPOR.md
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1b/uretim-tutanagi: diff-siniflama.txt
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1/uretim-tutanagi: DUZ-1-RAPOR.md
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1/uretim-tutanagi: hikaye-taslak.md
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1/uretim-tutanagi: istem
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1/uretim-tutanagi: juri
+beklenen | 9 uretim-tutanagi | Files projeler/02-04-ydt-temel-s1/uretim-tutanagi/kapak-taslak.md and projeler/02-04-ydt-temel-s1b/uretim-tutanagi/kapak-taslak.md differ
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1b/uretim-tutanagi: kapi-cikti.txt
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1b/uretim-tutanagi: KBC-RAPOR.md
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1b/uretim-tutanagi: kol-b.json
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1/uretim-tutanagi: kontak
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1b/uretim-tutanagi: kontak-kbc.png
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1b/uretim-tutanagi: kopya-denetim.txt
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1/uretim-tutanagi: S1-A-RAPOR.md
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1/uretim-tutanagi: S1-C-RAPOR.md
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1/uretim-tutanagi: S1-duzeltme.md
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1/uretim-tutanagi: S1-VAR-RAPOR.md
+beklenen | 9 uretim-tutanagi | Files projeler/02-04-ydt-temel-s1/uretim-tutanagi/senaryo-taslak.md and projeler/02-04-ydt-temel-s1b/uretim-tutanagi/senaryo-taslak.md differ
+beklenen | 9 uretim-tutanagi | Files projeler/02-04-ydt-temel-s1/uretim-tutanagi/ses-sentez.log and projeler/02-04-ydt-temel-s1b/uretim-tutanagi/ses-sentez.log differ
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1/uretim-tutanagi: ses-sentez-v2.log
+beklenen | 9 uretim-tutanagi | Only in projeler/02-04-ydt-temel-s1/uretim-tutanagi: V2-C-RAPOR.md
+beklenen | 4 senaryo ve zaman türevleri | Files projeler/02-04-ydt-temel-s1/zaman.json and projeler/02-04-ydt-temel-s1b/zaman.json differ

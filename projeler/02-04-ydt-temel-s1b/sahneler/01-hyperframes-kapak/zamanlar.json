@@ -1,0 +1,7 @@
+{
+  "fps": 30, "kare": 87, "sure": 2.9,
+  "alti": [0.30, 0.50], "yazi_sure": 0.30, "kutu_sure": 0.20, "kutu_ara": 0.15, "kapak_t": 1.75,
+  "baslik_sol_sure": 0.18, "sahne_sol_sure": 0.40, "rozet_kay_sure": 0.35,
+  "satir_kay": [0.06, 0.50], "kunye_ac": [0.32, 0.23],
+  "not": "kol b (KBC-0204S1): satır/kutu/kayma başları sözcük çapasından (Bu, iki, yaşıyorum, aynı); burada yalnız süre ve pay"
+}

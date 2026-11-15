@@ -1,0 +1,104 @@
+{
+  "fps": 30,
+  "kare": 175,
+  "sure": 5.8333,
+  "t_bas": 17.41,
+  "kart_giris": [
+    0.55,
+    0.4
+  ],
+  "nokta_giris": [
+    1.07,
+    0.46
+  ],
+  "vizor_ciz": [
+    2.86,
+    0.5
+  ],
+  "parca1_giris": [
+    2.86,
+    0.3
+  ],
+  "deklansor": [
+    3.94,
+    0.3
+  ],
+  "parca2_giris": [
+    3.94,
+    0.3
+  ],
+  "parca3_giris": [
+    4.38,
+    0.3
+  ],
+  "kuyruk_durgun": [
+    5.4333,
+    0.4
+  ],
+  "olaylar": [
+    [
+      0.55,
+      "vurus",
+      0.5
+    ],
+    [
+      1.07,
+      "tik",
+      0.4
+    ],
+    [
+      2.86,
+      "cizgi",
+      0.6
+    ],
+    [
+      3.94,
+      "tik",
+      0.6
+    ]
+  ],
+  "olay_listesi": [
+    {
+      "olay": "kart_giris",
+      "kare": 16,
+      "yerel": 0.55,
+      "kuresel": 17.96,
+      "sozcuk": "Bu,"
+    },
+    {
+      "olay": "nokta_giris",
+      "kare": 32,
+      "yerel": 1.07,
+      "kuresel": 18.48,
+      "sozcuk": "üç"
+    },
+    {
+      "olay": "vizor_ciz",
+      "kare": 86,
+      "yerel": 2.86,
+      "kuresel": 20.27,
+      "sozcuk": "Ekran"
+    },
+    {
+      "olay": "deklansor",
+      "kare": 118,
+      "yerel": 3.94,
+      "kuresel": 21.35,
+      "sozcuk": "al,"
+    },
+    {
+      "olay": "parca3_giris",
+      "kare": 131,
+      "yerel": 4.38,
+      "kuresel": 21.79,
+      "sozcuk": "sınav"
+    },
+    {
+      "olay": "kuyruk_durgun",
+      "kare": 163,
+      "yerel": 5.4333,
+      "kuresel": 22.843,
+      "sozcuk": "geçiş"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+[
+ {
+  "dil": "tr",
+  "metin": "Genel mi, şu an mı?",
+  "duyulan": "Genel mi, şu an mı?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "She wears her coat in the winter.",
+  "duyulan": "She wears her coat in the winter.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Genel durum: geniş zaman.",
+  "duyulan": "Genel Durum Geniş Zaman",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "She is wearing her pink T-shirt today.",
+  "ses_metni": "She is wearing her pink T shirt today.",
+  "duyulan": "She is wearing her pink t-shirt today.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Today iki zamanda da geçebilir; farkı anlam yapar.",
+  "duyulan": "Today, iki zamanda da geçebilir. Farkı anlam yapar.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Konuşma anı: şimdiki zaman.",
+  "duyulan": "Konuşma Anı, Şimdiki Zaman",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu, üç farktan yalnız biri.",
+  "duyulan": "Bu üç farktan yalnız biri.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Ekran görüntüsü al, sınav günü bak.",
+  "duyulan": "Ekran görüntüsü al, sınav günü bak.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Konu burada bitmiyor.",
+  "duyulan": "Konu burada bitmiyor.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Dersin tamamı YDS Publishing YouTube kanalında.",
+  "ses_metni": "Dersin tamamı YeDeSe Publishing YouTube kanalında.",
+  "duyulan": "Dersin tamamı YEDESE Publishing YouTube kanalında.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ }
+]

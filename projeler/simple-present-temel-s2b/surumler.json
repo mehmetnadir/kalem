@@ -1,0 +1,66 @@
+{
+  "video": {
+    "kimlik": "02-02-ydt-temel",
+    "ders": "İngilizce",
+    "konu": "Simple Present",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-02-T",
+    "amaclar": [
+      "Simple Present formunu kurmak (fiil, fiil + s, do / does)",
+      "zaman ifadelerini tanımak",
+      "genelleme, alışkanlık ve tarife kullanımlarını ayırt etmek",
+      "Türkçe geniş zaman eki ile köprü"
+    ],
+    "canAlici": [
+      "Türkçedeki geniş zaman eki = İngilizcedeki s: gider = goes",
+      "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
+      "usually, always, every day = tekrar eden iş sinyali",
+      "he, she, it fiile s alır; I, you, we, they almaz",
+      "3 örnek, 1 kural: üçünde de fiilin sonunda s"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Simple Present"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "s2b",
+      "tur": "shorts",
+      "ad": "S2b Shorts (25,73 sn)",
+      "durum": "inceleme",
+      "onizleme": "/p/simple-present-temel-s2b/onizle.html",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "varyant": {
+        "grup": "s2",
+        "kol": "b",
+        "degisken": "kapanis",
+        "deger": "ekran-goruntusu"
+      }
+    },
+    {
+      "kimlik": "s2b-aciklama-a",
+      "tur": "aciklama",
+      "ad": "S2b Açıklama A",
+      "durum": "inceleme",
+      "dosya": "aciklama-a.md",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s2b-aciklama-b",
+      "tur": "aciklama",
+      "ad": "S2b Açıklama B",
+      "durum": "inceleme",
+      "dosya": "aciklama-b.md",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    }
+  ],
+  "revizyonlar": []
+}

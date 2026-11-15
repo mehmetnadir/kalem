@@ -1,0 +1,155 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Simple Present",
+ "duzen": "konu",
+ "seviye": "temel",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "My brother go to school by bus."
+    ],
+    [
+     "tr",
+     "Hata nerede?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "My brother go to school by bus. Hata nerede?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "My brother goes to school by bus."
+    ],
+    [
+     "en",
+     "He, she, it"
+    ],
+    [
+     "tr",
+     "ile fiile s gelir."
+    ],
+    [
+     "en",
+     "I, you, we, they"
+    ],
+    [
+     "tr",
+     "ile gelmez."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "My brother goes to school by bus. He, she, it ile fiile s gelir. I, you, we, they ile gelmez."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Sınavdan önce lazım olacak. Kaydet."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Sınavdan önce lazım olacak. Kaydet."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Gerisi bizde."
+    ],
+    [
+     "tr",
+     "Dersin tamamı YDS Publishing YouTube kanalında."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Gerisi bizde. Dersin tamamı YDS Publishing YouTube kanalında."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "MY BROTHER",
+  "satir2": "GO.",
+  "rozetler": [
+   "YDT · BASIC"
+  ],
+  "sahne": [
+   {
+    "figur": "open-peeps/standing-2",
+    "x": 34,
+    "y": 60,
+    "olcek": 0.8
+   },
+   {
+    "ad": "bus",
+    "x": 70,
+    "y": 64,
+    "olcek": 0.45
+   }
+  ]
+ },
+ "meta": {
+  "kimlik": "02-02-ydt-temel-s1",
+  "kod": "ING-YDT-GR-02-02-T-S1",
+  "ders": "İngilizce",
+  "konu": "Simple Present",
+  "kitle": "ydt",
+  "seviye": "temel",
+  "kapak": {
+   "satir1": "MY BROTHER",
+   "satir2": "GO.",
+   "canAlici": "he, she, it fiile s alır; I, you, we, they almaz"
+  },
+  "amaclar": [
+   "Simple Present formunu kurmak (fiil, fiil + s, do / does)",
+   "zaman ifadelerini tanımak",
+   "genelleme, alışkanlık ve tarife kullanımlarını ayırt etmek",
+   "Türkçe geniş zaman eki ile köprü"
+  ],
+  "canAlici": [
+   "Gider = goes; ama yalnız he, she, it ile. I, you, we, they ile go.",
+   "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
+   "usually, always, every day = tekrar eden iş sinyali",
+   "he, she, it fiile s alır; I, you, we, they almaz",
+   "3 örnek, 1 kural: üçünde de fiilin sonunda s"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "temel",
+   "gramer",
+   "Simple Present",
+   "YDT",
+   "shorts"
+  ]
+ }
+}

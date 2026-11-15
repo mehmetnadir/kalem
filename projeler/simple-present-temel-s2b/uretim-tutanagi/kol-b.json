@@ -1,0 +1,22 @@
+{
+  "paket": "simple-present-temel-s2b",
+  "kol_a": "simple-present-temel-s2",
+  "varyant": {
+    "grup": "s2",
+    "kol": "b",
+    "degisken": "kapanis",
+    "deger": "Ekran görüntüsü al, sınav günü bak. | Konu burada bitmiyor."
+  },
+  "kol_a_deger": "Bu kuralı kaybetme. Kaydet. | Bitmedi, gel.",
+  "degisen_sahneler": ["03-hyperframes-kaydet", "04-hyperframes-cagri"],
+  "ayni_sahneler": ["01-hyperframes-kanca", "02-paperjs-deger"],
+  "yeni_cumleler": [
+    {"sahne": "03-hyperframes-kaydet", "konusan": "ogretmen", "metin": "Ekran görüntüsü al, sınav günü bak."},
+    {"sahne": "04-hyperframes-cagri", "konusan": "ogrenci", "metin": "Konu burada bitmiyor."}
+  ],
+  "onbellekten_cumleler": [
+    "Usually görünce hangi zaman?",
+    "My brother usually goes to school by bus. Alışkanlık işareti. Şu an değil, her sabah yedide kalkarım gibi."
+  ],
+  "sure_tahmini_sn": 26.29
+}
