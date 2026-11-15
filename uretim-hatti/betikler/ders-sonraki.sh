@@ -10,8 +10,8 @@ KOD="$1"; PA="$2"; ESZ="${ESZ:-8}"
 setsid bash -c '
   R="$1"; K="$2"; I="$3"; KOD="$4"; PA="$5"; ESZ="$6"
   S="$R/sonraki-$KOD.durum"; echo "bekliyor DUZ3 $$" > "$S"
-  until case "$(cat "$R/DUZ3-$KOD.durum" 2>/dev/null)" in bitti*) true ;; *) false ;; esac; do sleep 30; done
-  if [ "$(cat "$R/DUZ3-$KOD.durum")" != "bitti 0" ]; then echo "bitti 90 (DUZ3 hata)" > "$S"; exit; fi
+  # Yalnız "bitti 0" beklenir: arızadan kalan eski "bitti 137" yeniden başlatılacak işin durumudur, karar değildir.
+  until [ "$(cat "$R/DUZ3-$KOD.durum" 2>/dev/null)" = "bitti 0" ]; do sleep 30; done
   echo "bekliyor DJ $$" > "$S"
   J="$K/projeler/$PA/uretim-tutanagi/juri"
   while :; do
