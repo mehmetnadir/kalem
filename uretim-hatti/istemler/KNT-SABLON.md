@@ -1,0 +1,44 @@
+# İstem KNT-@KOD@ — `@PA@` (ve `@PA@-dikey`) ana ders: jürinin "kanıt yok" dediği kanıtların üretimi · 16.11.2026
+
+MAKİNE: Linux x86_64 (srv21), kullanıcı sef. K=`/home/sef/01dev/_worktrees/kalem-0204` (worktree), D=`/home/sef/01dev/dijital-anlatim`.
+SABİT KURALLAR: silme yok (`rm` yok; gereksiz dosya `/home/sef/Silinecekler/2026-11-16-knt-@KOD@/` altına taşınır). mp4 render yok. Ses sentezi
+YOK (bu tur yalnız kanıt üretir; cümle, ses, zaman değişmez). git commit yok (şef atar). Alt ajan yok, agy-filo yok. `.env`, `*.key` okuma. Kanca
+atlama bayrağı oluşturma. Arka plan işi beklerken `pgrep -f` kullanma; komutu ön planda `timeout` ile koştur. Türkçe karakter tam.
+YAZMA ALANI: yalnız `K/projeler/@PA@` ve `K/projeler/@PA@-dikey` (varsa). `K/ortak/` altına ve öteki paketlere dokunma.
+
+## Girdi (önce oku)
+- EN SON ders jürisi hükmü: `K/projeler/@PA@/uretim-tutanagi/juri/DJ-hukum-*.md` (tarihli dosyaların en yenisi): "kanıt yok" ve "hayır" satırları.
+- Ölçütler: `D/.claude/docs/juri-olcutleri.md` §1, §2b (her maddenin "kanıt" sütunu), §2c. Önceki düzeltme raporu: `uretim-tutanagi/DUZ3-RAPOR.md`.
+- Paketin kendi kare ve kapı betikleri (sahne `calistir.sh`, `K/araclar/qa-yerel.sh`, `D/araclar/cakisma-kapisi.mjs`, `D/araclar/kare-denetim.mjs`);
+  paket hangi kuşaksa onun düzeni geçerlidir: varsayma, oku.
+
+## İş (yalnız hükümde "kanıt yok" olan madde için üret; var olan geçerli kanıtı yineleme)
+1. **DK-3 / ST-2 · `hyperframes check`.** Her HTML sahnesi için `D/node_modules/.bin/hyperframes check sahneler/<sahne>/proje` (yatay + dikey);
+   çıktının tamamı `uretim-tutanagi/hf-check-knt.txt`. Paper.js / canvas sahnesi için yazı boyutu sabitlerini (paketin `ortak/kunye.js` ve sahne
+   kaynağı) aynı dosyaya tablo olarak yaz: öğe | px | taban (yatay 30, dikey 50) | sonuç. Tabanın altında kalan İÇERİK yazısı varsa (künye gezinme,
+   rozet gibi krom değil) düzeltme önerisini rapora yaz; bu turda kaynağı değiştirme.
+2. **EK-12 · zaman kapısı.** `uretim-tutanagi/zaman-kapisi.md`: her ekran öğesinin giriş zamanı (sahne `zamanlar.json` / olay listesi) ↔ ilgili
+   sözün ilk sözcüğünün `sozcukler.json` t0 değeri; fark < 0 (öğe sözden sonra) satırları işaretli. Yatay ve dikey ayrı tablo.
+3. **EK-7 · koyu kare.** Koyu karesi olmayan her sahne için en az 1 koyu kare (`sahneler/<sahne>/k/koyu/`), yatay + dikey; kareye KENDİN bak
+   (Read): metin okunuyor mu, öğe kayboluyor mu. Kusur görürsen rapora yaz (kaynak düzeltmesi ayrı tur).
+4. **EK-8 · kontak sayfası.** Son karelerden kontak: sahne başına ≥ 3 kare, açık ve koyu ayrı sayfa, yatay ve dikey ayrı:
+   `uretim-tutanagi/kontak/@PA@-knt-kontak(-koyu).png` (+ dikey paket kendi dizininde). Kontağı Read ile aç; `D/.claude/docs/kliseler.md`
+   18 maddesinin ön sayımını rapora yaz (asıl sayım jürinindir).
+5. **DK-1 · karaoke kanıtı (dikey).** Altyazı karaokesi hareket ister: aynı cümlenin içinde 3 an (ilk sözcük, orta, son sözcük; `sozcukler.json`
+   zamanlarından) için kare çek; vurgulu sözcük ilerliyor mu, kendin bak. Kareler `uretim-tutanagi/knt-kareler/karaoke/`. Karaoke hiç yoksa
+   (altyazı sözcük zamanı almıyor) "hayır" olarak raporla; bu turda düzeltme.
+6. **EK-10 · ses metni.** Ekran metni → ses metni dönüşümünün çıktısı (`D/araclar/iki-dilli/ses_metni.py`; sentez raporu varsa o) pakette
+   `uretim-tutanagi/ses-metni.md` olarak dursun: cümle no | ekran metni | ses metni | Whisper benzerliği (var olan rapordan; yeniden ses üretme).
+7. **EK-11 · dinleme listesi (Nadir için).** `uretim-tutanagi/dinleme-listesi.md`: son turda yeniden sentezlenen her parça ve Whisper benzerliği
+   < 0,95 olan her parça: cümle no | metin | wav yolu | ders zamanı (sn) | Whisper. Karar yazma; liste Nadir'in kulağı içindir.
+8. **Kare tazeliği.** Her sahnede `k/*.png` en yeni zamanı ≥ kaynakların (`sahne-*.js`, `kalem-*.js`, `uret.py`, `proje/index.html`, paketin
+   `ortak/kunye.js`) en yeni zamanı mı? Tablo rapora. Eski kare varsa o sahnenin karelerini yeniden çek (kaynak değişmez). KARELER EN SON çekilir.
+9. Hükümde "hayır" satırı varsa: düzeltmesi yalnız metin / veri dosyasıysa (`youtube.json`, `youtube-aciklama.md`, `surumler.json`, `BRIEF.md`)
+   düzelt ve `python3 K/uretim-hatti/betikler/yv-tutarlilik.py --kilitli simple-present-temel,simple-present-temel-dikey,02-04-ydt-temel-dikey`
+   çıkış 0 olsun; ses ya da sahne isteyen "hayır" satırını yalnız raporla (ayrı tur).
+@EK@
+## Rapor
+`uretim-tutanagi/KNT-RAPOR.md` (ilk satır `uretici_model: <model>`): madde | üretilen kanıt dosyası | kendi gözlemin (kusur var / yok) | jüriye not.
+Kapanmayan madde ve sebebi ayrı tablo. `surumler.json` revizyon notu ekleme (içerik değişmedi); eklersen `degisiklik` ≤ 500 karakter, `no` = `r<sayı>`.
+
+Son mesajın en çok 10 satır: üretilen kanıt dosyaları, kendi bulduğun kusurlar (madde + tek cümle), kapanmayan maddeler, rapor yolu.
