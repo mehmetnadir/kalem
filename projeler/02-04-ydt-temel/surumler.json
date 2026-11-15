@@ -39,9 +39,37 @@
       "kapak": null,
       "seviye": "temel",
       "kaynak": null,
-      "durum": "taslak",
+      "durum": "inceleme",
       "onizleme": "/p/02-04-ydt-temel/onizle.html",
       "tarih": "2026-11-14T17:56:59Z"
+    },
+    {
+      "kimlik": "dikey-tam",
+      "video": "02-04-ydt-temel",
+      "tur": "dikey",
+      "ad": "Dikey tam ders (9:16, aynı ses)",
+      "senaryo": null,
+      "kapak": null,
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "uretimde",
+      "onizleme": "/p/02-04-ydt-temel-dikey/onizle.html",
+      "tarih": "2026-11-15T01:00:00Z",
+      "proje": "02-04-ydt-temel-dikey"
+    },
+    {
+      "kimlik": "shorts",
+      "video": "02-04-ydt-temel",
+      "tur": "shorts",
+      "ad": "S1 Shorts",
+      "senaryo": null,
+      "kapak": null,
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "uretimde",
+      "onizleme": "/p/02-04-ydt-temel-s1/onizle.html",
+      "tarih": "2026-11-15T01:00:00Z",
+      "proje": "02-04-ydt-temel-s1"
     }
   ],
   "revizyonlar": []
