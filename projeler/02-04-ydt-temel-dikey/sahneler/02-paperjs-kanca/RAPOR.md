@@ -1,5 +1,7 @@
 # RAPOR — 02-04-ydt-temel-dikey · 02-paperjs-kanca (Paper.js, 1080×1920, 529 kare, 3,00–20,22 sn) · 15.11.2026
 
+Tema: koyu
+
 | Konu | Durum |
 |---|---|
 | Kod | `kalem-paper.js` (575 satır, agy) · `sahne-02.js` (567 satır, agy) · `calistir.sh`, `sayfa.html` (şef) · tasarım `SPEC.md` |

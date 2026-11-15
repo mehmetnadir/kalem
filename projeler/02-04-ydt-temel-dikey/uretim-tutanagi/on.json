@@ -13,14 +13,14 @@
       "adim": "sahne",
       "aktor": {
         "ad": "kalem",
-        "surum": "7c4629f",
+        "surum": "42827f9",
         "tur": "betik"
       },
       "zaman": "2026-11-15T08:41:03Z"
     }
   ],
   "arac": {
-    "kalem_commit": "7c4629f",
+    "kalem_commit": "42827f9",
     "motorlar": [
       "Paper.js",
       "HyperFrames",
@@ -33,12 +33,12 @@
       "commit": "7dd918f"
     },
     "kalem": {
-      "commit": "7c4629f"
+      "commit": "42827f9"
     }
   },
   "imza": {
     "alg": "sha256",
-    "deger": "dd00dca04595dfc552f2e619a6adf339827545d2ceb175abb78f0981ff43115e"
+    "deger": "f667e1a66c5c32b70fba3aa0edaa659c8f875090845ba97ae5feaff5c4d6c612"
   },
   "kaynaklar": [
     {
@@ -63,7 +63,7 @@
       "yol": "varlik/grammar/kaynak-pptx/YEDEK/Tenses/unit-1_sunum-3 uygun.pptx"
     }
   ],
-  "kimlik": "UT-20261115-dd00",
+  "kimlik": "UT-20261115-f667",
   "sema": "ut-on/v1",
   "senaryo": {
     "sha256": "bc530566f0c05428dacf93437d8fb634ff9bb4fccb4663250ec88884f14e7d37",
@@ -275,7 +275,7 @@
     ],
     "sha256": "df7e25dde85bf766032c5a9e76bf2419600ed0289f0acd4562ba4b7b4ef5ce30"
   },
-  "tarih": "2026-11-15T10:01:39Z",
+  "tarih": "2026-11-15T10:24:17Z",
   "varliklar": [
     {
       "ad": "coco",
