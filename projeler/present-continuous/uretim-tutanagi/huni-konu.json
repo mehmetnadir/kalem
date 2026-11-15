@@ -1,0 +1,70 @@
+{
+  "paket": "present-continuous",
+  "adaylar": [
+    {
+      "sira": 1,
+      "kimlik": "s1",
+      "bicim": "yanlış–doğru",
+      "bilgi": "Present Continuous iki parçadır: -ing tek başına yüklem olmaz, önüne am, is ya da are gelir.",
+      "kural_ozeti": "-ing tek başına yetmez; önüne am, is, are gelir.",
+      "kanca": "I sitting now. Ne eksik?",
+      "ornek_en": "I am sitting in front of the camera now.",
+      "ornek_tr": "Şu anda kameranın önünde oturuyorum.",
+      "kaynak_cumle": [3, 4, 7],
+      "olcut_evet": 6,
+      "juri_notu": "Kural yüklem içindir; ad gibi kullanılan -ing (Swimming is fun.) ayrı konudur, kısa ona değinmez. Kardeş: present-continuous-ileri aday s6 aynı bilgiyi mini test olarak taşır (üretilmedi); bilginin asıl yeri temel derstir."
+    },
+    {
+      "sira": 2,
+      "kimlik": "s2",
+      "bicim": "sinyal sözcük",
+      "bilgi": "Look!, Listen! ve now olayın tam şu anda sürdüğünü gösterir; fiil am, is, are artı -ing olur.",
+      "kural_ozeti": "Look, Listen, now görünce: am, is, are artı -ing.",
+      "kanca": "Look! görünce hangi zaman?",
+      "ornek_en": "Look! The cat is climbing the tree.",
+      "ornek_tr": "Bak, kedi ağaca tırmanıyor.",
+      "kaynak_cumle": [3, 5],
+      "olcut_evet": 6,
+      "juri_notu": "Jüri bakacak: durum fiilleri (know, hear, like) Look! ve Listen! sonrasında da -ing almaz (Listen! Do you hear that?); istisna ileri dersin ve 02-03 aday s1'in konusu. Kural özeti eylem fiilleri için doğru; değer sahnesinde örnek eylem fiiliyle kalmalı. Watch out! karta sığmadı. Kardeş: 02-03 aday s5 yalnız now taşır; bu kısanın ana bilgisi Look! ve Listen!."
+    },
+    {
+      "sira": 3,
+      "kimlik": "s3",
+      "bicim": "köprü cümle",
+      "bilgi": "Zamanı -ing değil, önündeki be söyler: is taking şimdi, was taking geçmiş; Türkçede de -yor sabit, zamanı arkadaki ek söyler.",
+      "kural_ozeti": "Zamanı -ing değil, önündeki be fiili söyler.",
+      "kanca": "-ing gördün: şimdiki zaman mı?",
+      "ornek_en": "My sister is taking piano lessons. → My sister was taking piano lessons.",
+      "ornek_tr": "Kardeşim piyano dersi alıyor. → Kardeşim piyano dersi alıyordu.",
+      "kaynak_cumle": [7, 4],
+      "olcut_evet": 5,
+      "juri_notu": "Jüri bakacak: 'alıyordu = was taking' köprüsü ana derste yok; Türkçe -yordu geçmiş alışkanlık da anlatır (Çocukken her gün koşuyordum), köprü yalnız 'o anda sürüyordu' anlamıyla kurulmalı. Kısa Past Continuous öğretmez. Kardeş çakışması yok."
+    },
+    {
+      "sira": 4,
+      "kimlik": "s4",
+      "bicim": "kural kartı",
+      "bilgi": "-ing işin bitmediğini, konuşma anında hâlâ sürdüğünü gösterir; işaret sözcüğü yoksa karar bu anlamla verilir.",
+      "kural_ozeti": "-ing, işin bitmediğini, hâlâ sürdüğünü gösterir.",
+      "kanca": "Neden hep -ing?",
+      "ornek_en": "The cat is climbing the tree.",
+      "ornek_tr": "Kedi ağaca tırmanıyor.",
+      "kaynak_cumle": [6, 7, 3],
+      "olcut_evet": 4,
+      "juri_notu": "Örnek s2 ile aynı cümle (Look!'sız); iki kısa aynı hafta yayınlanmamalı. Köprü '-yor = -ing' eşitliği biçiminde yazılmamalı (ana kapak yinelemesi ve yanlış genelleme); yalnız 'süren iş' anlamı taşınır. Kanca ana dersin öğrenci sorusu; kısada öğretmen sorar."
+    },
+    {
+      "sira": 5,
+      "kimlik": "s5",
+      "bicim": "mini test",
+      "bilgi": "Be özneye göre seçilir: I → am; he, she, it ve tekil ad → is; you, we, they ve çoğul ad → are.",
+      "kural_ozeti": "Ben am; sen, biz, siz, onlar are; o is.",
+      "kanca": "My sisters ___ taking piano lessons. am, is, are?",
+      "ornek_en": "My sisters are taking piano lessons.",
+      "ornek_tr": "Kız kardeşlerim piyano dersi alıyor.",
+      "kaynak_cumle": [3, 4, 5, 7],
+      "olcut_evet": 4,
+      "juri_notu": "Kişi eşlemesi ana derste söylenmez, yalnız örneklerde görünür (I am, my sister is, the cat is). Şıklar (a) am (b) is (c) are, cevap (c). 'o is' tekil adı, 'onlar are' çoğul adı kapsar; kartta açık yazılmalı."
+    }
+  ]
+}

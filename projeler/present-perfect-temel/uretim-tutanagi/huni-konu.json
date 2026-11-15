@@ -1,0 +1,98 @@
+{
+  "paket": "present-perfect-temel",
+  "adaylar": [
+    {
+      "sira": 1,
+      "kimlik": "s1",
+      "bicim": "köprü cümle",
+      "bilgi": "Türkçe \"beş yıldır çalıyor\" şimdiki zamandır, İngilizcede Present Continuous değil Present Perfect olur.",
+      "kural_ozeti": "Beş yıldır çalıyor: is playing değil, has played.",
+      "kanca": "Beş yıldır çalıyor: is playing mi?",
+      "ornek_en": "My brother has played the guitar for five years.",
+      "ornek_tr": "Kardeşim beş yıldır gitar çalıyor.",
+      "kaynak_cumle": [
+        4,
+        7
+      ],
+      "olcut_evet": 6,
+      "juri_notu": "has been playing (Present Perfect Continuous) de doğrudur; kart 'yalnız has played' demez. for tek başına Present Perfect işareti değildir (I played for five years = bitmiş iş); kart Türkçe 'hâlâ süren iş' yapısına dayanır. Kardeş taslak örtüşmesi: present-perfect-ileri s3 (aynı köprü), present-perfect-cont-temel s1 (have been -ing der)."
+    },
+    {
+      "sira": 2,
+      "kimlik": "s2",
+      "bicim": "tuzak",
+      "bilgi": "Türkçe \"beri\" iki karşılık alır: süre → for, başlangıç noktası → since; since five years yanlıştır.",
+      "kural_ozeti": "Süre varsa for, başlangıç noktası varsa since.",
+      "kanca": "Since five years: doğru mu?",
+      "ornek_en": "I have lived here for five years. · I have lived here since Monday.",
+      "ornek_tr": "Beş yıldan beri burada yaşıyorum. · Pazartesiden beri burada yaşıyorum.",
+      "kaynak_cumle": [
+        4,
+        7
+      ],
+      "olcut_evet": 6,
+      "juri_notu": "Örnek cümle s1'den farklıdır (gitar cümlesi s1'de). since + geçmiş zaman yan cümlesi (since I was ten) temel düzeyin dışında, kartta yok. Kardeş taslak örtüşmesi: present-perfect-cont-temel s2 (aynı bilgi, tuzak, ilk 3), present-perfect-ileri s5."
+    },
+    {
+      "sira": 3,
+      "kimlik": "s3",
+      "bicim": "sinyal sözcük",
+      "bilgi": "ever ve never bugüne kadarki deneyimi anlatır; Türkçe \"hiç bindin mi / hiç binmedim\" -dı ile kurulur ama İngilizcede Present Perfect olur.",
+      "kural_ozeti": "Bugüne kadar hiç: ever, never ve Present Perfect.",
+      "kanca": "Hiç uçağa bindin mi: hangi zaman?",
+      "ornek_en": "I have never flown in a plane.",
+      "ornek_tr": "Hayatımda hiç uçağa binmedim.",
+      "kaynak_cumle": [
+        5,
+        7
+      ],
+      "olcut_evet": 6,
+      "juri_notu": "Kural 'bugüne kadar' sözüyle sınırlıdır: never tek başına Present Perfect işareti değildir (I never eat meat = Simple Present). Amerikan İngilizcesinde 'Did you ever …?' de duyulur; sınavda beklenen Present Perfect'tir."
+    },
+    {
+      "sira": 4,
+      "kimlik": "s4",
+      "bicim": "yanlış–doğru",
+      "bilgi": "have / has'tan sonra fiilin ikinci hâli değil üçüncü hâli gelir: have broke yanlış, have broken doğru.",
+      "kural_ozeti": "Have ya da has'tan sonra fiilin üçüncü hâli gelir.",
+      "kanca": "I have broke my phone. Doğru mu?",
+      "ornek_en": "I have broken my phone.",
+      "ornek_tr": "Telefonumu kırdım.",
+      "kaynak_cumle": [
+        3,
+        5,
+        7
+      ],
+      "olcut_evet": 5,
+      "juri_notu": "Türkçe köprü yok (biçim kuralı). Düzensiz fiil çiftleri broke / broken, flew / flown ana dersin örneklerinden. Kardeş taslak örtüşmesi: present-perfect-ileri s6 (aynı kural)."
+    },
+    {
+      "sira": 5,
+      "kimlik": "s5",
+      "bicim": "mini test",
+      "bilgi": "yesterday, ago gibi bitmiş zaman sözcüğü varsa Present Perfect kullanılmaz, Simple Past kullanılır.",
+      "kural_ozeti": "Yesterday ya da ago varsa Present Perfect kullanılmaz.",
+      "kanca": "Dün kırdım: have broken mı, broke mu?",
+      "ornek_en": "I broke my phone yesterday.",
+      "ornek_tr": "Dün telefonumu kırdım.",
+      "kaynak_cumle": [],
+      "olcut_evet": 6,
+      "juri_notu": "Ana derste yok: ders Simple Past karşıtlığını ve bitmiş zaman sözcüklerini işlemez (dayanak yalnız cümle 3). Şıklar (a) have broken (b) broke (c) am breaking; cevap (b). Ana kapağın 'kaybettim = have lost' genellemesinin sınırını çizer; kapak metnini yinelemez. Kardeş taslak örtüşmesi: simple-past-temel s3 (aynı bilgi, ilk 3), present-perfect-ileri s4."
+    },
+    {
+      "sira": 6,
+      "kimlik": "s6",
+      "bicim": "kural kartı",
+      "bilgi": "\"Henüz\" anlamındaki yet olumsuz ve soru cümlesinde, cümlenin sonunda gelir.",
+      "kural_ozeti": "Yet olumsuz ve soru cümlesinin sonunda gelir.",
+      "kanca": "Henüz bitirmedim: yet nereye gelir?",
+      "ornek_en": "I haven't finished my homework yet.",
+      "ornek_tr": "Ödevimi henüz bitirmedim.",
+      "kaynak_cumle": [
+        7
+      ],
+      "olcut_evet": 6,
+      "juri_notu": "Jüri bakacak: resmî dilde yet have ile üçüncü hâl arasına da girer (I haven't yet decided) ve has yet to olumlu cümlede geçer; kart temel düzey kuralını verir. Ana derste yet seslendirilmez, yalnız ekranda (BRIEF sahne 06 sinyal tablosu) ve amaç 3'te."
+    }
+  ]
+}

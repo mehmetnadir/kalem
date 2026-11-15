@@ -1,0 +1,101 @@
+{
+  "paket": "simple-past-ileri",
+  "adaylar": [
+    {
+      "sira": 1,
+      "kimlik": "s1",
+      "bicim": "yanlış–doğru",
+      "bilgi": "ago belirli zaman bildirir; Present Perfect'i engeller, fiil Simple Past olur.",
+      "kural_ozeti": "Ago varsa Present Perfect değil, Simple Past.",
+      "kanca": "Yanlış cümle (ekranda kırmızı): The manager has resigned two weeks ago. Doğru mu?",
+      "ornek_en": "The manager resigned two weeks ago.",
+      "ornek_tr": "Müdür iki hafta önce istifa etti.",
+      "kaynak_cumle": [
+        1,
+        5,
+        6,
+        7
+      ],
+      "olcut_evet": 6,
+      "juri_notu": "Kural kesin. Eski kısa simple-past-ileri-s1 (AGO = PAST) aynı konu; v2'de biçim yanlış–doğru, 'Tam ders' ve süre sözü çıkar. Kardeş taslak örtüşme: simple-past-temel s3, present-perfect-ileri s1."
+    },
+    {
+      "sira": 2,
+      "kimlik": "s2",
+      "bicim": "köprü cümle",
+      "bilgi": "Türkçe -erdi iki karşılık alır: durum fiilinde (yaşardık) yalnız used to, tekrarlanan eylemde (giderdik) used to ya da would.",
+      "kural_ozeti": "Yaşardık used to olur; giderdik would da olur.",
+      "kanca": "Yaşardık: would live olur mu?",
+      "ornek_en": "We used to live in a village, and we would walk to school every morning.",
+      "ornek_tr": "Köyde yaşardık, her sabah okula yürüyerek giderdik.",
+      "kaynak_cumle": [
+        4
+      ],
+      "olcut_evet": 6,
+      "juri_notu": "would live koşul anlamında doğrudur; kısa geçmiş alışkanlık çerçevesinde kalmalı. Türkçe çevirinin doğallığı (ana derste Türkçe çeviri yok). Kapak satırı 'durum: yalnız used to' yinelenmez."
+    },
+    {
+      "sira": 3,
+      "kimlik": "s3",
+      "bicim": "sinyal sözcük",
+      "bilgi": "yet (henüz) Present Perfect ister; Türkçe 'bulamadı' geçmiş ekli olsa da İngilizcesi has not found … yet olur.",
+      "kural_ozeti": "Yet görürsen Simple Past değil, Present Perfect.",
+      "kanca": "Yet görünce hangi zaman?",
+      "ornek_en": "The board has not found a replacement yet.",
+      "ornek_tr": "Yönetim kurulu henüz yerine birini bulamadı.",
+      "kaynak_cumle": [
+        5,
+        7
+      ],
+      "olcut_evet": 6,
+      "juri_notu": "Amerikan İngilizcesinde konuşmada yet + Simple Past geçer; ders ve YDT İngiliz kullanımına göre. for kartta yok (Simple Past ile de gelir); since yan cümlesi Simple Past alır, kartta yok. Kardeş taslak örtüşme: present-perfect-ileri s1."
+    },
+    {
+      "sira": 4,
+      "kimlik": "s4",
+      "bicim": "mini test",
+      "bilgi": "Durum fiili (live) would almaz; belirli geçmiş (when we were kids) Present Perfect'i de engeller; cevap used to live.",
+      "kural_ozeti": "Live gibi durum fiilinde would değil, used to.",
+      "kanca": "Boşluklu cümle: When we were kids, we ___ in a village. Boşluğa ne gelir? a) would live b) used to live c) have lived",
+      "ornek_en": "When we were kids, we used to live in a village.",
+      "ornek_tr": "Çocukken köyde yaşardık.",
+      "kaynak_cumle": [
+        4,
+        7
+      ],
+      "olcut_evet": 6,
+      "juri_notu": "'When we were kids' bağlamı ana derste yok (soru kökü için eklendi). s2 ile aynı kural; sırası bu yüzden 4."
+    },
+    {
+      "sira": 5,
+      "kimlik": "s5",
+      "bicim": "kural kartı",
+      "bilgi": "last year, in 1911, ago gibi belirli zaman sözcükleri Simple Past ister.",
+      "kural_ozeti": "Last year, in 1911 gibi belirli zaman: Simple Past.",
+      "kanca": "In 1911: has won mı, won mı?",
+      "ornek_en": "Marie Curie won her second Nobel Prize in 1911.",
+      "ornek_tr": "Marie Curie ikinci Nobel Ödülü'nü 1911'de kazandı.",
+      "kaynak_cumle": [
+        3,
+        7
+      ],
+      "olcut_evet": 4,
+      "juri_notu": "in 1911 bitmiş yıl; bitmemiş zaman (this year) kapsam dışı. s1 ile aynı kural ailesi; ders kanıtı yalnız ago hatasını gösterir. Kardeş taslak örtüşme: simple-past-temel s3."
+    },
+    {
+      "sira": 6,
+      "kimlik": "s6",
+      "bicim": "tuzak",
+      "bilgi": "Simple Past fiilin ikinci hâlidir (began); üçüncü hâl (begun) yardımcı fiil (has/had) olmadan yüklem olmaz.",
+      "kural_ozeti": "Simple Past ikinci hâldir: began; begun yardımcısız olmaz.",
+      "kanca": "Began mı, begun mu?",
+      "ornek_en": "… three years before the war began.",
+      "ornek_tr": "… savaş başlamadan üç yıl önce.",
+      "kaynak_cumle": [
+        3
+      ],
+      "olcut_evet": 4,
+      "juri_notu": "YDT şıkları dilbilgiseldir, çıplak begun şık olmaz; sınav değeri dolaylı (began / had begun / has begun ayrımı)."
+    }
+  ]
+}

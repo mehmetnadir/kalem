@@ -1,0 +1,83 @@
+{
+  "paket": "present-continuous-ileri",
+  "adaylar": [
+    {
+      "sira": 1,
+      "kimlik": "s1",
+      "bicim": "yanlış–doğru",
+      "bilgi": "Durum fiili (know, believe, own, belong) -ing almaz: I am knowing yanlış, I know doğru.",
+      "kural_ozeti": "Know, believe, own, belong durum fiilidir; -ing almaz.",
+      "kanca": "Biliyorum: I am knowing diyemezsin.",
+      "ornek_en": "I know the answer, but I am not telling anyone.",
+      "ornek_tr": "Cevabı biliyorum ama kimseye söylemiyorum.",
+      "kaynak_cumle": [6, 7],
+      "olcut_evet": 6,
+      "juri_notu": ""
+    },
+    {
+      "sira": 2,
+      "kimlik": "s2",
+      "bicim": "tuzak",
+      "bilgi": "always her zaman Simple Present işareti değildir; am/is/are always + -ing şikâyet anlatır.",
+      "kural_ozeti": "Always ile -ing birlikte gelirse şikâyettir.",
+      "kanca": "Always görünce hep Simple Present mi?",
+      "ornek_en": "He is always losing his keys.",
+      "ornek_tr": "Hep anahtarlarını kaybediyor.",
+      "kaynak_cumle": [7],
+      "olcut_evet": 6,
+      "juri_notu": "Jüri bakacak: always + -ing çoğunlukla yakınma anlatır; olumlu ya da yansız kullanım da vardır (She is always helping others). Kart dersin sözünü (şikâyettir) aynen alır."
+    },
+    {
+      "sira": 3,
+      "kimlik": "s3",
+      "bicim": "sinyal sözcük",
+      "bilgi": "tomorrow gibi gelecek sözcüğüyle am/is/are + -ing kesin planı anlatır; will gerekmez.",
+      "kural_ozeti": "Tomorrow ile am/is/are ve -ing kesin plandır.",
+      "kanca": "Yarın diyorsun, will yok. Neden?",
+      "ornek_en": "We are taking the bus to Izmir tomorrow morning.",
+      "ornek_tr": "Yarın sabah İzmir'e otobüsle gidiyoruz.",
+      "kaynak_cumle": [5],
+      "olcut_evet": 6,
+      "juri_notu": "Jüri bakacak: (1) will dilbilgisi olarak yanlış değildir; kısa 'yanlış' demez, 'plan anlamı -ing ile verilir' der. (2) Tarife (The bus leaves at 8.) Simple Present alır; 'saat belli' sözü tarifeyle karışmasın."
+    },
+    {
+      "sira": 4,
+      "kimlik": "s4",
+      "bicim": "köprü cümle",
+      "bilgi": "Türkçe -yor iki karşılık verir: olayda -ing (konuşuyorum = I am talking), durumda yalın fiil (biliyorum = I know).",
+      "kural_ozeti": "Türkçedeki -yor her zaman -ing demek değildir.",
+      "kanca": "Türkçede -yor varsa İngilizcede hep -ing mi?",
+      "ornek_en": "I am talking on the phone. / I know the answer.",
+      "ornek_tr": "Telefonda konuşuyorum. / Cevabı biliyorum.",
+      "kaynak_cumle": [3, 7],
+      "olcut_evet": 6,
+      "juri_notu": ""
+    },
+    {
+      "sira": 5,
+      "kimlik": "s5",
+      "bicim": "kural kartı",
+      "bilgi": "Present Continuous yalnız 'şu an' değildir; this week gibi geçici durumu da anlatır.",
+      "kural_ozeti": "Geçici durum da am/is/are ve -ing alır.",
+      "kanca": "-ing yalnız 'şu an' için mi?",
+      "ornek_en": "We are staying at my uncle's house this week.",
+      "ornek_tr": "Bu hafta amcamlarda kalıyoruz.",
+      "kaynak_cumle": [4],
+      "olcut_evet": 5,
+      "juri_notu": ""
+    },
+    {
+      "sira": 6,
+      "kimlik": "s6",
+      "bicim": "mini test",
+      "bilgi": "Şu an süren işte am/is/are atlanmaz; Please be quiet! bu anın işaretidir (şıklar: sleeps / is sleeping / sleeping, cevap is sleeping).",
+      "kural_ozeti": "Şu an süren işte am, is, are atlanmaz.",
+      "kanca": "Please be quiet! The baby… hangisi?",
+      "ornek_en": "Please be quiet! The baby is sleeping.",
+      "ornek_tr": "Lütfen sessiz ol! Bebek uyuyor.",
+      "kaynak_cumle": [2, 3],
+      "olcut_evet": 4,
+      "juri_notu": ""
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "paket": "present-perfect-ileri",
+  "adaylar": [
+    {
+      "sira": 1,
+      "kimlik": "s1",
+      "bicim": "tuzak",
+      "bilgi": "Aynı cümlede ago'lu yan Simple Past, yet'li yan Present Perfect alır; ago bütün cümleyi geçmişe çekmez.",
+      "kural_ozeti": "Ago'lu cümlecik Simple Past, yet'li cümlecik Present Perfect.",
+      "kanca": "Bir cümlede iki zaman olur mu?",
+      "ornek_en": "The plane took off two hours ago, but it hasn't landed yet.",
+      "ornek_tr": "Uçak iki saat önce kalktı, ama henüz inmedi.",
+      "kaynak_cumle": [
+        5,
+        6,
+        7
+      ],
+      "olcut_evet": 6,
+      "juri_notu": "jüri bakacak: 'It didn't land yet' Amerikan İngilizcesi konuşmasında geçer; kısa onu yanlış diye göstermez, sınav yet → Present Perfect bekler. Kanca bu yüzden soru. Kardeş taslak: simple-past-ileri s1 (ago) + s3 (yet) ilk 3'te; canAlici[0] bu dersin, yet bilgisinin evi burası (md §5)."
+    },
+    {
+      "sira": 2,
+      "kimlik": "s2",
+      "bicim": "kural kartı",
+      "bilgi": "Since cümleciği geçmişteki başlangıç anını Simple Past ile söyler, ana cümle Present Perfect olur.",
+      "kural_ozeti": "Since cümleciği Simple Past, ana cümle Present Perfect.",
+      "kanca": "Since'ten sonra hangi zaman gelir?",
+      "ornek_en": "Ever since the company launched its new app, the number of users has doubled.",
+      "ornek_tr": "Şirket yeni uygulamasını çıkardığından beri kullanıcı sayısı ikiye katlandı.",
+      "kaynak_cumle": [
+        3
+      ],
+      "olcut_evet": 6,
+      "juri_notu": "jüri bakacak: since cümleciğindeki fiil süren durum ise Present Perfect de alabilir (since I have known him); kart kuralı geçmişteki başlangıç anıyla (launched) sınırlar. Kardeş taslak: present-perfect-cont-ileri s3 aynı yan cümle kuralı, ilk 3'te; şef aynı haftaya koymaz ya da birini eler (md §5)."
+    },
+    {
+      "sira": 3,
+      "kimlik": "s3",
+      "bicim": "köprü cümle",
+      "bilgi": "For tek başına Present Perfect işareti değildir: süre bugün sürüyorsa Present Perfect, bittiyse Simple Past gelir; Türkçe 'otuz yıldır' ile 'otuz yıl' bu ayrımı gösterir.",
+      "kural_ozeti": "Süre bittiyse for olsa da Simple Past gelir.",
+      "kanca": "For varsa hep Present Perfect mi?",
+      "ornek_en": "Selim worked at this bank for thirty years, then he retired.",
+      "ornek_tr": "Selim bu bankada otuz yıl çalıştı, sonra emekli oldu.",
+      "kaynak_cumle": [
+        4,
+        7
+      ],
+      "olcut_evet": 6,
+      "juri_notu": "kesin: bitmiş dönem + for → Simple Past. İlke ana derste (cümle 7, canAlici[4], amaç 4); Simple Past'lı for örneği yeni, EN örnek ve 'otuz yıl çalıştı' çevirisini dil jürisi okur."
+    },
+    {
+      "sira": 4,
+      "kimlik": "s4",
+      "bicim": "mini test",
+      "bilgi": "Süre bildiren sözden önce for, başlangıç noktasından önce since gelir; ago Present Perfect ile gelmez.",
+      "kural_ozeti": "Süre ise for, başlangıç noktası ise since.",
+      "kanca": "Üç saniyen var: for mu, since mi?",
+      "ornek_en": "Selim has worked at this bank since 1995.",
+      "ornek_tr": "Selim 1995'ten beri bu bankada çalışıyor.",
+      "kaynak_cumle": [
+        4
+      ],
+      "olcut_evet": 5,
+      "juri_notu": "jüri bakacak: Türkçe '-den beri' süreyle de kullanılır (iki saatten beri = for two hours); kart Türkçe eke değil anlama dayanır. Şıklar for · since · ago, doğru since. Kardeş taslak: present-perfect-temel s2 ve present-perfect-cont-temel s2 aynı kural, ilk 3'te; evi temel ders, s4 yedek (md §5)."
+    },
+    {
+      "sira": 5,
+      "kimlik": "s5",
+      "bicim": "yanlış–doğru",
+      "bilgi": "Have ya da has varsa fiilin ikinci hâli değil üçüncü hâli gelir: has taken, has took değil.",
+      "kural_ozeti": "Have ya da has varsa fiilin üçüncü hâli gelir.",
+      "kanca": "The plane has took off. Doğru mu?",
+      "ornek_en": "The plane has taken off.",
+      "ornek_tr": "Uçak kalktı.",
+      "kaynak_cumle": [
+        2,
+        5
+      ],
+      "olcut_evet": 4,
+      "juri_notu": "kesin: take → took → taken. Sınav değeri düşük; eşikte, Ö1 ve Ö4 hayır. Kardeş taslak: present-perfect-temel s4 aynı kural ve biçim; biri yeter (md §5)."
+    }
+  ]
+}

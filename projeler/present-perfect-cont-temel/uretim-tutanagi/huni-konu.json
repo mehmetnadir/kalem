@@ -1,0 +1,94 @@
+{
+  "paket": "present-perfect-cont-temel",
+  "istem": "HK-0209T",
+  "tarih": "2026-11-15",
+  "standart": "dijital-anlatim/.claude/docs/huni-v2-standart.md",
+  "ana_kapak": "İKİ SAATTİR = HAVE BEEN",
+  "eski_kisa": {
+    "paket": "present-perfect-cont-temel-s1",
+    "konu": "köprü: -dir ... -yor = have been + -ing; ek bilgi: tekil kişide has been",
+    "olcut_evet": 5,
+    "listede": ["s1", "s5"],
+    "neden_aynen_alinmadi": "kapak metni ana kapağı aynen yineler; çağrıda 'Tam ders' ve süre sözü var (standart §1 kural 4-5); iki bilgi tek kısada"
+  },
+  "adaylar": [
+    {
+      "sira": 1,
+      "kimlik": "s1",
+      "bicim": "köprü cümle",
+      "bilgi": "Türkçe -yor cümlesine süre (-dir, -den beri) girince İngilizce am/is/are -ing değil, have/has been -ing kullanır.",
+      "kural_ozeti": "-yor cümlesine süre girince have been -ing gelir.",
+      "kanca": "Yirmi dakikadır bekliyorum: I am waiting mi?",
+      "ornek_en": "I have been waiting for the bus for twenty minutes.",
+      "ornek_tr": "Yirmi dakikadır otobüs bekliyorum.",
+      "kaynak_cumle": [2, 3, 7],
+      "olcut_evet": 6,
+      "juri_notu": "Kural eylem fiilleri için doğru; durum fiilleri süreyle de -ing almaz (I have known her for two years). Kartta 'eylem' kaydı gerekir mi, jüri bakacak. Karşıt cümle 'I am waiting for the bus.' ana derste yok."
+    },
+    {
+      "sira": 2,
+      "kimlik": "s2",
+      "bicim": "tuzak",
+      "bilgi": "Süre uzunluğu for alır, başlangıç noktası since alır; Türkçe -dir ikisinde de görülür, bu yüzden ek değil sözcük karar verir.",
+      "kural_ozeti": "Süre uzunluğu for, başlangıç noktası since alır.",
+      "kanca": "Since twenty minutes mı?",
+      "ornek_en": "I have been waiting for twenty minutes. My brother has been playing the guitar since this morning.",
+      "ornek_tr": "Yirmi dakikadır bekliyorum. Kardeşim sabahtan beri gitar çalıyor.",
+      "kaynak_cumle": [3, 4],
+      "olcut_evet": 6,
+      "juri_notu": "Kural kesin. Türkçe -dir hem süreye (yirmi dakikadır) hem noktaya (sabahtır) eklenir; kısa -dir'i for'a eşitlemez."
+    },
+    {
+      "sira": 3,
+      "kimlik": "s3",
+      "bicim": "kural kartı",
+      "bilgi": "Süren bir işin izi şimdi görünüyorsa (ıslak sokak) İngilizce bu işi have/has been -ing ile söyler.",
+      "kural_ozeti": "Süren işin izi şimdi görünüyorsa: have been -ing.",
+      "kanca": "Sokak ıslak. Hangi zaman?",
+      "ornek_en": "Look! The street is wet. It has been raining.",
+      "ornek_tr": "Bak, sokak ıslak. Yağmur bir süredir yağıyor.",
+      "kaynak_cumle": [5],
+      "olcut_evet": 5,
+      "juri_notu": "Jüri bakacak: iz kuralı süren eylem için; tek seferlik sonuçta Present Perfect gelir (Someone has broken the window.), kısa bunu söylemez. Ana ders Türkçesi yağmurun sürdüğünü söyler; kısa 'durdu' demez."
+    },
+    {
+      "sira": 4,
+      "kimlik": "s4",
+      "bicim": "mini test",
+      "bilgi": "Since, tekil özne ve süren iş birlikte has been -ing ister; is playing ve have been playing çeldiricidir.",
+      "kural_ozeti": "Since, tekil özne ve süren iş: has been -ing.",
+      "kanca": "Hangisi doğru? Üç saniyen var.",
+      "ornek_en": "My brother ___ the guitar since this morning. a) is playing b) have been playing c) has been playing (cevap c)",
+      "ornek_tr": "Kardeşim sabahtan beri gitar çalıyor.",
+      "kaynak_cumle": [4],
+      "olcut_evet": 5,
+      "juri_notu": "Kural kesin. Şık a (is playing) since ile standart İngilizcede yanlış; şık b kişi uyumu yanlış."
+    },
+    {
+      "sira": 5,
+      "kimlik": "s5",
+      "bicim": "yanlış–doğru",
+      "bilgi": "Tekil özne (he, she, it, my brother) has been alır; have been yalnız I, you, we, they ve çoğul özneyle gelir.",
+      "kural_ozeti": "Tekil özneyle have değil, has been gelir.",
+      "kanca": "My brother have been playing. Hata nerede?",
+      "ornek_en": "My brother has been playing the guitar since this morning.",
+      "ornek_tr": "Kardeşim sabahtan beri gitar çalıyor.",
+      "kaynak_cumle": [4],
+      "olcut_evet": 4,
+      "juri_notu": "Kural kesin. 02-02 S3 (He doesn't goes) emsalinin bu dersteki karşılığı."
+    },
+    {
+      "sira": 6,
+      "kimlik": "s6",
+      "bicim": "kural kartı",
+      "bilgi": "Have geçmişi bugüne bağlar; been ve -ing işin sürdüğünü gösterir; bu yüzden her örnekte been vardır.",
+      "kural_ozeti": "Have geçmişi bugüne bağlar, been -ing süreci gösterir.",
+      "kanca": "Neden hep been?",
+      "ornek_en": "I have been waiting for twenty minutes.",
+      "ornek_tr": "Yirmi dakikadır bekliyorum.",
+      "kaynak_cumle": [6, 7],
+      "olcut_evet": 4,
+      "juri_notu": "Jüri bakacak: 'Have geçmişi bugüne bağlar' ana dersin öğretim benzetmesi (cümle 7), dilbilgisi tanımı değil. Örnek cümle 3'ten kısaltılmış."
+    }
+  ]
+}

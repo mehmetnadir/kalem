@@ -1,0 +1,83 @@
+{
+  "paket": "present-perfect-cont-ileri",
+  "adaylar": [
+    {
+      "sira": 1,
+      "kimlik": "s1",
+      "bicim": "köprü cümle",
+      "bilgi": "Süreyle söylenen Türkçe -yor süreçtir ve have been -ing olur; -di sonuçtur ve been almaz.",
+      "kural_ozeti": "-yor süreçtir: been -ing; -di sonuçtur: been yok.",
+      "kanca": "\"Bütün hafta okuyorum\" İngilizcede nasıl?",
+      "ornek_en": "I have been reading this novel all week, but I have only finished two chapters.",
+      "ornek_tr": "Bütün hafta bu romanı okuyorum, ama yalnızca iki bölümü bitirdim.",
+      "kaynak_cumle": [4, 7],
+      "olcut_evet": 6,
+      "juri_notu": "-di geçmiş zaman sözcüğüyle (dün, geçen hafta) Simple Past olur; -yor durum fiilinde (tanıyoruz) been -ing olmaz. Kısa bu istisnaları söylemezse aşırı genelleme riski var. Eski kısa (present-perfect-cont-ileri-s1) bu konuyu taşır; kancası kapak metnini yinelediği ve yasak çağrı sözü ve süre sözü taşıdığı (standart §1 kural 4–5) için olduğu gibi kullanılmaz."
+    },
+    {
+      "sira": 2,
+      "kimlik": "s2",
+      "bicim": "yanlış–doğru",
+      "bilgi": "know gibi durum fiilleri Present Perfect Continuous'a girmez; doğrusu have known.",
+      "kural_ozeti": "Durum fiilleri -ing almaz: know, like, belong.",
+      "kanca": "Ekranda kırmızı 'We have been knowing each other.' · ses: \"Have been knowing, doğru mu?\"",
+      "ornek_en": "We have known each other since we were at primary school.",
+      "ornek_tr": "İlkokuldan beri birbirimizi tanıyoruz.",
+      "kaynak_cumle": [5, 6, 7],
+      "olcut_evet": 6,
+      "juri_notu": "like ve belong ana derste seslendirilmez (yalnız meta.canAlici 4). think, have gibi fiiller eylem anlamında -ing alabilir (I have been thinking); örnek know ile sınırlı kalmalı."
+    },
+    {
+      "sira": 3,
+      "kimlik": "s3",
+      "bicim": "sinyal sözcük",
+      "bilgi": "since ile başlayan yan cümle geçmiş zamanda kalır; ana cümle have been -ing alır.",
+      "kural_ozeti": "Since'li yan cümle geçmiş, ana cümle have been -ing.",
+      "kanca": "Since görünce ana cümle hangi zaman?",
+      "ornek_en": "Since the school changed the timetable, students have been complaining.",
+      "ornek_tr": "Program değişeli beri öğrenciler yakınıyor.",
+      "kaynak_cumle": [3],
+      "olcut_evet": 6,
+      "juri_notu": "since + Present Perfect yan cümle de dilbilgisel (since I have known her); 'yan cümle geçmiş zaman' sınav kökü kalıbı olarak doğru, mutlak kural değil. Ana cümle durum fiiliyse have + üçüncü hâl (have known)."
+    },
+    {
+      "sira": 4,
+      "kimlik": "s4",
+      "bicim": "tuzak",
+      "bilgi": "Bitmiş iş sayıyla verilirse (two chapters) cümle sonuçtur; been düşer, have + fiilin üçüncü hâli gelir.",
+      "kural_ozeti": "Sayı varsa been yok: have ve fiilin üçüncü hâli.",
+      "kanca": "\"İki bölüm bitirdim\": have been finishing mi?",
+      "ornek_en": "I have only finished two chapters.",
+      "ornek_tr": "Yalnızca iki bölümü bitirdim.",
+      "kaynak_cumle": [4],
+      "olcut_evet": 5,
+      "juri_notu": "I have been reading three books eşzamanlı okuma anlamında kabul görebilir; kısa yalnız bitmiş sayıyla (finished two chapters) kalmalı. s1 ile aynı ana ders örneğini paylaşır."
+    },
+    {
+      "sira": 5,
+      "kimlik": "s5",
+      "bicim": "mini test",
+      "bilgi": "İki boşluklu sınav kökü: since yan cümlesi geçmiş zaman, know ana cümlede have known.",
+      "kural_ozeti": "Since'li yan cümle geçmiş; know -ing almaz.",
+      "kanca": "Üç saniye: 'We ___ each other since we ___ at primary school.'",
+      "ornek_en": "We have known each other since we were at primary school.",
+      "ornek_tr": "İlkokuldan beri birbirimizi tanıyoruz.",
+      "kaynak_cumle": [3, 5],
+      "olcut_evet": 4,
+      "juri_notu": "Şıklar: A) have known / were (doğru) · B) have been knowing / have been · C) know / are. since kuralı için s3 notu geçerli."
+    },
+    {
+      "sira": 6,
+      "kimlik": "s6",
+      "bicim": "kural kartı",
+      "bilgi": "Present Perfect Continuous üç parçadan kurulur: have/has + been + -ing; bir parça eksikse cümle yanlıştır.",
+      "kural_ozeti": "Üç parça şart: have ya da has, been, -ing.",
+      "kanca": "Ekranda kırmızı 'Students have complaining.' · ses: \"Eksik ne?\"",
+      "ornek_en": "Students have been complaining.",
+      "ornek_tr": "Öğrenciler yakınıyor.",
+      "kaynak_cumle": [2, 3],
+      "olcut_evet": 4,
+      "juri_notu": "Kancadaki yanlış cümle ana derste yok (öğretim amaçlı eksik parça). has been örneği ana derste yok; kart have / has der. İleri seviyede değeri en düşük aday."
+    }
+  ]
+}

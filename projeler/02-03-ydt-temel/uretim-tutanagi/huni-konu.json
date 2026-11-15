@@ -1,0 +1,83 @@
+{
+  "paket": "02-03-ydt-temel",
+  "adaylar": [
+    {
+      "sira": 1,
+      "kimlik": "s1",
+      "bicim": "tuzak",
+      "bilgi": "Şu an ya da bugünler sinyali olsa da believe -ing almaz: We believe doğru, We are believing yanlış.",
+      "kural_ozeti": "Sinyal olsa da believe -ing almaz.",
+      "kanca": "Yanlış cümle: We are believing. Doğru mu?",
+      "ornek_en": "We believe this situation is temporary.",
+      "ornek_tr": "Bu durumun geçici olduğuna inanıyoruz.",
+      "kaynak_cumle": [12, 13, 14, 15, 19],
+      "olcut_evet": 6,
+      "juri_notu": "think yalnız fikir anlamında -ing almaz (I think so); düşünüp taşınmak anlamında alır (I am thinking about it). Kart yalnız believe taşır; think seste geçerse 'bu anlamda' kaydı gerekir (ana ders cümle 14). Kategori etiketi yok (D-0205)."
+    },
+    {
+      "sira": 2,
+      "kimlik": "s2",
+      "bicim": "sinyal sözcük",
+      "bilgi": "These days ve nowadays geçici ya da değişen bir dönemi gösterir; bu yüzden genellikle am / is / are + V-ing ile gelir.",
+      "kural_ozeti": "These days ve nowadays genellikle şimdiki zamanı çağırır.",
+      "kanca": "These days görünce hangi zaman?",
+      "ornek_en": "Our company is going through a hard period these days.",
+      "ornek_tr": "Şirketimiz bugünlerde zor bir dönemden geçiyor.",
+      "kaynak_cumle": [4, 5, 8, 15],
+      "olcut_evet": 6,
+      "juri_notu": "Kural mutlak değil (D-0205): 'Nowadays most people shop online' gibi genel eğilim geniş zamanla da doğrudur. Kart, ses ve açıklama 'genellikle' sözünü düşürmez."
+    },
+    {
+      "sira": 3,
+      "kimlik": "s3",
+      "bicim": "köprü cümle",
+      "bilgi": "Türkçe -yor hem alışkanlığı hem şu anı söyler; İngilizcede usually geniş zamanı (spends), now şimdiki zamanı (is meeting) seçer.",
+      "kural_ozeti": "Türkçe -yor: usually varsa geniş zaman, now varsa -ing.",
+      "kanca": "Her -yor, -ing mi?",
+      "ornek_en": "Nancy usually spends the weekend at home, but she is meeting her friends now.",
+      "ornek_tr": "Nancy hafta sonunu genellikle evde geçiriyor. Ama şu anda arkadaşlarıyla buluşuyor.",
+      "kaynak_cumle": [8, 9],
+      "olcut_evet": 6,
+      "juri_notu": "Türkçe -yor gözlemi ana derste söze dökülmez; cümle 9'un çeviri satırlarında görünür. Köprü fikri 02-04 temel s1'de de var (live / am living); bu kısa kararı sinyale bağlar."
+    },
+    {
+      "sira": 4,
+      "kimlik": "s4",
+      "bicim": "kural kartı",
+      "bilgi": "Harder and harder gibi süren değişimi gösteren yapı çoğunlukla şimdiki zamanla gelir.",
+      "kural_ozeti": "Gittikçe değişen durum çoğunlukla şimdiki zamanla söylenir.",
+      "kanca": "Zorlaşmak genel değil mi? Neden -ing?",
+      "ornek_en": "It is getting harder and harder to find a good job nowadays.",
+      "ornek_tr": "Bugünlerde iş bulmak gittikçe zorlaşıyor.",
+      "kaynak_cumle": [5, 6, 7],
+      "olcut_evet": 5,
+      "juri_notu": "'Çoğunlukla' kaydı ana ders dil jürisinin şartıdır (D-0204 dil-3); genel eğilim geniş zamanla da söylenebilir. Örnek nowadays da taşır; vurgu harder and harder üstünde kalır, s2 ile karışmaz."
+    },
+    {
+      "sira": 5,
+      "kimlik": "s5",
+      "bicim": "mini test",
+      "bilgi": "Now şu anı gösterir, alışkanlığı değil; boşluğa am / is / are + V-ing gelir.",
+      "kural_ozeti": "Now şu anı gösterir: am, is, are ve -ing.",
+      "kanca": "I ___ this postcard now. A write · B am writing · C wrote",
+      "ornek_en": "I am writing this postcard now.",
+      "ornek_tr": "Bu kartpostalı şimdi yazıyorum.",
+      "kaynak_cumle": [16, 17, 18],
+      "olcut_evet": 5,
+      "juri_notu": "Kısa 3 şık taşır; ana dersin C writes ve E is writing (özne uyumu) şıkları düşer. now kaynak boşlukta yok, ana ders ekledi. TR çeviri ana derste yok, burada yazıldı."
+    },
+    {
+      "sira": 6,
+      "kimlik": "s6",
+      "bicim": "yanlış–doğru",
+      "bilgi": "Have sahip olmak anlamındaysa -ing almaz: It has a great view, It is having a great view değil.",
+      "kural_ozeti": "Have sahip olmak anlamındaysa -ing almaz.",
+      "kanca": "Yanlış cümle: It is having a great view of the sea.",
+      "ornek_en": "It has a great view of the sea.",
+      "ornek_tr": "Harika bir deniz manzarası var.",
+      "kaynak_cumle": [14, 15],
+      "olcut_evet": 5,
+      "juri_notu": "Have'in eylem anlamı (have breakfast: kahvaltı yapmak, -ing alır) ana derste yok. Kart 'sahip olmak anlamındaysa' kaydını düşürmez. Yanlış cümle ve TR çeviri ana derste yok, burada kuruldu."
+    }
+  ]
+}
