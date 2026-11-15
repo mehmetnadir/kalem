@@ -4,6 +4,7 @@
 #   2. chown sef (yazılan dizin sef'in)
 #   3. sunucuda kayit uygulamasının env'iyle scripts/kontrol-ayna-esitle.ts (iç adres 127.0.0.1:3810, işçi jetonu)
 # rsync artımlıdır (değişmeyen dosya gitmez); eşitleme sha256 aynıysa sunucuda yeni sürüm yazmaz.
+# İlk sahnenin k/*.png ve k/koyu/*.png kapak kareleri de gider (sunucu eşitlemesi kapak yedeği olarak alır); öteki k/ dışarıda.
 # Kullanım: araclar/ayna-gonder.sh [--ortak] [--kuru] <paket> [<paket> …]
 #           araclar/ayna-gonder.sh --ortak            (yalnız ortak + katalog)
 set -euo pipefail
@@ -31,13 +32,28 @@ for a in "$@"; do
 done
 [ "${#paketler[@]}" -gt 0 ] || [ "$ortak" = 1 ] || { echo "kullanım: ayna-gonder.sh [--ortak] [--kuru] <paket>…" >&2; exit 1; }
 
+# İlk sahne: zaman.json sahneler[0].klasor; yoksa sahneler/ altında sayısal sıralı ilk klasör (sunucu betiğiyle aynı).
+ilk_sahne() {
+  local d="$KALEM/projeler/$1" ilk=""
+  ilk="$(/usr/bin/python3 -I -c 'import json,sys; print(json.load(open(sys.argv[1]))["sahneler"][0]["klasor"])' \
+    "$d/zaman.json" 2>/dev/null || true)"
+  [ -n "$ilk" ] && [ -d "$d/sahneler/$ilk" ] || ilk="$(ls -1 "$d/sahneler" 2>/dev/null | sort -V | head -1 || true)"
+  printf '%s' "$ilk"
+}
+
 RS=(rsync -az --delete "${HARIC[@]}" -e "ssh -p $PORT -o ConnectTimeout=12 -o BatchMode=yes -o ControlPath=none")
 [ "$kuru" = 1 ] && RS+=(-n --itemize-changes)
 
 "${SSH[@]}" "$HEDEF" "install -d -o sef -g sef $UZAK_KOK/projeler $UZAK_KOK/motorlar/paperjs/node_modules/paper/dist"
 for p in ${paketler[@]+"${paketler[@]}"}; do
   echo "→ rsync $p"
-  "${RS[@]}" "$KALEM/projeler/$p/" "$HEDEF:$UZAK_KOK/projeler/$p/"
+  KS=(); ilk="$(ilk_sahne "$p")"
+  if [ -n "$ilk" ]; then
+    k="/sahneler/$ilk/k"
+    KS=(--include "$k/" --include "$k/*.png" --include "$k/koyu/" --include "$k/koyu/*.png" --exclude "$k/**")
+  fi
+  # süzgeç ilk eşleşeni uygular: kapak kuralları HARIC'ten önce gelmeli
+  "${RS[@]:0:3}" ${KS[@]+"${KS[@]}"} "${RS[@]:3}" "$KALEM/projeler/$p/" "$HEDEF:$UZAK_KOK/projeler/$p/"
 done
 if [ "$ortak" = 1 ]; then
   echo "→ rsync ortak + katalog"
