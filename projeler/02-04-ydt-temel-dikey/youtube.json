@@ -1,0 +1,50 @@
+{
+  "baslik": "Simple Present ve Present Continuous | YDT İngilizce",
+  "etiketler": [
+    "İngilizce",
+    "temel",
+    "gramer",
+    "Simple Present",
+    "Present Continuous",
+    "YDT",
+    "Simple Present ve Present Continuous",
+    "geniş zaman",
+    "şimdiki zaman"
+  ],
+  "bolumler": [
+    {"t": 0.0, "ad": "Yaşıyorum: I live mi, I am living mi?"},
+    {"t": 20.22, "ad": "Genel durum ve konuşma anı: wear"},
+    {"t": 43.85, "ad": "Kalıcı ve geçici durum: live"},
+    {"t": 68.84, "ad": "Tarifeli ve planlanmış gelecek"},
+    {"t": 93.35, "ad": "Tren örneği: tarife mi, plan mı?"},
+    {"t": 113.37, "ad": "Üç fark tek kartta"},
+    {"t": 130.4, "ad": "Aynı sözcük today: konuşma anı"},
+    {"t": 145.29, "ad": "Saatle gelen today: tarife"},
+    {"t": 162.33, "ad": "Tuzak: Türkçedeki -yor eki"},
+    {"t": 183.79, "ad": "I live ve I am living: anlam farkı"},
+    {"t": 205.3, "ad": "Özet: hangi durumda hangi zaman?"},
+    {"t": 220.33, "ad": "Mini soru: boşluğa hangi şık?"},
+    {"t": 251.27, "ad": "Sınavda soracağın üç soru"}
+  ],
+  "sabitYorum": "Sınavdan önce tekrar etmek için bu dersi kaydet; aradığın farka açıklamadaki bölüm damgalarıyla doğrudan geç.",
+  "gonderiler": [
+    {
+      "kimlik": "g1",
+      "metin": "Türkçede ikisi de yaşıyorum: I live mi, I am living mi? I live in Istanbul kalıcı bir durumu, I am living with my uncle geçici bir durumu anlatır. Bu derste iki zaman arasındaki üç farkı örneklerle görüyoruz.",
+      "gorsel": "kapak.png"
+    }
+  ],
+  "liste": {
+    "ad": "Tenses · YDT Temel",
+    "sira": 4,
+    "onceki": "02-03-ydt-temel",
+    "sonraki": "02-05-ydt-temel"
+  },
+  "bildirimler": [
+    {"t": 69.39, "sure": 3.0},
+    {"t": 184.54, "sure": 3.0}
+  ],
+  "giris": true,
+  "cikis": true,
+  "aciklamaDosya": "youtube-aciklama.md"
+}

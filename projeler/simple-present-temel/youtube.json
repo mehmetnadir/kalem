@@ -1,0 +1,45 @@
+{
+  "baslik": "Simple Present | YDT İngilizce",
+  "etiketler": [
+    "İngilizce",
+    "temel",
+    "gramer",
+    "Simple Present",
+    "YDT",
+    "geniş zaman",
+    "Present Simple",
+    "YDT İngilizce",
+    "İngilizce gramer",
+    "do does",
+    "üçüncü tekil şahıs",
+    "zaman ifadeleri",
+    "YKS"
+  ],
+  "bolumler": [
+    {"t": 0, "ad": "Geniş zamandan köprü: Simple Present"},
+    {"t": 15.45, "ad": "Doğa kanunu: The sun rises in the east"},
+    {"t": 27.69, "ad": "Alışkanlık: usually, always, every day"},
+    {"t": 43.36, "ad": "Tarife ve program: Our plane takes off"},
+    {"t": 60.47, "ad": "Neden hep s? He, she, it ve does"}
+  ],
+  "sabitYorum": "Sınavdan önce hızlıca dönmek için videoyu kaydet; açıklamadaki bölüm damgalarıyla istediğin bölüme doğrudan geç.",
+  "gonderiler": [
+    {
+      "kimlik": "g1",
+      "metin": "Neden \"he goes\" ama \"I go\" diyoruz? Simple Present dersinde fiile gelen s harfini üç örnekle gösteriyoruz. Sınavdan önce bakmak için videoyu kaydet.",
+      "gorsel": "kapak.png"
+    }
+  ],
+  "liste": {
+    "ad": "Tenses · YDT Temel",
+    "sira": 2,
+    "onceki": "02-01-ydt-temel",
+    "sonraki": "02-03-ydt-temel"
+  },
+  "bildirimler": [
+    {"t": 43.91, "sure": 3.0}
+  ],
+  "giris": true,
+  "cikis": true,
+  "aciklamaDosya": "youtube-aciklama.md"
+}
