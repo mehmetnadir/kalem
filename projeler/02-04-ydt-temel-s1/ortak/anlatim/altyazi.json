@@ -1,0 +1,74 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 6.44,
+"metin": "İstanbul'da yaşıyorum. Amcamla yaşıyorum. Türkçede ikisi de yaşıyorum.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 6.91,
+"t1": 8.83,
+"metin": "İngilizcede ikisi ayrılır.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 9.08,
+"t1": 10.92,
+"metin": "I live in Istanbul.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 11.17,
+"t1": 14.45,
+"metin": "Hep orada: kalıcı durum, geniş zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 14.7,
+"t1": 16.78,
+"metin": "I am living with my uncle.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 17.03,
+"t1": 20.07,
+"metin": "Şimdilik: geçici durum, şimdiki zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 20.54,
+"t1": 22.62,
+"metin": "Bu, üç farktan yalnız biri.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 22.77,
+"t1": 26.85,
+"metin": "Tam ders: Simple Present ve Present Continuous.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 27.0,
+"t1": 29.64,
+"metin": "Üç farkın hepsi dört buçuk dakikada.",
+"konusan": "ogretmen"
+}
+]

@@ -1,0 +1,30 @@
+{
+  "font": "Caveat",
+  "agirlik": 700,
+  "boy": 80,
+  "kerning": "none",
+  "sol": 48,
+  "taban": [
+    452,
+    600
+  ],
+  "satir": [
+    "İstanbul'da yaşı-yor-um.",
+    "Amcamla yaşı-yor-um."
+  ],
+  "yor": [
+    [
+      514.08,
+      599.12
+    ],
+    [
+      445.28,
+      530.32
+    ]
+  ],
+  "sag": [
+    716.16,
+    647.36
+  ],
+  "t": 3.0
+}

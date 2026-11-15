@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<!-- bavul (suitcase): 02-04-ydt-temel/sahneler/04-canvas-ornek2/sahne.js BAVUL_SVG ile aynı (Tabler çizgi dili, kendi çizimimiz) -->
+<path d="M6 8a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v11a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"/>
+<path d="M10 6v-3h4v3"/>
+<path d="M10 9v9"/>
+<path d="M14 9v9"/>
+<path d="M8.5 21v1.8"/>
+<path d="M15.5 21v1.8"/>
+</svg>

@@ -1,0 +1,66 @@
+[
+ {
+  "dil": "tr",
+  "metin": "İstanbul'da yaşıyorum. Amcamla yaşıyorum. Türkçede ikisi de yaşıyorum.",
+  "duyulan": "İstanbul'da yaşıyorum, amcamla yaşıyorum, Türkçe'de ikisi de yaşıyorum.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "İngilizcede ikisi ayrılır.",
+  "duyulan": "İngilizce'de ikisi ayrılır.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I live in Istanbul.",
+  "duyulan": "I live in Istanbul.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hep orada: kalıcı durum, geniş zaman.",
+  "duyulan": "Hep orada. Kalıcı durum, geniş zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I am living with my uncle.",
+  "duyulan": "I'm living with my uncle.",
+  "benzerlik": 0.96,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Şimdilik: geçici durum, şimdiki zaman.",
+  "duyulan": "Şimdilik, geçici durum, şimdiki zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu, üç farktan yalnız biri.",
+  "duyulan": "Bu üç farktan yalnız biri.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tam ders: Simple Present ve Present Continuous.",
+  "ses_metni": "Tam ders: Simple Present ve, Present Continuous.",
+  "duyulan": "Tam Ders, Simple Present ve Present Continuous",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Üç farkın hepsi dört buçuk dakikada.",
+  "duyulan": "3 farkın hepsi 4,5 dakikada.",
+  "benzerlik": 0.9,
+  "tohum": 0
+ }
+]
