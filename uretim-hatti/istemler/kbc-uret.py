@@ -82,11 +82,14 @@ JURI_ORTAK = """## Jüri kuralları (D/.claude/docs/juri-olcutleri.md §1 bağla
 KBJ = """# İstem KBJ-{kod} — `{paket}b` (A/B kol b) çıktı jürisi · 15.11.2026
 
 {bas}
-YAZMA ALANI: yalnız `K/projeler/{paket}b/uretim-tutanagi/juri/KBJ-hukum.md` (dizini aç).
+YAZMA ALANI: yalnız `K/projeler/{paket}b/uretim-tutanagi/juri/KBJ-hukum-<GGAA-SSDD>.md` (ad şimdiki zamandan: `date +%d%m-%H%M`; dizini aç).
+Var olan `KBJ-hukum*.md` dosyalarına DOKUNMA (juri-olcutleri §1b: önceki hüküm kalır, en son hüküm sayılır).
 
 {juri}
 
 ## İş
+0. Deterministik kapı (ÖNCE): `export PATH=$HOME/.nvm/versions/node/v24.22.2/bin:$PATH; node D/araclar/huni-kapi.mjs K/projeler/{paket}b --kol-a K/projeler/{paket}` koş; çıktının tamamını hüküm dosyasına `## Deterministik kapı` başlığıyla koy. Kapının KALDI dediği madde kaldıdır (kanıtı doğrula, yanlışsa `kapı hatası` diye yaz). GEÇTİ dediğini yeniden ölçme. ÖLÇÜLEMEDİ ve kapının kapsamadığı maddeleri kendin ölç.
+   Düzeltme turu raporu varsa oku: `uretim-tutanagi/DUZ2-RAPOR.md`.
 1. Oku: `D/.claude/docs/juri-olcutleri.md` (tamamı), `D/.claude/docs/huni-ab-sozlesme.md`, `D/.claude/docs/huni-v2-standart.md`.
 2. Paket: `K/projeler/{paket}b/` (kol b) ve `K/projeler/{paket}/` (kol a); üretim raporu `uretim-tutanagi/KBC-RAPOR.md`.
 3. §2a (kısa video) BÜTÜN maddelerine ve §2d (A/B kolu) BÜTÜN maddelerine hüküm ver. Tek değişken için `diff -rq` çıktısını KENDİN koştur ve
@@ -100,7 +103,8 @@ Son mesajın en çok 10 satır: geçti / kaldı / kanıt yok sayıları, kaldı 
 J2 = """# İstem J2-{kod} — `{paket}` (yayındaki kısa, kol a) ÇIKTI jürisi · 15.11.2026
 
 {bas}
-YAZMA ALANI: yalnız `K/projeler/{paket}/uretim-tutanagi/juri/J2-hukum.md` (dizini aç).
+YAZMA ALANI: yalnız `K/projeler/{paket}/uretim-tutanagi/juri/J2-hukum-<GGAA-SSDD>.md` (ad şimdiki zamandan: `date +%d%m-%H%M`; dizini aç).
+Var olan `J2-hukum*.md` dosyalarına DOKUNMA (juri-olcutleri §1b: önceki hüküm kalır, en son hüküm sayılır).
 
 Neden: 15.11 denetimi eski jürinin taslağa baktığını, v2 çevirisinden sonra yeniden koşmadığını ve 22 kurala hiç bakmadığını buldu. Bu koşu
 yayındaki paketi yeni ölçütlerle baştan denetler.
@@ -108,6 +112,8 @@ yayındaki paketi yeni ölçütlerle baştan denetler.
 {juri}
 
 ## İş
+0. Deterministik kapı (ÖNCE): `export PATH=$HOME/.nvm/versions/node/v24.22.2/bin:$PATH; node D/araclar/huni-kapi.mjs K/projeler/{paket}` koş; çıktının tamamını hüküm dosyasına `## Deterministik kapı` başlığıyla koy. Kapının KALDI dediği madde kaldıdır (kanıtı doğrula, yanlışsa `kapı hatası` diye yaz). GEÇTİ dediğini yeniden ölçme. ÖLÇÜLEMEDİ ve kapının kapsamadığı maddeleri kendin ölç.
+   Düzeltme turu raporu varsa oku: `uretim-tutanagi/DUZ2-RAPOR.md`.
 1. Oku: `D/.claude/docs/juri-olcutleri.md` (tamamı), `D/.claude/docs/huni-v2-standart.md`, `D/.claude/docs/kapak-standardi.md`.
 2. Paket: `K/projeler/{paket}/`; ana ders `K/projeler/{ders}/` (yalnız kıyas için).
 3. §2a (kısa video) ve §2c (kapak ve hikâye karesi) BÜTÜN maddelerine hüküm ver. Kapak A/B/C ve hikâye A/B karelerinin her birini aç.
@@ -123,4 +129,7 @@ for kod, paket, ders, degisken in KISALAR:
     (hedef / f"KBC-{kod}.md").write_text(KBC.format(**ortak), encoding="utf-8")
     (hedef / f"KBJ-{kod}.md").write_text(KBJ.format(**ortak), encoding="utf-8")
     (hedef / f"J2-{kod}.md").write_text(J2.format(**ortak), encoding="utf-8")
+    # 2. tur (düzeltme sonrası) aynı içerik, ayrı ad: durum dosyaları ilk turla karışmaz
+    (hedef / f"KBJ3-{kod}.md").write_text(KBJ.format(**ortak), encoding="utf-8")
+    (hedef / f"J3-{kod}.md").write_text(J2.format(**ortak), encoding="utf-8")
 print(len(KISALAR) * 3, "istem:", hedef)
