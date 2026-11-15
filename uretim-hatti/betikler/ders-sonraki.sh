@@ -21,7 +21,8 @@ setsid bash -c '
     fi
     sleep 30
   done
-  hayir=$(grep -c -E "^\|.*\| *hayır( |\||\()" "$h")
+  # Sayım tablosunun başlık satırı ("| Bölüm | evet | hayır | kanıt yok |") hüküm satırı değildir.
+  hayir=$(grep -E "^\|.*\| *hayır( |\||\()" "$h" | grep -c -v -E "\| *evet *\|")
   if [ "$hayir" -gt 0 ]; then ILK="DUZ3B-$KOD"; MODEL=claude-opus-5-5; else ILK="KNT-$KOD"; MODEL=claude-sonnet-5-5; fi
   [ -s "$I/$ILK.md" ] || { echo "bitti 91 (istem yok: $ILK)" > "$S"; exit; }
   echo "kapasite bekliyor ($ILK, hayır $hayir) $$" > "$S"
