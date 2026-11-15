@@ -1,0 +1,74 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 2.84,
+"metin": "Genel mi, şu an mı?",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 3.39,
+"t1": 5.31,
+"metin": "She wears her coat in the winter.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 5.56,
+"t1": 8.12,
+"metin": "Genel durum: geniş zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 8.37,
+"t1": 11.17,
+"metin": "She is wearing her pink T-shirt today.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 11.42,
+"t1": 15.1,
+"metin": "Today iki zamanda da geçebilir; farkı anlam yapar.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 15.25,
+"t1": 17.41,
+"metin": "Konuşma anı: şimdiki zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 17.96,
+"t1": 20.04,
+"metin": "Bu, üç farktan yalnız biri.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 20.19,
+"t1": 24.27,
+"metin": "Tam ders: Simple Present ve Present Continuous.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 24.42,
+"t1": 26.98,
+"metin": "Üç farkın hepsi dört buçuk dakikada.",
+"konusan": "ogretmen"
+}
+]

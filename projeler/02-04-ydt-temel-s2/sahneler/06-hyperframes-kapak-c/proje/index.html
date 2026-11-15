@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:"Fredoka";font-weight:700;font-display:block;src:url("assets/fonts/fredoka-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fredoka";font-weight:700;font-display:block;src:url("assets/fonts/fredoka-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Fredoka";font-weight:600;font-display:block;src:url("assets/fonts/fredoka-latin-600-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fredoka";font-weight:600;font-display:block;src:url("assets/fonts/fredoka-latin-ext-600-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Lexend";font-weight:500;font-display:block;src:url("assets/fonts/lexend-latin-500-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Lexend";font-weight:500;font-display:block;src:url("assets/fonts/lexend-latin-ext-500-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Lexend";font-weight:700;font-display:block;src:url("assets/fonts/lexend-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Lexend";font-weight:700;font-display:block;src:url("assets/fonts/lexend-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Caveat";font-weight:700;font-display:block;src:url("assets/fonts/caveat-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Caveat";font-weight:700;font-display:block;src:url("assets/fonts/caveat-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--zemin);}#zemin{position:absolute;inset:0;background:var(--zemin);}#gren{position:absolute;left:0;top:0;opacity:var(--gren);mix-blend-mode:overlay;}#vinyet{position:absolute;inset:0;background:radial-gradient(circle 1026px at 50% 50%,rgba(0,0,0,0) 47.4%,rgba(0,0,0,var(--vin)) 100%);}.abs{position:absolute;}
+#sahne{position:absolute;left:0;top:0;}
+#root{--zemin:#1b1a17;--murekkep:#f3efe6;--ikincil:#c9c2b3;--vurgu:#f2a93b;--vurguDolgu:#f2a93b;--logoSari:#fece00;--logoMetin:#ffffff;--kirmizi:#e0473b;--pilMetin:#1b1a17;--gren:.045;--vin:.38;}
+#root.tema-acik{--zemin:#f7f3ea;--murekkep:#1b2440;--ikincil:#5a6275;--vurgu:#d9900f;--vurguDolgu:#ffe066;--logoMetin:#13204D;--kirmizi:#d6453a;--pilMetin:#1b2440;--gren:.03;--vin:.10;}
+#root [fill="#f3efe6"]{fill:var(--murekkep)}#root [stroke="#f3efe6"]{stroke:var(--murekkep)}
+#root [fill="#c9c2b3"]{fill:var(--ikincil)}#root [stroke="#c9c2b3"]{stroke:var(--ikincil)}
+#root [fill="#f2a93b"]{fill:var(--vurgu)}#root [stroke="#f2a93b"]{stroke:var(--vurgu)}
+#root rect[fill="#f2a93b"],#root circle[fill="#f2a93b"]:not(#ku-nokta){fill:var(--vurguDolgu)}
+#root [fill="#e0473b"]{fill:var(--kirmizi)}#root [stroke="#e0473b"]{stroke:var(--kirmizi)}
+#root [stroke="#1b1a17"]{stroke:var(--zemin)}#root text[fill="#1b1a17"]{fill:var(--pilMetin)}#root #rz1 text{fill:var(--zemin)}
+#root.tema-acik #t2{fill:var(--vurgu)}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="1.0" data-fps="30" data-width="1080" data-height="1920">
+<div id="zemin"></div><svg id="gren" width="1080" height="1920" xmlns="http://www.w3.org/2000/svg"><filter id="grenf" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1080" height="1920" filter="url(#grenf)"/></svg><div id="vinyet"></div>
+<svg id="sahne" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+<g id="kunye"><g id="ku-logo"><image id="logoimg" href="assets/logo.svg" x="48" y="48" width="386.98" height="96"/></g><g id="rz0"><rect x="48" y="216" width="282.48" height="72" rx="36" fill="#f2a93b"/><text x="189.24" y="265" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="36" fill="#1b1a17">YDT · BASIC</text></g></g>
+<g id="baslik"><text id="bs-1" x="83.14" y="522.70" font-family="Fredoka" font-weight="700" font-size="190" fill="#f3efe6" stroke="#1b1a17" stroke-width="12" stroke-linejoin="round" style="font-kerning:none;paint-order:stroke fill">AYNI FİİL,</text><text id="bs-2" x="83.14" y="748.80" font-family="Fredoka" font-weight="700" font-size="190" fill="#f3efe6" stroke="#1b1a17" stroke-width="12" stroke-linejoin="round" style="font-kerning:none;paint-order:stroke fill">İKİ ZAMAN</text></g>
+<g id="kart1"><rect id="k1-crv" x="50" y="866" width="980" height="228" rx="24" fill="none" stroke="#f3efe6" stroke-width="4"/><text id="k1-s1" x="88" y="948.00" font-family="Fredoka" font-weight="700" font-size="72" fill="#f3efe6" style="font-kerning:none">She wears her coat</text><text id="k1-s2" x="88" y="1048.00" font-family="Fredoka" font-weight="700" font-size="72" fill="#f3efe6" style="font-kerning:none">in the winter.</text><g id="mont" fill="none" stroke="#f3efe6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M 920.33 896.67 L 897.00 903.67 L 880.67 973.67 L 893.50 978.33 L 904.00 931.67 L 900.50 1027.33 L 932.00 1028.50"/><path d="M 943.67 896.67 L 967.00 903.67 L 983.33 973.67 L 970.50 978.33 L 960.00 931.67 L 963.50 1027.33 L 932.00 1028.50"/><path d="M 920.33 896.67 Q 932.00 908.33 943.67 896.67"/><path d="M 920.33 896.67 Q 923.83 918.83 932.00 931.67"/><path d="M 943.67 896.67 Q 940.17 918.83 932.00 931.67"/><path d="M 932.00 931.67 L 932.00 1027.33"/><path d="M 906.33 1004.00 L 918.00 1002.83"/><path d="M 946.00 1002.83 L 957.67 1004.00"/><circle cx="925.00" cy="948.00" r="3.03"/><circle cx="925.00" cy="966.67" r="3.03"/><circle cx="925.00" cy="985.33" r="3.03"/></g></g>
+<g id="kart2"><rect id="k2-crv" x="50" y="1114" width="980" height="228" rx="24" fill="none" stroke="#f3efe6" stroke-width="4"/><text id="k2-s1" x="88" y="1196.00" font-family="Fredoka" font-weight="700" font-size="72" fill="#f3efe6" style="font-kerning:none">She is wearing her</text><text id="k2-s2" x="88" y="1296.00" font-family="Fredoka" font-weight="700" font-size="72" fill="#f3efe6" style="font-kerning:none">pink T-shirt today.</text><path id="k2-alti" d="M219.0 1224.8 Q387.4 1227.8 555.8 1225.8" fill="none" stroke="#f2a93b" stroke-width="10" stroke-linecap="round"/><g id="tisort" fill="none" stroke="#f3efe6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M 913.80 1152.60 L 881.60 1163.80 L 862.00 1197.40 L 881.60 1211.40 L 895.60 1198.80 L 895.60 1270.20 L 968.40 1270.20 L 968.40 1198.80 L 982.40 1211.40 L 1002.00 1197.40 L 982.40 1163.80 L 950.20 1152.60"/><path d="M 913.80 1152.60 Q 932.00 1180.60 950.20 1152.60"/><path d="M 881.60 1163.80 L 895.60 1198.80"/><path d="M 982.40 1163.80 L 968.40 1198.80"/></g></g>
+</svg>
+</div>
+<script src="lib/gsap.min.js"></script>
+<script>
+(function () {
+  var tl = gsap.timeline({ paused: true });
+  tl.set("#sahne", { opacity: 1, immediateRender: false }, 0);
+  tl.set("#sahne", { opacity: 1, immediateRender: false }, 1.0);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["main"] = tl;
+})();
+</script><script>/* kalem-tema */(function () {  /* canlı önizleme (?canli=1): ?tema=acik ya da message {tip:"tema", ad}; sorgu yoksa koyu. Render sırasında çalışmaz, tema dosyaya gömülüdür */
+  if (!/[?&]canli=1/.test(location.search)) return;
+  var R = document.getElementById("root"), L = document.getElementById("logoimg") || document.getElementById("logo");
+  function t(a) { R.classList.toggle("tema-acik", a === "acik");
+    if (L) L.setAttribute("href", "/projeler/present-continuous/ortak/logo/" + (a === "acik" ? "yds-publishing-lacivert.svg" : "yds-publishing-seffaf.svg")); }
+  t(new URLSearchParams(location.search).get("tema") || "koyu");
+  addEventListener("message", function (e) { if (e.data && e.data.tip === "tema") t(e.data.ad); });
+  var tl = window.__timelines && window.__timelines.main;  /* canlı sürücü: zaman çizelgesi kare sayacına/editör mesajına bağlanır (hazir mesajı) */
+  if (tl) import("/ortak/surucu.js").then(function (m) { m.canliHF(tl, +R.dataset.fps || 30); });
+})();</script>
+</body></html>

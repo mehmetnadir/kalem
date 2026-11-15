@@ -1,0 +1,67 @@
+{
+  "surumler": [
+    {
+      "kimlik": "s2-kapak-a",
+      "tur": "kapak",
+      "ad": "S2 Kapak A",
+      "durum": "inceleme",
+      "dosya": "kapak-a.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s2-kapak-b",
+      "tur": "kapak",
+      "ad": "S2 Kapak B",
+      "durum": "inceleme",
+      "dosya": "kapak-b.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s2-kapak-c",
+      "tur": "kapak",
+      "ad": "S2 Kapak C",
+      "durum": "inceleme",
+      "dosya": "kapak-c.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s2-hikaye-a",
+      "tur": "hikaye",
+      "ad": "S2 Hikâye A",
+      "durum": "inceleme",
+      "dosya": "hikaye-a.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s2-hikaye-b",
+      "tur": "hikaye",
+      "ad": "S2 Hikâye B",
+      "durum": "inceleme",
+      "dosya": "hikaye-b.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s2-aciklama-a",
+      "tur": "aciklama",
+      "ad": "S2 Açıklama A",
+      "durum": "inceleme",
+      "dosya": "aciklama-a.md",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s2-aciklama-b",
+      "tur": "aciklama",
+      "ad": "S2 Açıklama B",
+      "durum": "inceleme",
+      "dosya": "aciklama-b.md",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    }
+  ]
+}

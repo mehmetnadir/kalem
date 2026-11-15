@@ -1,0 +1,58 @@
+[
+{
+"cumle": 1,
+"dil": "en",
+"t0": 1.0,
+"t1": 4.2,
+"metin": "The train to Izmir leaves at seven p.m. today.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 1,
+"dil": "en",
+"t0": 4.45,
+"t1": 6.53,
+"metin": "I am going to the movie theater tonight.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 7.0,
+"t1": 10.84,
+"metin": "Hocam, tren de plana göre kalkmıyor mu? Neden -ing yok?",
+"konusan": "ogrenci"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 11.51,
+"t1": 16.07,
+"metin": "Planı bir kişi yapar. Tren tarifeye uyar: geniş zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 16.54,
+"t1": 18.62,
+"metin": "Bu, üç farktan yalnız biri.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 18.77,
+"t1": 22.85,
+"metin": "Tam ders: Simple Present ve Present Continuous.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 23.0,
+"t1": 25.64,
+"metin": "Üç farkın hepsi dört buçuk dakikada.",
+"konusan": "ogretmen"
+}
+]

@@ -1,0 +1,67 @@
+[
+ {
+  "dil": "tr",
+  "metin": "Genel mi, şu an mı?",
+  "duyulan": "Genel mi, şu an mı?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "She wears her coat in the winter.",
+  "duyulan": "She wears her coat in the winter.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Genel durum: geniş zaman.",
+  "duyulan": "Genel Durum Geniş Zaman",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "She is wearing her pink T-shirt today.",
+  "ses_metni": "She is wearing her pink T shirt today.",
+  "duyulan": "She is wearing her pink t-shirt today.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Today iki zamanda da geçebilir; farkı anlam yapar.",
+  "duyulan": "Today, iki zamanda da geçebilir. Farkı anlam yapar.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Konuşma anı: şimdiki zaman.",
+  "duyulan": "Konuşma Anı, Şimdiki Zaman",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu, üç farktan yalnız biri.",
+  "duyulan": "Bu üç farktan yalnız biri.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tam ders: Simple Present ve Present Continuous.",
+  "ses_metni": "Tam ders: Simple Present ve, Present Continuous.",
+  "duyulan": "Tam Ders, Simple Present ve Present Continuous",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Üç farkın hepsi dört buçuk dakikada.",
+  "duyulan": "3 farkın hepsi 4,5 dakikada.",
+  "benzerlik": 0.9,
+  "tohum": 0
+ }
+]

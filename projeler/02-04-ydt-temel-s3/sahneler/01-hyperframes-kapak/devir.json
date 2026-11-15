@@ -1,0 +1,107 @@
+{
+  "font": "Fredoka",
+  "agirlik": 700,
+  "boy": 64,
+  "kerning": "none",
+  "sol": 97,
+  "taban": [
+    468,
+    566
+  ],
+  "satir": [
+    "The train to İzmir",
+    "leaves at 7 pm today."
+  ],
+  "gorunen": [
+    "The train to İzmir",
+    "leaves at 7"
+  ],
+  "sozcuk": [
+    [
+      "The",
+      0,
+      97.0,
+      208.23
+    ],
+    [
+      "train",
+      0,
+      223.27,
+      366.31
+    ],
+    [
+      "to",
+      0,
+      381.35,
+      444.52
+    ],
+    [
+      "İzmir",
+      0,
+      459.56,
+      604.07
+    ],
+    [
+      "leaves",
+      1,
+      97.0,
+      287.21
+    ],
+    [
+      "at",
+      1,
+      302.25,
+      365.35
+    ],
+    [
+      "7",
+      1,
+      380.39,
+      413.8
+    ],
+    [
+      "pm",
+      1,
+      428.84,
+      514.09
+    ],
+    [
+      "today.",
+      1,
+      529.13,
+      714.34
+    ]
+  ],
+  "kart": {
+    "x": 57,
+    "y": 368,
+    "w": 966,
+    "h": 260,
+    "tohum": 71,
+    "cizgi": 4,
+    "bicim": "kutu (ortak/kalem-canvas.js)"
+  },
+  "tren": {
+    "kutu": [
+      785,
+      392,
+      1000,
+      483
+    ],
+    "olcek": 0.5,
+    "yerel_kutu": [
+      -10,
+      -24,
+      420,
+      158
+    ],
+    "tx": 58,
+    "ty": 1226,
+    "kaynak": "trenParcalari"
+  },
+  "altyazi_ekran": {
+    "Izmir": "İzmir",
+    "seven p.m.": "7 pm"
+  },
+  "t": 3.0
+}

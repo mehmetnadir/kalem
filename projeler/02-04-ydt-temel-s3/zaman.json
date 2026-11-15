@@ -1,0 +1,77 @@
+{
+  "fps": 30,
+  "genislik": 1080,
+  "yukseklik": 1920,
+  "gecis_kare": 12,
+  "tema": "acik",
+  "anlatim": "ortak/anlatim/anlatim.m4a",
+  "sahneler": [
+    {
+      "no": 1,
+      "klasor": "01-hyperframes-kapak",
+      "motor": "HyperFrames",
+      "kare": 102,
+      "t_bas": 0.0,
+      "t_son": 3.0,
+      "icerik_kare": 90,
+      "ad": "Kapak",
+      "bolum": "Kapak"
+    },
+    {
+      "no": 2,
+      "klasor": "02-hyperframes-ornek",
+      "motor": "HyperFrames",
+      "kare": 402,
+      "t_bas": 3.0,
+      "t_son": 15.99,
+      "icerik_kare": 390,
+      "ad": "Örnek",
+      "bolum": "Örnek"
+    },
+    {
+      "no": 3,
+      "klasor": "03-hyperframes-cta",
+      "motor": "HyperFrames",
+      "kare": 347,
+      "t_bas": 15.99,
+      "t_son": 26.56,
+      "icerik_kare": 317,
+      "ad": "Çağrı",
+      "bolum": "Çağrı"
+    }
+  ],
+  "hikaye": {
+    "klasor": "04-hyperframes-hikaye",
+    "motor": "HyperFrames",
+    "kare": 1,
+    "cikti": "hikaye-a.png",
+    "ad": "Hikâye karesi A (bilgi kartı)",
+    "not": "anlatımdan bağımsız durağan kare; zaman çizelgesine girmez; hikaye.png = aynı dosyanın kopyası"
+  },
+  "duragan": [
+    {
+      "klasor": "05-hyperframes-kapak-b",
+      "motor": "HyperFrames",
+      "kare": 1,
+      "cikti": "kapak-b.png",
+      "ad": "Kapak B (soru)",
+      "not": "durağan kare; zaman çizelgesine girmez"
+    },
+    {
+      "klasor": "06-hyperframes-kapak-c",
+      "motor": "HyperFrames",
+      "kare": 1,
+      "cikti": "kapak-c.png",
+      "ad": "Kapak C (karşıt çift)",
+      "not": "durağan kare; zaman çizelgesine girmez"
+    },
+    {
+      "klasor": "07-hyperframes-hikaye-b",
+      "motor": "HyperFrames",
+      "kare": 1,
+      "cikti": "hikaye-b.png",
+      "ad": "Hikâye karesi B (soru kartı)",
+      "not": "durağan kare; zaman çizelgesine girmez"
+    }
+  ]
+}

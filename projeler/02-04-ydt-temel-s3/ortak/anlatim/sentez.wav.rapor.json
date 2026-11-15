@@ -1,0 +1,53 @@
+[
+ {
+  "dil": "en",
+  "metin": "The train to Izmir leaves at seven p.m. today.",
+  "duyulan": "The train to Izmir leaves at 7 p.m. today.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I am going to the movie theater tonight.",
+  "duyulan": "I am going to the movie theater tonight.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hocam, tren de plana göre kalkmıyor mu? Neden -ing yok?",
+  "ses_metni": "Hocam, tren de plana göre kalkmıyor mu? Neden /ɪŋ/ yok?",
+  "duyulan": "Hocam trende plana göre kalkmıyor mu? Neden ingi yok?",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Planı bir kişi yapar. Tren tarifeye uyar: geniş zaman.",
+  "duyulan": "Planı bir kişi yapar. Tren tarifeye uyar. Geniş zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu, üç farktan yalnız biri.",
+  "duyulan": "Bu üç farktan yalnız biri.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tam ders: Simple Present ve Present Continuous.",
+  "ses_metni": "Tam ders: Simple Present ve, Present Continuous.",
+  "duyulan": "Tam Ders, Simple Present ve Present Continuous",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Üç farkın hepsi dört buçuk dakikada.",
+  "duyulan": "3 farkın hepsi 4,5 dakikada.",
+  "benzerlik": 0.9,
+  "tohum": 0
+ }
+]
