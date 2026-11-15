@@ -399,7 +399,8 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0, tGercek
     for (const e of OGELER) matrisUygula(e, fe);
     P.view.update();
     zeminCiz(oc, f, K); oc.drawImage(document.getElementById("cv"), 0, 0); kunyeCiz(oc, { bolum, logo: K.logo });
-    altyaziCiz(oc, altyaziMetin(K.altyazi, tGercek + Math.min(f, SON - 2) / 30));
+    const tAlt = tGercek + Math.min(f, SON - 2) / 30;   // DUZ4 A1: karaoke aynı küresel saniyeyle (sozcukler.json)
+    altyaziCiz(oc, altyaziMetin(K.altyazi, tAlt), { sozcukler: sozcukJson, t: tAlt });
     if (f === KARE - 1) {
       const ev = [...OLAY.values()].sort((a, b) => a.kare - b.kare || b.guc - a.guc), say = {}, son = [];
       for (const e of ev) { if (e.kare > SON) continue; say[e.kare] = (say[e.kare] || 0) + 1; if (say[e.kare] <= 3) son.push(e); }   // son 12 kare durgun: olay yok

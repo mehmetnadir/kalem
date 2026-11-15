@@ -1,5 +1,5 @@
 """Ortak yardımcılar, DİKEY 1080x1920 (present-continuous-ileri-s1 sahne 03 kopyası; 02-04-ydt-temel-s1 için künye
-ortak/kunye.js KUNYE ile aynı px: ders adı 2 satır, tek rozet `YDT · BASIC` 2. satırın sağında, çip dolgusu 64).
+ortak/kunye.js KUNYE ile aynı px: ders adı 2 satır, tek rozet `YDT · TEMEL` 2. satırın sağında, çip dolgusu 64).
 Yol verisi, yazı genişliği (fontTools, kerning yok), künye SVG'si, yazı tipi CSS'i.
 02-04-ydt-temel-s3 (15.11): S1 sahne 03 kopyası, değişiklik yok; S3 ortak/kunye.js KUNYE S1 ile aynı (yalnız KOK, cipler)."""
 import json
@@ -148,7 +148,7 @@ HUD = {"kenar": 48, "logoY": 48, "logoYuk": 96, "dersTaban": 212, "dersYazi": 56
        "rozetH": 72, "rozetAra": 24, "rozetYazi": 36, "cipY": 48, "cipH": 80, "cipYazi": 40, "cipDolgu": 64,
        "altyaziBas": 1400, "altyaziYazi": 44, "altyaziSatir": 56}
 DERS = ("SIMPLE PRESENT vs", "PRESENT CONTINUOUS")   # kunye.js KUNYE.ders
-ROZETLER = ("YDT · BASIC",)
+ROZETLER = ("YDT · TEMEL",)
 
 
 def rozet_konumlari():

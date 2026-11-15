@@ -1,6 +1,9 @@
 """02-04-ydt-temel-s3 sahne 08 Kaydet (HyperFrames, DİKEY 1080x1920, huni v2).
 
-Kural özeti kartı (Tarife -> leaves, / plan -> am going.), Gönder ve Kaydet satırları, altyazı üretimi.
+Kural özeti kartı (Tarife -> leaves, / kesin düzenleme -> am going.), Gönder ve Kaydet satırları, altyazı üretimi.
+DUZ2 (15.11): kart metni "kesin düzenleme" (A3; seste aynı terim); satır 64 px, sol x 96, karttaki tren/bilet simgesi
+kalktı (satır 2 = 826 px, 64 px altına inmeden sığmanın tek yolu); altyazı karaoke sahne 02/03 düzeninde (ikincil ->
+mürekkep); kol b için cümle no veriden (KAYMA).
 """
 from __future__ import annotations
 
@@ -25,13 +28,15 @@ SURE: float = round(KARE / 30, 4)   # 5.7333
 ICERIK: float = round(float(SAH["icerik_kare"]) / 30, 4)  # 5.3333
 ALT_SON: float = round(float(SAH["t_son"]) - T_BAS, 3)    # 5.34
 
-SOZ: list[dict[str, Any]] = [
-    w for w in json.loads((PAKET / "ortak" / "anlatim" / "sozcukler.json").read_text(encoding="utf-8"))
-    if w.get("cumle") == 4
-]
+_SOZ_TUM: list[dict[str, Any]] = json.loads(
+    (PAKET / "ortak" / "anlatim" / "sozcukler.json").read_text(encoding="utf-8"))
+# A/B kol b (kanca değişkeni) başa cümle ekler: kayma = örnek cümlesinin ("The ...") sırası - 1 (kol a 0, kol b 1).
+KAYMA: int = int(next(w["cumle"] for w in _SOZ_TUM if w["sozcuk"] == "The")) - 1
+CUMLE: int = 4 + KAYMA
+SOZ: list[dict[str, Any]] = [w for w in _SOZ_TUM if w.get("cumle") == CUMLE]
 ALT: list[dict[str, Any]] = [
     p for p in json.loads((PAKET / "ortak" / "anlatim" / "altyazi.json").read_text(encoding="utf-8"))
-    if p.get("cumle") == 4
+    if p.get("cumle") == CUMLE
 ]
 
 
@@ -197,75 +202,35 @@ def uret() -> tuple[str, dict[str, Any]]:
 
     # 1. Kural satırları ve metin uzunlukları (§8 kural 1)
     satir1_metin = "Tarife \u2192 leaves,"
-    satir2_metin = "plan \u2192 am going."
+    satir2_metin = "kesin düzenleme \u2192 am going."
     gonder_metin = "Arkadaşına gönder"
     kaydet_metin = "Kaydet"
+    # DUZ2: 24 karakter sınırı ders kalıbıdır (DK-2); kısa kartında asıl ölçü genişliktir (aşağıda <= 934 px).
     assert len(satir1_metin) <= 24, f"Satır 1 24 karakterden uzun: {len(satir1_metin)}"
-    assert len(satir2_metin) <= 24, f"Satır 2 24 karakterden uzun: {len(satir2_metin)}"
+    assert len(satir2_metin) <= 28, f"Satır 2 28 karakterden uzun: {len(satir2_metin)}"
     assert len(gonder_metin) <= 24, f"Gönder satırı 24 karakterden uzun: {len(gonder_metin)}"
     assert len(kaydet_metin) <= 24, f"Kaydet satırı 24 karakterden uzun: {len(kaydet_metin)}"
 
     # 2. Kart yerleşimi ve ölçüleri (§5)
     T1 = 705.0
     T2 = 801.0
-    TX = 242.0
+    TX = 96.0
+    KB = 64.0
     dx_ok = 18.0 * math.cos(0.5)
     dy_ok = 18.0 * math.sin(0.5)
 
-    # Tren ikonu
-    tren_my = T1 - 0.30 * 72.0
-    tren_yollar = ikon_yollari(TREN, 154.0, tren_my, 136.0, 64.0)
-    tren_paths: list[str] = []
-    for idx, (d, _, ince) in enumerate(tren_yollar):
-        if idx == len(tren_yollar) - 1:
-            renk = R["ikincil"]
-            sw = 3
-        elif ince:
-            renk = R["murekkep"]
-            sw = 3
-        else:
-            renk = R["murekkep"]
-            sw = 4
-        tren_paths.append(
-            f'<path id="tren_{idx}" d="{d}" stroke="{renk}" stroke-width="{sw}" style="opacity:0"/>'
-        )
-    tren_svg = (
-        f'<g id="kart-tren" fill="none" stroke-linecap="round" stroke-linejoin="round">'
-        f'{"".join(tren_paths)}</g>'
-    )
-
-    # Bilet ikonu
-    bilet_my = T2 - 0.30 * 72.0
-    bilet_yollar = ikon_yollari(BILET, 154.0, bilet_my, 132.0, 60.0)
-    bilet_paths: list[str] = []
-    for idx, (d, _, ince) in enumerate(bilet_yollar):
-        if ince:
-            renk = R["ikincil"]
-            sw = 3
-        else:
-            renk = R["murekkep"]
-            sw = 4
-        bilet_paths.append(
-            f'<path id="bilet_{idx}" d="{d}" stroke="{renk}" stroke-width="{sw}" style="opacity:0"/>'
-        )
-    bilet_svg = (
-        f'<g id="kart-bilet" transform="rotate(-3 154 {bilet_my:.1f})" '
-        f'fill="none" stroke-linecap="round" stroke-linejoin="round">'
-        f'{"".join(bilet_paths)}</g>'
-    )
-
     # Satır 1
-    w_sol1 = Y.genislik("Fredoka", 700, "Tarife", 72)
-    x_ok0_1 = TX + w_sol1 + 0.22 * 72.0
-    x_ok1_1 = x_ok0_1 + 0.70 * 72.0
-    LX = x_ok1_1 + 0.22 * 72.0 + 14.0
-    w_leaves = Y.genislik("Fredoka", 700, "leaves", 72)
+    w_sol1 = Y.genislik("Fredoka", 700, "Tarife", KB)
+    x_ok0_1 = TX + w_sol1 + 0.22 * KB
+    x_ok1_1 = x_ok0_1 + 0.70 * KB
+    LX = x_ok1_1 + 0.22 * KB + 14.0
+    w_leaves = Y.genislik("Fredoka", 700, "leaves", KB)
     x_virgul = LX + w_leaves + 16.0
-    w_virgul = Y.genislik("Fredoka", 700, ",", 72)
+    w_virgul = Y.genislik("Fredoka", 700, ",", KB)
     s1_sag_uc = x_virgul + w_virgul
     assert s1_sag_uc <= 934.0, f"Satır 1 sağ uç 934'ü aştı: {s1_sag_uc:.1f}"
 
-    y_ok1 = T1 - 0.28 * 72.0
+    y_ok1 = T1 - 0.28 * KB
     d_ok1 = (
         f"M{x_ok0_1:.1f} {y_ok1:.1f} L{x_ok1_1:.1f} {y_ok1:.1f} "
         f"M{x_ok1_1 - dx_ok:.1f} {y_ok1 - dy_ok:.1f} L{x_ok1_1:.1f} {y_ok1:.1f} "
@@ -278,21 +243,21 @@ def uret() -> tuple[str, dict[str, Any]]:
 
     leaves_hap = (
         f'<g id="leaves-hap">'
-        f'<rect x="{LX - 14.0:.1f}" y="{T1 - 0.80 * 72.0:.1f}" width="{w_leaves + 28.0:.1f}" height="72" rx="36" '
-        f'fill="{R["vurgu"]}"/>'
-        f'<text x="{LX:.1f}" y="{T1:.1f}" font-family="Fredoka" font-weight="700" font-size="72" '
+        f'<rect x="{LX - 14.0:.1f}" y="{T1 - 0.80 * KB:.1f}" width="{w_leaves + 28.0:.1f}" height="{KB:g}" '
+        f'rx="{KB / 2:g}" fill="{R["vurgu"]}"/>'
+        f'<text x="{LX:.1f}" y="{T1:.1f}" font-family="Fredoka" font-weight="700" font-size="{KB:g}" '
         f'fill="{R["zemin"]}" xml:space="preserve">leaves</text>'
         f'</g>'
     )
     s1_svg = (
         f'<g id="s1" style="opacity:0">'
-        f'<text id="kart-s1-sol" x="{TX:.1f}" y="{T1:.1f}" font-family="Fredoka" font-weight="700" font-size="72" '
+        f'<text id="kart-s1-sol" x="{TX:.1f}" y="{T1:.1f}" font-family="Fredoka" font-weight="700" font-size="{KB:g}" '
         f'fill="{R["murekkep"]}" xml:space="preserve">Tarife</text>'
-        f'<text id="leaves-yazi" x="{LX:.1f}" y="{T1:.1f}" font-family="Fredoka" font-weight="700" font-size="72" '
+        f'{leaves_hap}'  # DUZ2 EK-7: hap mürekkep yazının altında (geçişte yazı sönen hapın üstünde kalır)
+        f'<text id="leaves-yazi" x="{LX:.1f}" y="{T1:.1f}" font-family="Fredoka" font-weight="700" font-size="{KB:g}" '
         f'fill="{R["murekkep"]}" xml:space="preserve" style="opacity:0">leaves,</text>'
-        f'{leaves_hap}'
         f'<text id="kart-s1-virgul" x="{x_virgul:.1f}" y="{T1:.1f}" font-family="Fredoka" font-weight="700" '
-        f'font-size="72" fill="{R["murekkep"]}" xml:space="preserve">,</text>'
+        f'font-size="{KB:g}" fill="{R["murekkep"]}" xml:space="preserve">,</text>'
         f'</g>'
     )
 
@@ -306,15 +271,15 @@ def uret() -> tuple[str, dict[str, Any]]:
     )
 
     # Satır 2
-    w_sol2 = Y.genislik("Fredoka", 700, "plan", 72)
-    x_ok0_2 = TX + w_sol2 + 0.22 * 72.0
-    x_ok1_2 = x_ok0_2 + 0.70 * 72.0
-    x_sag2 = x_ok1_2 + 0.22 * 72.0
-    w_sag2 = Y.genislik("Fredoka", 700, "am going.", 72)
+    w_sol2 = Y.genislik("Fredoka", 700, "kesin düzenleme", KB)
+    x_ok0_2 = TX + w_sol2 + 0.22 * KB
+    x_ok1_2 = x_ok0_2 + 0.70 * KB
+    x_sag2 = x_ok1_2 + 0.22 * KB
+    w_sag2 = Y.genislik("Fredoka", 700, "am going.", KB)
     s2_sag_uc = x_sag2 + w_sag2
     assert s2_sag_uc <= 934.0, f"Satır 2 sağ uç 934'ü aştı: {s2_sag_uc:.1f}"
 
-    y_ok2 = T2 - 0.28 * 72.0
+    y_ok2 = T2 - 0.28 * KB
     d_ok2 = (
         f"M{x_ok0_2:.1f} {y_ok2:.1f} L{x_ok1_2:.1f} {y_ok2:.1f} "
         f"M{x_ok1_2 - dx_ok:.1f} {y_ok2 - dy_ok:.1f} L{x_ok1_2:.1f} {y_ok2:.1f} "
@@ -326,9 +291,9 @@ def uret() -> tuple[str, dict[str, Any]]:
     )
     s2_svg = (
         f'<g id="s2" style="opacity:0">'
-        f'<text id="kart-s2-sol" x="{TX:.1f}" y="{T2:.1f}" font-family="Fredoka" font-weight="700" font-size="72" '
-        f'fill="{R["murekkep"]}" xml:space="preserve">plan</text>'
-        f'<text id="kart-s2-sag" x="{x_sag2:.1f}" y="{T2:.1f}" font-family="Fredoka" font-weight="700" font-size="72" '
+        f'<text id="kart-s2-sol" x="{TX:.1f}" y="{T2:.1f}" font-family="Fredoka" font-weight="700" font-size="{KB:g}" '
+        f'fill="{R["murekkep"]}" xml:space="preserve">kesin düzenleme</text>'
+        f'<text id="kart-s2-sag" x="{x_sag2:.1f}" y="{T2:.1f}" font-family="Fredoka" font-weight="700" font-size="{KB:g}" '
         f'fill="{R["murekkep"]}" xml:space="preserve">am going.</text>'
         f'</g>'
     )
@@ -339,13 +304,8 @@ def uret() -> tuple[str, dict[str, Any]]:
     assert x_ok0_2 - (TX + w_sol2) >= 10.0, "Satır 2 ok sol sözcüğe çok yakın"
     assert x_sag2 - x_ok1_2 >= 10.0, "Satır 2 ok sağ sözcüğe çok yakın"
 
-    # İkon kutusu sınır denetimi (§8 kural 3)
-    tren_kutusu = (154.0 - 68.0, tren_my - 32.0, 154.0 + 68.0, tren_my + 32.0)
-    assert 86.0 <= tren_kutusu[0] and tren_kutusu[2] <= TX - 16.0, "Tren x sınır dışı"
-    assert 566.0 <= tren_kutusu[1] and tren_kutusu[3] <= 894.0, "Tren y sınır dışı"
-    bilet_kutusu = (154.0 - 66.0, bilet_my - 30.0, 154.0 + 66.0, bilet_my + 30.0)
-    assert 86.0 <= bilet_kutusu[0] and bilet_kutusu[2] <= TX - 16.0, "Bilet x sınır dışı"
-    assert 566.0 <= bilet_kutusu[1] and bilet_kutusu[3] <= 894.0, "Bilet y sınır dışı"
+    # Kart iç kenarı (DUZ2: simge sütunu kalktı; satırlar kart çerçevesi 62-958 içinde, sol pay 34)
+    assert TX - 62.0 >= 28.0, "Satır sol ucu kart kenarına çok yakın"
 
     # Kart çerçevesi yolu (§5)
     kenar_d = (
@@ -504,8 +464,6 @@ def uret() -> tuple[str, dict[str, Any]]:
             "sari_gecis": zamanlar["sari_gecis"],
             "kuyruk_durgun": zamanlar["kuyruk_durgun"],
         },
-        "tren_sayisi": len(tren_yollar),
-        "bilet_sayisi": len(bilet_yollar),
         "alt": alt_zaman,
         "karaoke": karaoke_zaman,
     }
@@ -528,8 +486,6 @@ def uret() -> tuple[str, dict[str, Any]]:
 <g id="kart">
 <path id="kart-kenar" d="{kenar_d}" fill="none" stroke="{R["murekkep"]}" stroke-width="4"
  stroke-linecap="round" stroke-linejoin="round" style="opacity:0"/>
-{tren_svg}
-{bilet_svg}
 {s1_svg}
 {s1_ok}
 {leaves_alti}
@@ -566,16 +522,7 @@ def uret() -> tuple[str, dict[str, Any]]:
   }});
 
   V.karaoke.forEach(function (k) {{
-    var id = "#" + k[0], ac_t = k[1], kapat_t = k[2], uz = k[3];
-    var el = $(id);
-    if (el) {{
-      el.style.strokeDasharray = uz + " " + (uz + 2);
-      el.style.strokeDashoffset = uz;
-      tl.set(id, ac({{ opacity: 1 }}), ac_t);
-      tl.fromTo(id, {{ strokeDashoffset: uz }},
-        {{ strokeDashoffset: 0, duration: 0.15, ease: "power2.out", immediateRender: false }}, ac_t);
-      tl.set(id, ac({{ opacity: 0 }}), kapat_t);
-    }}
+    tl.set("#" + k[0], ac({{ attr: {{ fill: "{R["murekkep"]}" }} }}), k[1]);
   }});
 
   function darbe(id, t0, dur, ease) {{
@@ -593,17 +540,11 @@ def uret() -> tuple[str, dict[str, Any]]:
   darbe("#kart-kenar", Z.kart_ciz[0], 0.40, "sine.inOut");
 
   // 2. satir1
-  for (var i = 0; i < V.tren_sayisi; i++) {{
-    darbe("#tren_" + i, Z.satir1[0], 0.30, "power1.out");
-  }}
   tl.fromTo("#s1", {{ opacity: 0 }},
     {{ opacity: 1, duration: 0.25, ease: "power2.out", immediateRender: false }}, Z.satir1[0]);
   darbe("#kart-s1-ok", Z.satir1[0] + 0.05, 0.20, "power1.out");
 
   // 3. satir2
-  for (var j = 0; j < V.bilet_sayisi; j++) {{
-    darbe("#bilet_" + j, Z.satir2[0], 0.30, "power1.out");
-  }}
   tl.fromTo("#s2", {{ opacity: 0 }},
     {{ opacity: 1, duration: 0.25, ease: "power2.out", immediateRender: false }}, Z.satir2[0]);
   darbe("#kart-s2-ok", Z.satir2[0] + 0.05, 0.20, "power1.out");
@@ -628,11 +569,13 @@ def uret() -> tuple[str, dict[str, Any]]:
   // 8. sari_gecis
   tl.fromTo("#gonder-dolgu", {{ fillOpacity: 0 }},
     {{ fillOpacity: 1, duration: 0.25, ease: "power2.out", immediateRender: false }}, Z.sari_gecis[0]);
-  // hap + hap dönemi virgülü söner; mürekkep "leaves," 0,10 sn sonra gelir (yazı × yazı 0,5 eşiğini aşmaz)
-  tl.fromTo(["#leaves-hap", "#kart-s1-virgul"], {{ opacity: 1 }},
-    {{ opacity: 0, duration: 0.20, ease: "power2.out", immediateRender: false }}, Z.sari_gecis[0]);
-  tl.fromTo("#leaves-yazi", {{ opacity: 0 }},
-    {{ opacity: 1, duration: 0.20, ease: "power2.out", immediateRender: false }}, Z.sari_gecis[0] + 0.10);
+  // DUZ2 (KBJ EK-7): hap yazısı ve hap dönemi virgülü anında söner, mürekkep "leaves," anında gelir (yazı × yazı
+  // örtüşmesi yok); yalnız hap zemini 0,10 sn'de söner. Eski 0,20 sn çapraz geçişte koyu temada hap yazısı (zemin
+  // rengi) soluk hap üstünde 2,1:1 kalıyordu; şimdi geçiş karelerinde açık mürekkep sönen hap üstünde.
+  tl.set(["#leaves-hap text", "#kart-s1-virgul"], {{ opacity: 0 }}, Z.sari_gecis[0]);
+  tl.set("#leaves-yazi", {{ opacity: 1 }}, Z.sari_gecis[0]);
+  tl.fromTo("#leaves-hap", {{ opacity: 1 }},
+    {{ opacity: 0, duration: 0.10, ease: "power2.out", immediateRender: false }}, Z.sari_gecis[0]);
   darbe("#leaves-alti", Z.sari_gecis[0], 0.30, "power1.out");
 
   window.__timelines = window.__timelines || {{}};

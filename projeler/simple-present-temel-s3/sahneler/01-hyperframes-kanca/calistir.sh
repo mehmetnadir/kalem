@@ -13,7 +13,7 @@ KARE=129
 mkdir -p "$AD/proje/lib" "$AD/proje/assets/fonts" "$AD/k" "$AD/proje/renders"
 cp "$M/node_modules/gsap/dist/gsap.min.js" "$AD/proje/lib/" 2>/dev/null || cp "$M/lib/gsap.min.js" "$AD/proje/lib/"
 cp "$ORTAK/logo/$LOGO_DOSYA" "$AD/proje/assets/logo.svg"
-cp "$ORTAK/kapak/karakter.png" "$AD/proje/assets/karakter.png"   # kapak görseli (ana ders kopyası, md5 1d8ea559…)
+cp "$ORTAK/kapak/karakter.png" "$AD/proje/assets/karakter.png"   # kapak görseli (ana ders kopyası; DUZ2 16.11 kadın karakter, sha256 5a902b40…)
 /usr/bin/python3 "$AD/uret.py" >&2 && /usr/bin/python3 "$AD/olay.py" >&2
 tema_hf "$AD/proje/index.html"
 [ -n "$ONIZLE_YALNIZ" ] && { echo "önizleme hazır"; exit 0; }

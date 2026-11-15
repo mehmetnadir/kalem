@@ -1,4 +1,6 @@
 """02-04-ydt-temel-s3 sahne 01 kapak index.html üretici (HyperFrames DİKEY 1080x1920, 102 kare).
+DUZ2 (15.11): başlık 2 `≠ PLAN` -> `≠ DÜZENLEME` (A3: "plan -> am going" denkliği kapsamsız; seste "kesin düzenleme");
+satır 2 kendi boyuyla (B2, 900 px'e sığan), satır 1 `TARİFE` 190 px kalır; rozet `YDT · TEMEL`.
 
 SPEC v2 §3 uygulaması: kapak düzeni, tren/saat/bilet/figür çizimleri, Fredoka cümle yazımı, başlık uçuşu,
 kart çerçevesi çizimi, v2 kanal katmanı/künye/altyazı ve devir.json çıktısı.
@@ -125,31 +127,36 @@ def kutu_kenar_to_d(kenar: list[tuple[float, float]]) -> str:
 W, H = Y.W, Y.H
 ORTA_X = 510
 BAS1 = "TARİFE"
-BAS2_METIN = "= PLAN"
+BAS2_METIN = "= DÜZENLEME"
+BAS2_YAZI = "DÜZENLEME"
 PAD = 0.20  # em
 
 B = math.floor(min(
     190,
     900 / Y.genislik("Fredoka", 700, BAS1, 1),
-    900 / (Y.genislik("Fredoka", 700, BAS2_METIN, 1) + 2 * PAD),
 ))
 assert B == 190, f"B={B} != 190"
+B2 = math.floor(min(
+    190,
+    900 / (Y.genislik("Fredoka", 700, BAS2_METIN, 1) + 2 * PAD),
+))
+assert 120 <= B2 <= 190, f"B2={B2} [120, 190] dışı"
 
 g1 = Y.genislik("Fredoka", 700, BAS1, B)
 t1x = ORTA_X - g1 / 2.0
 T1 = 466 + 0.921 * B
 ALTI_Y = T1 + 0.16 * B
 HAP_UST = ALTI_Y + 29
-T2 = HAP_UST + 0.88 * B
-HAP_ALT = T2 + 0.18 * B
+T2 = HAP_UST + 0.88 * B2
+HAP_ALT = T2 + 0.18 * B2
 
-hap_w = Y.genislik("Fredoka", 700, BAS2_METIN, B) + 2 * PAD * B
+hap_w = Y.genislik("Fredoka", 700, BAS2_METIN, B2) + 2 * PAD * B2
 hap_x = ORTA_X - hap_w / 2.0
 hap_h = HAP_ALT - HAP_UST
 hap_rx = hap_h / 2.0
 
-GX = hap_x + PAD * B
-PX = GX + Y.genislik("Fredoka", 700, "= ", B)
+GX = hap_x + PAD * B2
+PX = GX + Y.genislik("Fredoka", 700, "= ", B2)
 
 SOL = 97
 KB = 64
@@ -189,7 +196,7 @@ g_sat2_tam = Y.genislik("Fredoka", 700, SATIR2_TAM, KB)
 g_sat2_kapak = Y.genislik("Fredoka", 700, SATIR2_KAPAK, KB)
 
 KONU = "Simple Present vs Present Continuous"
-ROZET = "YDT · BASIC"
+ROZET = "YDT · TEMEL"
 ROZET_W = Y.genislik("Lexend", 700, ROZET, 26) + 40
 
 KB_K = None
@@ -731,14 +738,14 @@ def uret() -> str:
         f'fill="#f3efe6" clip-path="url(#cp2)" style="font-kerning:none">{SATIR2_KAPAK}</text></g>'
     )
 
-    # 5. Başlık 2 (hap + neq + PLAN)
-    neq_c1 = f"M{GX + 0.093 * B:.2f} {T2 - 0.159 * B:.2f} L{GX + 0.352 * B:.2f} {T2 - 0.159 * B:.2f}"
-    neq_c2 = f"M{GX + 0.093 * B:.2f} {T2 - 0.356 * B:.2f} L{GX + 0.352 * B:.2f} {T2 - 0.356 * B:.2f}"
-    neq_eg = f"M{GX + 0.322 * B:.2f} {T2 - 0.555 * B:.2f} L{GX + 0.150 * B:.2f} {T2 + 0.005 * B:.2f}"
+    # 5. Başlık 2 (hap + neq + DÜZENLEME)
+    neq_c1 = f"M{GX + 0.093 * B2:.2f} {T2 - 0.159 * B2:.2f} L{GX + 0.352 * B2:.2f} {T2 - 0.159 * B2:.2f}"
+    neq_c2 = f"M{GX + 0.093 * B2:.2f} {T2 - 0.356 * B2:.2f} L{GX + 0.352 * B2:.2f} {T2 - 0.356 * B2:.2f}"
+    neq_eg = f"M{GX + 0.322 * B2:.2f} {T2 - 0.555 * B2:.2f} L{GX + 0.150 * B2:.2f} {T2 + 0.005 * B2:.2f}"
     neq_paths = (
-        f'<path d="{neq_c1}" stroke-width="{0.158 * B:.2f}"/>'
-        f'<path d="{neq_c2}" stroke-width="{0.158 * B:.2f}"/>'
-        f'<path d="{neq_eg}" stroke-width="{0.140 * B:.2f}"/>'
+        f'<path d="{neq_c1}" stroke-width="{0.158 * B2:.2f}"/>'
+        f'<path d="{neq_c2}" stroke-width="{0.158 * B2:.2f}"/>'
+        f'<path d="{neq_eg}" stroke-width="{0.140 * B2:.2f}"/>'
     )
     bas2 = (
         f'<g id="bas2">'
@@ -746,7 +753,7 @@ def uret() -> str:
         f'rx="{hap_rx:.2f}" fill="#f2a93b"/>'
         f'<g id="neq" fill="none" stroke-linecap="round" style="stroke:var(--pilMetin)">{neq_paths}</g>'
         f'<text id="bas2t" x="{PX:.2f}" y="{T2:.2f}" text-anchor="start" font-family="Fredoka" '
-        f'font-weight="700" font-size="{B}" fill="#1b1a17" style="font-kerning:none">PLAN</text>'
+        f'font-weight="700" font-size="{B2}" fill="#1b1a17" style="font-kerning:none">{BAS2_YAZI}</text>'
         f'</g>'
     )
 

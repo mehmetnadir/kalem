@@ -175,7 +175,7 @@ HUD = {
     "altyaziGen": 900,
 }
 KONU = "Simple Present"
-ROZET = "YDT · BASIC"
+ROZET = "YDT · TEMEL"
 KANAL_YAZI = "@ydspublishing"
 
 

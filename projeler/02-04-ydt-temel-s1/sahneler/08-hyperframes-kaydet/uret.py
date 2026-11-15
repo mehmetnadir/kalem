@@ -107,20 +107,20 @@ def kart_kenar_yolu() -> str:
 
 def uret() -> tuple[str, dict[str, Any]]:
     """Sahne 08 index.html ve zamanlar.json verisini üretir."""
-    # Kural satırları ölçüsü: B = 80'den 64'e inerek iki satırın en büyüğü <= 800 olan ilk boy
-    satir1 = "Kalıcıysa geniş zaman,"
+    # Kural satırları ölçüsü: B = 76'dan 64'e inerek üç satırın en büyüğü <= 800 olan ilk boy
+    # DUZ2 (15.11, J2 A3): kural fiil sınırı taşır (durum fiilinde genelleme yanlış: I have a cold this week).
+    satir0 = "Live, work fiillerinde:"
+    satir1 = "kalıcıysa geniş zaman,"
     satir2 = "geçiciyse şimdiki zaman."
-    assert len(satir1) <= 24, f"Satır 1 24 karakterden uzun: {len(satir1)}"
-    assert len(satir2) <= 24, f"Satır 2 24 karakterden uzun: {len(satir2)}"
+    for _s in (satir0, satir1, satir2):
+        assert len(_s) <= 24, f"Satır 24 karakterden uzun: {len(_s)} {_s!r}"
     assert len("üç farktan biri") <= 24
     assert len("Kaydet") <= 24
 
-    b_boy = 80
+    b_boy = 76
     w_satir_max = 0.0
     while b_boy >= 64:
-        w1 = Y.genislik("Fredoka", 700, satir1, b_boy)
-        w2 = Y.genislik("Fredoka", 700, satir2, b_boy)
-        w_satir_max = max(w1, w2)
+        w_satir_max = max(Y.genislik("Fredoka", 700, s, b_boy) for s in (satir0, satir1, satir2))
         if w_satir_max <= 800.0:
             break
         b_boy -= 1
@@ -128,8 +128,12 @@ def uret() -> tuple[str, dict[str, Any]]:
     assert 110.0 + w_satir_max <= 910.0, f"Satır sonu 910'u aştı: {110.0 + w_satir_max:.1f}"
 
     a_aralik = round(1.32 * b_boy)
-    t1 = round(790 - a_aralik / 2 + 0.32 * b_boy)
+    t0 = round(790 - a_aralik + 0.32 * b_boy)
+    t1 = t0 + a_aralik
     t2 = t1 + a_aralik
+    # Kart iç kenarı (kalem yolu) y 616–964: üst satır tepesi ve alt satır kuyruğu en az 32 px içeride
+    assert t0 - 0.75 * b_boy >= 616 + 32, f"Satır 0 kart üst kenarına yakın: {t0}"
+    assert t2 + 0.25 * b_boy <= 964 - 32, f"Satır 2 kart alt kenarına yakın: {t2}"
 
     # Kalem kenarı yolu
     kenar_d = kart_kenar_yolu()
@@ -246,6 +250,8 @@ def uret() -> tuple[str, dict[str, Any]]:
  fill="#fff9e6" stroke="#c9c2b3" stroke-width="2"/>
 <path id="kart-kenar" d="{kenar_d}" fill="none" stroke="#1b1a17" stroke-width="4.5"
  stroke-linecap="round" stroke-linejoin="round"/>
+<text id="kural0" x="110" y="{t0}" font-family="Fredoka" font-weight="700"
+ font-size="{b_boy}" fill="#1b1a17">{satir0}</text>
 <text id="kural1" x="110" y="{t1}" font-family="Fredoka" font-weight="700"
  font-size="{b_boy}" fill="#1b1a17">{satir1}</text>
 <text id="kural2" x="110" y="{t2}" font-family="Fredoka" font-weight="700"

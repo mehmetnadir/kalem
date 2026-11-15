@@ -294,20 +294,27 @@ def uret():
         x0, W = s.yazi("dh%d" % k, x, KY + 332, [(m, fill)], "Fredoka", 700, LF2, S(t), 0.2,
                        tur="tik" if k == 0 else None, guc=0.5)
         x += W
-    # ---------------- 83,68: Türkçe -er eki ; 85,60: git-er = go-es ----------------
-    GX, GY = 1090.0, 640
-    s.yazi("tr", GX, GY - 70, [("Türkçe: ", IKN)], "Caveat", 700, 56, S(Z["turkce"]), 0.4, tur="tik", guc=0.4)
-    trw = Y.genislik("Caveat", 700, "Türkçe: ", 56)
-    s.yazi("ter", GX + trw, GY - 70, [("-er eki", SAR)], "Caveat", 700, 56, S(Z["er"]), 0.35, tur="tik", guc=0.5)
-    LF = 72
-    gw1 = Y.genislik("Caveat", 700, "git-er", LF)
-    s.yazi("gter", GX, GY + 10, [("git", KRE), ("-er", SAR)], "Caveat", 700, LF, S(Z["git_er"]), 0.5, tur="tik", guc=0.5)
-    ex = GX + gw1 + 30
-    te = S(Z["esit"])
-    s.yol("es1", el_cizgi(ex, GY - 28, ex + 60, GY - 31, 1), te, 0.2, KRE, 5, 1, "cizgi", 0.5)
-    s.yol("es2", el_cizgi(ex + 2, GY - 6, ex + 62, GY - 9, -1), te + 0.2, 0.2, KRE, 5, 1, "cizgi", 0.5)
-    s.yazi("goes", ex + 96, GY + 10, [("go", KRE), ("-es", SAR)], "Caveat", 700, LF, S(Z["go_es"]), 0.5, tur="tik",
-           guc=0.5)
+    # ---------------- 83,84: TR ek her kişide / EN s yalnız 3. tekil (DUZ2 A3: "git-er = go-es" denkliği kalktı) ---
+    # 2x2 ızgara: sütun 1 = 1. kişi, sütun 2 = 3. tekil; TR satırı soluk, EN satırı büyük (DK-2).
+    GX, TRY, ENY = 1090.0, 590, 670
+    TF2, EF2, ARA = 60, 72, 60
+    c1 = max(Y.genislik("Caveat", 700, "giderim", TF2), Y.genislik("Caveat", 700, "I go", EF2))
+    c2x = GX + c1 + ARA
+    c2 = max(Y.genislik("Caveat", 700, "gider", TF2), Y.genislik("Caveat", 700, "he goes", EF2))
+    assert c2x + c2 <= 1560 - 48, "kart 3. tekil kişi yazısına yaklaşıyor"
+    s.yazi("tr1", GX, TRY, [("gid", IKN), ("er", SAR), ("im", IKN)], "Caveat", 700, TF2, S(Z["eki"]), 0.4, tur="tik",
+           guc=0.45)
+    s.yazi("tr2", c2x, TRY, [("gid", IKN), ("er", SAR)], "Caveat", 700, TF2, S(Z["her"]), 0.35, tur="tik", guc=0.45)
+    for k, (x0, t) in enumerate(((GX, Z["kisi"]), (c2x, Z["kisi"] + 0.2))):   # er her kişide: iki sözcükte alt çizgi
+        ex0 = x0 + Y.genislik("Caveat", 700, "gid", TF2)
+        ex1 = ex0 + Y.genislik("Caveat", 700, "er", TF2)
+        s.yol("tra%d" % k, el_cizgi(ex0 - 2, TRY + 12, ex1 + 4, TRY + 10), S(t), 0.25, SAR, 6, 0.85, "cizgi", 0.4)
+    s.yazi("en1", GX, ENY, [("I go", KRE)], "Caveat", 700, EF2, S(Z["ingilizce"]), 0.35, tur="tik", guc=0.5)
+    s.yazi("en2", c2x, ENY, [("he go", KRE), ("es", SAR)], "Caveat", 700, EF2, S(Z["ucuncu"]), 0.45, tur="tik",
+           guc=0.55)
+    sx0 = c2x + Y.genislik("Caveat", 700, "he go", EF2)
+    sx1 = sx0 + Y.genislik("Caveat", 700, "es", EF2)
+    s.yol("ena", el_cizgi(sx0 - 2, ENY + 14, sx1 + 6, ENY + 11), S(Z["tekil"]), 0.3, SAR, 8, 0.85, "cizgi", 0.5)
     # ---------------- 87,75: formül kartı: always · usually · every day -> Simple Present ----------------
     FX, FY, FW, FH = 1090.0, 745, 740, 190
     tk2 = S(Z["kod"])

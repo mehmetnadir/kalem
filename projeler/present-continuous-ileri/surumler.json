@@ -16,7 +16,7 @@
       "Her fiile -ing eklenmez: know, believe, own, belong durum fiilidir",
       "Formül tek satır: am / is / are + V-ing",
       "Yarın + Present Continuous = planlı gelecek (bilet alınmış, saat belli)",
-      "always + -ing = şikâyet; sınav bunu tuzak yapar",
+      "always + -ing çoğu zaman şikâyet bildirir; sınav bunu tuzak yapar",
       "Biliyorum = I know; Türkçedeki -yor İngilizcede her zaman -ing değil"
     ],
     "kazanim": [],
@@ -32,7 +32,7 @@
       "kimlik": "ana-yatay",
       "video": "present-continuous-ileri",
       "tur": "ana-yatay",
-      "ad": "Ana video ileri (yatay 16:9, 85 sn)",
+      "ad": "Ana video ileri (yatay 16:9, 88 sn)",
       "senaryo": "ortak/anlatim/METIN.md",
       "kapak": null,
       "seviye": "ileri",
@@ -45,7 +45,7 @@
       "kimlik": "dikey-tam",
       "video": "present-continuous-ileri",
       "tur": "dikey",
-      "ad": "Dikey tam ders ileri (9:16, aynı ses, 85 sn)",
+      "ad": "Dikey tam ders ileri (9:16, aynı ses, 88 sn)",
       "senaryo": "ortak/anlatim/METIN.md",
       "kapak": "PRESENT CONTINUOUS",
       "seviye": "ileri",
@@ -70,5 +70,20 @@
       "proje": "present-continuous-ileri-s1"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "ana-yatay",
+      "no": "r1",
+      "tarih": "2026-11-16T02:00:00Z",
+      "degisiklik": "DUZ3-0201I (YV-DUZ-1511 §4, jüri c sınıfı): c3 'While, tam anı gösterir.' → 'Burada while, aynı anda süren iki işi bağlar.'; c7 '… durum fiilidir, -ing almaz.' → '… durum fiilidir, durum anlamında -ing almaz.', 'Always artı -ing şikâyettir.' → 'Always artı -ing çoğu zaman şikâyet bildirir.', 'Kod: olay -ing alır, durum almaz.' → 'Kod: olay -ing alabilir, durum genellikle almaz.' (yalnız c3 ve c7 yeniden sentez, ders 84,96 → 88,16 sn). Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    },
+    {
+      "surum": "dikey-tam",
+      "no": "r1",
+      "tarih": "2026-11-16T02:00:00Z",
+      "degisiklik": "DUZ3-0201I: ses ana dersle ortak (ortak/anlatim bağı); sahne 03 'aynı anda', 06 kartları ve çip 3, altyazı 2 satırı aşınca cümle sınırından bölünür (06); 04–05 kayma −1,00 ve altyazı kayma düzeltmesi; rozet YDT · İLERİ; ek: c1 13.11 metni dikey 01 altyazısına, 01 satırlarına ve 02 kartına taşındı (eski 'YDT'nin …' kalmıştı); süre 88,16 sn; render yok. Rapor: ../present-continuous-ileri-dikey/uretim-tutanagi/DUZ3-RAPOR.md",
+      "cikti": null
+    }
+  ]
 }

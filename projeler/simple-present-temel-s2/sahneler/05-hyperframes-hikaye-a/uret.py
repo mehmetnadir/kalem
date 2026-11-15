@@ -95,7 +95,7 @@ def kart_svg(bx: float, hap_w: float) -> str:
         f'<text id="kart-s1" x="{bx:.1f}" y="{T1}" font-family="Fredoka" font-weight="700" '
         'font-size="72" fill="#1b1a17">Usually, always,</text>'
         f'<text id="kart-s2" x="{bx:.1f}" y="{T2}" font-family="Fredoka" font-weight="700" '
-        'font-size="72" fill="#1b1a17">every day:</text>'
+        'font-size="72" fill="#1b1a17">every day: çoğunlukla</text>'
         f'<rect id="kart-hap" x="{bx:.1f}" y="{T3 - 62}" width="{hap_w:.1f}" height="88" '
         'rx="44" fill="#f2a93b"/>'
         f'<text id="kart-hap-yazi" x="{bx + hap_w / 2.0:.1f}" y="{T3}" text-anchor="middle" '
@@ -272,7 +272,7 @@ def kurallari_dogrula(
     # 7. Ekran satırı <= 24 karakter (künye ve kanal hariç)
     satirlar = [
         "Usually, always,",
-        "every day:",
+        "every day: çoğunlukla",
         "Simple Present.",
         "My brother usually goes",
         "to school by bus.",
@@ -325,7 +325,8 @@ def uret() -> tuple[str, float, list[dict[str, float]]]:
     """Sahne HTML'i ve nesnelerini üretir."""
     hap_w = Y.genislik("Fredoka", 700, "Simple Present.", 72) + 56.0
     g1 = Y.genislik("Fredoka", 700, "Usually, always,", 72)
-    g2 = Y.genislik("Fredoka", 700, "every day:", 72)
+    # DUZ2 (16.11, A3/A4): 2. satır sesle aynı terimi taşır ("every day: çoğunlukla"); kart yüksekliği değişmez
+    g2 = Y.genislik("Fredoka", 700, "every day: çoğunlukla", 72)
     gmax = max(g1, g2, hap_w)
     bx = round(510.0 - gmax / 2.0, 1)
 

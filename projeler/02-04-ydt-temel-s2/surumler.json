@@ -109,5 +109,20 @@
       "kaynak": "ana-yatay"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "s2",
+      "no": "r1",
+      "tarih": "2026-11-15T20:48:00Z",
+      "degisiklik": "DUZ2 (J2 A1/TD-1, A6, TD-4): rozet YDT · TEMEL (senaryo, BRIEF, ortak/kunye.js, sahne-02.js, 7 yardim.py, 3 uret.py); hikâye B ipucu satırı yerine kural özeti 'Genel: wears · Şu an: is wearing' (huni §6); açıklamalardaki bayat UTM DİKKAT notu silindi; ses ve zaman değişmedi (29,41 sn); 8 sahne + 5 türev açık + koyu yeniden çekildi; çakışma kapısı 0; mp4 yok. Rapor uretim-tutanagi/DUZ2-RAPOR.md",
+      "cikti": null
+    },
+    {
+      "surum": "s2",
+      "no": "r2",
+      "tarih": "2026-11-15T23:13:00Z",
+      "degisiklik": "DUZ4 (J3 A1, A2, A9 + C1–C5): değer (02) ve çağrı (03) altyazısına karaoke (sahne 08 kalıbı; ortak/kunye.js altyaziCiz sözcük seçeneği, kalem-paper.js, 03 yardim.py ve uret.py); altyazı x 60–960; başlık B 'Today görünce hangi zamanı seçersin?'; kapak-a|b|c-168.png; zaman kapısı, hf-check, kontak, HV-13 çifti. Ses değişmedi; 02 ve 03 açık + koyu yeniden çekildi; çakışma 0; mp4 yok. Rapor uretim-tutanagi/DUZ4-RAPOR.md",
+      "cikti": null
+    }
+  ]
 }

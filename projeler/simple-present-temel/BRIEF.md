@@ -92,7 +92,7 @@ yalnız yer açmak için küçülüp köşeye toplanır · ses olayı görsel an
 
 | Köşe | İçerik | Konum / boy | Renk |
 |---|---|---|---|
-| Sol üst | `SIMPLE PRESENT` + ` · YDT BASIC` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
+| Sol üst | `SIMPLE PRESENT` + ` · YDT TEMEL` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
 | Sağ üst | bölüm adı: `Hook` · `Example 1 / 3` · `Example 2 / 3` · `Example 3 / 3` · `Question` → `Form` | sağ kenar x 1864, taban 72; Lexend 700 24 px | vurgu |
 | Sol alt | logo svg | x 56, yükseklik 34 px (en ≈ 137), alt kenar y 1036 | logonun kendi renkleri |
 | Sağ alt | ajanda `Hook  Examples  Form`, etkin olan sarı + 4 px nokta solunda | sağ kenar 1864, taban 1030; Lexend 500 20 px, 36 px aralık | ikincil / vurgu |
@@ -106,7 +106,7 @@ HyperFrames: aynı sayılar CSS'te; sahne 01'in uçuş hedefleri bu tablodur (bi
 | küresel sn | Hareket |
 |---|---|
 | 0,00–0,40 | Logo damgası sol sütun altında (110 px, x 96, y ≈ 880): ölçek 1,18→1,0 + dönme −2°→0 (vurus kare 3) |
-| 0,30–0,90 | Rozet hapları: `YDT · BASIC`, `GRAMMAR` (stagger 0,1) |
+| 0,30–0,90 | Rozet hapları: `YDT · TEMEL`, `GRAMMAR` (stagger 0,1) |
 | 0,00–2,20 | Başlık kalemle çizilir: `SIMPLE` 0,0–1,1, `PRESENT` 1,0–2,2; Fredoka 700 140. Kalem sesi kare 0 |
 | 0,20–2,30 | Sağ sütun: ayakta figür `open-peeps/standing-3.svg` 0,2–2,0, saat `tabler/clock.svg` 1,6–2,2 |
 | 1,00–2,76 | Başlığın altında (x 96, y 650) Caveat 700 64: `Her sabah yedide kalkarım.` sözcük sözcük (`sozcukler.json`) |

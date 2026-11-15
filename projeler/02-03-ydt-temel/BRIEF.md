@@ -24,7 +24,7 @@ Senaryo (jüri GEÇTİ, D-0204/D-0205): `/Users/nadir/01dev/kalem/_is/senaryo-ta
 | Döküm (Whisper; Vimeo 863572892) | `/Users/nadir/01dev/dijital-anlatim/varlik/grammar/transkript-whisper/863572892.md` |
 
 Kaynak yalnız soru slaytlarını taşır (4 cümle + 9 boşluklu kartpostal); cevaplar ve nedenler dökümden gelir. Kaynakta olmayan kural eklenmedi.
-D-0205 notu: believe/think için kategori etiketi YOK; "performative" yalnız recommend/promise/agree. these days / nowadays mutlak değil ("genellikle şimdiki zamanı çağırır").
+D-0205 notu: believe/think için kategori etiketi YOK; "performative" yalnız recommend/promise/agree. these days / nowadays mutlak değil ("genellikle şimdiki zamanı çağırır"). DUZ3 (16.11): usually/genel durum da mutlak değil ("çoğunlukla geniş zaman"); have yalnız "sahip olmak" anlamında, think yalnız "görüş" anlamında -ing almaz; kişisel plan "şimdiki zamanla söylenebilir" (ister değil).
 
 ## 2. İskelet (gerçekleşen süreler anlatım sesinden; ses 1,00 sn'de başlar)
 
@@ -32,10 +32,10 @@ D-0205 notu: believe/think için kategori etiketi YOK; "performative" yalnız re
 |---|---|---|---|---|---|
 | 1 Kanca | 1–2 | 15 | 14,3 | ONE VERB · TWO TENSES / SIGNAL WORD; PRESENT CONTINUOUS vs SIMPLE PRESENT | Soğuk açılış (K23): `goes` ve `is going` iki kart, `SIGNAL WORD` sarı belirteç; başlık künyeye uçar; `vs` kalemle |
 | 2 Örnekler (3) | 3–7 | 90 | 71,9 | 3 örnek cümle (leaving at 9 · these days · harder and harder nowadays); PLAN · CHANGING; soru anı 1 balonu | Tek kart/örnek; uçak, takvim ikonu; `harder and harder` sarı belirteç; öğrenci balonu + 0,75 sn duraklama; cevap 2 sn içinde |
-| 3 Kural kartı | 8 | 45 | 21,3 | NOW → am/is/are + V-ing · THESE DAYS · NOWADAYS · PLAN → usually V-ing (temporary / changing) · USUALLY · GENERAL → V1 / V-s | `tanim` 3 satır kademeli; sinyal sözcükleri örnek kartlarına ince çizgiyle bağlı |
+| 3 Kural kartı | 8 | 45 | 21,3 | NOW → am/is/are + V-ing · THESE DAYS · NOWADAYS · PLAN → usually V-ing (temporary / changing) · USUALLY · GENERAL → often V1 / V-s (DUZ3) | `tanim` 3 satır kademeli; sinyal sözcükleri örnek kartlarına ince çizgiyle bağlı |
 | 4 Karşıt çift | 9–11 | 60 | 57,4 | Nancy usually spends… / is meeting… now; I am staying ≠ package includes; offers ≠ are enjoying | `bag` okları, zaman çizgisi (alışkanlık noktaları / now nabzı); sol-sağ kartlar; TEMPORARY / GENERAL / RIGHT NOW |
-| 5 Tuzak | 12–14 | 60 | 58,3 | We believe this situation is temporary · TRAP; soru anı 2; believe · think · have (own) → simple present · performative: promise · agree · recommend → NO -ing | `yaklas`, `believe` sarı daire, `-ing` üstü çarpı (sarı); `has` ve `recommend` kartları alt alta |
-| 6 Ara özet | 15 | 20 | 15,3 | NOW · THESE DAYS / NOWADAYS → usually -ing · USUALLY / GENERAL → V1 · believe, have: no -ing | `ozet` 3 madde kademeli, bölüm perdesi yok |
+| 5 Tuzak | 12–14 | 60 | 58,3 | We believe this situation is temporary · TRAP; soru anı 2; believe · think (view) · have (own) → simple present (DUZ3) · performative: promise · agree · recommend → NO -ing | `yaklas`, `believe` sarı daire, `-ing` üstü çarpı (sarı); `has` ve `recommend` kartları alt alta |
+| 6 Ara özet | 15 | 20 | 15,3 | NOW · THESE DAYS / NOWADAYS → usually -ing · USUALLY / GENERAL → often V1 · believe, have (own): no -ing (DUZ3) | `ozet` 3 madde kademeli, bölüm perdesi yok |
 | 7 Mini soru | 16–18 | 55 | 29,6 | I ____ this postcard now. A write · B am writing · C writes · D wrote · E is writing | `soru` kök + 5 şık, sayaç; yanlış cevap A (soluk sarı çerçeve); doğru B yeşil; `sik_not` pilleri |
 | 8 Kapanış | 19 | 15 | 8,7 | SIGNAL → VERB · Next lesson | kalemle ok; sonraki ders kartı |
 | Toplam | 1–19 | 360 | 281,7 (ses bitişi) | | zaman.json son t_son 282,19 |
@@ -64,7 +64,7 @@ Motor seçimi `references/kalem-hatti.md`: HyperFrames = yazı/kart/künye; Pape
 | 14 | `14-hyperframes-kapanis` | HyperFrames | 272,42–282,19 | 19 | `SIGNAL → VERB` kalemle ok; sonraki ders kartı; son sahne +0,5 sn kuyruk |
 
 Sahne dizinleri P1'de OLUŞTURULMADI. Sahne zamanları `zaman.json` ile birebir; `ortak/anlatim/zaman_uret.py` yeniden üretir.
-Künye: sol üst `PRESENT CONTINUOUS vs SIMPLE PRESENT · YDT BASIC`; sağ üst bölüm çipi; tek vurgu sarı, doğru şık yeşil, kırmızı yok.
+Künye: sol üst `PRESENT CONTINUOUS vs SIMPLE PRESENT · YDT TEMEL`; sağ üst bölüm çipi; tek vurgu sarı, doğru şık yeşil, kırmızı yok.
 
 ## 4. Ses dosyaları (`ortak/anlatim/`)
 

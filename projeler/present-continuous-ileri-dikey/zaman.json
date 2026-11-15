@@ -30,9 +30,9 @@
       "no": 3,
       "klasor": "03-paperjs-ornek1",
       "motor": "Paper.js",
-      "kare": 442,
+      "kare": 472,
       "t_bas": 15.25,
-      "t_son": 29.58,
+      "t_son": 30.58,
       "ad": "Örnek 1",
       "bolum": "Örnek 1"
     },
@@ -41,8 +41,8 @@
       "klasor": "04-canvas-ornek2",
       "motor": "Düz canvas",
       "kare": 387,
-      "t_bas": 29.58,
-      "t_son": 42.07,
+      "t_bas": 30.58,
+      "t_son": 43.07,
       "ad": "Örnek 2",
       "bolum": "Örnek 2"
     },
@@ -51,8 +51,8 @@
       "klasor": "05-canvas-ornek3",
       "motor": "Düz canvas",
       "kare": 372,
-      "t_bas": 42.07,
-      "t_son": 54.08,
+      "t_bas": 43.07,
+      "t_son": 55.08,
       "ad": "Örnek 3",
       "bolum": "Örnek 3",
       "gecis": "fade"
@@ -61,9 +61,9 @@
       "no": 6,
       "klasor": "06-hyperframes-form",
       "motor": "HyperFrames",
-      "kare": 956,
-      "t_bas": 54.08,
-      "t_son": 84.96,
+      "kare": 1022,
+      "t_bas": 55.08,
+      "t_son": 88.16,
       "ad": "Soru + Form",
       "bolum": "Soru + Form"
     }

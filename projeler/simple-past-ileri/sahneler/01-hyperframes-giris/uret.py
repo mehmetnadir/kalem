@@ -44,7 +44,7 @@ def uret():
     # rozetler
     roz = []
     x = SOL
-    for i, (m, dolgu) in enumerate((("YDT · ADVANCED", R["vurgu"]), ("GRAMMAR", R["murekkep"]))):
+    for i, (m, dolgu) in enumerate((("YDT · İLERİ", R["vurgu"]), ("GRAMMAR", R["murekkep"]))):
         w = Y.genislik("Lexend", 700, m, 26) + 44
         roz.append('<g id="rz%d" style="opacity:0"><rect x="%.1f" y="%d" width="%.1f" height="%d" rx="24" fill="%s"/>'
                    '<text x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" font-weight="700" '
@@ -67,18 +67,19 @@ def uret():
                     for n, y in ((1, T1_Y), (2, T2_Y)))
     clips += ('<clipPath id="cp3"><rect id="cr3" x="%d" y="%d" width="0" height="%d"/></clipPath>'
               % (SOL - 12, CUMLE_Y - CUMLE_BOY, int(CUMLE_BOY * 1.5)))
-    per = SOZ[2]
-    px0 = SOL + Y.genislik("Caveat", 700, SOZ[0]["sozcuk"] + " " + SOZ[1]["sozcuk"] + " ", CUMLE_BOY)
-    pw = Y.genislik("Caveat", 700, per["sozcuk"], CUMLE_BOY)
+    # DUZ3-0210I: cümle 1 "Ago, Simple Past'in işaretidir." — «Simple Past'in» altına vurgu el çizgisi
+    # (eski "Ago varsa Perfect yok." ve Perfect üstündeki kırmızı çizgi kalktı)
+    px0 = SOL + Y.genislik("Caveat", 700, SOZ[0]["sozcuk"] + " ", CUMLE_BOY)
+    pw = Y.genislik("Caveat", 700, SOZ[1]["sozcuk"] + " " + SOZ[2]["sozcuk"], CUMLE_BOY)
     import math
-    pcy = CUMLE_Y - 24
+    pcy = CUMLE_Y + 20
     nok = []
-    for k in range(25):   # Perfect üstüne el çizgisi: hafif eğik, titrek, uçları taşar
+    for k in range(25):   # alt çizgi: hafif dalgalı, uçları taşar
         u = k / 24
-        nok.append("%.1f %.1f" % (px0 + 6 + u * (pw + 24), pcy + 20 - u * 14 + math.sin(u * 11) * 2.2))
+        nok.append("%.1f %.1f" % (px0 - 6 + u * (pw + 12), pcy - u * 3 + math.sin(u * 9) * 2.0))
     halka = ('<path id="halka" fill="none" stroke="%s" stroke-width="8" stroke-linecap="round" '
              'stroke-linejoin="round" d="M %s" style="opacity:0"/>'
-             % (R["kirmizi"], " L ".join(nok)))
+             % (R["vurgu"], " L ".join(nok)))
     cum = ('<g id="cg"><text id="cm" x="%d" y="%d" font-family="Caveat" font-weight="700" font-size="%d" fill="%s" '
            'clip-path="url(#cp3)">%s</text>%s</g>' % (SOL, CUMLE_Y, CUMLE_BOY, R["murekkep"], cum_metin, halka))
     ders_w = Y.genislik("Fredoka", 700, "SIMPLE ", 30)
@@ -156,7 +157,7 @@ def uret():
   }});
 
   gsap.set("#eskiz", {{ svgOrigin: "1500 540" }});
-  // 2,64 kırmızı çizgi Perfect üstünde (kalem darbesi); cümle grubu sahne 02 yerine (140,300) kayar
+  // 2,12 vurgu çizgisi «Simple Past'in» altında (kalem darbesi); cümle grubu sahne 02 yerine (140,300) kayar
   darbe("halka", Z.halka[0], Z.halka[1]);
   tl.to("#cg", ac({{ x: V.hc[0], y: V.hc[1], duration: Z.cumle_ucus[1], ease: "power3.inOut" }}), Z.cumle_ucus[0]);
 

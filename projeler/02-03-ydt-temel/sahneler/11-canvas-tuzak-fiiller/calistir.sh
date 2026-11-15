@@ -1,11 +1,11 @@
 #!/bin/bash
-# Sahne 11 Tuzak fiilleri (düz canvas, yatay 1920x1080, 1150 kare): yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png
+# Sahne 11 Tuzak fiilleri (düz canvas, yatay 1920x1080, 1151 kare): yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png
 # Tema: --tema acik|koyu (varsayılan acik). Geçici kareler ~/Silinecekler/2026-11-13-02-03-ydt-temel/ altına taşınır (silme yok).
 # ONIZLE_YALNIZ=1: yalnız tema çözümü + önizleme hazırlığı (canlı önizleme sayfa.html'i doğrudan yükler); render yok.
 set -eo pipefail
 [ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"
-D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=1150
-KLASOR=11-canvas-tuzak-fiiller; PROJE=02-03-ydt-temel; TBAS=188.5; GLOBAL_SN="195.9 203.5 212.4 225.5"
+D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=1151
+KLASOR=11-canvas-tuzak-fiiller; PROJE=02-03-ydt-temel; TBAS=189.38; GLOBAL_SN="196.78 204.38 213.28 226.38"
 . "$D/../../ortak/tema.sh" "$@"
 cd "$K"
 [ -n "$ONIZLE_YALNIZ" ] && { echo "önizleme hazır"; exit 0; }

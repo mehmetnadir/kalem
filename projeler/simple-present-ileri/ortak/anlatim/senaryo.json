@@ -84,11 +84,11 @@
     ],
     [
      "tr",
-     "Bağlaç var, zaman değişmez: gives."
+     "Bağlaç gelse de genel gerçek Simple Present kalır: gives."
     ]
    ],
    "olaylar": [],
-   "metin": "Birinci kök. Although the sun looks small from here, it gives plants the energy they need. Güneş küçük görünse de bitkilere gereken enerjiyi verir. Bağlaç var, zaman değişmez: gives."
+   "metin": "Birinci kök. Although the sun looks small from here, it gives plants the energy they need. Güneş küçük görünse de bitkilere gereken enerjiyi verir. Bağlaç gelse de genel gerçek Simple Present kalır: gives."
   },
   {
    "ses": "ogretmen",
@@ -107,11 +107,11 @@
     ],
     [
      "tr",
-     "Owns ve costs durum fiilidir: ing almaz."
+     "Owns ve costs burada durum anlatır: -ing almaz."
     ]
    ],
    "olaylar": [],
-   "metin": "İkinci kök. Mike owns two cars, but he usually takes the bus because parking costs so much. Mike'ın iki arabası var, ama genellikle otobüse biner. Owns ve costs durum fiilidir: ing almaz."
+   "metin": "İkinci kök. Mike owns two cars, but he usually takes the bus because parking costs so much. Mike'ın iki arabası var, ama genellikle otobüse biner. Owns ve costs burada durum anlatır: -ing almaz."
   },
   {
    "ses": "ogretmen",
@@ -152,15 +152,15 @@
    "parcalar": [
     [
      "tr",
-     "Hayır. Tarife, program, takvim kesinse Simple Present."
+     "Yarın tek başına will istemez. Tarife, program, takvim kesinse Simple Present seçilir."
     ],
     [
      "en",
-     "Will is for predictions and sudden decisions."
+     "We often use will for predictions and sudden decisions."
     ],
     [
      "tr",
-     "Durum fiilleri know, own, cost: now gelse bile ing almaz."
+     "Durum anlamındaki know, own, cost: now gelse bile -ing almaz."
     ],
     [
      "en",
@@ -172,7 +172,7 @@
     ]
    ],
    "olaylar": [],
-   "metin": "Hayır. Tarife, program, takvim kesinse Simple Present. Will is for predictions and sudden decisions. Durum fiilleri know, own, cost: now gelse bile ing almaz. I know the answer. Not: I am knowing. Kod: tarife varsa Simple Present, tahmin varsa will."
+   "metin": "Yarın tek başına will istemez. Tarife, program, takvim kesinse Simple Present seçilir. We often use will for predictions and sudden decisions. Durum anlamındaki know, own, cost: now gelse bile -ing almaz. I know the answer. Not: I am knowing. Kod: tarife varsa Simple Present, tahmin varsa will."
   }
  ],
  "zaman": {
@@ -186,7 +186,7 @@
   "satir1": "SIMPLE",
   "satir2": "PRESENT",
   "rozetler": [
-   "YDT · ADVANCED",
+   "YDT · İLERİ",
    "GRAMMAR"
   ]
  },
@@ -201,14 +201,14 @@
    "Simple Present formunu kurmak (s, does not, does + yalın fiil)",
    "tarifeli geleceği Simple Present ile anlatmak (will tuzağı)",
    "durum fiillerini (know, own, cost) ing'den ayırmak",
-   "YDT kökünde bağlaç sonrası zamanı korumak"
+   "YDT kökünde bağlaçlı cümlede genel gerçeği Simple Present ile kurmak"
   ],
   "canAlici": [
    "Tarifeli gelecek Simple Present ile gelir: The flight takes off at nine.",
-   "Tomorrow gördün diye will deme: tarife, program, takvim = Simple Present",
-   "Durum fiilleri (know, own, cost) now gelse bile ing almaz",
+   "Tomorrow tek başına will istemez: tarife, program, takvim kesinse Simple Present seçilir",
+   "Durum anlamındaki know, own, cost now gelse bile -ing almaz",
    "Olumsuz ve soru: does + yalın fiil; s does'a geçer",
-   "Bağlaçtan sonra da zaman değişmez: Although ... it gives"
+   "Bağlaç gelse de genel gerçek Simple Present kalır: Although ... it gives"
   ],
   "kazanim": [],
   "etiketler": [

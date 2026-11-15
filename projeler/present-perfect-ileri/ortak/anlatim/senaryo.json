@@ -23,7 +23,7 @@
   "kanca": {
    "tip": "ornek",
    "en": "The plane took off two hours ago.",
-   "tr": "Ago gördün mü, Present Perfect elenir."
+   "tr": "Ago gördün mü, o fiil Simple Past."
   },
   "k1": {
    "tip": "ornek",
@@ -59,11 +59,11 @@
    "parcalar": [
     [
      "tr",
-     "Ago varsa Present Perfect yok."
+     "Ago varsa, fiil Simple Past."
     ]
    ],
    "olaylar": [],
-   "metin": "Ago varsa Present Perfect yok."
+   "metin": "Ago varsa, fiil Simple Past."
   },
   {
    "ses": "ogretmen",
@@ -101,11 +101,11 @@
     ],
     [
      "tr",
-     "Since cümleciği Simple Past alır, ana cümle Present Perfect."
+     "Since cümleciği çoğu zaman Simple Past alır, ana cümle burada Present Perfect."
     ]
    ],
    "olaylar": [],
-   "metin": "Birinci kök. Ever since the company launched its new app, the number of users has doubled. Şirket yeni uygulamasını çıkardığından beri kullanıcı sayısı ikiye katlandı. Since cümleciği Simple Past alır, ana cümle Present Perfect."
+   "metin": "Birinci kök. Ever since the company launched its new app, the number of users has doubled. Şirket yeni uygulamasını çıkardığından beri kullanıcı sayısı ikiye katlandı. Since cümleciği çoğu zaman Simple Past alır, ana cümle burada Present Perfect."
   },
   {
    "ses": "ogretmen",
@@ -162,18 +162,18 @@
    "parcalar": [
     [
      "tr",
-     "Hocam, ago varken de has landed diyemez miyiz?"
+     "Hocam, took off yerine has taken off diyemez miyiz?"
     ]
    ],
    "olaylar": [],
-   "metin": "Hocam, ago varken de has landed diyemez miyiz?"
+   "metin": "Hocam, took off yerine has taken off diyemez miyiz?"
   },
   {
    "ses": "ogretmen",
    "parcalar": [
     [
      "tr",
-     "Hayır. Bitmiş zaman bildiren sözcükler Present Perfect'i yasaklar:"
+     "Hayır. Bitmiş zaman bildiren sözcükler, bağlandıkları fiili Simple Past'a çeker:"
     ],
     [
      "en",
@@ -185,11 +185,11 @@
     ],
     [
      "tr",
-     "Kodu aklında tut: ago varsa Simple Past, yet varsa Present Perfect."
+     "Kodu aklında tut: ago'nun fiili Simple Past, yet'in fiili çoğu zaman Present Perfect."
     ]
    ],
    "olaylar": [],
-   "metin": "Hayır. Bitmiş zaman bildiren sözcükler Present Perfect'i yasaklar: ago, yesterday, last year. Finished time: simple past. Unfinished time: present perfect. Kodu aklında tut: ago varsa Simple Past, yet varsa Present Perfect."
+   "metin": "Hayır. Bitmiş zaman bildiren sözcükler, bağlandıkları fiili Simple Past'a çeker: ago, yesterday, last year. Finished time: simple past. Unfinished time: present perfect. Kodu aklında tut: ago'nun fiili Simple Past, yet'in fiili çoğu zaman Present Perfect."
   }
  ],
  "zaman": {
@@ -203,7 +203,7 @@
   "satir1": "PRESENT",
   "satir2": "PERFECT",
   "rozetler": [
-   "YDT · ADVANCED",
+   "YDT · İLERİ",
    "GRAMMAR"
   ],
   "sahne": [
@@ -231,7 +231,8 @@
   "kapak": {
    "satir1": "AGO VARSA",
    "satir2": "SIMPLE PAST",
-   "canAlici": "ago gördün mü Present Perfect elenir"
+   "kucuk": "ago → took off",
+   "canAlici": "ago gördün mü, o fiil Simple Past"
   },
   "amaclar": [
    "Present Perfect formülünü sınav köklerinde uygulamak",
@@ -240,9 +241,9 @@
    "bitmiş ve bitmemiş zaman ayrımını yapmak"
   ],
   "canAlici": [
-   "Ago varsa Simple Past, yet varsa Present Perfect",
+   "ago'nun fiili Simple Past, yet'in fiili çoğu zaman Present Perfect",
    "have / has + past participle",
-   "since cümleciği Simple Past, ana cümle Present Perfect",
+   "since cümleciği çoğu zaman Simple Past; bu kökte ana cümle Present Perfect",
    "for = süre, since = başlangıç noktası",
    "Bitmiş zaman: Simple Past; bitmemiş zaman ya da şimdiye bağ: Present Perfect"
   ],

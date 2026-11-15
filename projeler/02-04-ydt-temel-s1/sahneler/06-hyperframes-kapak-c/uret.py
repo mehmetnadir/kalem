@@ -44,33 +44,27 @@ ORTA = (KENAR + SAG) / 2
 BASLIK_GEN = 880
 BASLIK_UST = 470
 ZEMIN_Y = 1360
+NEQ_O, ARA_O = 0.50, 0.12   # ≠ genişliği, ≠–kutu arası (S oranı; ≠ çizimi 02-04-ydt-temel-s2 kapak A kalıbı)
 
 
 def hesapla_s_ve_baslik() -> tuple[int, float, float, float, float, float, float, float, float, float, float]:
-    """Başlık S boyutu ve yerleşim ölçülerini hesaplar (SPEC §4.2)."""
-    s0 = 100
-    p0 = 0.08 * s0
-    gb_100 = Y.genislik("Fredoka", 700, "I AM LIVING", s0) + p0
-    S = int(math.floor(min(190, BASLIK_GEN * 100.0 / gb_100)))
-
+    """Başlık S boyutu ve yerleşim ölçülerini hesaplar (DUZ4 A2, 16.11: `LIVE` / `≠ LIVING`, 2 sözcük + ≠).
+    Alt satır: çizili ≠ (NEQ_O·S) + ara (ARA_O·S) + kutu (p + LIVING + p); üst satır LIVE, LIVING yazısıyla aynı x."""
+    S = int((ZEMIN_Y - 480 - 48 - BASLIK_UST) / 1.93)   # kutu altı 470 + 1,93·S, figür üstüne ≥ 48 (S = 187)
     p = 0.08 * S
-    g_I = Y.genislik("Fredoka", 700, "I", S)
-    g_Is = Y.genislik("Fredoka", 700, "I ", S)
-    g_IAMLIVING = Y.genislik("Fredoka", 700, "I AM LIVING", S)
-    gb = g_IAMLIVING + p
-    while gb > BASLIK_GEN and S > 1:
+    g_LIVING = Y.genislik("Fredoka", 700, "LIVING", S)
+    gb = (NEQ_O + ARA_O) * S + g_LIVING + 2 * p
+    while gb > BASLIK_GEN and S > 64:
         S -= 1
         p = 0.08 * S
-        g_I = Y.genislik("Fredoka", 700, "I", S)
-        g_Is = Y.genislik("Fredoka", 700, "I ", S)
-        g_IAMLIVING = Y.genislik("Fredoka", 700, "I AM LIVING", S)
-        gb = g_IAMLIVING + p
+        g_LIVING = Y.genislik("Fredoka", 700, "LIVING", S)
+        gb = (NEQ_O + ARA_O) * S + g_LIVING + 2 * p
     assert gb <= BASLIK_GEN, f"gb={gb} > {BASLIK_GEN}"
 
     x0 = ORTA - gb / 2.0
-    kutu_sol = x0 + g_Is - p
-    kutu_sag = x0 + g_IAMLIVING + p
-    kutu_w = kutu_sag - kutu_sol
+    kutu_sol = x0 + (NEQ_O + ARA_O) * S
+    g_Is = kutu_sol + p - x0                    # LIVE ve LIVING yazısının x0'dan uzaklığı
+    kutu_w = gb - (NEQ_O + ARA_O) * S
     T1 = BASLIK_UST + 0.75 * S
     T2 = T1 + 1.02 * S
     kutu_ust = T2 - 0.86 * S
@@ -78,7 +72,7 @@ def hesapla_s_ve_baslik() -> tuple[int, float, float, float, float, float, float
     kutu_h = kutu_alt - kutu_ust
     kutu_rx = 0.10 * S
 
-    assert kutu_sol > x0 + g_I + 0.04 * S, f"kutu_sol={kutu_sol} <= x0 + g_I + 0.04*S={x0 + g_I + 0.04 * S}"
+    assert kutu_sol - (x0 + NEQ_O * S) >= 16, f"≠ ile kutu arası {kutu_sol - (x0 + NEQ_O * S):.1f} < 16"
     return S, gb, x0, g_Is, T1, T2, kutu_sol, kutu_ust, kutu_w, kutu_h, kutu_rx
 
 
@@ -96,14 +90,18 @@ def baslik_svg(
 ) -> str:
     """Başlık grubu SVG çıktısı (SPEC §4.2)."""
     bs_1 = (
-        f'<text id="bs-1" x="{x0:.2f}" y="{T1:.2f}" font-family="Fredoka" font-weight="700" '
+        f'<text id="bs-1" x="{x0 + g_Is:.2f}" y="{T1:.2f}" font-family="Fredoka" font-weight="700" '
         f'font-size="{S}" fill="{R["murekkep"]}" stroke="{R["zemin"]}" stroke-width="12" '
-        f'stroke-linejoin="round" style="font-kerning:none;paint-order:stroke fill">I LIVE</text>'
+        f'stroke-linejoin="round" style="font-kerning:none;paint-order:stroke fill">LIVE</text>'
     )
+    nw, xa, xb = NEQ_O * S, x0 + 0.06 * S, x0 + NEQ_O * S - 0.06 * S   # ≠: iki çubuk + eğik çizgi
+    xm, yu, ya = (xa + xb) / 2, T2 - 0.46 * S, T2 - 0.24 * S
     bs_2i = (
-        f'<text id="bs-2i" x="{x0:.2f}" y="{T2:.2f}" font-family="Fredoka" font-weight="700" '
-        f'font-size="{S}" fill="{R["murekkep"]}" stroke="{R["zemin"]}" stroke-width="12" '
-        f'stroke-linejoin="round" style="font-kerning:none;paint-order:stroke fill">I</text>'
+        f'<g id="bs-2i" fill="none" stroke="{R["murekkep"]}" stroke-linecap="round">'
+        f'<path d="M {xa:.2f} {yu:.2f} Q {xm:.2f} {yu - 3:.2f} {xb:.2f} {yu:.2f}" stroke-width="{0.10 * S:.2f}"/>'
+        f'<path d="M {xa:.2f} {ya:.2f} Q {xm:.2f} {ya + 3:.2f} {xb:.2f} {ya:.2f}" stroke-width="{0.10 * S:.2f}"/>'
+        f'<path d="M {x0 + 0.74 * nw:.2f} {T2 - 0.70 * S:.2f} L {x0 + 0.26 * nw:.2f} {T2 + 0.02 * S:.2f}" '
+        f'stroke-width="{0.09 * S:.2f}"/></g>'
     )
     bk_kutu = (
         f'<rect id="bk-kutu" x="{kutu_sol:.2f}" y="{kutu_ust:.2f}" width="{kutu_w:.2f}" '
@@ -111,7 +109,7 @@ def baslik_svg(
     )
     bs_2v = (
         f'<text id="bs-2v" x="{x0 + g_Is:.2f}" y="{T2:.2f}" font-family="Fredoka" font-weight="700" '
-        f'font-size="{S}" fill="{R["zemin"]}" style="font-kerning:none">AM LIVING</text>'
+        f'font-size="{S}" fill="{R["zemin"]}" style="font-kerning:none">LIVING</text>'
     )
     return f'<g id="baslik">{bs_1}{bk_kutu}{bs_2i}{bs_2v}</g>'
 
@@ -294,8 +292,8 @@ def kurallari_dogrula(
     assert S >= 64, f"Başlık boyutu S={S} < 64"
     assert 88 >= 72, "Etiket boyutu 88 < 72"
     satirlar = [
-        "I LIVE",
-        "I AM LIVING",
+        "LIVE",
+        "≠ LIVING",
         "kalıcı",
         "geçici",
     ]

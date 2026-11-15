@@ -1,0 +1,45 @@
+{
+  "baslik": "Present Perfect Continuous | YDT İngilizce",
+  "etiketler": [
+    "İngilizce",
+    "temel",
+    "gramer",
+    "Present Perfect Continuous",
+    "YDT",
+    "Present Perfect Progressive",
+    "YDT İngilizce",
+    "İngilizce gramer",
+    "have been",
+    "has been",
+    "since for",
+    "İngilizce zamanlar",
+    "YKS"
+  ],
+  "bolumler": [
+    {"t": 0, "ad": "İki saattir çalışıyorum: -dir ve -yor"},
+    {"t": 21.93, "ad": "Süre için for: I have been waiting"},
+    {"t": 37.08, "ad": "Başlangıç için since: has been playing"},
+    {"t": 52.47, "ad": "Sokak ıslak: It has been raining"},
+    {"t": 66.87, "ad": "Neden hep been? Kalıp: have been + -ing"}
+  ],
+  "sabitYorum": "Sınavdan önce hızlıca dönmek için bu dersi kaydet; açıklamadaki bölüm damgalarıyla for, since ve ıslak sokak örneklerine doğrudan geç.",
+  "gonderiler": [
+    {
+      "kimlik": "g1",
+      "metin": "\"İki saattir çalışıyorum\" İngilizcede nasıl söylenir? Süreyi for two hours taşır, süren işi have been + -ing kurar: I have been working for two hours. Bu derste süre için for, başlangıç için since ve izi görünen eylemi üç örnekle görüyoruz.",
+      "gorsel": "kapak.png"
+    }
+  ],
+  "liste": {
+    "ad": "Tenses · YDT Temel",
+    "sira": 9,
+    "onceki": "02-08-ydt-temel",
+    "sonraki": "02-10-ydt-temel"
+  },
+  "bildirimler": [
+    {"t": 37.63, "sure": 3.0}
+  ],
+  "giris": true,
+  "cikis": true,
+  "aciklamaDosya": "youtube-aciklama.md"
+}

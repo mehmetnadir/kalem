@@ -156,7 +156,7 @@ HUD = {
     "icerikBas": 460, "icerikSon": 1380, "altyaziBas": 1400, "altyaziYazi": 44, "altyaziSatir": 56,
 }
 KONU = "Simple Present vs Present Continuous"
-ROZET = "YDT · BASIC"
+ROZET = "YDT · TEMEL"
 KANAL_YAZI = "@ydspublishing"
 
 

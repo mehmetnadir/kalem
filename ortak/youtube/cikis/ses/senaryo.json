@@ -1,0 +1,7 @@
+{
+  "_kaynak": "YouTube ortak çıkış sesi (istem YT-1, 15.11.2026). Ses kimliği: projeler/02-04-ydt-temel/ortak/anlatim/senaryo.json sesler.ogrenci (kopya; ses.sh eşitliği denetler).",
+  "sesler": {"ogrenci": "oPC5I9GKjMReiaM29gjY"},
+  "cumleler": [
+    {"ses": "ogrenci", "parcalar": [["tr", "Faydalı olduysa abone ol."], ["tr", "Sıradaki ders ekranda."]], "metin": "Faydalı olduysa abone ol. Sıradaki ders ekranda."}
+  ]
+}

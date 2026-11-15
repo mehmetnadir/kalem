@@ -1,8 +1,8 @@
 // Sahne 02 (02-04-ydt-temel-s2 Shorts) — Örnek: Paper.js, 1080x1920, 449 kare, t_bas 2.84.
 // Soru satırı (Genel mi, şu an mı?), kart 1 (Simple Present / GENERAL), kart 2 (Present Continuous / RIGHT NOW).
 // huni v2 yerleşimi: x 60–960, y 460–1380; kanal katmanı + künye sahnede çizilir.
-import { sahneKur, RT, renkCoz } from "/projeler/02-04-ydt-temel-s2/sahneler/02-paperjs-ornek/kalem-paper.js";
-import { yaziNoktalari } from "/projeler/02-04-ydt-temel-s2/ortak/kalem-canvas.js";
+import { sahneKur, RT, renkCoz } from "/projeler/02-04-ydt-temel-s2b/sahneler/02-paperjs-ornek/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/02-04-ydt-temel-s2b/ortak/kalem-canvas.js";
 
 export const KARE = 449, T_BAS = 2.84;
 
@@ -35,7 +35,7 @@ const TISORT = [
 
 export async function kur(P) {
   const KONU = "Simple Present vs Present Continuous";
-  const ROZET = "YDT · BASIC";
+  const ROZET = "YDT · TEMEL";
   const ROZET_P = 20;
   const ROZET_ARA = 20;
 
@@ -69,7 +69,8 @@ export async function kur(P) {
     }
   }
 
-  const S = await sahneKur(P, { KARE, tBas: T_BAS, kunye: (ctx, K) => kanalCiz(ctx, K) });
+  // DUZ4 A1: EN2 çapası altyazı karaokesine de girer (parça 3 sözcükleri sozcukler.json'da yok)
+  const S = await sahneKur(P, { KARE, tBas: T_BAS, kunye: (ctx, K) => kanalCiz(ctx, K), ekSozcuk: EN2 });
   const {
     fr, not, olay, ciz, ok, kutu, yazi, elYazisi, cumle, altCizgi, dinamik, oge, genislik, kis, cikis,
   } = S;

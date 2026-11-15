@@ -1,6 +1,13 @@
 # S3 Shorts — "BU CÜMLE YANLIŞ" (simple-present-temel-s3, YDT TEMEL) · huni v2
 
-Çıktı: önizleme (mp4 yok, standart §1 kural 9; 1080×1920, 30 fps, 25,08 sn, anlatım 25,08 sn hazır) + `kapak-a|b|c.png` (`kapak.png` = A)
+**DUZ2 (16.11, J2-OZET A1–A3, A7; rapor `uretim-tutanagi/DUZ2-RAPOR.md`):** rozet `YDT · TEMEL`; cümle 2 "He, she, it ile olumsuzda ve soruda
+does girer; s ona geçer. Fiile s gelmez. He doesn't go. Does she go?" (yalnız cümle 2 yeniden sentez); karakter kadın öğrenci (ana paket
+`ortak/kapak/karakter.png`, sha256 `5a902b40…`; ana kapak da yeni); kanca `?`, sahne 02 `✗` ve üstü çizgi, kapak C ve hikâye A işaretleri
+kırmızı değil mürekkep (çizilen `es` soluk tona geçer); sahne 02 kapsam etiketi `he, she, it` (soluk el yazısı, "He, … it" anında).
+Yeni zamanlar: cümle başları 1,00 · 4,44 · 15,64 · 20,90; son söz 26,33; toplam 27,33 sn; sahne 02 3,89–15,09 (348 kare), 03 15,09–20,35,
+04 20,35–27,33. Aşağıdaki zaman tablosu DUZ2 öncesidir: 4,44 sonrası her an +2,25 sn kayar; `does` 8,05, `s` 9,17, `gelmez.` 11,40, `He` 12,61.
+
+Çıktı: önizleme (mp4 yok, standart §1 kural 9; 1080×1920, 30 fps, 27,33 sn, anlatım 27,33 sn hazır; DUZ2 öncesi 25,08) + `kapak-a|b|c.png` (`kapak.png` = A)
 + `hikaye-a|b.png` (`hikaye.png` = A). Bağlayıcı standart: `D/.claude/docs/huni-v2-standart.md` (15.11; bu belge onunla çelişirse standart geçer).
 Biçim emsali: `../02-04-ydt-temel-s1/BRIEF-S1.md` (v2). Stil, kalem darbesi, olay sesi kuralları `../simple-present-temel/BRIEF.md` ile aynı.
 Öğe `02-02-ydt-temel`; ana paket `../simple-present-temel/` (kadro, ses kimlikleri, ana kapak). Biçim: yanlış–doğru (standart §5).
@@ -18,7 +25,7 @@ Kural özeti (kaydet kartı, hikâye kareleri, kapak C; tek cümle): `Does varsa
 |---|---|---|
 | Üst boş | 0–280 | yalnız zemin; çip YOK |
 | Kanal katmanı | 280–350 | aşağıdaki tablo; kalıcı |
-| Künye | 360–450 | konu `Simple Present` (Fredoka 700, x 60, taban 420; boy ≤ 34, rozetle x 960'a sığan en büyük, alt sınır 28) + rozet `YDT · BASIC` (hap y 386–434, Lexend 700 26, dolgu `vurguDolgu`, yazı `pilMetin`, konu sonu + 20) |
+| Künye | 360–450 | konu `Simple Present` (Fredoka 700, x 60, taban 420; boy ≤ 34, rozetle x 960'a sığan en büyük, alt sınır 28) + rozet `YDT · TEMEL` (hap y 386–434, Lexend 700 26, dolgu `vurguDolgu`, yazı `pilMetin`, konu sonu + 20) |
 | İçerik | 460–1380 | x 60–960 |
 | Altyazı + karaoke | 1400–1550 | en çok 2 satır (kapak ve hikâye karelerinde yok) |
 | Alt boş | 1570–1920 | yalnız zemin |

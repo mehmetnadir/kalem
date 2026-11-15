@@ -3,7 +3,7 @@
 Kaynak: `uretim-tutanagi/aciklama-taslak.md` §3 (S3-B jürisi + S3-C düzeltmeleri, `uretim-tutanagi/S3-duzeltme.md`).
 Sürüm: A (`s3-aciklama-a`), kuralla açılır. `aciklama.md` bu dosyanın kopyasıdır. B seti: `aciklama-b.md`.
 Ana ders: Simple Present (`ING-YDT-GR-02-02-T`, öğe `02-02-ydt-temel`).
-Shorts: `ING-YDT-GR-02-02-T-S3`, 25,08 sn. Kimlik `@ydspublishing`. QR yok; "kanal" sözü yalnız v2 çekirdek cümlesinde.
+Shorts: `ING-YDT-GR-02-02-T-S3`, 27,33 sn. Kimlik `@ydspublishing`. QR yok; "kanal" sözü yalnız v2 çekirdek cümlesinde.
 Huni v2: her platform metninin ilk satırı standart §4 kaydet + kanal satırıdır; standart §1 kural 4–5 kapsamındaki sözler yok.
 
 **UYARI:** `https://ydspublishing.com/grammar/02-02-ydt-temel` belgeden türedi; canlılığı ölçülmedi (grammar-kapi Worker 11.11'de
@@ -24,7 +24,7 @@ Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalı
 Simple Present (ING-YDT-GR-02-02-T) dersinden sınav tuzağı: does girince fiildeki s düşer.
 YANLIŞ: He doesn't goes. → DOĞRU: He doesn't go.
 YANLIŞ: Does she goes? → DOĞRU: Does she go?
-Olumsuzda ve soruda does girer, s ona geçer; fiil yalın kalır.
+He, she, it ile olumsuzda ve soruda does girer; s ona geçer, fiil yalın kalır. be ve can gibi fiillerde does girmez.
 Dersin tamamını izle: {UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-02-T&utm_content=s3-a
 Sıradaki ders: Present Continuous ve Simple Present: ayrım alıştırması
 Ders sayfası: https://ydspublishing.com/grammar/02-02-ydt-temel?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-02-T&utm_content=s3-a

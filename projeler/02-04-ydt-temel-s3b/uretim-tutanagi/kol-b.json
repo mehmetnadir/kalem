@@ -1,0 +1,19 @@
+{
+  "paket": "02-04-ydt-temel-s3b",
+  "kol_a": "02-04-ydt-temel-s3",
+  "varyant": {"grup": "s3", "kol": "b", "degisken": "kanca", "deger": "yanlis-cumle"},
+  "kol_a_deger": "kopru",
+  "degisen_sahneler": ["01-hyperframes-kapak"],
+  "ayni_sahneler": ["02-hyperframes-ornek", "08-hyperframes-kaydet", "03-hyperframes-cta"],
+  "yeni_cumleler": [
+    {"sahne": "01-hyperframes-kapak", "konusan": "ogretmen", "metin": "Hata nerede?"}
+  ],
+  "onbellekten_cumleler": [
+    "The train to Izmir leaves at seven p.m. today. I am going to the movie theater tonight.",
+    "Hocam, tren de plana göre kalkmıyor mu? Neden -ing yok?",
+    "Planı bir kişi yapar. Tren tarifeye uyar: geniş zaman.",
+    "Bu, üç farktan yalnız biri. Bir arkadaşına gönder; o da karıştırıyor.",
+    "Bu sadece başlangıç. Dersin tamamı YDS Publishing YouTube kanalında."
+  ],
+  "sure_tahmini_sn": 29.46
+}

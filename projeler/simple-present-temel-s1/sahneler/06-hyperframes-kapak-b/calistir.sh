@@ -1,6 +1,6 @@
 #!/bin/bash
 # Sahne 06 kapak B (simple-present-temel-s1, huni v2; HyperFrames DİKEY 1080x1920, tek kare, ses yok, zaman çizelgesi dışı;
-# karakterli, sarı zemin): üret -> [önizleme burada biter] -> tek kare PNG.
+# karakterli, tema zemini; DUZ4 A6: sarı yalnız başlık kutusu): üret -> [önizleme burada biter] -> tek kare PNG.
 # Tema: --tema acik|koyu (varsayılan acik, K19). acik -> paket kökü kapak-b.png · koyu -> k/koyu/kapak-b-koyu.png. mp4 yok.
 # Kalıp: 02-04-ydt-temel-s1/sahneler/05-hyperframes-kapak-b/calistir.sh.
 # Önizleme hazırlığı: ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu]

@@ -1,0 +1,32 @@
+acik 02-paperjs-deger 3.9 ↔ 3.25: 8675 px (219, 1449, 802, 1494) · kanal 0
+acik 02-paperjs-deger 5.2 ↔ 4.55: 11 px (216, 714, 219, 718) · kanal 0
+acik 02-paperjs-deger 6.6 ↔ 5.95: 0 px  · kanal 0
+acik 02-paperjs-deger 8.4 ↔ 7.75: 0 px  · kanal 0
+acik 02-paperjs-deger 9.6 ↔ 8.95: 0 px  · kanal 0
+acik 02-paperjs-deger 11 ↔ 10.35: 0 px  · kanal 0
+acik 02-paperjs-deger 11.6 ↔ 10.95: 0 px  · kanal 0
+acik 02-paperjs-deger 12.4 ↔ 11.75: 0 px  · kanal 0
+acik 02-paperjs-deger 12.7 ↔ 12.05: 0 px  · kanal 0
+acik 02-paperjs-deger 13.4 ↔ 12.75: 0 px  · kanal 0
+acik 02-paperjs-deger 14.6 ↔ 13.95: 0 px  · kanal 0
+acik 02-paperjs-deger 15.05 ↔ 14.4: 0 px  · kanal 0
+acik 03-hyperframes-kaydet 15.2 ↔ 14.55: 0 px  · kanal 0
+acik 03-hyperframes-kaydet 16 ↔ 15.35: 0 px  · kanal 0
+acik 03-hyperframes-kaydet 16.6 ↔ 15.95: 0 px  · kanal 0
+acik 03-hyperframes-kaydet 17.7 ↔ 17.05: 0 px  · kanal 0
+acik 03-hyperframes-kaydet 19.7 ↔ 19.05: 0 px  · kanal 0
+acik 03-hyperframes-kaydet 20.3 ↔ 19.65: 0 px  · kanal 0
+acik 04-hyperframes-cagri 20.4 ↔ 19.75: 0 px  · kanal 0
+acik 04-hyperframes-cagri 21.2 ↔ 20.55: 0 px  · kanal 0
+acik 04-hyperframes-cagri 22.9 ↔ 22.25: 0 px  · kanal 0
+acik 04-hyperframes-cagri 24.6 ↔ 23.95: 0 px  · kanal 0
+acik 04-hyperframes-cagri 27.3 ↔ 26.65: 0 px  · kanal 0
+koyu 02-paperjs-deger 5.2 ↔ 4.55: 11 px (216, 714, 219, 718) · kanal 0
+koyu 02-paperjs-deger 11.6 ↔ 10.95: 0 px  · kanal 0
+koyu 02-paperjs-deger 12.4 ↔ 11.75: 0 px  · kanal 0
+koyu 02-paperjs-deger 14.6 ↔ 13.95: 0 px  · kanal 0
+koyu 03-hyperframes-kaydet 17.7 ↔ 17.05: 0 px  · kanal 0
+koyu 03-hyperframes-kaydet 19.7 ↔ 19.05: 0 px  · kanal 0
+koyu 04-hyperframes-cagri 22.9 ↔ 22.25: 0 px  · kanal 0
+koyu 04-hyperframes-cagri 27.3 ↔ 26.65: 0 px  · kanal 0
+çift 31

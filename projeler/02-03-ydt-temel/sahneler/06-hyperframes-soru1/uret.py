@@ -65,7 +65,7 @@ def kunye(bolum: str, etkin: int) -> str:
     return ('<g id="kunye">'
             '<text id="ku-ders" x="56" y="72" font-family="Fredoka" font-weight="700" font-size="30" fill="%s">'
             'PRESENT CONTINUOUS vs SIMPLE PRESENT<tspan id="ku-sev" dx="14" font-family="Lexend" font-weight="500" '
-            'font-size="22" fill="%s">· YDT BASIC</tspan></text>'
+            'font-size="22" fill="%s">· YDT TEMEL</tspan></text>'
             '<text id="ku-bolum" x="1864" y="72" text-anchor="end" font-family="Lexend" font-weight="700" '
             'font-size="24" fill="%s">%s</text>'
             '<g id="ku-ajA"><text x="%d" y="1030" text-anchor="end" font-family="Lexend" font-weight="500" '

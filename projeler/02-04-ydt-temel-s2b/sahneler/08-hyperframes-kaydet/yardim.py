@@ -1,6 +1,6 @@
 """Ortak yardımcılar, DİKEY 1080x1920 (02-04-ydt-temel-s2 sahne 08 Kaydet; 02-04-ydt-temel-s1 sahne 08 kopyası).
 Yol verisi, yazı genişliği (fontTools, kerning yok), künye SVG'si, yazı tipi CSS'i.
-huni v2 (15.11): kanal katmanı (`#kanal`, logo `#logoimg`) + künye satırı (konu + `YDT · BASIC`) + v2 bantları
+huni v2 (15.11): kanal katmanı (`#kanal`, logo `#logoimg`) + künye satırı (konu + `YDT · TEMEL`) + v2 bantları
 (BRIEF-S2 "Yerleşim" = BRIEF-S1 değerleri); çip yok. ORTAK = bu paketin ortak/ dizini (S2 sözcükleri, logosu)."""
 import json
 import math
@@ -155,7 +155,7 @@ HUD = {"kenar": 60, "sagSinir": 960,
        "altyaziBas": 1400, "altyaziSon": 1550, "altyaziYazi": 44, "altyaziSatir": 56,
        "altyaziMerkez": 510, "altyaziEn": 900}
 KONU = "Simple Present vs Present Continuous"
-ROZETLER = ("YDT · BASIC",)
+ROZETLER = ("YDT · TEMEL",)
 KANAL_YAZI = "@ydspublishing"
 
 

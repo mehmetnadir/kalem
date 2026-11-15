@@ -1,8 +1,8 @@
-// Sahne 02 — Kanca, DİKEY 1080x1920 (366 kare, t_bas 3,00; cümle 2 = 3,39–14,25).
+// Sahne 02 — Kanca, DİKEY 1080x1920 (409 kare, t_bas 3,00; cümle 2 = 3,39–15,69).
 // Bantlar: içerik 352–1392 · altyazı 1400–1536 (kalem-paper.js çizer) · platform boş.
-// Yerleşim: solda figür (440 px sabit), sağda ev (8,05'te solar) →
+// Yerleşim: solda figür (440 px sabit), sağda ev (9,49'te solar) →
 // saat + ajanda kartı (360–1032);
-// alt bantta İngilizce cümle + -di ⇄ -ed. Figür hiç küçülmez.
+// alt bantta İngilizce cümle + düzenli fiil → -ed (DUZ3 16.11). Figür hiç küçülmez.
 import {
   sahneKur, RT
 } from "/projeler/simple-past-temel-dikey/sahneler/02-paperjs-kanca/kalem-paper.js";
@@ -17,7 +17,7 @@ const SURE_METNI = await fetch(new URL("../../zaman.json", location.href))
   })
   .catch((e) => { console.warn("zaman.json süre okunamadı:", e); return ""; });
 
-export const KARE = 366, T_BAS = 3.0;
+export const KARE = 409, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook" });
@@ -56,9 +56,9 @@ export async function kur(P) {
     w: 3.6, renk: IKI, alfa: 0.75, bas: 36, sure: 24, uc0: 10, uc1: 20
   });
 
-  // --- orta bant sağ sütun: ev + hilal (8,05'te solar, yerini saat + ajandaya bırakır)
+  // --- orta bant sağ sütun: ev + hilal (9,49'te solar, yerini saat + ajandaya bırakır)
   const evGrup = S.oge({
-    alfa: (f) => (f < fr(8.05) ? 1 : Math.max(0, 1 - (f - fr(8.05)) / 15))
+    alfa: (f) => (f < fr(9.49) ? 1 : Math.max(0, 1 - (f - fr(9.49)) / 15))
   });
   await S.svgCiz("tabler/home.svg", { kutu: [430, 800, 380, 380], bas: GB, sure: 26, azami: 25,
     w: 4, sesAralik: 2, oge: evGrup });
@@ -111,8 +111,8 @@ export async function kur(P) {
     not("takvim + dün", bitis(o2));
   }
 
-  // --- 6,02–8,10: I visited my uncle last night.
-  // (Fredoka 64, iki satır, taban 1310 / 1376); -ed daire; -di ⇄ -ed
+  // --- 6,02–9,54: I visited my uncle last night.
+  // (Fredoka 64, iki satır, taban 1310 / 1376); -ed daire; düzenli fiil → -ed
   {
     const tl = [6.02, 6.30, 6.62, 6.78, 7.10, 7.44];
     const kel = ["I", "visited", "my", "uncle", "last", "night."];
@@ -122,33 +122,33 @@ export async function kur(P) {
     const v = e[1], font = "700 64px Fredoka";
     const wv = genislik("visit", font), we = genislik("ed", font);
     const d = daire(v.x0 + wv + we / 2, v.y - 22, we / 2 + 8, 36, {
-      bas: fr(6.90) - 6, sure: 18, a0: -2.0, w: 9
+      bas: fr(7.94) - 6, sure: 18, a0: -2.0, w: 9
     });
     olay(bitis(d), "tik", 0.5); not("-ed daire", d.bas);
-    // 7,14 anlatımsız etiketler `-di` / `-ed`: hedef 12 kare (0,4 sn); ok -di biterken başlar
-    const y = 1376, a = elYazisi("-di", {
-      x: 540, y, boyut: 64, renk: MUR, bas: fr(7.14), sure: 12
+    // DUZ3 (16.11): `düzenli fiil` sözle (düzenli 6,90 · fiile 7,38); ok ve `-ed` -ed sözünde (7,94)
+    const y = 1376, a = elYazisi("düzenli fiil", {
+      x: e[5].x1 + 44, y, boyut: 56, renk: MUR, sozcukler: pen("düzenli", 2)
     });
-    const ar = ok([a.x1 + 24, y - 20], [a.x1 + 130, y - 20],
-      { bas: fr(7.14) + 8, sure: 18, w: 9, cift: true, uzun: 24, bukum: 0.05 });
+    const ar = ok([a.x1 + 18, y - 18], [a.x1 + 88, y - 18],
+      { bas: fr(7.94), sure: 14, w: 9, uzun: 22, bukum: 0.05 });
     elYazisi("-ed", {
-      x: a.x1 + 154, y, boyut: 64, renk: SARI, bas: bitis(ar) + 2, sure: 12
+      x: a.x1 + 104, y, boyut: 64, renk: SARI, bas: bitis(ar) + 2, sure: 12
     });
-    not("ok -di ⇄ -ed", ar.bas);
+    not("ok düzenli fiil → -ed", ar.bas);
   }
 
-  // --- 8,25–14,25: sağ sütun: saat + süre etiketi + ajanda kartı (3 madde);
+  // --- 9,69–15,69: sağ sütun: saat + süre etiketi + ajanda kartı (3 madde);
   // figür sol sütunda tam boy kalır
   {
-    await S.svgCiz("tabler/clock.svg", { kutu: [380, 750, 110, 110], bas: fr(8.53), sure: 20,
+    await S.svgCiz("tabler/clock.svg", { kutu: [380, 750, 110, 110], bas: fr(9.97), sure: 20,
       azami: 25, w: 4.4, sesAralik: 3 });
-    // 8,45 anlatımsız etiket SURE_METNI (derste 8,45–8,89): hedef 14 kare (0,47 sn)
-    elYazisi(SURE_METNI, { x: 510, y: 835, boyut: 84, renk: SARI, bas: fr(8.53) + 14, sure: 14 });
-    not("saat + süre etiketi", fr(8.53));
-    parilti(680, 750, { bas: fr(9.56), r: 26, periyot: 170, adet: 3 });
-    kutu(360, 880, 672, 330, { bas: fr(9.45), sure: 30, w: 4 }); not("kart çizimi", fr(9.45));
+    // 9,89 anlatımsız etiket SURE_METNI (derste 9,89–10,33): hedef 14 kare (0,47 sn)
+    elYazisi(SURE_METNI, { x: 510, y: 835, boyut: 84, renk: SARI, bas: fr(9.97) + 14, sure: 14 });
+    not("saat + süre etiketi", fr(9.97));
+    parilti(680, 750, { bas: fr(11.0), r: 26, periyot: 170, adet: 3 });
+    kutu(360, 880, 672, 330, { bas: fr(10.89), sure: 30, w: 4 }); not("kart çizimi", fr(10.89));
     const m = [
-      ["form", 9.93, 955], ["time expressions", 11.05, 1045], ["irregular verbs", 12.73, 1135]
+      ["form", 11.37, 955], ["time expressions", 12.49, 1045], ["irregular verbs", 14.17, 1135]
     ];
     for (const [s, t, y] of m) {
       yazi(s, {

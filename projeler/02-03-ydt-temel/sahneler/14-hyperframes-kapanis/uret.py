@@ -42,7 +42,7 @@ def kunye(bolum: str, etkin: int) -> str:
     return ('<g id="kunye">'
             '<text id="ku-ders" x="56" y="72" font-family="Fredoka" font-weight="700" font-size="30" fill="%s">'
             'PRESENT CONTINUOUS vs SIMPLE PRESENT<tspan id="ku-sev" dx="14" font-family="Lexend" font-weight="500" '
-            'font-size="22" fill="%s">· YDT BASIC</tspan></text>'
+            'font-size="22" fill="%s">· YDT TEMEL</tspan></text>'
             '<text id="ku-bolum" x="1864" y="72" text-anchor="end" font-family="Lexend" font-weight="700" '
             'font-size="24" fill="%s">%s</text>'
             '<g id="ku-ajA"><text x="%d" y="1030" text-anchor="end" font-family="Lexend" font-weight="500" '
@@ -66,7 +66,7 @@ def uret() -> tuple:
     xv = x0 + wS + ara
     s.yazi("vrb", xv, YB, [("VERB", SAR)], "Fredoka", 700, FB, S(T(8)), 0.35, tur="tik", guc=0.6)
     s.yol("vrc", Y.el_daire(xv + wV / 2, YB - 54, wV / 2 + 34, 106, 0.4), S(T(9)), 0.5, SAR, 7, 0.85, "parilti", 0.55)
-    # ---- 277,53 «believe» · 278,25 «fiiller» ok · 278,89 «-ing» no -ing ----
+    # ---- «believe» · «fiillerle» ok · «-ing» no -ing (DUZ3: c19 'fiillerle çoğu zaman -ing kullanılmaz', sıra 13→15, 14→16) ----
     BF, YN = 64, 560
     wb, wn = g("believe", BF), g("no -ing", BF)
     oku = 90
@@ -75,11 +75,11 @@ def uret() -> tuple:
     s.yol("bok", Y.el_ok(xb + wb + 40, YN - 22, xb + wb + 40 + oku, YN - 22, 2), S(T(12)), 0.3, SAR, 8, 0.95,
           "cizgi", 0.5)
     xn = xb + wb + 40 + oku + 40
-    s.yazi("no", xn, YN, [("no -ing", SAR)], "Fredoka", 700, BF, S(T(13)), 0.35, tur="tik", guc=0.6)
-    s.yol("nom", Y.el_cizgi(xn - 4, YN + 16, xn + wn + 4, YN + 15, 1), S(T(14)), 0.35, SAR, 9, 0.85, "cizgi", 0.5)
+    s.yazi("no", xn, YN, [("no -ing", SAR)], "Fredoka", 700, BF, S(T(15)), 0.35, tur="tik", guc=0.6)
+    s.yol("nom", Y.el_cizgi(xn - 4, YN + 16, xn + wn + 4, YN + 15, 1), S(T(16)), 0.35, SAR, 9, 0.85, "cizgi", 0.5)
     # ---- 280,25 «Sonraki derste görüşürüz»: sonraki ders kartı (GR-02-04) ----
     kx, ky, kw, kh = 440, 660, 1040, 270
-    tS, tD, tG = S(T(15)), S(T(16)), S(T(17))
+    tS, tD, tG = S(T(17)), S(T(18)), S(T(19))
     s.yol("kk", Y.el_kutu(kx, ky, kw, kh), tS, 0.55, IKN, 3.6, 0.95, "cizgi", 0.55)
     s.yazi("k1", kx + 56, ky + 70, [("Next lesson", IKN)], "Lexend", 500, 36, tS + 0.15, 0.3, tur=None)
     s.yazi("k2", kx + 56, ky + 166, [("GR-02-04", KRE)], "Fredoka", 700, 84, tD, 0.3, tur="tik", guc=0.5)

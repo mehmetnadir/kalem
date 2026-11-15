@@ -3,8 +3,8 @@
 # Tema: --tema acik|koyu (varsayılan acik). Geçici kareler ~/Silinecekler/2026-11-05-kalem-spi/ altına taşınır (silme yok).
 set -eo pipefail
 [ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"
-D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=487
-KLASOR=04-canvas-ornek2; PROJE=simple-present-ileri-dikey; TBAS=32.45; GLOBAL_SN="37.0 41.0 47.0"
+D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=497
+KLASOR=04-canvas-ornek2; PROJE=simple-present-ileri-dikey; TBAS=33.33; GLOBAL_SN="37.9 41.9 48.4"
 . "$D/../../ortak/tema.sh" "$@"
 cd "$K"
 BAS=$(date +%s)

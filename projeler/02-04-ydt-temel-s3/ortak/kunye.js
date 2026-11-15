@@ -56,7 +56,7 @@ try { temaSec(new URLSearchParams(location.search).get("tema") || "koyu"); } cat
 export const KUNYE = { kenar: 48, logoY: 48, logoYuk: 96, dersTaban: 212, dersYazi: 56, dersSatir: 64, rozetY: 216,
   rozetH: 72, rozetAra: 24, rozetYazi: 36, cipY: 48, cipH: 80, cipYazi: 40, hudSon: 320, icerikBas: 352,
   icerikSon: 1392, altyaziBas: 1400, altyaziSon: 1536, altyaziYazi: 44, altyaziSatir: 56,
-  ders: ["SIMPLE PRESENT vs", "PRESENT CONTINUOUS"], rozet: "YDT · BASIC", ajanda: ["Hook", "Examples", "Rule", "Trap"],
+  ders: ["SIMPLE PRESENT vs", "PRESENT CONTINUOUS"], rozet: "YDT · TEMEL", ajanda: ["Hook", "Examples", "Rule", "Trap"],
   cipler: { "01-hyperframes-kapak": "Hook", "02-hyperframes-ornek": "Example",
     "03-hyperframes-cta": "Channel", "04-hyperframes-hikaye": "Channel", "05-hyperframes-kapak-b": "Hook",
     "06-hyperframes-kapak-c": "Hook", "07-hyperframes-hikaye-b": "Channel" } };

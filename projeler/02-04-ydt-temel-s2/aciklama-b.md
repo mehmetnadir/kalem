@@ -16,7 +16,7 @@ yayında değil). Paylaşımdan önce adresi aç. Açılmazsa adresi `{PLATFORM_
 Başlık:
 
 ```
-Today varsa hangi zaman? | YDT İngilizce #Shorts
+Today görünce hangi zamanı seçersin? | YDT İngilizce #Shorts
 ```
 
 Açıklama:
@@ -69,7 +69,7 @@ Açıklamaya adres yazılmaz (Instagram açıklamada bağlantı tıklanmaz).
 
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
-Today varsa hangi zaman?
+Today görünce hangi zamanı seçersin?
 Today iki zamanda da geçebilir; farkı anlam yapar. Genel durum: wears. Konuşma anı: is wearing.
 Bu, üç farktan biri. Üç farkın hepsi dersin tamamında; bağlantı profilde.
 Sıradaki ders: Stative Verbs
@@ -93,7 +93,6 @@ Profil bağlantısı:
 - `{UZUN_VIDEO_URL}` `watch?v=…` biçiminde gelirse ilk `?` yerine `&` yaz.
 - YouTube adresindeki UTM grammar-kapi kayıtlarına düşmez; YouTube tarafını Studio "Trafik Kaynakları" ölçer.
 - Profil bağlantısı hesap başına tektir: set A ve B profilde aynı anda ölçülemez. B, A döneminden sonra.
-- **DİKKAT:** S1 `utm_campaign=ing-ydt-gr-02-04-t` (küçük harf) yazar. Eşitleme kararı Nadir'de (`uretim-tutanagi/S2-C-RAPOR.md`).
 
 ## 5. Yer tutucular
 

@@ -1,5 +1,7 @@
 # SPEC — sahne 05 hikâye karesi A, kural kartı (simple-present-temel-s2, huni v2) · 15.11.2026
 
+> DUZ2 (16.11): kart 2. satırı `every day: çoğunlukla` (sesle aynı terim, A3); `G2 = genislik("every day: çoğunlukla")`; kart yüksekliği değişmedi.
+
 MAKİNE: Linux x86_64 (srv21). Python `/usr/bin/python3` (fontTools kurulu). Şef yazdı (istem D-V2 `05-hyperframes-hikaye-a`); kodu agy yazar.
 
 | Ne | Değer |

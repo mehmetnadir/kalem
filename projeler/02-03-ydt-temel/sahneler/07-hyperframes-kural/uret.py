@@ -1,6 +1,6 @@
 """Sahne 07 Kural kartı (02-03 YDT temel, HyperFrames, 1920x1080; cümle 8).
 `tanim` 3 satır (3 bant) söylendiği anda kademeli gelir: NOW → am / is / are + V-ing (sarı) · THESE DAYS · NOWADAYS ·
-PLAN → usually V-ing (temporary / changing) · USUALLY · GENERAL → V1 / V-s. Sağda üç örnek kartı küçük hâlde (sahne
+PLAN → usually V-ing (temporary / changing) · USUALLY · GENERAL → often V1 / V-s (DUZ3: konuşma "çoğunlukla"; 52 px taşar, 48 px). Sağda üç örnek kartı küçük hâlde (sahne
 03–05); satır 2'nin sinyal sözcükleri kendi örnek kartına ince çizgiyle bağlanır. Sahne 12 (özet) aynı görsel dili kullanır.
 Zaman tek kaynak: ../../zaman.json (t_bas, kare) + ../../ortak/anlatim/sozcukler.json (küresel sn; i = cümle içi sıra).
 Yerel sn = küresel - t_bas."""
@@ -99,8 +99,8 @@ def uret():
     xe = parca("r2b", x_nw, ba, "· NOWADAYS", T(13), KRE, SF, 0.45)
     belirtec("m3", x_nw + dot, xe, ba, T(13) + 0.1)
     x_pl = xe + sp
-    xe = parca("r2c", x_pl, ba, "· PLAN", T(23), KRE, SF, 0.35)
-    belirtec("m4", x_pl + dot, xe, ba, T(23) + 0.1)
+    xe = parca("r2c", x_pl, ba, "· PLAN", T(25), KRE, SF, 0.35)   # DUZ3: "Gelecekteki kişisel plan" → plan = 25
+    belirtec("m4", x_pl + dot, xe, ba, T(25) + 0.1)
     sat2 = xe
     ok("o2", IX, bb, T(14))
     xu = IX + AU + BO
@@ -110,22 +110,22 @@ def uret():
     wt = Y.genislik("Caveat", 700, "(temporary ", 44)
     s.yazi("r2f", xu + wt, bc, [("/ changing)", IKN)], "Caveat", 700, 44, S(T(21)), 0.45, tur=None)
     sat2 = max(sat2, xu + wt + Y.genislik("Caveat", 700, "/ changing)", 44))
-    # ---------------- satır 3: USUALLY · GENERAL → V1 / V-s ----------------
+    # ---------------- satır 3: USUALLY · GENERAL → often V1 / V-s ----------------
     b3 = BASE["r3"]
-    xe = parca("r3a", IX, b3, "USUALLY", T(29), KRE, SF, 0.4)
-    belirtec("m5", IX, xe, b3, T(29) + 0.1)
+    xe = parca("r3a", IX, b3, "USUALLY", T(30), KRE, SF, 0.4)
+    belirtec("m5", IX, xe, b3, T(30) + 0.1)
     x_gn = xe + sp
-    xe = parca("r3b", x_gn, b3, "· GENERAL", T(34), KRE, SF, 0.4)
-    belirtec("m6", x_gn + dot, xe, b3, T(34) + 0.1)
-    ok("o3", xe + BO, b3, T(36))
-    xe = parca("r3c", xe + BO + AU + BO, b3, "V1 / V-s", T(36) + 0.14, IKN, RF, 0.4)
+    xe = parca("r3b", x_gn, b3, "· GENERAL", T(35), KRE, SF, 0.4)
+    belirtec("m6", x_gn + dot, xe, b3, T(35) + 0.1)
+    ok("o3", xe + BO, b3, T(37))   # "çoğunlukla"
+    xe = parca("r3c", xe + BO + AU + BO, b3, "often V1 / V-s", T(37) + 0.14, IKN, 48, 0.5)   # 52 px banda taşar (1139)
     sat3 = xe
     for n, ex in (("1", sat1), ("2", sat2), ("3", sat3)):
         assert ex <= BX + BW - 30, "satır %s banda taştı: %.0f" % (n, ex)
 
     # ---------------- örnek kartları (sahne 03-05'in küçük hâli; yazı soluk, sinyal sarı) ----------------
     kart_t = S(T(0)) - 0.1                   # 88,23 sn: "Karar kartı" öncesi hafif, ilk 12 kare durgun
-    bag_t = (T(23) + 0.1, T(10) + 0.1, T(13) + 0.1)   # örnek 1 (PLAN), 2 (THESE DAYS), 3 (NOWADAYS)
+    bag_t = (T(25) + 0.1, T(10) + 0.1, T(13) + 0.1)   # örnek 1 (PLAN), 2 (THESE DAYS), 3 (NOWADAYS)
     for k, metin in enumerate(ORNEK):
         kel, satirlar, h = kart_yerlesim(metin)
         y0 = KC[k] - h / 2
@@ -158,8 +158,8 @@ def uret():
 
     # ---------------- son: "Önce sinyal sözcüğünü ara." (107,85; sinyal 108,25) ----------------
     for kim in isr:
-        s.to("#" + kim, S(T(40)), {"attr": {"stroke-width": 15}, "opacity": 1, "duration": 0.3, "ease": "power2.out"})
-    s.olay(S(T(40)), "vurus", 0.7)
+        s.to("#" + kim, S(T(42)), {"attr": {"stroke-width": 15}, "opacity": 1, "duration": 0.3, "ease": "power2.out"})
+    s.olay(S(T(42)), "vurus", 0.7)
     Y.kontrol(s, Z["kare"])
     return s, Y.kunye_svg("Rule", 2)
 

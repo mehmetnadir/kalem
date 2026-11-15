@@ -1,0 +1,638 @@
+# hyperframes check — 02-04-ydt-temel-s1 · DUZ4-0204S1 · 16.11.2026 02:09
+# Komut (paket kökünden): /home/sef/01dev/_worktrees/kalem-0204/motorlar/hyperframes/node_modules/.bin/hyperframes check sahneler/<sahne>/proje
+# hyperframes sürümü: 0.8.226
+
+========== 01-hyperframes-kapak
+$ hyperframes check sahneler/01-hyperframes-kapak/proje
+◆  Checking proje
+[hyperframes] browserGpuMode probe → software (WebGL renderer vendor="Google Inc. (Mesa)" renderer="ANGLE (Mesa, llvmpipe (LLVM 15.0.7 256 bits), OpenGL ES 3.2)")
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/28
+[hyperframes] check: craft 2/28
+[hyperframes] check: craft 3/28
+[hyperframes] check: craft 4/28
+[hyperframes] check: craft 5/28
+[hyperframes] check: craft 6/28
+[hyperframes] check: craft 7/28
+[hyperframes] check: craft 8/28
+[hyperframes] check: craft 9/28
+[hyperframes] check: craft 10/28
+[hyperframes] check: craft 11/28
+[hyperframes] check: craft 12/28
+[hyperframes] check: craft 13/28
+[hyperframes] check: craft 14/28
+[hyperframes] check: craft 15/28
+[hyperframes] check: craft 16/28
+[hyperframes] check: craft 17/28
+[hyperframes] check: craft 18/28
+[hyperframes] check: craft 19/28
+[hyperframes] check: craft 20/28
+[hyperframes] check: craft 21/28
+[hyperframes] check: craft 22/28
+[hyperframes] check: craft 23/28
+[hyperframes] check: craft 24/28
+[hyperframes] check: craft 25/28
+[hyperframes] check: craft 26/28
+[hyperframes] check: craft 27/28
+[hyperframes] check: craft 28/28
+[hyperframes] check: overlap 1/4
+[hyperframes] check: overlap 2/4
+[hyperframes] check: overlap 3/4
+[hyperframes] check: overlap 4/4
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+
+Lint
+  ⚠ gsap_repeated_fromto_without_baseline: 2 tl.fromTo() calls target "#cr1" with no stable baseline. The last-authored fromTo "from" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.
+    /home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/proje/index.html #cr1 t=0s
+    Fix: Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 1s), so pre-first-tween seeks keep its "from" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them.
+  0 error(s), 1 warning(s), 0 info(s)
+
+Runtime
+  ◇ 0 errors, 0 warnings
+
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 35/35 text checks pass WCAG AA
+
+Craft
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 3.40 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  ⚠ line_unread: The film's last line "Amcamla yaşı-yor-um." (4 words) is on screen 0.83 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #r2 > text:nth-of-type(1) t=2.573s
+  ⚠ line_unread: The film's last line "Simple Present vs Present Continuous" (5 words) is on screen 0.70 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ku-konu > text:nth-of-type(1) t=2.702s
+  0 error(s), 3 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+Report: /home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/proje/.hyperframes/artifacts/checks/f667fcfc-97b5-4d70-aa43-fabcc936dcb9.json
+Revision: none (unversioned)
+çıkış kodu: 0
+
+========== 03-hyperframes-cta
+$ hyperframes check sahneler/03-hyperframes-cta/proje
+◆  Checking proje
+[hyperframes] browserGpuMode probe → software (WebGL renderer vendor="Google Inc. (Mesa)" renderer="ANGLE (Mesa, llvmpipe (LLVM 15.0.7 256 bits), OpenGL ES 3.2)")
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/59
+[hyperframes] check: craft 2/59
+[hyperframes] check: craft 3/59
+[hyperframes] check: craft 4/59
+[hyperframes] check: craft 5/59
+[hyperframes] check: craft 6/59
+[hyperframes] check: craft 7/59
+[hyperframes] check: craft 8/59
+[hyperframes] check: craft 9/59
+[hyperframes] check: craft 10/59
+[hyperframes] check: craft 11/59
+[hyperframes] check: craft 12/59
+[hyperframes] check: craft 13/59
+[hyperframes] check: craft 14/59
+[hyperframes] check: craft 15/59
+[hyperframes] check: craft 16/59
+[hyperframes] check: craft 17/59
+[hyperframes] check: craft 18/59
+[hyperframes] check: craft 19/59
+[hyperframes] check: craft 20/59
+[hyperframes] check: craft 21/59
+[hyperframes] check: craft 22/59
+[hyperframes] check: craft 23/59
+[hyperframes] check: craft 24/59
+[hyperframes] check: craft 25/59
+[hyperframes] check: craft 26/59
+[hyperframes] check: craft 27/59
+[hyperframes] check: craft 28/59
+[hyperframes] check: craft 29/59
+[hyperframes] check: craft 30/59
+[hyperframes] check: craft 31/59
+[hyperframes] check: craft 32/59
+[hyperframes] check: craft 33/59
+[hyperframes] check: craft 34/59
+[hyperframes] check: craft 35/59
+[hyperframes] check: craft 36/59
+[hyperframes] check: craft 37/59
+[hyperframes] check: craft 38/59
+[hyperframes] check: craft 39/59
+[hyperframes] check: craft 40/59
+[hyperframes] check: craft 41/59
+[hyperframes] check: craft 42/59
+[hyperframes] check: craft 43/59
+[hyperframes] check: craft 44/59
+[hyperframes] check: craft 45/59
+[hyperframes] check: craft 46/59
+[hyperframes] check: craft 47/59
+[hyperframes] check: craft 48/59
+[hyperframes] check: craft 49/59
+[hyperframes] check: craft 50/59
+[hyperframes] check: craft 51/59
+[hyperframes] check: craft 52/59
+[hyperframes] check: craft 53/59
+[hyperframes] check: craft 54/59
+[hyperframes] check: craft 55/59
+[hyperframes] check: craft 56/59
+[hyperframes] check: craft 57/59
+[hyperframes] check: craft 58/59
+[hyperframes] check: craft 59/59
+[hyperframes] check: overlap 1/8
+[hyperframes] check: overlap 2/8
+[hyperframes] check: overlap 3/8
+[hyperframes] check: overlap 4/8
+[hyperframes] check: overlap 5/8
+[hyperframes] check: overlap 6/8
+[hyperframes] check: overlap 7/8
+[hyperframes] check: overlap 8/8
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+
+Lint
+  ◇ 0 errors, 0 warnings
+
+Runtime
+  ◇ 0 errors, 0 warnings
+
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 34/34 text checks pass WCAG AA
+
+Craft
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 7.27 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  0 error(s), 1 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+Report: /home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s1/sahneler/03-hyperframes-cta/proje/.hyperframes/artifacts/checks/747e44ea-5c5c-410b-8384-c69e20ed6cbb.json
+Revision: none (unversioned)
+çıkış kodu: 0
+
+========== 08-hyperframes-kaydet
+$ hyperframes check sahneler/08-hyperframes-kaydet/proje
+◆  Checking proje
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/48
+[hyperframes] check: craft 2/48
+[hyperframes] check: craft 3/48
+[hyperframes] check: craft 4/48
+[hyperframes] check: craft 5/48
+[hyperframes] check: craft 6/48
+[hyperframes] check: craft 7/48
+[hyperframes] check: craft 8/48
+[hyperframes] check: craft 9/48
+[hyperframes] check: craft 10/48
+[hyperframes] check: craft 11/48
+[hyperframes] check: craft 12/48
+[hyperframes] check: craft 13/48
+[hyperframes] check: craft 14/48
+[hyperframes] check: craft 15/48
+[hyperframes] check: craft 16/48
+[hyperframes] check: craft 17/48
+[hyperframes] check: craft 18/48
+[hyperframes] check: craft 19/48
+[hyperframes] check: craft 20/48
+[hyperframes] check: craft 21/48
+[hyperframes] check: craft 22/48
+[hyperframes] check: craft 23/48
+[hyperframes] check: craft 24/48
+[hyperframes] check: craft 25/48
+[hyperframes] check: craft 26/48
+[hyperframes] check: craft 27/48
+[hyperframes] check: craft 28/48
+[hyperframes] check: craft 29/48
+[hyperframes] check: craft 30/48
+[hyperframes] check: craft 31/48
+[hyperframes] check: craft 32/48
+[hyperframes] check: craft 33/48
+[hyperframes] check: craft 34/48
+[hyperframes] check: craft 35/48
+[hyperframes] check: craft 36/48
+[hyperframes] check: craft 37/48
+[hyperframes] check: craft 38/48
+[hyperframes] check: craft 39/48
+[hyperframes] check: craft 40/48
+[hyperframes] check: craft 41/48
+[hyperframes] check: craft 42/48
+[hyperframes] check: craft 43/48
+[hyperframes] check: craft 44/48
+[hyperframes] check: craft 45/48
+[hyperframes] check: craft 46/48
+[hyperframes] check: craft 47/48
+[hyperframes] check: craft 48/48
+[hyperframes] check: overlap 1/6
+[hyperframes] check: overlap 2/6
+[hyperframes] check: overlap 3/6
+[hyperframes] check: overlap 4/6
+[hyperframes] check: overlap 5/6
+[hyperframes] check: overlap 6/6
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+
+Lint
+  ◇ 0 errors, 0 warnings
+
+Runtime
+  ◇ 0 errors, 0 warnings
+
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 36/36 text checks pass WCAG AA
+
+Craft
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 5.90 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  ⚠ line_unread: The film's last line "Kaydet." (1 word) is on screen 1.03 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #al2 > text:nth-of-type(1) t=4.871s
+  ⚠ line_unread: The film's last line "Kaydet" (1 word) is on screen 0.83 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #kaydet-hap > text:nth-of-type(1) t=5.071s
+  0 error(s), 3 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+Report: /home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s1/sahneler/08-hyperframes-kaydet/proje/.hyperframes/artifacts/checks/1354bac2-e82f-43bf-b40b-94b13f827ae6.json
+Revision: none (unversioned)
+çıkış kodu: 0
+
+========== 04-hyperframes-hikaye
+$ hyperframes check sahneler/04-hyperframes-hikaye/proje
+◆  Checking proje
+[hyperframes] browserGpuMode probe → software (WebGL renderer vendor="Google Inc. (Mesa)" renderer="ANGLE (Mesa, llvmpipe (LLVM 15.0.7 256 bits), OpenGL ES 3.2)")
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/8
+[hyperframes] check: craft 2/8
+[hyperframes] check: craft 3/8
+[hyperframes] check: craft 4/8
+[hyperframes] check: craft 5/8
+[hyperframes] check: craft 6/8
+[hyperframes] check: craft 7/8
+[hyperframes] check: craft 8/8
+[hyperframes] check: overlap 1/1
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+
+Lint
+  ◇ 0 errors, 0 warnings
+
+Runtime
+  ◇ 0 errors, 0 warnings
+
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 80/80 text checks pass WCAG AA
+
+Craft
+  ⚠ line_unread: The film's last line "@ydspublishing" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #kanal-yazi t=0s
+  ⚠ line_unread: The film's last line "Simple Present vs Present Continuous" (5 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ku-konu t=0s
+  ⚠ line_unread: The film's last line "YDT · TEMEL" (2 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  ⚠ line_unread: The film's last line "YAŞI" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ek-yasi t=0s
+  ⚠ line_unread: The film's last line "YOR" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ek-yor t=0s
+  ⚠ line_unread: The film's last line "UM" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ek-um t=0s
+  ⚠ line_unread: The film's last line "I live" (2 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #kart1-baslik t=0s
+  ⚠ line_unread: The film's last line "PERMANENT" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #kart1-etiket t=0s
+  ⚠ line_unread: The film's last line "I am living" (3 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #kart2-baslik t=0s
+  ⚠ line_unread: The film's last line "TEMPORARY" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #kart2-etiket t=0s
+  ⚠ line_unread: The film's last line "Live, work fiillerinde:" (3 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ozet1 t=0s
+  ⚠ line_unread: The film's last line "kalıcıysa geniş zaman," (3 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ozet2 t=0s
+  ⚠ line_unread: The film's last line "geçiciyse şimdiki zaman." (3 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ozet3 t=0s
+  ⚠ line_unread: The film's last line "Kaydet" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #kaydet-yazi t=0s
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 1.00 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  0 error(s), 15 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+Report: /home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s1/sahneler/04-hyperframes-hikaye/proje/.hyperframes/artifacts/checks/d10db171-20e1-4877-b743-1ffc4bb8bc16.json
+Revision: 7387905c-8266-476a-b88d-386e5784b429 (recorded-revision)
+çıkış kodu: 0
+
+========== 05-hyperframes-kapak-b
+$ hyperframes check sahneler/05-hyperframes-kapak-b/proje
+◆  Checking proje
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/8
+[hyperframes] check: craft 2/8
+[hyperframes] check: craft 3/8
+[hyperframes] check: craft 4/8
+[hyperframes] check: craft 5/8
+[hyperframes] check: craft 6/8
+[hyperframes] check: craft 7/8
+[hyperframes] check: craft 8/8
+[hyperframes] check: overlap 1/1
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+
+Lint
+  ◇ 0 errors, 0 warnings
+
+Runtime
+  ◇ 0 errors, 0 warnings
+
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 45/45 text checks pass WCAG AA
+
+Craft
+  ⚠ line_unread: The film's last line "@ydspublishing" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #kanal-yazi t=0s
+  ⚠ line_unread: The film's last line "Simple Present vs Present Continuous" (5 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ku-konu > text:nth-of-type(1) t=0s
+  ⚠ line_unread: The film's last line "YDT · TEMEL" (2 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  ⚠ line_unread: The film's last line "YAŞI" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #bs-yasi t=0s
+  ⚠ line_unread: The film's last line "YOR" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #bs-yor t=0s
+  ⚠ line_unread: The film's last line "UM" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #bs-um t=0s
+  ⚠ line_unread: The film's last line "NASIL DENİR?" (2 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #bs-2 t=0s
+  ⚠ line_unread: The film's last line "I live?" (2 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #bl1-yazi t=0s
+  ⚠ line_unread: The film's last line "I am living?" (3 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #bl2-yazi t=0s
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 1.00 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  0 error(s), 10 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+Report: /home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s1/sahneler/05-hyperframes-kapak-b/proje/.hyperframes/artifacts/checks/6fcae3ac-80ab-4c7c-9fe2-0c78c4acffc1.json
+Revision: de50d3a9-cf46-401c-a87c-393fe7d41d4f (recorded-revision)
+çıkış kodu: 0
+
+========== 06-hyperframes-kapak-c
+$ hyperframes check sahneler/06-hyperframes-kapak-c/proje
+◆  Checking proje
+[hyperframes] browserGpuMode probe → software (WebGL renderer vendor="Google Inc. (Mesa)" renderer="ANGLE (Mesa, llvmpipe (LLVM 15.0.7 256 bits), OpenGL ES 3.2)")
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/8
+[hyperframes] check: craft 2/8
+[hyperframes] check: craft 3/8
+[hyperframes] check: craft 4/8
+[hyperframes] check: craft 5/8
+[hyperframes] check: craft 6/8
+[hyperframes] check: craft 7/8
+[hyperframes] check: craft 8/8
+[hyperframes] check: overlap 1/1
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+
+Lint
+  ◇ 0 errors, 0 warnings
+
+Runtime
+  ◇ 0 errors, 0 warnings
+
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 35/35 text checks pass WCAG AA
+
+Craft
+  ⚠ line_unread: The film's last line "@ydspublishing" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #kanal-yazi t=0s
+  ⚠ line_unread: The film's last line "Simple Present vs Present Continuous" (5 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ku-konu > text:nth-of-type(1) t=0s
+  ⚠ line_unread: The film's last line "YDT · TEMEL" (2 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  ⚠ line_unread: The film's last line "LIVE" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #bs-1 t=0s
+  ⚠ line_unread: The film's last line "LIVING" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #bs-2v t=0s
+  ⚠ line_unread: The film's last line "kalıcı" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #et-kalici t=0s
+  ⚠ line_unread: The film's last line "geçici" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #et-gecici t=0s
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 1.00 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  0 error(s), 8 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+Report: /home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s1/sahneler/06-hyperframes-kapak-c/proje/.hyperframes/artifacts/checks/cbed81b2-f3a8-47e3-a934-5beff555c561.json
+Revision: 04bc77fb-992d-4335-ab85-7cd92d8ee258 (recorded-revision)
+çıkış kodu: 0
+
+========== 07-hyperframes-hikaye-b
+$ hyperframes check sahneler/07-hyperframes-hikaye-b/proje
+◆  Checking proje
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/8
+[hyperframes] check: craft 2/8
+[hyperframes] check: craft 3/8
+[hyperframes] check: craft 4/8
+[hyperframes] check: craft 5/8
+[hyperframes] check: craft 6/8
+[hyperframes] check: craft 7/8
+[hyperframes] check: craft 8/8
+[hyperframes] check: overlap 1/1
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+
+Lint
+  ◇ 0 errors, 0 warnings
+
+Runtime
+  ◇ 0 errors, 0 warnings
+
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 80/80 text checks pass WCAG AA
+
+Craft
+  ⚠ line_unread: The film's last line "@ydspublishing" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #kanal-yazi t=0s
+  ⚠ line_unread: The film's last line "Simple Present vs Present Continuous" (5 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ku-konu t=0s
+  ⚠ line_unread: The film's last line "YDT · TEMEL" (2 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  ⚠ line_unread: The film's last line "Şimdilik amcamla" (2 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #tr1 t=0s
+  ⚠ line_unread: The film's last line "yaşıyorum." (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #tr2 t=0s
+  ⚠ line_unread: The film's last line "I am living with" (4 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #dogru-s1 t=0s
+  ⚠ line_unread: The film's last line "my uncle." (2 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #dogru-s2 t=0s
+  ⚠ line_unread: The film's last line "şimdilik" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #dogru-et1 t=0s
+  ⚠ line_unread: The film's last line "geçici" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #dogru-et2 t=0s
+  ⚠ line_unread: The film's last line "kalıcıysa" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #yanlis-etiket t=0s
+  ⚠ line_unread: The film's last line "Live, work fiillerinde:" (3 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ozet1 t=0s
+  ⚠ line_unread: The film's last line "kalıcıysa geniş zaman," (3 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ozet2 t=0s
+  ⚠ line_unread: The film's last line "geçiciyse şimdiki zaman." (3 words) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ozet3 t=0s
+  ⚠ line_unread: The film's last line "Kaydet" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #kaydet-yazi t=0s
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 1.00 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  0 error(s), 15 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+Report: /home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s1/sahneler/07-hyperframes-hikaye-b/proje/.hyperframes/artifacts/checks/cd3dd9c1-023b-4642-8d1c-7393e4054548.json
+Revision: 611236b9-8ca7-4a3d-a882-a951311fd0b3 (recorded-revision)
+çıkış kodu: 0

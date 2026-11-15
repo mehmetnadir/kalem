@@ -56,7 +56,7 @@ def kunye_tam(bolum="Trap"):
     """SPEC §5: Dikey HUD (ders 2 satır, rozet, çip). Tek <g id="kunye">."""
     pw = gen("PRESENT CONTINUOUS", 56, 700, "Fredoka")
     rx = 48 + pw + 24
-    rw = gen("YDT · BASIC", 36, 700, "Lexend") + 56
+    rw = gen("YDT · TEMEL", 36, 700, "Lexend") + 56
     cw = gen(bolum, 40, 700, "Lexend") + 64
     cx = 1032 - cw
     return ('<g id="kunye">'
@@ -66,7 +66,7 @@ def kunye_tam(bolum="Trap"):
             'PRESENT CONTINUOUS</text>'
             '<g id="ku-rozet"><rect x="%.2f" y="216" width="%.2f" height="72" rx="36" fill="%s"/>'
             '<text x="%.2f" y="265" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="36" '
-            'fill="%s">YDT · BASIC</text></g>'
+            'fill="%s">YDT · TEMEL</text></g>'
             '<g id="ku-bolum"><rect x="%.2f" y="48" width="%.2f" height="80" rx="40" fill="none" stroke="%s" stroke-width="4"/>'
             '<text x="%.2f" y="102" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="40" '
             'fill="%s">%s</text></g></g>'
@@ -308,8 +308,8 @@ def uret():
     s.set("#en6z", tf + 0.3, {"opacity": 1})
     s.set("#en6", tf + 0.3, {"opacity": 0})
 
-    # ---------------- 10. kartg toplanma (177,40) ----------------
-    s.to("#kartg", L(177.40), {"y": DY_KART, "duration": 0.35, "ease": "power3.out"})
+    # ---------------- 10. kartg toplanma ("Hocam," − 0,45 sn; 16.11 DUZ3: sabit 177,40 sözcüğe bağlandı) ----------------
+    s.to("#kartg", L(Q(0) - 0.45), {"y": DY_KART, "duration": 0.35, "ease": "power3.out"})
 
     # ---------------- 11. Öğrenci başı & Balon (177,65) ----------------
     kit = (Y.ORTAK / "cizim" / "peeps-kit" / "ogrenci-bas.svg").read_text(encoding="utf-8")
@@ -422,7 +422,7 @@ def uret():
     # 7. Ders ve rozet 984 içinde, rozet sağ ucu < çip sol ucu (HUD satır ayrı ama yazı kutuları çakışmaz)
     w_ders2 = gen("PRESENT CONTINUOUS", 56, 700, "Fredoka")
     rx_hud = 48 + w_ders2 + 24
-    rw_hud = gen("YDT · BASIC", 36, 700, "Lexend") + 56
+    rw_hud = gen("YDT · TEMEL", 36, 700, "Lexend") + 56
     cw_hud = gen("Trap", 40, 700, "Lexend") + 64
     cx_hud = 1032 - cw_hud
     assert rx_hud + rw_hud <= 1032, f"Ders ve rozet 984'ü aştı: {rx_hud + rw_hud}"

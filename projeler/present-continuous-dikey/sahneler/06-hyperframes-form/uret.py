@@ -1,4 +1,4 @@
-"""Sahne 06 DİKEY (HyperFrames 1080x1920, 766 kare, t_bas 62,81): cümle 6 (öğrenci balonu) + cümle 7 (form).
+"""Sahne 06 DİKEY (HyperFrames 1080x1920, 953 kare, t_bas 63,85 (16.11 DUZ3-0201T: cümle 7 yeniden sentezlendi)): cümle 6 (öğrenci balonu) + cümle 7 (form).
 Yerleşim BRIEF-DIKEY §4 + 05.11 kararları. Tek kaynak: zamanlar.json (küresel sn) -> yerel sn = t - t_bas.
 Komut listesi veri olarak JS'e gömülür; olaylar aynı çağrılardan toplanır (olay.py yalnız bu modülü içe alır).
 - t≈66 s -ing örtüşmesi düzeltildi (satır ve toplanma yerleşimi ayrıldı).
@@ -272,33 +272,20 @@ def uret():
     s.yazi("past", xe + 50, WY - 4, [("past", IKN)], "Caveat", 700, 72, S(Z["past"]), 0.4, tur="tik", guc=0.45)
     s.yol("kir", el_cizgi(WX - 12, WY - 26, xe + 14, WY - 40, 2), S(Z["cizgi_kirmizi"]), 0.45, KIR, 8, 1, "cizgi", 0.7)
 
-    # ---------------- 81,25: -ing = -yor ----------------
+    # -------- 83,17: -ing halka; 2×2 kart (16.11 DUZ3-0201T: eski "-ing = -yor" ve "koşu-yor = runn-ing" yanlış denklikti) --------
+    # Sütun 1: -yor → -ing; sütun 2: -yor var, -ing yok (biliyorum, I know). DK-2: TR soluk Caveat 68, EN mürekkep Caveat 84.
     th = S(Z["ing_halka"])
     ingv = Y.genislik("Fredoka", 700, "-ing", VF)
     s.yol("halka", el_daire(VX + vw + ingv / 2, VY - 38, ingv / 2 + 16, 74, 1.0), th, 0.55, SAR, 8, 0.85, "parilti", 0.5)
-    EF, EY = 110, 1285
-    w1, w2, w3 = (Y.genislik("Fredoka", 700, m, EF) for m in ("-ing", " = ", "-yor"))
-    ex0 = 540 - (w1 + w2 + w3) / 2
-    s.svg.append('<g id="eqf" style="opacity:0" font-family="Fredoka" font-weight="700" font-size="%d">'
-                 '<text x="%.1f" y="%d" fill="%s">-ing</text><text x="%.1f" y="%d" fill="%s" xml:space="preserve"> = </text>'
-                 '<text x="%.1f" y="%d" fill="%s">-yor</text></g>' % (EF, ex0, EY, SAR, ex0 + w1, EY, KRE,
-                                                                      ex0 + w1 + w2, EY, SAR))
-    s.fromto("#eqf", th, {"opacity": 0, "scale": 0.92, "svgOrigin": "540 %d" % (EY - 40)},
-             {"opacity": 1, "scale": 1, "duration": 0.35, "ease": "power3.out"})
-    s.olay(th, "vurus", 0.85)
-
-    # ---------------- koşu-yor = runn-ing (Caveat 72) ----------------
-    LF, LY = 72, 1362
-    wk = Y.genislik("Caveat", 700, "koşu-yor", LF)
-    wr = Y.genislik("Caveat", 700, "runn-ing", LF)
-    gap, eqw = 36, 56
-    lx = 540 - (wk + gap + eqw + gap + wr) / 2
-    s.yazi("kosu", lx, LY, [("koşu", KRE), ("-yor", SAR)], "Caveat", 700, LF, S(Z["yor"]), 0.45)
-    ex = lx + wk + gap
-    te = S(Z["esit"])
-    s.yol("es1", el_cizgi(ex, LY - 34, ex + eqw, LY - 37, 1), te, 0.2, KRE, 6, 1, "cizgi", 0.5)
-    s.yol("es2", el_cizgi(ex + 2, LY - 14, ex + eqw + 2, LY - 17, -1), te + 0.2, 0.2, KRE, 6, 1, "cizgi", 0.5)
-    s.yazi("runn", ex + eqw + gap, LY, [("runn", KRE), ("-ing", SAR)], "Caveat", 700, LF, S(Z["runn"]), 0.45)
+    for kol, (x, satir) in enumerate(((140, [("koşu", "yor", "", "kosuyor"), ("runn", "ing", "", "running")]),
+                                      (600, [("bili", "yor", "um", "biliyorum"), ("I know", "", "", "iknow")]))):
+        for sn, (on, ek, son, an) in enumerate(satir):
+            boy, y, renk, t = (68, 1276, IKN, S(Z[an])) if sn == 0 else (84, 1366, KRE, S(Z[an]))
+            s.yazi("yk%d%d" % (kol, sn), x, y, [(on, renk), (ek, SAR), (son, renk)], "Caveat", 700, boy, t, 0.4)
+            if ek:
+                x0 = x + Y.genislik("Caveat", 700, on, boy)
+                x1 = x0 + Y.genislik("Caveat", 700, ek, boy)
+                s.yol("ya%d%d" % (kol, sn), el_cizgi(x0 - 2, y + 13, x1 + 2, y + 10), t + 0.4, 0.28, SAR, 7, 0.85, "cizgi", 0.45)
 
     # ---------------- altyazı dilimleri (opaklık anahtarları) ----------------
     dil = altyazi_dilimleri()

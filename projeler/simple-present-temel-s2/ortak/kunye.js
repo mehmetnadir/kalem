@@ -95,7 +95,7 @@ export const KUNYE = {
   konuTaban: 420,
   konuAzami: 34,
   konuAsgari: 28,
-  rozet: "YDT · BASIC",
+  rozet: "YDT · TEMEL",
   rozetY: 386,
   rozetH: 48,
   rozetYazi: 26,
@@ -232,7 +232,11 @@ export function altyaziMetin(liste, t) {
   const p = liste.find((a) => t >= a.t0 - 0.05 && t < a.t1 + 0.35);
   return p ? p.metin : "";
 }
-export function altyaziCiz(ctx, metin, { alfa = 1 } = {}) {
+// DUZ4 (16.11, J3 A1): isteğe bağlı karaoke. { sozcukler, t } verilirse (sozcukler.json dizisi, t = küresel sn) o an
+// okunan sözcüğün altına çizgi çizer; seçeneksiz çağrı eskisi gibi düz metin çizer. Görünüm sahne 03 karaoke çizgisi
+// (yardim.py altyazi_svg): tema vurgu rengi, 6 px, yuvarlak uç, taban + 12; noktalama çizgiye girmez; çizgi 0,15 sn'de
+// açılır (power2.out) ve sonraki sözcüğün t0'ına kadar kalır (son sözcük t1 + 0,25).
+export function altyaziCiz(ctx, metin, { alfa = 1, sozcukler = null, t = null } = {}) {
   if (!metin) return;
   const k = KUNYE, R = RENK, genislik = k.sag - k.kenar;
   const ortaX = (k.kenar + k.sag) / 2;
@@ -252,9 +256,39 @@ export function altyaziCiz(ctx, metin, { alfa = 1 } = {}) {
   const y0 = k.altyaziBas + (satirlar.length === 1 ? 84 : 56);
   ctx.fillStyle = R.murekkep;
   satirlar.forEach((sat, i) => ctx.fillText(sat, ortaX, y0 + i * k.altyaziSatir));
+  const ok = sozcukler && t != null ? karaokeSozcuk(metin, sozcukler, t) : null;
+  const iz = ok ? karaokeCiz(ctx, satirlar, ok, { ortaX, y0, t }) : null;
+  if (typeof window !== "undefined" && window.__kalemKutu) window.__kalemKutu.karaoke = iz || null;   // ölçüm kancası
   ctx.restore();
 }
 
+// Karaoke çizgisi: satirlar içindeki j. sözcüğün altı (ctx yazı tipi altyazı boyunda kalır).
+function karaokeCiz(ctx, satirlar, { j, t0 }, { ortaX, y0, t }) {
+  const i = satirlar.findIndex((sat) => { const n = sat.split(" ").length; if (j < n) return true; j -= n; return false; });
+  if (i < 0) return null;
+  const kel = satirlar[i].split(" "), solX = ortaX - ctx.measureText(satirlar[i]).width / 2;
+  const x1 = solX + (j > 0 ? ctx.measureText(kel.slice(0, j).join(" ") + " ").width : 0);
+  const x2 = x1 + ctx.measureText(kel[j].replace(/[.,:;!?]+$/u, "")).width, y = y0 + i * KUNYE.altyaziSatir + 12;
+  const u = Math.min(1, Math.max(0, (t - t0) / 0.15)), e = 1 - (1 - u) * (1 - u);
+  ctx.strokeStyle = RENK.vurgu; ctx.lineWidth = 6; ctx.lineCap = "round";
+  ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x1 + (x2 - x1) * e, y); ctx.stroke();
+  return { s: kel[j], x1: Math.round(x1), x2: Math.round(x2), y };
+}
+// Altyazı metninin sözcük dizisi: sozcukler.json içinde t'ye en yakın ardışık dizi. O an okunan sözcük
+// (t0 ≤ t < sonraki t0; son sözcük t1 + 0,25) -> { j, t0 } ya da null.
+function karaokeSozcuk(metin, sozcukler, t) {
+  const kel = metin.split(" "), yalin = (s) => s.replace(/[^\p{L}\p{N}]/gu, "").toLocaleLowerCase("tr");
+  let dizi = null, enIyi = Infinity;
+  for (let i = 0; i + kel.length <= sozcukler.length; i++) {
+    if (!kel.every((w, j) => yalin(w) === yalin(sozcukler[i + j].sozcuk))) continue;
+    const a = sozcukler[i].t0 - 0.05, b = sozcukler[i + kel.length - 1].t1 + 0.35;
+    const uzak = t < a ? a - t : t > b ? t - b : 0;
+    if (uzak < enIyi) { enIyi = uzak; dizi = sozcukler.slice(i, i + kel.length); }
+  }
+  if (!dizi || enIyi > 0) return null;
+  const j = dizi.findIndex((w, i) => t >= w.t0 && t < (i + 1 < dizi.length ? dizi[i + 1].t0 : w.t1 + 0.25));
+  return j < 0 ? null : { j, t0: dizi[j].t0 };
+}
 // 2 satıra sığmayan parça sözcük zamanıyla dilimlenir; sözcük sayısı tutmazsa karakter oranı.
 function altyaziDilimle(liste, soz) {
   if (!liste || !liste.length) return [];

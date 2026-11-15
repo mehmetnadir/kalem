@@ -1,0 +1,92 @@
+{
+  "video": {
+    "kimlik": "02-04-ydt-temel",
+    "ders": "İngilizce",
+    "konu": "Simple Present ve Present Continuous: kullanım farkları",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-04-T",
+    "amaclar": [
+      "Genel durumda geniş zamanı, konuşma anında şimdiki zamanı seçmek",
+      "Kalıcı durumda geniş zamanı, geçici durumda şimdiki zamanı seçmek",
+      "Tarifeli gelecekte geniş zamanı, planlanmış gelecekte şimdiki zamanı seçmek",
+      "Türkçe -yor ekinin iki zamana da karşılık geldiğini bilmek; kararı anlamla vermek"
+    ],
+    "canAlici": [
+      "Önce anlama bak: genel mi, şu an mı? Kalıcı mı, geçici mi? Tarife mi, plan mı?",
+      "Genel durum, kalıcı durum, tarifeli gelecek: V1 / V-s",
+      "Konuşma anı, geçici durum, planlanmış gelecek: am / is / are + V-ing",
+      "today iki zamanda da geçer; farkı anlam yapar",
+      "Türkçe yaşıyorum iki zamana karşılık gelir: I live (kalıcı), I am living (geçici)"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Simple Present",
+      "Present Continuous",
+      "YDT"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "s3b",
+      "tur": "shorts",
+      "ad": "S3b Shorts (32,10 sn)",
+      "durum": "inceleme",
+      "onizleme": "/p/02-04-ydt-temel-s3b/onizle.html",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "varyant": {
+        "grup": "s3",
+        "kol": "b",
+        "degisken": "kanca",
+        "deger": "yanlis-cumle"
+      }
+    },
+    {
+      "kimlik": "s3b-kapak-a",
+      "tur": "kapak",
+      "ad": "S3b Kapak A",
+      "durum": "inceleme",
+      "dosya": "kapak-a.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s3b-aciklama-a",
+      "tur": "aciklama",
+      "ad": "S3b Açıklama A",
+      "durum": "inceleme",
+      "dosya": "aciklama-a.md",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s3b-aciklama-b",
+      "tur": "aciklama",
+      "ad": "S3b Açıklama B",
+      "durum": "inceleme",
+      "dosya": "aciklama-b.md",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    }
+  ],
+  "revizyonlar": [
+    {
+      "surum": "s3b",
+      "no": "r1",
+      "tarih": "2026-11-15T21:20:00Z",
+      "degisiklik": "DUZ2 (kol a düzeltmeleri birebir + KBJ): rozet YDT · TEMEL; c4 sesi kol a c3 ile bayt aynı (AB-9); kaydet kartı, kapak A rozeti, sahne 02 karaoke ve TR soru, 08 karaoke ve hap geçişi (EK-7) kol a ile aynı; KBJ: ortak/kunye.js KOK kol b yoluna (AB-8), kol a'dan kopya kareler Silinecekler'e, bütün kareler kol b'den yeniden çekildi, açıklama üst bilgisi kol b'ye göre (EK-6); süre 29,31 → 32,10 sn; 02/08/03 kareleri kol a ile piksel eşit (27/27); çakışma kapısı 0. Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    },
+    {
+      "surum": "s3b",
+      "no": "r2",
+      "tarih": "2026-11-15T23:00:37Z",
+      "degisiklik": "DUZ4 kanıt turu (J3 C1, C2, C6; içerik değişikliği yok): kapak-a-168.png (168×299, LANCZOS, ana yazı okunur); DUZ4 kontak açık 27 + koyu 11 kare; kare tazeliği 4/4 video sahnesi taze, yeniden çekim yok; huni kapısı AB-2 GEÇTİ (zaman kayması Δ 1,00 sn), KS-6f GEÇTİ, tek KALDI JR-1b; diff beklenmeyen 0; kare çifti 27/27 piksel eşit. Ayrıntı: uretim-tutanagi/DUZ4-RAPOR.md.",
+      "cikti": null
+    }
+  ]
+}

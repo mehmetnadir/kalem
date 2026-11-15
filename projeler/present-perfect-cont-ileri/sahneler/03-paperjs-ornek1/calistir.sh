@@ -1,10 +1,10 @@
 #!/bin/bash
-# Sahne 03 İLERİ (Paper.js, yatay 1920x1080, 505 kare): yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png
+# Sahne 03 İLERİ (Paper.js, yatay 1920x1080, 553 kare): yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png
 # Tema: --tema acik|koyu (varsayılan acik). Geçici kareler ~/Silinecekler/2026-11-05-kalem-ileri/ altına taşınır (silme yok).
 set -eo pipefail
 [ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"
-D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=505
-KLASOR=03-paperjs-ornek1; PROJE=present-perfect-cont-ileri; TBAS=17.25; GLOBAL_SN="24 28 32"
+D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=553
+KLASOR=03-paperjs-ornek1; PROJE=present-perfect-cont-ileri; TBAS=17.25; GLOBAL_SN="24 28 33"
 . "$D/../../ortak/tema.sh" "$@"
 cd "$K"
 BAS=$(date +%s)

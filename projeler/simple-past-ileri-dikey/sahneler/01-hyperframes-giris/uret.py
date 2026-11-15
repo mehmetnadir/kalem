@@ -47,7 +47,7 @@ def uret():
     kams = "".join('<path id="k%d" d="%s" style="opacity:0"/>' % (i, d) for i, d in enumerate(kam))
     # rozetler (cover): y 372 h 72; 1. hap HUD rozetine uçar
     roz, x = [], KENAR
-    for i, (m, dolgu) in enumerate((("YDT · ADVANCED", R["vurgu"]), ("GRAMMAR", R["murekkep"]))):
+    for i, (m, dolgu) in enumerate((("YDT · İLERİ", R["vurgu"]), ("GRAMMAR", R["murekkep"]))):
         w = Y.genislik("Lexend", 700, m, ROZET_YAZI) + 56
         roz.append('<g id="rz%d" style="opacity:0"><rect x="%.1f" y="%d" width="%.1f" height="%d" rx="36" fill="%s"/>'
                    '<text x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" font-weight="700" '

@@ -1,16 +1,16 @@
-// SAHNE 04 — Örnek 2/3 (düz canvas, 569 kare, t_bas 33,00; cümle 4). 02-03 YDT temel.
+// SAHNE 04 — Örnek 2/3 (düz canvas, 572 kare, t_bas 33,00; cümle 4). 02-03 YDT temel.
 // Kendini çizen kalem; zaman yalnız kare numarasından; sözcük zamanları ortak/anlatim/sozcukler.json.
 // Kök: "Our company is going through a hard period these days." (bulut + takvim, geçici dönem).
 import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, elips, ok, olc, altCizgi } from "./sahne-ortak.js";
 
-const KARE = 569, TBAS = 33.0, ICERIK = 557;
+const KARE = 572, TBAS = 33.0, ICERIK = 560;
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Example 2 / 3", cumle: 4 });
 const KOKDIZ = "/projeler/02-03-ydt-temel/ortak/cizim";
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu, DOLGU = RT.vurguDolgu;
 const FF = (b) => `700 ${b}px Fredoka`;
-const t = (i) => S.sozc[i].t0;   // cümle 4: 0 İkinci · 1 örnek. · 2–11 kök · 12–17 TR · 18–22 These days … · 23–29 Dönem … ister. · 30–35 Yapı … going.
+const t = (i) => S.sozc[i].t0;   // cümle 4: 0 İkinci · 1 örnek. · 2–11 kök · 12–17 TR · 18–22 These days … · 23–30 Dönem … gelir. · 31–36 Yapı … going.
 // El yazısı penceresi: her sözcük kendi t0'ından sonraki sözcüğün t0'ına dek (kısa pencere uzar)
 const pen = (a, n) => S.sozc.slice(a, a + n).map((w, i, d) => ({ t0: w.t0,
   t1: i < n - 1 ? d[i + 1].t0 : w.t1 }));
@@ -62,25 +62,25 @@ async function kur() {
       renk: SARI, alfa: 0.85, uc0: 12, uc1: 24 }, t(21), 0.4, 0.6));
   }
 
-  // 45,09 geçici.: `geçici` (sarı) · 46,93 şimdiki: ok · 47,33 zaman: `-ing`
+  // geçici.: `geçici` (sarı) · şimdiki: ok · zamanla: `-ing` (DUZ3: 'çoğunlukla' eklendi, sıra +1)
   S.koy(S.elYazisi({ metin: "geçici", x: 1330, y: 658, boy: 56, renk: SARI,
     sozcukler: [{ t0: t(24), t1: t(24) + 0.6 }] }));
-  S.koy(S.darbeler(ok([1452, 640], [1530, 640], 4), { w: 6, renk: SARI, uc0: 10, uc1: 14 }, t(27),
+  S.koy(S.darbeler(ok([1452, 640], [1530, 640], 4), { w: 6, renk: SARI, uc0: 10, uc1: 14 }, t(28),
     0.3, 0.2, 0.5));
   S.koy(S.elYazisi({ metin: "-ing", x: 1552, y: 658, boy: 56, renk: SARI,
-    sozcukler: [{ t0: t(28), t1: t(29) }] }));
+    sozcukler: [{ t0: t(29), t1: t(30) }] }));
 
   // 48,45 Yapı: formül kartı · 49,09 aynı: be + V-ing · 49,73 is · 50,29 artı · 50,93 going.
   {
     const kx = 140, ky = 815, fo = FF(54), y1 = ky + 72, y2 = ky + 148, x = kx + 50;
     const xa = x + olc(fo, "is") + 28, xb = xa + olc(fo, "+") + 28;
-    S.koy(S.kart({ x: kx, y: ky, w: 760, h: 170, tb: t(30), tohum: 5, kutuSure: 0.14,
+    S.koy(S.kart({ x: kx, y: ky, w: 760, h: 170, tb: t(31), tohum: 5, kutuSure: 0.14,
       kutuAralik: 0.1, satirlar: [
         { parca: [["be", KREM], ["  +  ", IKINCIL], ["V", KREM], ["-ing", SARI]], x, y: y1, font: fo,
-          tb: t(32), sure: 0.3 },
-        { parca: [["is", KREM]], x, y: y2, font: fo, tb: t(33), sure: 0.3 },
-        { parca: [["+", IKINCIL]], x: xa, y: y2, font: fo, tb: t(34), sure: 0.3 },
-        { parca: [["go", KREM], ["ing", SARI]], x: xb, y: y2, font: fo, tb: t(35), sure: 0.3 },
+          tb: t(33), sure: 0.3 },
+        { parca: [["is", KREM]], x, y: y2, font: fo, tb: t(34), sure: 0.3 },
+        { parca: [["+", IKINCIL]], x: xa, y: y2, font: fo, tb: t(35), sure: 0.3 },
+        { parca: [["go", KREM], ["ing", SARI]], x: xb, y: y2, font: fo, tb: t(36), sure: 0.3 },
       ] }));
   }
 }

@@ -8,7 +8,7 @@ AD="$(cd "$(dirname "$0")" && pwd)"
 KOK="$AD/../../../.."                       # paket kökü (kalem)
 M="$KOK/motorlar/hyperframes"; BIN="$M/node_modules/.bin"
 ORTAK="$AD/../../ortak"
-KARE=1020
+KARE=1110
 mkdir -p "$AD/proje/lib" "$AD/proje/assets/fonts" "$AD/proje/assets/cizim" "$AD/k" "$AD/proje/renders"
 cp "$M/node_modules/gsap/dist/gsap.min.js" "$AD/proje/lib/" 2>/dev/null || cp "$M/lib/gsap.min.js" "$AD/proje/lib/"
 cp "$ORTAK/logo/$LOGO_DOSYA" "$AD/proje/assets/logo.svg"

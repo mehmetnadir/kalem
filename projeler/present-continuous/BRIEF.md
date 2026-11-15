@@ -105,7 +105,7 @@ Ayrılmış kimlik (05.11 karar 6a): `t2` yalnız başlık 2. satırıdır; aç�
 
 | Köşe | İçerik | Konum / boy | Renk |
 |---|---|---|---|
-| Sol üst | `PRESENT CONTINUOUS` + ` · YDT BASIC` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
+| Sol üst | `PRESENT CONTINUOUS` + ` · YDT TEMEL` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
 | Sağ üst | bölüm adı: `Hook` · `Example 1 / 3` · `Example 2 / 3` · `Example 3 / 3` · `Question` → `Form` | sağ kenar x 1864, taban 72; Lexend 700 24 px | vurgu |
 | Sol alt | logo svg | x 56, yükseklik 34 px (en ≈ 137), alt kenar y 1036 | logonun kendi renkleri |
 | Sağ alt | ajanda `Hook  Examples  Form`, etkin olan sarı + 4 px nokta solunda | sağ kenar 1864, taban 1030; Lexend 500 20 px, 36 px aralık | ikincil / vurgu |
@@ -121,7 +121,7 @@ Karar (Nadir 04.11, K23): giriş 3 sn, ilk söz ≤ 1 sn, kalem sesi 0. kareden,
 | sn | Hareket |
 |---|---|
 | 0,0–0,4 | Logo damgası sol sütun altında (110 px, x 96, y ≈ 880): ölçek 1,18→1,0 + dönme −2°→0, alfa 0→1 (vurus kare 3) |
-| 0,3–0,9 | Rozet hapları: `YDT · BASIC`, `GRAMMAR` (stagger 0,1) |
+| 0,3–0,9 | Rozet hapları: `YDT · TEMEL`, `GRAMMAR` (stagger 0,1) |
 | 0,0–2,2 | Başlık kalemle çizilir (soldan açılan kırpma): `PRESENT` 0,0–1,1, `CONTINUOUS` 1,0–2,2; Fredoka 700 140. Kalem sesi kare 0 (cizgi + hisirti) |
 | 0,2–2,3 | Sağ sütun: ayakta figür (standing-3) 0,2–2,0, kamera 1,6–2,2 (stroke-dash, cizgi olayları) |
 | 1,0–2,92 | Başlığın altında (x 96, y 650) Caveat 700 64 krem: `Bu akşam amcamlara gidiyorum.` cümle 1 ile sözcük sözcük yazılır (`sozcukler.json`) |
@@ -133,8 +133,8 @@ Karar (Nadir 04.11, K23): giriş 3 sn, ilk söz ≤ 1 sn, kalem sesi 0. kareden,
 |---|---|
 | 0–0,4 sn (kare 0–9) | (cümle 1 sesi sahne 01'de; yazı hazır sayılır, çizilmeden hızlı belirir) Caveat 64 krem, sol (x 140, y 300): `Bu akşam amcamlara gidiyorum.` sözcük zamanında yazılır. Sağda eskiz: ev (home, 260 px, x≈1450 y≈300) + ona yürüyen figür (standing-2) + hilal (el elipsi) |
 | 9,39–12,35 | `gidiyorum` sarı daire; Caveat not `-yor → şimdiki zaman`; ok → küçük takvim (calendar) + Caveat `bu akşam → gelecek` |
-| 12,50–14,58 | Altına Fredoka 56 krem: `I'm going to my uncle's tonight.` (y 520); `going` sarı daire; iki yönlü kalem oku `-yor ⇄ -ing` |
-| 14,73–20,89 | Alt sağ: el çizimi kutu, 3 madde tik zamanlı: `form` (16,97) · `time expressions` (17,65) · `6 uses` (19,29); küçük saat (clock) `6 min` 14,73 |
+| 12,50–14,58 | Altına Fredoka 56 krem: `I'm going to my uncle's tonight.` (y 520); `going` sarı daire; not `tonight → planlı gelecek` (13,46; DUZ3-0201T, eski `-yor ⇄ -ing` yanlış denklikti) |
+| 14,73–20,89 | Alt sağ: el çizimi kutu, 3 madde tik zamanlı: `form` (16,97) · `time expressions` (17,65) · `3 uses` (20,49; DUZ3-0201T, eski `6 uses`); küçük saat (clock) `6 min` 14,73 |
 | 20,89–21,83 | Her şey yerleşik; son 12 kare durgun |
 
 ### 03 Örnek 1 (Paper.js, 453 kare, t_bas 15,44; tablo eski çerçevede: yerel kare = (t − 21,44) × 30)
@@ -182,7 +182,7 @@ Karar (Nadir 04.11, K23): giriş 3 sn, ilk söz ≤ 1 sn, kalem sesi 0. kareden,
 | 72,72–77,28 | Künye `Form`. Üç `-ing` tek büyük `-ing`'e toplanır (Fredoka 160 sarı, sağ orta; vurus); altında el çizimi `in progress →` bandı; balon ve baş birlikte küçülür, yukarı kayar, soluklaşır (alfa 0,45) (künyeye değmez) |
 | 77,43–83,19 | Sol sütun `be` kolonu: `am` · `is` · `are` Fredoka 72 krem, sözcük zamanlarında; Caveat `now` sarı yanında |
 | 83,34–87,10 | Altında soluk `was · were` ikincil + Caveat `past`, kırmızı tek çizgi üstünden |
-| 87,25–91,73 | Alt: Caveat 56 `koşu-yor  =  runn-ing`, `-yor` ve `-ing` sarı; `=` kalemle çizilir |
+| 87,25–91,73 | Alt: 2×2 kart (DUZ3-0201T): `koşuyor → running` (86,61 / 87,49) · `biliyorum → I know` (90,73 / 91,89), ekler sarı altı çizili; her -yor -ing olmaz |
 | 91,73–93,33 | Formül kartı el kutusunda toplanır: `am / is / are  +  V-ing` (tik); 92,5 sağ alt ajandanın üstünde küçük `Next lesson →` Lexend 24 ikincil |
 | 93,33–94,33 | Durgun (1 sn kuyruk) |
 

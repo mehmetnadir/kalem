@@ -1,0 +1,39 @@
+{
+  "baslik": "Present Perfect Continuous: since ve durum fiilleri | YDT İngilizce İleri",
+  "etiketler": [
+    "İngilizce",
+    "ileri",
+    "gramer",
+    "Present Perfect Continuous",
+    "YDT",
+    "Present Perfect",
+    "durum fiilleri"
+  ],
+  "bolumler": [
+    {"t": 0.0, "ad": "Süreç mi, sonuç mu? have been + -ing"},
+    {"t": 17.25, "ad": "Since cümlesi: have been complaining"},
+    {"t": 35.28, "ad": "Süreç ve sonuç: reading, finished"},
+    {"t": 50.8, "ad": "Durum fiili know: have known"},
+    {"t": 64.67, "ad": "Have been knowing olur mu? Özet"}
+  ],
+  "sabitYorum": "Deneme sınavından önce dönmek için bu dersi kaydet; süreç ile sonucun farkını anlatan bölümlere açıklamadaki damgalarla doğrudan geç.",
+  "gonderiler": [
+    {
+      "kimlik": "g1",
+      "metin": "Bütün hafta okuyorum ama yalnızca iki bölüm bitirdim: İngilizcede hangisi been alır? Süreç have been reading ile, sayıyla verilen sonuç have finished ile söylenir. Derste since ipucunu ve durum fiili tuzağını da görüyoruz.",
+      "gorsel": "kapak.png"
+    }
+  ],
+  "liste": {
+    "ad": "Tenses · YDT İleri",
+    "sira": 9,
+    "onceki": "02-08-ydt-ileri",
+    "sonraki": "02-10-ydt-ileri"
+  },
+  "bildirimler": [
+    {"t": 35.83, "sure": 3.0}
+  ],
+  "giris": true,
+  "cikis": true,
+  "aciklamaDosya": "youtube-aciklama.md"
+}

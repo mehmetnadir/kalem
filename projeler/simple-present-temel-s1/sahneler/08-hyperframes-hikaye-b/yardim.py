@@ -1,6 +1,6 @@
 """Ortak yardımcılar, DİKEY 1080x1920 (02-04-ydt-temel-s1 sahne 07 hikâye B v2 kopyası; simple-present-temel-s1 sahne 08).
 Yol verisi, yazı genişliği (fontTools, kerning yok), künye SVG'si, yazı tipi CSS'i.
-huni v2 (15.11): kanal katmanı (`#kanal`, logo `#logoimg`) + künye satırı (konu `Simple Present` + `YDT · BASIC`)
+huni v2 (15.11): kanal katmanı (`#kanal`, logo `#logoimg`) + künye satırı (konu `Simple Present` + `YDT · TEMEL`)
 + v2 bantları (BRIEF-S1 "Kanal katmanı"); çip yok."""
 import json
 import math
@@ -155,7 +155,7 @@ HUD = {"kenar": 60, "sagSinir": 960,
        "altyaziBas": 1400, "altyaziSon": 1550, "altyaziYazi": 44, "altyaziSatir": 56,
        "altyaziMerkez": 510, "altyaziEn": 900}
 KONU = "Simple Present"
-ROZETLER = ("YDT · BASIC",)
+ROZETLER = ("YDT · TEMEL",)
 KANAL_YAZI = "@ydspublishing"
 
 

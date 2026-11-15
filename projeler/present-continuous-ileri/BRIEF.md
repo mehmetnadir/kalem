@@ -2,9 +2,11 @@
 
 Amaç: temel sürümle AYNI kapsam, farklı derinlik. Ana görsel dil `../present-continuous/BRIEF.md` (prototip 4 "kalem") ile aynıdır;
 bu BRIEF yalnız §0 (içerik özeti), §1 (sahne tablosu) ve §4 (sahne sözleşmeleri) değiştirir. Çıktı `cikti.mp4`
-(1920×1080, 30 fps, 84.96 sn) + `kontrol.png`. Anlatım hazır: `ortak/anlatim/anlatim.wav` (soğuk açılış: ilk söz 1,00 sn).
+(1920×1080, 30 fps, 88.16 sn; 16.11 DUZ3, önce 84.96) + `kontrol.png`. Anlatım hazır: `ortak/anlatim/anlatim.wav` (soğuk açılış: ilk söz 1,00 sn).
 Metin ve zamanlar: `ortak/anlatim/METIN.md`, sözcük zamanları `ortak/anlatim/sozcukler.json` (küresel sn), altyazı parçaları
 `ortak/anlatim/altyazi.json` (21 parça). Senaryo: `ortak/anlatim/senaryo.json` (kaynak: `dijital-anlatim/pilot/grammar-tenses-01-ileri/`).
+
+> **16.11 DUZ3-0201I:** c3 ve c7 yeniden seslendirildi (ders 84,96 → 88,16 sn). Sahne 03 472 kare (15,25–30,58), 04 30,58–43,07, 05 43,07–55,08 (04–05 sahne içinde eski çerçeve + `kayma: -1.0`, tablolardaki sn değerleri o çerçevededir), 06 1022 kare (55,08–88,16). Güncel sözcük zamanları: `ortak/anlatim/METIN.md`. Rapor: `uretim-tutanagi/DUZ3-RAPOR.md`.
 
 ## 0. Nadir'in istekleri (kaynak: 03–04.11 konuşmaları; hepsi bu videoda görünür olmalı)
 
@@ -32,10 +34,10 @@ Kapalı kararlar: DUR kartı yok · video ortasında soru kartı yok · QR bu pr
 |---|---|---|
 | Yön | 3 örnek → kural (tümevarım) | kural/formül önce, sonra 3 YDT kökü, sonra 1 tuzak (tümdengelim) |
 | Örnek türü | günlük kısa cümle | uzun, bağlaçlı sınav kökü (while, because, so) |
-| Tuzak | yok | durum fiilleri (know, believe, own, belong) -ing almaz; `always + V-ing` = şikâyet |
+| Tuzak | yok | durum fiilleri (know, believe, own, belong) durum anlamında -ing almaz; `always + V-ing` çoğu zaman şikâyet |
 | Dil payı | TR anlatım, EN yalnız örnek | EN sözcük payı ≈ %42 (örnek + kısa EN kural cümleleri) |
 | Öğrenci cümlesi | merak: "neden hep -ing?" | yanlış kavram: "I am knowing the answer olmaz mıydı?" |
-| Rozet / künye | `YDT · BASIC` | `YDT · ADVANCED` (`PRESENT CONTINUOUS`) |
+| Rozet / künye | `YDT · TEMEL` | `YDT · İLERİ` (`PRESENT CONTINUOUS`; HV-24) |
 Sahne başına cümle: 01 → c1 · 02 → c2 · 03 → c3 · 04 → c4 · 05 → c5 · 06 → c6 (öğrenci) + c7.
 Kırmızı bu videoda yalnız: tuzak ünlemi (sahne 02), yanlış cümlenin üstüne çarpı (sahne 06). Başka yerde kırmızı YOK.
 
@@ -53,10 +55,10 @@ Kırmızı bu videoda yalnız: tuzak ünlemi (sahne 02), yanlış cümlenin üst
 |---|---|---|---|---|---|
 | 1 | 01-hyperframes-giris | HyperFrames | 102 | 0.00–3.00 | cümle 1 (1,00–3,16) |
 | 2 | 02-paperjs-kanca | Paper.js | 380 | 3.00–15.25 | cümle 2 (3,71–15,25) |
-| 3 | 03-paperjs-ornek1 | Paper.js | 442 | 15.25–29.58 | cümle 3 (15,80–29,58) |
-| 4 | 04-canvas-ornek2 | Düz canvas | 387 | 29.58–42.07 | cümle 4 (30,13–42,07) |
-| 5 | 05-canvas-ornek3 | Düz canvas | 372 | 42.07–54.08 | cümle 5 (42,62–54,08) |
-| 6 | 06-hyperframes-form | HyperFrames | 956 | 54.08–84.96 | cümle 6 (öğrenci, 54,63–59,85) + cümle 7 (60,40–83,96) |
+| 3 | 03-paperjs-ornek1 | Paper.js | 472 | 15.25–30.58 | cümle 3 (15,80–30,54) |
+| 4 | 04-canvas-ornek2 | Düz canvas | 387 | 30.58–43.07 | cümle 4 (31,13–43,07) |
+| 5 | 05-canvas-ornek3 | Düz canvas | 372 | 43.07–55.08 | cümle 5 (43,62–55,08) |
+| 6 | 06-hyperframes-form | HyperFrames | 1022 | 55.08–88.16 | cümle 6 (öğrenci, 55,63–60,85) + cümle 7 (61,40–87,12) |
 
 Sahne sınırı = bir önceki cümlenin bitişi (= sonraki cümle başı − 0,55); son sahne = son söz + 1,0 sn. Cümle 1 sesi 3,16 sn'ye kadar sürer (sahne 01 içeriği 3,0 sn): `düşme.` sözcüğü 2,52'de başlar, yazı 3,0'dan önce yerinde olmalı.
 
@@ -111,7 +113,7 @@ yalnız yer açmak için küçülüp köşeye toplanır · ses olayı görsel an
 
 | Köşe | İçerik | Konum / boy | Renk |
 |---|---|---|---|
-| Sol üst | `PRESENT CONTINUOUS` + ` · YDT ADVANCED` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
+| Sol üst | `PRESENT CONTINUOUS` + ` · YDT İLERİ` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
 | Sağ üst | bölüm adı: `Hook` · `Example 1 / 3` · `Example 2 / 3` · `Example 3 / 3` · `Question` → `Form` | sağ kenar x 1864, taban 72; Lexend 700 24 px | vurgu |
 | Sol alt | logo svg | x 56, yükseklik 34 px (en ≈ 137), alt kenar y 1036 | logonun kendi renkleri |
 | Sağ alt | ajanda `Hook  Examples  Form`, etkin olan sarı + 4 px nokta solunda | sağ kenar 1864, taban 1030; Lexend 500 20 px, 36 px aralık | ikincil / vurgu |
@@ -130,10 +132,10 @@ HyperFrames: aynı sayılar CSS'te; sahne 01'in uçuş hedefleri bu tablodur (bi
 Temel sürümün sahne 01 kalıbı aynen (logo damgası, rozet hapları, başlık kalemle, uçuş, künye). Farklar:
 | sn | Hareket |
 |---|---|
-| 0,3–0,9 | Rozet hapları `YDT · ADVANCED`, `GRAMMAR` |
+| 0,3–0,9 | Rozet hapları `YDT · İLERİ`, `GRAMMAR` |
 | 0,0–2,2 | Başlık `PRESENT` / `CONTINUOUS` kalemle (temeldeki gibi) |
 | 0,2–2,3 | Sağ sütun: ayakta figür (standing-3) 0,2–2,0 + telefon (phone) 1,6–2,2 |
-| 1,00–3,0 | Başlığın altında Caveat 64 krem: `YDT'nin -ing tuzağına düşme.` sözcük zamanlı: `YDT'nin` 1,00 · `-ing` 1,80 (sarı daire) · `tuzağına` 2,04 · `düşme.` 2,52 |
+| 1,00–3,0 | Başlığın altında Caveat 64 krem: `Dil sınavındaki -ing tuzağına düşme.` sözcük zamanlı: `Dil` 0,64 · `-ing` 1,92 (sarı daire) · `tuzağına` 2,24 · `düşme.` 2,72 (13.11 metni) |
 | 2,2–3,0 | UÇUŞ: başlık → sol üst künye; logo → sol alt; eskiz solar; ajanda belirir. Cümle yazısı sahne 02'ye hazır geçer |
 
 ### 02 Kanca + formül (Paper.js, 380 kare, t_bas 3,00; cümle 2)
@@ -154,7 +156,7 @@ Temel sürümün sahne 01 kalıbı aynen (logo damgası, rozet hapları, başlı
 | 16,9–20,0 | Sağ: telefonda konuşan figür (sitting-4) + telefon (phone, 300 px); ortada el çizimi duvar çizgisi; duvarın ardında küçük uyuyan figür (sitting-6) + Caveat `z z z` |
 | 22,30–25,14 | Caveat 48 ikincil: `Bebek uyuyor, ben telefonda konuşuyorum.` (y 620) |
 | 25,14–27,66 | Zaman çizgisi (y 760): `now` noktası nabız atar; üstünde iki paralel dalgalı sarı bant `is sleeping` / `am talking`; Caveat `iki iş de sürüyor` |
-| 27,66–29,58 | `While` (27,66) sarı kutu → ok → `NOW`; formül kartı `be + V-ing` → `is sleep-ing` / `am talk-ing` (-ing sarı). Durgun son 12 kare |
+| 27,74–30,54 | (16.11 DUZ3) `while,` (27,74) sarı kutu parlar → ok → `aynı anda` (28,58, eski `NOW`); ayraç `is sleeping` / `am talking` bantlarını birleştirir (29,54 `iki işi`); formül kartı (28,62) `be + V-ing` → `is sleep-ing` / `am talk-ing` (-ing sarı). Durgun son 12 kare |
 
 ### 04 Örnek 2 (düz canvas, 387 kare, t_bas 29,58; cümle 4) — çip `Example 2 / 3`
 | sn | Hareket |
@@ -185,8 +187,8 @@ Temel sürümün sahne 01 kalıbı aynen (logo damgası, rozet hapları, başlı
 | 66,81–68,33 | Fredoka 64: `I know the answer.` (`know` sarı daire 66,97) |
 | 68,58–73,14 | Köprü: Caveat 56 `biliyor-um` (69,22; `-yor` sarı) ↔ `I know` (70,26 ama) ; `know-ing` üstü çizili (`-ing` 71,38); Caveat `Türkçede -yor var, İngilizcede -ing yok` |
 | 73,39–75,87 | Fredoka 64: `He is always losing his keys.` `always` (73,79) sarı alt çizgi, `losing` (74,27) daire; sağda figür (standing-5) ve el çizimi ünlem (sinir) |
-| 76,12–79,92 | Caveat 56: `always + V-ing = şikâyet` (`Always` 76,12, `-ing` 77,32 sarı, `şikâyettir` 77,80 el altı çizgisi); `Sınavda ikisi de çıkar` (78,96): iki küçük kutu yan yana: `know / believe / own / belong` ve `always + V-ing` |
-| 80,72–83,96 | `Kod:` (80,72) → Fredoka 150: `olay = -ing` (`olay` 81,48, `-ing` 81,88 sarı) alt satır `durum ≠ -ing` (`durum` 82,92, `almaz` 83,32); `=` ve `≠` kalemle çizilir |
+| 78,16–83,30 | (16.11 DUZ3; eski: `always + V-ing = şikâyet`) Caveat 52: `always + V-ing: çoğu zaman şikâyet` (`always` 78,16, `-ing` 79,28 sarı, `çoğu zaman` 79,84, `şikâyet` 80,44 el altı çizgisi; 624 px, figürden önce biter); `Sınavda ikisi de çıkar` (81,80): iki küçük kutu yan yana: `know / believe / own / belong` ve `always + V-ing` |
+| 83,56–87,12 | (16.11 DUZ3; eski: `olay = -ing` / `durum ≠ -ing`) `Kod:` (83,56) → Fredoka 150: `olay + -ing` (`olay` 84,24, `-ing` 84,64 sarı) + sarı onay (`alabilir` 84,88); alt satır `durum + -ing` (`durum` 85,68) + Caveat 56 `genellikle` (86,08) + kalem çarpı (`almaz` 86,68); `+` kalemle çizilir |
 | 83,96–84,96 | Formül kartı el kutusunda toplanır: `am / is / are + V-ing` (tik); sağ alt ajanda üstünde `Next lesson →` Lexend 24 ikincil; 1 sn durgun kuyruk |
 
 ## 5. Çalıştırma (her sahne kendi `calistir.sh`; paket kökünden)

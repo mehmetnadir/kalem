@@ -1,0 +1,74 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 1.0,
+"t1": 3.32,
+"metin": "Olumsuzda s nereye gider?",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 3.79,
+"t1": 4.99,
+"metin": "He, she, it",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 5.24,
+"t1": 9.72,
+"metin": "ile olumsuzda ve soruda does girer; s ona geçer.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "tr",
+"t0": 9.87,
+"t1": 11.71,
+"metin": "Fiile s gelmez.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 11.96,
+"t1": 14.52,
+"metin": "He doesn't go. Does she go?",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 14.99,
+"t1": 16.91,
+"metin": "Does varsa fiil yalın.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 17.06,
+"t1": 19.78,
+"metin": "Bir arkadaşına gönder; o da karıştırıyor.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 20.25,
+"t1": 22.01,
+"metin": "Bu sadece başlangıç.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 22.16,
+"t1": 25.76,
+"metin": "Dersin tamamı YDS Publishing YouTube kanalında.",
+"konusan": "ogrenci"
+}
+]

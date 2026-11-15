@@ -153,7 +153,7 @@ HUD = {
     "altyaziYazi": 44, "altyaziSatir": 56,
 }
 DERS = ("SIMPLE PRESENT vs", "PRESENT CONTINUOUS")
-ROZET = "YDT · BASIC"
+ROZET = "YDT · TEMEL"
 
 
 def rozet_konumu() -> tuple[float, float]:

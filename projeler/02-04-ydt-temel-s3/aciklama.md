@@ -3,7 +3,7 @@
 Kaynak: `uretim-tutanagi/aciklama-taslak.md` §3 (S3-B jürisi + S3-C düzeltmeleri, `uretim-tutanagi/S3-duzeltme.md`).
 Sürüm: A (`s3-aciklama-a`), kısa ve doğrudan: kuralla açılır. `aciklama.md` bu dosyanın kopyasıdır. B seti: `aciklama-b.md`.
 Ana ders: Simple Present ve Present Continuous (`ING-YDT-GR-02-04-T`).
-Shorts: `ING-YDT-GR-02-04-T-S3`, 28,31 sn (huni v2). Kimlik `@ydspublishing`. Her platform metninin ilk satırı huni v2 standardı §4; standart §1 kural 4–5 sözleri yok, QR yok.
+Shorts: `ING-YDT-GR-02-04-T-S3`, 31,10 sn (huni v2; DUZ2 15.11). Kimlik `@ydspublishing`. Her platform metninin ilk satırı huni v2 standardı §4; standart §1 kural 4–5 sözleri yok, QR yok.
 
 **UYARI:** `https://ydspublishing.com/grammar/02-04-ydt-temel` belgeden türedi; canlılığı ölçülmedi (grammar-kapi Worker 11.11'de
 yayında değil). Paylaşımdan önce adresi aç. Açılmazsa adresi `{PLATFORM_URL}` ile değiştir ya da satırı çıkar.
@@ -13,7 +13,7 @@ yayında değil). Paylaşımdan önce adresi aç. Açılmazsa adresi `{PLATFORM_
 Başlık:
 
 ```
-Tarife geniş zaman, plan şimdiki zaman | YDT İngilizce #Shorts
+Tarife geniş zaman, kesin düzenleme şimdiki zaman | YDT İngilizce #Shorts
 ```
 
 Açıklama:
@@ -22,8 +22,8 @@ Açıklama:
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Simple Present ve Present Continuous konusunun püf noktası: iki cümle de geleceği anlatır, zamanları farklıdır.
 The train to İzmir leaves at 7 pm today. → tarifeli gelecek, geniş zaman
-I am going to the movie theater tonight. → planlanmış gelecek, şimdiki zaman
-Planı bir kişi yapar. Tren plan yapmaz, tarifeye uyar.
+I am going to the movie theater tonight. → kesin düzenleme, şimdiki zaman
+Biletimi aldım, saat belli: kesin düzenleme. Tren tarifeye uyar.
 Bu, iki zaman arasındaki üç farktan biri.
 Dersin tamamını izle: {UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s3-a
 Sıradaki ders: Stative Verbs
@@ -42,7 +42,7 @@ Reels açıklaması:
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 İki cümle de geleceği anlatıyor, zamanları farklı:
 The train to İzmir leaves at 7 pm today. → tarifeli gelecek, Simple Present
-I am going to the movie theater tonight. → planlanmış gelecek, Present Continuous
+I am going to the movie theater tonight. → kesin düzenleme, Present Continuous
 Bu, üç farktan biri. Üç farkın hepsi dersin tamamında.
 Ders sayfası: profildeki bağlantı.
 Öğretmenseniz sınıfınızla paylaşın.
@@ -63,7 +63,7 @@ Açıklamaya adres yazılmaz (Instagram açıklamada bağlantı tıklanmaz).
 
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
-Tarifeli gelecek: The train leaves. Planlanmış gelecek: I am going.
+Tarifeli gelecek: The train leaves. Kesin düzenleme: I am going.
 Bu, üç farktan biri. Üç farkın hepsi dersin tamamında. Ders sayfası: profildeki bağlantı.
 Sıradaki ders: Stative Verbs
 #YDT #İngilizce #gramer #SimplePresent #PresentContinuous

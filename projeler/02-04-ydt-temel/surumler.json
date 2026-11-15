@@ -72,5 +72,20 @@
       "proje": "02-04-ydt-temel-s1"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "ana-yatay",
+      "no": "r1",
+      "tarih": "2026-11-15T20:57:00Z",
+      "degisiklik": "DUZ2 (J2 TD-1, HV-24): künye rozeti YDT · TEMEL oldu (İngilizce seviye adı kaldırıldı); kaynak ortak/kunye.js (kanvas ve Paper.js sahneleri buradan okur) + sahne 01, 06, 07, 10, 12, 13, 14 yardim.py + 90 yardim.py; HyperFrames 7 sahne yeniden üretildi; kapak zaten YDT · TEMEL (kapak.png değişmedi); ses ve zaman değişmedi; mp4 yeniden derlenmedi (cikti.mp4, cikti-koyu.mp4 eski rozeti taşır)",
+      "cikti": null
+    },
+    {
+      "surum": "ana-yatay",
+      "no": "r2",
+      "tarih": "2026-11-15T22:37:00Z",
+      "degisiklik": "DUZ3 (DJ-hukum-1611-0019, EK-5b/EK-5c, KS-4): 5 cümle düzeltildi ve yeniden sentezlendi (4 «Orada hep yaşıyorum» → «Burası bizim evimiz»; 7 «Planı bir kişi yapar» → «insanlar», «varsa geniş zaman» → «varsa çoğunlukla geniş zaman»; 13 «Ailenle hep orada» → «Ailenle kalıcı olarak»; 14 «Zaman sözcüğü ve Türkçe ek ipucu verir» → «Zaman sözcüğü ipucu verir. Türkçe ek yanıltabilir.»; 18 «-ing almayan fiiller» → «durum bildiren fiiller»); süre 264,64 → 267,04 sn. Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    }
+  ]
 }

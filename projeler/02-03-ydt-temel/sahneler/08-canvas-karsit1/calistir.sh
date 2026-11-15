@@ -5,7 +5,7 @@
 set -eo pipefail
 [ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"
 D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=646
-KLASOR=08-canvas-karsit1; PROJE=02-03-ydt-temel; TBAS=109.61; GLOBAL_SN="114.0 119.8 124.5 130.3"
+KLASOR=08-canvas-karsit1; PROJE=02-03-ydt-temel; TBAS=111.37; GLOBAL_SN="115.76 121.56 126.26 132.06"
 . "$D/../../ortak/tema.sh" "$@"
 cd "$K"
 [ -n "$ONIZLE_YALNIZ" ] && { echo "önizleme hazır"; exit 0; }

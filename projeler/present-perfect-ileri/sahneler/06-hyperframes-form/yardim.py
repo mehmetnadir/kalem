@@ -173,7 +173,7 @@ def kunye_svg(bolum, bolum2, etkin0=1, etkin1=2):
     return ('<g id="kunye">'
             '<text id="ku-ders" x="56" y="72" font-family="Fredoka" font-weight="700" font-size="30" fill="%s">'
             'PRESENT PERFECT<tspan id="ku-sev" dx="14" font-family="Lexend" font-weight="500" font-size="22" '
-            'fill="%s">· YDT ADVANCED</tspan></text>'
+            'fill="%s">· YDT İLERİ</tspan></text>'
             '<text id="ku-bolum" x="1864" y="72" text-anchor="end" font-family="Lexend" font-weight="700" '
             'font-size="24" fill="%s">%s</text>'
             '<text id="ku-bolum2" x="1864" y="72" text-anchor="end" font-family="Lexend" font-weight="700" '

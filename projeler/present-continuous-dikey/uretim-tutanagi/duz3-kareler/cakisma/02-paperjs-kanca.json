@@ -1,0 +1,26 @@
+{
+  "paket": "present-continuous-dikey",
+  "sikilik": 4,
+  "pay": 4,
+  "tarih": "2026-11-15T22:30:06.291Z",
+  "ozet": {
+    "toplamSahne": 1,
+    "olculen": 1,
+    "olculmedi": 0,
+    "olcumHatasi": 0,
+    "toplamHata": 0,
+    "toplamUyari": 0
+  },
+  "sahneler": [
+    {
+      "sahne": "02-paperjs-kanca",
+      "motor": "Paper.js",
+      "durum": "olculdu",
+      "ornekSayisi": 55,
+      "kutuSayisi": 5303,
+      "t_bas": 3,
+      "t_son": 16.48,
+      "olaylar": []
+    }
+  ]
+}

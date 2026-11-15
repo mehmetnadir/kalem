@@ -1,0 +1,33 @@
+# 16.11.2026 01:58:51 · node /home/sef/01dev/dijital-anlatim/araclar/huni-kapi.mjs /home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s3 · kapı commit d846d6e
+HV-1 ÖLÇÜLEMEDİ — kare ölçümü tarayıcı ister (ayrı iş: kare-denetim.mjs; kaynak denetimi HV-1s)
+HV-1s GEÇTİ — [betik-içi] statik: 8/8 sahnede @ydspublishing kaynağı (01-hyperframes-kapak←proje/index.html, 02-hyperframes-ornek←proje/index.html, 08-hyperframes-kaydet←yardim.py, (+5)); kare görünürlüğü ölçülmedi
+HV-2 GEÇTİ — son cümle (5) ses=ogrenci (senaryo.json; Whisper doğrulaması ayrı)
+HV-3 GEÇTİ — çekirdek cümle birebir: senaryo.json son cümle + altyazi.json satırı
+HV-4 GEÇTİ — "Tam ders" yok (18 dosya tarandı)
+HV-5 GEÇTİ — dakika/dk yok (18 dosya tarandı)
+HV-7 GEÇTİ — ana ders kapağı (açık + koyu) dosyaları var; son karede görünürlüğü ölçülmedi
+HV-9 GEÇTİ — pakette *.mp4 yok
+HV-10 ÖLÇÜLEMEDİ — kutu ölçümü tarayıcı ister (ayrı iş: kare-denetim.mjs)
+HV-11 GEÇTİ — 4 sahne, 31.1 sn (hedef 22–26 dışı; zaman.json)
+HV-12 GEÇTİ — ilk söz 1 sn (baslar.json[1][0] + sureler.json[0].sozcukler[0]); kanca sahnesi bitişi 3 sn (zaman.json sahneler[0].t_son); bilgi: kanca cümlesi bitişi 6.45 sn (baslar.json[1][1])
+HV-15 GEÇTİ — "Bu sadece başlangıç." listeden; 2 kardeş pakette yinelenmiyor
+HV-16 GEÇTİ — "Bir arkadaşına gönder; o da karıştırıyor." listeden; 2 kardeş pakette yinelenmiyor
+HV-17 ÖLÇÜLEMEDİ — ses-sozluk.json + Whisper raporu (el.py) ister; bu betik model ve ses çözümü koşmaz
+HV-18 GEÇTİ — 9 açıklama bloğunun ilk satırı sabit; 3 Reels bloğunda bağ yok
+HV-19 GEÇTİ — 15 bağ (3 dosya): utm_campaign=ING-YDT-GR-02-04-T, utm_content=s3-<set>
+HV-20 GEÇTİ — teslim dosyaları tam (kapak 3, hikâye 2, açıklama 2, altyazı)
+HV-22 ÖLÇÜLEMEDİ — çakışma kapısı tarayıcı ister (araclar/cakisma-kapisi.mjs)
+HV-23 ÖLÇÜLEMEDİ — Whisper benzerliği ister; bu betik model koşmaz
+EK-1 GEÇTİ — ses metninde YDT kısaltması yok (5 cümle)
+HV-24 GEÇTİ — 2 kaynakta rozet "YDT · TEMEL"; "BASIC" yok (34 dosya tarandı); aynı karede iki rozet için kare gerekir (G)
+JR-1b KALDI — [betik-içi] jüri 2026-11-16 00:59:06 yerel (J2-hukum-1611-0049.md) ≤ son içerik 2026-11-16 01:36:05 yerel (surumler.json); dosya değişim zamanı
+KR-1 GEÇTİ — 8 sahnede kareler kaynaktan ve kunye.js'ten yeni
+AB-1 UYGULANMAZ — --kol-a verilmedi; A/B denetimi yalnız kol b paketi + kol a ile koşar
+AB-2 UYGULANMAZ — --kol-a verilmedi; A/B denetimi yalnız kol b paketi + kol a ile koşar
+AB-3 UYGULANMAZ — --kol-a verilmedi; A/B denetimi yalnız kol b paketi + kol a ile koşar
+KS-6f UYGULANMAZ — --kol-a verilmedi; A/B denetimi yalnız kol b paketi + kol a ile koşar
+AB-6 UYGULANMAZ — --kol-a verilmedi; A/B denetimi yalnız kol b paketi + kol a ile koşar
+AB-8 UYGULANMAZ — --kol-a verilmedi; A/B denetimi yalnız kol b paketi + kol a ile koşar
+AB-9 UYGULANMAZ — --kol-a verilmedi; A/B denetimi yalnız kol b paketi + kol a ile koşar
+ÖZET: 17 GEÇTİ, 1 KALDI, 5 ÖLÇÜLEMEDİ, 7 UYGULANMAZ
+# çıkış: 1

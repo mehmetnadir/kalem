@@ -18,7 +18,7 @@ Platform arayüzü üst 0–250, alt 1580–1920 ve sağ 960–1080 bölgesini k
 |---|---|---|
 | Üst boş | 0–280 | yalnız zemin |
 | Kanal katmanı | 280–350 | logo resmi x 53,2 (SVG iç boşluğu 68/1920 düşülür, görünür sol kenar x 60), y 291–339, yükseklik 48, genişlik 193,5 (en-boy 1920/476,3; açık `ortak/logo/yds-publishing-lacivert.svg`, koyu `yds-publishing-seffaf.svg`) + `@ydspublishing` Lexend 700 42 px, x 263, taban y 330, tema mürekkebi. İlk kareden son kareye, alfa 1, giriş/çıkış animasyonu yok; kimlik `kanal`, `__kalemKutu` türü `kunye`, ad `kunye:kanal`. Değerler S1 ile aynı (`../02-04-ydt-temel-s1/BRIEF-S1.md`) |
-| Künye | 360–450 | konu `Simple Present vs Present Continuous` Fredoka 700, x 60, taban y 420, boy ≤ 34 (rozetle x 960'a sığan en büyük, alt sınır 28) · rozet hapı `YDT · BASIC` Lexend 700 26 px, y 386–434, konu sonu + 20 |
+| Künye | 360–450 | konu `Simple Present vs Present Continuous` Fredoka 700, x 60, taban y 420, boy ≤ 34 (rozetle x 960'a sığan en büyük, alt sınır 28) · rozet hapı `YDT · TEMEL` Lexend 700 26 px, y 386–434, konu sonu + 20 |
 | İçerik | 460–1380 | kart, çizim, kural; x 60–960 |
 | Altyazı + karaoke | 1400–1550 | en çok 2 satır (`ortak/kunye.js` `altyaziCiz` bandı 1400–1536) |
 | Alt boş | 1570–1920 | yalnız zemin |
@@ -49,7 +49,7 @@ Zaman sözcük çapasından okunur (`ortak/anlatim/sozcukler.json`), sabit saniy
 
 | sn | Hareket |
 |---|---|
-| 0,00 | Kapak A tam görünür (ilk kare = kapak): kanal katmanı; künye satırında yalnız rozet `YDT · BASIC`; başlık `GENEL` (900 px'e sığan en büyük boy, üst sınır 190 px) / `≠ ŞU AN` sarı hapta (dolgu `#ffe066`, yazı `#1b2440`); solda askıda mont (`coat`), ortada işaret eden öğretmen figürü, sağda askıda pembe tişört (`t-shirt`); etiketler mont altında `wears`, tişört altında `is wearing` (Caveat ≥ 72); hepsi 460–1380 içinde |
+| 0,00 | Kapak A tam görünür (ilk kare = kapak): kanal katmanı; künye satırında yalnız rozet `YDT · TEMEL`; başlık `GENEL` (900 px'e sığan en büyük boy, üst sınır 190 px) / `≠ ŞU AN` sarı hapta (dolgu `#ffe066`, yazı `#1b2440`); solda askıda mont (`coat`), ortada işaret eden öğretmen figürü, sağda askıda pembe tişört (`t-shirt`); etiketler mont altında `wears`, tişört altında `is wearing` (Caveat ≥ 72); hepsi 460–1380 içinde |
 | 0,30–0,80 | `≠` işareti hapın içinde kalemle çizilir (tek kalem hareketi) |
 | 0,90 | Kapak karesi (kare 27): başlık tam, `≠` bitmiş, altyazı katmanı gizli → `kapak-a.png` |
 | 1,00–2,84 | Cümle 1 altyazı bandında sözcük zamanlı: `Genel mi,` (`Genel` 1,00) · `şu an mı?` (`şu` 2,12 · `mı?` 2,52) |

@@ -1,4 +1,4 @@
-"""Sahne 14 Kapanış (02-04 YDT temel dikey; HyperFrames 1080×1920, 431 kare; cümle 18).
+"""Sahne 14 Kapanış (02-04 YDT temel dikey; HyperFrames 1080×1920, 434 kare; cümle 18).
 Son sahne: geçişsiz, +0,5 sn kuyruk. MEANING FIRST + üç soru satırı ses sırasıyla yazılır;
 sonraki ders kartı (02-05: Next lesson · Stative Verbs).
 Yerleşim BRIEF-DIKEY §2-§3 satır 14 + SPEC.md: HUD 0-320, içerik 352-1392, altyazı 1400-1536, platform boş.
@@ -124,7 +124,8 @@ def uret():
             kayit("soru %d: %s" % (k + 1, m.strip()), t, i)
             x += w + SORU_ARA
 
-    # ---- 5) "Sonraki derste -ing almayan fiilleri görüyoruz.": sonraki ders kartı (02-05) ----
+    # ---- 5) "Sonraki derste durum bildiren fiilleri görüyoruz.": sonraki ders kartı (02-05) ----
+    # 16.11 DUZ3: eski cümle «-ing almayan fiiller» mutlak kuraldı (durum fiilleri de -ing alabilir); Stative = «durum»
     t = S(T(20, "Sonraki"))
     s.yol("kk", Y.el_kutu(kx, ky, kw, kh), t, 0.55, IKN, u(4), 0.95, "cizgi", 0.55)
     kayit("kart çerçevesi", t, 20)
@@ -134,7 +135,7 @@ def uret():
     kayit("Next lesson", t, 21)
 
     ws = g("Stative ", SV_BOY)
-    for kim, m, x, i, bas in (("k2", "Stative", kx + KART_IC, 22, "-ing"),
+    for kim, m, x, i, bas in (("k2", "Stative", kx + KART_IC, 22, "durum"),
                               ("k3", "Verbs", kx + KART_IC + ws, 24, "fiil")):
         t = S(T(i, bas))
         s.yazi(kim, x, SV_Y, [(m, KRE)], "Fredoka", 700, SV_BOY, t, 0.3, tur="tik", guc=0.5)

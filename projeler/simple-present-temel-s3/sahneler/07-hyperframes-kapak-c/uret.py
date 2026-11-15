@@ -113,13 +113,13 @@ def kart1_svg() -> str:
     w_es = Y.genislik("Fredoka", 700, "es", KB)
     cizik = (
         f'<path id="k1-cizik" d="M{x_es + 4.0:.1f} {t1 - 17.0:.1f} L{x_es + w_es - 2.0:.1f} {t1 - 24.0:.1f}" '
-        f'fill="none" stroke="{R["kirmizi"]}" stroke-width="7" stroke-linecap="round"/>'
+        f'fill="none" stroke="{R["murekkep"]}" stroke-width="7" stroke-linecap="round"/>'
     )
     oy = K1_Y + KH // 2
     carpi = (
         f'<path id="k1-carpi" d="M{IM_X + 4} {oy - 32} Q{IM_X + 38} {oy + 2} {IM_X + 68} {oy + 34} '
         f'M{IM_X + 68} {oy - 34} Q{IM_X + 36} {oy + 2} {IM_X + 6} {oy + 32}" '
-        f'fill="none" stroke="{R["kirmizi"]}" stroke-width="9" stroke-linecap="round"/>'
+        f'fill="none" stroke="{R["murekkep"]}" stroke-width="9" stroke-linecap="round"/>'
     )
     return f'<g id="kart1">{zemin}{cerceve}{yazi}{cizik}{carpi}</g>'
 
@@ -262,7 +262,8 @@ def kurallari_dogrula(
         assert len(s) <= 24, f"Satır uzunluğu {len(s)} > 24: {s}"
 
     # 7. Renk sayımı
-    assert html.count(R["kirmizi"]) == 2, f"kirmizi sayisi {html.count(R['kirmizi'])} != 2"
+    # DUZ2 A7 (16.11): ✗ ve üstü çizgi mürekkep; kırmızı yok (stil anayasası §1)
+    assert html.count(R["kirmizi"]) == 0, f"kirmizi sayisi {html.count(R['kirmizi'])} != 0"
     assert html.count(R["vurgu"]) == 2, f"vurgu sayisi {html.count(R['vurgu'])} != 2"
     assert "#167a4a" not in html and "green" not in html, "Yeşil renk bulunmamalı"
     assert "✗" not in html and "✓" not in html, "✗ ve ✓ karakterleri bulunmamalı"

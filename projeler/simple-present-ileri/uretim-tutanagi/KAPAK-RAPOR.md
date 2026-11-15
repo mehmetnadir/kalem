@@ -18,3 +18,9 @@ Yöntem: `simple-present-temel/sahneler/90-hyperframes-kapak/` kopyası (`uret.p
 
 Turlar: 1 yerleşim turu (dirsek boş bölgede → karakter alt kenara), 1 kusur turu (kırıntı). 1. tur PNG'leri ve kesitler `~/Silinecekler/2026-11-15-kapak/`.
 **Açık kalan.** (a) Ana yazı 170/184 px = kapağın %16–17'si (standart %18–24): "YARIN ama" uzun, bilet yazıya yakın; büyütme karakteri küçültür. (b) Dikey yazı y 480–899 (standart bant 600–1320 üst yarısı; temel emsali gibi). (c) Açık temada logo tek renk `#141414` (emsal kararı). (d) Commit yok; iki sahne ve `ortak/kapak` bağı izlenmeyen dosya.
+
+**YV-DUZ düzeltmesi (16.11).** Kapak metni "YARIN ama / WILL YOK" → "YARIN / WILL mi?" (YVJ-0202I YV-9 hayır: mutlak kural; ders c7
+"tarife varsa Simple Present, tahmin varsa will" ile çelişiyordu; yeni metin dersin c6 sorusu, soru biçimi). Küçük satır, karakter, nesne,
+yerleşim değişmedi. Denenen "YARIN DİYE" dikeyde "İ" noktası logoya değdi; "YARIN diye" "y" kuyruğu vurguya değdi (üretici `assert`).
+4 PNG + `kapak-168.png` yeniden üretildi, kareye bakıldı (taşma yok). Eski PNG'ler `~/Silinecekler/2026-11-15-yv-duz/simple-present-ileri*/`.
+Kapak jürisi (KS-4, KS-6, KS-8) yeniden koşmalı.

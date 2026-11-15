@@ -27,9 +27,10 @@ import yardim as Y  # noqa: E402
 KAPAK = AD.parent.parent / "ortak" / "kapak"
 LOGO = AD.parent.parent / "ortak" / "logo"
 
-# Kapak metni (şef kararı; değiştirme)
-SATIR1 = "YARIN ama"   # 'ama' küçük harf kalır (02-04 emsali 'mı' gibi)
-SATIR2 = "WILL YOK"    # vurgu satırı
+# Kapak metni (şef kararı; değiştirme). YV-DUZ 15.11: "YARIN ama WILL YOK" mutlak ve dersin koduyla
+# çelişiyordu (ders c7: tarife varsa Simple Present, tahmin varsa will) -> dersin c6 sorusu, soru biçimi.
+SATIR1 = "YARIN"       # soru biçimi (kapak §3), dersin c6 sorusu; "mi" soru eki küçük harf kalır
+SATIR2 = "WILL mi?"    # vurgu satırı
 KUCUK = "The flight takes off at nine."
 ROZET = "YDT · İLERİ"
 

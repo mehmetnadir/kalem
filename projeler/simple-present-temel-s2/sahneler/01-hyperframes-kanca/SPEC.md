@@ -81,7 +81,7 @@ Kanal katmanı ve künye (`#kunye`, `#kanal`, `#ku-konu`, `#rz0`) 0. kareden son
 
 ```
 y  291 ┌ [logo] @ydspublishing — Y.kunye_svg() #kanal, hareketsiz                                     ┐ kanal 280–350
-   386 │ Simple Present (Fredoka 34, x 60, taban 420) [YDT · BASIC] x ≈ 310–513 · hedef bölge x 537–940 │ künye 360–450
+   386 │ Simple Present (Fredoka 34, x 60, taban 420) [YDT · TEMEL] x ≈ 310–513 · hedef bölge x 537–940 │ künye 360–450
    472 │ USUALLY (B ≈ 137, orta 510, kontur 12)                       ─(2,40–3,00)→ hedef bölge, ölçek 0,20 │ içerik 460–1380
    624 │ ( = ALIŞKANLIK ) sarı hap x 63–957, y 624–794                                                    │
    876 │ halkalar x 155 / 345 (876–960)                                                                    │

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Sahne 14 kapanış (02-04 YDT temel, HyperFrames, 431 kare; son sahne, geçişsiz, +0,5 sn kuyruk):
+# Sahne 14 kapanış (02-04 YDT temel, HyperFrames, 434 kare; son sahne, geçişsiz, +0,5 sn kuyruk):
 # üret -> olaylar -> [önizleme burada biter] -> render -> video.mp4 + kontrol.png.
 # Tema: --tema acik|koyu (varsayılan acik, K19). Önizleme hazırlığı: ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu]
 set -e
@@ -9,7 +9,7 @@ AD="$(cd "$(dirname "$0")" && pwd)"
 KOK="$AD/../../../.."                       # paket kökü (kalem)
 M="$KOK/motorlar/hyperframes"; BIN="$M/node_modules/.bin"
 ORTAK="$AD/../../ortak"
-KARE=431
+KARE=434
 mkdir -p "$AD/proje/lib" "$AD/proje/assets/fonts" "$AD/k" "$AD/proje/renders"
 cp "$M/node_modules/gsap/dist/gsap.min.js" "$AD/proje/lib/" 2>/dev/null || cp "$M/lib/gsap.min.js" "$AD/proje/lib/"
 cp "$ORTAK/logo/$LOGO_DOSYA" "$AD/proje/assets/logo.svg"

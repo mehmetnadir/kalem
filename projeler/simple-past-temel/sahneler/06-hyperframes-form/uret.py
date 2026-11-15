@@ -1,4 +1,4 @@
-"""Sahne 06 (öğrenci sorusu + form) YATAY 1920x1080, HyperFrames, 901 kare, t_bas 64,78.
+"""Sahne 06 (öğrenci sorusu + form) YATAY 1920x1080, HyperFrames, 1158 kare, t_bas 66,78.
 Tek kaynak: zamanlar.json (küresel sn) -> yerel sn = t - t_bas. Komut listesi veri olarak JS'e gömülür,
 olaylar aynı çağrılardan toplanır (olay.py yalnız bu modülü içe alır)."""
 import json
@@ -217,30 +217,43 @@ def uret():
           "cizgi", 0.4)
     s.yazi("o2b", RXC + w2 + 110, ya, [("went", SAR)], "Fredoka", 700, 56, S(Z["ornek2"]) + 0.4, 0.35, tur="tik",
            guc=0.5)
-    # ---------------- kutu: didn't + V1 / Did + özne + V1? ----------------
-    KX, KY, KW, KH = 140.0, 560, 960.0, 250
+    # ---------------- kutu: didn't + V1 / Did + özne + V1? / be: I wasn't late. · Were you late? ----------------
+    # DUZ3 (16.11): be istisnası 3. satır (söz "Be fiili ise did almaz: I wasn't late. Were you late?")
+    KX, KY, KW, KH = 140.0, 560, 960.0, 295
     s.yol("kutu", el_kutu(KX, KY, KW, KH), S(Z["kutu"]), 0.55, KRE, 4.5, 1, "cizgi", 0.7)
-    FS = 72
+    FS, R1, R2, R3, FS3 = 64, KY + 88, KY + 178, KY + 262, 52
     l1 = [("didn't", KRE), (" + ", IKN), ("V1", SAR)]
     l2 = [("Did", KRE), (" + ", IKN), ("özne", KRE), (" + ", IKN), ("V1", SAR), ("?", KRE)]
-    s.pop("l1", KX + 50, KY + 100, l1, "Fredoka", 700, FS, S(Z["didnt"]), 0.35, "vurus", 0.8)
-    s.pop("l2", KX + 50, KY + 205, l2, "Fredoka", 700, FS, S(Z["soru"]), 0.35, "tik", 0.6)
-    for k, (lin, yy) in enumerate(((l1, KY + 100), (l2, KY + 205))):
+    s.pop("l1", KX + 50, R1, l1, "Fredoka", 700, FS, S(Z["didnt"]), 0.35, "vurus", 0.8)
+    s.pop("l2", KX + 50, R2, l2, "Fredoka", 700, FS, S(Z["soru"]), 0.35, "tik", 0.6)
+    l3 = [[("be", SAR), (":  ", IKN)], [("I ", KRE), ("wasn't", SAR), (" late.", KRE)],
+          [("  ·  ", IKN), ("Were", SAR), (" you late?", KRE)]]
+    x3 = KX + 50
+    for j, (lin, t) in enumerate(zip(l3, (Z["be"], Z["wasnt"], Z["were"]))):
+        _, w3 = s.pop("l3%d" % j, x3, R3, lin, "Fredoka", 700, FS3, S(t), 0.35, "tik", 0.55)
+        x3 += w3
+    assert x3 <= KX + KW - 20, ("be satırı kutudan taşıyor", x3)
+    for k, (lin, yy) in enumerate(((l1, R1), (l2, R2))):
         px = parca_x(lin, "Fredoka", 700, FS, KX + 50)
         i = [j for j, p in enumerate(lin) if p[0] == "V1"][0]
         s.yol("v1al%d" % k, el_cizgi(px[i][0] - 3, yy + 20, px[i][0] + px[i][1] + 5, yy + 16),
               S(Z["v1"]) + 0.12 * k, 0.28, SAR, 8, 0.85, "cizgi", 0.5)
-    # ---------------- Türkçe köprüsü: izle-di = watch-ed ----------------
-    s.yazi("tr", LX, 872, [("Türkçedeki -di gibi:", IKN)], "Caveat", 700, 48, S(Z["turkce"]), 0.9, tur="tik", guc=0.4)
-    YY, CF = 948, 72
-    a = [("izle", KRE), ("-di", SAR)]
-    b = [("watch", KRE), ("-ed", SAR)]
-    wa = sum(Y.genislik("Caveat", 700, p[0], CF) for p in a)
-    s.yazi("iz", LX, YY, a, "Caveat", 700, CF, S(Z["izledi"]), 0.6, tur="tik", guc=0.5)
-    eq = LX + wa + 34
-    s.yol("es1", el_cizgi(eq, YY - 40, eq + 60, YY - 43, 1), S(Z["esit"]), 0.2, KRE, 5.5, 1, "cizgi", 0.5)
-    s.yol("es2", el_cizgi(eq + 2, YY - 18, eq + 62, YY - 21, -1), S(Z["esit"]) + 0.2, 0.2, KRE, 5.5, 1, "cizgi", 0.5)
-    s.yazi("wa", eq + 94, YY, b, "Caveat", 700, CF, S(Z["watched"]), 0.6, tur="tik", guc=0.5)
+    # ---------------- Türkçe köprüsü (DUZ3 16.11): -di çoğu zaman Simple Past · izledi → watched · gitti → went ----------------
+    # Eski "izle-di = watch-ed" eşittiri yanlış denklikti; yeni söz: "Türkçedeki -di İngilizcede çoğu zaman Simple Past olur"
+    s.yazi("tr", LX, 900, [("Türkçedeki -di çoğu zaman Simple Past olur:", IKN)], "Caveat", 700, 44, S(Z["turkce"]), 3.2,
+           tur="tik", guc=0.4)
+    YY, CF, x = 968, 64, LX
+    kopru = [("iz", [("izle", KRE), ("di", SAR)], Z["izledi"], Z["ok1"]),
+             ("wa", [("watched", KRE)], Z["watched"], None),
+             ("gi", [("  ·  ", IKN), ("git", KRE), ("ti", SAR)], Z["gitti"], Z["ok2"]),
+             ("we", [("went", KRE)], Z["went"], None)]
+    for id_, par, t, ok_t in kopru:
+        x0, w = s.yazi(id_, x, YY, par, "Caveat", 700, CF, S(t), 0.45, tur="tik", guc=0.5)
+        x = x0 + w + (22 if ok_t else 0)
+        if ok_t:
+            s.yol(id_ + "k", el_ok(x, YY - 22, x + 64, YY - 24, 14), S(ok_t), 0.25, SAR, 5.5, 0.9, "cizgi", 0.4)
+            x += 86
+    assert x <= 1110, ("köprü satırı sağ bölgeye taşıyor", x)
     # ---------------- zaman ifadeleri (sağ bölge) ----------------
     TF, TY, TH = 40, 548, 64
     kutular = [("yesterday", Z["yesterday"], 1170.0), ("ago", Z["ago"], None), ("last year", Z["lastyear"], None)]

@@ -1,0 +1,45 @@
+{
+  "paket": "present-continuous",
+  "sikilik": 4,
+  "pay": 4,
+  "tarih": "2026-11-15T22:24:30.715Z",
+  "ozet": {
+    "toplamSahne": 1,
+    "olculen": 1,
+    "olculmedi": 0,
+    "olcumHatasi": 0,
+    "toplamHata": 0,
+    "toplamUyari": 1
+  },
+  "sahneler": [
+    {
+      "sahne": "01-hyperframes-giris",
+      "motor": "HyperFrames",
+      "durum": "olculdu",
+      "ornekSayisi": 13,
+      "kutuSayisi": 3342,
+      "t_bas": 0,
+      "t_son": 3,
+      "olaylar": [
+        {
+          "t0": 2.75,
+          "t1": 2.75,
+          "a": "t1",
+          "b": "t2",
+          "turler": [
+            "yazi",
+            "yazi"
+          ],
+          "tip": "uyari",
+          "kesisim": {
+            "x": 178,
+            "y": 94,
+            "w": 10,
+            "h": 7
+          },
+          "png": null
+        }
+      ]
+    }
+  ]
+}

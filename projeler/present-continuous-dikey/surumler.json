@@ -1,1 +1,159 @@
-../present-continuous/surumler.json
+{
+  "video": {
+    "kimlik": "present-continuous",
+    "ders": "İngilizce",
+    "konu": "Present Continuous",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-01-PC",
+    "amaclar": [
+      "Present Continuous formunu kurmak (be + V-ing)",
+      "zaman ifadelerini tanımak",
+      "üç kullanımı ayırt etmek (şu an, bu dönem, planlı gelecek)",
+      "Türkçe -yor ile köprü kurmak ve sınırını görmek"
+    ],
+    "canAlici": [
+      "-ing çoğu zaman Türkçedeki -yor'a denk gelir; ama her -yor -ing olmaz (biliyorum = I know)",
+      "'Bu akşam amcamlara gidiyorum' — planlı gelecekte iki dil de şimdiki zamanı kullanır",
+      "Look! Listen! Watch out! = şimdi oluyor sinyali",
+      "be fiili zamanı taşır: am/is/are şimdi, was/were geçmiş",
+      "3 örnek, 1 kural: üçünde de -ing"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Present Continuous"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "present-continuous",
+      "tur": "ana-yatay",
+      "ad": "Ana video (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "temel",
+      "kaynak": null,
+      "durum": "inceleme",
+      "onizleme": "/p/present-continuous/onizle.html",
+      "tarih": "2026-11-04T09:00:00Z"
+    },
+    {
+      "kimlik": "shorts",
+      "video": "present-continuous",
+      "tur": "shorts",
+      "ad": "S1 Shorts tanıtım (26 sn)",
+      "senaryo": "../present-continuous-s1/BRIEF-S1.md",
+      "kapak": "BU AKŞAM = I AM GOING",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "inceleme",
+      "onizleme": "/p/present-continuous-s1/onizle.html",
+      "tarih": "2026-11-04T19:05:00Z",
+      "kapak_canalici": 2,
+      "proje": "present-continuous-s1"
+    },
+    {
+      "kimlik": "alternatif-seviye-orta",
+      "video": "present-continuous",
+      "tur": "alternatif",
+      "ad": "Alternatif senaryo (orta) — yerine 'ileri' seviye",
+      "senaryo": null,
+      "kapak": null,
+      "seviye": "orta",
+      "kaynak": "ana-yatay",
+      "durum": "iptal",
+      "onizleme": null,
+      "tarih": "2026-11-04T09:00:00Z"
+    },
+    {
+      "kimlik": "dikey-tam",
+      "video": "present-continuous",
+      "tur": "dikey",
+      "ad": "Dikey tam ders (9:16, aynı ses, 95 sn)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": "PRESENT CONTINUOUS",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "hazir",
+      "onizleme": "/p/present-continuous-dikey/onizle.html",
+      "tarih": "2026-11-05T00:50:00Z",
+      "proje": "present-continuous-dikey"
+    },
+    {
+      "kimlik": "ana-yatay-ileri",
+      "video": "present-continuous",
+      "tur": "alternatif",
+      "ad": "İleri seviye (yatay 16:9)",
+      "senaryo": null,
+      "kapak": null,
+      "seviye": "ileri",
+      "kaynak": "ana-yatay",
+      "durum": "hazir",
+      "onizleme": "/p/present-continuous-ileri/onizle.html",
+      "tarih": "2026-11-05T00:50:00Z",
+      "proje": "present-continuous-ileri"
+    },
+    {
+      "kimlik": "dikey-ileri",
+      "video": "present-continuous",
+      "tur": "dikey",
+      "ad": "İleri seviye dikey (9:16)",
+      "senaryo": null,
+      "kapak": null,
+      "seviye": "ileri",
+      "kaynak": "ana-yatay-ileri",
+      "durum": "hazir",
+      "onizleme": "/p/present-continuous-ileri-dikey/onizle.html",
+      "tarih": "2026-11-05T00:50:00Z",
+      "proje": "present-continuous-ileri-dikey"
+    },
+    {
+      "kimlik": "shorts-ileri",
+      "video": "present-continuous",
+      "tur": "shorts",
+      "ad": "İleri seviye Shorts",
+      "senaryo": null,
+      "kapak": null,
+      "seviye": "ileri",
+      "kaynak": "ana-yatay-ileri",
+      "durum": "hazir",
+      "onizleme": "/p/present-continuous-ileri-s1/onizle.html",
+      "tarih": "2026-11-05T00:50:00Z",
+      "proje": "present-continuous-ileri-s1"
+    }
+  ],
+  "revizyonlar": [
+    {
+      "surum": "ana-yatay",
+      "no": "r1",
+      "tarih": "2026-11-04T09:00:00Z",
+      "degisiklik": "Prototip 4 kalem: 6 sahne, 3 motor",
+      "cikti": "/projeler/present-continuous/onizle.html"
+    },
+    {
+      "surum": "dikey-tam",
+      "no": "r1",
+      "tarih": "2026-11-10T16:40:00Z",
+      "degisiklik": "Dikey tam ders paketi (9:16, aynı ses, altyazı sahnede); ilk yayın derlemesi",
+      "cikti": null
+    },
+    {
+      "surum": "ana-yatay",
+      "no": "r2",
+      "tarih": "2026-11-16T01:30:00Z",
+      "degisiklik": "DUZ3-0201T (jüri c sınıfı): cümle 2 'İngilizce de aynısını yapar' → 'planlı gelecek için' ve 'altı kullanım' → 'üç'; cümle 7 '-ing ekini -yor gibi düşün' → '-ing çoğu zaman -yor'a denk gelir; ama her -yor -ing olmaz: biliyorum, I know' (+ 'burada -ing'); yalnız cümle 2 ve 7 yeniden sentezlendi; ders 87,33 → 94,61 sn; sahne 02 notu 'tonight → planlı gelecek', 06 kartı 2×2 (koşuyor/running · biliyorum/I know); rozet YDT · TEMEL; kapak '= I AM GOING', küçük satır kalktı; mp4 bayat",
+      "cikti": null
+    },
+    {
+      "surum": "dikey-tam",
+      "no": "r2",
+      "tarih": "2026-11-16T01:30:00Z",
+      "degisiklik": "DUZ3-0201T (jüri c sınıfı): cümle 2 'İngilizce de aynısını yapar' → 'planlı gelecek için' ve 'altı kullanım' → 'üç'; cümle 7 '-ing ekini -yor gibi düşün' → '-ing çoğu zaman -yor'a denk gelir; ama her -yor -ing olmaz: biliyorum, I know' (+ 'burada -ing'); yalnız cümle 2 ve 7 yeniden sentezlendi; ders 87,33 → 94,61 sn; sahne 02 notu 'tonight → planlı gelecek', 06 kartı 2×2 (koşuyor/running · biliyorum/I know); rozet YDT · TEMEL. Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    }
+  ]
+}

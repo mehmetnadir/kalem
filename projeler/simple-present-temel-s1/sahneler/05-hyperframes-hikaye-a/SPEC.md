@@ -66,7 +66,7 @@ Blok kutuları (`blok_kutulari`, kesişim ve boşluk denetimi için):
 ## 5. Ekran metni (satır ≤ 24 karakter)
 
 `He, she, it: s gelir;` (21) · `I, you, we, they: s yok.` (24) · `he · she · it` + `goes` · `I · you · we · they` + `go` ·
-`My brother = he` (15) · `Kaydet` (6). Künye ve kanal Y.kunye_svg()'den gelir (`Simple Present`, `YDT · BASIC`, `@ydspublishing`).
+`My brother = he` (15) · `Kaydet` (6). Künye ve kanal Y.kunye_svg()'den gelir (`Simple Present`, `YDT · TEMEL`, `@ydspublishing`).
 Yasak sözler kodda literal olarak bile YAZILMAZ (dış grep kapısı tarar; E1'in kural 8 notunu aynen koru).
 
 ## 6. Kurallar (`kurallari_dogrula` assert'leri)

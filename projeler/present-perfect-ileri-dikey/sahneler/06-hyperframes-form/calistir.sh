@@ -1,5 +1,5 @@
 #!/bin/bash
-# Sahne 06 soru + form (HyperFrames İLERİ dikey, 785 kare): üret -> olaylar -> render -> video.mp4 + kontrol.png + k/*.png
+# Sahne 06 soru + form (HyperFrames İLERİ dikey, 873 kare): üret -> olaylar -> render -> video.mp4 + kontrol.png + k/*.png
 # Tema: --tema acik|koyu (varsayılan acik, K19).
 set -e
 [ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"   # arm64 node >= 22 (hyperframes şartı)
@@ -8,7 +8,7 @@ AD="$(cd "$(dirname "$0")" && pwd)"
 KOK="$AD/../../../.."                       # paket kökü (kalem)
 M="$KOK/motorlar/hyperframes"; BIN="$M/node_modules/.bin"
 ORTAK="$AD/../../ortak"
-KARE=785; TBAS=68.60
+KARE=873; TBAS=70.20
 mkdir -p "$AD/proje/lib" "$AD/proje/assets/fonts" "$AD/proje/assets/cizim" "$AD/k" "$AD/proje/renders"
 cp "$M/node_modules/gsap/dist/gsap.min.js" "$AD/proje/lib/" 2>/dev/null || cp "$M/lib/gsap.min.js" "$AD/proje/lib/"
 cp "$ORTAK/logo/$LOGO_DOSYA" "$AD/proje/assets/logo.svg"
@@ -27,7 +27,7 @@ ffmpeg -loglevel error -y -i "$OUT" -c:v libx264 -crf 16 -pix_fmt yuv420p -r 30 
   -vf "tpad=stop_mode=clone:stop_duration=2" -frames:v $KARE "$AD/video.mp4"
 SEL="eq(n,0)+eq(n,$((KARE/5)))+eq(n,$((KARE*2/5)))+eq(n,$((KARE*3/5)))+eq(n,$((KARE*4/5)))+eq(n,$((KARE-13)))"
 ffmpeg -loglevel error -y -i "$AD/video.mp4" -vf "select='$SEL',scale=360:-1,tile=6x1" -frames:v 1 "$AD/kontrol.png"
-for sn in 71.0 74.5 79.5 83.0 85.5 90.0; do   # küresel sn -> yerel kare = (t - 68,60) x 30
+for sn in 73.2 76.8 80.4 82.3 86.4 89.2 94.0 97.2; do   # küresel sn -> yerel kare = (t - 70,20) x 30
   n=$(awk "BEGIN{printf \"%d\", ($sn-$TBAS)*30+0.5}")
   ffmpeg -loglevel error -y -i "$AD/video.mp4" -vf "select=eq(n\,$n)" -frames:v 1 "$AD/k/$n.png"
 done

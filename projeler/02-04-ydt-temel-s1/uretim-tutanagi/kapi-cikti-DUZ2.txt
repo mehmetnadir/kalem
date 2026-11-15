@@ -1,0 +1,13 @@
+$ node araclar/cakisma-kapisi.mjs 02-04-ydt-temel-s1 --port 41333 --sunucu 41022 --json projeler/02-04-ydt-temel-s1/uretim-tutanagi/cakisma-DUZ2.json
+01-hyperframes-kapak | çakışma yok (13 örnek, 3528 kutu)
+02-paperjs-ornek | çakışma yok (69 örnek, 3180 kutu)
+08-hyperframes-kaydet | çakışma yok (23 örnek, 2800 kutu)
+03-hyperframes-cta | çakışma yok (26 örnek, 3880 kutu)
+çıkış kodu: 0
+
+$ KALEM_KOK=~/Silinecekler/2026-11-15-duz2-0204S1/kapi-kok SAHNE_KARE_BETIK=$PWD/araclar/sahne-kare.mjs node araclar/cakisma-kapisi.mjs 02-04-ydt-temel-s1 --port 41333 --sunucu 41022 --json projeler/02-04-ydt-temel-s1/uretim-tutanagi/cakisma-DUZ2-duragan.json
+04-hyperframes-hikaye | çakışma yok (3 örnek, 564 kutu)
+05-hyperframes-kapak-b | çakışma yok (3 örnek, 468 kutu)
+06-hyperframes-kapak-c | çakışma yok (3 örnek, 1044 kutu)
+07-hyperframes-hikaye-b | çakışma yok (3 örnek, 336 kutu)
+çıkış kodu: 0

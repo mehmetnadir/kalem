@@ -1,5 +1,11 @@
 # Present Perfect — prototip kalem (YDT ileri, Doğan Hoca anlatımı) · `projeler/present-perfect-ileri`
 
+> **16.11.2026 DUZ3-0206I (jüri c sınıfı) notu.** c1 `Ago varsa, fiil Simple Past.` · c3 son parça `Since cümleciği çoğu zaman Simple Past alır,
+> ana cümle burada Present Perfect.` · c6 `Hocam, took off yerine has taken off diyemez miyiz?` · c7 `Hayır. Bitmiş zaman bildiren sözcükler,
+> bağlandıkları fiili Simple Past'a çeker: …` ve `Kodu aklında tut: ago'nun fiili Simple Past, yet'in fiili çoğu zaman Present Perfect.`
+> Ders 93,77 → 98,29 sn; sahneler 02 473 kare (3,00–18,37) · 03 526 (18,37–35,49) · 04 35,49–52,85 · 05 52,85–70,20 · 06 873 (70,20–98,29).
+> Aşağıdaki saniyeler 16.11 öncesidir; güncel zaman METIN.md ve zaman.json'dadır. Rozet `YDT · İLERİ` (HV-24). Rapor: `uretim-tutanagi/DUZ3-RAPOR.md`.
+
 Çıktı `cikti.mp4` (1920×1080, 30 fps, ≈94 sn) + `kontrol.png`. Anlatım hazır: `ortak/anlatim/anlatim.wav` (soğuk açılış: ilk söz 1,00 sn).
 Metin ve zamanlar: `ortak/anlatim/METIN.md`, sözcük zamanları `ortak/anlatim/sozcukler.json` (küresel sn), altyazı parçaları `altyazi.json`.
 Kod `ING-YDT-GR-02-06-I`; kimlik `02-06-ydt-ileri`. Yaklaşım: tümdengelim: formül önce, 3 YDT kökü (since+Simple Past, for, ago tuzağı), EN payı ≈ %40, öğrenci yanlış kavramı.
@@ -98,7 +104,7 @@ yalnız yer açmak için küçülüp köşeye toplanır · ses olayı görsel an
 
 | Köşe | İçerik | Konum / boy | Renk |
 |---|---|---|---|
-| Sol üst | `PRESENT PERFECT` + ` · YDT ADVANCED` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
+| Sol üst | `PRESENT PERFECT` + ` · YDT İLERİ` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
 | Sağ üst | bölüm adı: `Hook` · `Rule` · `Exam Q 1 / 3` · `Exam Q 2 / 3` · `Trap 3 / 3` · `Question` → `Rule` | sağ kenar x 1864, taban 72; Lexend 700 24 px | vurgu |
 | Sol alt | logo svg | x 56, yükseklik 34 px (en ≈ 137), alt kenar y 1036 | logonun kendi renkleri |
 | Sağ alt | ajanda `Hook  Rule  Exam`, etkin olan sarı + 4 px nokta solunda | sağ kenar 1864, taban 1030; Lexend 500 20 px, 36 px aralık | ikincil / vurgu |
@@ -113,10 +119,10 @@ Kapak kalıbı; içerik kare 0–90, son 12 kare BookFlip altında durgun.
 | sn | Hareket |
 |---|---|
 | 0,0–0,4 | Logo damgası (110 px, x 96, y ≈ 880): ölçek 1,18→1,0 + dönme −2°→0 |
-| 0,3–0,9 | Rozet hapları: `YDT · ADVANCED`, `GRAMMAR` |
+| 0,3–0,9 | Rozet hapları: `YDT · İLERİ`, `GRAMMAR` |
 | 0,0–2,2 | Başlık kalemle çizilir: `PRESENT` 0,0–1,1, `PERFECT` 1,0–2,2; Fredoka 700 140. Kalem sesi kare 0 |
 | 0,2–2,3 | Sağ sütun: uçak (plane) 0,2–1,6, saat (clock) 1,6–2,2 (stroke-dash) |
-| 1,0–3,48 | Başlığın altında (x 96, y 650) Caveat 700 64: `Ago varsa Present Perfect yok.` sözcük zamanlı; `Ago` (1,00) kırmızı alt çizgi |
+| 1,0–3,48 | Başlığın altında (x 96, y 650) Caveat 700 64: `Ago varsa, fiil Simple Past.` sözcük zamanlı; `Ago` (1,00) kırmızı alt çizgi |
 | 2,2–3,0 | UÇUŞ: başlık → sol üst künye; logo → sol alt 34 px; eskiz solar; ajanda belirir |
 
 ### 02 Kural (Paper.js, 461 kare, t 3,00–17,97; cümle 2: parçalar 4,03–9,71 · 9,96–15,32 · 15,57–17,97)
@@ -158,9 +164,9 @@ Kapak kalıbı; içerik kare 0–90, son 12 kare BookFlip altında durgun.
 ### 06 Soru + Kural (HyperFrames, 785 kare, t 68,60–93,77; cümle 6 öğrenci, cümle 7 öğretmen)
 | sn | Hareket |
 |---|---|
-| 69,15–73,07 | Künye sağ üst `Question`. Sol: öğrenci BAŞI (`peeps-kit/ogrenci-bas.svg`) + el balonu; Fredoka 600 44: `Hocam, ago varken de has landed diyemez miyiz?` sözcük sözcük; sağda `has landed` üstüne kırmızı çarpı (71,15–71,99) |
+| 69,15–73,07 | Künye sağ üst `Question`. Sol: öğrenci BAŞI (`peeps-kit/ogrenci-bas.svg`) + el balonu; Fredoka 600 44: `Hocam, took off yerine has taken off diyemez miyiz?` sözcük sözcük; `took off` sarı belirteç, `has taken off` üstüne kırmızı çarpı (`has` anında) |
 | 73,62–78,10 | Künye `Rule`. Balon küçülür; `Hayır.` Caveat; `Bitmiş zaman` sarı bant |
-| 78,35–81,47 | Üç kırmızı etiket el kutusunda: `ago` (78,35) · `yesterday` (79,27) · `last year` (80,27) üzerlerinde yasak çizgisi |
+| 78,35–81,47 | Üç kırmızı etiket el kutusunda: `ago` (78,35) · `yesterday` (79,27) · `last year` (80,27); yasak işareti yok (16.11), satır A2 `fiil → Simple Past` |
 | 81,72–86,84 | İki sütun: `Finished → Simple Past` (82,12) / `Unfinished → Present Perfect` (84,68), Fredoka 60 |
 | 87,09–92,77 | Kod kartı el kutusunda toplanır: `ago → Simple Past` (kırmızı) / `yet → Present Perfect` (sarı); sağ alt ajandanın üstünde `Next lesson →` |
 | 92,77–93,77 | Durgun (1 sn kuyruk) |

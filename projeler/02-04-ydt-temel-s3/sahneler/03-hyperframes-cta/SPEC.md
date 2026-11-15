@@ -45,8 +45,8 @@ Kare 0'dan son kareye opaklık 1. Bu grubun hiçbir öğesine tween, `style="opa
    - `<text>` `@ydspublishing`, Lexend 700, 42 px, `fill="#f3efe6"`, x 263, y (taban) 330.
 2. Künye konu `<text id="ku-konu">` `Simple Present vs Present Continuous`, Fredoka 700, `fill="#f3efe6"`, x 60, taban y 420.
    Boy: 34'ten 28'e inen döngü; ilk `60 + w_konu + 20 + w_rozet <= 960` olan boy (ölçüm: 34 sığar, son x 868).
-3. Rozet `<g id="rz0">`: `<rect>` x = 60 + w_konu + 20, y 386, h 48, rx 24, genişlik = Lexend 700 26 `YDT · BASIC` + 40,
-   `fill="#f2a93b"`; `<text>` `YDT · BASIC` Lexend 700 26, `text-anchor="middle"`, x = rozet ortası, taban y 419, `fill="#1b1a17"`.
+3. Rozet `<g id="rz0">`: `<rect>` x = 60 + w_konu + 20, y 386, h 48, rx 24, genişlik = Lexend 700 26 `YDT · TEMEL` + 40,
+   `fill="#f2a93b"`; `<text>` `YDT · TEMEL` Lexend 700 26, `text-anchor="middle"`, x = rozet ortası, taban y 419, `fill="#1b1a17"`.
    Çip YOK. 2 satır ders adı YOK. Üst logo (y 48–144) YOK.
 
 ### 3.2 Giriş sözü `Bu sadece başlangıç.` — y 470–600
@@ -121,7 +121,7 @@ Ses olayları `zamanlar.json` `"olaylar"`: `[yerel_sn, tur, guc]` — `olay.py` 
 `zamanlar.json` en az: `fps` 30, `kare`, `sure`, `t_bas`, `cagri_satir`, her olayın `[yerel_bas, sure]` çifti (adlı), `olaylar`.
 
 ## 5. Ekran metni (tam liste; başka yazı YOK)
-`@ydspublishing` (kanal) · `Simple Present vs Present Continuous` · `YDT · BASIC` · `Bu sadece başlangıç.` · `@ydspublishing` (hap) ·
+`@ydspublishing` (kanal) · `Simple Present vs Present Continuous` · `YDT · TEMEL` · `Bu sadece başlangıç.` · `@ydspublishing` (hap) ·
 `YouTube` · altyazı 2 parçası. Yasak: `Tam ders`, `tam ders`, `dakika`, süre sözü, `izle`, QR, emoji. Satır ≤ 24 karakter
 (altyazı hariç).
 

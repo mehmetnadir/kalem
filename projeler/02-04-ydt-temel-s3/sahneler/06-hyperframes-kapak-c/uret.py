@@ -46,7 +46,7 @@ ICERIK_UST: float = 460.0
 ICERIK_ALT: float = 1380.0
 
 KONU: str = "Simple Present vs Present Continuous"
-ROZET: str = "YDT · BASIC"
+ROZET: str = "YDT · TEMEL"
 ROZET_W: float = Y.genislik("Lexend", 700, ROZET, 26) + 40.0
 
 KB_K: int | None = None
@@ -111,7 +111,7 @@ def kunye_svg() -> str:
         f'<g id="rz0">'
         f'<rect x="{ROZET_X:.2f}" y="386" width="{ROZET_W:.2f}" height="48" rx="24" fill="{R["vurgu"]}"/>'
         f'<text x="{ROZET_X + ROZET_W / 2.0:.2f}" y="419.4" text-anchor="middle" '
-        f'font-family="Lexend" font-weight="700" font-size="26" fill="{R["zemin"]}">YDT · BASIC</text>'
+        f'font-family="Lexend" font-weight="700" font-size="26" fill="{R["zemin"]}">YDT · TEMEL</text>'
         f'</g>'
     )
     return f'<g id="kunye">{kanal}{rz0}</g>'
@@ -622,7 +622,7 @@ def kurallari_dogrula(
 
     satirlar = [
         "@ydspublishing",
-        "YDT · BASIC",
+        "YDT · TEMEL",
         "İKİ ÖRNEK",
         "İKİ ZAMAN",
         "The train",

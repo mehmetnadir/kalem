@@ -3,16 +3,16 @@
 | # | başlar | biter | konuşan | metin |
 |---|---|---|---|---|
 | 1 | 1.00 | 3.89 | öğretmen | He doesn't goes. Hata nerede? |
-| 2 | 4.44 | 12.84 | öğretmen | Olumsuzda ve soruda does girer, s ona geçer. Fiile s gelmez. He doesn't go. Does she go? |
-| 3 | 13.39 | 18.10 | öğretmen | Does varsa fiil yalın. Bir arkadaşına gönder; o da karıştırıyor. |
-| 4 | 18.65 | 24.08 | öğrenci | Bu sadece başlangıç. Dersin tamamı YDS Publishing YouTube kanalında. |
+| 2 | 4.44 | 15.09 | öğretmen | He, she, it ile olumsuzda ve soruda does girer; s ona geçer. Fiile s gelmez. He doesn't go. Does she go? |
+| 3 | 15.64 | 20.35 | öğretmen | Does varsa fiil yalın. Bir arkadaşına gönder; o da karıştırıyor. |
+| 4 | 20.90 | 26.33 | öğrenci | Bu sadece başlangıç. Dersin tamamı YDS Publishing YouTube kanalında. |
 
 ## Parçalar (cümle içi dil/duraklama parçaları, küresel sn)
 
 - cümle 1: [1.00–2.44], [2.69–3.89]
-- cümle 2: [4.44–8.36], [8.51–10.11], [10.36–12.84]
-- cümle 3: [13.39–15.31], [15.46–18.10]
-- cümle 4: [18.65–20.41], [20.56–24.08]
+- cümle 2: [4.44–5.64], [5.89–10.37], [10.52–12.36], [12.61–15.09]
+- cümle 3: [15.64–17.56], [17.71–20.35]
+- cümle 4: [20.90–22.66], [22.81–26.33]
 
 ## Sözcükler (küresel sn): `ortak/anlatim/sozcukler.json` — {cumle, sozcuk, t0, t1}; yerel kare = round((t − t_bas) × 30)
 
@@ -20,10 +20,10 @@
 He(1.00) doesn't(1.32) goes.(1.72) Hata(2.69) nerede?(3.09)
 
 ### cümle 2
-Olumsuzda(4.44) ve(5.32) soruda(5.80) does(6.28) girer,(6.52) s(7.24) ona(7.56) geçer.(7.80) Fiile(8.51) s(8.99) gelmez.(9.23) He(10.36) doesn't(10.60) go.(11.16) Does(11.96) she(12.20) go?(12.36)
+He,(4.44) she,(5.00) it(5.52) ile(5.89) olumsuzda(6.29) ve(7.17) soruda(7.57) does(8.05) girer;(8.37) s(9.17) ona(9.49) geçer.(9.73) Fiile(10.52) s(11.00) gelmez.(11.40) He(12.61) doesn't(12.85) go.(13.41) Does(14.21) she(14.45) go?(14.61)
 
 ### cümle 3
-Does(13.39) varsa(13.71) fiil(14.35) yalın.(14.75) Bir(15.46) arkadaşına(15.70) gönder;(16.26) o(17.02) da(17.14) karıştırıyor.(17.30)
+Does(15.64) varsa(15.96) fiil(16.60) yalın.(17.00) Bir(17.71) arkadaşına(17.95) gönder;(18.51) o(19.27) da(19.39) karıştırıyor.(19.55)
 
 ### cümle 4
-Bu(18.65) sadece(18.89) başlangıç.(19.45) Dersin(20.56) tamamı(21.12) YDS(21.84) Publishing(22.32) YouTube(22.96) kanalında.(23.36)
+Bu(20.90) sadece(21.14) başlangıç.(21.70) Dersin(22.81) tamamı(23.37) YDS(24.09) Publishing(24.57) YouTube(25.21) kanalında.(25.61)

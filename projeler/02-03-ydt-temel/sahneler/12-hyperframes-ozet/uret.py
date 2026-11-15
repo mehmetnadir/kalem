@@ -1,6 +1,6 @@
 """Sahne 12 Ara özet (02-03 YDT temel, HyperFrames, 1920x1080; cümle 15).
-`ozet` 3 madde kademeli: NOW · THESE DAYS / NOWADAYS → usually -ing (temporary, changing) · USUALLY / GENERAL → V1 ·
-believe, have: no -ing. Sahne 07 (kural) ile aynı görsel dil: kalemle bant, sarı belirteç, kalem oku, soluk küçük kart.
+`ozet` 3 madde kademeli: NOW · THESE DAYS / NOWADAYS → usually -ing (temporary, changing) · USUALLY / GENERAL → often V1 ·
+believe, have (own): no -ing (DUZ3: konuşmayla aynı sınır). Sahne 07 (kural) ile aynı görsel dil: kalemle bant, sarı belirteç, kalem oku, soluk küçük kart.
 Her madde sağdaki küçük kartına (kural kartı 07, tuzak kartı 10) okla bağlanır; kart çerçevesi söylenince sarıya döner.
 Bölüm perdesi yok; sonda ince geçiş çizgisi. Zaman tek kaynak: ../../zaman.json + ../../ortak/anlatim/sozcukler.json."""
 import json
@@ -92,38 +92,38 @@ def uret():
     ok("o1", IX, yb, T(6))
     xu = IX + AU + BO
     xe = parca("i1d", xu, yb, "usually -ing", T(6) + 0.14, SAR, IT, 0.5)
-    s.yazi("n1", xe + 36, yb, [("(temporary,", IKN)], "Caveat", 700, 40, L(T(9)), 0.45, tur="tik", guc=0.35)
+    s.yazi("n1", xe + 36, yb, [("(temporary,", IKN)], "Caveat", 700, 40, L(T(10)), 0.45, tur="tik", guc=0.35)
     wt = Y.genislik("Caveat", 700, "(temporary, ", 40)
-    s.yazi("n2", xe + 36 + wt, yb, [("changing)", IKN)], "Caveat", 700, 40, L(T(12)), 0.4, tur=None)
+    s.yazi("n2", xe + 36 + wt, yb, [("changing)", IKN)], "Caveat", 700, 40, L(T(13)), 0.4, tur=None)
     w1b = xe + 36 + wt + Y.genislik("Caveat", 700, "changing)", 40)
-    # ---- madde 2: USUALLY / GENERAL → V1 ----
-    bagla(1, T(14))
+    # ---- madde 2: USUALLY / GENERAL → often V1 ----
+    bagla(1, T(15))
     y2 = BASE["2"]
-    xe = parca("i2a", IX, y2, "USUALLY", T(14), KRE)
-    belirtec("m4", IX, xe, y2, T(14) + 0.1)
+    xe = parca("i2a", IX, y2, "USUALLY", T(15), KRE)
+    belirtec("m4", IX, xe, y2, T(15) + 0.1)
     xg = xe + sp
-    xe = parca("i2b", xg, y2, "/ GENERAL", T(16), KRE, IT, 0.4)
-    belirtec("m5", xg + gen("/ "), xe, y2, T(16) + 0.1)
-    ok("o2", xe + BO, y2, T(18))
-    xe = parca("i2c", xe + BO + AU + BO, y2, "V1", T(18) + 0.14, SAR, IT, 0.3)
+    xe = parca("i2b", xg, y2, "/ GENERAL", T(17), KRE, IT, 0.4)
+    belirtec("m5", xg + gen("/ "), xe, y2, T(17) + 0.1)
+    ok("o2", xe + BO, y2, T(19))   # "çoğunlukla"
+    xe = parca("i2c", xe + BO + AU + BO, y2, "often V1", T(19) + 0.14, SAR, IT, 0.4)
     w2 = xe
-    # ---- madde 3: believe, have: no -ing ----
-    bagla(2, T(20))
+    # ---- madde 3: believe, have (own): no -ing ----
+    bagla(2, T(22))
     y3 = BASE["3"]
-    xe = parca("i3a", IX, y3, "believe,", T(20), KRE, IT, 0.45)
-    xe = parca("i3b", xe + sp, y3, "have:", T(22), KRE, IT, 0.35)
-    xe = parca("i3c", xe + sp + 8, y3, "no -ing", T(28), SAR, IT, 0.4)
+    xe = parca("i3a", IX, y3, "believe,", T(22), KRE, IT, 0.45)
+    xe = parca("i3b", xe + sp, y3, "have (own):", T(27), KRE, IT, 0.45)
+    xe = parca("i3c", xe + sp + 8, y3, "no -ing", T(33), SAR, IT, 0.4)
     w3 = xe
     # küçük kartta believe sarı daire (söylendiği anda)
     bw0 = CX + 20 + gen("We ", CF)
     bw1 = gen("believe", CF)
     cy3 = KC[2] - KART[2][1] / 2 + 28 + 1 * CL + 26
-    s.yol("gd", Y.el_cizgi(bw0 - 1, cy3 + 14, bw0 + bw1 + 1, cy3 + 13, 1), L(T(20)) + 0.3, 0.45, SAR, 5, 0.85,
+    s.yol("gd", Y.el_cizgi(bw0 - 1, cy3 + 14, bw0 + bw1 + 1, cy3 + 13, 1), L(T(22)) + 0.3, 0.45, SAR, 5, 0.85,
           "cizgi", 0.45)   # halka yerine el altçizgisi (13.11 QA)
     for n, ex in (("1a", w1), ("1b", w1b), ("2", w2), ("3", w3)):
         assert ex <= BX + BW - 30, "madde %s banda taştı: %.0f" % (n, ex)
-    # ---- geçiş çizgisi (perde yok): 'yok.' 241,84 ----
-    s.yol("gc", Y.el_cizgi(140, 910, 1780, 908, 1), L(T(29)), 0.38, IKN, 4, 0.8, "cizgi", 0.4)
+    # ---- geçiş çizgisi (perde yok): 'yok.' ----
+    s.yol("gc", Y.el_cizgi(140, 910, 1780, 908, 1), L(T(34)), 0.38, IKN, 4, 0.8, "cizgi", 0.4)
     Y.kontrol(s, Z["kare"])
     return s, Y.kunye_svg("Recap", -1)
 

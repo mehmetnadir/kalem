@@ -47,7 +47,7 @@ def uret():
     kams = "".join('<path id="k%d" d="%s" style="opacity:0"/>' % (i, k["d"]) for i, k in enumerate(kam))
     # rozetler (cover): y 372 h 72; 1. hap HUD rozetine uçar
     roz, x = [], KENAR
-    for i, (m, dolgu) in enumerate((("YDT · ADVANCED", R["vurgu"]), ("GRAMMAR", R["murekkep"]))):
+    for i, (m, dolgu) in enumerate((("YDT · İLERİ", R["vurgu"]), ("GRAMMAR", R["murekkep"]))):
         w = Y.genislik("Lexend", 700, m, ROZET_YAZI) + 56
         roz.append('<g id="rz%d" style="opacity:0"><rect x="%.1f" y="%d" width="%.1f" height="%d" rx="36" fill="%s"/>'
                    '<text x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" font-weight="700" '
@@ -95,8 +95,9 @@ def uret():
            % (1080 - KENAR - cipw, cipw, R["vurgu"], 1080 - KENAR - cipw / 2, R["vurgu"]))
     ders = ('<text id="ku-ders" x="%d" y="212" font-family="Fredoka" font-weight="700" font-size="56" '
             'fill="%s" style="opacity:0">PRESENT PERFECT</text>' % (KENAR, R["murekkep"]))
+    ALT_METIN = " ".join(w["sozcuk"] for w in SOZ)   # altyazı = cümle 1 (16.11: sabit metin kaldı)
     alt = ('<text id="alt" x="540" y="%d" text-anchor="middle" font-family="Lexend" font-weight="500" '
-           'font-size="44" fill="%s" style="opacity:0">Ago varsa Present Perfect yok.</text>' % (ALT_Y, R["murekkep"]))
+           'font-size="44" fill="%s" style="opacity:0">%s</text>' % (ALT_Y, R["murekkep"], ALT_METIN))
     veri = {"Z": Z, "fz": fz, "kz": kz, "nF": len(fig), "nK": len(kam), "hedef": hedef,
             "ts": TS, "t1y": T1_Y, "t2y": T2_Y, "tw": tw, "cw": cw, "sw": sw,
             "hc": [0, HEDEF_CUMLE_Y[0] - CUMLE_Y[0]], "cx": CUMLE_X,

@@ -1,4 +1,4 @@
-# Simple Past — temel seviye "kalem" paketi (YDT BASIC, Doğan Hoca destesi unit-1_sunum-6)
+# Simple Past — temel seviye "kalem" paketi (YDT TEMEL, Doğan Hoca destesi unit-1_sunum-6)
 
 Amaç: Nadir'in konuşmalar boyunca istediği görsel dili kalem motorlarıyla Simple Past konusunda GÖSTERMEK (Present Continuous prototipinin aynı dili). Çıktı `cikti.mp4`
 (1920×1080, 30 fps, ≈94 sn) + `kontrol.png`. Anlatım hazır: `ortak/anlatim/anlatim.wav` (soğuk açılış: ilk söz 1,00 sn).
@@ -94,7 +94,7 @@ yalnız yer açmak için küçülüp köşeye toplanır · ses olayı görsel an
 
 | Köşe | İçerik | Konum / boy | Renk |
 |---|---|---|---|
-| Sol üst | `SIMPLE PAST` + ` · YDT BASIC` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
+| Sol üst | `SIMPLE PAST` + ` · YDT TEMEL` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
 | Sağ üst | bölüm adı: `Hook` · `Example 1 / 3` · `Example 2 / 3` · `Example 3 / 3` · `Question` → `Form` | sağ kenar x 1864, taban 72; Lexend 700 24 px | vurgu |
 | Sol alt | logo svg | x 56, yükseklik 34 px (en ≈ 137), alt kenar y 1036 | logonun kendi renkleri |
 | Sağ alt | ajanda `Hook  Examples  Form`, etkin olan sarı + 4 px nokta solunda | sağ kenar 1864, taban 1030; Lexend 500 20 px, 36 px aralık | ikincil / vurgu |
@@ -110,7 +110,7 @@ Karar (Nadir 04,11, K23): giriş 3 sn, ilk söz ≤ 1 sn, kalem sesi 0. kareden,
 | sn | Hareket |
 |---|---|
 | 0,0–0,4 | Logo damgası sol sütun altında (110 px, x 96, y ≈ 880): ölçek 1,18→1,0 + dönme −2°→0, alfa 0→1 (vurus kare 3) |
-| 0,3–0,9 | Rozet hapları: `YDT · BASIC`, `GRAMMAR` (stagger 0,1) |
+| 0,3–0,9 | Rozet hapları: `YDT · TEMEL`, `GRAMMAR` (stagger 0,1) |
 | 0,0–2,2 | Başlık kalemle çizilir: `SIMPLE` 0,0–1,1, `PAST` 1,0–2,2; Fredoka 700 140. Kalem sesi kare 0 |
 | 0,2–2,3 | Sağ sütun: ayakta figür (standing-3) 0,2–2,0, televizyon (device-tv) 1,6–2,2 (stroke-dash) |
 | 1,00–2,84 | Başlığın altında (x 96, y 650) Caveat 700 64: `Dün akşam amcamlara gittim.` sözcük sözcük (Dün 1,00 · akşam 1,24 · amcamlara 1,64 · gittim 2,24) |

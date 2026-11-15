@@ -1,0 +1,44 @@
+{
+  "baslik": "Simple Present: bağlaç ve durum fiilleri | YDT İngilizce İleri",
+  "etiketler": [
+    "İngilizce",
+    "ileri",
+    "gramer",
+    "Simple Present",
+    "YDT",
+    "geniş zaman",
+    "Present Simple",
+    "durum fiilleri",
+    "stative verbs",
+    "tarifeli gelecek",
+    "YDT İngilizce",
+    "İngilizce gramer"
+  ],
+  "bolumler": [
+    {"t": 0.0, "ad": "Hangi zaman? Önce kural: s ve does"},
+    {"t": 17.65, "ad": "Although cümlesinde zaman: it gives"},
+    {"t": 33.33, "ad": "Durum fiilleri: owns ve costs"},
+    {"t": 49.49, "ad": "Tarifeli gelecek: takes off tomorrow"},
+    {"t": 62.61, "ad": "Will mi, Simple Present mi? Özet"}
+  ],
+  "sabitYorum": "Sınava bir gün kala dönmek için bu dersi kaydet; bağlaç, durum fiili ve tarife örneklerine açıklamadaki bölüm damgalarıyla doğrudan geç.",
+  "gonderiler": [
+    {
+      "kimlik": "g1",
+      "metin": "Uçak yarın dokuzda kalkıyor demek için İngilizcede hangi zamanı seçersin? Tarifeli bir saat için Simple Present kullanırız: The flight takes off at nine. Derste durum fiillerini ve bağlaçlı uzun cümleleri de örneklerle görüyoruz.",
+      "gorsel": "kapak.png"
+    }
+  ],
+  "liste": {
+    "ad": "Tenses · YDT İleri",
+    "sira": 2,
+    "onceki": "02-01-ydt-ileri",
+    "sonraki": "02-03-ydt-ileri"
+  },
+  "bildirimler": [
+    {"t": 33.88, "sure": 3.0}
+  ],
+  "giris": true,
+  "cikis": true,
+  "aciklamaDosya": "youtube-aciklama.md"
+}

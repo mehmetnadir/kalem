@@ -1,0 +1,22 @@
+{
+ "metin": "Faydalı olduysa abone ol.",
+ "yol": "önbellek",
+ "ses_kimligi": "oPC5I9GKjMReiaM29gjY",
+ "onbellek_anahtari": "aa6700182282",
+ "onbellek_wav": "/home/sef/.local/share/elevenlabs-onbellek/aa670018228242bf65bb282481cab67494332b1e.wav",
+ "whisper_kaydi": "aa670018228242bf65bb282481cab67494332b1e.kontrol-large-v3-turbo-int8-b5.json",
+ "duyulan": "Faydalı olduysa abone ol.",
+ "benzerlik": 1.0,
+ "tohum": 0,
+ "kaynak_kesit": "ortak/youtube/cikis/ses/cumle-1.wav 0.00–2.00 sn",
+ "kesit_onbellek_ilinti": 1.0,
+ "kesit_onbellek_kazanc": 0.7679,
+ "dosya": "ortak/youtube/dikey/cikis-kisa/ses/cikis-kisa.wav",
+ "sure": 3.0,
+ "hz": 48000,
+ "kayma": 0.23,
+ "ilk_soz": 0.3,
+ "soz_sonu": 2.02,
+ "sha256": "d5b6b7741e69e8f04f8c7221e88597a5f44b9bc54a1a49b2714284dc85e06831",
+ "maliyet_karakter": 0
+}

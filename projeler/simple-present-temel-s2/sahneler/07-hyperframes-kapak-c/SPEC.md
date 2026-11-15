@@ -1,5 +1,7 @@
 # SPEC — simple-present-temel-s2 · sahne 07-hyperframes-kapak-c (huni v2; HyperFrames, 1080×1920, tek kare, ses yok)
 
+> DUZ2 (16.11): `SAT2 = "GÜÇLÜ İPUCU"` (S 140); karakter ana paketin kadın öğrencisi (sol el yukarı-sola işaret), ölçek 0,455; aramaya kutu kesişimi şartı (sart5) eklendi.
+
 Yazan: şef (15.11.2026, istem D-V2). Kod yazmaz; tasarım verir. K = `/home/sef/01dev/_worktrees/kalem-0204`.
 Sahne dizini D = `K/projeler/simple-present-temel-s2/sahneler/07-hyperframes-kapak-c/`. Paket P = `K/projeler/simple-present-temel-s2/`.
 Bağlayıcı: `/home/sef/01dev/dijital-anlatim/.claude/docs/huni-v2-standart.md` §2, §6 · `kapak-standardi.md` §2 (krem çıkartma kenarı) ·
@@ -39,7 +41,7 @@ Başka dosyaya dokunma. Silme yok. Test, render, snapshot, `calistir.sh`, git YO
 y    0 ┌───────────────────────────────────────────┐───────┐
        │ (boş zemin, çip YOK)                       │       │
    280 │ [logo] @ydspublishing                      │ sağ   │  Y.kunye_svg() → #kanal
-   360 │ Simple Present  (YDT · BASIC)              │ 960–  │  #ku-konu + #rz0
+   360 │ Simple Present  (YDT · TEMEL)              │ 960–  │  #ku-konu + #rz0
    462 │        ÜÇ İFADE,                           │ 1080  │  başlık S = 143, ortalı (orta 510)
    ≈767│     TEK İŞARET                             │ boş   │  alt ≈ 799
    830 │ ┌──────────────────────┐                   │       │  kart 64–596 × 832–1148

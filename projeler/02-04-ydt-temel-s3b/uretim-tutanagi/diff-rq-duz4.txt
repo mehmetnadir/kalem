@@ -1,0 +1,211 @@
+Files 02-04-ydt-temel-s3/aciklama-a.md and 02-04-ydt-temel-s3b/aciklama-a.md differ
+Files 02-04-ydt-temel-s3/aciklama-b.md and 02-04-ydt-temel-s3b/aciklama-b.md differ
+Files 02-04-ydt-temel-s3/aciklama.md and 02-04-ydt-temel-s3b/aciklama.md differ
+Files 02-04-ydt-temel-s3/BRIEF-S3.md and 02-04-ydt-temel-s3b/BRIEF-S3.md differ
+Only in 02-04-ydt-temel-s3: hikaye-a.png
+Only in 02-04-ydt-temel-s3: hikaye-b.png
+Only in 02-04-ydt-temel-s3: hikaye.png
+Files 02-04-ydt-temel-s3/kapak-a-168.png and 02-04-ydt-temel-s3b/kapak-a-168.png differ
+Files 02-04-ydt-temel-s3/kapak-a.png and 02-04-ydt-temel-s3b/kapak-a.png differ
+Only in 02-04-ydt-temel-s3: kapak-b-168.png
+Only in 02-04-ydt-temel-s3: kapak-b.png
+Only in 02-04-ydt-temel-s3: kapak-c-168.png
+Only in 02-04-ydt-temel-s3: kapak-c.png
+Files 02-04-ydt-temel-s3/kapak.png and 02-04-ydt-temel-s3b/kapak.png differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/altyazi.json and 02-04-ydt-temel-s3b/ortak/anlatim/altyazi.json differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/anlatim.m4a and 02-04-ydt-temel-s3b/ortak/anlatim/anlatim.m4a differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/anlatim.m4a.imza and 02-04-ydt-temel-s3b/ortak/anlatim/anlatim.m4a.imza differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/anlatim.wav and 02-04-ydt-temel-s3b/ortak/anlatim/anlatim.wav differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/baslar.json and 02-04-ydt-temel-s3b/ortak/anlatim/baslar.json differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/cumle-1.wav and 02-04-ydt-temel-s3b/ortak/anlatim/cumle-1.wav differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/cumle-2.wav and 02-04-ydt-temel-s3b/ortak/anlatim/cumle-2.wav differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/cumle-3.wav and 02-04-ydt-temel-s3b/ortak/anlatim/cumle-3.wav differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/cumle-4.wav and 02-04-ydt-temel-s3b/ortak/anlatim/cumle-4.wav differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/cumle-5.wav and 02-04-ydt-temel-s3b/ortak/anlatim/cumle-5.wav differ
+Only in 02-04-ydt-temel-s3b/ortak/anlatim: cumle-6.wav
+Files 02-04-ydt-temel-s3/ortak/anlatim/METIN.md and 02-04-ydt-temel-s3b/ortak/anlatim/METIN.md differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/metin_uret.py and 02-04-ydt-temel-s3b/ortak/anlatim/metin_uret.py differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/senaryo.json and 02-04-ydt-temel-s3b/ortak/anlatim/senaryo.json differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/sentez.wav and 02-04-ydt-temel-s3b/ortak/anlatim/sentez.wav differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/sentez.wav.rapor.json and 02-04-ydt-temel-s3b/ortak/anlatim/sentez.wav.rapor.json differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/sozcukler.json and 02-04-ydt-temel-s3b/ortak/anlatim/sozcukler.json differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/sozcuk_uret.py and 02-04-ydt-temel-s3b/ortak/anlatim/sozcuk_uret.py differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/sureler.json and 02-04-ydt-temel-s3b/ortak/anlatim/sureler.json differ
+Files 02-04-ydt-temel-s3/ortak/anlatim/zaman_uret.py and 02-04-ydt-temel-s3b/ortak/anlatim/zaman_uret.py differ
+Files 02-04-ydt-temel-s3/ortak/kunye.js and 02-04-ydt-temel-s3b/ortak/kunye.js differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/calistir.sh and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/calistir.sh differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/devir.json and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/devir.json differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-0.6.png and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-0.6.png differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-0.png and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-0.png differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-1.2.png and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-1.2.png differ
+Only in 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-1.8.png
+Only in 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-1.97.png
+Only in 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-2.45.png
+Only in 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-2.8.png
+Only in 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-2.97.png
+Only in 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-3.45.png
+Only in 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-3.97.png
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/k/koyu/01-hyperframes-kapak-0.png and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/k/koyu/01-hyperframes-kapak-0.png differ
+Only in 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/k/koyu: 01-hyperframes-kapak-1.8.png
+Only in 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/k/koyu: 01-hyperframes-kapak-1.97.png
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/k/koyu/kapak-a-koyu.png and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/k/koyu/kapak-a-koyu.png differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/olaylar.json and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/olaylar.json differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/olay.py and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/olay.py differ
+Only in 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/proje/.hyperframes/artifacts/checks: dd1a708a-f847-4f1f-9f3b-231a72c020f9.json
+Only in 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/proje/.hyperframes/artifacts/checks: e2116268-a9ef-43d6-8eef-f489ca6cbf97.json
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/proje/.hyperframes/history-id and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/proje/.hyperframes/history-id differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/proje/.hyperframes/video-state.json and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/proje/.hyperframes/video-state.json differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/proje/index.html and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/proje/index.html differ
+Only in 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/proje-ka/.hyperframes: artifacts
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/proje-ka/.hyperframes/history-id and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/proje-ka/.hyperframes/history-id differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/proje-ka/.hyperframes/video-state.json and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/proje-ka/.hyperframes/video-state.json differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/proje-ka/index.html and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/proje-ka/index.html differ
+Only in 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/proje-ka-koyu/.hyperframes: artifacts
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/proje-ka-koyu/.hyperframes/history-id and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/proje-ka-koyu/.hyperframes/history-id differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/proje-ka-koyu/.hyperframes/video-state.json and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/proje-ka-koyu/.hyperframes/video-state.json differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/proje-ka-koyu/index.html and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/proje-ka-koyu/index.html differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/__pycache__/uret.cpython-310.pyc and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/__pycache__/uret.cpython-310.pyc differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/__pycache__/yardim.cpython-310.pyc and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/__pycache__/yardim.cpython-310.pyc differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/RAPOR.md and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/RAPOR.md differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/SPEC.md and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/SPEC.md differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/uret.py and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/uret.py differ
+Files 02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/zamanlar.json and 02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/zamanlar.json differ
+Only in 02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-10.5.png
+Only in 02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-11.2.png
+Only in 02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-12.2.png
+Only in 02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-13.png
+Only in 02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-14.6.png
+Only in 02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-14.png
+Only in 02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-15.6.png
+Only in 02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-16.6.png
+Only in 02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-17.6.png
+Only in 02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-18.6.png
+Only in 02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-19.6.png
+Only in 02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-3.png
+Only in 02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-4.2.png
+Only in 02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-4.png
+Only in 02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-5.2.png
+Only in 02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-6.6.png
+Only in 02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-7.6.png
+Only in 02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/k: 02-hyperframes-ornek-9.5.png
+Only in 02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/k/koyu: 02-hyperframes-ornek-10.5.png
+Only in 02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/k/koyu: 02-hyperframes-ornek-16.6.png
+Only in 02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/k/koyu: 02-hyperframes-ornek-17.6.png
+Only in 02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/k/koyu: 02-hyperframes-ornek-9.5.png
+Only in 02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/proje/.hyperframes/artifacts/checks: 30042c01-6ea6-47d1-ad2f-3a2e79582d8f.json
+Only in 02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/proje/.hyperframes/artifacts/checks: c3094616-db63-4ae4-b5d9-e6dcaea7aa48.json
+Files 02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/proje/.hyperframes/history-id and 02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/proje/.hyperframes/history-id differ
+Files 02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/proje/.hyperframes/video-state.json and 02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/proje/.hyperframes/video-state.json differ
+Files 02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/__pycache__/uret.cpython-310.pyc and 02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/__pycache__/uret.cpython-310.pyc differ
+Only in 02-04-ydt-temel-s3/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-24.12.png
+Only in 02-04-ydt-temel-s3b/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-25.12.png
+Only in 02-04-ydt-temel-s3/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-25.5.png
+Only in 02-04-ydt-temel-s3b/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-26.5.png
+Only in 02-04-ydt-temel-s3/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-27.png
+Only in 02-04-ydt-temel-s3/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-28.6.png
+Only in 02-04-ydt-temel-s3b/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-28.png
+Only in 02-04-ydt-temel-s3b/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-29.6.png
+Only in 02-04-ydt-temel-s3/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-31.07.png
+Only in 02-04-ydt-temel-s3b/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-32.07.png
+Only in 02-04-ydt-temel-s3/sahneler/03-hyperframes-cta/k/koyu: 03-hyperframes-cta-27.png
+Only in 02-04-ydt-temel-s3b/sahneler/03-hyperframes-cta/k/koyu: 03-hyperframes-cta-28.png
+Only in 02-04-ydt-temel-s3/sahneler/03-hyperframes-cta/k/koyu: 03-hyperframes-cta-31.07.png
+Only in 02-04-ydt-temel-s3b/sahneler/03-hyperframes-cta/k/koyu: 03-hyperframes-cta-32.07.png
+Only in 02-04-ydt-temel-s3/sahneler/03-hyperframes-cta/proje/.hyperframes/artifacts/checks: 3919951f-4ea5-4954-ae7b-c491ac464ce2.json
+Only in 02-04-ydt-temel-s3b/sahneler/03-hyperframes-cta/proje/.hyperframes/artifacts/checks: c8da09f7-b248-4700-82df-9528daf668df.json
+Files 02-04-ydt-temel-s3/sahneler/03-hyperframes-cta/proje/.hyperframes/history-id and 02-04-ydt-temel-s3b/sahneler/03-hyperframes-cta/proje/.hyperframes/history-id differ
+Files 02-04-ydt-temel-s3/sahneler/03-hyperframes-cta/proje/.hyperframes/video-state.json and 02-04-ydt-temel-s3b/sahneler/03-hyperframes-cta/proje/.hyperframes/video-state.json differ
+Files 02-04-ydt-temel-s3/sahneler/03-hyperframes-cta/proje/index.html and 02-04-ydt-temel-s3b/sahneler/03-hyperframes-cta/proje/index.html differ
+Files 02-04-ydt-temel-s3/sahneler/03-hyperframes-cta/__pycache__/yardim.cpython-310.pyc and 02-04-ydt-temel-s3b/sahneler/03-hyperframes-cta/__pycache__/yardim.cpython-310.pyc differ
+Files 02-04-ydt-temel-s3/sahneler/03-hyperframes-cta/zamanlar.json and 02-04-ydt-temel-s3b/sahneler/03-hyperframes-cta/zamanlar.json differ
+Only in 02-04-ydt-temel-s3/sahneler/04-hyperframes-hikaye/k: at-0.5s.png
+Only in 02-04-ydt-temel-s3/sahneler/04-hyperframes-hikaye/k: hikaye-a-koyu.png
+Only in 02-04-ydt-temel-s3/sahneler/04-hyperframes-hikaye/k/koyu: at-0.5s.png
+Only in 02-04-ydt-temel-s3/sahneler/04-hyperframes-hikaye/proje: .hyperframes
+Only in 02-04-ydt-temel-s3/sahneler/05-hyperframes-kapak-b/k: at-0.5s.png
+Only in 02-04-ydt-temel-s3/sahneler/05-hyperframes-kapak-b/k/koyu: at-0.5s.png
+Only in 02-04-ydt-temel-s3/sahneler/05-hyperframes-kapak-b/k/koyu: kapak-b-koyu.png
+Only in 02-04-ydt-temel-s3/sahneler/05-hyperframes-kapak-b/proje: .hyperframes
+Files 02-04-ydt-temel-s3/sahneler/05-hyperframes-kapak-b/__pycache__/yardim.cpython-310.pyc and 02-04-ydt-temel-s3b/sahneler/05-hyperframes-kapak-b/__pycache__/yardim.cpython-310.pyc differ
+Only in 02-04-ydt-temel-s3/sahneler/06-hyperframes-kapak-c/k: at-0.5s.png
+Only in 02-04-ydt-temel-s3/sahneler/06-hyperframes-kapak-c/k/koyu: at-0.5s.png
+Only in 02-04-ydt-temel-s3/sahneler/06-hyperframes-kapak-c/k/koyu: kapak-c-koyu.png
+Only in 02-04-ydt-temel-s3/sahneler/06-hyperframes-kapak-c/proje: .hyperframes
+Files 02-04-ydt-temel-s3/sahneler/06-hyperframes-kapak-c/__pycache__/yardim.cpython-310.pyc and 02-04-ydt-temel-s3b/sahneler/06-hyperframes-kapak-c/__pycache__/yardim.cpython-310.pyc differ
+Only in 02-04-ydt-temel-s3/sahneler/07-hyperframes-hikaye-b/k: at-0.5s.png
+Only in 02-04-ydt-temel-s3/sahneler/07-hyperframes-hikaye-b/k/koyu: at-0.5s.png
+Only in 02-04-ydt-temel-s3/sahneler/07-hyperframes-hikaye-b/k/koyu: hikaye-b-koyu.png
+Only in 02-04-ydt-temel-s3/sahneler/07-hyperframes-hikaye-b/proje: .hyperframes
+Only in 02-04-ydt-temel-s3/sahneler/07-hyperframes-hikaye-b/__pycache__: uret.cpython-310.pyc
+Files 02-04-ydt-temel-s3/sahneler/07-hyperframes-hikaye-b/__pycache__/yardim.cpython-310.pyc and 02-04-ydt-temel-s3b/sahneler/07-hyperframes-hikaye-b/__pycache__/yardim.cpython-310.pyc differ
+Only in 02-04-ydt-temel-s3/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-18.78.png
+Only in 02-04-ydt-temel-s3b/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-19.78.png
+Only in 02-04-ydt-temel-s3/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-19.88.png
+Only in 02-04-ydt-temel-s3b/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-20.88.png
+Only in 02-04-ydt-temel-s3/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-21.88.png
+Only in 02-04-ydt-temel-s3b/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-22.88.png
+Only in 02-04-ydt-temel-s3/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-23.6.png
+Only in 02-04-ydt-temel-s3/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-24.1.png
+Only in 02-04-ydt-temel-s3b/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-24.6.png
+Only in 02-04-ydt-temel-s3b/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-25.1.png
+Only in 02-04-ydt-temel-s3/sahneler/08-hyperframes-kaydet/k/koyu: 08-hyperframes-kaydet-19.88.png
+Only in 02-04-ydt-temel-s3b/sahneler/08-hyperframes-kaydet/k/koyu: 08-hyperframes-kaydet-20.88.png
+Only in 02-04-ydt-temel-s3/sahneler/08-hyperframes-kaydet/k/koyu: 08-hyperframes-kaydet-22.35.png
+Only in 02-04-ydt-temel-s3/sahneler/08-hyperframes-kaydet/k/koyu: 08-hyperframes-kaydet-22.38.png
+Only in 02-04-ydt-temel-s3b/sahneler/08-hyperframes-kaydet/k/koyu: 08-hyperframes-kaydet-23.35.png
+Only in 02-04-ydt-temel-s3b/sahneler/08-hyperframes-kaydet/k/koyu: 08-hyperframes-kaydet-23.38.png
+Only in 02-04-ydt-temel-s3/sahneler/08-hyperframes-kaydet/k/koyu: 08-hyperframes-kaydet-23.6.png
+Only in 02-04-ydt-temel-s3b/sahneler/08-hyperframes-kaydet/k/koyu: 08-hyperframes-kaydet-24.6.png
+Only in 02-04-ydt-temel-s3/sahneler/08-hyperframes-kaydet/proje/.hyperframes/artifacts/checks: 1481f45b-fc0e-4226-ac10-ea9f9d029b42.json
+Only in 02-04-ydt-temel-s3b/sahneler/08-hyperframes-kaydet/proje/.hyperframes/artifacts/checks: 8e6bda2b-9269-4d35-822a-b238331849d5.json
+Files 02-04-ydt-temel-s3/sahneler/08-hyperframes-kaydet/proje/.hyperframes/history-id and 02-04-ydt-temel-s3b/sahneler/08-hyperframes-kaydet/proje/.hyperframes/history-id differ
+Files 02-04-ydt-temel-s3/sahneler/08-hyperframes-kaydet/proje/.hyperframes/video-state.json and 02-04-ydt-temel-s3b/sahneler/08-hyperframes-kaydet/proje/.hyperframes/video-state.json differ
+Files 02-04-ydt-temel-s3/sahneler/08-hyperframes-kaydet/__pycache__/yardim.cpython-310.pyc and 02-04-ydt-temel-s3b/sahneler/08-hyperframes-kaydet/__pycache__/yardim.cpython-310.pyc differ
+Files 02-04-ydt-temel-s3/sahneler/08-hyperframes-kaydet/zamanlar.json and 02-04-ydt-temel-s3b/sahneler/08-hyperframes-kaydet/zamanlar.json differ
+Files 02-04-ydt-temel-s3/surumler.json and 02-04-ydt-temel-s3b/surumler.json differ
+Only in 02-04-ydt-temel-s3/uretim-tutanagi: aciklama-taslak.md
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi: BK-RAPOR.md
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi: diff-rq-duz2-r2.txt
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi: diff-rq-duz2.txt
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi: diff-rq-duz4.txt
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi: diff-rq.txt
+Files 02-04-ydt-temel-s3/uretim-tutanagi/DUZ2-RAPOR.md and 02-04-ydt-temel-s3b/uretim-tutanagi/DUZ2-RAPOR.md differ
+Files 02-04-ydt-temel-s3/uretim-tutanagi/DUZ4-RAPOR.md and 02-04-ydt-temel-s3b/uretim-tutanagi/DUZ4-RAPOR.md differ
+Files 02-04-ydt-temel-s3/uretim-tutanagi/hf-check-duz2.txt and 02-04-ydt-temel-s3b/uretim-tutanagi/hf-check-duz2.txt differ
+Only in 02-04-ydt-temel-s3/uretim-tutanagi: hikaye-taslak.md
+Files 02-04-ydt-temel-s3/uretim-tutanagi/huni-kapi-duz2.txt and 02-04-ydt-temel-s3b/uretim-tutanagi/huni-kapi-duz2.txt differ
+Files 02-04-ydt-temel-s3/uretim-tutanagi/huni-kapi-duz4.txt and 02-04-ydt-temel-s3b/uretim-tutanagi/huni-kapi-duz4.txt differ
+Only in 02-04-ydt-temel-s3/uretim-tutanagi: istem
+Only in 02-04-ydt-temel-s3/uretim-tutanagi/juri: J2-hukum-1611-0049.md
+Only in 02-04-ydt-temel-s3/uretim-tutanagi/juri: J2-hukum.md
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi/juri: KBJ-hukum-1611-0055.md
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi/juri: KBJ-hukum.md
+Only in 02-04-ydt-temel-s3/uretim-tutanagi/juri: s3.dil.md
+Only in 02-04-ydt-temel-s3/uretim-tutanagi/juri: s3.kaynak-kural.md
+Files 02-04-ydt-temel-s3/uretim-tutanagi/kapak-taslak.md and 02-04-ydt-temel-s3b/uretim-tutanagi/kapak-taslak.md differ
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi: kapi-cikti.txt
+Files 02-04-ydt-temel-s3/uretim-tutanagi/kapi-duz2.json and 02-04-ydt-temel-s3b/uretim-tutanagi/kapi-duz2.json differ
+Files 02-04-ydt-temel-s3/uretim-tutanagi/kapi-duz2-r2.json and 02-04-ydt-temel-s3b/uretim-tutanagi/kapi-duz2-r2.json differ
+Files 02-04-ydt-temel-s3/uretim-tutanagi/kapi-duz2-r2.txt and 02-04-ydt-temel-s3b/uretim-tutanagi/kapi-duz2-r2.txt differ
+Files 02-04-ydt-temel-s3/uretim-tutanagi/kapi-duz2.txt and 02-04-ydt-temel-s3b/uretim-tutanagi/kapi-duz2.txt differ
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi: KBC-RAPOR.md
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi: kol-b.json
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi/kontak: 02-04-ydt-temel-s3b-duz4-kontak-koyu.png
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi/kontak: 02-04-ydt-temel-s3b-duz4-kontak.png
+Only in 02-04-ydt-temel-s3/uretim-tutanagi/kontak: 02-04-ydt-temel-s3-duz4-kontak-koyu.png
+Only in 02-04-ydt-temel-s3/uretim-tutanagi/kontak: 02-04-ydt-temel-s3-duz4-kontak.png
+Only in 02-04-ydt-temel-s3/uretim-tutanagi/kontak: s3-huni-yanyana.png
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi: kopya-denetim.txt
+Only in 02-04-ydt-temel-s3/uretim-tutanagi: S3-A-RAPOR.md
+Only in 02-04-ydt-temel-s3/uretim-tutanagi: S3-C-RAPOR.md
+Only in 02-04-ydt-temel-s3/uretim-tutanagi: S3-duzeltme.md
+Only in 02-04-ydt-temel-s3/uretim-tutanagi: S3-SON-RAPOR.md
+Files 02-04-ydt-temel-s3/uretim-tutanagi/senaryo-taslak.md and 02-04-ydt-temel-s3b/uretim-tutanagi/senaryo-taslak.md differ
+Files 02-04-ydt-temel-s3/uretim-tutanagi/ses-sentez.log and 02-04-ydt-temel-s3b/uretim-tutanagi/ses-sentez.log differ
+Only in 02-04-ydt-temel-s3/uretim-tutanagi: ses-sentez-v2.log
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi: siniflama-duz2-r2.txt
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi: siniflama-duz2.txt
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi: siniflama-duz4.txt
+Only in 02-04-ydt-temel-s3b/uretim-tutanagi: siniflama.txt
+Only in 02-04-ydt-temel-s3/uretim-tutanagi: V2-C-RAPOR.md
+Files 02-04-ydt-temel-s3/zaman.json and 02-04-ydt-temel-s3b/zaman.json differ

@@ -1,5 +1,9 @@
 # Present Perfect — DİKEY tam ders (9:16, YDT ileri) · `projeler/present-perfect-ileri-dikey`
 
+> **16.11.2026 DUZ3-0206I notu.** Cümle ve zaman değişiklikleri ana BRIEF başındaki notta. Dikeye özgü: 06 balon Caveat 76 (2. satır
+> `has taken off diyemez miyiz?`), kod kartı Fredoka 64 + `çoğu zaman`; 01 tuval 1080×1920 (eski kök 1920×1080 alt yarıyı kırpıyordu).
+> Aşağıdaki saniyeler ve kare sayıları 16.11 öncesidir; güncel değerler zaman.json'dadır. Rapor: `uretim-tutanagi/DUZ3-RAPOR.md`.
+
 Dikey sürüm = yatayla AYNI anlatım ve AYNI ses; sahne düzeni dikey için SIFIRDAN tasarlanır (yatay öğelerin döndürülmüş hâli YASAK).
 İzleyici telefondan bakar: 1080 px ≈ 390 CSS px (ölçek 1/2,77). Bu BRIEF, ana `../present-perfect-ileri/BRIEF.md` üstüne gelir: stil, kalem darbesi,
 çizim kaynakları, ses olayları, kabul oradan aynen; yerleşim ve ölçek burada. Kod `ING-YDT-GR-02-06-I-D`. Yaklaşım: tümdengelim: formül önce, 3 YDT kökü (since+Simple Past, for, ago tuzağı), EN payı ≈ %40, öğrenci yanlış kavramı.
@@ -51,12 +55,12 @@ yukarı toplanır ve küçülür, ama küçülünce de ≥ 48 px kalır).
 ## 4. Sahne sözleşmeleri (içerik ve zamanlar ana BRIEF §4'ten; burada yalnız dikey yerleşim)
 | # | Klasör / motor / kare | Dikey yerleşim (içerik bandı 352–1392, üstten alta) |
 |---|---|---|
-| 01 | `01-hyperframes-giris` HF 102 | Kapak kalıbı: logo damgası sol üst → rozetler `YDT · ADVANCED` + `GRAMMAR` → başlık 2 satır `PRESENT` / `PERFECT` (190 px, y ≈ 520/740, kalemle, 0,65–1,45) → cümle 1 `Ago varsa Present Perfect yok.` Caveat 80 sözcük zamanlı (1,00'dan, y ≈ 900; `Ago` kırmızı alt çizgi) → uçak + saat (y 980–1380) → 2,0–3,0 uçuş; altyazı bandı cümle 1 |
+| 01 | `01-hyperframes-giris` HF 102 | Kapak kalıbı: logo damgası sol üst → rozetler `YDT · İLERİ` + `GRAMMAR` → başlık 2 satır `PRESENT` / `PERFECT` (190 px, y ≈ 520/740, kalemle, 0,65–1,45) → cümle 1 `Ago varsa, fiil Simple Past.` Caveat 80 sözcük zamanlı (1,00'dan, y ≈ 900; `Ago` kırmızı alt çizgi) → uçak + saat (y 980–1380) → 2,0–3,0 uçuş; altyazı bandı cümle 1 |
 | 02 | `02-paperjs-kanca` Paper.js 461 | Çip `Rule`; ORTA büyük formül kartı `S + have / has + V3` Fredoka 110 (y 500–900), EN formül cümlesi altyazıda; üstte 3 madde (`formula` · `since / for` · `Simple Past trap`) Fredoka 64 tik zamanlı (4,91 / 6,19 / 7,79); alt: üç mini kutu `1 · 2 · 3` (15,57'de) |
 | 03 | `03-paperjs-ornek1` Paper.js 490 | Çip `Exam Q 1 / 3`; kart `Ever since the company launched its new app, the number of users has doubled.` Fredoka 64 (4 satır, y 400–720) sözcük zamanlı, `since` / `launched` sarı daire; TR Caveat 64; ORTA: telefon + büyüyen sütun grafik 460 px; alt: `since + Simple Past → Present Perfect` Fredoka 72 iki satır |
 | 04 | `04-canvas-ornek2` canvas 533 | Çip `Exam Q 2 / 3`; kart `Selim has worked at this bank for thirty years, so he knows every customer.` (4 satır, `for thirty years` sarı); TR Caveat 64; ORTA: figür (sitting-5) + dizüstü 460 px; takvim şeridi `30 years`; alt: `for + süre` / `since + başlangıç` Fredoka 96 |
 | 05 | `05-canvas-ornek3` canvas 532 | Çip `Trap 3 / 3`; kart `The plane took off two hours ago, but it hasn't landed yet.` (`two hours ago` kırmızı alt çizgi, `hasn't landed yet` sarı daire); TR Caveat 64; ORTA: uçak 480 px kalkış eğrisi + `finished | now | unfinished` çizgisi; alt: iki etiket `ago → Simple Past` (kırmızı) / `yet → Present Perfect` (sarı) Fredoka 72; çıkış fade |
-| 06 | `06-hyperframes-form` HF 785 | Çip `Question` → `Rule` (73,62'de); üst: öğrenci balonu + Caveat 64 `Hocam, ago varken de has landed diyemez miyiz?` (69,15–73,07), `has landed` kırmızı çarpı; ORTA: 3 kırmızı etiket `ago` · `yesterday` · `last year` (78,35 / 79,27 / 80,27) yasak çizgili; iki sütun `Finished → Simple Past` / `Unfinished → Present Perfect` Fredoka 80 (82,12 / 84,68); alt: kod kartı `ago → Simple Past` / `yet → Present Perfect` Fredoka 110 (87,09); son 1 sn durgun; altyazı: cümle 6 ve 7 |
+| 06 | `06-hyperframes-form` HF 785 | Çip `Question` → `Rule` (73,62'de); üst: öğrenci balonu + Caveat 76 `Hocam, took off yerine has taken off diyemez miyiz?` (69,15–73,07), `has taken off` kırmızı çarpı; ORTA: 3 kırmızı etiket `ago` · `yesterday` · `last year` (78,35 / 79,27 / 80,27) (yasak çizgisi yok, 16.11); iki sütun `Finished → Simple Past` / `Unfinished → Present Perfect` Fredoka 80 (82,12 / 84,68); alt: kod kartı `ago → Simple Past` / `yet → Present Perfect` + `çoğu zaman` Fredoka 64 (87,09); son 1 sn durgun; altyazı: cümle 6 ve 7 |
 
 ## 5. Çalıştırma ve kabul (sahne başına)
 1. Sahne klasörü: D1'deki ile aynı dosya düzeni (`calistir.sh` tema.sh'ı `. "$D/../../ortak/tema.sh" "$@"` ile çağırır,

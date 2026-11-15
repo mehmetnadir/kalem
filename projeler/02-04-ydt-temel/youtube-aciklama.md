@@ -6,15 +6,15 @@ Bölümler:
 00:20 Genel durum ve konuşma anı: wear
 00:44 Kalıcı ve geçici durum: live
 01:09 Tarifeli ve planlanmış gelecek
-01:33 Tren örneği: tarife mi, plan mı?
-01:53 Üç fark tek kartta
-02:10 Aynı sözcük today: konuşma anı
-02:25 Saatle gelen today: tarife
-02:42 Tuzak: Türkçedeki -yor eki
-03:04 I live ve I am living: anlam farkı
-03:25 Özet: hangi durumda hangi zaman?
-03:40 Mini soru: boşluğa hangi şık?
-04:11 Sınavda soracağın üç soru
+01:34 Tren örneği: tarife mi, plan mı?
+01:55 Üç fark tek kartta
+02:12 Aynı sözcük today: konuşma anı
+02:27 Saatle gelen today: tarife
+02:44 Tuzak: Türkçedeki -yor eki
+03:05 I live ve I am living: anlam farkı
+03:27 Özet: hangi durumda hangi zaman?
+03:43 Mini soru: boşluğa hangi şık?
+04:14 Sınavda soracağın üç soru
 
 Sıradaki ders: Stative Verbs
 

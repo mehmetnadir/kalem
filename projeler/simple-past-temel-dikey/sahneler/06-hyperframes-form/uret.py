@@ -1,4 +1,4 @@
-"""Sahne 06 (öğrenci sorusu + form) DİKEY 1080x1920, HyperFrames, 901 kare, t_bas 64,78.
+"""Sahne 06 (öğrenci sorusu + form) DİKEY 1080x1920, HyperFrames, 1158 kare, t_bas 66,78.
 Tek kaynak: zamanlar.json (küresel sn) -> yerel sn = t - t_bas. Komut listesi veri olarak JS'e gömülür,
 olaylar aynı çağrılardan toplanır (olay.py yalnız bu modülü içe alır)."""
 import json
@@ -14,6 +14,11 @@ Z = json.loads((AD / "zamanlar.json").read_text())
 R = Y.RENK
 KRE, IKN, SAR, KIR, ZEM = R["murekkep"], R["ikincil"], R["vurgu"], R["kirmizi"], R["zemin"]
 TB = Z["t_bas"]
+# DUZ3 (16.11): be satırı parçaları (be 81,87 · I wasn't 84,36 · Were 85,80) ve köprü öğeleri (zamanlar.json anahtarı)
+L3 = [[("be", SAR), (":  ", IKN)], [("I ", KRE), ("wasn't", SAR), (" late.", KRE)],
+      [("  ·  ", IKN), ("Were", SAR), (" you late?", KRE)]]
+KOPRU = [("iz", [("izle", KRE), ("di", SAR)], "izledi", "ok1"), ("wa", [("watched", KRE)], "watched", None),
+         ("gi", [("  ·  ", IKN), ("git", KRE), ("ti", SAR)], "gitti", "ok2"), ("we", [("went", KRE)], "went", None)]
 
 
 def S(t):
@@ -216,16 +221,16 @@ def uret():
         cx += wi + 44
     s.olay(tf + 0.1, "parilti", 0.5)
     # ---------------- S1: iki kutucuk (düzenli | düzensiz), grup "recap" ----------------
-    TY, TH, TW = 652, 360, 480
+    TY, TH, TW = 652, 320, 480   # DUZ3 (16.11): 360 → 320 (kutuya be satırı, altına yeni köprü)
     s.yol("tile1", el_kutu(48, TY, TW, TH), S(Z["iki_yol"]), 0.4, IKN, 4.0, 1, "cizgi", 0.6, g="recap")
     s.yol("tile2", el_kutu(552, TY, TW, TH), S(Z["iki_yol"]) + 0.18, 0.4, IKN, 4.0, 1, "cizgi", 0.5, g="recap")
     # düzenli
-    s.yazi("dz", 84, TY + 92, [("düzenli", KRE)], "Fredoka", 700, 72, S(Z["duzenli"]), 0.4, tur="tik", guc=0.55,
+    s.yazi("dz", 84, TY + 84, [("düzenli", KRE)], "Fredoka", 700, 72, S(Z["duzenli"]), 0.4, tur="tik", guc=0.55,
            g="recap")
-    ex, ew = s.pop("ed", 84, TY + 232, [("+ ", KRE), ("-ed", SAR)], "Fredoka", 700, 120, S(Z["ed"]), 0.35, g="recap")
-    s.yol("edal", el_cizgi(ex + Y.genislik("Fredoka", 700, "+ ", 120) - 4, TY + 256, ex + ew + 6, TY + 252),
+    ex, ew = s.pop("ed", 84, TY + 210, [("+ ", KRE), ("-ed", SAR)], "Fredoka", 700, 120, S(Z["ed"]), 0.35, g="recap")
+    s.yol("edal", el_cizgi(ex + Y.genislik("Fredoka", 700, "+ ", 120) - 4, TY + 234, ex + ew + 6, TY + 230),
           S(Z["ed"]) + 0.3, 0.3, SAR, 10, 0.85, "cizgi", 0.45, g="recap")
-    ya = TY + 330
+    ya = TY + 292
     w1 = Y.genislik("Caveat", 700, "watch", 64)
     s.yazi("o1a", 80, ya, [("watch", IKN)], "Caveat", 700, 64, S(Z["ornek1"]), 0.25, tur="tik", guc=0.5, g="recap")
     s.yol("o1k", el_ok(80 + w1 + 14, ya - 20, 80 + w1 + 78, ya - 22, 14), S(Z["ornek1"]) + 0.25, 0.25, SAR, 8, 0.9,
@@ -233,10 +238,10 @@ def uret():
     s.yazi("o1b", 80 + w1 + 92, ya, [("watch", KRE), ("ed", SAR)], "Caveat", 700, 64, S(Z["ornek1"]) + 0.45, 0.35,
            tur="tik", guc=0.5, g="recap")
     # düzensiz
-    s.yazi("dsz", 588, TY + 92, [("düzensiz", KRE)], "Fredoka", 700, 72, S(Z["duzensiz"]), 0.4, tur="tik", guc=0.55,
+    s.yazi("dsz", 588, TY + 84, [("düzensiz", KRE)], "Fredoka", 700, 72, S(Z["duzensiz"]), 0.4, tur="tik", guc=0.55,
            g="recap")
-    vx, vw = s.pop("v2", 588, TY + 232, [("V2", SAR)], "Fredoka", 700, 120, S(Z["v2"]), 0.35, g="recap")
-    s.yol("v2al", el_cizgi(vx - 4, TY + 256, vx + vw + 6, TY + 252), S(Z["v2"]) + 0.8, 0.3, SAR, 10, 0.85, "cizgi", 0.45,
+    vx, vw = s.pop("v2", 588, TY + 210, [("V2", SAR)], "Fredoka", 700, 120, S(Z["v2"]), 0.35, g="recap")
+    s.yol("v2al", el_cizgi(vx - 4, TY + 234, vx + vw + 6, TY + 230), S(Z["v2"]) + 0.8, 0.3, SAR, 10, 0.85, "cizgi", 0.45,
           g="recap")
     w2 = Y.genislik("Caveat", 700, "go", 64)
     s.yazi("o2a", 584, ya, [("go", IKN)], "Caveat", 700, 64, S(Z["ornek2"]), 0.2, tur="tik", guc=0.5, g="recap")
@@ -244,32 +249,36 @@ def uret():
           "cizgi", 0.4, g="recap")
     s.yazi("o2b", 584 + w2 + 92, ya, [("went", SAR)], "Caveat", 700, 64, S(Z["ornek2"]) + 0.4, 0.35, tur="tik",
            guc=0.5, g="recap")
-    # ---------------- S2: didn't + V1 / Did + özne + V1? ----------------
-    KX, KY, KW, KH = 48.0, 1034, 984.0, 206
+    # ---------------- S2: didn't + V1 / Did + özne + V1? / be: I wasn't late. · Were you late? ----------------
+    # DUZ3 (16.11): be istisnası 3. satır (söz "Be fiili ise did almaz: I wasn't late. Were you late?")
+    KX, KY, KW, KH = 48.0, 988, 984.0, 250
     s.yol("kutu", el_kutu(KX, KY, KW, KH), S(Z["kutu"]), 0.55, KRE, 5.0, 1, "cizgi", 0.7, g="recap")
-    FS = 76
+    FS, R1, R2, R3, FS3 = 64, KY + 76, KY + 152, KY + 222, 50
     l1 = [("didn't", KRE), (" + ", IKN), ("V1", SAR)]
     l2 = [("Did", KRE), (" + ", IKN), ("özne", KRE), (" + ", IKN), ("V1", SAR), ("?", KRE)]
-    s.pop("l1", KX + 48, KY + 84, l1, "Fredoka", 700, FS, S(Z["didnt"]), 0.35, "vurus", 0.8, g="recap")
-    s.pop("l2", KX + 48, KY + 178, l2, "Fredoka", 700, FS, S(Z["soru"]), 0.35, "tik", 0.6, g="recap")
-    for k, (lin, yy) in enumerate(((l1, KY + 84), (l2, KY + 178))):
+    s.pop("l1", KX + 48, R1, l1, "Fredoka", 700, FS, S(Z["didnt"]), 0.35, "vurus", 0.8, g="recap")
+    s.pop("l2", KX + 48, R2, l2, "Fredoka", 700, FS, S(Z["soru"]), 0.35, "tik", 0.6, g="recap")
+    x3 = KX + 48
+    for j, (lin, t) in enumerate(zip(L3, (Z["be"], Z["wasnt"], Z["were"]))):
+        x3 += s.pop("l3%d" % j, x3, R3, lin, "Fredoka", 700, FS3, S(t), 0.35, "tik", 0.55, g="recap")[1]
+    assert x3 <= KX + KW - 20, ("be satırı kutudan taşıyor", x3)
+    for k, (lin, yy) in enumerate(((l1, R1), (l2, R2))):
         px = parca_x(lin, "Fredoka", 700, FS, KX + 48)
         i = [j for j, p in enumerate(lin) if p[0] == "V1"][0]
         s.yol("v1al%d" % k, el_cizgi(px[i][0] - 3, yy + 20, px[i][0] + px[i][1] + 5, yy + 16),
               S(Z["v1"]) + 0.12 * k, 0.28, SAR, 9, 0.85, "cizgi", 0.5, g="recap")
-    # ---------------- Türkçe köprüsü: izle-di = watch-ed ----------------
-    s.yazi("tr", 56, 1296, [("Türkçedeki -di gibi:", IKN)], "Caveat", 700, 56, S(Z["turkce"]), 0.9, tur="tik", guc=0.4,
-           g="recap")
-    YY, CF = 1382, 88
-    a = [("izle", KRE), ("-di", SAR)]
-    b = [("watch", KRE), ("-ed", SAR)]
-    wa = sum(Y.genislik("Fredoka", 700, p[0], CF) for p in a)
-    s.yazi("iz", 56, YY, a, "Fredoka", 700, CF, S(Z["izledi"]), 0.6, tur="tik", guc=0.5, g="recap")
-    eq = 56 + wa + 40
-    s.yol("es1", el_cizgi(eq, YY - 50, eq + 64, YY - 53, 1), S(Z["esit"]), 0.2, KRE, 8, 1, "cizgi", 0.5, g="recap")
-    s.yol("es2", el_cizgi(eq + 2, YY - 24, eq + 66, YY - 27, -1), S(Z["esit"]) + 0.2, 0.2, KRE, 8, 1, "cizgi", 0.5,
-          g="recap")
-    s.yazi("wa", eq + 104, YY, b, "Fredoka", 700, CF, S(Z["watched"]), 0.6, tur="tik", guc=0.5, g="recap")
+    # ---------------- Türkçe köprüsü (DUZ3 16.11): -di çoğu zaman Simple Past · izledi → watched · gitti → went ----------------
+    # Eski "izle-di = watch-ed" eşittiri yanlış denklikti; yeni söz: "Türkçedeki -di İngilizcede çoğu zaman Simple Past olur"
+    s.yazi("tr", 56, 1290, [("Türkçedeki -di çoğu zaman Simple Past olur:", IKN)], "Caveat", 700, 48, S(Z["turkce"]), 3.2,
+           tur="tik", guc=0.4, g="recap")
+    YY, CF, x = 1376, 72, 56
+    for id_, par, t, ok_t in KOPRU:
+        x0, w = s.yazi(id_, x, YY, par, "Caveat", 700, CF, S(Z[t]), 0.45, tur="tik", guc=0.5, g="recap")
+        x = x0 + w + (24 if ok_t else 0)
+        if ok_t:
+            s.yol(id_ + "k", el_ok(x, YY - 24, x + 70, YY - 26, 16), S(Z[ok_t]), 0.25, SAR, 8, 0.9, "cizgi", 0.4, g="recap")
+            x += 94
+    assert x <= 1032, ("köprü satırı taşıyor", x)
     # ---------------- 84,20: S1+S2+köprü toplanır (sol blok), sağda zaman ifadeleri ----------------
     s.to("#recapg", S(Z["yesterday"]) - 0.15, {"svgOrigin": "48 640", "scale": 0.62, "duration": 0.7,
                                               "ease": "power3.inOut"})

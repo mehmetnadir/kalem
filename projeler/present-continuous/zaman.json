@@ -22,10 +22,10 @@
       "klasor": "02-paperjs-kanca",
       "bolum": "kanca",
       "motor": "Paper.js",
-      "kare": 385,
+      "kare": 416,
       "t_bas": 3.0,
-      "t_son": 15.44,
-      "icerik_kare": 373,
+      "t_son": 16.48,
+      "icerik_kare": 404,
       "gecis": "BookFlip"
     },
     {
@@ -34,8 +34,8 @@
       "bolum": "ornek1",
       "motor": "Paper.js",
       "kare": 453,
-      "t_bas": 15.44,
-      "t_son": 30.15,
+      "t_bas": 16.48,
+      "t_son": 31.19,
       "icerik_kare": 441,
       "gecis": "BookFlip"
     },
@@ -45,8 +45,8 @@
       "bolum": "ornek2",
       "motor": "Düz canvas",
       "kare": 487,
-      "t_bas": 30.15,
-      "t_son": 45.98,
+      "t_bas": 31.19,
+      "t_son": 47.02,
       "icerik_kare": 475,
       "gecis": "BookFlip"
     },
@@ -56,8 +56,8 @@
       "bolum": "ornek3",
       "motor": "Düz canvas",
       "kare": 517,
-      "t_bas": 45.98,
-      "t_son": 62.81,
+      "t_bas": 47.02,
+      "t_son": 63.85,
       "icerik_kare": 505,
       "gecis": "fade"
     },
@@ -66,10 +66,10 @@
       "klasor": "06-hyperframes-form",
       "bolum": "form",
       "motor": "HyperFrames",
-      "kare": 766,
-      "t_bas": 62.81,
-      "t_son": 87.33,
-      "icerik_kare": 736,
+      "kare": 953,
+      "t_bas": 63.85,
+      "t_son": 94.61,
+      "icerik_kare": 923,
       "gecis": "fade"
     }
   ]

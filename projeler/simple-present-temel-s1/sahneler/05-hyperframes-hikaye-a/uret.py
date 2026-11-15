@@ -36,6 +36,10 @@ W, H = Y.W, Y.H
 OK_X = round(60.0 + Y.genislik("Fredoka", 700, "I · you · we · they", 72) + 24.0)
 FIIL_X = OK_X + 72 + 24
 BUS_KUTU = [470.0, 956.0, 220.0, 70.0]
+# DUZ4 A3 / EK-5b (16.11, şef kararı): kural özeti kaydet kartıyla aynı metin + soluk kapsam satırı (Fredoka 600 44, ikincil).
+# Özet 16 px yukarı (536/620 → 520/604); kapsam tabanı 662; satır 1 (716) ile arası ≥ 16 kalır.
+OZET1, OZET2, KAPSAM = "He, she, it: fiile -s / -es gelir;", "I, you, we, they: s yok.", "olumlu cümlede · be ve can hariç"
+OZ_Y1, OZ_Y2, OZ_Y3, KAPSAM_BOY = 520, 604, 662, 44
 
 
 # ---- coco (Inkscape) SVG: kalem darbesi yolları (01-kanca yardim.py kopyası) ----
@@ -173,14 +177,18 @@ def coco(
 def ozet_svg() -> str:
     """Özet grubu SVG çıktısı."""
     t1 = (
-        f'<text id="ozet1" x="60" y="536" font-family="Fredoka" font-weight="700" '
-        f'font-size="64" fill="{R["murekkep"]}">He, she, it: s gelir;</text>'
+        f'<text id="ozet1" x="60" y="{OZ_Y1}" font-family="Fredoka" font-weight="700" '
+        f'font-size="64" fill="{R["murekkep"]}">{OZET1}</text>'
     )
     t2 = (
-        f'<text id="ozet2" x="60" y="620" font-family="Fredoka" font-weight="700" '
-        f'font-size="64" fill="{R["murekkep"]}">I, you, we, they: s yok.</text>'
+        f'<text id="ozet2" x="60" y="{OZ_Y2}" font-family="Fredoka" font-weight="700" '
+        f'font-size="64" fill="{R["murekkep"]}">{OZET2}</text>'
     )
-    return f'<g id="ozet">{t1}{t2}</g>'
+    t3 = (
+        f'<text id="ozet3" x="60" y="{OZ_Y3}" font-family="Fredoka" font-weight="600" '
+        f'font-size="{KAPSAM_BOY}" fill="{R["ikincil"]}">{KAPSAM}</text>'
+    )
+    return f'<g id="ozet">{t1}{t2}{t3}</g>'
 
 
 def satir1_svg() -> str:
@@ -294,11 +302,12 @@ def blok_kutulari() -> list[dict[str, float]]:
     kunye = {"ad": "kunye", "x": 60.0, "y": 386.0, "w": rz_x + rz_w - 60.0, "h": 48.0}
 
     w_ozet = max(
-        Y.genislik("Fredoka", 700, "He, she, it: s gelir;", 64),
-        Y.genislik("Fredoka", 700, "I, you, we, they: s yok.", 64),
+        Y.genislik("Fredoka", 700, OZET1, 64),
+        Y.genislik("Fredoka", 700, OZET2, 64),
+        Y.genislik("Fredoka", 600, KAPSAM, KAPSAM_BOY),
     )
-    ozet_y = 536.0 - 48.0
-    ozet_h = 620.0 + 16.0 - ozet_y
+    ozet_y = OZ_Y1 - 48.0
+    ozet_h = OZ_Y3 + 0.25 * KAPSAM_BOY - ozet_y
     ozet = {"ad": "ozet", "x": 60.0, "y": ozet_y, "w": w_ozet, "h": ozet_h}
 
     w_goes = Y.genislik("Fredoka", 700, "goes", 72)
@@ -384,10 +393,10 @@ def kurallari_dogrula(bloklar: list[dict[str, float]], html: str) -> None:
     for boy in (64, 72, 72, 64, 64):
         assert boy >= 64, f"Yazı boyu {boy} < 64"
 
-    # 7. Ekran satırları <= 24 karakter (§5 listesi; künye ve kanal hariç)
+    # 7. Ekran satırları <= 24 karakter (§5 listesi; künye ve kanal hariç). DUZ4 A3: OZET1 (33) ve KAPSAM (32) şef
+    #    kararıyla bu sınırın dışında; genişlikleri 1. kuralda (x + w <= 960) ölçülür.
     satirlar = [
-        "He, she, it: s gelir;",
-        "I, you, we, they: s yok.",
+        OZET2,
         "he · she · it",
         "I · you · we · they",
         "goes",

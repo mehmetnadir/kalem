@@ -41,7 +41,7 @@ def uret():
     ids = {"eskiz": set(), "t1": set(), "t2": set()}
     # ---- rozetler (0,30 / 0,40) ----
     x = SOL
-    for i, (m, dolgu) in enumerate((("YDT · BASIC", SAR), ("GRAMMAR", KRE))):
+    for i, (m, dolgu) in enumerate((("YDT · TEMEL", SAR), ("GRAMMAR", KRE))):
         w = Y.genislik("Lexend", 700, m, 26) + 44
         s.svg.append('<g id="rz%d" style="opacity:0"><rect x="%.1f" y="%d" width="%.1f" height="%d" rx="24" fill="%s"/>'
                      '<text x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" font-weight="700" '

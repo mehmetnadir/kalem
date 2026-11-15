@@ -66,7 +66,7 @@ Alt çizgi karakteri (`_`) html'de YOK: boşluk SVG çizgisidir.
 ```
 y   0 ─ 280  boş zemin
   291 ─ 339  kanal: logo + @ydspublishing           (Y.kunye_svg)
-  386 ─ 434  künye: Simple Present + YDT · BASIC     (Y.kunye_svg)
+  386 ─ 434  künye: Simple Present + YDT · TEMEL     (Y.kunye_svg)
   470 ─ 570  Hangisi doğru?             taban 545, Fredoka 700 88
   590 ─ 750  Does she ________          taban 652 (çizgi kalemle)
              to school?                 taban 732, Fredoka 700 64

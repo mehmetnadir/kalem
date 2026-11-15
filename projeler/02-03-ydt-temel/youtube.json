@@ -1,0 +1,50 @@
+{
+  "baslik": "Present Continuous ve Simple Present: ayrım alıştırması | YDT İngilizce",
+  "etiketler": [
+    "İngilizce",
+    "temel",
+    "gramer",
+    "Present Continuous",
+    "Simple Present",
+    "YDT",
+    "Present Continuous ve Simple Present",
+    "şimdiki zaman",
+    "geniş zaman"
+  ],
+  "bolumler": [
+    {"t": 0.0, "ad": "Aynı fiil, iki zaman: sinyal sözcüğü"},
+    {"t": 15.31, "ad": "Planlı gelecek: are leaving"},
+    {"t": 33.0, "ad": "Geçici dönem: these days"},
+    {"t": 51.65, "ad": "Değişim: nowadays, harder and harder"},
+    {"t": 68.64, "ad": "Neden -ing? Plan, dönem, değişim"},
+    {"t": 87.78, "ad": "Karar kartı: now, these days, usually"},
+    {"t": 111.37, "ad": "Tek cümlede iki zaman: usually ve now"},
+    {"t": 132.5, "ad": "Kartpostal: geçici mi, genel mi?"},
+    {"t": 169.36, "ad": "Tuzak: sinyal var, -ing yok"},
+    {"t": 189.38, "ad": "Believe, recommend, have (sahip olmak): -ing tuzağı"},
+    {"t": 227.33, "ad": "Özet: hangi sinyal, hangi zaman?"},
+    {"t": 246.44, "ad": "Mini soru: now ile hangi şık?"},
+    {"t": 276.82, "ad": "Sınavda iki adım: sinyal, sonra fiil"}
+  ],
+  "sabitYorum": "Sınavdan önce tekrar etmek için bu dersi kaydet; aradığın sinyal sözcüğüne açıklamadaki bölüm damgalarıyla doğrudan geç.",
+  "gonderiler": [
+    {
+      "kimlik": "g1",
+      "metin": "Boşluğa hangi zamanı koyacağına nasıl karar verirsin? Önce sinyal sözcüğüne bak: now ve these days çoğu zaman şimdiki zamanı, usually de çoğu zaman geniş zamanı çağırır. Bu derste believe gibi fiillerin tuzağını da görüyoruz.",
+      "gorsel": "kapak.png"
+    }
+  ],
+  "liste": {
+    "ad": "Tenses · YDT Temel",
+    "sira": 3,
+    "onceki": "02-02-ydt-temel",
+    "sonraki": "02-04-ydt-temel"
+  },
+  "bildirimler": [
+    {"t": 88.33, "sure": 3.0},
+    {"t": 190.13, "sure": 3.0}
+  ],
+  "giris": true,
+  "cikis": true,
+  "aciklamaDosya": "youtube-aciklama.md"
+}

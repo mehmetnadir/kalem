@@ -106,11 +106,11 @@
     ],
     [
      "tr",
-     "Ana cümlede have been ve -ing gelir."
+     "Burada iş hâlâ sürüyor: ana cümlede have been ve -ing."
     ]
    ],
    "olaylar": [],
-   "metin": "Birinci örnek. Since the school changed the timetable, students have been complaining. Program değişeli beri öğrenciler yakınıyor. Since, plus a simple past clause. Ana cümlede have been ve -ing gelir."
+   "metin": "Birinci örnek. Since the school changed the timetable, students have been complaining. Program değişeli beri öğrenciler yakınıyor. Since, plus a simple past clause. Burada iş hâlâ sürüyor: ana cümlede have been ve -ing."
   },
   {
    "ses": "ogretmen",
@@ -156,11 +156,11 @@
     ],
     [
      "tr",
-     "Durum fiili -ing almaz."
+     "Durum anlatan fiiller genellikle -ing almaz."
     ]
    ],
    "olaylar": [],
-   "metin": "Üçüncü örnek. We have known each other since we were at primary school. İlkokuldan beri birbirimizi tanıyoruz. Know is a state verb. Durum fiili -ing almaz."
+   "metin": "Üçüncü örnek. We have known each other since we were at primary school. İlkokuldan beri birbirimizi tanıyoruz. Know is a state verb. Durum anlatan fiiller genellikle -ing almaz."
   },
   {
    "ses": "ogrenci",
@@ -186,7 +186,7 @@
    "parcalar": [
     [
      "tr",
-     "Olmaz. Durum fiilleri -ing almaz."
+     "Olmaz. Bu fiil bir durum anlatır, süreç değil."
     ],
     [
      "en",
@@ -198,15 +198,15 @@
     ],
     [
      "tr",
-     "Türkçede -yor süreci, -di sonucu söyler."
+     "İkinci örnekte okuyorum süreci, bitirdim sonucu söyler."
     ],
     [
      "tr",
-     "Aklında kalsın: süreç varsa been var, sonuç varsa been yok."
+     "Aklında kalsın: süreç için been ve -ing, sonuç ve durum için have ve üçüncü hâl."
     ]
    ],
    "olaylar": [],
-   "metin": "Olmaz. Durum fiilleri -ing almaz. Process: have been plus -ing. Result: have plus the third form. Türkçede -yor süreci, -di sonucu söyler. Aklında kalsın: süreç varsa been var, sonuç varsa been yok."
+   "metin": "Olmaz. Bu fiil bir durum anlatır, süreç değil. Process: have been plus -ing. Result: have plus the third form. İkinci örnekte okuyorum süreci, bitirdim sonucu söyler. Aklında kalsın: süreç için been ve -ing, sonuç ve durum için have ve üçüncü hâl."
   }
  ],
  "zaman": {
@@ -220,7 +220,7 @@
   "satir1": "PRESENT PERFECT",
   "satir2": "CONTINUOUS",
   "rozetler": [
-   "YDT · ADVANCED",
+   "YDT · İLERİ",
    "GRAMMAR"
   ],
   "sahne": [
@@ -248,20 +248,20 @@
   "kapak": {
    "satir1": "SÜREÇ Mİ?",
    "satir2": "SONUÇ MU?",
-   "canAlici": "been varsa süreç var, been yoksa sonuç var"
+   "canAlici": "been + -ing süreci, have + V3 bitmiş sonucu anlatır"
   },
   "amaclar": [
    "have/has been + V-ing formunu kural olarak söylemek",
    "since + geçmiş zamanlı yan cümle kökünü çözmek",
    "süreç (been -ing) ile sonuç (have + V3) ayrımını yapmak",
-   "durum fiillerinin -ing almadığını bilmek"
+   "durum anlatan fiillerin genellikle -ing almadığını bilmek"
   ],
   "canAlici": [
-   "Süreç varsa been var, sonuç varsa been yok",
-   "Since + geçmiş zamanlı yan cümle -> ana cümle have been -ing",
+   "Süreç için been + -ing; sonuç ve durum için have + V3",
+   "Since + geçmiş zamanlı yan cümle -> ana cümle çoğu zaman Present Perfect; iş hâlâ sürüyorsa have been -ing",
    "Bütün hafta okuyorum (been reading) ama iki bölüm bitirdim (have finished)",
-   "know, like, belong: durum fiili, have been knowing olmaz",
-   "Türkçede -yor süreci, -di sonucu söyler"
+   "know, like, belong çoğu zaman durum anlatır: have been knowing olmaz",
+   "İkinci örnekte okuyorum süreci, bitirdim sonucu söyler"
   ],
   "kazanim": [],
   "etiketler": [

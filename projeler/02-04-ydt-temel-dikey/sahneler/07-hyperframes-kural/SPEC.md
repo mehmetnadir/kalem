@@ -46,7 +46,7 @@ Başka dosyaya dokunma. Silme yok. Test, render, git yok.
 
 ### 4.2 HUD (kare 0'dan sabit; `kunye_tam_svg()` uret.py içinde yazılır, yardim.py değişmez)
 - Metinleri `ortak/kunye.js`'ten düzenli ifadeyle oku ve assert et: `ders` = `["SIMPLE PRESENT vs", "PRESENT CONTINUOUS"]`,
-  `rozet` = `"YDT · BASIC"`, `cipler["07-hyperframes-kural"]` = `"Rule"`.
+  `rozet` = `"YDT · TEMEL"`, `cipler["07-hyperframes-kural"]` = `"Rule"`.
 - `<g id="kunye">` içinde üç grup:
   - `ku-ders`: iki `<text>` Fredoka 700 56, `fill=RENK["murekkep"]`, x 48, taban y 212 ve 276.
   - `ku-rozet`: `rect` x = 48 + genislik(Fredoka 700, ders[1], 56) + 24 (≈ 670), y 216, w = genislik(Lexend 700, rozet, 36) + 56, h 72,

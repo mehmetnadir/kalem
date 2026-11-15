@@ -1,14 +1,14 @@
-// SAHNE 05 (DİKEY) — PPC temel Örnek 3: düz canvas, 439 kare, t_bas 47,27; cümle 5.
-// Zaman yalnız kare numarasından.
+// SAHNE 05 (DİKEY) — PPC temel Örnek 3: düz canvas, 444 kare, t_bas 47,27 eski çerçeve; cümle 5.
+// Zaman yalnız kare numarasından. 16.11 DUZ3: kayma -5,2 (gerçek t_bas 52,47); cümle 5 yeni ses ("Yağmur yağıyormuş.").
 // Yerleşim BRIEF-DIKEY §4: kart (Look! + cümle) -> TR çeviri ->
 // bulut + şemsiye + ıslak sokak + not -> formül.
 import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, renkCoz, kutu, elips, ok, olc, geriTasma, kis } from "./sahne-ortak.js";
 
-const KARE = 439, TBAS = 47.27, ICERIK = 427;
+const KARE = 444, TBAS = 47.27, ICERIK = 432;
 const KOKDIZ = "/projeler/present-perfect-cont-temel-dikey/ortak/cizim";
 const S = new Sahne({
-  tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: 0, bolum: "Example 3 / 3", cumle: 5
+  tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: -5.2, bolum: "Example 3 / 3", cumle: 5
 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
@@ -58,16 +58,16 @@ async function kur() {
   }));
   const sonSatir = 646, kel = (ad) => c2.kel.find((k) => k.m === ad);
 
-  // 53,12–54,68 «Bak, sokak ıslak.» ve 54,88–56,40 «Yağmur bir süredir yağıyor.» Türkçe çeviri
-  // (Caveat 64, mürekkep) iki satır; pencere: 3 + 4 sözcük (bir 55,28 → 55,40)
+  // 53,12–54,72 «Bak, sokak ıslak.» ve 54,80–56,08 «Yağmur yağıyormuş.» Türkçe çeviri
+  // (Caveat 64, mürekkep) iki satır; pencere: 3 + 2 sözcük
   const ytr = sonSatir + 84;
   S.koy(S.elYazisi({
     metin: "Bak, sokak ıslak.", x: 88, y: ytr, boy: 64, renk: KREM,
     sozcukler: pen("Bak,", 53.12, 3)
   }));
   S.koy(S.elYazisi({
-    metin: "Yağmur bir süredir yağıyor.", x: 88, y: ytr + 66, boy: 64, renk: KREM,
-    sozcukler: pen("Yağmur", 54.88, 4)
+    metin: "Yağmur yağıyormuş.", x: 88, y: ytr + 66, boy: 64, renk: KREM,
+    sozcukler: pen("Yağmur", 54.80, 2)
   }));
 
   // ORTA (y 850–1290): şemsiye (sol) + yağmur bulutu (orta, 420 px) +
@@ -94,36 +94,35 @@ async function kur() {
     w: 4.2, tb: 51.23, sure: 0.8, olayEnCok: 4, nefes: false
   }));
 
-  // 56,56–57,76 «İzi şimdi görünüyor.» sonuç ipucu: Caveat 64 (vurgu) + sarı ok ıslak sokağa.
-  // `izi şimdi` penceresi: 56,56–57,04 (izi 56,72 → 56,80); `görünüyor` eski belirme anında
-  // (56,90) başlar, anlatım 57,08–57,76 ile biter
+  // 56,12–57,92 «İzi şimdi görünüyor.» sonuç ipucu: Caveat 64 (vurgu) + sarı ok ıslak sokağa.
+  // `izi şimdi` penceresi: 56,12–56,56; `görünüyor` anlatım 56,64–57,92 (16.11 DUZ3 sesi)
   S.koy(S.elYazisi({
-    metin: "izi şimdi", x: 735, y: 760, boy: 64, renk: SARI, sozcukler: pen("İzi", 56.56, 2)
+    metin: "izi şimdi", x: 735, y: 760, boy: 64, renk: SARI, sozcukler: pen("İzi", 56.12, 2)
   }));
   S.koy(S.elYazisi({
     metin: "görünüyor", x: 735, y: 826, boy: 64, renk: SARI,
-    sozcukler: [{ t0: 56.9, t1: 57.76 }]
+    sozcukler: [{ t0: 56.64, t1: 57.92 }]
   }));
   S.koy(S.darbeler(
-    ok([950, 850], [960, SY - 14], 5), { w: 9, renk: SARI, uc0: 10, uc1: 14 }, 57.3, 0.4, 0.2,
+    ok([950, 850], [960, SY - 14], 5), { w: 9, renk: SARI, uc0: 10, uc1: 14 }, 56.9, 0.4, 0.2,
     0.55
   ));
 
-  // 57,91 formül: has been + V-ing (Fredoka 110, taban 1380);
-  // 59,51 has been halka; 60,79 raining halka
+  // 58,07 formül: has been + V-ing (Fredoka 110, taban 1380);
+  // 59,67 has been halka; 61,19 raining halka
   S.koy(S.metinPop({
     parca: [["has been", KREM], [" + ", IKINCIL], ["V", KREM], ["-ing", SARI]], x: 540, y: 1364,
-    font: FF(110), hiza: "orta", tb: 57.91, sure: 0.4, ses: 0.8, turu: "vurus"
+    font: FF(110), hiza: "orta", tb: 58.07, sure: 0.4, ses: 0.8, turu: "vurus"
   }));
   const has = kel("has"), been = kel("been");
   if (has.satir === been.satir) {
     S.koy(S.halka(
-      { x: has.x, w: been.x + been.w - has.x, y: has.y, boy: has.boy }, 59.51, 0.4, 21, 8
+      { x: has.x, w: been.x + been.w - has.x, y: has.y, boy: has.boy }, 59.67, 0.4, 21, 8
     ));
   } else {
-    S.koy(S.halka(has, 59.51, 0.3, 21)); S.koy(S.halka(been, 59.8, 0.3, 22));
+    S.koy(S.halka(has, 59.67, 0.3, 21)); S.koy(S.halka(been, 59.99, 0.3, 22));
   }
-  S.koy(S.halka(kel("raining."), 60.79, 0.3, 23));
+  S.koy(S.halka(kel("raining."), 61.19, 0.3, 23));
 }
 
 surucu(kur, (f) => S.kare(f), KARE);

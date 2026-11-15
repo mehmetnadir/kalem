@@ -1,5 +1,8 @@
 # SPEC v2 — 02-04-ydt-temel-s3 · sahne 01-hyperframes-kapak (kanca, HyperFrames, 1080×1920, 102 kare) · huni v2 · 15.11.2026
 
+> DUZ2 (15.11): başlık 2 `≠ PLAN` → `≠ DÜZENLEME` (A3), satır 2 kendi boyu B2 = 131 px (900 px'e sığan), satır 1 `TARİFE` 190 px; rozet `YDT · TEMEL`. Kaynak `uret.py`; aşağıdaki `PLAN` geçen satırlar eski tasarımdır.
+
+
 Yazan: şef. Bu belge tasarım verir; tam kod içermez. Bağlayıcı: `/home/sef/01dev/dijital-anlatim/.claude/docs/huni-v2-standart.md` §2, §3, §6.
 K = `/home/sef/01dev/_worktrees/kalem-0204`. D = `K/projeler/02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/` (bu sahne dizini).
 v1 SPEC ve kod yedeği: `/home/sef/Silinecekler/2026-11-15-huni-v2/02-04-ydt-temel-s3/sahneler-v1/01-hyperframes-kapak/`.
@@ -68,7 +71,7 @@ v1 ile birebir aynı (değişmez). Tren, saat, bilet, figür yollarının iç ge
 | KART | `kutu(71, 472, 878, 254, 71)` | x 62–958 (titreşim ±9 + çizgi 2 ile 60–960), üst ≥ 461 |
 | o3, h3, hs3 | (275, 1285) kapak kutusu merkezi · (819,5, 540,0) · `tren_olcek` 0,5 | uçuş sonu tren kutusu h3 + hs3·(kapak kutusu − o3) = [712, 494,5, 927, 585,5]; hesapla, elle yazma |
 | KONU | `Simple Present vs Present Continuous` | künye satırı metni (büyük-küçük harf aynen) |
-| ROZET | `YDT · BASIC` | Lexend 700 26 |
+| ROZET | `YDT · TEMEL` | Lexend 700 26 |
 | ROZET_W | g(ROZET, Lexend 700, 26) + 40 | ≈ 203,6 (iç boşluk 20 + 20) |
 | KB_K | {34, 33, …, 28} içinde 60 + g(KONU, Fredoka 700, k) + 20 + ROZET_W ≤ 960 sağlayan EN BÜYÜK k | = 34 (868,2 ≤ 960); 28'de de sığmazsa assert |
 | ROZET_X | 60 + g(KONU, Fredoka 700, KB_K) + 20 | ≈ 664,6 |
@@ -127,7 +130,7 @@ Tek vurgu = altçizgi + hap (rozet künye öğesidir). Kırmızı, yeşil, emoji
 ```
 y   0–280  boş zemin
   291–339  [logo 53,2–246,6] @ydspublishing (x 263, taban 330)                 kanal: 0→102 sabit
-  360–450  künye: (kapakta yalnız rozet)            [YDT · BASIC] x 664,6–868,2 · y 386–434
+  360–450  künye: (kapakta yalnız rozet)            [YDT · TEMEL] x 664,6–868,2 · y 386–434
   466–641  TARİFE (B 190, ortası 510, x 186–834, kontur 12)      → uçuşla konu ilk yarısı (x 60–285)
      671   ~~~~ sarı altçizgi (x 180–840)
   700–902  ( ≠ PLAN ) hap x 165,6–854,4                           → uçuşla konu ikinci yarısı (x 332–583)

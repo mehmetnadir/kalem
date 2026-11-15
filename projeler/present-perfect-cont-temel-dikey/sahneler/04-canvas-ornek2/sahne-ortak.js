@@ -426,7 +426,7 @@ export class Sahne {
     zeminCiz(ctx, f, this.K);
     for (const e of this.ogeler) e.ciz(ctx, f);
     kunyeCiz(ctx, { bolum: this.bolum, logo: this.K.logo });
-    altyaziCiz(ctx, altyaziMetin(this.K.altyazi, this.zm(Math.min(f, this.kareSay - 15))));
+    altyaziCiz(ctx, altyaziMetin(this.K.altyazi, this.zm(Math.min(f, this.kareSay - 15)) - this.kayma)); // 16.11 DUZ3: yeni çerçeve
     if (f === this.kareSay - 1 && !/canli=1/.test(location.search)) {
       await logGonder({ method: "POST", body: `ILKBAS ${Math.round(this.ilkBas)}` });
       await logGonder({ method: "POST", body: "OLAYLAR " + JSON.stringify(this.olayListe()) });

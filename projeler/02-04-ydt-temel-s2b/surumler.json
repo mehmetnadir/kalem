@@ -64,5 +64,20 @@
       "kaynak": "ana-yatay"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "s2b",
+      "no": "r1",
+      "tarih": "2026-11-15T20:48:00Z",
+      "degisiklik": "DUZ2 (J2 A1/TD-1, TD-4 + KBJ AB-X1/AB-8): kol a düzeltmeleri birebir (rozet YDT · TEMEL, hikâye B kural satırı kaynakta); KOK ve sahne 02 içe aktarımları kol b yolunu gösterir; bütün sahne kareleri kol b'den yeniden çekildi; ses ve zaman değişmedi (29,49 sn); çakışma kapısı 0; mp4 yok. Rapor uretim-tutanagi/DUZ2-RAPOR.md",
+      "cikti": null
+    },
+    {
+      "surum": "s2b",
+      "no": "r2",
+      "tarih": "2026-11-15T23:13:00Z",
+      "degisiklik": "DUZ4 (J3 A1, A2, A9 + C2, C3, C5): kol a ortak düzeltmeleri birebir (ortak/kunye.js, kalem-paper.js, sahne-02.js, 03 yardim.py; kol b yolu); 03 uret.py kendi metniyle karaoke (9 sözcük); altyazı x 60–960; başlık B 'Today görünce hangi zamanı seçersin?'; zaman kapısı, hf-check, kontak. Ses değişmedi; 02 ve 03 açık + koyu kol b'den yeniden çekildi; çakışma 0; mp4 yok. Rapor uretim-tutanagi/DUZ4-RAPOR.md",
+      "cikti": null
+    }
+  ]
 }

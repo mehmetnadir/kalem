@@ -44,12 +44,12 @@ v1 `kunye_svg()` (logo y 48, 2 satır ders adı, rozet, `Quiz` çipi), `soru` ha
 ```
 y   0 ─ 280  boş zemin
   291 ─ 339  kanal: logo + @ydspublishing          (Y.kunye_svg)
-  386 ─ 434  künye: konu + YDT · BASIC             (Y.kunye_svg)
-  538 / 622  Şimdilik amcamla / yaşıyorum.         Fredoka 700 76
-  664 ─ 864  [ I am living with ]   I live with       sol: yeşil çerçeve + tik, Fredoka 700 72 (x 60–628)
-  742 / 822  [ my uncle.      ✓ ]   my uncle.         sağ: soluk (0,45), Fredoka 700 64, x 656; üstü çizgi YOK
-  914          şimdilik → geçici      kalıcıysa       etiketler: Caveat 700 48; sol yeşil, sağ gri (R["ikincil"])
- 1035 / 1117 Kalıcıysa geniş zaman, / geçiciyse şimdiki zaman.  Fredoka 700 68
+  386 ─ 434  künye: konu + YDT · TEMEL             (Y.kunye_svg)
+  517 / 601  Şimdilik amcamla / yaşıyorum.         Fredoka 700 76
+  636 ─ 836  [ I am living with ]   I live with       sol: yeşil çerçeve + tik, Fredoka 700 72 (x 60–628)
+  714 / 794  [ my uncle.      ✓ ]   my uncle.         sağ: soluk (0,45), Fredoka 700 64, x 656; üstü çizgi YOK
+  880          şimdilik → geçici      kalıcıysa       etiketler: Caveat 700 48; sol yeşil, sağ gri (R["ikincil"])
+ 959 / 1039 / 1119 Live, work fiillerinde: / kalıcıysa geniş zaman, / geçiciyse şimdiki zaman.  Fredoka 700 68 (DUZ2: tr, kart, etiket 28 px yukarı)
  1150 ─ 1380 BOŞ ZEMİN (bağ çıkartması elle konur; kutu, çerçeve, çizgi ÇİZME)
  1416 ─ 1504 [yer imi] (Kaydet)                     sarı hap
  1570 ─ 1920 boş zemin
@@ -59,31 +59,31 @@ Sabitler: `YESIL = "#167a4a"` (doğru şık; açık tema değeri) · `YESIL_KOYU
 Diğer renkler yalnız `Y.RENK["zemin"|"murekkep"|"ikincil"|"vurgu"]`. Kırmızı (`Y.RENK["kirmizi"]`) KULLANMA.
 
 ### 3.1 Türkçe cümle (`<g id="tr">`)
-- `<text id="tr1" x="60" y="538">Şimdilik amcamla</text>` · `<text id="tr2" x="60" y="622">yaşıyorum.</text>`
+- `<text id="tr1" x="60" y="517">Şimdilik amcamla</text>` · `<text id="tr2" x="60" y="601">yaşıyorum.</text>`
 - Fredoka 700, 76, `fill` R["murekkep"].
 
 ### 3.2 Doğru şık kartı (`<g id="dogru">`)
 - Satırlar (DUZ-1): `DOGRU_SATIR = ("I am living with", "my uncle.")`; satır ≤ 24 kuralı tek satırı yasaklar, kart yarım genişlikte.
-- `KART_SAG = int(100 + max(genişlik(Fredoka 700, satır, 72)) + 40) + 1` (= 628). Çerçeve: `<rect id="dogru-crv" x="63" y="667"
-  width={KART_SAG − 66} height="194" rx="28" fill="none" stroke=YESIL stroke-width="6"/>` (dış kenar x 60–628, y 664–864).
-- `<text id="dogru-s1" x="100" y="742">I am living with</text>` · `<text id="dogru-s2" x="100" y="822">my uncle.</text>`;
+- `KART_SAG = int(100 + max(genişlik(Fredoka 700, satır, 72)) + 40) + 1` (= 628). Çerçeve: `<rect id="dogru-crv" x="63" y="639"
+  width={KART_SAG − 66} height="194" rx="28" fill="none" stroke=YESIL stroke-width="6"/>` (dış kenar x 60–628, y 636–836).
+- `<text id="dogru-s1" x="100" y="714">I am living with</text>` · `<text id="dogru-s2" x="100" y="794">my uncle.</text>`;
   Fredoka 700, 72, `fill` R["murekkep"].
-- Tik: `<g id="dogru-tik" transform="translate({KART_SAG − 120} 756) scale(4)" …><path d="M5 12l5 5l10 -10"/></g>`
+- Tik: `<g id="dogru-tik" transform="translate({KART_SAG − 120} 728) scale(4)" …><path d="M5 12l5 5l10 -10"/></g>`
   (2. satır hizasında; görünür kutu x 528–588, y 784–824). Emoji YOK.
 
 ### 3.3 Öteki şık (`<g id="yanlis">`; kartın sağında, satır tabanları kartla ortak)
-- `YANLIS_X = KART_SAG + 28` (= 656). `<text id="yanlis-s1" x="656" y="742" opacity="0.45">I live with</text>` ·
-  `<text id="yanlis-s2" x="656" y="822" opacity="0.45">my uncle.</text>`; Fredoka 700, 64, `fill` R["murekkep"].
+- `YANLIS_X = KART_SAG + 28` (= 656). `<text id="yanlis-s1" x="656" y="714" opacity="0.45">I live with</text>` ·
+  `<text id="yanlis-s2" x="656" y="794" opacity="0.45">my uncle.</text>`; Fredoka 700, 64, `fill` R["murekkep"].
 - Üstü çizgi, çerçeve, tik, çarpı YOK (DUZ-1: cümle dilbilgisi olarak doğru). Kırmızı YOK.
 
-### 3.3a Bağlam etiketleri (DUZ-1; taban y 914, Caveat 700 48, `xml:space="preserve"`)
+### 3.3a Bağlam etiketleri (DUZ-1; taban y 880 (DUZ2), Caveat 700 48, `xml:space="preserve"`)
 - Doğru şık altı: `<g id="dogru-etiket" fill=YESIL>` içinde `<text id="dogru-et1" x="100">şimdilik</text>`, ok
   `<path id="dogru-ok" d="M5 12l14 0M13 18l6 -6M13 6l6 6" transform="translate(… …) scale(2)" fill="none" stroke=YESIL stroke-width="2">`
   (Tabler `arrow-right`, MIT; yazı tiplerinde U+2192 yok), `<text id="dogru-et2">geçici</text>`; ok ile yazı arası 18 px.
 - Öteki şık altı: `<text id="yanlis-etiket" x="656" fill=R["ikincil"]>kalıcıysa</text>`.
 
 ### 3.4 Kural özeti (`<g id="ozet">`)
-- `<text id="ozet1" x="60" y="1035">Kalıcıysa geniş zaman,</text>` · `<text id="ozet2" x="60" y="1117">geçiciyse şimdiki zaman.</text>`
+- `<text id="ozet1" x="60" y="959">Live, work fiillerinde:</text>` · `<text id="ozet2" x="60" y="1039">kalıcıysa geniş zaman,</text>` · `<text id="ozet3" x="60" y="1119">geçiciyse şimdiki zaman.</text>`
 - Fredoka 700, 68, `fill` R["murekkep"].
 
 ### 3.5 Kaydet (`<g id="kaydet">`; sahne 04 `kaydet_svg()` ile aynı yapı, y +368)
@@ -112,12 +112,12 @@ GEÇMEYECEK (hf_tema.py bu diziyi görürse CSS eklemez) — assert et.
 |---|---|---|---|---|
 | kanal | 53,2 | 291 | 263 + genişlik(Lexend 700 `@ydspublishing` 42) − 53,2 | 48 |
 | kunye | 60 | 386 | rozet x + rozet w − 60 (`Y.rozet_konumlari()[0]`) | 48 |
-| tr | 60 | 538 − 0,75·76 | max(genişlik(Fredoka 700, satır, 76)) iki satır | (622 + 0,25·76) − y |
-| dogru | 60 | 664 | KART_SAG − 60 | 200 |
-| yanlis | YANLIS_X | 742 − 0,75·64 | max(genişlik(Fredoka 700, satır, 64)) iki satır | (822 + 0,25·64) − y |
-| dogru-etiket | 100 | 914 − 0,75·48 | gen(şimdilik) + 2·18 + 28 + gen(geçici) (Caveat 700 48) | 48 |
-| yanlis-etiket | YANLIS_X | 914 − 0,75·48 | gen(kalıcıysa) (Caveat 700 48) | 48 |
-| ozet | 60 | 1035 − 0,75·68 | max(genişlik(Fredoka 700, satır, 68)) iki satır | (1117 + 0,25·68) − y |
+| tr | 60 | 517 − 0,75·76 | max(genişlik(Fredoka 700, satır, 76)) iki satır | (601 + 0,25·76) − y |
+| dogru | 60 | 636 | KART_SAG − 60 | 200 |
+| yanlis | YANLIS_X | 714 − 0,75·64 | max(genişlik(Fredoka 700, satır, 64)) iki satır | (794 + 0,25·64) − y |
+| dogru-etiket | 100 | 880 − 0,75·48 | gen(şimdilik) + 2·18 + 28 + gen(geçici) (Caveat 700 48) | 48 |
+| yanlis-etiket | YANLIS_X | 880 − 0,75·48 | gen(kalıcıysa) (Caveat 700 48) | 48 |
+| ozet | 60 | 959 − 0,75·68 | max(genişlik(Fredoka 700, satır, 68)) üç satır | (1119 + 0,25·68) − y |
 | kaydet | 60 | 1416 | 128 + hap_w − 60 | 88 |
 
 ## 5. Kurallar (`kurallari_dogrula(bloklar, html)`, assert)
@@ -131,7 +131,7 @@ GEÇMEYECEK (hf_tema.py bu diziyi görürse CSS eklemez) — assert et.
 6. Kart içi: `100 + max(genişlik(Fredoka 700, satır, 72)) ≤ KART_SAG − 24`; `100 + genişlik("my uncle.", 72) ≤ KART_SAG − 124` (tik).
 7. Yazı boyları (sabit olarak tanımla, assert ≥ 64): tr 76, kart 72, yanlış 64, özet 68, kaydet 64; etiket 48 (assert ≥ 44).
 8. Ekran satırı ≤ 24 karakter (`len`): `Şimdilik amcamla`, `yaşıyorum.`, `I am living with`, `my uncle.`, `I live with`, `şimdilik`,
-   `geçici`, `kalıcıysa`, `Kalıcıysa geniş zaman,`, `geçiciyse şimdiki zaman.`, `Kaydet` (künye ve kanal satırı hariç).
+   `geçici`, `kalıcıysa`, `Live, work fiillerinde:`, `kalıcıysa geniş zaman,`, `geçiciyse şimdiki zaman.`, `Kaydet` (künye ve kanal satırı hariç).
 9. HTML: `id="kanal"` ve `id="logoimg"` tam 1 kez; `#root.tema-acik` 0 kez; `line-through` 0 kez; şu kimlikler var: `tr1`, `tr2`,
    `dogru-crv`, `dogru-s1`, `dogru-s2`, `dogru-tik`, `yanlis-s1`, `yanlis-s2`, `dogru-etiket`, `dogru-et1`, `dogru-ok`, `dogru-et2`,
    `yanlis-etiket`, `ozet1`, `ozet2`, `kaydet-imi`, `kaydet-hap`, `kaydet-yazi`;

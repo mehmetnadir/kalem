@@ -1,0 +1,56 @@
+{
+  "paket": "simple-present-temel-s1b",
+  "sikilik": 4,
+  "pay": 4,
+  "tarih": "2026-11-15T21:49:02.976Z",
+  "ozet": {
+    "toplamSahne": 4,
+    "olculen": 4,
+    "olculmedi": 0,
+    "olcumHatasi": 0,
+    "toplamHata": 0,
+    "toplamUyari": 0
+  },
+  "sahneler": [
+    {
+      "sahne": "01-hyperframes-kanca",
+      "motor": "HyperFrames",
+      "durum": "olculdu",
+      "ornekSayisi": 13,
+      "kutuSayisi": 6386,
+      "t_bas": 0,
+      "t_son": 3,
+      "olaylar": []
+    },
+    {
+      "sahne": "02-paperjs-deger",
+      "motor": "Paper.js",
+      "durum": "olculdu",
+      "ornekSayisi": 49,
+      "kutuSayisi": 2019,
+      "t_bas": 3,
+      "t_son": 14.96,
+      "olaylar": []
+    },
+    {
+      "sahne": "03-hyperframes-kaydet",
+      "motor": "HyperFrames",
+      "durum": "olculdu",
+      "ornekSayisi": 14,
+      "kutuSayisi": 1547,
+      "t_bas": 14.96,
+      "t_son": 18.07,
+      "olaylar": []
+    },
+    {
+      "sahne": "04-hyperframes-cagri",
+      "motor": "HyperFrames",
+      "durum": "olculdu",
+      "ornekSayisi": 26,
+      "kutuSayisi": 3880,
+      "t_bas": 18.07,
+      "t_son": 24.33,
+      "olaylar": []
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 Kaynak: `uretim-tutanagi/aciklama-taslak.md` §4 (S3-B jürisi + S3-C düzeltmeleri, `uretim-tutanagi/S3-duzeltme.md`).
 Sürüm: B (`s3-aciklama-b`), soru ile açılır. A seti: `aciklama-a.md` (`utm_content=s3-a`).
 Ana ders: Simple Present (`ING-YDT-GR-02-02-T`, öğe `02-02-ydt-temel`).
-Shorts: `ING-YDT-GR-02-02-T-S3`, 25,08 sn. Kimlik `@ydspublishing`. QR yok; "kanal" sözü yalnız v2 çekirdek cümlesinde.
+Shorts: `ING-YDT-GR-02-02-T-S3`, 27,33 sn. Kimlik `@ydspublishing`. QR yok; "kanal" sözü yalnız v2 çekirdek cümlesinde.
 Huni v2: her platform metninin ilk satırı standart §4 kaydet + kanal satırıdır; standart §1 kural 4–5 kapsamındaki sözler yok.
 
 **UYARI:** `https://ydspublishing.com/grammar/02-02-ydt-temel` belgeden türedi; canlılığı ölçülmedi (grammar-kapi Worker 11.11'de
@@ -22,7 +22,7 @@ Açıklama:
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Goes mu, go mu? Cümlede does ya da doesn't varsa fiil yalın kalır.
-Olumsuzda ve soruda does girer, s ona geçer. Fiile s gelmez.
+He, she, it ile olumsuzda ve soruda does girer; s ona geçer. Fiile s gelmez. be ve can gibi fiillerde does girmez.
 He doesn't go. → olumsuz, fiil yalın
 Does she go? → soru, fiil yalın
 Simple Present (ING-YDT-GR-02-02-T) dersinden bir sınav tuzağı.
@@ -44,7 +44,7 @@ Reels açıklaması:
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Goes mu, go mu?
 Does varsa fiil yalın: He doesn't go. Does she go?
-Olumsuzda ve soruda does girer, s ona geçer. Fiile s gelmez.
+He, she, it ile olumsuzda ve soruda does girer; s ona geçer. Fiile s gelmez. be ve can gibi fiillerde does girmez.
 Ders sayfası: profildeki bağlantı.
 Öğretmenseniz sınıfınızla paylaşın.
 Sıradaki ders: Present Continuous ve Simple Present: ayrım alıştırması

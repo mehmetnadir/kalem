@@ -13,9 +13,9 @@
       "Türkçe geniş zaman eki ile köprü"
     ],
     "canAlici": [
-      "Türkçedeki geniş zaman eki = İngilizcedeki s: gider = goes",
+      "Geniş zaman eki Türkçede her kişide gelir (giderim, gider); İngilizcede s yalnız he, she, it ile gelir (I go, he goes)",
       "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
-      "usually, always, every day = tekrar eden iş sinyali",
+      "usually, always, every day çoğu zaman alışkanlığı işaret eder; zamanı tek başına belirlemez (always öteki zamanlarla da gelir)",
       "he, she, it fiile s alır; I, you, we, they almaz",
       "3 örnek, 1 kural: üçünde de fiilin sonunda s"
     ],
@@ -31,7 +31,7 @@
     {
       "kimlik": "s2",
       "tur": "shorts",
-      "ad": "S2 Shorts (25,73 sn)",
+      "ad": "S2 Shorts (26,68 sn)",
       "durum": "inceleme",
       "onizleme": "/p/simple-present-temel-s2/onizle.html",
       "seviye": "temel",
@@ -107,5 +107,13 @@
       "kaynak": "ana-yatay"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "s2",
+      "no": "r1",
+      "tarih": "2026-11-15T22:03:00Z",
+      "degisiklik": "DUZ2 (J2 özeti A1–A4, TD-1…TD-3): rozet YDT · TEMEL (senaryo, BRIEF, ortak/kunye.js, 7 yardim.py); karakter ana paketin kadın öğrencisi (karakter.png + ana-kapak açık/koyu, sha256 ana paketle eş; K22, KS-10); cümle 3 'Usually, always, every day: Simple Present.' → '…: çoğunlukla Simple Present.' (yalnız cümle 3 yeniden sentez, 25,73 → 26,68 sn); sahne 03 kartı ve hikâye A 2. satır 'every day: çoğunlukla'. Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    }
+  ]
 }

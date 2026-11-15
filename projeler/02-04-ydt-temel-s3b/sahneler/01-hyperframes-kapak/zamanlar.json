@@ -1,0 +1,8 @@
+{
+  "fps": 30, "kare": 132, "sure": 4.4,
+  "alti": [0.30, 0.50], "yazi_cap": 0.28,
+  "r1_yaz": 0.30, "r2y_yaz": 0.40, "soru": 0.25, "ciz": 0.20, "r2y_sol": [2.90, 0.25],
+  "ucus": [3.00, 0.85], "ucus_olcek": 0.72, "sahne_sol": [3.00, 0.30],
+  "kunye_ac": [3.62, 0.23], "baslik_sol": [3.00, 0.18], "kapak_kare": 54,
+  "kart_ciz": [3.62, 0.28], "tren_olcek": 0.5
+}

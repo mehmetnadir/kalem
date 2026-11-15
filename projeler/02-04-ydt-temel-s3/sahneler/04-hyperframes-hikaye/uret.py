@@ -163,7 +163,7 @@ HUD = {
     "sagSinir": 960,
 }
 KONU = "Simple Present vs Present Continuous"
-ROZET = "YDT · BASIC"
+ROZET = "YDT · TEMEL"
 
 
 def konu_boyu() -> int:
@@ -216,12 +216,17 @@ def kunye_svg() -> str:
     return f'<g id="kunye">{kanal}{konu_txt}{rz}</g>'
 
 
+BAS2_YAZI = "DÜZENLEME"  # DUZ2 A3: "plan -> am going" denkliği kapsamsız; seste "kesin düzenleme"
+KART_KB = 64.0           # DUZ2: kart satırı 64 px, sol x 96 (satır 2 "kesin düzenleme -> am going." 826 px)
+KART_TX = 96.0
+
+
 def hesapla_s_ve_bas() -> tuple[
     int, int, float, float, float, float, float, float, float, float, float, float, float
 ]:
-    """Başlık bloğu 'TARİFE' / '≠ PLAN' için S ve yerleşim değerlerini hesaplar."""
+    """Başlık bloğu 'TARİFE' / '≠ DÜZENLEME' için S ve yerleşim değerlerini hesaplar (DUZ2: PLAN -> DÜZENLEME)."""
     w1 = Y.genislik("Fredoka", 700, "TARİFE", 100) / 100.0
-    w_plan_100 = Y.genislik("Fredoka", 700, "PLAN", 100) / 100.0
+    w_plan_100 = Y.genislik("Fredoka", 700, BAS2_YAZI, 100) / 100.0
     wh = 0.36 + 0.50 + 0.24 + w_plan_100 + 0.36
     S = min(120, int(math.floor(900.0 / max(w1, wh))))
 
@@ -260,7 +265,7 @@ def bas_svg(
     rx: float,
     cx: float,
 ) -> str:
-    """Başlık bloğu 'TARİFE' / '≠ PLAN' SVG çıktısı."""
+    """Başlık bloğu 'TARİFE' / '≠ DÜZENLEME' SVG çıktısı."""
     bas1 = (
         f'<text id="bas1" x="60" y="{taban1}" '
         f'font-family="Fredoka" font-weight="700" font-size="{S}" '
@@ -282,7 +287,7 @@ def bas_svg(
     plan_text = (
         f'<text id="bas2-yazi" x="{plan_x:.1f}" y="{taban2:.1f}" '
         f'font-family="Fredoka" font-weight="700" font-size="{S}" '
-        f'fill="{R["zemin"]}" xml:space="preserve">PLAN</text>'
+        f'fill="{R["zemin"]}" xml:space="preserve">{BAS2_YAZI}</text>'
     )
     bas2 = f'<g id="bas2">{hap_rect}{esitdegil}{plan_text}</g>'
     return f'<g id="bas">{bas1}{bas2}</g>'
@@ -291,80 +296,43 @@ def bas_svg(
 def kart_svg() -> str:
     """Kural özeti kartı (#kart) SVG çıktısı."""
     crv = f'<rect id="kart-crv" x="62" y="852" width="896" height="186" rx="28" fill="none" stroke="{R["murekkep"]}" stroke-width="4"/>'
-
-    # Tren ikonu
-    tren_my = 922.0 - 0.30 * 72.0
-    tren_yollar = ikon_yollari(TREN, 154.0, tren_my, 136.0, 64.0)
-    tren_paths: list[str] = []
-    for idx, (d, _, ince) in enumerate(tren_yollar):
-        if idx == len(tren_yollar) - 1:
-            renk = R["ikincil"]
-            sw = 3
-        elif ince:
-            renk = R["murekkep"]
-            sw = 3
-        else:
-            renk = R["murekkep"]
-            sw = 4
-        tren_paths.append(f'<path d="{d}" stroke="{renk}" stroke-width="{sw}"/>')
-    tren_svg = f'<g id="kart-tren" fill="none" stroke-linecap="round" stroke-linejoin="round">{"".join(tren_paths)}</g>'
-
-    # Bilet ikonu
-    bilet_mx = 932.0 - 66.0
-    bilet_my = 1004.0 - 0.30 * 72.0
-    bilet_yollar = ikon_yollari(BILET, bilet_mx, bilet_my, 132.0, 60.0)
-    bilet_paths: list[str] = []
-    for d, _, ince in bilet_yollar:
-        if ince:
-            renk = R["ikincil"]
-            sw = 3
-        else:
-            renk = R["murekkep"]
-            sw = 4
-        bilet_paths.append(f'<path d="{d}" stroke="{renk}" stroke-width="{sw}"/>')
-    bilet_svg = (
-        f'<g id="kart-bilet" transform="rotate(-3 {bilet_mx:.1f} {bilet_my:.1f})" '
-        f'fill="none" stroke-linecap="round" stroke-linejoin="round">'
-        f'{"".join(bilet_paths)}'
-        f'</g>'
-    )
-
-    # İki satır: Tarife → leaves, / plan → am going.
-    TX = 242.0
+    # İki satır: Tarife → leaves, / kesin düzenleme → am going. (DUZ2: simge sütunu kalktı)
+    TX = KART_TX
+    KB = KART_KB
     dx_ok = 18.0 * math.cos(0.5)
     dy_ok = 18.0 * math.sin(0.5)
 
     # Satır 1
-    w_sol1 = Y.genislik("Fredoka", 700, "Tarife", 72)
-    x_ok0_1 = TX + w_sol1 + 0.22 * 72.0
-    x_ok1_1 = x_ok0_1 + 0.70 * 72.0
-    x_sag1 = x_ok1_1 + 0.22 * 72.0
-    y_ok1 = 922.0 - 0.28 * 72.0
+    w_sol1 = Y.genislik("Fredoka", 700, "Tarife", KB)
+    x_ok0_1 = TX + w_sol1 + 0.22 * KB
+    x_ok1_1 = x_ok0_1 + 0.70 * KB
+    x_sag1 = x_ok1_1 + 0.22 * KB
+    y_ok1 = 922.0 - 0.28 * KB
     d_ok1 = (
         f"M{x_ok0_1:.1f} {y_ok1:.1f} L{x_ok1_1:.1f} {y_ok1:.1f} "
         f"M{x_ok1_1 - dx_ok:.1f} {y_ok1 - dy_ok:.1f} L{x_ok1_1:.1f} {y_ok1:.1f} L{x_ok1_1 - dx_ok:.1f} {y_ok1 + dy_ok:.1f}"
     )
 
-    s1_sol = f'<text id="kart-s1-sol" x="{TX:.1f}" y="922" font-family="Fredoka" font-weight="700" font-size="72" fill="{R["murekkep"]}" xml:space="preserve">Tarife</text>'
+    s1_sol = f'<text id="kart-s1-sol" x="{TX:.1f}" y="922" font-family="Fredoka" font-weight="700" font-size="{KB:g}" fill="{R["murekkep"]}" xml:space="preserve">Tarife</text>'
     s1_ok = f'<path id="kart-s1-ok" class="ok" d="{d_ok1}" fill="none" stroke="{R["murekkep"]}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>'
-    s1_sag = f'<text id="kart-s1-sag" x="{x_sag1:.1f}" y="922" font-family="Fredoka" font-weight="700" font-size="72" fill="{R["murekkep"]}" xml:space="preserve">leaves,</text>'
+    s1_sag = f'<text id="kart-s1-sag" x="{x_sag1:.1f}" y="922" font-family="Fredoka" font-weight="700" font-size="{KB:g}" fill="{R["murekkep"]}" xml:space="preserve">leaves,</text>'
 
     # Satır 2
-    w_sol2 = Y.genislik("Fredoka", 700, "plan", 72)
-    x_ok0_2 = TX + w_sol2 + 0.22 * 72.0
-    x_ok1_2 = x_ok0_2 + 0.70 * 72.0
-    x_sag2 = x_ok1_2 + 0.22 * 72.0
-    y_ok2 = 1004.0 - 0.28 * 72.0
+    w_sol2 = Y.genislik("Fredoka", 700, "kesin düzenleme", KB)
+    x_ok0_2 = TX + w_sol2 + 0.22 * KB
+    x_ok1_2 = x_ok0_2 + 0.70 * KB
+    x_sag2 = x_ok1_2 + 0.22 * KB
+    y_ok2 = 1004.0 - 0.28 * KB
     d_ok2 = (
         f"M{x_ok0_2:.1f} {y_ok2:.1f} L{x_ok1_2:.1f} {y_ok2:.1f} "
         f"M{x_ok1_2 - dx_ok:.1f} {y_ok2 - dy_ok:.1f} L{x_ok1_2:.1f} {y_ok2:.1f} L{x_ok1_2 - dx_ok:.1f} {y_ok2 + dy_ok:.1f}"
     )
 
-    s2_sol = f'<text id="kart-s2-sol" x="{TX:.1f}" y="1004" font-family="Fredoka" font-weight="700" font-size="72" fill="{R["murekkep"]}" xml:space="preserve">plan</text>'
+    s2_sol = f'<text id="kart-s2-sol" x="{TX:.1f}" y="1004" font-family="Fredoka" font-weight="700" font-size="{KB:g}" fill="{R["murekkep"]}" xml:space="preserve">kesin düzenleme</text>'
     s2_ok = f'<path id="kart-s2-ok" class="ok" d="{d_ok2}" fill="none" stroke="{R["murekkep"]}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>'
-    s2_sag = f'<text id="kart-s2-sag" x="{x_sag2:.1f}" y="1004" font-family="Fredoka" font-weight="700" font-size="72" fill="{R["murekkep"]}" xml:space="preserve">am going.</text>'
+    s2_sag = f'<text id="kart-s2-sag" x="{x_sag2:.1f}" y="1004" font-family="Fredoka" font-weight="700" font-size="{KB:g}" fill="{R["murekkep"]}" xml:space="preserve">am going.</text>'
 
-    return f'<g id="kart">{crv}{tren_svg}{bilet_svg}{s1_sol}{s1_ok}{s1_sag}{s2_sol}{s2_ok}{s2_sag}</g>'
+    return f'<g id="kart">{crv}{s1_sol}{s1_ok}{s1_sag}{s2_sol}{s2_ok}{s2_sag}</g>'
 
 
 def kaydet_svg() -> str:
@@ -453,78 +421,35 @@ def kurallari_dogrula(bloklar: list[dict[str, Any]], S: int, html: str) -> None:
         (ROZET, False),
         ("İkisi geleceği anlatıyor", False),
         ("TARİFE", False),
-        ("≠ PLAN", False),
+        ("≠ DÜZENLEME", False),
         ("Tarife → leaves,", False),
-        ("plan → am going.", False),
+        ("kesin düzenleme → am going.", True),  # muaf (DUZ2): 27 karakter; kısa kartında ölçü genişlik (<= 934 px)
         ("Kaydet", False),
     ]
     for metin, muaf in satirlar:
         if not muaf:
             assert len(metin) <= 24, f"Satır uzunluğu {len(metin)} > 24: {metin}"
 
-    # 6. Kart içi kontroller
-    TX = 242.0
-
-    # Tren kutusu
-    gx0_t, gy0_t, gx1_t, gy1_t = _kutusu(TREN)
-    sc_t = min(64.0 / (gy1_t - gy0_t), 136.0 / (gx1_t - gx0_t))
-    gw_t = (gx1_t - gx0_t) * sc_t
-    gh_t = (gy1_t - gy0_t) * sc_t
-    tren_my = 922.0 - 0.30 * 72.0
-    tren_x0 = 154.0 - gw_t / 2.0
-    tren_x1 = 154.0 + gw_t / 2.0
-    tren_y0 = tren_my - gh_t / 2.0
-    tren_y1 = tren_my + gh_t / 2.0
-
-    assert tren_x0 >= 86.0 - 1e-4, f"tren x0 {tren_x0} < 86"
-    assert tren_x1 <= TX - 16.0 + 1e-4, f"tren x1 {tren_x1} > {TX - 16}"
-    assert tren_y0 >= 856.0 - 1e-4, f"tren y0 {tren_y0} < 856"
-    assert tren_y1 <= 1036.0 + 1e-4, f"tren y1 {tren_y1} > 1036"
-
-    # Bilet döndürülmüş kutusu
-    bilet_mx = 932.0 - 66.0
-    bilet_my = 1004.0 - 0.30 * 72.0
-    gx0_b, gy0_b, gx1_b, gy1_b = _kutusu(BILET)
-    sc_b = min(60.0 / (gy1_b - gy0_b), 132.0 / (gx1_b - gx0_b))
-    th = math.radians(-3)
-    xs_rot: list[float] = []
-    ys_rot: list[float] = []
-    for p in BILET:
-        for q in p["n"]:
-            px = bilet_mx + (q[0] - (gx0_b + gx1_b) / 2.0) * sc_b
-            py = bilet_my + (q[1] - (gy0_b + gy1_b) / 2.0) * sc_b
-            rx = bilet_mx + (px - bilet_mx) * math.cos(th) - (py - bilet_my) * math.sin(th)
-            ry = bilet_my + (px - bilet_mx) * math.sin(th) + (py - bilet_my) * math.cos(th)
-            xs_rot.append(rx)
-            ys_rot.append(ry)
-
-    bilet_sol = min(xs_rot)
-    bilet_sag = max(xs_rot)
-    bilet_ust = min(ys_rot)
-    bilet_alt = max(ys_rot)
-
-    # SPEC §7.3 & §8: döndürülmüş bilet x <= 934 (merkez 866: -3° genleşme payı 2 px; şef QA)
-    assert bilet_sag <= 934.0 + 1e-4, f"bilet x1 {bilet_sag} > 934"
-    assert bilet_ust >= 856.0 - 1e-4, f"bilet y0 {bilet_ust} < 856"
-    assert bilet_alt <= 1036.0 + 1e-4, f"bilet y1 {bilet_alt} > 1036"
+    # 6. Kart içi kontroller (DUZ2: simge sütunu kalktı; satırlar 64 px, sol x 96)
+    TX = KART_TX
+    KB = KART_KB
+    assert TX - 62.0 >= 28.0 - 1e-4, "satır sol ucu kart kenarına çok yakın"
 
     # Satır metinleri sağ ucu
-    w_sol1 = Y.genislik("Fredoka", 700, "Tarife", 72)
-    x_ok0_1 = TX + w_sol1 + 0.22 * 72.0
-    x_ok1_1 = x_ok0_1 + 0.70 * 72.0
-    x_sag1 = x_ok1_1 + 0.22 * 72.0
-    w_sag1 = Y.genislik("Fredoka", 700, "leaves,", 72)
+    w_sol1 = Y.genislik("Fredoka", 700, "Tarife", KB)
+    x_ok0_1 = TX + w_sol1 + 0.22 * KB
+    x_ok1_1 = x_ok0_1 + 0.70 * KB
+    x_sag1 = x_ok1_1 + 0.22 * KB
+    w_sag1 = Y.genislik("Fredoka", 700, "leaves,", KB)
     s1_sag_uc = x_sag1 + w_sag1
 
-    w_sol2 = Y.genislik("Fredoka", 700, "plan", 72)
-    x_ok0_2 = TX + w_sol2 + 0.22 * 72.0
-    x_ok1_2 = x_ok0_2 + 0.70 * 72.0
-    x_sag2 = x_ok1_2 + 0.22 * 72.0
-    w_sag2 = Y.genislik("Fredoka", 700, "am going.", 72)
+    w_sol2 = Y.genislik("Fredoka", 700, "kesin düzenleme", KB)
+    x_ok0_2 = TX + w_sol2 + 0.22 * KB
+    x_ok1_2 = x_ok0_2 + 0.70 * KB
+    x_sag2 = x_ok1_2 + 0.22 * KB
+    w_sag2 = Y.genislik("Fredoka", 700, "am going.", KB)
     s2_sag_uc = x_sag2 + w_sag2
 
-    assert s1_sag_uc <= bilet_sol - 16.0 + 1e-4, f"satır 1 sağ uç {s1_sag_uc} > bilet sol - 16 ({bilet_sol - 16})"
-    assert s2_sag_uc <= bilet_sol - 16.0 + 1e-4, f"satır 2 sağ uç {s2_sag_uc} > bilet sol - 16 ({bilet_sol - 16})"
     assert s1_sag_uc <= 934.0 + 1e-4, f"satır 1 sağ uç {s1_sag_uc} > 934"
     assert s2_sag_uc <= 934.0 + 1e-4, f"satır 2 sağ uç {s2_sag_uc} > 934"
 

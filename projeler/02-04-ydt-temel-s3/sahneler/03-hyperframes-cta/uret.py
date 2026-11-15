@@ -16,13 +16,15 @@ SAH = next(s for s in json.loads((PAKET / "zaman.json").read_text(encoding="utf-
 T_BAS: float = SAH["t_bas"]  # 21.33
 KARE: int = SAH["kare"]      # 239
 SURE: float = round(KARE / 30, 4)  # 7.9667
-SOZ: List[Dict[str, Any]] = [
-    w for w in json.loads((PAKET / "ortak" / "anlatim" / "sozcukler.json").read_text(encoding="utf-8"))
-    if w["cumle"] == 5
-]
+_SOZ_TUM: List[Dict[str, Any]] = json.loads(
+    (PAKET / "ortak" / "anlatim" / "sozcukler.json").read_text(encoding="utf-8"))
+# DUZ2 (15.11): A/B kol b (kanca değişkeni) başa cümle ekler; kayma = örnek cümlesinin ("The ...") sırası - 1.
+KAYMA: int = int(next(w["cumle"] for w in _SOZ_TUM if w["sozcuk"] == "The")) - 1
+CUMLE: int = 5 + KAYMA
+SOZ: List[Dict[str, Any]] = [w for w in _SOZ_TUM if w["cumle"] == CUMLE]
 ALT: List[Dict[str, Any]] = [
     a for a in json.loads((PAKET / "ortak" / "anlatim" / "altyazi.json").read_text(encoding="utf-8"))
-    if a.get("cumle") == 5
+    if a.get("cumle") == CUMLE
 ]
 
 
@@ -87,7 +89,7 @@ KUNYE_X: int = 60
 KUNYE_Y: int = 420
 KUNYE_KONU: str = "Simple Present vs Present Continuous"
 
-ROZET_METIN: str = "YDT · BASIC"
+ROZET_METIN: str = "YDT · TEMEL"
 ROZET_BOY: int = 26
 ROZET_Y: int = 386
 ROZET_H: int = 48

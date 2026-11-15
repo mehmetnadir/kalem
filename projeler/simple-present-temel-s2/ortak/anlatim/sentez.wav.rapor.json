@@ -29,15 +29,22 @@
  },
  {
   "dil": "en",
-  "metin": "Usually, always, every day: Simple Present.",
-  "duyulan": "Usually, always, every day, simple present.",
+  "metin": "Usually, always, every day:",
+  "duyulan": "Usually, always, every day.",
   "benzerlik": 1.0,
   "tohum": 0
  },
  {
   "dil": "tr",
+  "metin": "çoğunlukla Simple Present.",
+  "duyulan": "Çoğunlukla Simple Crescent.",
+  "benzerlik": 0.94,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
   "metin": "Bu kuralı kaybetme. Kaydet.",
-  "duyulan": "Bu kuralı kaybetme, kaydet.",
+  "duyulan": "Bu kuralı kaybetme. Kaydet.",
   "benzerlik": 1.0,
   "tohum": 0
  },

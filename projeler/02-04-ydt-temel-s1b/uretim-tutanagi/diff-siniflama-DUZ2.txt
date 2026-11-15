@@ -1,0 +1,179 @@
+$ diff -rq K/projeler/02-04-ydt-temel-s1 K/projeler/02-04-ydt-temel-s1b | sinifla.py --liste   (DUZ2, 16.11.2026)
+satır: 163
+  32  D1 değişken sahne 01 (kanca: kod, proje, proje-ka, QA, önbellek)
+        Files a/sahneler/01-hyperframes-kapak/calistir.sh and b/sahneler/01-hyperframes-kapak/calistir.sh differ
+        Files a/sahneler/01-hyperframes-kapak/devir.json and b/sahneler/01-hyperframes-kapak/devir.json differ
+        Only in a/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-0.2.png
+        Only in b/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-0.9.png
+        Only in b/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-0.png
+        Only in b/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-1.3.png
+        Only in b/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-1.75.png
+        Only in a/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-1.97.png
+        Only in b/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-2.2.png
+        Files a/sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-2.45.png and b/sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-2.45.png differ
+        Only in a/sahneler/01-hyperframes-kapak/k: 01-hyperframes-kapak-2.95.png
+        Only in b/sahneler/01-hyperframes-kapak/k/ka-acik: at-1.75s.png
+        Only in a/sahneler/01-hyperframes-kapak/k/ka-acik: at-1.97s.png
+        Only in b/sahneler/01-hyperframes-kapak/k/ka-koyu: at-1.75s.png
+        Only in a/sahneler/01-hyperframes-kapak/k/ka-koyu: at-1.97s.png
+        Only in b/sahneler/01-hyperframes-kapak/k/koyu: 01-hyperframes-kapak-1.75.png
+        Only in a/sahneler/01-hyperframes-kapak/k/koyu: 01-hyperframes-kapak-1.97.png
+        Only in b/sahneler/01-hyperframes-kapak/k/koyu: 01-hyperframes-kapak-2.2.png
+        Only in a/sahneler/01-hyperframes-kapak/k/koyu: 01-hyperframes-kapak-2.45.png
+        Files a/sahneler/01-hyperframes-kapak/k/koyu/kapak-a-koyu.png and b/sahneler/01-hyperframes-kapak/k/koyu/kapak-a-koyu.png differ
+        Files a/sahneler/01-hyperframes-kapak/olaylar.json and b/sahneler/01-hyperframes-kapak/olaylar.json differ
+        Files a/sahneler/01-hyperframes-kapak/olay.py and b/sahneler/01-hyperframes-kapak/olay.py differ
+        Files a/sahneler/01-hyperframes-kapak/proje/index.html and b/sahneler/01-hyperframes-kapak/proje/index.html differ
+        Files a/sahneler/01-hyperframes-kapak/proje-ka/.hyperframes/history-id and b/sahneler/01-hyperframes-kapak/proje-ka/.hyperframes/history-id differ
+        Files a/sahneler/01-hyperframes-kapak/proje-ka/.hyperframes/video-state.json and b/sahneler/01-hyperframes-kapak/proje-ka/.hyperframes/video-state.json differ
+        Files a/sahneler/01-hyperframes-kapak/proje-ka/index.html and b/sahneler/01-hyperframes-kapak/proje-ka/index.html differ
+        Files a/sahneler/01-hyperframes-kapak/__pycache__/uret.cpython-310.pyc and b/sahneler/01-hyperframes-kapak/__pycache__/uret.cpython-310.pyc differ
+        Files a/sahneler/01-hyperframes-kapak/__pycache__/yardim.cpython-310.pyc and b/sahneler/01-hyperframes-kapak/__pycache__/yardim.cpython-310.pyc differ
+        Files a/sahneler/01-hyperframes-kapak/RAPOR.md and b/sahneler/01-hyperframes-kapak/RAPOR.md differ
+        Files a/sahneler/01-hyperframes-kapak/SPEC.md and b/sahneler/01-hyperframes-kapak/SPEC.md differ
+        Files a/sahneler/01-hyperframes-kapak/uret.py and b/sahneler/01-hyperframes-kapak/uret.py differ
+        Files a/sahneler/01-hyperframes-kapak/zamanlar.json and b/sahneler/01-hyperframes-kapak/zamanlar.json differ
+   2  D2 değişken kapak A (kapak-a.png = kapak.png)
+        Files a/kapak-a.png and b/kapak-a.png differ
+        Files a/kapak.png and b/kapak.png differ
+   1  D3 değişken ses (cumle-1.wav)
+        Files a/ortak/anlatim/cumle-1.wav and b/ortak/anlatim/cumle-1.wav differ
+   1  D4 senaryo (cümle 1; kol b meta.kimlik)
+        Files a/ortak/anlatim/senaryo.json and b/ortak/anlatim/senaryo.json differ
+  14  D5 ses ve zaman türevleri (sahne 08/03 zamanlar.json: yalnız küresel t_bas)
+        Files a/ortak/anlatim/altyazi.json and b/ortak/anlatim/altyazi.json differ
+        Files a/ortak/anlatim/anlatim.m4a and b/ortak/anlatim/anlatim.m4a differ
+        Files a/ortak/anlatim/anlatim.m4a.imza and b/ortak/anlatim/anlatim.m4a.imza differ
+        Files a/ortak/anlatim/anlatim.wav and b/ortak/anlatim/anlatim.wav differ
+        Files a/ortak/anlatim/baslar.json and b/ortak/anlatim/baslar.json differ
+        Files a/ortak/anlatim/METIN.md and b/ortak/anlatim/METIN.md differ
+        Files a/ortak/anlatim/sentez.wav and b/ortak/anlatim/sentez.wav differ
+        Files a/ortak/anlatim/sentez.wav.rapor.json and b/ortak/anlatim/sentez.wav.rapor.json differ
+        Files a/ortak/anlatim/sozcukler.json and b/ortak/anlatim/sozcukler.json differ
+        Files a/ortak/anlatim/sozcuk_uret.py and b/ortak/anlatim/sozcuk_uret.py differ
+        Files a/ortak/anlatim/sureler.json and b/ortak/anlatim/sureler.json differ
+        Files a/sahneler/03-hyperframes-cta/zamanlar.json and b/sahneler/03-hyperframes-cta/zamanlar.json differ
+        Files a/sahneler/08-hyperframes-kaydet/zamanlar.json and b/sahneler/08-hyperframes-kaydet/zamanlar.json differ
+        Files a/zaman.json and b/zaman.json differ
+   6  G1 sahne 02 baş kırpımı (kol b T_BAS 2,5 / KARE 421, yollar; içerik eş, §AB-3 ölçümü)
+        Files a/sahneler/02-paperjs-ornek/calistir.sh and b/sahneler/02-paperjs-ornek/calistir.sh differ
+        Files a/sahneler/02-paperjs-ornek/kalem-paper.js and b/sahneler/02-paperjs-ornek/kalem-paper.js differ
+        Files a/sahneler/02-paperjs-ornek/RAPOR.md and b/sahneler/02-paperjs-ornek/RAPOR.md differ
+        Files a/sahneler/02-paperjs-ornek/sahne-02.js and b/sahneler/02-paperjs-ornek/sahne-02.js differ
+        Files a/sahneler/02-paperjs-ornek/sayfa.html and b/sahneler/02-paperjs-ornek/sayfa.html differ
+        Files a/sahneler/02-paperjs-ornek/SPEC.md and b/sahneler/02-paperjs-ornek/SPEC.md differ
+   1  G2 ortak/kunye.js KOK (AB-8: kol b kendi yolunu gösterir)
+        Files a/ortak/kunye.js and b/ortak/kunye.js differ
+   9  P1 Python derleme önbelleği (__pycache__)
+        Files a/sahneler/03-hyperframes-cta/__pycache__/yardim.cpython-310.pyc and b/sahneler/03-hyperframes-cta/__pycache__/yardim.cpython-310.pyc differ
+        Only in a/sahneler/04-hyperframes-hikaye/__pycache__: uret.cpython-310.pyc
+        Files a/sahneler/04-hyperframes-hikaye/__pycache__/yardim.cpython-310.pyc and b/sahneler/04-hyperframes-hikaye/__pycache__/yardim.cpython-310.pyc differ
+        Files a/sahneler/05-hyperframes-kapak-b/__pycache__/yardim.cpython-310.pyc and b/sahneler/05-hyperframes-kapak-b/__pycache__/yardim.cpython-310.pyc differ
+        Files a/sahneler/06-hyperframes-kapak-c/__pycache__/yardim.cpython-310.pyc and b/sahneler/06-hyperframes-kapak-c/__pycache__/yardim.cpython-310.pyc differ
+        Files a/sahneler/07-hyperframes-hikaye-b/__pycache__/uret.cpython-310.pyc and b/sahneler/07-hyperframes-hikaye-b/__pycache__/uret.cpython-310.pyc differ
+        Files a/sahneler/07-hyperframes-hikaye-b/__pycache__/yardim.cpython-310.pyc and b/sahneler/07-hyperframes-hikaye-b/__pycache__/yardim.cpython-310.pyc differ
+        Files a/sahneler/08-hyperframes-kaydet/__pycache__/uret.cpython-310.pyc and b/sahneler/08-hyperframes-kaydet/__pycache__/uret.cpython-310.pyc differ
+        Files a/sahneler/08-hyperframes-kaydet/__pycache__/yardim.cpython-310.pyc and b/sahneler/08-hyperframes-kaydet/__pycache__/yardim.cpython-310.pyc differ
+  40  Q1 QA kareleri (her kol kendi zamanlarıyla; git dışı)
+        Only in b/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-10.png
+        Only in b/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-11.14.png
+        Only in a/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-11.5.png
+        Only in a/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-13.86.png
+        Only in b/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-14.png
+        Only in a/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-15.png
+        Only in b/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-16.04.png
+        Only in a/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-17.86.png
+        Only in a/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-19.9.png
+        Only in b/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-2.55.png
+        Only in a/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-3.05.png
+        Only in b/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-4.5.png
+        Only in b/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-6.png
+        Only in b/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-7.64.png
+        Only in a/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-8.4.png
+        Only in a/sahneler/02-paperjs-ornek/k: 02-paperjs-ornek-9.86.png
+        Only in b/sahneler/02-paperjs-ornek/k/koyu: 02-paperjs-ornek-11.14.png
+        Only in a/sahneler/02-paperjs-ornek/k/koyu: 02-paperjs-ornek-11.5.png
+        Only in a/sahneler/02-paperjs-ornek/k/koyu: 02-paperjs-ornek-15.png
+        Only in b/sahneler/02-paperjs-ornek/k/koyu: 02-paperjs-ornek-7.64.png
+        Only in b/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-21.69.png
+        Only in b/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-24.74.png
+        Only in a/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-25.55.png
+        Only in b/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-27.85.png
+        Only in a/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-28.6.png
+        Only in a/sahneler/03-hyperframes-cta/k: 03-hyperframes-cta-31.7.png
+        Only in b/sahneler/03-hyperframes-cta/k/koyu: 03-hyperframes-cta-27.85.png
+        Only in a/sahneler/03-hyperframes-cta/k/koyu: 03-hyperframes-cta-31.7.png
+        Only in b/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-16.19.png
+        Only in b/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-17.34.png
+        Only in b/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-18.89.png
+        Only in b/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-19.54.png
+        Only in a/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-20.05.png
+        Only in a/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-21.2.png
+        Only in b/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-21.54.png
+        Only in a/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-22.75.png
+        Only in a/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-23.4.png
+        Only in a/sahneler/08-hyperframes-kaydet/k: 08-hyperframes-kaydet-25.4.png
+        Only in b/sahneler/08-hyperframes-kaydet/k/koyu: 08-hyperframes-kaydet-21.54.png
+        Only in a/sahneler/08-hyperframes-kaydet/k/koyu: 08-hyperframes-kaydet-25.4.png
+   1  S1 surumler.json (varyant, kol b sürüm satırları)
+        Files a/surumler.json and b/surumler.json differ
+   3  S2 açıklama (utm_content; kol b başlık notları, EK-6)
+        Files a/aciklama-a.md and b/aciklama-a.md differ
+        Files a/aciklama-b.md and b/aciklama-b.md differ
+        Files a/aciklama.md and b/aciklama.md differ
+  21  T1 grup türevleri yalnız kol a (AB §4; kök PNG, 04–07 kareleri, snapshot önbelleği)
+        Only in a: hikaye-a.png
+        Only in a: hikaye-b.png
+        Only in a: hikaye.png
+        Only in a: kapak-b.png
+        Only in a: kapak-c.png
+        Only in a/sahneler/04-hyperframes-hikaye/k: at-0.5s.png
+        Only in a/sahneler/04-hyperframes-hikaye/k/koyu: at-0.5s.png
+        Only in a/sahneler/04-hyperframes-hikaye/k/koyu: hikaye-a-koyu.png
+        Only in a/sahneler/04-hyperframes-hikaye/proje: .hyperframes
+        Only in a/sahneler/05-hyperframes-kapak-b/k: at-0.5s.png
+        Only in a/sahneler/05-hyperframes-kapak-b/k/koyu: at-0.5s.png
+        Only in a/sahneler/05-hyperframes-kapak-b/k/koyu: kapak-b-koyu.png
+        Only in a/sahneler/05-hyperframes-kapak-b/proje: .hyperframes
+        Only in a/sahneler/06-hyperframes-kapak-c/k: at-0.5s.png
+        Only in a/sahneler/06-hyperframes-kapak-c/k/koyu: at-0.5s.png
+        Only in a/sahneler/06-hyperframes-kapak-c/k/koyu: kapak-c-koyu.png
+        Only in a/sahneler/06-hyperframes-kapak-c/proje: .hyperframes
+        Only in a/sahneler/07-hyperframes-hikaye-b/k: at-0.5s.png
+        Only in a/sahneler/07-hyperframes-hikaye-b/k/koyu: at-0.5s.png
+        Only in a/sahneler/07-hyperframes-hikaye-b/k/koyu: hikaye-b-koyu.png
+        Only in a/sahneler/07-hyperframes-hikaye-b/proje: .hyperframes
+  32  U1 üretim tutanağı (kola özgü kayıt)
+        Only in a/uretim-tutanagi: aciklama-taslak.md
+        Only in b/uretim-tutanagi: BK-RAPOR.md
+        Only in a/uretim-tutanagi: cakisma-DUZ2-duragan.json
+        Files a/uretim-tutanagi/cakisma-DUZ2.json and b/uretim-tutanagi/cakisma-DUZ2.json differ
+        Only in b/uretim-tutanagi: diff-siniflama-DUZ2.txt
+        Only in b/uretim-tutanagi: diff-siniflama.txt
+        Only in a/uretim-tutanagi: DUZ-1-RAPOR.md
+        Files a/uretim-tutanagi/DUZ2-RAPOR.md and b/uretim-tutanagi/DUZ2-RAPOR.md differ
+        Only in a/uretim-tutanagi: hikaye-taslak.md
+        Only in a/uretim-tutanagi: istem
+        Only in a/uretim-tutanagi/juri: J2-hukum.md
+        Only in b/uretim-tutanagi/juri: KBJ-hukum.md
+        Only in a/uretim-tutanagi/juri: s1.dil.md
+        Only in a/uretim-tutanagi/juri: s1.kaynak-kural.md
+        Files a/uretim-tutanagi/kapak-taslak.md and b/uretim-tutanagi/kapak-taslak.md differ
+        Files a/uretim-tutanagi/kapi-cikti-DUZ2.txt and b/uretim-tutanagi/kapi-cikti-DUZ2.txt differ
+        Only in b/uretim-tutanagi: kapi-cikti.txt
+        Only in b/uretim-tutanagi: KBC-RAPOR.md
+        Only in b/uretim-tutanagi: kol-b.json
+        Only in a/uretim-tutanagi: kontak
+        Only in b/uretim-tutanagi: kontak-DUZ2-1.png
+        Only in b/uretim-tutanagi: kontak-DUZ2-2.png
+        Only in b/uretim-tutanagi: kontak-kbc.png
+        Only in b/uretim-tutanagi: kopya-denetim.txt
+        Only in a/uretim-tutanagi: S1-A-RAPOR.md
+        Only in a/uretim-tutanagi: S1-C-RAPOR.md
+        Only in a/uretim-tutanagi: S1-duzeltme.md
+        Only in a/uretim-tutanagi: S1-VAR-RAPOR.md
+        Files a/uretim-tutanagi/senaryo-taslak.md and b/uretim-tutanagi/senaryo-taslak.md differ
+        Files a/uretim-tutanagi/ses-sentez.log and b/uretim-tutanagi/ses-sentez.log differ
+        Only in a/uretim-tutanagi: ses-sentez-v2.log
+        Only in a/uretim-tutanagi: V2-C-RAPOR.md
+ 163  toplam

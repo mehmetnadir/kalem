@@ -1,0 +1,5 @@
+01-hyperframes-kapak | çakışma yok (17 örnek, 5338 kutu)
+02-hyperframes-ornek | çakışma yok (53 örnek, 27834 kutu)
+08-hyperframes-kaydet | çakışma yok (23 örnek, 4940 kutu)
+03-hyperframes-cta | çakışma yok (29 örnek, 5038 kutu)
+cikis=0

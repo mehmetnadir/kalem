@@ -7,7 +7,8 @@
 // Kullanım: const S = await sahneKur(paper, { KARE, tBas, bolum, etkin }); ...içerik...; S.kare(f) -> canvas
 // S2 (15.11): 02-04-ydt-temel-s1 sahne 02 kopyası; yalnız iki import yolu 02-04-ydt-temel-s2 oldu (gövde aynı).
 // S2 huni v2 (15.11): v1 HUD (kunyeCiz) çağrılmaz; sahne `kunye(ctx, K)` işleviyle kanal katmanını ve künyeyi kendisi çizer.
-import { kunyeHazirla, zeminCiz, altyaziMetin, altyaziCiz, RENK, RT, renkCoz, temaSurum, KOK, KUNYE }
+// S2 DUZ4 (16.11, J3 A1): altyazı karaokesi — altyaziCiz'e parçanın sözcük zamanları geçer (sozcukler.json + ekSozcuk).
+import { kunyeHazirla, zeminCiz, altyaziParca, altyaziCiz, RENK, RT, renkCoz, temaSurum, KOK, KUNYE }
   from "/projeler/02-04-ydt-temel-s2/ortak/kunye.js";
 import { yaziNoktalari } from "/projeler/02-04-ydt-temel-s2/ortak/kalem-canvas.js";
 // Geliştirme günlüğü (12.11, pp g-11): POST /log yalnız yerel geliştirme sunucusunda; yayında istek yok.
@@ -26,7 +27,7 @@ const hash = (a, b = 0, c = 0) => { let h = (Math.imul(a | 0, 374761393) + Math.
 const gurul = (x, s) => { const i = Math.floor(x), f = x - i, u = f * f * (3 - 2 * f);
   return lerp(hash(i, s, 7), hash(i + 1, s, 7), u) - 0.5; };
 
-export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0, tGercek = tBas, kunye }) {   // kayma: sözcüklerin eski çerçeveye çevrilmesi (sn)
+export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0, tGercek = tBas, kunye, ekSozcuk }) {   // kayma: sözcüklerin eski çerçeveye çevrilmesi (sn)
   if (typeof kunye !== "function") throw new Error("sahneKur: kunye(ctx, K) işlevi yok (huni v2: kanal katmanı sahnede çizilir)");
   const K = await kunyeHazirla();
   const sozcukJson = await (await fetch(`${KOK}/anlatim/sozcukler.json`)).json();
@@ -373,6 +374,18 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0, tGercek
     };
   }
 
+  // ---------- altyazı karaokesi (DUZ4 A1) ----------
+  // Parçanın sözcük zamanları sozcukler.json'dan (küresel sn); sözcüğü orada olmayan parça için sahnenin
+  // ekSozcuk çapası ([sözcük, t0] küresel). Çizgi sonraki sözcüğün t0'ına kadar kalır; son sözcükte t1 + 0,25
+  // (sahne 08 yardim.py altyazi_svg kuralı).
+  const ALT_SOZ = [...sozcukJson.map((w) => ({ t0: w.t0, t1: w.t1 })),
+    ...(ekSozcuk || []).map(([, t0]) => ({ t0, t1: null }))].sort((a, b) => a.t0 - b.t0);
+  function altyaziSozcuk(p) {
+    const z = ALT_SOZ.filter((w) => w.t0 >= p.t0 - 0.06 && w.t0 < p.t1);
+    return z.map((w, i) => ({ t0: w.t0,
+      t1: i + 1 < z.length ? z[i + 1].t0 : Math.min((w.t1 ?? p.t1) + 0.25, p.t1 + 0.35) }));
+  }
+
   // ---------- kare ----------
   function matrisUygula(e, f) {
     let tx = 0, ty = 0, s = 1, cx = 0, cy = 0;
@@ -401,7 +414,8 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0, tGercek
     for (const e of OGELER) matrisUygula(e, fe);
     P.view.update();
     zeminCiz(oc, f, K); oc.drawImage(document.getElementById("cv"), 0, 0); kunye(oc, K);
-    altyaziCiz(oc, altyaziMetin(K.altyazi, tGercek + Math.min(f, SON - 2) / 30));
+    const tA = tGercek + Math.min(f, SON - 2) / 30, p = altyaziParca(K.altyazi, tA);
+    altyaziCiz(oc, p ? p.metin : "", { sozcukler: p ? altyaziSozcuk(p) : null, t: tA });
     if (f === KARE - 1) {
       const ev = [...OLAY.values()].sort((a, b) => a.kare - b.kare || b.guc - a.guc), say = {}, son = [];
       for (const e of ev) { if (e.kare > SON) continue; say[e.kare] = (say[e.kare] || 0) + 1; if (say[e.kare] <= 3) son.push(e); }   // son 12 kare durgun: olay yok

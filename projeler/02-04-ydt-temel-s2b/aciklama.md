@@ -1,9 +1,9 @@
-# 02-04-ydt-temel-s2 · açıklama metni — SET A (YouTube · Instagram · TikTok)
+# 02-04-ydt-temel-s2b · açıklama metni — SET A (YouTube · Instagram · TikTok)
 
-Kaynak: `uretim-tutanagi/aciklama-taslak.md` §3 (S2-B jürisi + S2-C düzeltmeleri, `uretim-tutanagi/S2-duzeltme.md`).
-Sürüm: A (`s2-aciklama-a`), kısa ve doğrudan: kural cümlesiyle açılır. `aciklama.md` bu dosyanın kopyasıdır. B seti: `aciklama-b.md`.
+Kaynak: kol a (`02-04-ydt-temel-s2`) açıklamasının kopyası; yalnız `utm_content` değişti (`uretim-tutanagi/KBC-RAPOR.md` §2).
+Sürüm: A (`s2b-aciklama-a`), kısa ve doğrudan: kural cümlesiyle açılır. `aciklama.md` bu dosyanın kopyasıdır. B seti: `aciklama-b.md`.
 Ana ders: Simple Present ve Present Continuous (`ING-YDT-GR-02-04-T`).
-Shorts: `ING-YDT-GR-02-04-T-S2`, 29,41 sn (huni v2). Kimlik `@ydspublishing`. "kanal" sözü yalnız ilk satırda (huni v2 §4), QR yok.
+Shorts: `ING-YDT-GR-02-04-T-S2`, 29,49 sn (huni v2). Kimlik `@ydspublishing`. "kanal" sözü yalnız ilk satırda (huni v2 §4), QR yok.
 Eşleşen kapak: `kapak-a.png` (`GENEL` / `≠ ŞU AN`); `kapak-c.png` ile de kullanılır.
 
 **UYARI:** `https://ydspublishing.com/grammar/02-04-ydt-temel` belgeden türedi; canlılığı ölçülmedi (grammar-kapi Worker 11.11'de
@@ -88,8 +88,6 @@ Profil bağlantısı:
 - `{UZUN_VIDEO_URL}` `watch?v=…` biçiminde gelirse ilk `?` yerine `&` yaz.
 - YouTube adresindeki UTM grammar-kapi kayıtlarına düşmez; YouTube tarafını Studio "Trafik Kaynakları" ölçer.
 - Profil bağlantısı hesap başına tektir: set A ve B profilde aynı anda ölçülemez. Önerilen: profilde set A.
-- **DİKKAT:** S1 `utm_campaign=ing-ydt-gr-02-04-t` (küçük harf) yazar. Analitik büyük/küçük harfi ayırırsa S1 ve S2 aynı kampanyada
-  toplanmaz. Eşitleme kararı Nadir'de (`uretim-tutanagi/S2-C-RAPOR.md`).
 
 ## 5. Yer tutucular
 

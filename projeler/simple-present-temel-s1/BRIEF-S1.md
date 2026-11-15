@@ -9,7 +9,7 @@ Kaynaklar: ses `ortak/anlatim/` (cümle başları 1,00 · 4,67 · 15,18 · 18,29
 (kaynak: `uretim-tutanagi/senaryo-taslak.md`, jüri `uretim-tutanagi/juri/s1.dil.md` + `s1.kaynak-kural.md`, düzeltme `uretim-tutanagi/S1-duzeltme.md`,
 ses ve zaman `uretim-tutanagi/S1-C-RAPOR.md`).
 
-Kapak başlığı (2 satır, 4 sözcük): `GO mu,` / `GOES mu?`. Can alıcı: "Türkçedeki geniş zaman eki = İngilizcedeki s: gider = goes" (`canAlici[0]`).
+Kapak başlığı (2 satır, 4 sözcük): `GO mu,` / `GOES mu?`. Can alıcı: "Gider = goes; ama yalnız he, she, it ile. I, you, we, they ile go." (`canAlici[0]`).
 Ses: cümle 1–3 öğretmen (`gsJ9nrlXYbPztJxC4fwc`, ana ders `sesler.ogretmen`), cümle 4 (çağrı) öğrenci (`kadro.ogrenci`, `oPC5I9GKjMReiaM29gjY`).
 Konuşan figür yok (ana derste `kadro.ogretmen` yok). Kanca görseli: kalem çizimi genç figür `ortak/cizim/open-peeps/standing-2.svg` + otobüs `ortak/cizim/coco/bus.svg`.
 Kural özeti (kaydet kartı ve hikâye kareleri, tek cümle): `He, she, it: s gelir;` / `I, you, we, they: s yok.`
@@ -19,7 +19,7 @@ Kural özeti (kaydet kartı ve hikâye kareleri, tek cümle): `He, she, it: s ge
 |---|---|---|
 | Üst boş | 0–280 | yalnız zemin; çip YOK |
 | Kanal katmanı | 280–350 | aşağıdaki tablo; kalıcı |
-| Künye | 360–450 | konu `Simple Present` (Fredoka 700, x 60, taban 420; boy ≤ 34, rozetle x 960'a sığan en büyük, alt sınır 28) + rozet `YDT · BASIC` (hap y 386–434, Lexend 700 26, dolgu `vurguDolgu`, yazı `pilMetin`, konu sonu + 20) |
+| Künye | 360–450 | konu `Simple Present` (Fredoka 700, x 60, taban 420; boy ≤ 34, rozetle x 960'a sığan en büyük, alt sınır 28) + rozet `YDT · TEMEL` (hap y 386–434, Lexend 700 26, dolgu `vurguDolgu`, yazı `pilMetin`, konu sonu + 20) |
 | İçerik | 460–1380 | x 60–960 |
 | Altyazı + karaoke | 1400–1550 | en çok 2 satır (kapak ve hikâye karelerinde yok) |
 | Alt boş | 1570–1920 | yalnız zemin |
@@ -51,7 +51,7 @@ Zaman sözcük çapasından okunur (`ortak/anlatim/sozcukler.json`), sabit saniy
 
 | sn | Hareket |
 |---|---|
-| 0,00 | Kapak tam görünür (ilk kare = kapak A, kanal katmanı dahil): künye satırında yalnız rozet `YDT · BASIC`; başlık `GO mu,` / `GOES mu?` (900 px'e sığan en büyük boy, üst sınır 190; satır 2 sarı hap, dolgu `#ffe066`, yazı `#1b2440`); altında solda genç figür (`standing-2`, kalem), sağda otobüs (`coco/bus.svg`, sola gider); etiket yok |
+| 0,00 | Kapak tam görünür (ilk kare = kapak A, kanal katmanı dahil): künye satırında yalnız rozet `YDT · TEMEL`; başlık `GO mu,` / `GOES mu?` (900 px'e sığan en büyük boy, üst sınır 190; satır 2 sarı hap, dolgu `#ffe066`, yazı `#1b2440`); altında solda genç figür (`standing-2`, kalem), sağda otobüs (`coco/bus.svg`, sola gider); etiket yok |
 | 0,30–0,80 | Başlıktaki `?` kalemle çizilir (tek kalem hareketi) |
 | 1,00–2,24 | Cümle 1 altyazıda sözcük zamanlı (`Kardeşim` 1,00 · `gider:` 1,56); ekranda yeni yazı yok |
 | 1,90–2,45 | Uçuş: başlık künye konu adına (`Simple Present`, y 360–450) döner; figür + otobüs küçülür (yükseklik ≤ 140), içerik bandının sağ üstüne (x 700–960, y 460–600). Kanal katmanı yerinde |

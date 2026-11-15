@@ -1,0 +1,137 @@
+{
+  "font": "Fredoka",
+  "agirlik": 700,
+  "boy": 64,
+  "kerning": "none",
+  "sol": 97,
+  "taban": [
+    568,
+    666
+  ],
+  "satir": [
+    "The train to İzmir",
+    "leaves at 7 pm today."
+  ],
+  "gorunen": [
+    "The train to İzmir",
+    "leaves at 7"
+  ],
+  "sozcuk": [
+    [
+      "The",
+      0,
+      97.0,
+      208.23
+    ],
+    [
+      "train",
+      0,
+      223.27,
+      366.31
+    ],
+    [
+      "to",
+      0,
+      381.35,
+      444.52
+    ],
+    [
+      "İzmir",
+      0,
+      459.56,
+      604.07
+    ],
+    [
+      "leaves",
+      1,
+      97.0,
+      287.21
+    ],
+    [
+      "at",
+      1,
+      302.25,
+      365.35
+    ],
+    [
+      "7",
+      1,
+      380.39,
+      413.8
+    ],
+    [
+      "pm",
+      1,
+      428.84,
+      514.09
+    ],
+    [
+      "today.",
+      1,
+      529.13,
+      714.34
+    ]
+  ],
+  "kart": {
+    "x": 71,
+    "y": 472,
+    "w": 878,
+    "h": 254,
+    "tohum": 71,
+    "cizgi": 4,
+    "bicim": "kutu (ortak/kalem-canvas.js)"
+  },
+  "tren": {
+    "kutu": [
+      712,
+      494,
+      927,
+      586
+    ],
+    "olcek": 0.5,
+    "yerel_kutu": [
+      -10,
+      -24,
+      420,
+      158
+    ],
+    "tx": 70,
+    "ty": 1218,
+    "kaynak": "trenParcalari"
+  },
+  "kanal": {
+    "logo": [
+      53.15,
+      291,
+      193.49,
+      48
+    ],
+    "yazi": "@ydspublishing",
+    "yazi_x": 263,
+    "yazi_taban": 330,
+    "font": "Lexend 700 42"
+  },
+  "kunye": {
+    "konu": "Simple Present vs Present Continuous",
+    "boy": 34,
+    "taban": 420,
+    "rozet": [
+      664.6,
+      386,
+      207.6,
+      48
+    ]
+  },
+  "altyazi": {
+    "x": 510,
+    "boy": 44,
+    "taban": [
+      1490
+    ]
+  },
+  "altyazi_ekran": {
+    "Izmir": "İzmir",
+    "seven p.m.": "7 pm"
+  },
+  "t": 4.0
+}

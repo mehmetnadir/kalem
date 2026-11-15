@@ -30,7 +30,7 @@ Her ajan yalnız kendi dosyasını yazar. Başka dosyaya dokunma. Silme yok. Tes
 | `HUD` | dict | §3.2 tablosu (eski anahtarlar kalkar) |
 | `KONU` | str | `"Simple Present vs Present Continuous"` |
 | `KONU_PARCA` | tuple[str, str] | `("Simple Present vs", "Present Continuous")` (uçuş hedefi; aradaki tek boşluk KONU'daki boşluktur) |
-| `ROZET` | str | `"YDT · BASIC"` |
+| `ROZET` | str | `"YDT · TEMEL"` |
 | `KANAL_YAZI` | str | `"@ydspublishing"` |
 | `konu_boyu() -> int` | işlev | §3.3 |
 | `rozet_konumu() -> tuple[float, float]` | işlev | (x, genişlik); §3.3 |
@@ -148,7 +148,7 @@ Kanal katmanı (`#kanal`) bütün sahne boyunca opaklık 1, konum sabit: ona hi�
 ### 4.3 Yerleşim
 ```
 y  291 ┌ [logo 53–247] @ydspublishing (Lexend 42, x 263, taban 330) — 0. kareden son kareye, hareketsiz ┐ kanal 280–350
-   386 │ [YDT · BASIC] kapakta x 60 ─(2,0–2,4)→ x ≈ 665 · konu adı 2,62'den (Fredoka 34, x 60, taban 420)  │ künye 360–450
+   386 │ [YDT · TEMEL] kapakta x 60 ─(2,0–2,4)→ x ≈ 665 · konu adı 2,62'den (Fredoka 34, x 60, taban 420)  │ künye 360–450
    472 │ YAŞIYORUM (B ≈ 152, orta 510, kontur 12)       ← uçuşla konu adının sol parçası                │ içerik 460–1380
   ~609 │     ~~~~ sarı altçizgi YOR altında                                                           │
    638 │ ( = İKİ ZAMAN ) sarı hap x 62–958              ← uçuşla konu adının sağ parçası (sağ uç 645)    │

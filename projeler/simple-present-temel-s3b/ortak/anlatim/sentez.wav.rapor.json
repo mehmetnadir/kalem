@@ -1,0 +1,68 @@
+[
+ {
+  "dil": "tr",
+  "metin": "Olumsuzda s nereye gider?",
+  "duyulan": "Olumsuzda S nereye gider?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "He, she, it",
+  "duyulan": "He, she, it.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "ile olumsuzda ve soruda does girer; s ona geçer.",
+  "ses_metni": "ile olumsuzda ve, soruda /dʌz/ girer; s ona geçer.",
+  "duyulan": "İle olumsuzda ve soruda döz girer. S ona geçer.",
+  "benzerlik": 0.97,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Fiile s gelmez.",
+  "duyulan": "Fiile s gelmez.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "He doesn't go. Does she go?",
+  "duyulan": "He doesn't go. Does she go?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Does varsa fiil yalın.",
+  "ses_metni": "/dʌz/ varsa fiil yalın.",
+  "duyulan": "Döz varsa fiil yalın.",
+  "benzerlik": 0.93,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bir arkadaşına gönder; o da karıştırıyor.",
+  "duyulan": "Bir arkadaşına gönder. O da karıştırıyor.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu sadece başlangıç.",
+  "duyulan": "Bu sadece başlangıç.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Dersin tamamı YDS Publishing YouTube kanalında.",
+  "ses_metni": "Dersin tamamı YeDeSe Publishing YouTube kanalında.",
+  "duyulan": "Dersin tamamı YEDESE Publishing YouTube kanalında.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ }
+]

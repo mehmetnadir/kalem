@@ -14,7 +14,7 @@ yayında değil). Paylaşımdan önce adresi aç. Açılmazsa adresi `{PLATFORM_
 Başlık:
 
 ```
-Yaşıyorum: I live mı, I am living mi? | YDT İngilizce #Shorts
+Yaşıyorum: I live mi, I am living mi? | YDT İngilizce #Shorts
 ```
 
 Açıklama:
@@ -22,7 +22,7 @@ Açıklama:
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Simple Present ve Present Continuous (ING-YDT-GR-02-04-T) konusunun püf noktası: Türkçede "yaşıyorum" tek sözcük, İngilizcede iki zaman.
-I live in İstanbul. → kalıcı durum, geniş zaman
+I live in Istanbul. → kalıcı durum, geniş zaman
 I am living with my uncle. → geçici durum, şimdiki zaman
 Bu, iki zaman arasındaki üç farktan biri.
 Dersin tamamını izle: {UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s1-a
@@ -41,7 +41,7 @@ Reels açıklaması:
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Türkçede "yaşıyorum" tek sözcük. İngilizcede iki zaman:
-I live in İstanbul. → kalıcı durum, Simple Present
+I live in Istanbul. → kalıcı durum, Simple Present
 I am living with my uncle. → geçici durum, Present Continuous
 Bu, üç farktan biri.
 Ders sayfası: profildeki bağlantı.
@@ -63,7 +63,7 @@ Açıklamaya adres yazılmaz (Instagram açıklamada bağlantı tıklanmaz).
 
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
-"Yaşıyorum" = I live mı, I am living mi?
+"Yaşıyorum" = I live mi, I am living mi?
 Kalıcı durum: I live. Geçici durum: I am living.
 Bu, üç farktan biri. Ders sayfası: profildeki bağlantı.
 Sıradaki ders: Stative Verbs

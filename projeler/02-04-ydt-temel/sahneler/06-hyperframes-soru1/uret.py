@@ -1,6 +1,7 @@
 """Sahne 06 — Soru anı 1 (02-04 YDT temel, HyperFrames, 1920x1080; cümle 6 öğrenci, cümle 7 öğretmen).
 Öğrenci sorusu: «Hocam, tren de plana göre kalkmıyor mu? Neden -ing yok?»
-Öğretmen cevabı: «Planı bir kişi yapar: ben, biz, arkadaşım. Tren plan yapmaz, tarifeye uyar...»
+Öğretmen cevabı: «Planı insanlar yapar: ben, biz, arkadaşım. Tren plan yapmaz, tarifeye uyar...»
+16.11 DUZ3: cümle 7 «bir kişi» → «insanlar», «varsa geniş zaman» → «varsa çoğunlukla geniş zaman».
 Yerleşim: İki kart (sol TIMETABLE, sağ ARRANGEMENT) üstte statik; sol altta tren ve simgeler,
 sağ altta konuşan kişi; ortada basamaklı kavram zincirleri.
 yanılgı: tarifeli gelecek planlanmış gelecekle karışır (tren de plana göre kalkar → -ing). Soru 10 sözcük (≤ 12).
@@ -367,12 +368,12 @@ def uret() -> tuple[Y.Sahne, dict]:
     kalinlik(s, "#kru", th + 0.1, u(7), u(12))
 
     # Event 8: figür kalemle
-    t_fig = S(T7("kişi"))
+    t_fig = S(T7("insanlar"))
     _, gen_fig = s.figur("standing-1", "fig", u(1640), u(470), u(470), t_fig, t_fig + 1.0, w=u(3.4))
     assert u(1640) + gen_fig <= u(1864), f"Figür taştı: {u(1640) + gen_fig}"
 
     # Events 9, 10, 12: Sağ zincir
-    zamanlar_sag = [S(T7("kişi")) + 0.1, S(T7("yapar:")), S(T7("arkadaşım."))]
+    zamanlar_sag = [S(T7("insanlar")) + 0.1, S(T7("yapar:")), S(T7("arkadaşım."))]
     satirlar_sag = [
         [("person", KRE)],
         [("plan", KRE)],

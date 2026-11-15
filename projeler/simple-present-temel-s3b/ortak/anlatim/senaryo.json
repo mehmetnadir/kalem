@@ -1,0 +1,135 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Simple Present",
+ "duzen": "konu",
+ "seviye": "temel",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Olumsuzda s nereye gider?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Olumsuzda s nereye gider?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "He, she, it"
+    ],
+    [
+     "tr",
+     "ile olumsuzda ve soruda does girer; s ona geçer."
+    ],
+    [
+     "tr",
+     "Fiile s gelmez."
+    ],
+    [
+     "en",
+     "He doesn't go. Does she go?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "He, she, it ile olumsuzda ve soruda does girer; s ona geçer. Fiile s gelmez. He doesn't go. Does she go?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Does varsa fiil yalın."
+    ],
+    [
+     "tr",
+     "Bir arkadaşına gönder; o da karıştırıyor."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Does varsa fiil yalın. Bir arkadaşına gönder; o da karıştırıyor."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Bu sadece başlangıç."
+    ],
+    [
+     "tr",
+     "Dersin tamamı YDS Publishing YouTube kanalında."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bu sadece başlangıç. Dersin tamamı YDS Publishing YouTube kanalında."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "S NEREYE",
+  "satir2": "GİDER?",
+  "rozetler": [
+   "YDT · TEMEL"
+  ]
+ },
+ "meta": {
+  "kimlik": "02-02-ydt-temel-s3",
+  "kod": "ING-YDT-GR-02-02-T-S3",
+  "ders": "İngilizce",
+  "konu": "Simple Present",
+  "kitle": "ydt",
+  "seviye": "temel",
+  "kapak": {
+   "satir1": "S NEREYE",
+   "satir2": "GİDER?",
+   "canAlici": ""
+  },
+  "amaclar": [
+   "Simple Present formunu kurmak (fiil, fiil + s, do / does)",
+   "zaman ifadelerini tanımak",
+   "genelleme, alışkanlık ve tarife kullanımlarını ayırt etmek",
+   "Türkçe geniş zaman eki ile köprü"
+  ],
+  "canAlici": [
+   "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
+   "usually, always, every day = tekrar eden iş sinyali",
+   "he, she, it fiile s alır; I, you, we, they almaz",
+   "3 örnek, 1 kural: üçünde de fiilin sonunda s"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "temel",
+   "gramer",
+   "Simple Present",
+   "shorts"
+  ]
+ }
+}

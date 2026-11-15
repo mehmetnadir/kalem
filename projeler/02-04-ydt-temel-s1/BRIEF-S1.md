@@ -9,7 +9,7 @@ Kaynaklar: ses `ortak/anlatim/` (cümle başları 1,00 · 6,91 · 20,54 · 26,04
 Kapak başlığı (2 satır, 3 sözcük): `YAŞIYORUM` / `= İKİ ZAMAN`. Can alıcı: "Türkçe yaşıyorum iki zamana karşılık gelir: I live (kalıcı),
 I am living (geçici)" (`canAlici[4]`). Ses: cümle 1–3 öğretmen Atakan (`gsJ9nrlXYbPztJxC4fwc`), cümle 4 (çağrı) öğrenci
 (`kadro.ogrenci`, `oPC5I9GKjMReiaM29gjY`; ana dersten). Figür öğretmen erkek (`kadro.ogretmen`: ShirtPantsWB / Smile / Short).
-Kural özeti (kaydet kartı ve hikâye kareleri, tek cümle): `Kalıcıysa geniş zaman,` / `geçiciyse şimdiki zaman.`
+Kural özeti (kaydet kartı ve hikâye kareleri, tek cümle): `Live, work fiillerinde:` / `kalıcıysa geniş zaman,` / `geçiciyse şimdiki zaman.` (DUZ2 15.11)
 
 **DİKKAT:** toplam 31,75 sn; standart §3 hedefi ≈ 22–26 sn. Değer cümlesi (13,08 sn) eski metinle aynı; karar şefte (`V2-C-RAPOR.md`).
 
@@ -18,7 +18,7 @@ Kural özeti (kaydet kartı ve hikâye kareleri, tek cümle): `Kalıcıysa geni�
 |---|---|---|
 | Üst boş | 0–280 | yalnız zemin; çip YOK (eski sağ üst çip kalktı) |
 | Kanal katmanı | 280–350 | aşağıdaki tablo; kalıcı |
-| Künye | 360–450 | konu `Simple Present vs Present Continuous` (Fredoka 700, x 60, taban 420; boy ≤ 34, rozetle x 960'a sığan en büyük, alt sınır 28) + rozet `YDT · BASIC` (hap y 386–434, Lexend 700 26, dolgu `vurguDolgu`, yazı `pilMetin`, konu sonu + 20) |
+| Künye | 360–450 | konu `Simple Present vs Present Continuous` (Fredoka 700, x 60, taban 420; boy ≤ 34, rozetle x 960'a sığan en büyük, alt sınır 28) + rozet `YDT · TEMEL` (hap y 386–434, Lexend 700 26, dolgu `vurguDolgu`, yazı `pilMetin`, konu sonu + 20) |
 | İçerik | 460–1380 | x 60–960 |
 | Altyazı + karaoke | 1400–1550 | en çok 2 satır (kapak ve hikâye karelerinde yok) |
 | Alt boş | 1570–1920 | yalnız zemin |
@@ -53,16 +53,16 @@ Zaman sözcük çapasından okunur (`ortak/anlatim/sozcukler.json`), sabit saniy
 | 1,00–2,10 | Cümle 1 sözcük zamanlı: `İstanbul'da yaşı-yor-um.` (`İstanbul'da` 1,00 · `yaşıyorum.` 1,64) |
 | 2,0–3,0 | Uçuş: başlık künye satırına (y 360–450), figür ve ev solar; cümle satırları içerik bandının üstüne (y ≥ 460). Kanal katmanı yerinde |
 | 2,52 | İkinci satır `Amcamla yaşı-yor-um.` (`Amcamla` 2,52); sahne 01 iki satır taşır |
-| 3,08–19,99 | Sahne 02: eski akış aynen (`ek_ayir` 3,96–6,36 · `İngilizcede ikisi ayrılır.` 6,91 · kart 1 `I live in İstanbul.` 9,08 + `Hep orada.` / `PERMANENT` / uzun bant · kart 2 `I am living` / `with my uncle.` 14,70 + `Şimdilik.` / `TEMPORARY` / kısa bant 19,03); x 60–960, y 460–1380 |
+| 3,08–19,99 | Sahne 02: eski akış aynen (`ek_ayir` 3,96–6,36 · `İngilizcede ikisi ayrılır.` 6,91 · kart 1 `I live in Istanbul.` 9,08 + `Hep orada.` / `PERMANENT` / uzun bant · kart 2 `I am living` / `with my uncle.` 14,70 + `Şimdilik.` / `TEMPORARY` / kısa bant 19,03); x 60–960, y 460–1380 |
 | 20,54–22,62 | Sahne 08: `üç farktan biri` Lexend (`üç` 21,02), kartın üstünde küçük |
-| 20,54–21,00 | Kural özeti kartı girer (tek hareket ≤ 0,45 sn); `Kalıcıysa geniş zaman,` / `geçiciyse şimdiki zaman.` Fredoka 700 ≥ 64; 21,00'den sahne sonuna sabit (≥ 2 sn) |
+| 20,54–21,00 | Kural özeti kartı girer (tek hareket ≤ 0,45 sn); `Live, work fiillerinde:` / `kalıcıysa geniş zaman,` / `geçiciyse şimdiki zaman.` (DUZ2 15.11) Fredoka 700 ≥ 64; 21,00'den sahne sonuna sabit (≥ 2 sn) |
 | 24,89–25,49 | `Kaydet.` çapası (24,89): yer imi simgesi (SVG yol, emoji değil) kalemle çizilir + `Kaydet` sarı hap; kartın altında |
 | 25,49–26,04 | Sahne 03: ana dersin kapağı 16:9 kart (900×506, x 60–960, y 620–1126; standart ≈ 920×518, x 960 sınırı için 900) girer |
 | 26,04–27,08 | `Gerisi bizde.` Fredoka 700 (`Gerisi` 26,04), kartın üstünde (y ≈ 470–590); öğrenci sesi |
 | 28,51–30,83 | `@ydspublishing · YouTube` Lexend 700 (`YDS` 28,51), kartın altında (y ≈ 1160–1240) |
 | 30,83–31,75 | Durgun kuyruk (son söz + 1,0 sn) |
 
-Ekranda "İstanbul" noktalı, seste "Istanbul" (EN parça). `@ydspublishing` ekranda; seste "YDS Publishing". Yasak sözler (seste, ekranda,
+İngilizce cümlede ekranda ve seste "Istanbul" (J3 A4, 16.11); Türkçe satırda "İstanbul'da". `@ydspublishing` ekranda; seste "YDS Publishing". Yasak sözler (seste, ekranda,
 açıklamada): "Tam ders", süre ("dakika"). QR yok, emoji yok, "izle" düğmesi taklidi yok.
 
 ## Kapak (`kapak-a.png` = `kapak.png`, 1080×1920)

@@ -46,8 +46,10 @@ GORSEL_Y: tuple[int, int] = (820, 1380)
 BAS_X: int = 60
 BASLIK_GEN: int = 894  # 900 - 6 sağ kontur payı
 S_UST: int = 190
-BASLIK_SATIR1: str = "ALWAYS VARSA"
-BASLIK_SATIR2: str = "HANGİ ZAMAN?"  # İ = U+0130
+# DUZ2 (16.11, A3/A4 + HV-20b): "ALWAYS VARSA HANGİ ZAMAN?" B başlığını yineliyor ve tek cevap ima ediyordu.
+# Öneri "ALWAYS = ?" 1 sözcük (HV-20b 2–4) ve "=" yine tek denklik ima eder → sesle aynı terim ("Alışkanlık işareti").
+BASLIK_SATIR1: str = "ALWAYS"
+BASLIK_SATIR2: str = "NEYİN İŞARETİ?"  # İ = U+0130
 
 KIT: Path = ORTAK / "cizim" / "peeps-kit" / "ogrenci-bas.svg"
 BS: float = 1.70
@@ -85,7 +87,7 @@ def hesapla_s() -> tuple[int, float, float, float, float]:
 
     assert g1 <= BASLIK_GEN, f"g1={g1} > {BASLIK_GEN}"
     assert g2 <= BASLIK_GEN, f"g2={g2} > {BASLIK_GEN}"
-    assert S == 116, f"S={S} != 116"
+    assert S == 125, f"S={S} != 125"  # DUZ2: "NEYİN İŞARETİ?" en geniş satır (önce 116)
 
     T1: float = 630.0 - 0.25 * S
     T2: float = T1 + 1.26 * S
@@ -386,7 +388,7 @@ def kurallari_dogrula(bloklar: list[dict[str, float]], S: int, html: str, sac_sa
 
     baslik_satirlari: list[str] = [BASLIK_SATIR1, BASLIK_SATIR2]
     assert len(baslik_satirlari) == 2, "Başlık satır sayısı != 2"
-    assert len(" ".join(baslik_satirlari).split()) == 4, "Başlık sözcük sayısı != 4"
+    assert len(" ".join(baslik_satirlari).split()) == 3, "Başlık sözcük sayısı != 3"  # HV-20b: 2–4
 
     for s_metin in [BASLIK_SATIR1, BASLIK_SATIR2, BALON_METIN]:
         assert len(s_metin) <= 24, f"Satır uzunluğu > 24: {s_metin}"

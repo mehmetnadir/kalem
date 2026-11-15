@@ -2,7 +2,7 @@
 import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, renkCoz, kutu, ok, geriTasma } from "./sahne-ortak.js";
 
-const KARE = 487, TBAS = 36.15, ICERIK = 475, KAYMA = 6.0;   // TBAS: eski çerçeve; zaman.json t_bas 30,15
+const KARE = 487, TBAS = 36.15, ICERIK = 475, KAYMA = 4.96;   // TBAS: eski çerçeve; zaman.json t_bas 31,19 (16.11 DUZ3: cümle 2 +1,04 sn → kayma 6,00 − 1,04)
 const KOKDIZ = "/projeler/present-continuous/ortak/cizim";
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: KAYMA, bolum: "Example 2 / 3", cumle: 4 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();

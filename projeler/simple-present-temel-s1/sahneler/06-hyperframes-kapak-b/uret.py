@@ -62,13 +62,14 @@ NESNE: Path = ORTAK / "kapak" / "nesne.png"
 ESIK: int = 64
 KENAR_PX: int = 10
 KENAR_GECIS: int = 3
-KAR_KUTU: tuple[int, int, int, int] = (152, 89, 744, 1113)
+KAR_KUTU: tuple[int, int, int, int] = (148, 85, 793, 1024)
 NES_KUTU: tuple[int, int, int, int] = (96, 254, 1057, 643)
-BAS_X: float = 462.0
-PARMAK: tuple[float, float] = (154.0, 715.0)
+BAS_X: float = 526.0
+PARMAK: tuple[float, float] = (162.0, 502.0)
 DAIRE_R: float = 220.0
 NESNE_EN: float = 360.0
 NESNE_ARA: float = 24.0
+NESNE_UST: float = 16.0  # DUZ2 16.11: parmak sol üste bakar; otobüs üstü parmak ucunun altında
 
 
 def alfa_kutusu(yol: Path) -> tuple[int, int, int, int]:
@@ -203,16 +204,16 @@ def hesapla_gorseller() -> tuple[
 ]:
     """Karakter ve nesne ölçek ve konumlarını hesaplar (SPEC §3.3)."""
     # şef QA tur 1: kenar + yumuşak alfa saçta maskeden 13 px taşıyor (karede y 917) → görünür üst 933, yükseklik 436
-    s: float = math.floor(436.0 / (1113.0 - 89.0) * 1000.0) / 1000.0
+    s: float = math.floor(436.0 / (KAR_KUTU[3] - KAR_KUTU[1]) * 1000.0) / 1000.0
     kx: float = (960.0 - DAIRE_R) - BAS_X * s
-    ky: float = 933.0 - 89.0 * s
+    ky: float = 933.0 - KAR_KUTU[1] * s
 
     sn: float = round(NESNE_EN / (1057.0 - 96.0), 4)
     px: float = kx + PARMAK[0] * s
     py: float = ky + PARMAK[1] * s
     o_deger: float = px - 2.0 * KENAR_PX - NESNE_ARA
     nx: float = o_deger - 1057.0 * sn
-    ny: float = py - (254.0 + 643.0) / 2.0 * sn
+    ny: float = py + NESNE_UST - NES_KUTU[1] * sn
 
     m_karakter: np.ndarray = maske(KARAKTER, kx, ky, s)
     m_nesne: np.ndarray = maske(NESNE, nx, ny, sn)
@@ -487,12 +488,14 @@ def uret() -> tuple[
         for dx, dy in ((adim, 0.0), (-adim, 0.0), (0.0, adim), (0.0, -adim))
     )
 
+    # DUZ4 A6 / HV-20a (16.11): sarı kb-zemin kalktı; zemin A ve C kapağıyla aynı tema zemini + gren + vinyet
+    # (Y.zemin_html; hf_tema: açık #f7f3ea, koyu #1b1a17). Sarı yalnız başlık kutusunda (iki temada sarı kutu, siyah yazı).
+    # Seçici `.tema-acik#root`: hf_tema `#root.tema-acik` dizgisini görürse zemin değişkenlerini eklemez.
     tema_css: str = (
-        "#root{--kbZemin:#141414;--kbYazi:#f3efe6;--kbKutu:#fece00;--kbKutuYazi:#141414;--kbDaire:#f3efe6;}\n"
-        "#root.tema-acik{--kbZemin:#fece00;--kbYazi:#141414;--kbKutu:#141414;--kbKutuYazi:#f3efe6;}\n"
-        "#kb-zemin{position:absolute;inset:0;background:var(--kbZemin);}\n"
+        "#root{--kbYazi:#f3efe6;--kbKutu:#fece00;--kbKutuYazi:#141414;--kbDaire:#f3efe6;}\n"
+        ".tema-acik#root{--kbYazi:#141414;}\n"
         "#kb-daire{border-radius:50%;background:var(--kbDaire);display:none;}\n"
-        "#root.tema-acik #kb-daire{display:block;}\n"
+        ".tema-acik#root #kb-daire{display:block;}\n"
         "#root #kanal-yazi,#root #rz0 text,#root #bs-1{fill:var(--kbYazi);}\n"
         "#root #rz0 rect{stroke:var(--kbYazi);}\n"
         "#root #bk-kutu{fill:var(--kbKutu);}\n"
@@ -511,7 +514,6 @@ def uret() -> tuple[
 </style></head><body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="{z_sure}" data-fps="30" data-width="1080" data-height="1920">
 {Y.zemin_html()}
-<div id="kb-zemin"></div>
 <div id="kb-daire" class="abs" style="left:520px;top:930px;width:440px;height:440px"></div>
 {nesne_img}
 {karakter_img}

@@ -17,7 +17,7 @@
       "have / has + fiilin üçüncü hâli",
       "for = süre, since = başlangıç noktası",
       "never · ever · just · already · yet = Present Perfect sinyalleri",
-      "3 örnek, 1 kural: üçünde de have + üçüncü hâl"
+      "3 örnek, 1 kural: üçünde de have / has + üçüncü hâl"
     ],
     "kazanim": [],
     "etiketler": [
@@ -84,6 +84,20 @@
       "no": "r1",
       "tarih": "2026-11-10T16:40:00Z",
       "degisiklik": "Dikey tam ders paketi (9:16, aynı ses, altyazı sahnede); ilk yayın derlemesi",
+      "cikti": null
+    },
+    {
+      "surum": "ana-yatay",
+      "no": "r2",
+      "tarih": "2026-11-16T02:00:00Z",
+      "degisiklik": "16.11 DUZ3-0206T içerik düzeltmesi (jüri c sınıfı): c4 'özne tek kişi' → 'özne üçüncü tekil kişi'; c5 'Never gibi sözcükler … anlatır' → 'Burada never … kapsar'; c7 since = başlangıç noktası, already = çoktan, 'iş geçmişte bitti' → 'geçmiş şimdiye bağlanıyor'; c4, c5, c7 yeniden sentez (Whisper 1,00), süre 94,86 → 98,53 sn; sahne 04–06 kartları, rozet YDT · TEMEL",
+      "cikti": null
+    },
+    {
+      "surum": "dikey-tam",
+      "no": "r2",
+      "tarih": "2026-11-16T02:00:00Z",
+      "degisiklik": "16.11 DUZ3-0206T içerik düzeltmesi (jüri c sınıfı): c4 'özne tek kişi' → 'özne üçüncü tekil kişi'; c5 'Never gibi sözcükler … anlatır' → 'Burada never … kapsar'; c7 since = başlangıç noktası, already = çoktan, 'iş geçmişte bitti' → 'geçmiş şimdiye bağlanıyor'; c4, c5, c7 yeniden sentez (Whisper 1,00), süre 94,86 → 98,53 sn; sahne 04–06 kartları, rozet YDT · TEMEL; dikey 04 nota çakışması giderildi",
       "cikti": null
     }
   ]

@@ -37,7 +37,7 @@ Ses olayları: kare 12 vurus 0,6 · 16 tik 0,4 · 91 tik 0,6 · 124 tik 0,4.
 | Öğe | Yazı · boy | Konum |
 |---|---|---|
 | Kanal katmanı | logo + `@ydspublishing` Lexend 700 42 | BRIEF tablosu; `#kunye > #kanal`, `#logoimg`; opaklık 1, animasyon yok |
-| Künye | `Simple Present` Fredoka 700 (≤ 34) + rozet `YDT · BASIC` Lexend 700 26 | taban 420; hap 386–434, konu sonu + 20 |
+| Künye | `Simple Present` Fredoka 700 (≤ 34) + rozet `YDT · TEMEL` Lexend 700 26 | taban 420; hap 386–434, konu sonu + 20 |
 | `Gerisi bizde.` | Fredoka 700 96 (900 px'e sığan en büyük, alt sınır 64) | x 60, taban 560 (≈ 489–560) |
 | Ana kapak kartı | `assets/ana-kapak.png` / `ana-kapak-koyu.png` | x 60–960, y 620–1126 (900×506), köşe 24, `murekkep` kenar 4 px |
 | `@ydspublishing` hap + `· YouTube` | Lexend 700 56 | hap x 60–…, y 1160–1240 (tek vurgu: dolgu `#f2a93b` → açık temada `vurguDolgu`, yazı `#1b1a17` → `pilMetin`) |

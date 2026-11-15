@@ -1,12 +1,13 @@
-// SAHNE 04 — Örnek 2 (PPC temel, düz canvas, 462 kare, t_bas 32,28; cümle 4). Kendini çizen kalem.
-// Zaman yalnız kare numarasından; zamanlar küresel sn (sozcukler.json ile aynı çerçeve), kayma yok.
+// SAHNE 04 — Örnek 2 (PPC temel, düz canvas, 474 kare, t_bas 32,28 eski çerçeve; cümle 4). Kendini çizen kalem.
+// Zaman yalnız kare numarasından. 16.11 DUZ3: cümle 2 +4,80 sn → kayma -4,8 (eski çerçeve, gerçek t_bas 37,08);
+// cümle 4 yeni ses (parça 5 "Üçüncü tekil kişide has been"); sabit zamanlar eski çerçevede yeni sese göre.
 import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, renkCoz, ok, geriTasma } from "./sahne-ortak.js";
 import { yaziNoktalari } from "/projeler/present-perfect-cont-temel/ortak/kalem-canvas.js";
 
-const KARE = 462, TBAS = 32.28, ICERIK = 450;
+const KARE = 474, TBAS = 32.28, ICERIK = 462;
 const KOKDIZ = "/projeler/present-perfect-cont-temel/ortak/cizim";
-const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: 0, bolum: "Example 2 / 3", cumle: 4 });
+const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: -4.8, bolum: "Example 2 / 3", cumle: 4 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 // t1 < 0,2 sn olan sözcük penceresi sonraki sözcüğün başına dek uzar (karar 6)
 const pencere = (liste) => liste.map((w, i, a) => ({ t0: w.t0,
@@ -67,10 +68,10 @@ async function kur() {
 
   // 37,73–40,37 Türkçe çeviri
   const ytr = sonSatir + 78;
-  // pencere: Kardeşim 37,73–38,29 · sabahtan 38,37–38,77 · beri 38,85→39,05 · gitar 39,05–39,33 ·
-  // çalıyor. 39,41–40,37
+  // pencere: Kardeşim 37,65–38,21 · sabahtan 38,29–38,77 · beri 38,85→39,01 · gitar 39,01–39,33 ·
+  // çalıyor. 39,37–40,37
   S.koy(S.elYazisi({ metin: "Kardeşim sabahtan beri gitar çalıyor.", x: 140, y: ytr, renk: IKINCIL,
-    sozcukler: pencere(S.dizi("Kardeşim", 37.73, 5)) }));
+    sozcukler: pencere(S.dizi("Kardeşim", 37.65, 5)) }));
 
   // 40,62–42,22 since (Fredoka 130 sarı) + soluk for = süre uzunluğu; 42,47 başlangıç noktası
   S.koy(S.metinPop({ parca: [["since", SARI]], x: 1010, y: 870, font: "700 130px Fredoka", tb: 40.62, sure: 0.4,
@@ -78,24 +79,24 @@ async function kur() {
   // 41,30–42,10 anlatımsız (Since this morning. 41,26–42,22 içinde): hedef 0,8 sn
   S.koy(S.elYazisi({ metin: "for = süre uzunluğu", x: 1010, y: 1000, boy: 44, renk: IKINCIL,
     tb: 41.3, sure: 0.8, ses: false }));
-  // pencere: başlangıç 42,47–43,07 · noktası. 43,11–44,15
+  // pencere: başlangıç 42,47–43,03 · noktası. 43,07–44,15
   S.koy(S.elYazisi({ metin: "başlangıç noktası", x: 1010, y: 940, boy: 56, renk: SARI,
     sozcukler: pencere(S.dizi("Başlangıç", 42.47, 2)) }));
   S.koy(S.parilti(1330, 790, 40.9));
 
-  // 45,11 has: cümlede sarı daire
-  S.koy(S.halka(kel("has"), 45.11, 0.3, 11));
+  // 45,59 has ("Üçüncü tekil kişide has been"): cümlede sarı daire
+  S.koy(S.halka(kel("has"), 45.59, 0.3, 11));
 
-  // 44,23–47,27 formül kartı: has been + V-ing / play-ing
+  // 44,19–47,67 formül kartı: has been + V-ing / play-ing (Üçüncü 44,19 · has 45,59 · artı 46,71 · -ing 47,19)
   {
     const ky = 745, F = "700 60px Fredoka";
-    S.koy(S.kart({ x: 140, y: ky, w: 640, h: 235, tb: 44.23, tohum: 4, satirlar: [
-      { parca: [["has been", KREM]], x: 200, y: ky + 95, font: F, tb: 45.11 },
-      { parca: [["+", IKINCIL]], x: 480, y: ky + 95, font: F, tb: 46.07 },
-      { parca: [["V", KREM], ["-ing", SARI]], x: 560, y: ky + 95, font: F, tb: 46.3 },
-      { parca: [["play", KREM], ["-ing", SARI]], x: 200, y: ky + 200, font: F, tb: 46.63 },
+    S.koy(S.kart({ x: 140, y: ky, w: 640, h: 235, tb: 44.19, tohum: 4, satirlar: [
+      { parca: [["has been", KREM]], x: 200, y: ky + 95, font: F, tb: 45.59 },
+      { parca: [["+", IKINCIL]], x: 480, y: ky + 95, font: F, tb: 46.71 },
+      { parca: [["V", KREM], ["-ing", SARI]], x: 560, y: ky + 95, font: F, tb: 46.95 },
+      { parca: [["play", KREM], ["-ing", SARI]], x: 200, y: ky + 200, font: F, tb: 47.19 },
     ] }));
-    S.koy(S.parilti(740, 770, 46.9));
+    S.koy(S.parilti(740, 770, 47.45));
   }
 }
 

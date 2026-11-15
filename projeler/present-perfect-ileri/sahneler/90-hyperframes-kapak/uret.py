@@ -27,11 +27,11 @@ import yardim as Y  # noqa: E402
 KAPAK = AD.parent.parent / "ortak" / "kapak"
 LOGO = AD.parent.parent / "ortak" / "logo"
 
-# Kapak metni (şef kararı; değiştirme)
+# Kapak metni (şef kararı; 16.11 DUZ3-0206I: YV-DUZ §4 "ses düzelince AGO VARSA / SIMPLE PAST"; küçük satır EN örnek)
 SATIR1 = "AGO VARSA"
-SATIR2 = "PERFECT YOK"
+SATIR2 = "SIMPLE PAST"
 KUCUK_SOL = "ago"
-KUCUK_SAG = "Simple Past"
+KUCUK_SAG = "took off"
 ROZET = "YDT · İLERİ"
 
 KREM = "#f3efe6"
@@ -152,7 +152,7 @@ def kesisir(a: Kutu, b: Kutu) -> bool:
 
 def yatay() -> Duzen:
     W, H = 1920, 1080
-    # Vurgu satırı uzun ("PERFECT YOK" 6,8 em kutu): S 240 -> 150, karakter 1,05 -> 0,94 ve sağa (sağ alt boş bölge sınırı).
+    # Vurgu satırı uzun ("SIMPLE PAST"; eski "PERFECT YOK" 6,8 em kutu): S 240 -> 150, karakter 1,05 -> 0,94 ve sağa (sağ alt boş bölge sınırı).
     s, n = 0.94, 0.34
     return Duzen(
         W=W, H=H, S=150.0, L=64.0, R=40.0, X0=96.0, LOGO_UST=54.0, LOGO_H=84.0,

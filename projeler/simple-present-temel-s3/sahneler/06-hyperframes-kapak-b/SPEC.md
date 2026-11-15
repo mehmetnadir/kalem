@@ -55,7 +55,7 @@ Başka dosyaya dokunma. Silme yok. Test, render, git YOK. `ortak/`, `zaman.json`
 y    0 ┌───────────────────────────────────────────┐
        │              (boş zemin)                   │ 0–280
    291 │ [logo] @ydspublishing                      │ kanal 280–350 (Y.kunye_svg)
-   420 │ Simple Present (YDT · BASIC)               │ künye 360–450
+   420 │ Simple Present (YDT · TEMEL)               │ künye 360–450
   ≈475 │              GOES mu,                      │ başlık, orta x 510, B ≈ 172
   ≈800 │               GO mu?                       │
    860 │      ┌──────────────────────────┐          │ kâğıt kart, ortalı
@@ -153,7 +153,7 @@ y    0 ┌───────────────────────�
    `TX ≥ KX + 40` ve `TX + LW ≤ KX + KW − 40`; `KT1 − 0,73·KB ≥ KY + 30`; `KT2 + BOS_ALT + 4 ≤ KY + KH − 30`.
 5. Başlık 2 satır, toplam 4 sözcük; her ekran satırı ≤ 24 karakter: `GOES mu,`, `GO mu?`, `He doesn't ____.`, `Does she ____?`, `go`, `goes`.
 6. Görünen metin: `re.findall(r">([^<]+)</text>", html)` kümesi TAM OLARAK
-   `{"@ydspublishing", "Simple Present", "YDT · BASIC", "GOES mu,", "GO mu?", "He doesn't", ".", "Does she", "?", "go", "goes"}`.
+   `{"@ydspublishing", "Simple Present", "YDT · TEMEL", "GOES mu,", "GO mu?", "He doesn't", ".", "Does she", "?", "go", "goes"}`.
    Her görünen metinde U+2FFF üstü karakter (emoji) YOK; `_`, `✗`, `✓` YOK. Yasak söz taraması: küçük harfe çevrilmiş görünen
    metinde `"tam" + " ders"`, `"dak" + "ika"`, `"izle"`, `"qr"`, `"kanal"` YOK. **DİKKAT:** ilk iki söz kodda PARÇALI yazılır
    (`"tam" + " ders"`, `"dak" + "ika"`); bitişik yazılırsa istemin `grep 'tam ders|dakika'` kapısı koda takılır.

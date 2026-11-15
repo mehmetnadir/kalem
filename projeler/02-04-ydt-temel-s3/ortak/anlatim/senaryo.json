@@ -59,11 +59,15 @@
    "parcalar": [
     [
      "tr",
-     "Planı bir kişi yapar. Tren tarifeye uyar: geniş zaman."
+     "Biletimi aldım, saat belli: kesin düzenleme, şimdiki zaman."
+    ],
+    [
+     "tr",
+     "Tren tarifeye uyar: geniş zaman."
     ]
    ],
    "olaylar": [],
-   "metin": "Planı bir kişi yapar. Tren tarifeye uyar: geniş zaman."
+   "metin": "Biletimi aldım, saat belli: kesin düzenleme, şimdiki zaman. Tren tarifeye uyar: geniş zaman."
   },
   {
    "ses": "ogretmen",
@@ -105,9 +109,9 @@
  "giris": {
   "logo": "varlik/logo/yds-publishing.svg",
   "satir1": "TARİFE",
-  "satir2": "≠ PLAN",
+  "satir2": "≠ DÜZENLEME",
   "rozetler": [
-   "YDT · BASIC"
+   "YDT · TEMEL"
   ],
   "sahne": [
    {
@@ -145,19 +149,19 @@
   "seviye": "temel",
   "kapak": {
    "satir1": "TARİFE",
-   "satir2": "≠ PLAN",
-   "canAlici": "tarife → leaves · plan → am going"
+   "satir2": "≠ DÜZENLEME",
+   "canAlici": "tarife → leaves · kesin düzenleme → am going"
   },
   "amaclar": [
    "Genel durumda geniş zamanı, konuşma anında şimdiki zamanı seçmek",
    "Kalıcı durumda geniş zamanı, geçici durumda şimdiki zamanı seçmek",
-   "Tarifeli gelecekte geniş zamanı, planlanmış gelecekte şimdiki zamanı seçmek",
+   "Tarifeli gelecekte geniş zamanı, kesin düzenlemede şimdiki zamanı seçmek",
    "Türkçe -yor ekinin iki zamana da karşılık geldiğini bilmek; kararı anlamla vermek"
   ],
   "canAlici": [
-   "Önce anlama bak: genel mi, şu an mı? Kalıcı mı, geçici mi? Tarife mi, plan mı?",
+   "Önce anlama bak: genel mi, şu an mı? Kalıcı mı, geçici mi? Tarife mi, kesin düzenleme mi?",
    "Genel durum, kalıcı durum, tarifeli gelecek: V1 / V-s",
-   "Konuşma anı, geçici durum, planlanmış gelecek: am / is / are + V-ing",
+   "Konuşma anı, geçici durum, kesin düzenleme: am / is / are + V-ing",
    "today iki zamanda da geçer; farkı anlam yapar",
    "Türkçe yaşıyorum iki zamana karşılık gelir: I live (kalıcı), I am living (geçici)"
   ],

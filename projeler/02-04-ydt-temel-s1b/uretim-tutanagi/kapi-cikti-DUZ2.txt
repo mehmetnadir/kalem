@@ -1,0 +1,6 @@
+$ node araclar/cakisma-kapisi.mjs 02-04-ydt-temel-s1b --port 41333 --sunucu 41022 --json projeler/02-04-ydt-temel-s1b/uretim-tutanagi/cakisma-DUZ2.json
+01-hyperframes-kapak | çakışma yok (11 örnek, 2674 kutu)
+02-paperjs-ornek | çakışma yok (56 örnek, 3106 kutu)
+08-hyperframes-kaydet | çakışma yok (23 örnek, 2800 kutu)
+03-hyperframes-cta | çakışma yok (26 örnek, 3880 kutu)
+çıkış kodu: 0

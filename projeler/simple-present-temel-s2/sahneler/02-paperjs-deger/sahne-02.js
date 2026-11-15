@@ -1,6 +1,7 @@
 // Sahne 02 (simple-present-temel-s2 Shorts) — Değer: Paper.js, 1080x1920, 278 kare, t_bas 3.00.
 // Cümle 2: My brother usually goes to school by bus. Alışkanlık işareti. Şu an değil, her sabah yedide kalkarım gibi.
 // huni v2 (15.11): içerik x 60–960, y 460–1380; çip yok; kanal katmanı ve künye kunye.js'te.
+// DUZ4 (16.11, J3 A7): son karede en çok 3 yazı öbeği / 4 satır (kart 2 + `şu an` + `Her sabah yedide kalkarım.`).
 import { sahneKur, RT, KUNYE } from "/projeler/simple-present-temel-s2/sahneler/02-paperjs-deger/kalem-paper.js";
 import { yaziNoktalari } from "/projeler/simple-present-temel-s2/ortak/kalem-canvas.js";
 
@@ -89,11 +90,10 @@ export async function kur(P) {
   const ZEMIN_Y = FIG_Y + 458;
   const ySU = 1015;
   const yHS1 = ySU + 97;
-  const yHS2 = yHS1 + 76;
   const GW = 104;
   const GH = 76;
   const GA = 28;
-  const GY = yHS2 + 74;
+  const GY = yHS1 + 74;   // DUZ4 A7: `Her sabah yedide kalkarım.` tek satır; kutular satırın altına çıktı (eski yHS2 + 74)
 
   // Yardımcı: İnce kalem oku (çok noktalı eğri + uç)
   const okYol = (pts, o) => {
@@ -108,6 +108,7 @@ export async function kur(P) {
       sure: o.sure,
       tur: "isaret",
       ad: o.ad,
+      oge: o.oge,
     });
     const n = pts.length;
     const a = pts[n - 2], b = pts[n - 1];
@@ -132,6 +133,7 @@ export async function kur(P) {
       ses: false,
       tur: "isaret",
       ad: `${o.ad}:uc`,
+      oge: o.oge,
     });
     return govde;
   };
@@ -149,6 +151,11 @@ export async function kur(P) {
   // 2. Alt öğe grubu
   const F_SU = fr(wSu.t);
   const altOge = oge({ alfa: (f) => 1 - kis((f - F_SU) / 4) });
+  // DUZ4 (16.11, J3 A7, #16 metin duvarı): `Şu an` girerken (ses "Şu an değil" t0) soluk TR köprü, iki ok ve
+  // `alışkanlık` 0,3 sn'de (9 kare) söner. kopruOge etiketsiz (öğeler tek tek ölçülür); alOge'yi elYazisi etiketler.
+  const sonme = (f) => 1 - kis((f - F_SU) / 9);
+  const kopruOge = oge({ alfa: sonme });
+  const alOge = oge({ alfa: sonme });
 
   // 3. Kart satır 1 My brother
   const kel1 = cumle([
@@ -318,6 +325,7 @@ export async function kur(P) {
     agirlik: 700,
     renk: RT.ikincil,
     bas: wBus.f1,
+    oge: kopruOge,
     sure: 8,
   });
   not("soluk TR 1 (bus.)", wBus.f1);
@@ -330,6 +338,7 @@ export async function kur(P) {
     agirlik: 700,
     renk: RT.ikincil,
     bas: wBus.f1 + 4,
+    oge: kopruOge,
     sure: 8,
   });
   not("soluk TR 2 (bus.)", wBus.f1 + 4);
@@ -344,6 +353,7 @@ export async function kur(P) {
     bas: fr(wAliskanlik.t),
     sure: 10,
     ad: "ok alışkanlık",
+    oge: kopruOge,
   });
   not("ok alışkanlık (Alışkanlık)", fr(wAliskanlik.t));
 
@@ -354,6 +364,7 @@ export async function kur(P) {
     boyut: BTR,
     renk: RT.murekkep,
     bas: fr(wAliskanlik.t) + 6,
+    oge: alOge,
     sure: 14,
   });
   not("alışkanlık (Alışkanlık)", fr(wAliskanlik.t) + 6);
@@ -368,6 +379,7 @@ export async function kur(P) {
     bas: fr(wIsareti.t),
     sure: 14,
     ad: "ok köprü",
+    oge: kopruOge,
   });
   not("ok köprü (işareti.)", fr(wIsareti.t));
 
@@ -403,14 +415,15 @@ export async function kur(P) {
   });
   not("şu an çizgi (değil,)", basSuAnCizgi);
 
-  // 17. Her sabah yedide (sözcük zamanlı)
-  const hs = satir(["Her", "sabah", "yedide"], pen(s2.slice(13, 16)), {
+  // 17. Her sabah yedide kalkarım. (sözcük zamanlı, tek satır; DUZ4 A7)
+  const hs = satir(["Her", "sabah", "yedide", "kalkarım."], pen(s2.slice(13, 17)), {
     x: SOL,
     y: yHS1,
     boyut: BTR,
     renk: RT.murekkep,
   });
-  not("Her sabah yedide (her)", fr(wHer.t));
+  if (hs[3].x1 > SAG) throw new Error(`Bekçi: Her sabah satırı sağ sınırı aştı (${hs[3].x1} > ${SAG})`);
+  not("Her sabah yedide kalkarım. (her)", fr(wHer.t));
 
   // 18. 5 gün kutusu (el çizimi, yazısız)
   for (let i = 0; i < 5; i++) {
@@ -440,15 +453,6 @@ export async function kur(P) {
     ad: "her sabah altçizgi",
   });
   not("her sabah altçizgi (sabah)", wSabah.f1);
-
-  // 20. kalkarım.
-  satir(["kalkarım."], pen(s2.slice(16, 17)), {
-    x: SOL,
-    y: yHS2,
-    boyut: BTR,
-    renk: RT.murekkep,
-  });
-  not("kalkarım. (kalkarım)", fr(wKalkarim.t));
 
   // 21. 5 tik (mürekkep), 5/5
   for (let i = 0; i < 5; i++) {

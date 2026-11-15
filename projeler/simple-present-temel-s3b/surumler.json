@@ -1,0 +1,82 @@
+{
+  "video": {
+    "kimlik": "02-02-ydt-temel",
+    "ders": "İngilizce",
+    "konu": "Simple Present",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-02-T",
+    "amaclar": [
+      "Simple Present formunu kurmak (fiil, fiil + s, do / does)",
+      "zaman ifadelerini tanımak",
+      "genelleme, alışkanlık ve tarife kullanımlarını ayırt etmek",
+      "Türkçe geniş zaman eki ile köprü"
+    ],
+    "canAlici": [
+      "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
+      "usually, always, every day = tekrar eden iş sinyali",
+      "he, she, it fiile s alır; I, you, we, they almaz",
+      "3 örnek, 1 kural: üçünde de fiilin sonunda s"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Simple Present"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "s3b",
+      "tur": "shorts",
+      "ad": "S3b Shorts (26,68 sn)",
+      "durum": "inceleme",
+      "onizleme": "/p/simple-present-temel-s3b/onizle.html",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "varyant": {
+        "grup": "s3",
+        "kol": "b",
+        "degisken": "kanca",
+        "deger": "soru"
+      }
+    },
+    {
+      "kimlik": "s3b-kapak-a",
+      "tur": "kapak",
+      "ad": "S3b Kapak A",
+      "durum": "inceleme",
+      "dosya": "kapak-a.png",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s3b-aciklama-a",
+      "tur": "aciklama",
+      "ad": "S3b Açıklama A",
+      "durum": "inceleme",
+      "dosya": "aciklama-a.md",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    },
+    {
+      "kimlik": "s3b-aciklama-b",
+      "tur": "aciklama",
+      "ad": "S3b Açıklama B",
+      "durum": "inceleme",
+      "dosya": "aciklama-b.md",
+      "seviye": "temel",
+      "kaynak": "ana-yatay"
+    }
+  ],
+  "revizyonlar": [
+    {
+      "surum": "s3b",
+      "no": "r1",
+      "tarih": "2026-11-15T22:01:00Z",
+      "degisiklik": "DUZ2 (J2 A1/TD-1, A2/TD-2, A3, A7, TD-3; KBJ HV-24, EK-5b, ST-1, EK-6, AB-8, EK-3, HV-13): kol a düzeltmeleri birebir — rozet YDT · TEMEL; c2 metni kol a ile aynı ('He, she, it ile olumsuzda ve soruda does girer; s ona geçer.'), cumle-2.wav kol a'dan kopya (sha256 eş, yeniden sentez 0 karakter), c1 (değişken) değişmedi; kadın karakter ve yeni ana kapak (sha256 eş); kanca '?', sahne 02 ✗ ve üstü çizgi mürekkep; canAlici 'geniş zaman eki = s' çıkarıldı. Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    }
+  ]
+}

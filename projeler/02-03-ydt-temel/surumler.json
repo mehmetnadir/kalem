@@ -8,16 +8,16 @@
     "kod": "ING-YDT-GR-02-03-T",
     "amaclar": [
       "Present Continuous ile Simple Present'ı sinyal sözcüğüyle ayırmak",
-      "now, these days, nowadays, planlı gelecek ve değişen durumda şimdiki zamanı seçmek",
+      "now, these days, nowadays, kişisel plan ve değişen durumda şimdiki zamanı seçmek",
       "usually ve genel durumda geniş zamanı seçmek",
-      "believe, have, recommend gibi fiillerin -ing almadığını bilmek"
+      "believe, have (sahip olmak) ve recommend (tavsiye ederken) gibi fiillerin bu anlamlarda -ing almadığını bilmek"
     ],
     "canAlici": [
       "Önce sinyal sözcüğünü ara, sonra fiile bak",
-      "now net bir ipucudur: am / is / are + V-ing",
+      "now güçlü bir ipucudur: çoğunlukla am / is / are + V-ing",
       "these days ve nowadays genellikle şimdiki zamanı çağırır: geçici ya da değişen durum",
-      "usually ve genel durum: geniş zaman",
-      "believe, think, have (sahip olmak), recommend: sinyal olsa da -ing almaz"
+      "usually ve genel durum: çoğunlukla geniş zaman",
+      "believe, think (görüş), have (sahip olmak), recommend (tavsiye ederken): bu anlamlarda sinyal olsa da -ing almaz"
     ],
     "kazanim": [],
     "etiketler": [
@@ -44,5 +44,13 @@
       "tarih": "2026-11-13T09:00:00Z"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "ana-yatay",
+      "no": "r1",
+      "tarih": "2026-11-16T02:00:00Z",
+      "degisiklik": "DUZ3-0203T (YV-DUZ-1511 §4 (c) + ek tarama): 6 cümle düzeltildi — c4 'Geçici dönem şimdiki zaman ister' → 'çoğunlukla şimdiki zamanla gelir'; c8 'Planlı gelecek de şimdiki zaman ister' → 'Gelecekteki kişisel plan da şimdiki zamanla söylenebilir', 'genel durumlar geniş zaman ister' → 'çoğunlukla geniş zamanla gelir'; c14 'performative fiillerdir … Onlar da -ing almaz' → 'performative olabilir … Bu kullanımda onlara da -ing gelmez'. Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    }
+  ]
 }

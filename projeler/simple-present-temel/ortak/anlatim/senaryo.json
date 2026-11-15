@@ -180,7 +180,7 @@
     ],
     [
      "tr",
-     "Türkçedeki er eki gibi: git-er, go-es."
+     "Türkçede geniş zaman eki her kişide gelir, İngilizcede s yalnız üçüncü tekil kişide."
     ],
     [
      "tr",
@@ -188,7 +188,7 @@
     ]
    ],
    "olaylar": [],
-   "metin": "Çünkü özne üçüncü tekil kişi: he, she, it. Fiile s gelir. I, you, we, they ile gelmez. Olumsuzda ve soruda does girer, s ona geçer. He does not go. Does he go? Türkçedeki er eki gibi: git-er, go-es. Kod: always, usually, every day, Simple Present."
+   "metin": "Çünkü özne üçüncü tekil kişi: he, she, it. Fiile s gelir. I, you, we, they ile gelmez. Olumsuzda ve soruda does girer, s ona geçer. He does not go. Does he go? Türkçede geniş zaman eki her kişide gelir, İngilizcede s yalnız üçüncü tekil kişide. Kod: always, usually, every day, Simple Present."
   }
  ],
  "zaman": {
@@ -202,7 +202,7 @@
   "satir1": "SIMPLE",
   "satir2": "PRESENT",
   "rozetler": [
-   "YDT · BASIC",
+   "YDT · TEMEL",
    "GRAMMAR"
   ]
  },
@@ -220,7 +220,7 @@
    "Türkçe geniş zaman eki ile köprü"
   ],
   "canAlici": [
-   "Türkçedeki geniş zaman eki = İngilizcedeki s: gider = goes",
+   "Geniş zaman eki Türkçede her kişide gelir (giderim, gider); İngilizcede s yalnız he, she, it ile gelir (I go, he goes)",
    "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
    "usually, always, every day = tekrar eden iş sinyali",
    "he, she, it fiile s alır; I, you, we, they almaz",

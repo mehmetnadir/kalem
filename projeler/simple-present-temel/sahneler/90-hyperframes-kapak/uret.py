@@ -152,12 +152,12 @@ def kesisir(a: Kutu, b: Kutu) -> bool:
 
 def yatay() -> Duzen:
     W, H = 1920, 1080
-    s, n = 1.05, 0.42
+    s, n = 0.95, 0.42  # DUZ2: el x ≥ 988 (vurgu + pay), gövde x < 1614 (süre rozeti)
     return Duzen(
         W=W, H=H, S=240.0, L=64.0, R=40.0, X0=96.0, LOGO_UST=54.0, LOGO_H=84.0,
         T1=459.0, ROZET_ALT=1026.0,
-        karakter=Gorsel("karakter", "karakter.png", 880.0, 66.0 - 89 * s, s),
-        nesne=Gorsel("nesne", "nesne.png", 640.0 - 96 * n, 822.0 - 254 * n, n),
+        karakter=Gorsel("karakter", "karakter.png", 854.0, 198.0 - 85 * s, s),
+        nesne=Gorsel("nesne", "nesne.png", 610.0 - 96 * n, 842.0 - 254 * n, n),
         daire=(1375.0, 480.0, 390.0),
         serbest=Kutu("serbest", 96.0, 54.0, W - 96.0, H - 54.0),
         alt_kesik=True,
@@ -167,13 +167,13 @@ def yatay() -> Duzen:
 
 def dikey() -> Duzen:
     W, H = 1080, 1920
-    s, n, kirp = 0.64, 0.31, 1000  # karakter göğüs altında (el dahil) düz kesilir: yüz büyür, alt %20 boş kalır
+    s, n, kirp = 0.64, 0.31, 1000  # bel hizasında düz kesim (alt %20 boş); el metne doğru
     return Duzen(
         W=W, H=H, S=190.0, L=48.0, R=36.0, X0=72.0, LOGO_UST=400.0, LOGO_H=72.0,
         T1=492.0 + 0.921 * 190.0, ROZET_ALT=1500.0,
-        karakter=Gorsel("karakter", "karakter.png", 610.0 - 448 * s, 930.0 - 89 * s, s, kirp),
+        karakter=Gorsel("karakter", "karakter.png", 320.0, 930.0 - 85 * s, s, kirp),
         nesne=Gorsel("nesne", "nesne.png", 84.0 - 96 * n, 1190.0 - 254 * n, n),
-        daire=(625.0, 1220.0, 295.0),
+        daire=(650.0, 1220.0, 295.0),
         serbest=Kutu("serbest", 54.0, H * 0.20, W - 54.0, H * 0.80),
         alt_kesik=False,
         bos=[Kutu("ust-20", 0, 0, W, H * 0.20), Kutu("alt-20", 0, H * 0.80, W, H)],

@@ -1,0 +1,47 @@
+{
+  "baslik": "Present Perfect | YDT İngilizce",
+  "etiketler": [
+    "İngilizce",
+    "temel",
+    "gramer",
+    "Present Perfect",
+    "YDT",
+    "Present Perfect Tense",
+    "YDT İngilizce",
+    "İngilizce gramer",
+    "have has",
+    "üçüncü hâl",
+    "since for",
+    "never ever",
+    "just already",
+    "İngilizce zamanlar",
+    "YKS"
+  ],
+  "bolumler": [
+    {"t": 0, "ad": "Kaybettim: geçmişte oldu, sonucu şimdi"},
+    {"t": 18.73, "ad": "Have + üçüncü hâl: I have broken"},
+    {"t": 34.16, "ad": "For ve since: has played for five years"},
+    {"t": 52.56, "ad": "Deneyim: I have never flown in a plane"},
+    {"t": 68.23, "ad": "Neden hep üçüncü hâl? Sinyal sözcükler"}
+  ],
+  "sabitYorum": "Sınavdan önce tekrar etmek için videoyu kaydet; açıklamadaki bölüm damgalarıyla istediğin bölüme doğrudan geç.",
+  "gonderiler": [
+    {
+      "kimlik": "g1",
+      "metin": "Anahtarını kaybettin ve hâlâ kapıdasın: bunu İngilizcede hangi zamanla söylersin? Present Perfect dersinde have / has ile fiilin üçüncü hâlini üç örnekle gösteriyoruz. Sınav öncesi tekrar için videoyu kaydet.",
+      "gorsel": "kapak.png"
+    }
+  ],
+  "liste": {
+    "ad": "Tenses · YDT Temel",
+    "sira": 6,
+    "onceki": "02-05-ydt-temel",
+    "sonraki": "02-07-ydt-temel"
+  },
+  "bildirimler": [
+    {"t": 34.71, "sure": 3.0}
+  ],
+  "giris": true,
+  "cikis": true,
+  "aciklamaDosya": "youtube-aciklama.md"
+}

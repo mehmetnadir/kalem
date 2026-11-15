@@ -1,5 +1,5 @@
 #!/bin/bash
-# Sahne 06 soru anı 1 (02-04 YDT temel, HyperFrames, 613 kare; cümle 6 öğrenci + 7 öğretmen): üret -> olaylar -> [önizleme burada biter] -> render -> video.mp4 + kontrol.png.
+# Sahne 06 soru anı 1 (02-04 YDT temel, HyperFrames, 646 kare; cümle 6 öğrenci + 7 öğretmen): üret -> olaylar -> [önizleme burada biter] -> render -> video.mp4 + kontrol.png.
 # Tema: --tema acik|koyu (varsayılan acik, K19). Önizleme hazırlığı: ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu]
 set -e
 [ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"   # arm64 node >= 22 (hyperframes şartı)
@@ -8,7 +8,7 @@ AD="$(cd "$(dirname "$0")" && pwd)"
 KOK="$AD/../../../.."                       # paket kökü (kalem)
 M="$KOK/motorlar/hyperframes"; BIN="$M/node_modules/.bin"
 ORTAK="$AD/../../ortak"
-KARE=613
+KARE=646
 mkdir -p "$AD/proje/lib" "$AD/proje/assets/fonts" "$AD/k" "$AD/proje/renders"
 cp "$M/node_modules/gsap/dist/gsap.min.js" "$AD/proje/lib/" 2>/dev/null || cp "$M/lib/gsap.min.js" "$AD/proje/lib/"
 cp "$ORTAK/logo/$LOGO_DOSYA" "$AD/proje/assets/logo.svg"

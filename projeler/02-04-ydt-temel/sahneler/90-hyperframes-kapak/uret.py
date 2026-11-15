@@ -26,8 +26,10 @@ DIKEY: bool = PAKET.name.endswith("-dikey")
 W, H = (1080, 1920) if DIKEY else (1920, 1080)
 
 # Kapak metni (şef kararı; değiştirme)
-SATIR1 = "HER ZAMAN mı"
-SATIR2 = "ŞİMDİ mi?"
+# 16.11 DUZ3 (KS-4 + EK-5c): «HER ZAMAN mı ŞİMDİ mi?» 5 sözcüktü ve geniş zamanı «her zaman» diye çerçeveliyordu;
+# yeni yazı dersin kilit sorusu (cümle 13, 18: «Kalıcı mı, geçici mi?»), 4 sözcük.
+SATIR1 = "KALICI mı"
+SATIR2 = "GEÇİCİ mi?"
 KUCUK = "I live · I am living"
 ROZET = "YDT · TEMEL"
 
@@ -112,7 +114,9 @@ def yerlesim(ks: float, oynat: float) -> dict:
     # Ana yazı boyu: satır 1 sütuna sığar; vurgu satırı (kutulu) satır 1'in 1,35 katı, kutu sütuna sığar.
     w1_100 = Y.genislik("Fredoka", 700, SATIR1, 100.0)
     w2_100 = Y.genislik("Fredoka", 700, SATIR2, 100.0)
-    S1 = math.floor(min(170.0, (SUTUN - M) * 100.0 / w1_100))
+    # 16.11 DUZ3: dikeyde kısa satır 1 yazıyı 170 px'e büyütüp karakteri küçültüyordu (ölçek 0,61); tavan 140
+    # (eski «HER ZAMAN mı» genişlikten 136 px idi), yatay tavan 170 aynı.
+    S1 = math.floor(min(140.0 if DIKEY else 170.0, (SUTUN - M) * 100.0 / w1_100))
     S2 = min(round(ORAN2 * S1), math.floor((SUTUN - M) * 100.0 / (w2_100 + 2 * PADX * 100.0)))
     w1 = Y.genislik("Fredoka", 700, SATIR1, S1)
     w2 = Y.genislik("Fredoka", 700, SATIR2, S2)
@@ -192,7 +196,11 @@ def yerlesim(ks: float, oynat: float) -> dict:
     else:
         a = np.asarray(Image.open(KARAKTER).split()[-1]) > ESIK
         ust = max(y["kucuk"][3] + KENAR_PX + PAY + 2.0, ky + ky0 * ks)
+        nh_hedef = nh
         nh = min(nh, ky + ELLER_PNG * ks - 2 * KENAR_PX - 16.0 - ust)    # avucun üstünde kalır
+        # 16.11 DUZ3: yazı bloğu uzayınca avuç sınırı nesneyi sıfıra indirebilir (istisna); aday reddedilir, arama sürer
+        y["_nesne_kucuk"] = nh < 0.6 * nh_hedef
+        nh = max(nh, 0.6 * nh_hedef)
         ns = nh / (ny1 - ny0)
         bas_sol = kx + np.nonzero(a[ky0:ELLER_PNG].any(axis=0))[0].min() * ks
         nx = bas_sol - 2 * KENAR_PX - 16.0 - nx1 * ns
@@ -220,6 +228,7 @@ def dogrula(y: dict) -> list[str]:
         kural(bos_mu(gorsel, k, KENAR_PX + PAY), f"{ad} görselle üst üste: {k}")
     kural(yazi["satir1"][3] < yazi["kutu2"][1] and yazi["kutu2"][3] < yazi["kucuk"][1], "yazı satırları üst üste")
     kural(not (km & nm).any(), "karakter ile nesne üst üste")
+    kural(not y.get("_nesne_kucuk"), "nesne avuç üstüne sığmıyor (hedef boyun %60'ından küçük)")
     nk = y["nesne_kutu"]                    # nesne ile karakter arasında iki kenar + 4 px hava
     for satir in range(nk[1], nk[3]):
         nxs = np.nonzero(nm[satir])[0]

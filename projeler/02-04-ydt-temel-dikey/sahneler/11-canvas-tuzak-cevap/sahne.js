@@ -1,6 +1,8 @@
-// SAHNE 11 (DİKEY) — Tuzak cevabı: düz canvas, 1080x1920, 657 kare, t_bas 183,79; cümle 13.
+// SAHNE 11 (DİKEY) — Tuzak cevabı: düz canvas, 1080x1920, 643 kare, t_bas 183,79 (eski çerçeve); cümle 13.
+// 16.11 DUZ3: cümle 13 «hep orada» → «kalıcı olarak»; ekran «always» → «long-term» (EK-5c). zaman.json t_bas
+// 185,47; TBAS ve 184,2 eski çerçevede, sözcükler KAYMA ile ona çekilir; cümle içi sabit zamanlar sözcüğe bağlı.
 // Zaman yalnız kare numarasından; sözcük zamanları sozcukler.json'dan gelir.
-// İki kart: I am living in İstanbul (for now) / I live in İstanbul (always).
+// İki kart: I am living in İstanbul (for now) / I live in İstanbul (long-term).
 // Zaman çizgileri ve aralarında "≠ meaning" sarı belirteci yer alır.
 import { surucu } from "/ortak/surucu.js";
 import {
@@ -9,9 +11,9 @@ import {
 import { yaziNoktalari }
   from "/projeler/02-04-ydt-temel-dikey/ortak/kalem-canvas.js";
 
-const KARE = 657, TBAS = 183.79, ICERIK = 645;
+const KARE = 643, TBAS = 183.79, ICERIK = 631, KAYMA = -1.68;
 const S = new Sahne({
-  tbas: TBAS, kare: KARE, icerik: ICERIK, klasor: "11-canvas-tuzak-cevap", cumle: 13
+  tbas: TBAS, kayma: KAYMA, kare: KARE, icerik: ICERIK, klasor: "11-canvas-tuzak-cevap", cumle: 13
 });
 const KOKDIZ = "/projeler/02-04-ydt-temel-dikey/ortak/cizim";
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
@@ -219,7 +221,7 @@ async function kur() {
     TY: 670,
     bant: [690, 830],
     tEksen: t(10),
-    tNokta: 190.0,
+    tNokta: t(10) + 0.32,
     tBant: t(11),
     bantSure: 0.4,
     tohum: 600,
@@ -256,17 +258,17 @@ async function kur() {
     TY: 1196,
     bant: [150, 880],
     tEksen: t(14),
-    tNokta: 192.9,
+    tNokta: t(14) + 0.42,
     tBant: t(16),
     bantSure: 0.85,
     tohum: 620,
     nowY: 1256
   });
 
-  // 193,12 hep: Not oku ve always el yazısı
+  // kalıcı: Not oku ve long-term el yazısı
   notOk(1120, t(15), 241);
   S.koy(S.elYazisi({
-    metin: "always",
+    metin: "long-term",
     x: 172,
     y: 1120,
     boy: 64,
@@ -275,14 +277,14 @@ async function kur() {
     sure: 0.45
   }));
 
-  // 193,95 yaşıyorsan:: (permanent) el yazısı
+  // yaşıyorsan: + 0,35: (permanent) el yazısı
   const nPer = S.koy(S.elYazisi({
     metin: "(permanent)",
-    x: 172 + eyGen("always", 64) + 20,
+    x: 172 + eyGen("long-term", 64) + 20,
     y: 1120,
     boy: 64,
     renk: RT.murekkep,
-    tb: 193.95,
+    tb: t(17) + 0.35,
     sure: 0.7
   }));
 
@@ -326,8 +328,8 @@ async function kur() {
     0.55
   ));
 
-  // 202,30 (cevap bitimi): Öğrenci baş sallama dönüşümü
-  const fSal = S.fr(202.3);
+  // Kalıcı − 0,44 (cevap bitimi): Öğrenci baş sallama dönüşümü
+  const fSal = S.fr(t(32) - 0.44);
   og.donusum = (f) => {
     const p = (f - fSal) / 30;
     const ty = p > 0 && p < 1 ? 160 * 0.06 * Math.sin(Math.PI * 2 * p) ** 2 : 0;

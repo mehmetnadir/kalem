@@ -1,5 +1,7 @@
 # SPEC — 02-04 dikey · sahne 04-canvas-ornek2 (düz canvas, 1080×1920)
 
+> **16.11 DUZ3:** cümle 4 «Orada hep yaşıyorum» → «Burası bizim evimiz» (EK-5c; sözcük sırası aynı, t(15) Burası, t(16) bizim); 779 kare. Bu belgedeki saniye ve metinler önceki sürümündür; geçerli olan kod + `zaman.json`.
+
 Şef tasarımı (15.11). Uygulayan agy yalnız şu dosyayı yazar:
 
 **`/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-dikey/sahneler/04-canvas-ornek2/sahne.js`**

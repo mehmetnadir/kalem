@@ -102,10 +102,12 @@ def kart_kenar_yolu() -> str:
 
 def uret() -> tuple[str, dict[str, Any]]:
     """Sahne 03 index.html ve zamanlar.json verisini üretir."""
-    # Kural satırları ölçüsü: B = 80'den 64'e inerek iki satırın en büyüğü <= 800 olan ilk boy (§5)
-    satir1 = "He, she, it: s gelir;"
+    # Kural satırları ölçüsü: B = 80'den 64'e inerek iki satırın en büyüğü <= 806 olan ilk boy (§5)
+    # DUZ4 A3 / EK-5b (16.11, şef kararı): satır 1 `-s / -es` taşır (33 karakter); 3. satır soluk kapsam sözü
+    satir1 = "He, she, it: fiile -s / -es gelir;"
     satir2 = "I, you, we, they: s yok."
-    assert len(satir1) <= 24, f"Satır 1 24 karakterden uzun: {len(satir1)}"
+    satir3 = "olumlu cümlede · be ve can hariç"
+    assert len(satir1) <= 34, f"Satır 1 34 karakterden uzun: {len(satir1)}"
     assert len(satir2) <= 24, f"Satır 2 24 karakterden uzun: {len(satir2)}"
     assert len("Kaydet") <= 24
 
@@ -115,15 +117,18 @@ def uret() -> tuple[str, dict[str, Any]]:
         w1 = Y.genislik("Fredoka", 700, satir1, b_boy)
         w2 = Y.genislik("Fredoka", 700, satir2, b_boy)
         w_satir_max = max(w1, w2)
-        if w_satir_max <= 800.0:
+        if w_satir_max <= 806.0:
             break
         b_boy -= 1
     assert b_boy >= 64, f"B boyutu 64'ten küçük olamaz: {b_boy}"
-    assert 110.0 + w_satir_max <= 910.0, f"Satır sonu 910'u aştı: {110.0 + w_satir_max:.1f}"
-
+    assert 110.0 + w_satir_max <= 914.0, f"Satır sonu 914'ü aştı (kart kenarı 944): {110.0 + w_satir_max:.1f}"
+    # 3. satır: Fredoka 600 44, kart yazı rengi %60 (soluk); üç satırlık blok kart ortasına (y 790) oturur
+    k_boy = 44
+    assert 110.0 + Y.genislik("Fredoka", 600, satir3, k_boy) <= 914.0, "Kapsam satırı kart dışına taştı"
     a_aralik = round(1.32 * b_boy)
-    t1 = round(790 - a_aralik / 2 + 0.32 * b_boy)
+    t1 = round(790 - (a_aralik + round(1.5 * k_boy) + 0.2 * k_boy - 0.72 * b_boy) / 2)
     t2 = t1 + a_aralik
+    t3 = t2 + round(1.5 * k_boy)
 
     # Kalem kenarı yolu (§6)
     kenar_d = kart_kenar_yolu()
@@ -238,6 +243,8 @@ def uret() -> tuple[str, dict[str, Any]]:
  font-size="{b_boy}" fill="#1b1a17">{satir1}</text>
 <text id="kural2" x="110" y="{t2}" font-family="Fredoka" font-weight="700"
  font-size="{b_boy}" fill="#1b1a17">{satir2}</text>
+<text id="kural3" x="110" y="{t3}" font-family="Fredoka" font-weight="600"
+ font-size="{k_boy}" fill="#1b1a17" opacity="0.6">{satir3}</text>
 </g>
 
 <!-- Kaydet grubu -->

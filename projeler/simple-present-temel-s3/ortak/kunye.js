@@ -95,7 +95,7 @@ export const KUNYE = {
   konuTaban: 420,
   konuAzami: 34,
   konuAsgari: 28,
-  rozet: "YDT · BASIC",
+  rozet: "YDT · TEMEL",
   rozetY: 386,
   rozetH: 48,
   rozetYazi: 26,
@@ -232,7 +232,10 @@ export function altyaziMetin(liste, t) {
   const p = liste.find((a) => t >= a.t0 - 0.05 && t < a.t1 + 0.35);
   return p ? p.metin : "";
 }
-export function altyaziCiz(ctx, metin, { alfa = 1 } = {}) {
+// DUZ4 A1 (16.11): { sozcukler, t } verilirse o an okunan sözcüğün altına karaoke çizgisi çizilir (sozcukler.json
+// dizisi, t = küresel sn). Görünüm 03-hyperframes-kaydet altçizgisi: vurgu rengi, 6 px, yuvarlak uç, taban + 12;
+// 0,15 sn power2.out ile çizilir, sonraki sözcüğe dek kalır (son sözcükte t1 + 0,25). Seçeneksiz çağrı eskisi gibi.
+export function altyaziCiz(ctx, metin, { alfa = 1, sozcukler = null, t = null } = {}) {
   if (!metin) return;
   const k = KUNYE, R = RENK, genislik = k.sag - k.kenar;
   const ortaX = (k.kenar + k.sag) / 2;
@@ -252,7 +255,42 @@ export function altyaziCiz(ctx, metin, { alfa = 1 } = {}) {
   const y0 = k.altyaziBas + (satirlar.length === 1 ? 84 : 56);
   ctx.fillStyle = R.murekkep;
   satirlar.forEach((sat, i) => ctx.fillText(sat, ortaX, y0 + i * k.altyaziSatir));
+  if (sozcukler && t != null) karaokeCiz(ctx, satirlar, y0, ortaX, metin, sozcukler, t);
   ctx.restore();
+}
+
+// Metnin sözcükleri sozcukler.json'da ardışık aranır (birden çok eşleşmede t'ye en yakını); ctx.font altyazı yazısıdır.
+function karaokeCiz(ctx, satirlar, y0, ortaX, metin, sozcukler, t) {
+  const dizi = karaokeDizi(metin, sozcukler, t);
+  if (!dizi) return;
+  const n = dizi.length;
+  let s = -1;
+  for (let j = 0; j < n; j++) if (dizi[j].t0 <= t) s = j;
+  if (s < 0 || t >= (s + 1 < n ? dizi[s + 1].t0 : dizi[s].t1 + 0.25)) return;
+  let sira = s, k = 0;
+  while (k < satirlar.length && sira >= satirlar[k].split(" ").length) { sira -= satirlar[k].split(" ").length; k++; }
+  if (k >= satirlar.length) return;
+  const sw = satirlar[k].split(" ");
+  const x0 = ortaX - ctx.measureText(satirlar[k]).width / 2;
+  const x1 = x0 + (sira > 0 ? ctx.measureText(sw.slice(0, sira).join(" ") + " ").width : 0);
+  const x2 = x1 + ctx.measureText(sw[sira].replace(/[.,:;!?]+$/, "")).width;
+  const u = Math.min(1, Math.max(0, (t - dizi[s].t0) / 0.15)), e = 1 - (1 - u) * (1 - u);
+  const y = y0 + k * KUNYE.altyaziSatir + 12;
+  ctx.strokeStyle = RENK.vurgu; ctx.lineWidth = 6; ctx.lineCap = "round";
+  ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x1 + (x2 - x1) * e, y); ctx.stroke();
+}
+function karaokeDizi(metin, sozcukler, t) {
+  const nf = (s) => String(s).normalize("NFC");
+  const kel = metin.split(" ").map(nf), n = kel.length;
+  let dizi = null, enUzak = Infinity;
+  for (let i = 0; i + n <= sozcukler.length; i++) {
+    let j = 0;
+    while (j < n && nf(sozcukler[i + j].sozcuk) === kel[j]) j++;
+    if (j < n) continue;
+    const a = sozcukler[i].t0, b = sozcukler[i + n - 1].t1, uzak = t < a ? a - t : t > b ? t - b : 0;
+    if (uzak < enUzak) { enUzak = uzak; dizi = sozcukler.slice(i, i + n); }
+  }
+  return dizi;
 }
 
 // 2 satıra sığmayan parça sözcük zamanıyla dilimlenir; sözcük sayısı tutmazsa karakter oranı.

@@ -10,14 +10,14 @@
       "Simple Present formunu kurmak (s, does not, does + yalın fiil)",
       "tarifeli geleceği Simple Present ile anlatmak (will tuzağı)",
       "durum fiillerini (know, own, cost) ing'den ayırmak",
-      "YDT kökünde bağlaç sonrası zamanı korumak"
+      "YDT kökünde bağlaçlı cümlede genel gerçeği Simple Present ile kurmak"
     ],
     "canAlici": [
       "Tarifeli gelecek Simple Present ile gelir: The flight takes off at nine.",
-      "Tomorrow gördün diye will deme: tarife, program, takvim = Simple Present",
-      "Durum fiilleri (know, own, cost) now gelse bile ing almaz",
+      "Tomorrow tek başına will istemez: tarife, program, takvim kesinse Simple Present seçilir",
+      "Durum anlamındaki know, own, cost now gelse bile -ing almaz",
       "Olumsuz ve soru: does + yalın fiil; s does'a geçer",
-      "Bağlaçtan sonra da zaman değişmez: Although ... it gives"
+      "Bağlaç gelse de genel gerçek Simple Present kalır: Although ... it gives"
     ],
     "kazanim": [],
     "etiketler": [
@@ -47,7 +47,7 @@
       "tur": "dikey",
       "ad": "Dikey tam ders (9:16, aynı ses)",
       "senaryo": "ortak/anlatim/METIN.md",
-      "kapak": "TARİFE = SIMPLE",
+      "kapak": "YARIN / WILL mi?",
       "seviye": "ileri",
       "kaynak": "ana-yatay",
       "durum": "hazir",
@@ -70,5 +70,20 @@
       "proje": "simple-present-ileri-s1"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "ana-yatay",
+      "no": "r1",
+      "tarih": "2026-11-16T02:30:00Z",
+      "degisiklik": "DUZ3-0202I (YVJ jüri (c) sınıfı + kendi taramam): c3 son parça 'Bağlaç var, zaman değişmez: gives.' → 'Bağlaç gelse de genel gerçek Simple Present kalır: gives.'; c4 son parça 'Owns ve costs durum fiilidir: ing almaz.' → 'Owns ve costs burada durum anlatır: -ing almaz.'; c7 'Hayır. Tarife, program, takvim kesinse Simple Present.' → 'Yarın tek başına will istemez. Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    },
+    {
+      "surum": "dikey-tam",
+      "no": "r1",
+      "tarih": "2026-11-16T02:30:00Z",
+      "degisiklik": "DUZ3-0202I: ses ana dersle ortak (aynı dizin, bağ); sahne 03–06 yeni zamanlarla, 05 'tomorrow tuzak', 06 ✗ kalktı, çipler 'tarife: …', 'will (often): …', 'stative know · own · cost: no -ing' (Fredoka 50); 01 kök boyutu 1080×1920 (açık temada alt yarı siyahtı); rozet YDT · İLERİ; surumler kapak alanı gerçek dikey kapakla aynı ('YARIN / WILL mi?', YV-DUZ'da değişmişti); süre 93,71 sn; render yok",
+      "cikti": null
+    }
+  ]
 }

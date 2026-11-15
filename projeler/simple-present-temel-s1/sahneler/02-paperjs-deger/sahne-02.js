@@ -393,7 +393,7 @@ export async function kur(P) {
   });
   not("satır B ok (gelmez.)", F_DON0);
 
-  // 26. s yuvası + kırmızı kalem çizgisi
+  // 26. s yuvası + kalem çizgisi (DUZ4 A5 / ST-1: kırmızı → mürekkep; s3b kalıbı, tek vurgu rengi)
   const sYuva = { g: new P.Group({ applyMatrix: false }) };
   sYuva.g.opacity = 0.5;
   kartGo.g.addChild(sYuva.g);
@@ -403,11 +403,11 @@ export async function kur(P) {
   });
   const sx0 = sYazi.x0, sx1 = sYazi.x1;
   ciz([[sx0 - 8, Y_KART + 12], [sx1 + 8, Y_KART - 66]], {
-    duz: true, w: 12, renk: RT.kirmizi, alfa: 0.95, bas: F_DON1 + 3, sure: 8,
-    oge: kartGo, tur: "isaret", ad: "s yuvası kırmızı",
+    duz: true, w: 12, renk: RT.murekkep, alfa: 0.95, bas: F_DON1 + 3, sure: 8,
+    oge: kartGo, tur: "isaret", ad: "s yuvası üstü çizgi",
   });
   not("s yuvası (gelmez.)", F_DON1);
-  not("s yuvası kırmızı (gelmez.)", F_DON1 + 3);
+  not("s yuvası üstü çizgi (gelmez.)", F_DON1 + 3);
 
   // Dinamik matris ve ölçek kapları (§4)
   const xG0 = 770 - genislik("goes", F_KART) / 2;

@@ -152,7 +152,7 @@ HUD = {
     "altyaziYazi": 44, "altyaziSatir": 56,
 }
 DERS = ("SIMPLE PRESENT vs", "PRESENT CONTINUOUS")
-ROZET = "YDT · BASIC"
+ROZET = "YDT · İLERİ"   # 16.11 DUZ3 (HV-24); kapak uret.py kendi ROZET sabitini kullanır
 
 
 def rozet_konumu() -> tuple[float, float]:

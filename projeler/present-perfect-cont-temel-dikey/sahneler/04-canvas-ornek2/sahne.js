@@ -1,5 +1,5 @@
-// SAHNE 04 (DİKEY) — Örnek 2 (PPC temel): düz canvas, 1080x1920, 462 kare, t_bas 32,28;
-// cümle 4.
+// SAHNE 04 (DİKEY) — Örnek 2 (PPC temel): düz canvas, 1080x1920, 474 kare, t_bas 32,28 eski çerçeve;
+// cümle 4. 16.11 DUZ3: kayma -4,8 (gerçek t_bas 37,08); cümle 4 yeni ses, sabit zamanlar eski çerçevede.
 // Zaman yalnız kare numarasından; zamanlar sozcukler.json / altyazi.json ile aynı
 // çerçevede (küresel sn).
 // Yerleşim sıfırdan dikey: kart (tam genişlik) → TR → ORTA figür + gitar (sağ sütun:
@@ -7,9 +7,9 @@
 import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, renkCoz, ok, kutu, olc, geriTasma } from "./sahne-ortak.js";
 
-const KARE = 462, TBAS = 32.28, ICERIK = 450;
+const KARE = 474, TBAS = 32.28, ICERIK = 462;
 const S = new Sahne({
-  tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: 0, bolum: "Example 2 / 3", cumle: 4
+  tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: -4.8, bolum: "Example 2 / 3", cumle: 4
 });
 const KOKDIZ = "/projeler/present-perfect-cont-temel-dikey/ortak/cizim";
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
@@ -38,11 +38,11 @@ async function kur() {
   const kel = (ad) => cum.kel.find((k) => k.m === ad);
 
   // 37,73–40,37 Türkçe çeviri «Kardeşim sabahtan beri gitar çalıyor.» (Caveat 64, mürekkep;
-  // pencere: 5 sözcük, beri 38,85 → 39,05)
+  // pencere: 5 sözcük, beri 38,85 → 39,01; Kardeşim 37,65)
   const yTR = kartAlt + 56;
   S.koy(S.elYazisi({
     metin: "Kardeşim sabahtan beri gitar çalıyor.", x: 56, y: yTR, boy: 64, renk: KREM,
-    sozcukler: pen("Kardeşim", 37.73, 5)
+    sozcukler: pen("Kardeşim", 37.65, 5)
   }));
 
   // ORTA (yTR+14 → +436; figür kutusu ≥ 420): kardeş + gitar solda;
@@ -114,15 +114,15 @@ async function kur() {
   }));
   S.koy(S.parilti(56 + wS + 10, yS - 120, 40.95, 26));
 
-  // 45,11 has: kartta sarı halka
-  S.koy(S.halka(kel("has"), 45.11, 0.3, 11, 4));
+  // 45,59 has ("Üçüncü tekil kişide has been"): kartta sarı halka
+  S.koy(S.halka(kel("has"), 45.59, 0.3, 11, 4));
 
-  // alt formül (Fredoka ≤ 110): has been + V-ing — 45,11 / 46,07 / 46,30 / 46,63
+  // alt formül (Fredoka ≤ 110): has been + V-ing — 45,59 / 46,71 / 46,95 / 47,19
   {
     let boy = 110; const P4 = ["has been", "+", "V", "-ing"], bs = 26;
     const topla = (b) => P4.reduce((t, m) => t + olc(FF(b), m), 0) + bs * 2 + 2;
     while (topla(boy) > 900 && boy > 80) boy -= 4;
-    const yF = 1372, tb = [45.11, 46.07, 46.3, 46.63], renk = [KREM, IKI, KREM, SARI];
+    const yF = 1372, tb = [45.59, 46.71, 46.95, 47.19], renk = [KREM, IKI, KREM, SARI];
     let x = 540 - topla(boy) / 2;
     P4.forEach((m, i) => {
       S.koy(S.metinPop({
@@ -131,7 +131,7 @@ async function kur() {
       }));
       x += olc(FF(boy), m) + (i === 2 ? 2 : bs);
     });
-    S.koy(S.parilti(870, yF - 86, 47.0, 24));
+    S.koy(S.parilti(870, yF - 86, 47.45, 24));
   }
 }
 

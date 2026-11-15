@@ -45,5 +45,20 @@
       "proje": "02-04-ydt-temel-dikey"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "dikey-tam",
+      "no": "r2",
+      "tarih": "2026-11-15T20:39:00Z",
+      "degisiklik": "DUZ2 (J2 TD-1, HV-24): rozet metni YDT · TEMEL oldu (İngilizce seviye adı kaldırıldı); kaynak ortak/kunye.js + sahne 06, 07, 10, 12, 13, 14 üreticileri + 90 yardim.py; HyperFrames 6 sahne yeniden üretildi, kanvas sahneleri kunye.js'ten okur; ses ve zaman değişmedi; mp4 yeniden derlenmedi (cikti.mp4 eski rozeti taşır)",
+      "cikti": null
+    },
+    {
+      "surum": "dikey-tam",
+      "no": "r3",
+      "tarih": "2026-11-15T22:37:00Z",
+      "degisiklik": "DUZ3 (DJ-hukum-1611-0019, EK-5b/EK-5c, KS-4, DK-2): ses yatayla ortak (ortak/anlatim bağlantı), 5 cümle yeniden sentezlendi; süre 267,04 sn; zaman.json yatayla aynı (genişlik/yükseklik dışında); sahne 04, 06, 11, 12, 14 metin ve süre, 05, 07–10, 13 kayma (kanvas KAYMA + altyazı zamanı yeni çerçevede); sahne 11 «always» → «long-term»; sahne 12 blok 3 «time word → clue» / «-yor → trap». Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    }
+  ]
 }

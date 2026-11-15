@@ -1,5 +1,7 @@
 # RAPOR — 02-04-ydt-temel-s1 · sahne 05-hyperframes-kapak-b (huni v2) · 15.11.2026
 
+Tema: acik
+
 İstem: `uretim-tutanagi/istem/sahne-v2/D-05-hyperframes-kapak-b.md`. Tasarım: `SPEC.md` (v2). Eski RAPOR yoktu.
 
 | Ölçüm | Değer |

@@ -13,7 +13,6 @@
       "Türkçe geniş zaman eki ile köprü"
     ],
     "canAlici": [
-      "Türkçedeki geniş zaman eki = İngilizcedeki s: gider = goes",
       "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
       "usually, always, every day = tekrar eden iş sinyali",
       "he, she, it fiile s alır; I, you, we, they almaz",
@@ -31,11 +30,17 @@
     {
       "kimlik": "s3",
       "tur": "shorts",
-      "ad": "S3 Shorts (25,08 sn)",
+      "ad": "S3 Shorts (27,33 sn)",
       "durum": "inceleme",
       "onizleme": "/p/simple-present-temel-s3/onizle.html",
       "seviye": "temel",
-      "kaynak": "ana-yatay"
+      "kaynak": "ana-yatay",
+      "varyant": {
+        "grup": "s3",
+        "kol": "a",
+        "degisken": "kanca",
+        "deger": "yanlis-cumle"
+      }
     },
     {
       "kimlik": "s3-kapak-a",
@@ -101,5 +106,13 @@
       "kaynak": "ana-yatay"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "s3",
+      "no": "r1",
+      "tarih": "2026-11-15T21:56:00Z",
+      "degisiklik": "DUZ2 (J2 A1/TD-1, A2/TD-2, A3, A7, TD-3): rozet YDT · TEMEL (senaryo, BRIEF, ortak/kunye.js, sahne üreticileri); c2 (öğretmen) 'Olumsuzda ve soruda does girer, s ona geçer.' → 'He, she, it ile olumsuzda ve soruda does girer; s ona geçer.' yeniden sentezlendi (yalnız c2; Whisper 1,00 / 0,97; en düşük 0,93 c3, değişmedi); sahne 02 kapsam etiketi 'he, she, it'; kadın karakter ve yeni ana kapak ana paketten kopyalandı (sha256 eş). Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    }
+  ]
 }

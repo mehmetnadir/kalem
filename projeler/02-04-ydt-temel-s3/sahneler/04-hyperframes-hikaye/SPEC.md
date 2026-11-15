@@ -1,5 +1,8 @@
 # SPEC v2 — 02-04-ydt-temel-s3 · sahne 04-hyperframes-hikaye (hikâye A, kural kartı) · huni v2
 
+> DUZ2 (15.11): başlık `TARİFE` / `≠ DÜZENLEME`; kart `Tarife → leaves,` / `kesin düzenleme → am going.` (64 px, sol x 96, simgesiz); rozet `YDT · TEMEL`. Kaynak `uret.py`.
+
+
 Yazan: şef (15.11.2026, istem D-V2-S3). Kod yazmaz; tasarım verir. K = `/home/sef/01dev/_worktrees/kalem-0204`.
 Sahne dizini D = `K/projeler/02-04-ydt-temel-s3/sahneler/04-hyperframes-hikaye/`. Paket P = `K/projeler/02-04-ydt-temel-s3/`.
 Bağlayıcı: `/home/sef/01dev/dijital-anlatim/.claude/docs/huni-v2-standart.md` §2, §6 · `P/BRIEF-S3.md` "Yerleşim" + "Hikâye karesi A".
@@ -63,7 +66,7 @@ Yatay: içerik x 60–960; sağ şerit x 960–1080'e hiçbir öğe girmez. Sol 
   Tween, opacity, transform YOK (durağan kare; opaklık 1).
 - Konu: `KONU = "Simple Present vs Present Continuous"`, `konu_boyu()` 34'ten 28'e iner: `60 + genislik(Fredoka 700, KONU, boy) + 20 +
   (genislik(Lexend 700, ROZET, 26) + 40) <= 960` sağlanan ilk boy (beklenen 34). `<text id="ku-konu" x="60" y="420" ... style="font-kerning:none">`, mürekkep.
-- Rozet: `ROZET = "YDT · BASIC"`; `x = 60 + genislik(KONU) + 20`, `w = genislik(Lexend 700, ROZET, 26) + 40`;
+- Rozet: `ROZET = "YDT · TEMEL"`; `x = 60 + genislik(KONU) + 20`, `w = genislik(Lexend 700, ROZET, 26) + 40`;
   `<g id="rz0"><rect x y="386" width height="48" rx="24" fill=R["vurgu"]/><text x="{x+w/2}" y="419" text-anchor="middle" Lexend 700 26 fill=R["zemin"]>`.
 - Çip YOK. v1 HUD öğeleri (üst logo 48–144, 2 satır ders adı, `Full lesson`) YOK.
 
@@ -126,7 +129,7 @@ Kurallar:
 2. Bant içi: kanal ⊂ [280, 350] · kunye ⊂ [360, 450] · ust ⊂ [460, 550] · bas ⊂ [570, 830] · kart ⊂ [850, 1040] · kaydet ⊂ [1050, 1140].
 3. Blok kutuları kesişmez (alan 0); dikey komşu boşluğu ≥ 10.
 4. İçerik yazı boyu ≥ 64: ust 64, S ≥ 64, kart 72, kaydet 64. Künye 28–34 ve kanal 42 standart ölçüsü (muaf).
-5. Ekran satırları ≤ 24 karakter: `@ydspublishing`, `Simple Present vs Present Continuous` (künye satırı; standart ölçüsü, 36 karakter — bu satır muaf, listeye `muaf` notuyla yazılır), `YDT · BASIC`,
+5. Ekran satırları ≤ 24 karakter: `@ydspublishing`, `Simple Present vs Present Continuous` (künye satırı; standart ölçüsü, 36 karakter — bu satır muaf, listeye `muaf` notuyla yazılır), `YDT · TEMEL`,
    `İkisi geleceği anlatıyor`, `TARİFE`, `≠ PLAN`, `Tarife → leaves,`, `plan → am going.`, `Kaydet`.
 6. Kart içi: tren x ∈ [86, TX − 16]; satır 1/2 sağ uç ≤ bilet sol − 16; bilet döndürülmüş kutusu x ≤ 934, y ∈ [856, 1036]; tren y ∈ [856, 1036];
    satır metinleri sağ uç ≤ 934; ok gövdesi sol sözcükten ≥ 10, sağ sözcükten ≥ 10 uzak.

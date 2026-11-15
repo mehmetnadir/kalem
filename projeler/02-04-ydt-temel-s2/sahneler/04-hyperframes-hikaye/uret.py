@@ -33,7 +33,7 @@ assert Z["kare"] == 1, f"kare {Z['kare']} != 1"
 assert Z["fps"] == 30, f"fps {Z['fps']} != 30"
 
 assert Y.KONU == "Simple Present vs Present Continuous"
-assert Y.ROZETLER == ("YDT · BASIC",)
+assert Y.ROZETLER == ("YDT · TEMEL",)
 
 R = Y.RENK
 assert set(R.keys()) >= {"zemin", "murekkep", "ikincil", "vurgu"}

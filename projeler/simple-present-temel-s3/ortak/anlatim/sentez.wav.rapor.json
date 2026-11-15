@@ -14,17 +14,24 @@
   "tohum": 0
  },
  {
+  "dil": "en",
+  "metin": "He, she, it",
+  "duyulan": "He, she, it.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
   "dil": "tr",
-  "metin": "Olumsuzda ve soruda does girer, s ona geçer.",
-  "ses_metni": "Olumsuzda ve, soruda /dʌz/ girer, s ona geçer.",
-  "duyulan": "Olumsuzda ve soruda döz girer, S ona geçer.",
-  "benzerlik": 0.96,
+  "metin": "ile olumsuzda ve soruda does girer; s ona geçer.",
+  "ses_metni": "ile olumsuzda ve, soruda /dʌz/ girer; s ona geçer.",
+  "duyulan": "İle olumsuzda ve soruda döz girer. S ona geçer.",
+  "benzerlik": 0.97,
   "tohum": 0
  },
  {
   "dil": "tr",
   "metin": "Fiile s gelmez.",
-  "duyulan": "Fiile S gelmez.",
+  "duyulan": "Fiile s gelmez.",
   "benzerlik": 1.0,
   "tohum": 0
  },

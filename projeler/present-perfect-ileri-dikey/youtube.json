@@ -1,0 +1,46 @@
+{
+  "baslik": "Present Perfect: since, for ve ago | YDT İngilizce İleri",
+  "etiketler": [
+    "İngilizce",
+    "ileri",
+    "gramer",
+    "Present Perfect",
+    "YDT",
+    "Simple Past",
+    "Present Perfect Tense",
+    "YDT İngilizce",
+    "İngilizce gramer",
+    "since for",
+    "ago",
+    "have has",
+    "past participle",
+    "YKS"
+  ],
+  "bolumler": [
+    {"t": 0, "ad": "Formül: have / has + past participle"},
+    {"t": 18.37, "ad": "Ever since: iki cümlecik, iki zaman"},
+    {"t": 35.49, "ad": "Süre mi, başlangıç mı: for ve since"},
+    {"t": 52.85, "ad": "Tuzak: ago ve yet aynı cümlede"},
+    {"t": 70.2, "ad": "Bitmiş zaman mı, bitmemiş zaman mı?"}
+  ],
+  "sabitYorum": "Sınavdan önce yeniden bakmak için bu dersi kaydet; since, for ve ago bölümlerine açıklamadaki damgalarla doğrudan geç.",
+  "gonderiler": [
+    {
+      "kimlik": "g1",
+      "metin": "The plane took off two hours ago, but it hasn't landed yet: aynı cümlede neden iki ayrı zaman var? Bu derste since, for ve ago farkını üç sınav köküyle görüyoruz. Sınavdan önce dönüp bakmak için bu dersi kaydet.",
+      "gorsel": "kapak.png"
+    }
+  ],
+  "liste": {
+    "ad": "Tenses · YDT İleri",
+    "sira": 6,
+    "onceki": "02-05-ydt-ileri",
+    "sonraki": "02-07-ydt-ileri"
+  },
+  "bildirimler": [
+    {"t": 36.04, "sure": 3.0}
+  ],
+  "giris": true,
+  "cikis": true,
+  "aciklamaDosya": "youtube-aciklama.md"
+}

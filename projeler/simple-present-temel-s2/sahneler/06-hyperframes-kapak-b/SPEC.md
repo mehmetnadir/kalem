@@ -1,5 +1,7 @@
 # SPEC — simple-present-temel-s2 · sahne 06-hyperframes-kapak-b (huni v2; HyperFrames, 1080×1920, tek kare, ses yok)
 
+> DUZ2 (16.11): başlık `ALWAYS` / `NEYİN İŞARETİ?` (3 sözcük, HV-20b; B başlığını yinelemez), S 125. Aşağıdaki `ALWAYS VARSA` / `HANGİ ZAMAN?` ölçüleri eskidir.
+
 Yazan: şef (15.11.2026, istem D-V2 `uretim-tutanagi/istem/sahne/D-06-hyperframes-kapak-b.md`). Tasarım verir; tam kod yok.
 K = `/home/sef/01dev/_worktrees/kalem-0204`. D = `K/projeler/simple-present-temel-s2/sahneler/06-hyperframes-kapak-b/`. P = `K/projeler/simple-present-temel-s2/`.
 Bağlayıcı: `/home/sef/01dev/dijital-anlatim/.claude/docs/huni-v2-standart.md` §1, §2, §6; `P/BRIEF-S2.md` "Kapak" B; `P/uretim-tutanagi/kapak-taslak.md` §4.
@@ -39,7 +41,7 @@ Başka dosyaya dokunma. Silme yok. Test, render, git YOK. `P/ortak/`, `P/zaman.j
 y    0 ┌─────────────────────────────────────────────┐
        │                (boş zemin)                   │ 0–280
    291 │ [logo] @ydspublishing                        │ kanal 280–350 (Y.kunye_svg)
-   420 │ Simple Present (YDT · BASIC)                 │ künye 360–450
+   420 │ Simple Present (YDT · TEMEL)                 │ künye 360–450
    601 │ ALWAYS VARSA                                 │ başlık x 60, S 116, sol hizalı
    747 │ HANGİ ZAMAN?                                 │
    836 │ ╭────╮        ╭──────────────────────────╮   │ balon 524–950 × 836–984
@@ -52,7 +54,7 @@ y    0 ┌───────────────────────�
 ```
 
 ### 4.1 Kanal + künye
-`Y.kunye_svg()` aynen (argümansız; `KONU = "Simple Present"`, rozet `YDT · BASIC`). uret.py künyeye kendi değer yazmaz.
+`Y.kunye_svg()` aynen (argümansız; `KONU = "Simple Present"`, rozet `YDT · TEMEL`). uret.py künyeye kendi değer yazmaz.
 
 ### 4.2 Başlık — `<g id="baslik">` iki `<text>` (`bs-1`, `bs-2`)
 - `S = floor(min(S_UST, BASLIK_GEN·100/g1_100, BASLIK_GEN·100/g2_100))` (`g = Y.genislik("Fredoka", 700, satır, …)`); sonra `g1, g2 ≤ BASLIK_GEN` olana kadar 1'er küçült. Beklenen `S = 116`, `g1 ≈ 887,3`, `g2 ≈ 835,1`.

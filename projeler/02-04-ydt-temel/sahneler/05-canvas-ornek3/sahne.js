@@ -7,9 +7,11 @@ import { surucu } from "/ortak/surucu.js";
 import { KUNYE } from "/projeler/02-04-ydt-temel/ortak/kunye.js";
 import { Sahne, RT, renkCoz, elips, kutu, altCizgi, olc, geriTasma } from "./sahne-ortak.js";
 
-const KARE = 747, TBAS = 68.84, ICERIK = 735;
+const KARE = 747, TBAS = 68.84, ICERIK = 735, KAYMA = -0.56;
+// 16.11 DUZ3: zaman.json t_bas 69,40 (cümle 4/7 yeniden sentezlendi). TBAS ve sabit
+// zamanlar eski çerçevede kalır; sözcük zamanları KAYMA ile ona çekilir.
 const ETKIN = ((i) => (i >= 0 ? i : 1))(KUNYE.ajanda.findIndex((a) => /example/i.test(a)));
-const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Example 3 / 3", cumle: 5,
+const S = new Sahne({ tbas: TBAS, kayma: KAYMA, kare: KARE, icerik: ICERIK, bolum: "Example 3 / 3", cumle: 5,
   etkin: ETKIN });
 const MUR = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu, DOLGU = RT.vurguDolgu;
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Sahne 03 Çağrı (02-04-ydt-temel-s3, huni v2, HyperFrames DİKEY 1080x1920, 239 kare, t_bas 21,33; cümle 5 öğrenci):
+# Sahne 03 Çağrı (02-04-ydt-temel-s3, huni v2, HyperFrames DİKEY 1080x1920, 239 kare, t_bas 24,12 (DUZ2 15.11); cümle 5 öğrenci):
 # üret -> olaylar -> [önizleme burada biter]. Ana ders kapağı: ortak/kapak/ana-kapak{,-koyu}.png -> proje/assets/.
 # -> render -> video.mp4 + kontrol.png + k/*.png. Tema: --tema acik|koyu (varsayılan acik, K19).
 # Önizleme hazırlığı: ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu]

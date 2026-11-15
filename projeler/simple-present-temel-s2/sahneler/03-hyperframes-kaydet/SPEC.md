@@ -1,5 +1,7 @@
 # SPEC — sahne 03 Kaydet (simple-present-temel-s2, huni v2, HyperFrames DİKEY 1080×1920) · 15.11.2026
 
+> DUZ2 (16.11): kart 2. satırı `every day:` + `çoğunlukla` (`#s4`, T(4) `çoğunlukla`); hap T(5) `Simple`; kart sabit = max(T(6) `Present`, hap + 0,30); yer imi T(10) `Kaydet`. Aşağıdaki zaman tablosu 15.11 sesine aittir; güncel değer `zamanlar.json`.
+
 Yazan: şef (istem D-V2 `03-hyperframes-kaydet`). Uygulayan: `agy-filo tek --rol kod`.
 Bağlayıcı: `/home/sef/01dev/dijital-anlatim/.claude/docs/huni-v2-standart.md` §1–§3, paket `BRIEF-S2.md` ("Sahne içeriği" 11,87–19,07).
 

@@ -6,7 +6,8 @@ import { yaziNoktalari } from "/projeler/present-perfect-cont-temel/ortak/kalem-
 export const KARE = 467, T_BAS = 17.13;
 
 export async function kur(P) {
-  const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1 });
+  // 16.11 DUZ3: cümle 2 uzadı (+4,80 sn); sahne eski çerçevede kalır (T_BAS 17,13), sözcükler kayma ile geri çekilir
+  const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1, kayma: -4.8 });
   const { fr, ciz, daire, yazi, elYazisi, cumle, altCizgi, parilti, olay, not, bitis, dinamik,
     genislik } = S;
   const SARI = RT.vurgu, IKI = RT.ikincil;

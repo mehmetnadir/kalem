@@ -122,7 +122,7 @@ export async function kur(P) {
     { s: wI1.s, f: fr(wI1.t), satir: 0 },
     { s: wLive.s, f: fr(wLive.t), satir: 0 },
     { s: wIn.s, f: fr(wIn.t), satir: 0 },
-    { s: "İstanbul.", f: fr(wIstanbul.t), satir: 0 },
+    { s: "Istanbul.", f: fr(wIstanbul.t), satir: 0 },
   ], { x: IC, y: yb1, boyut: BEN, aile: "Fredoka", agirlik: 700, renk: RT.murekkep });
   altCizgi(kel1, { tut: 24, alt: ALT });
 
@@ -204,9 +204,12 @@ export async function kur(P) {
 
   // 1. İki TR satırı (kare 0'da sahne 01'den hazır)
   const fSonTR = [G0, G0 + 8];
+  // DUZ2 (15.11, HV-22): sönen satır 2 `-um.` 36 px kayınca çip 1 kutusuna 12 px biniyordu;
+  // kayma 24 px (kesişim ≤ 0).
+  const SON_KAY = 24;
   yazi(pre1Str, {
     x: SOL, y: Y_L1, boyut: BTR, aile: "Caveat", agirlik: 700,
-    renk: RT.murekkep, bas: -30, sure: 4, ses: false, son: fSonTR,
+    renk: RT.murekkep, bas: -30, sure: 4, ses: false, son: fSonTR, sonKay: SON_KAY,
   });
   yazi("yor", {
     x: xYor1, y: Y_L1, boyut: BTR, aile: "Caveat", agirlik: 700,
@@ -214,12 +217,12 @@ export async function kur(P) {
   });
   yazi(postStr, {
     x: xPost1, y: Y_L1, boyut: BTR, aile: "Caveat", agirlik: 700,
-    renk: RT.murekkep, bas: -30, sure: 4, ses: false, son: fSonTR,
+    renk: RT.murekkep, bas: -30, sure: 4, ses: false, son: fSonTR, sonKay: SON_KAY,
   });
 
   yazi(pre2Str, {
     x: SOL, y: Y_L2, boyut: BTR, aile: "Caveat", agirlik: 700,
-    renk: RT.murekkep, bas: -30, sure: 4, ses: false, son: fSonTR,
+    renk: RT.murekkep, bas: -30, sure: 4, ses: false, son: fSonTR, sonKay: SON_KAY,
   });
   yazi("yor", {
     x: xYor2, y: Y_L2, boyut: BTR, aile: "Caveat", agirlik: 700,
@@ -227,7 +230,7 @@ export async function kur(P) {
   });
   yazi(postStr, {
     x: xPost2, y: Y_L2, boyut: BTR, aile: "Caveat", agirlik: 700,
-    renk: RT.murekkep, bas: -30, sure: 4, ses: false, son: fSonTR,
+    renk: RT.murekkep, bas: -30, sure: 4, ses: false, son: fSonTR, sonKay: SON_KAY,
   });
   not("TR satırları (hazır)", 0);
 

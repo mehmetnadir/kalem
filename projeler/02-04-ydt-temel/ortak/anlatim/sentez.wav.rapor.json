@@ -74,7 +74,7 @@
  {
   "dil": "tr",
   "metin": "İkinci örnek. Kancadaki fiil: live.",
-  "duyulan": "İkinci örnek. Kancadaki fiil. Live.",
+  "duyulan": "İkinci örnek, kancadaki fiil, live.",
   "benzerlik": 1.0,
   "tohum": 0
  },
@@ -87,16 +87,16 @@
  },
  {
   "dil": "tr",
-  "metin": "Ailemle İstanbul'da yaşıyorum. Orada hep yaşıyorum. Kalıcı durum: geniş zaman.",
-  "duyulan": "Ailemle İstanbul'da yaşıyorum. Orada hep yaşıyorum. Kalıcı durum geniş zaman.",
+  "metin": "Ailemle İstanbul'da yaşıyorum. Burası bizim evimiz. Kalıcı durum: geniş zaman.",
+  "duyulan": "Ailemle İstanbul'da yaşıyorum. Burası bizim evimiz. Kalıcı durum, geniş zaman.",
   "benzerlik": 1.0,
   "tohum": 0
  },
  {
   "dil": "en",
   "metin": "My parents are out of town, so I am living with my uncle.",
-  "duyulan": "My parents are out of town, so I'm living with my uncle.",
-  "benzerlik": 0.98,
+  "duyulan": "My parents are out of town, so I am living with my uncle.",
+  "benzerlik": 1.0,
   "tohum": 0
  },
  {
@@ -151,8 +151,8 @@
  },
  {
   "dil": "tr",
-  "metin": "Planı bir kişi yapar: ben, biz, arkadaşım. Tren plan yapmaz, tarifeye uyar. Tarife ya da program varsa geniş zaman kullanırız. Tarife cümlelerinde özne genelde cansızdır: tren, uçak, ders.",
-  "duyulan": "Planı bir kişi yapar. Ben, biz, arkadaşım. Tren plan yapmaz, tarifeye uyar. Tarife ya da program varsa geniş zaman kullanırız. Tarife cümlelerinde özne genelde cansızdır. Tren, uçak, ders.",
+  "metin": "Planı insanlar yapar: ben, biz, arkadaşım. Tren plan yapmaz, tarifeye uyar. Tarife ya da program varsa çoğunlukla geniş zaman kullanırız. Tarife cümlelerinde özne genelde cansızdır: tren, uçak, ders.",
+  "duyulan": "Planı insanlar yapar. Ben, biz, arkadaşım. Tren plan yapmaz. Tarifeye uyar. Tarife ya da program varsa çoğunlukla geniş zaman kullanırız. Tarife cümlelerinde özne genelde cansızdır. Tren, uçak, ders.",
   "benzerlik": 1.0,
   "tohum": 0
  },
@@ -258,8 +258,8 @@
  },
  {
   "dil": "tr",
-  "metin": "Şimdilik İstanbul'da yaşıyorum demek. Geçici. Ailenle hep orada yaşıyorsan:",
-  "duyulan": "Şimdilik İstanbul'da yaşıyorum demek. Geçici. Ailenle hep orada yaşıyorsan…",
+  "metin": "Şimdilik İstanbul'da yaşıyorum demek. Geçici. Ailenle kalıcı olarak yaşıyorsan:",
+  "duyulan": "Şimdilik İstanbul'da yaşıyorum demek. Geçici. Ailenle kalıcı olarak yaşıyorsan…",
   "benzerlik": 1.0,
   "tohum": 0
  },
@@ -279,9 +279,9 @@
  },
  {
   "dil": "tr",
-  "metin": "Özet. Genel durum, kalıcı durum ve tarifeli gelecek: geniş zaman. Konuşma anı, geçici durum ve planlanmış gelecek: şimdiki zaman. Zaman sözcüğü ve Türkçe ek ipucu verir. Kararı anlam verir.",
-  "ses_metni": "Özet. Genel durum, kalıcı durum ve, tarifeli gelecek: geniş zaman. Konuşma anı, geçici durum ve planlanmış gelecek: şimdiki zaman. Zaman sözcüğü ve Türkçe ek ipucu verir. Kararı anlam verir.",
-  "duyulan": "Özet. Genel durum, kalıcı durum ve tarifeli gelecek, geniş zaman. Konuşma anı, geçici durum ve planlanmış gelecek, şimdiki zaman. Zaman sözcüğü ve Türkçe ek ipucu verir. Kararı anlam verir.",
+  "metin": "Özet. Genel durum, kalıcı durum ve tarifeli gelecek: geniş zaman. Konuşma anı, geçici durum ve planlanmış gelecek: şimdiki zaman. Zaman sözcüğü ipucu verir. Türkçe ek yanıltabilir. Kararı anlam verir.",
+  "ses_metni": "Özet. Genel durum, kalıcı durum ve, tarifeli gelecek: geniş zaman. Konuşma anı, geçici durum ve planlanmış gelecek: şimdiki zaman. Zaman sözcüğü ipucu verir. Türkçe ek yanıltabilir. Kararı anlam verir.",
+  "duyulan": "Özet. Genel durum, kalıcı durum ve tarifeli gelecek geniş zaman. Konuşma anı, geçici durum ve planlanmış gelecek şimdiki zaman. Zaman sözcüğü ipucu verir. Türkçe ek yanıltabilir. Kararı anlam verir.",
   "benzerlik": 1.0,
   "tohum": 0
  },
@@ -330,10 +330,9 @@
  },
  {
   "dil": "tr",
-  "metin": "Dil sınavında boşluğu görünce üç soru sor. Genel mi, şu an mı? Kalıcı mı, geçici mi? Tarife mi, plan mı? Sonraki derste -ing almayan fiilleri görüyoruz. Görüşürüz.",
-  "ses_metni": "Dil sınavında boşluğu görünce üç soru sor. Genel mi, şu an mı? Kalıcı mı, geçici mi? Tarife mi, plan mı? Sonraki derste /ɪŋ/ almayan fiilleri görüyoruz. Görüşürüz.",
-  "duyulan": "Dil sınavında boşluğu görünce 3 soru sor. Genel mi? Şu an mı? Kalıcı mı? Geçici mi? Tarife mi? Plan mı? Sonraki derste İENG'ye almayan fiilleri görüyoruz. Görüşürüz.",
-  "benzerlik": 0.99,
+  "metin": "Dil sınavında boşluğu görünce üç soru sor. Genel mi, şu an mı? Kalıcı mı, geçici mi? Tarife mi, plan mı? Sonraki derste durum bildiren fiilleri görüyoruz. Görüşürüz.",
+  "duyulan": "Dil sınavında boşluğu görünce 3 soru sor. Genel mi? Şu an mı? Kalıcı mı? Geçici mi? Tarife mi? Plan mı? Sonraki derste durum bildiren fiilleri görüyoruz. Görüşürüz.",
+  "benzerlik": 1.0,
   "tohum": 0
  }
 ]

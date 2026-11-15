@@ -5,7 +5,7 @@ set -eo pipefail
 [ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"
 D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KAREDIR="$D/kareler"
 . "$D/../../ortak/tema.sh" "$@"
-N=494; TBAS=51.12; KLASOR=05-canvas-ornek3; GLOBAL_SN="55.5 59.2 66.6"
+N=482; TBAS=52.56; KLASOR=05-canvas-ornek3; GLOBAL_SN="57.0 62.2 67.6"
 cd "$K"
 BAS=$(date +%s)
 for i in 1 2 3 4 5; do

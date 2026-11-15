@@ -1,5 +1,7 @@
 # RAPOR — simple-present-temel-s2 · 07-hyperframes-kapak-c (huni v2, durağan kare) · 15.11.2026
 
+Tema: acik
+
 | Konu | Sonuç |
 |---|---|
 | Çıktı (açık) | paket kökü `kapak-c.png` · 1080×1920 PNG · `calistir.sh --tema acik` rc 0 |

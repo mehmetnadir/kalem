@@ -8,7 +8,7 @@ AD="$(cd "$(dirname "$0")" && pwd)"
 KOK="$AD/../../../.."                       # paket kökü (kalem)
 M="$KOK/motorlar/hyperframes"; BIN="$M/node_modules/.bin"
 ORTAK="$AD/../../ortak"
-KARE=901; TBAS=61.41
+KARE=963; TBAS=62.61
 mkdir -p "$AD/proje/lib" "$AD/proje/assets/fonts" "$AD/proje/assets/cizim" "$AD/k" "$AD/proje/renders"
 cp "$M/node_modules/gsap/dist/gsap.min.js" "$AD/proje/lib/" 2>/dev/null || cp "$M/lib/gsap.min.js" "$AD/proje/lib/"
 cp "$ORTAK/logo/$LOGO_DOSYA" "$AD/proje/assets/logo.svg"
@@ -27,7 +27,7 @@ ffmpeg -loglevel error -y -i "$OUT" -c:v libx264 -crf 16 -pix_fmt yuv420p -r 30 
   -vf "tpad=stop_mode=clone:stop_duration=2" -frames:v $KARE "$AD/video.mp4"
 SEL="eq(n,0)+eq(n,$((KARE/5)))+eq(n,$((KARE*2/5)))+eq(n,$((KARE*3/5)))+eq(n,$((KARE*4/5)))+eq(n,$((KARE-13)))"
 ffmpeg -loglevel error -y -i "$AD/video.mp4" -vf "select='$SEL',scale=640:-1,tile=3x2" -frames:v 1 "$AD/kontrol.png"
-for sn in 64.0 66.8 70.0 73.5 78.0 82.5 86.5 89.5; do   # küresel sn -> yerel kare = (t - 61,41) x 30
+for sn in 65.2 68.0 73.5 76.8 80.5 85.5 90.0 92.6; do   # küresel sn -> yerel kare = (t - 62,61) x 30
   n=$(awk "BEGIN{printf \"%d\", ($sn-$TBAS)*30+0.5}")
   ffmpeg -loglevel error -y -i "$AD/video.mp4" -vf "select=eq(n\,$n)" -frames:v 1 "$AD/k/$n.png"
 done

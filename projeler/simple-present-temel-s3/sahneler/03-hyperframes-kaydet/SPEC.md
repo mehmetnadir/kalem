@@ -32,7 +32,7 @@ Ekranda yasak: "Tam ders", "dakika", "izle", QR, emoji (bu iki yasak söz kodda 
 | `__main__` | `03-hyperframes-cta/uret.py` 307–314 | aynen (`proje/` aç, `Y.font_kopyala`, `index.html` + `zamanlar.json` yaz, iki `print`) |
 
 Yardımcı API (`S/yardim.py`, hazır): `Y.RENK`, `Y.HUD`, `Y.genislik(aile, agirlik, metin, boy)`, `Y.font_css()`, `Y.ZEMIN_CSS`,
-`Y.zemin_html()`, `Y.font_kopyala(dizin)`, `Y.kunye_svg()` (kanal katmanı + künye `Simple Present` + rozet `YDT · BASIC`; dokunma),
+`Y.zemin_html()`, `Y.font_kopyala(dizin)`, `Y.kunye_svg()` (kanal katmanı + künye `Simple Present` + rozet `YDT · TEMEL`; dokunma),
 `Y.altyazi_svg(t_bas, sure, liste) -> (svg, zaman, karaoke)`. `Y.yol_uzunluk` KULLANILMAZ (simge yolları göreli komut ve yay içerir).
 
 ---
@@ -105,7 +105,7 @@ SVG sırası: `<defs>` (boş olabilir) → `#kart-zemin` → `#kart-cerceve` →
 
 ## 5. Ekran metni (tamamı)
 
-`Does varsa` / `fiil yalın.` (kart) · `Kaydet` (sarı hap) · `Gönder` · künye (`Simple Present`, `YDT · BASIC`, `@ydspublishing`) ·
+`Does varsa` / `fiil yalın.` (kart) · `Kaydet` (sarı hap) · `Gönder` · künye (`Simple Present`, `YDT · TEMEL`, `@ydspublishing`) ·
 altyazı (cümle 3'ün 2 parçası). Başka metin yok. Sahne 02'nin örnek satırı (`doesn't go · Does she go?`) YOK.
 
 ## 6. Kurallar

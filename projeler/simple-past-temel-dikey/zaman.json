@@ -24,10 +24,10 @@
       "motor": "Paper.js",
       "ad": "Kanca",
       "bolum": "Kanca",
-      "kare": 366,
+      "kare": 409,
       "t_bas": 3.0,
-      "t_son": 14.8,
-      "icerik_kare": 354,
+      "t_son": 16.24,
+      "icerik_kare": 397,
       "gecis": "BookFlip"
     },
     {
@@ -36,10 +36,10 @@
       "motor": "Paper.js",
       "ad": "Örnek 1",
       "bolum": "Örnek 1",
-      "kare": 448,
-      "t_bas": 14.8,
-      "t_son": 29.35,
-      "icerik_kare": 436,
+      "kare": 465,
+      "t_bas": 16.24,
+      "t_son": 31.35,
+      "icerik_kare": 453,
       "gecis": "BookFlip"
     },
     {
@@ -49,8 +49,8 @@
       "ad": "Örnek 2",
       "bolum": "Örnek 2",
       "kare": 566,
-      "t_bas": 29.35,
-      "t_son": 47.82,
+      "t_bas": 31.35,
+      "t_son": 49.82,
       "icerik_kare": 554,
       "gecis": "BookFlip"
     },
@@ -61,8 +61,8 @@
       "ad": "Örnek 3",
       "bolum": "Örnek 3",
       "kare": 521,
-      "t_bas": 47.82,
-      "t_son": 64.78,
+      "t_bas": 49.82,
+      "t_son": 66.78,
       "icerik_kare": 509,
       "gecis": "fade"
     },
@@ -72,10 +72,10 @@
       "motor": "HyperFrames",
       "ad": "Soru + Form",
       "bolum": "Soru + Form",
-      "kare": 901,
-      "t_bas": 64.78,
-      "t_son": 93.81,
-      "icerik_kare": 871
+      "kare": 1158,
+      "t_bas": 66.78,
+      "t_son": 104.39,
+      "icerik_kare": 1128
     }
   ]
 }

@@ -1,10 +1,10 @@
-// Sahne 03 (İLERİ) — Örnek 1 (456 kare, t_bas 17,65; cümle 3). Zamanlar BRIEF §4; yerel kare = round((t − 17,65) × 30).
+// Sahne 03 (İLERİ) — Örnek 1 (482 kare, t_bas 17,65; cümle 3). Zamanlar BRIEF §4; yerel kare = round((t − 17,65) × 30).
 // Kök: "Although the sun looks small from here, it gives plants the energy they need." (güneş + ağaç, bağlaç).
 import { sahneKur, RT } from "/projeler/simple-present-ileri/sahneler/03-paperjs-ornek1/kalem-paper.js";
 import { yaziNoktalari } from "/projeler/simple-present-ileri/ortak/kalem-canvas.js";
 import { karakter } from "../02-paperjs-kanca/stil/karakter.js";   // stil-dagit.sh kopyası
 
-export const KARE = 456, T_BAS = 17.65;
+export const KARE = 482, T_BAS = 17.65;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1, kayma: 0 });
@@ -65,34 +65,34 @@ export async function kur(P) {
   not("Türkçe çeviri", tz.bas);
   parilti(1250, 480, { bas: fr(26.9), r: 20 });
 
-  // --- 28,93–32,45: Although kutu -> ok "zaman değişmez" -> gives daire ; formül kartı it gives (V-s)
+  // --- 28,93–33,33: Although kutu -> ok "genel gerçek" -> gives daire ; formül kartı it gives (V-s) (DUZ3 16.11)
   {
     const a = cz[0];
     const k = kutu(a.x0 - 10, a.y - 46, a.w + 20, 66, { bas: fr(28.93), sure: 14, w: 5, renk: SARI });
     olay(k.bit, "tik", 0.5); not("Although kutusu", fr(28.93));
     yazi("Although", { x: 140, y: 790, boyut: 64, aile: "Fredoka", agirlik: 700, bas: fr(29.1), sure: 10, olcek: true, ses: true });
     kutu(130, 735, 330, 80, { bas: fr(29.15), sure: 16, w: 4.4, renk: SARI });
-    const o1 = ok([485, 777], [585, 777], { bas: fr(29.55), sure: 12, w: 7, uzun: 20, bukum: 0.08 });
-    not("ok bağlaç -> zaman", o1.bas);
-    const zy = S.sozcukler(3).filter((q) => ["zaman", "değişmez:"].includes(q.s));
-    // 29,97–31,57 «zaman değişmez:» (pencere: zaman 29,97–30,29 · değişmez: 30,37–31,57)
-    const zz = elYazisi("zaman değişmez:", { x: 610, y: 792, boyut: 56, renk: SARI,
+    const o1 = ok([485, 777], [585, 777], { bas: fr(29.81), sure: 12, w: 7, uzun: 20, bukum: 0.08 });
+    not("ok bağlaç -> genel gerçek", o1.bas);
+    const zy = S.sozcukler(3).filter((q) => ["genel", "gerçek"].includes(q.s));
+    // 30,21–30,93 «genel gerçek:» (pencere: genel 30,21–30,45 · gerçek 30,53–30,93)
+    const zz = elYazisi("genel gerçek:", { x: 610, y: 792, boyut: 56, renk: SARI,
       sozcukler: zy.map((q) => ({ f0: q.f, f1: q.f1 })) });
-    not("zaman değişmez", zz.bas);
-    // gives (31,65): sarı daire cümlede + formül
+    not("genel gerçek", zz.bas);
+    // gives (32,61): sarı daire cümlede + formül; formül kartı «Simple Present» (31,01–31,73) ile
     const g = cz[8];
-    const dg = daire((g.x0 + g.x1) / 2, g.y - 20, (g.x1 - g.x0) / 2 + 7, 40, { bas: fr(31.62), sure: 18, a0: -2.6, egim: -0.03 });
+    const dg = daire((g.x0 + g.x1) / 2, g.y - 20, (g.x1 - g.x0) / 2 + 7, 40, { bas: fr(32.58), sure: 18, a0: -2.6, egim: -0.03 });
     olay(bitis(dg), "tik", 0.5); not("gives daire", dg.bas);
     const kx = 1190, ky = 700;
-    kutu(kx, ky, 640, 220, { bas: fr(30.55), sure: 22 }); not("formül kartı kutusu", fr(30.55));
+    kutu(kx, ky, 640, 220, { bas: fr(30.61), sure: 22 }); not("formül kartı kutusu", fr(30.55));
     const F = { boyut: 64, aile: "Fredoka", agirlik: 700 }, y1 = ky + 90, y2 = ky + 185;
-    yazi("it", { ...F, x: kx + 60, y: y1, bas: fr(30.95), sure: 10, olcek: true, ses: true });
-    yazi("+", { ...F, x: kx + 150, y: y1, bas: fr(31.05), sure: 8, olcek: true });
-    const v = yazi("V", { ...F, x: kx + 230, y: y1, bas: fr(31.15), sure: 8, olcek: true });
-    yazi("-s", { ...F, x: v.x1 + 4, y: y1, bas: fr(31.27), sure: 10, olcek: true, renk: SARI, ses: true }); not("it + V-s", fr(31.27));
-    const s1 = yazi("it give", { ...F, x: kx + 60, y: y2, bas: fr(31.66), sure: 10, olcek: true });
-    yazi("s", { ...F, x: s1.x1 + 2, y: y2, bas: fr(31.72), sure: 10, olcek: true, renk: SARI, ses: true }); not("it gives", fr(31.66));
-    parilti(kx + 600, ky + 40, { bas: fr(31.9), r: 22 });
+    yazi("it", { ...F, x: kx + 60, y: y1, bas: fr(31.01), sure: 10, olcek: true, ses: true });
+    yazi("+", { ...F, x: kx + 150, y: y1, bas: fr(31.11), sure: 8, olcek: true });
+    const v = yazi("V", { ...F, x: kx + 230, y: y1, bas: fr(31.21), sure: 8, olcek: true });
+    yazi("-s", { ...F, x: v.x1 + 4, y: y1, bas: fr(31.41), sure: 10, olcek: true, renk: SARI, ses: true }); not("it + V-s", fr(31.41));
+    const s1 = yazi("it give", { ...F, x: kx + 60, y: y2, bas: fr(32.62), sure: 10, olcek: true });
+    yazi("s", { ...F, x: s1.x1 + 2, y: y2, bas: fr(32.68), sure: 10, olcek: true, renk: SARI, ses: true }); not("it gives", fr(32.62));
+    parilti(kx + 600, ky + 40, { bas: fr(32.86), r: 22 });
   }
 
   // --- tepki figürü (Dalga 3 pilotu, K28): öğrenci kız 17 yaş, orta-alt boşluk
@@ -100,7 +100,7 @@ export async function kur(P) {
   // Duygu değişimi = figürün kısa sürede yeniden çizilmesi; önceki figür oge.alfa ile gizlenir.
   {
     const FX = 1090, FY = 1030, FH = 112;
-    const TEPKI = [[18.95, "notr", 62], [21.70, "dikkat", 22], [31.30, "dogru", 20]];
+    const TEPKI = [[18.95, "notr", 62], [21.70, "dikkat", 22], [32.26, "dogru", 20]];
     TEPKI.forEach(([t, duygu, sure], i) => {
       const b = f0(t), son = i + 1 < TEPKI.length ? f0(TEPKI[i + 1][0]) : 1e9;
       const og = S.oge({ alfa: (f) => (f >= son ? 0 : 1) });

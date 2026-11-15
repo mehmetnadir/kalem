@@ -1,5 +1,6 @@
 """Sahne 03 CTA index.html ve zamanlar.json üretici (02-04-ydt-temel-s2 huni v2; DİKEY 1080×1920).
-Cümle 4 ses olayları ve kinetik sözcükler. Kanal katmanı ve künye; içerik bandı 460–1380; altyazı 1400–1550."""
+Cümle 4 ses olayları ve kinetik sözcükler. Kanal katmanı ve künye; içerik bandı 460–1380; altyazı 1400–1550.
+DUZ4 (16.11, J3 A1 + A9): altyazı karaokesi (sahne 08 `altyazi_svg` üç değer + `V.karaoke` kalıbı); altyazı x 60–960."""
 import json
 import sys
 from pathlib import Path
@@ -94,7 +95,7 @@ def uret() -> Tuple[str, Dict[str, Any]]:
 
     # 4. Altyazı ve Künye
     kunye_svg = Y.kunye_svg()
-    alt_svg, alt_zaman = Y.altyazi_svg(T_BAS, SURE, ALT)
+    alt_svg, alt_zaman, karaoke_zaman = Y.altyazi_svg(T_BAS, SURE, ALT)   # DUZ4 A1: sahne 08 biçimi
 
     hap_cx = round(60.0 + hw / 2.0, 2)
     hap_cy = 1210.0
@@ -104,6 +105,7 @@ def uret() -> Tuple[str, Dict[str, Any]]:
         "hap_cx": hap_cx,
         "hap_cy": hap_cy,
         "alt": alt_zaman,
+        "karaoke": karaoke_zaman,
     }
 
     html = f"""<!doctype html>
@@ -174,6 +176,19 @@ def uret() -> Tuple[str, Dict[str, Any]]:
   V.alt.forEach(function (a) {{
     tl.set("#" + a[0], ac({{ opacity: 1 }}), a[1]);
     tl.set("#" + a[0], ac({{ opacity: 0 }}), a[2]);
+  }});
+
+  V.karaoke.forEach(function (k) {{
+    var id = "#" + k[0], ac_t = k[1], kapat_t = k[2], uz = k[3];
+    var el = $(id);
+    if (el) {{
+      el.style.strokeDasharray = uz + " " + (uz + 2);
+      el.style.strokeDashoffset = uz;
+      tl.set(id, ac({{ opacity: 1 }}), ac_t);
+      tl.fromTo(id, {{ strokeDashoffset: uz }},
+        {{ strokeDashoffset: 0, duration: 0.15, ease: "power2.out", immediateRender: false }}, ac_t);
+      tl.set(id, ac({{ opacity: 0 }}), kapat_t);
+    }}
   }});
 
   kinetik("#tx_bitmedi", Z.bitmedi_giris[0]);

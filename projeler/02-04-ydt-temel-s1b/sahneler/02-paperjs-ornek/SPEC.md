@@ -1,5 +1,7 @@
 # SPEC v2 — 02-04-ydt-temel-s1 · sahne 02-paperjs-ornek · huni v2 (15.11)
 
+> **DUZ4 (16.11, J3 A1 + A4):** altyazı bandı karaokeli: `kalem-paper.js` parçanın sözcüklerini (`sozcukler.json`, küresel sn) `kunye.js` `altyaziCiz(ctx, metin, { sozcukler, t })` çağrısına verir; okunan sözcüğün altına 08 kaydet çizgisi (vurgu, 6 px, taban + 12). Kart 1 İngilizce cümlesi `Istanbul.` (noktasız I); Türkçe satır `İstanbul'da yaşı-` değişmedi. Ayrıntı `../../uretim-tutanagi/DUZ4-RAPOR.md`.
+
 > **Kol b (02-04-ydt-temel-s1b, KBC-0204S1, 15.11):** bu belge kol a sahnesini anlatır. Kol b farkı yalnız baş kırpımıdır: kol a kare
 > 0–100 (cümle 1 kuyruğu: karaoke, iki `yor` kutusu) kalktı; kare 0 = kol a kare 101 hâli. KARE 421, t_bas 2,50. Kanıt: `../../uretim-tutanagi/KBC-RAPOR.md`.
 
@@ -49,7 +51,7 @@ Var olan kod: aynı dosya. Korunan (DEĞİŞMEZ): `KOK`, `TEMALAR`, `RENK`, `__k
 5. **`KUNYE` sabiti** (eskisinin yerine; çip, ders, ajanda, cipler, hud alanları KALKAR):
    `kenar 60 · sag 960 · icerikBas 460 · icerikSon 1380 · altyaziBas 1400 · altyaziSon 1550 · altyaziYazi 44 · altyaziSatir 56 ·
    konu "Simple Present vs Present Continuous" · konuX 60 · konuTaban 420 · konuAzami 34 · konuAsgari 28 ·
-   rozet "YDT · BASIC" · rozetY 386 · rozetH 48 · rozetYazi 26 · rozetAra 20 · rozetPay 20`.
+   rozet "YDT · TEMEL" · rozetY 386 · rozetH 48 · rozetYazi 26 · rozetAra 20 · rozetPay 20`.
 6. **`konuDuzen(ctx)`** (yeni, iç işlev; eski `dersDuzen`'in yerine). `boy` 34'ten 28'e 1'er azalır:
    `kw` = `700 ${boy}px Fredoka` ile konu genişliği; `rw` = `700 26px Lexend` ile rozet genişliği + 2 × `rozetPay`;
    `konuX + kw + rozetAra + rw <= sag` ilk sağlanan boyda dur. Dönüş `{ boy, kw, rx: konuX + kw + rozetAra, rw }`.

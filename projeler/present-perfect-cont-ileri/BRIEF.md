@@ -1,9 +1,9 @@
 # Present Perfect Continuous — kalem paketi (YDT ileri, Doğan Hoca destesi unit-1_sunum-5) · `projeler/present-perfect-cont-ileri`
 
 Amaç: ana örnek paketin (`../present-continuous/BRIEF.md`) görsel dilini bu konuya uygulamak. Çıktı `cikti.mp4`
-(1920×1080, 30 fps, ≈86 sn). Anlatım hazır: `ortak/anlatim/anlatim.wav` (soğuk açılış: ilk söz 1,00 sn).
+(1920×1080, 30 fps, ≈93 sn; 16.11 DUZ3: 92,89 sn). Anlatım hazır: `ortak/anlatim/anlatim.wav` (soğuk açılış: ilk söz 1,00 sn).
 Metin ve zamanlar: `ortak/anlatim/METIN.md`, sözcük zamanları `ortak/anlatim/sozcukler.json` (küresel sn).
-Kod `ING-YDT-GR-02-09-I`, rozet `YDT · ADVANCED`, ders adı `PRESENT PERFECT CONTINUOUS`. HUD'a sığmazsa ders adı `PRES. PERFECT CONT.`
+Kod `ING-YDT-GR-02-09-I`, rozet `YDT · İLERİ`, ders adı `PRESENT PERFECT CONTINUOUS`. HUD'a sığmazsa ders adı `PRES. PERFECT CONT.`
 olur (`ortak/kunye.js` `ders` alanı; sığma ölçülmedi, sahne ajanı kareye bakıp karar verir).
 Seviye kuralı (ileri): tümdengelim — kural önce, sonra sınav kökü örnekleri, 1 tuzak (durum fiili); EN payı ≈ %40; öğrenci yanlış kavram sorar.
 
@@ -44,10 +44,10 @@ Konu notu: bu pakette 6 sahne ve 7 cümle ana paketle aynı sırada. Cümle 1 ka
 |---|---|---|---|---|---|
 | 1 | 01-hyperframes-giris | HyperFrames | 102 | 0,00–3,00 | cümle 1 (1,00–2,84) |
 | 2 | 02-paperjs-kanca | Paper.js | 440 | 3,00–17,25 | cümle 2 |
-| 3 | 03-paperjs-ornek1 | Paper.js | 505 | 17,25–33,68 | cümle 3 |
-| 4 | 04-canvas-ornek2 | Düz canvas | 478 | 33,68–49,20 | cümle 4 |
-| 5 | 05-canvas-ornek3 | Düz canvas | 392 | 49,20–61,87 | cümle 5 |
-| 6 | 06-hyperframes-form | HyperFrames | 752 | 61,87–85,93 | cümle 6 (öğrenci) + 7 |
+| 3 | 03-paperjs-ornek1 | Paper.js | 553 | 17,25–35,28 | cümle 3 |
+| 4 | 04-canvas-ornek2 | Düz canvas | 478 | 35,28–50,80 | cümle 4 |
+| 5 | 05-canvas-ornek3 | Düz canvas | 428 | 50,80–64,67 | cümle 5 |
+| 6 | 06-hyperframes-form | HyperFrames | 877 | 64,67–92,89 | cümle 6 (öğrenci) + 7 |
 
 Cümle başları (sn): 1: 1,00 · 2: 3,39 · 3: 17,80 · 4: 34,23 · 5: 49,75 · 6: 62,42 · 7: 66,75. Anlatım biter 84,93; t_son = bitiş + 1,0. Sınır kuralı: sahne sınırı = sonraki cümle başı − 0,55 (spec §3.4).
 
@@ -102,7 +102,7 @@ yalnız yer açmak için küçülüp köşeye toplanır · ses olayı görsel an
 
 | Köşe | İçerik | Konum / boy | Renk |
 |---|---|---|---|
-| Sol üst | `PRESENT PERFECT CONTINUOUS` + ` · YDT ADVANCED` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
+| Sol üst | `PRESENT PERFECT CONTINUOUS` + ` · YDT İLERİ` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
 | Sağ üst | bölüm adı: `Hook` · `Example 1 / 3` · `Example 2 / 3` · `Example 3 / 3` · `Question` → `Form` | sağ kenar x 1864, taban 72; Lexend 700 24 px | vurgu |
 | Sol alt | logo svg | x 56, yükseklik 34 px (en ≈ 137), alt kenar y 1036 | logonun kendi renkleri |
 | Sağ alt | ajanda `Hook  Examples  Form`, etkin olan sarı + 4 px nokta solunda | sağ kenar 1864, taban 1030; Lexend 500 20 px, 36 px aralık | ikincil / vurgu |
@@ -121,7 +121,7 @@ Karar (Nadir 04.11, K23): giriş 3 sn, ilk söz ≤ 1 sn, kalem sesi 0. kareden.
 | sn | Hareket |
 |---|---|
 | 0,00–0,40 | Logo damgası sol sütun altında (110 px, x 96, y ≈ 880): ölçek 1,18→1,0 + dönme −2°→0, alfa 0→1 (vurus kare 3) |
-| 0,30–0,90 | Rozet hapları: `YDT · ADVANCED`, `GRAMMAR` (stagger 0,1) |
+| 0,30–0,90 | Rozet hapları: `YDT · İLERİ`, `GRAMMAR` (stagger 0,1) |
 | 0,00–2,20 | Başlık kalemle çizilir (soldan açılan kırpma): `PRESENT PERFECT` 0,0–1,1, `CONTINUOUS` 1,0–2,2; Fredoka 700 112 (en ≤ 1100; 15 harflik satır 140'a sığmaz). Kalem sesi kare 0 (cizgi + hisirti) |
 | 0,20–2,30 | Sağ sütun: terazi yerine iki nesne: yarım okunmuş kitap (book) + saat (clock), stroke-dash |
 | 1,00–2,92 | Başlığın altında (x 96, y 650) Caveat 700 64: `Süreç mi, sonuç mu?` sözcük sözcük |
@@ -137,53 +137,53 @@ Karar (Nadir 04.11, K23): giriş 3 sn, ilk söz ≤ 1 sn, kalem sesi 0. kareden.
 | 6,04–10,76 | Kart sözcük zamanında dolar: `have / has` (Have or has) · `+ been` (been) · `+ -ing` (-ing); üç parça farklı sarı daire sırayla |
 | 10,69–16,85 | Alt sağ el çizimi kutu, 3 madde tik zamanlı: `form` (formunu) · `time clues` (ipuçlarını) · `2 traps` (tuzağı); küçük saat + süre etiketi (zaman.json) |
 
-### 03 Örnek 1 — since + geçmiş yan cümle (Paper.js, 505 kare, t 17,25–33,68; cümle 3)
+### 03 Örnek 1 — since + geçmiş yan cümle (Paper.js, 553 kare, t 17,25–35,28; cümle 3)
 
 | sn | Hareket |
 |---|---|
-| 17,80–18,84 | Daire içinde `1` |
-| 19,09–23,41 | Fredoka 64: `Since the school changed the timetable, students have been complaining.` sözcük sözcük (x 140, y 320, en ≤ 980, 3 satır) + sarı alt çizgi |
-| 19,09–23,41 | Sağ: okul (school, 440 px) + öğrenci figürü (sitting-6) + takvim (calendar) kalemle |
-| 19,89–20,21 | `Since … changed` sarı köşeli ayraç; Caveat `geçmiş yan cümle` |
-| 21,81–23,41 | `have been complaining` ikinci sarı daire; Caveat `ana cümle` |
-| 23,66–26,86 | Caveat 48: `Program değişeli beri öğrenciler yakınıyor.` |
-| 27,11–30,07 | Zaman çizgisi (y 620): `changed` noktası → ok → `now` nabız; üstte `since` yayı |
-| 30,32–33,68 | Kural kartı (alt): `since + past simple, have been + V-ing` tik |
+| 17,80–18,76 | Daire içinde `1` |
+| 19,01–23,33 | Fredoka 64: `Since the school changed the timetable, students have been complaining.` sözcük sözcük (x 140, y 320, en ≤ 980, 3 satır) + sarı alt çizgi |
+| 19,01–23,33 | Sağ: okul (school, 440 px) + öğrenci figürü (sitting-6) + takvim (calendar) kalemle |
+| 19,81–20,13 | `Since … changed` sarı köşeli ayraç; Caveat `geçmiş yan cümle` |
+| 21,77–23,33 | `have been complaining` ikinci sarı daire; Caveat `ana cümle` |
+| 23,58–26,86 | Caveat 48: `Program değişeli beri öğrenciler yakınıyor.` |
+| 27,11–29,75 | Zaman çizgisi (y 620): `changed` noktası → ok → `now` nabız; üstte `since` yayı |
+| 30,00–35,20 | Kural kartı (alt): `since + past simple, hâlâ sürüyor: have been + V-ing` tik; Caveat `hâlâ sürüyor:` sesle (16.11 DUZ3) |
 
-### 04 Örnek 2 — süreç ve sonuç (düz canvas, 478 kare, t 33,68–49,20; cümle 4)
-
-| sn | Hareket |
-|---|---|
-| 34,23–35,27 | Daire içinde `2` |
-| 35,52–40,24 | Fredoka 56: `I have been reading this novel all week, but I have only finished two chapters.` sözcük sözcük (3 satır) |
-| 35,52–40,24 | Sağ: roman (book, 440 px) + okuyan figür (sitting-1); `all week` altı sarı çizgi |
-| 35,84–37,95 | `have been reading` sarı daire; kalem oku → Caveat `process` |
-| 38,56–40,24 | `have only finished two chapters` ikinci daire (tik); Caveat `result` |
-| 40,41–44,57 | Caveat 48: `Bütün hafta okuyorum, ama yalnızca iki bölümü bitirdim.` |
-| 44,72–49,20 | İki sütunlu el kartı: `PROCESS  been reading` · `RESULT  have finished + sayı`; sözcük zamanında dolar |
-
-### 05 Örnek 3 — tuzak: durum fiili (düz canvas, 392 kare, t 49,20–61,87; cümle 5; çıkış fade)
+### 04 Örnek 2 — süreç ve sonuç (düz canvas, 478 kare, t 35,28–50,80; cümle 4; kayma −1,60)
 
 | sn | Hareket |
 |---|---|
-| 49,75–50,79 | Daire içinde `3` + sarı Caveat etiket `TRAP` |
-| 51,04–54,16 | Fredoka 56: `We have known each other since we were at primary school.` sözcük sözcük (3 satır) |
-| 51,04–54,16 | Sağ: iki figür (sitting-2, sitting-7) + okul (school, 380 px) |
-| 51,44–51,60 | `known` sarı daire; Caveat `have known`, `have been knowing` değil |
-| 54,33–56,97 | Caveat 48: `İlkokuldan beri birbirimizi tanıyoruz.` |
-| 57,22–59,38 | Kart `STATE VERB` el kutusunda; `know-ing` yazılır ve kırmızı tek çizgiyle üstü çizilir (kırmızı: bu çizgi) |
-| 59,63–61,87 | Caveat `durum fiili: -ing yok`; `Present Perfect` etiketi tik |
+| 35,83–36,87 | Daire içinde `2` |
+| 37,12–41,84 | Fredoka 56: `I have been reading this novel all week, but I have only finished two chapters.` sözcük sözcük (3 satır) |
+| 37,12–41,84 | Sağ: roman (book, 440 px) + okuyan figür (sitting-1); `all week` altı sarı çizgi |
+| 37,44–39,55 | `have been reading` sarı daire; kalem oku → Caveat `process` |
+| 40,16–41,84 | `have only finished two chapters` ikinci daire (tik); Caveat `result` |
+| 42,01–46,17 | Caveat 48: `Bütün hafta okuyorum, ama yalnızca iki bölümü bitirdim.` |
+| 46,32–50,80 | İki sütunlu el kartı: `PROCESS  been reading` · `RESULT  have finished + sayı`; sözcük zamanında dolar |
 
-### 06 Soru + Özet (HyperFrames, 752 kare, t 61,87–85,93; cümle 6 öğrenci, cümle 7 öğretmen)
+### 05 Örnek 3 — tuzak: durum fiili (düz canvas, 428 kare, t 50,80–64,67; cümle 5; çıkış fade)
 
 | sn | Hareket |
 |---|---|
-| 62,42–66,20 | Künye sağ üst `Question`. Sol: öğrenci BAŞI + konuşma balonu; Fredoka 600 44: `Hocam, have been knowing olmaz mıydı?` Sağ: `have been knowing` yazılı |
-| 66,75–69,79 | Künye `Form`. `have been knowing` kırmızı tek çizgiyle silinir; yanında `have known` tik; balon ve baş küçülür |
-| 70,04–76,45 | İki sütunlu el kartı: `PROCESS  have / has been + V-ing` · `RESULT  have / has + V3`, sözcük zamanında dolar |
-| 76,70–79,82 | Altında Caveat 56: `-yor → süreç`, `-di → sonuç` sarı oklar kartın iki sütununa |
-| 79,97–85,01 | Kod kartı el kutusunda: `süreç varsa been var` · `sonuç varsa been yok` (tik, vurus); sağ altta küçük `Next lesson →` Lexend 24 ikincil |
-| 85,01–85,93 | Durgun (1 sn kuyruk) |
+| 51,35–52,39 | Daire içinde `3` + sarı Caveat etiket `TRAP` |
+| 52,64–55,68 | Fredoka 56: `We have known each other since we were at primary school.` sözcük sözcük (3 satır) |
+| 52,64–55,68 | Sağ: iki figür (sitting-2, sitting-7) + okul (school, 380 px) |
+| 53,04–53,20 | `known` sarı daire; Caveat `have known`, `have been knowing` değil |
+| 55,93–58,65 | Caveat 48: `İlkokuldan beri birbirimizi tanıyoruz.` |
+| 58,90–61,14 | Kart `STATE VERB` el kutusunda; `know-ing` yazılır ve kırmızı tek çizgiyle üstü çizilir (kırmızı: bu çizgi) |
+| 61,39–64,59 | Caveat `durum fiili: genellikle -ing yok` (16.11 DUZ3); `Present Perfect` etiketi tik |
+
+### 06 Soru + Özet (HyperFrames, 877 kare, t 64,67–92,89; cümle 6 öğrenci, cümle 7 öğretmen)
+
+| sn | Hareket |
+|---|---|
+| 65,22–69,00 | Künye sağ üst `Question`. Sol: öğrenci BAŞI + konuşma balonu; Fredoka 600 44: `Hocam, have been knowing olmaz mıydı?` Sağ: `have been knowing` yazılı |
+| 69,55–73,07 | Künye `Form`. `have been knowing` kırmızı tek çizgiyle silinir; yanında `have known` tik; Caveat `durum anlatır, süreç değil` (16.11 DUZ3); balon ve baş küçülür |
+| 73,32–80,45 | İki sütunlu el kartı: `PROCESS  have / has been + V-ing` · `RESULT  have / has + V3`, sözcük zamanında dolar |
+| 80,70–85,18 | Altında Caveat 60: `okuyorum → süreç`, `bitirdim → sonuç` (16.11 DUZ3) sarı oklar kartın iki sütununa |
+| 85,33–91,97 | Kod kartı el kutusunda: `süreç → been + -ing` · `sonuç, durum → have + V3` (el oku, tik, vurus (16.11 DUZ3)); sağ altta küçük `Next lesson →` Lexend 24 ikincil |
+| 91,97–92,89 | Durgun (≈ 1 sn kuyruk) |
 ## 5. Çalıştırma (her sahne kendi `calistir.sh`; paket kökünden)
 - Canvas/Paper.js: `python3 ortak/yakala.py projeler/present-perfect-cont-ileri/sahneler/<klasor>/sayfa.html "$KARE"` →
   log'dan `OLAYLAR` satırı → `olaylar.json`; kare sayısı denetimi; ffmpeg → `video.mp4`; `kontrol.png` (6 kare: 0, %20, %40,

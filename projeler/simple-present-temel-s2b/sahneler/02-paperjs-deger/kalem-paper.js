@@ -7,8 +7,8 @@
 // Zaman yalnız kare numarasından gelir; Math.random / Date yok (tohumlu hash).
 // Kullanım: const S = await sahneKur(paper, { KARE, tBas, bolum, etkin }); ...içerik...; S.kare(f) -> canvas
 import { kunyeHazirla, zeminCiz, kunyeCiz, altyaziMetin, altyaziCiz, RENK, RT, renkCoz, temaSurum, KOK, KUNYE }
-  from "/projeler/simple-present-temel-s2/ortak/kunye.js";
-import { yaziNoktalari } from "/projeler/simple-present-temel-s2/ortak/kalem-canvas.js";
+  from "/projeler/simple-present-temel-s2b/ortak/kunye.js";
+import { yaziNoktalari } from "/projeler/simple-present-temel-s2b/ortak/kalem-canvas.js";
 // Geliştirme günlüğü (12.11, pp g-11): POST /log yalnız yerel geliştirme sunucusunda; yayında istek yok.
 const YEREL_SUNUCU = /^(localhost|127\.0\.0\.1|\[::1\]|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+)$/
   .test(location.hostname);

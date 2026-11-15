@@ -1,5 +1,7 @@
 # SPEC — sahne 90-hyperframes-kapak · ana ders kapağı (02-04-ydt-temel ve -dikey, durağan tek kare)
 
+> **16.11 DUZ3:** kapak yazısı «HER ZAMAN mı / ŞİMDİ mi?» → «KALICI mı / GEÇİCİ mi?» (KS-4 + EK-5c, 4 sözcük); dikey yazı tavanı 140 px; nesne sığmayan aday reddedilir. Bu belgedeki saniye ve metinler önceki sürümündür; geçerli olan kod + `zaman.json`.
+
 Standart: `dijital-anlatim/.claude/docs/kapak-standardi.md` v1. İstem KAPAK-0204 (15.11.2026). `zaman.json` `sahneler[]` dışı; ses ve mp4 yok.
 Kalıp: `02-04-ydt-temel-s1/sahneler/05-hyperframes-kapak-b/` (yazı tipi yükleme, `hf_tema.py`, `tema_bitir`, snapshot).
 

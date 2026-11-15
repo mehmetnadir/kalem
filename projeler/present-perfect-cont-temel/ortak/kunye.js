@@ -49,7 +49,7 @@ export function temaSec(ad) {
 }
 try { temaSec(new URLSearchParams(location.search).get("tema") || "koyu"); } catch (e) { /* tarayıcı dışı */ }
 export const KUNYE = { kenar: 56, ustTaban: 72, altTaban: 1030, logoYuk: 34, dersYazi: 30, seviyeYazi: 22,
-  bolumYazi: 24, ajandaYazi: 20, ders: "PRESENT PERFECT CONTINUOUS", seviye: "YDT BASIC", ajanda: ["Hook", "Examples", "Form"] };
+  bolumYazi: 24, ajandaYazi: 20, ders: "PRESENT PERFECT CONTINUOUS", seviye: "YDT TEMEL", ajanda: ["Hook", "Examples", "Form"] };
 const W = 1920, H = 1080;
 
 const FONTLAR = [["Fredoka", "fredoka-latin-700-normal.woff2", 700], ["Fredoka", "fredoka-latin-ext-700-normal.woff2", 700],

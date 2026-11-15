@@ -1,0 +1,56 @@
+{
+  "paket": "02-04-ydt-temel-s1b",
+  "sikilik": 4,
+  "pay": 4,
+  "tarih": "2026-11-15T23:13:04.402Z",
+  "ozet": {
+    "toplamSahne": 4,
+    "olculen": 4,
+    "olculmedi": 0,
+    "olcumHatasi": 0,
+    "toplamHata": 0,
+    "toplamUyari": 0
+  },
+  "sahneler": [
+    {
+      "sahne": "01-hyperframes-kapak",
+      "motor": "HyperFrames",
+      "durum": "olculdu",
+      "ornekSayisi": 11,
+      "kutuSayisi": 2674,
+      "t_bas": 0,
+      "t_son": 2.5,
+      "olaylar": []
+    },
+    {
+      "sahne": "02-paperjs-ornek",
+      "motor": "Paper.js",
+      "durum": "olculdu",
+      "ornekSayisi": 56,
+      "kutuSayisi": 3106,
+      "t_bas": 2.5,
+      "t_son": 16.13,
+      "olaylar": []
+    },
+    {
+      "sahne": "08-hyperframes-kaydet",
+      "motor": "HyperFrames",
+      "durum": "olculdu",
+      "ornekSayisi": 23,
+      "kutuSayisi": 2800,
+      "t_bas": 16.13,
+      "t_son": 21.63,
+      "olaylar": []
+    },
+    {
+      "sahne": "03-hyperframes-cta",
+      "motor": "HyperFrames",
+      "durum": "olculdu",
+      "ornekSayisi": 26,
+      "kutuSayisi": 3880,
+      "t_bas": 21.63,
+      "t_son": 27.89,
+      "olaylar": []
+    }
+  ]
+}

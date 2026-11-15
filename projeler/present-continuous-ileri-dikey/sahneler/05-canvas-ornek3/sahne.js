@@ -5,7 +5,8 @@ import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, ok, elips, kutu, olc } from "./sahne-ortak.js";
 
 const KARE = 372, TBAS = 42.07, ICERIK = 360;
-const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: 0, bolum: "Example 3 / 3", cumle: 5 });
+// 16.11 DUZ3: c3 +1,00 sn uzadı; zaman.json t_bas 43,07. Sahne eski çerçevede (TBAS 42,07) kalır, kayma −1,00 sözcükleri oraya çevirir.
+const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: -1.0, bolum: "Example 3 / 3", cumle: 5 });
 const KOKDIZ = "/projeler/present-continuous-ileri-dikey/ortak/cizim";
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKI = RT.ikincil, SARI = RT.vurgu;

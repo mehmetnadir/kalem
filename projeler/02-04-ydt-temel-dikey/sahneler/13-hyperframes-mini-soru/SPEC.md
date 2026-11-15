@@ -38,7 +38,7 @@ Başka dosyaya dokunma. Silme yok. Test, render, git yok. `ortak/`, BRIEF, yatay
 ```
 y   48 ┌ logo 387×96 (48,48)                      [ Mini question ] çip ┐  HUD 0–320, kare 0'dan sabit
    212 │ SIMPLE PRESENT vs                                               │  ders satır 1 (Fredoka 700 56)
-   276 │ PRESENT CONTINUOUS  ( YDT · BASIC )                             │  ders satır 2 + rozet hapı
+   276 │ PRESENT CONTINUOUS  ( YDT · TEMEL )                             │  ders satır 2 + rozet hapı
    380 ├─ MINI QUESTION ─────────────────────────────────────  ( 5 ) ──┤  kart üst kenarı; etiket kenarın ÜSTÜNDE (lejant)
    472 │  My brother lives in                                            │  kök satır 1  Fredoka 700 72
    558 │  Ankara, but this month                                         │  kök satır 2
@@ -81,7 +81,7 @@ y   48 ┌ logo 387×96 (48,48)                      [ Mini question ] çip ┐ 
 ### 4.2 HUD (kare 0'dan sabit; hareket yok)
 - `kun = Y.kunye_svg("Mini question")` (yalnız çip; gizli DEĞİL). Ders + rozet bu dizginin `<g id="kunye">` açılışından hemen sonra eklenir:
   - `<g id="ku-ders">` iki `text`: `SIMPLE PRESENT vs` (x 48, taban 212) ve `PRESENT CONTINUOUS` (x 48, taban 276); Fredoka 700 56, `fill="#f3efe6"`.
-  - `<g id="ku-rozet">`: `rect` x = 48 + genislik(Fredoka 700 56, "PRESENT CONTINUOUS") + 24, y 216, w = genislik(Lexend 700 36, "YDT · BASIC") + 56,
+  - `<g id="ku-rozet">`: `rect` x = 48 + genislik(Fredoka 700 56, "PRESENT CONTINUOUS") + 24, y 216, w = genislik(Lexend 700 36, "YDT · TEMEL") + 56,
     h 72, rx 36, `fill="#f2a93b"`; `text` ortası rect ortası, taban 265, Lexend 700 36, `fill="#1b1a17"`, `text-anchor="middle"`.
 - Logo: `Y.html(..., logo=(48, 48, 96 * Y.LOGO_EN_BOY, 96))` → 387×96.
 - ID yasağı: `t1`, `t2`, `rz1`, `ku-nokta` kullanma (hf_tema bunlara özel kural uygular).

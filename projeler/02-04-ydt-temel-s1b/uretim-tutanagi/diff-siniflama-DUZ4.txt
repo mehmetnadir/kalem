@@ -1,0 +1,222 @@
+# diff -rq K/projeler/02-04-ydt-temel-s1 K/projeler/02-04-ydt-temel-s1b · DUZ4-0204S1 · 16.11.2026
+# sınıf	durum	tür	yol
+S2	beklenen	fark	aciklama-a.md
+S2	beklenen	fark	aciklama-b.md
+S2	beklenen	fark	aciklama.md
+T1	beklenen	yalnız kol a	hikaye-a.png
+T1	beklenen	yalnız kol a	hikaye-b.png
+T1	beklenen	yalnız kol a	hikaye.png
+D2	beklenen	fark	kapak-a-168.png
+D2	beklenen	fark	kapak-a.png
+T1	beklenen	yalnız kol a	kapak-b-168.png
+T1	beklenen	yalnız kol a	kapak-b.png
+T1	beklenen	yalnız kol a	kapak-c-168.png
+T1	beklenen	yalnız kol a	kapak-c.png
+D2	beklenen	fark	kapak.png
+D5	beklenen	fark	ortak/anlatim/altyazi.json
+D5	beklenen	fark	ortak/anlatim/anlatim.m4a
+D5	beklenen	fark	ortak/anlatim/anlatim.m4a.imza
+D5	beklenen	fark	ortak/anlatim/anlatim.wav
+D5	beklenen	fark	ortak/anlatim/baslar.json
+D3	beklenen	fark	ortak/anlatim/cumle-1.wav
+D5	beklenen	fark	ortak/anlatim/METIN.md
+D4	beklenen	fark	ortak/anlatim/senaryo.json
+D5	beklenen	fark	ortak/anlatim/sentez.wav
+D5	beklenen	fark	ortak/anlatim/sentez.wav.rapor.json
+D5	beklenen	fark	ortak/anlatim/sozcukler.json
+D5	beklenen	fark	ortak/anlatim/sozcuk_uret.py
+D5	beklenen	fark	ortak/anlatim/sureler.json
+G2	beklenen	fark	ortak/kunye.js
+D1	beklenen	fark	sahneler/01-hyperframes-kapak/calistir.sh
+D1	beklenen	fark	sahneler/01-hyperframes-kapak/devir.json
+D1	beklenen	yalnız kol a	sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-0.2.png
+D1	beklenen	yalnız kol b	sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-0.9.png
+D1	beklenen	yalnız kol b	sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-0.png
+D1	beklenen	yalnız kol b	sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-1.3.png
+D1	beklenen	yalnız kol b	sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-1.75.png
+D1	beklenen	yalnız kol a	sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-1.97.png
+D1	beklenen	yalnız kol b	sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-2.2.png
+D1	beklenen	fark	sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-2.45.png
+D1	beklenen	yalnız kol a	sahneler/01-hyperframes-kapak/k/01-hyperframes-kapak-2.95.png
+D1	beklenen	yalnız kol b	sahneler/01-hyperframes-kapak/k/ka-acik/at-1.75s.png
+D1	beklenen	yalnız kol a	sahneler/01-hyperframes-kapak/k/ka-acik/at-1.97s.png
+D1	beklenen	yalnız kol b	sahneler/01-hyperframes-kapak/k/ka-koyu/at-1.75s.png
+D1	beklenen	yalnız kol a	sahneler/01-hyperframes-kapak/k/ka-koyu/at-1.97s.png
+D1	beklenen	yalnız kol a	sahneler/01-hyperframes-kapak/k/koyu/01-hyperframes-kapak-0.2.png
+D1	beklenen	yalnız kol b	sahneler/01-hyperframes-kapak/k/koyu/01-hyperframes-kapak-0.9.png
+D1	beklenen	yalnız kol b	sahneler/01-hyperframes-kapak/k/koyu/01-hyperframes-kapak-1.75.png
+D1	beklenen	yalnız kol a	sahneler/01-hyperframes-kapak/k/koyu/01-hyperframes-kapak-1.97.png
+D1	beklenen	yalnız kol b	sahneler/01-hyperframes-kapak/k/koyu/01-hyperframes-kapak-2.2.png
+D1	beklenen	yalnız kol a	sahneler/01-hyperframes-kapak/k/koyu/01-hyperframes-kapak-2.45.png
+D1	beklenen	fark	sahneler/01-hyperframes-kapak/k/koyu/kapak-a-koyu.png
+D1	beklenen	fark	sahneler/01-hyperframes-kapak/olaylar.json
+D1	beklenen	fark	sahneler/01-hyperframes-kapak/olay.py
+H1	beklenen	yalnız kol a	sahneler/01-hyperframes-kapak/proje/.hyperframes/artifacts/checks/81db4569-185e-4be0-ade6-45823b929fef.json
+H1	beklenen	yalnız kol a	sahneler/01-hyperframes-kapak/proje/.hyperframes/artifacts/checks/f667fcfc-97b5-4d70-aa43-fabcc936dcb9.json
+H1	beklenen	yalnız kol b	sahneler/01-hyperframes-kapak/proje/.hyperframes/artifacts/checks/fbd1f4c5-6329-431a-954e-5f4f98a8f964.json
+H1	beklenen	fark	sahneler/01-hyperframes-kapak/proje/.hyperframes/history-id
+H1	beklenen	fark	sahneler/01-hyperframes-kapak/proje/.hyperframes/video-state.json
+D1	beklenen	fark	sahneler/01-hyperframes-kapak/proje/index.html
+H1	beklenen	fark	sahneler/01-hyperframes-kapak/proje-ka/.hyperframes/history-id
+H1	beklenen	fark	sahneler/01-hyperframes-kapak/proje-ka/.hyperframes/video-state.json
+D1	beklenen	fark	sahneler/01-hyperframes-kapak/proje-ka/index.html
+P1	beklenen	fark	sahneler/01-hyperframes-kapak/__pycache__/uret.cpython-310.pyc
+P1	beklenen	fark	sahneler/01-hyperframes-kapak/__pycache__/yardim.cpython-310.pyc
+D1	beklenen	fark	sahneler/01-hyperframes-kapak/RAPOR.md
+D1	beklenen	fark	sahneler/01-hyperframes-kapak/SPEC.md
+D1	beklenen	fark	sahneler/01-hyperframes-kapak/uret.py
+D1	beklenen	fark	sahneler/01-hyperframes-kapak/zamanlar.json
+G1	B3 bekliyor	fark	sahneler/02-paperjs-ornek/calistir.sh
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-10.28.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-10.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-11.14.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-11.28.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-11.5.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-11.89.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-12.97.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-13.86.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-14.37.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-14.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-15.14.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-15.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-16.04.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-17.86.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-18.23.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-19.9.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-2.55.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-3.05.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-3.41.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-4.24.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-4.5.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-6.42.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-6.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-7.27.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-7.64.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-8.03.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-8.4.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-9.11.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/02-paperjs-ornek-9.86.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/koyu/02-paperjs-ornek-11.14.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/koyu/02-paperjs-ornek-11.28.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/koyu/02-paperjs-ornek-11.5.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/koyu/02-paperjs-ornek-11.89.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/koyu/02-paperjs-ornek-15.14.png
+Q1	beklenen	yalnız kol a	sahneler/02-paperjs-ornek/k/koyu/02-paperjs-ornek-15.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/koyu/02-paperjs-ornek-7.64.png
+Q1	beklenen	yalnız kol b	sahneler/02-paperjs-ornek/k/koyu/02-paperjs-ornek-8.03.png
+G3	beklenen	fark	sahneler/02-paperjs-ornek/kalem-paper.js
+G1	B3 bekliyor	fark	sahneler/02-paperjs-ornek/RAPOR.md
+G1	B3 bekliyor	fark	sahneler/02-paperjs-ornek/sahne-02.js
+G3	beklenen	fark	sahneler/02-paperjs-ornek/sayfa.html
+G1	B3 bekliyor	fark	sahneler/02-paperjs-ornek/SPEC.md
+Q1	beklenen	yalnız kol b	sahneler/03-hyperframes-cta/k/03-hyperframes-cta-21.69.png
+Q1	beklenen	yalnız kol b	sahneler/03-hyperframes-cta/k/03-hyperframes-cta-24.74.png
+Q1	beklenen	yalnız kol a	sahneler/03-hyperframes-cta/k/03-hyperframes-cta-25.55.png
+Q1	beklenen	yalnız kol b	sahneler/03-hyperframes-cta/k/03-hyperframes-cta-27.85.png
+Q1	beklenen	yalnız kol a	sahneler/03-hyperframes-cta/k/03-hyperframes-cta-28.6.png
+Q1	beklenen	yalnız kol a	sahneler/03-hyperframes-cta/k/03-hyperframes-cta-31.7.png
+Q1	beklenen	yalnız kol b	sahneler/03-hyperframes-cta/k/koyu/03-hyperframes-cta-21.69.png
+Q1	beklenen	yalnız kol b	sahneler/03-hyperframes-cta/k/koyu/03-hyperframes-cta-24.74.png
+Q1	beklenen	yalnız kol a	sahneler/03-hyperframes-cta/k/koyu/03-hyperframes-cta-25.55.png
+Q1	beklenen	yalnız kol b	sahneler/03-hyperframes-cta/k/koyu/03-hyperframes-cta-27.85.png
+Q1	beklenen	yalnız kol a	sahneler/03-hyperframes-cta/k/koyu/03-hyperframes-cta-28.6.png
+Q1	beklenen	yalnız kol a	sahneler/03-hyperframes-cta/k/koyu/03-hyperframes-cta-31.7.png
+H1	beklenen	yalnız kol a	sahneler/03-hyperframes-cta/proje/.hyperframes/artifacts/checks/747e44ea-5c5c-410b-8384-c69e20ed6cbb.json
+H1	beklenen	yalnız kol b	sahneler/03-hyperframes-cta/proje/.hyperframes/artifacts/checks/9cded90f-2357-457a-9c75-6ab0027f65b5.json
+H1	beklenen	fark	sahneler/03-hyperframes-cta/proje/.hyperframes/history-id
+H1	beklenen	fark	sahneler/03-hyperframes-cta/proje/.hyperframes/video-state.json
+P1	beklenen	fark	sahneler/03-hyperframes-cta/__pycache__/yardim.cpython-310.pyc
+D5	beklenen	fark	sahneler/03-hyperframes-cta/zamanlar.json
+T1	beklenen	yalnız kol a	sahneler/04-hyperframes-hikaye/k/at-0.5s.png
+T1	beklenen	yalnız kol a	sahneler/04-hyperframes-hikaye/k/koyu/at-0.5s.png
+T1	beklenen	yalnız kol a	sahneler/04-hyperframes-hikaye/k/koyu/hikaye-a-koyu.png
+H1	beklenen	yalnız kol a	sahneler/04-hyperframes-hikaye/proje/.hyperframes
+P1	beklenen	yalnız kol a	sahneler/04-hyperframes-hikaye/__pycache__/uret.cpython-310.pyc
+P1	beklenen	fark	sahneler/04-hyperframes-hikaye/__pycache__/yardim.cpython-310.pyc
+T1	beklenen	yalnız kol a	sahneler/05-hyperframes-kapak-b/k/at-0.5s.png
+T1	beklenen	yalnız kol a	sahneler/05-hyperframes-kapak-b/k/koyu/at-0.5s.png
+T1	beklenen	yalnız kol a	sahneler/05-hyperframes-kapak-b/k/koyu/kapak-b-koyu.png
+H1	beklenen	yalnız kol a	sahneler/05-hyperframes-kapak-b/proje/.hyperframes
+P1	beklenen	fark	sahneler/05-hyperframes-kapak-b/__pycache__/yardim.cpython-310.pyc
+T1	beklenen	yalnız kol a	sahneler/06-hyperframes-kapak-c/k/at-0.5s.png
+T1	beklenen	yalnız kol a	sahneler/06-hyperframes-kapak-c/k/koyu/at-0.5s.png
+T1	beklenen	yalnız kol a	sahneler/06-hyperframes-kapak-c/k/koyu/kapak-c-koyu.png
+H1	beklenen	yalnız kol a	sahneler/06-hyperframes-kapak-c/proje/.hyperframes
+P1	beklenen	fark	sahneler/06-hyperframes-kapak-c/__pycache__/yardim.cpython-310.pyc
+T1	beklenen	yalnız kol a	sahneler/07-hyperframes-hikaye-b/k/at-0.5s.png
+T1	beklenen	yalnız kol a	sahneler/07-hyperframes-hikaye-b/k/koyu/at-0.5s.png
+T1	beklenen	yalnız kol a	sahneler/07-hyperframes-hikaye-b/k/koyu/hikaye-b-koyu.png
+H1	beklenen	yalnız kol a	sahneler/07-hyperframes-hikaye-b/proje/.hyperframes
+P1	beklenen	fark	sahneler/07-hyperframes-hikaye-b/__pycache__/uret.cpython-310.pyc
+P1	beklenen	fark	sahneler/07-hyperframes-hikaye-b/__pycache__/yardim.cpython-310.pyc
+Q1	beklenen	yalnız kol b	sahneler/08-hyperframes-kaydet/k/08-hyperframes-kaydet-16.19.png
+Q1	beklenen	yalnız kol b	sahneler/08-hyperframes-kaydet/k/08-hyperframes-kaydet-17.34.png
+Q1	beklenen	yalnız kol b	sahneler/08-hyperframes-kaydet/k/08-hyperframes-kaydet-18.89.png
+Q1	beklenen	yalnız kol b	sahneler/08-hyperframes-kaydet/k/08-hyperframes-kaydet-19.54.png
+Q1	beklenen	yalnız kol a	sahneler/08-hyperframes-kaydet/k/08-hyperframes-kaydet-20.05.png
+Q1	beklenen	yalnız kol a	sahneler/08-hyperframes-kaydet/k/08-hyperframes-kaydet-21.2.png
+Q1	beklenen	yalnız kol b	sahneler/08-hyperframes-kaydet/k/08-hyperframes-kaydet-21.54.png
+Q1	beklenen	yalnız kol a	sahneler/08-hyperframes-kaydet/k/08-hyperframes-kaydet-22.75.png
+Q1	beklenen	yalnız kol a	sahneler/08-hyperframes-kaydet/k/08-hyperframes-kaydet-23.4.png
+Q1	beklenen	yalnız kol a	sahneler/08-hyperframes-kaydet/k/08-hyperframes-kaydet-25.4.png
+Q1	beklenen	yalnız kol b	sahneler/08-hyperframes-kaydet/k/koyu/08-hyperframes-kaydet-16.19.png
+Q1	beklenen	yalnız kol b	sahneler/08-hyperframes-kaydet/k/koyu/08-hyperframes-kaydet-18.89.png
+Q1	beklenen	yalnız kol a	sahneler/08-hyperframes-kaydet/k/koyu/08-hyperframes-kaydet-20.05.png
+Q1	beklenen	yalnız kol b	sahneler/08-hyperframes-kaydet/k/koyu/08-hyperframes-kaydet-21.54.png
+Q1	beklenen	yalnız kol a	sahneler/08-hyperframes-kaydet/k/koyu/08-hyperframes-kaydet-22.75.png
+Q1	beklenen	yalnız kol a	sahneler/08-hyperframes-kaydet/k/koyu/08-hyperframes-kaydet-25.4.png
+H1	beklenen	yalnız kol a	sahneler/08-hyperframes-kaydet/proje/.hyperframes/artifacts/checks/1354bac2-e82f-43bf-b40b-94b13f827ae6.json
+H1	beklenen	yalnız kol b	sahneler/08-hyperframes-kaydet/proje/.hyperframes/artifacts/checks/237f6e09-8495-430e-b820-bc88140480e6.json
+H1	beklenen	fark	sahneler/08-hyperframes-kaydet/proje/.hyperframes/history-id
+H1	beklenen	fark	sahneler/08-hyperframes-kaydet/proje/.hyperframes/video-state.json
+P1	beklenen	fark	sahneler/08-hyperframes-kaydet/__pycache__/uret.cpython-310.pyc
+P1	beklenen	fark	sahneler/08-hyperframes-kaydet/__pycache__/yardim.cpython-310.pyc
+D5	beklenen	fark	sahneler/08-hyperframes-kaydet/zamanlar.json
+S1	beklenen	fark	surumler.json
+U1	beklenen	yalnız kol a	uretim-tutanagi/aciklama-taslak.md
+U1	beklenen	yalnız kol b	uretim-tutanagi/BK-RAPOR.md
+U1	beklenen	yalnız kol a	uretim-tutanagi/cakisma-DUZ2-duragan.json
+U1	beklenen	fark	uretim-tutanagi/cakisma-DUZ2.json
+U1	beklenen	yalnız kol a	uretim-tutanagi/cakisma-DUZ4-duragan.json
+U1	beklenen	fark	uretim-tutanagi/cakisma-DUZ4.json
+U1	beklenen	yalnız kol b	uretim-tutanagi/diff-siniflama-DUZ2.txt
+U1	beklenen	yalnız kol b	uretim-tutanagi/diff-siniflama.txt
+U1	beklenen	yalnız kol a	uretim-tutanagi/DUZ-1-RAPOR.md
+U1	beklenen	fark	uretim-tutanagi/DUZ2-RAPOR.md
+U1	beklenen	fark	uretim-tutanagi/hf-check-duz4.txt
+U1	beklenen	yalnız kol a	uretim-tutanagi/hikaye-taslak.md
+U1	beklenen	fark	uretim-tutanagi/huni-kapi-duz4.txt
+U1	beklenen	yalnız kol a	uretim-tutanagi/istem
+U1	beklenen	yalnız kol a	uretim-tutanagi/juri/J2-hukum-1611-0009.md
+U1	beklenen	yalnız kol a	uretim-tutanagi/juri/J2-hukum.md
+U1	beklenen	yalnız kol b	uretim-tutanagi/juri/KBJ-hukum-1611-0014.md
+U1	beklenen	yalnız kol b	uretim-tutanagi/juri/KBJ-hukum.md
+U1	beklenen	yalnız kol a	uretim-tutanagi/juri/s1.dil.md
+U1	beklenen	yalnız kol a	uretim-tutanagi/juri/s1.kaynak-kural.md
+U1	beklenen	fark	uretim-tutanagi/kapak-taslak.md
+U1	beklenen	fark	uretim-tutanagi/kapi-cikti-DUZ2.txt
+U1	beklenen	yalnız kol b	uretim-tutanagi/kapi-cikti.txt
+U1	beklenen	yalnız kol b	uretim-tutanagi/KBC-RAPOR.md
+U1	beklenen	yalnız kol b	uretim-tutanagi/kol-b.json
+U1	beklenen	yalnız kol b	uretim-tutanagi/kontak/02-04-ydt-temel-s1b-duz4-kontak-koyu.png
+U1	beklenen	yalnız kol b	uretim-tutanagi/kontak/02-04-ydt-temel-s1b-duz4-kontak.png
+U1	beklenen	yalnız kol a	uretim-tutanagi/kontak/02-04-ydt-temel-s1-duz4-kontak-koyu.png
+U1	beklenen	yalnız kol a	uretim-tutanagi/kontak/02-04-ydt-temel-s1-duz4-kontak.png
+U1	beklenen	yalnız kol a	uretim-tutanagi/kontak/DUZ2-duragan.png
+U1	beklenen	yalnız kol a	uretim-tutanagi/kontak/DUZ2-koyu.png
+U1	beklenen	yalnız kol a	uretim-tutanagi/kontak/DUZ2-video-1.png
+U1	beklenen	yalnız kol a	uretim-tutanagi/kontak/DUZ2-video-2.png
+U1	beklenen	yalnız kol a	uretim-tutanagi/kontak/s1-var-yanyana.png
+U1	beklenen	yalnız kol b	uretim-tutanagi/kontak-DUZ2-1.png
+U1	beklenen	yalnız kol b	uretim-tutanagi/kontak-DUZ2-2.png
+U1	beklenen	yalnız kol b	uretim-tutanagi/kontak-kbc.png
+U1	beklenen	yalnız kol b	uretim-tutanagi/kopya-denetim.txt
+U1	beklenen	yalnız kol a	uretim-tutanagi/S1-A-RAPOR.md
+U1	beklenen	yalnız kol a	uretim-tutanagi/S1-C-RAPOR.md
+U1	beklenen	yalnız kol a	uretim-tutanagi/S1-duzeltme.md
+U1	beklenen	yalnız kol a	uretim-tutanagi/S1-VAR-RAPOR.md
+U1	beklenen	fark	uretim-tutanagi/senaryo-taslak.md
+U1	beklenen	fark	uretim-tutanagi/ses-sentez.log
+U1	beklenen	yalnız kol a	uretim-tutanagi/ses-sentez-v2.log
+U1	beklenen	yalnız kol a	uretim-tutanagi/V2-C-RAPOR.md
+D5	beklenen	fark	zaman.json

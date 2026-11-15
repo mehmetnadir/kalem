@@ -1,7 +1,7 @@
 {
   "fps": 30,
-  "kare": 228,
-  "sure": 7.6,
+  "kare": 266,
+  "sure": 8.8667,
   "t_bas": 11.87,
   "kart_giris": [
     0.55,
@@ -12,31 +12,35 @@
     0.25
   ],
   "s2_giris": [
-    1.51,
+    1.83,
     0.25
   ],
   "s3_giris": [
     2.55,
     0.25
   ],
+  "s4_giris": [
+    3.6,
+    0.25
+  ],
   "hap_giris": [
-    3.59,
+    4.48,
     0.3
   ],
   "kart_sabit": [
-    3.91,
-    3.29
+    4.8,
+    3.667
   ],
   "imi_ciz": [
-    5.76,
+    6.99,
     0.3
   ],
   "yazi_giris": [
-    5.86,
+    7.09,
     0.25
   ],
   "kuyruk_durgun": [
-    7.2,
+    8.467,
     0.4
   ],
   "olaylar": [
@@ -46,17 +50,17 @@
       0.5
     ],
     [
-      3.59,
+      4.48,
       "tik",
       0.5
     ],
     [
-      5.76,
+      6.99,
       "cizgi",
       0.6
     ],
     [
-      5.86,
+      7.09,
       "tik",
       0.4
     ]
@@ -78,9 +82,9 @@
     },
     {
       "olay": "s2_giris",
-      "kare": 45,
-      "yerel": 1.51,
-      "kuresel": 13.38,
+      "kare": 55,
+      "yerel": 1.83,
+      "kuresel": 13.7,
       "sozcuk": "always,"
     },
     {
@@ -91,38 +95,45 @@
       "sozcuk": "every day:"
     },
     {
-      "olay": "hap_giris",
+      "olay": "s4_giris",
       "kare": 108,
-      "yerel": 3.59,
-      "kuresel": 15.46,
+      "yerel": 3.6,
+      "kuresel": 15.47,
+      "sozcuk": "çoğunlukla"
+    },
+    {
+      "olay": "hap_giris",
+      "kare": 134,
+      "yerel": 4.48,
+      "kuresel": 16.35,
       "sozcuk": "Simple Present."
     },
     {
       "olay": "kart_sabit",
-      "kare": 117,
-      "yerel": 3.91,
-      "kuresel": 15.78,
+      "kare": 144,
+      "yerel": 4.8,
+      "kuresel": 16.67,
       "sozcuk": "Present."
     },
     {
       "olay": "imi_ciz",
-      "kare": 173,
-      "yerel": 5.76,
-      "kuresel": 17.63,
+      "kare": 210,
+      "yerel": 6.99,
+      "kuresel": 18.86,
       "sozcuk": "al,"
     },
     {
       "olay": "yazi_giris",
-      "kare": 176,
-      "yerel": 5.86,
-      "kuresel": 17.73,
+      "kare": 213,
+      "yerel": 7.09,
+      "kuresel": 18.96,
       "sozcuk": "al,"
     },
     {
       "olay": "kuyruk_durgun",
-      "kare": 216,
-      "yerel": 7.2,
-      "kuresel": 19.07,
+      "kare": 254,
+      "yerel": 8.467,
+      "kuresel": 20.337,
       "sozcuk": "sahne sonu"
     }
   ]

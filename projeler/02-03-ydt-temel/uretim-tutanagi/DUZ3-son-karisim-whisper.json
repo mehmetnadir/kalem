@@ -1,0 +1,62 @@
+[
+ {
+  "cumle": 4,
+  "parca": 3,
+  "dil": "tr",
+  "t0": 38.53,
+  "t1": 51.65,
+  "metin": "Şirketimiz bugünlerde zor bir dönemden geçiyor. These days bir dönemi gösterir. Dönem geçici. Geçici dönem çoğunlukla şimdiki zamanla gelir. Yapı yine aynı: is artı going.",
+  "duyulan": "Şirketimiz bugünlerde zor bir dönemden geçiyor. These days bir dönemi gösterir. Dönem geçici. Geçici dönem çoğunlukla şimdiki zamanla gelir. Yapı yine aynı. Is artı going.",
+  "benzerlik_ham": 1.0
+ },
+ {
+  "cumle": 8,
+  "parca": 1,
+  "dil": "tr",
+  "t0": 88.33,
+  "t1": 111.37,
+  "metin": "Karar kartı. Bu cümlelerde now net bir ipucudur: şimdiki zaman. These days ve nowadays genellikle şimdiki zamanı çağırır: geçici ya da değişen durum. Gelecekteki kişisel plan da şimdiki zamanla söylenebilir. Usually gibi sıklık sözcükleri ve genel durumlar çoğunlukla geniş zamanla gelir. Önce sinyal sözcüğünü ara.",
+  "duyulan": "Karar kartı Bu cümlelerde now net bir ipucudur. Şimdiki zaman These days ve nowadays genellikle şimdiki zamanı çağırır. Geçici ya da değişen durum. Gelecekteki kişisel plan da şimdiki zamanla söylenebilir. Usually gibi sıklık sözcükleri ve genel durumlar çoğunlukla geniş zamanla gelir. Önce sinyal sözcüğünü ara.",
+  "benzerlik_ham": 1.0
+ },
+ {
+  "cumle": 14,
+  "parca": 5,
+  "dil": "tr",
+  "t0": 199.13,
+  "t1": 210.89,
+  "metin": "Denmez. Promise, agree ve recommend ise performative olabilir: söylemek, eylemi yapmaktır. Bu kullanımda onlara da -ing gelmez. İki tuzak daha.",
+  "duyulan": "Denmez. Promise, Agree ve Recommend ise performatif olabilir. Söylemek, eylemi yapmaktır. Bu kullanımda onlara da ing gelmez. İki tuzak daha.",
+  "benzerlik_ham": 0.989
+ },
+ {
+  "cumle": 15,
+  "parca": 1,
+  "dil": "tr",
+  "t0": 227.88,
+  "t1": 246.44,
+  "metin": "Özet. Now, these days ve nowadays çoğunlukla şimdiki zamanı çağırır: geçici ya da değişen durum. Usually ve genel durum: çoğunlukla geniş zaman. Believe ve sahip olmak anlamındaki have gibi fiiller: sinyal olsa da -ing yok.",
+  "duyulan": "Özet. Now, these days ve nowadays. Çoğunlukla şimdiki zamanı çağırır. Geçici ya da değişen durum. Usually ve genel durum. Çoğunlukla geniş zaman. Believe ve sahip olmak anlamındaki have gibi fiiller. Sinyal olsa da ing yok.",
+  "benzerlik_ham": 1.0
+ },
+ {
+  "cumle": 18,
+  "parca": 1,
+  "dil": "tr",
+  "t0": 260.58,
+  "t1": 276.82,
+  "metin": "Hayır. Now şu anı gösterir, alışkanlığı değil. Doğru cevap B şıkkı, yani am writing. Çeldirici D şıkkı: burada now ile geçmiş çelişir. Çeldirici C şıkkı ve E şıkkı: özne I ile uyumsuz.",
+  "duyulan": "Hayır. Now, şu anı gösterir. Alışkanlığı değil. Doğru cevap B şıkkı, yani I'm writing. Çeldirici D şıkkı. Burada Now ile geçmiş çelişir. Çeldirici C şıkkı ve E şıkkı, özne Ay ile uyumsuz.",
+  "benzerlik_ham": 0.983
+ },
+ {
+  "cumle": 19,
+  "parca": 1,
+  "dil": "tr",
+  "t0": 277.37,
+  "t1": 287.37,
+  "metin": "Sınavda ilk iş sinyal sözcüğünün altını çiz. Sonra fiile bak: believe gibi fiillerle çoğu zaman -ing kullanılmaz. Sonraki derste görüşürüz.",
+  "duyulan": "Sınavda ilk iş, sinyal sözcüğünün altını çiz. Sonra fiile bak. Believe gibi fiillerle çoğu zaman ENG kullanılmaz. Sonraki derste görüşürüz.",
+  "benzerlik_ham": 0.993
+ }
+]

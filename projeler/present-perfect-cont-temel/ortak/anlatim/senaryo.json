@@ -50,7 +50,7 @@
   "k3": {
    "tip": "ornek",
    "en": "Look! The street is wet. It has been raining.",
-   "tr": "Bak, sokak ıslak. Yağmur yağıyor.",
+   "tr": "Bak, sokak ıslak. Yağmur yağıyormuş.",
    "parcalar": {
     "yardimci": "has been",
     "ek": "ing"
@@ -59,7 +59,7 @@
   "form": {
    "tip": "ornek",
    "en": "have / has been + V-ing",
-   "tr": "-dir ... -yor"
+   "tr": "süren iş; süreyi for / since söyler"
   }
  },
  "cumleler": [
@@ -83,7 +83,7 @@
     ],
     [
      "tr",
-     "İngilizce de iki parçayla yapar."
+     "İngilizcede süreyi for ya da since söyler, süren işi have been artı -ing kurar."
     ],
     [
      "tr",
@@ -91,7 +91,7 @@
     ]
    ],
    "olaylar": [],
-   "metin": "Türkçede süre için -dir, süren iş için -yor deriz. İngilizce de iki parçayla yapar. Bu derste Present Perfect Continuous'ın formunu, süre ifadelerini ve sonuç ipucunu görüyoruz."
+   "metin": "Türkçede süre için -dir, süren iş için -yor deriz. İngilizcede süreyi for ya da since söyler, süren işi have been artı -ing kurar. Bu derste Present Perfect Continuous'ın formunu, süre ifadelerini ve sonuç ipucunu görüyoruz."
   },
   {
    "ses": "ogretmen",
@@ -141,11 +141,11 @@
     ],
     [
      "tr",
-     "Başlangıç noktası. Tekil kişide has been, artı -ing."
+     "Başlangıç noktası. Üçüncü tekil kişide has been, artı -ing."
     ]
    ],
    "olaylar": [],
-   "metin": "İkinci örnek. My brother has been playing the guitar since this morning. Kardeşim sabahtan beri gitar çalıyor. Since this morning. Başlangıç noktası. Tekil kişide has been, artı -ing."
+   "metin": "İkinci örnek. My brother has been playing the guitar since this morning. Kardeşim sabahtan beri gitar çalıyor. Since this morning. Başlangıç noktası. Üçüncü tekil kişide has been, artı -ing."
   },
   {
    "ses": "ogretmen",
@@ -160,7 +160,7 @@
     ],
     [
      "tr",
-     "Bak, sokak ıslak. Yağmur bir süredir yağıyor. İzi şimdi görünüyor."
+     "Bak, sokak ıslak. Yağmur yağıyormuş. İzi şimdi görünüyor."
     ],
     [
      "tr",
@@ -168,7 +168,7 @@
     ]
    ],
    "olaylar": [],
-   "metin": "Üçüncü örnek. Look! The street is wet. It has been raining. Bak, sokak ıslak. Yağmur bir süredir yağıyor. İzi şimdi görünüyor. Kalıp yine aynı: has been, artı -ing."
+   "metin": "Üçüncü örnek. Look! The street is wet. It has been raining. Bak, sokak ıslak. Yağmur yağıyormuş. İzi şimdi görünüyor. Kalıp yine aynı: has been, artı -ing."
   },
   {
    "ses": "ogrenci",
@@ -186,11 +186,11 @@
    "parcalar": [
     [
      "tr",
-     "Have geçmişi bugüne bağlar. Been ve -ing işin sürdüğünü gösterir."
+     "Have geçmişi bugüne bağlar. Been ve -ing işin bir süre sürdüğünü gösterir."
     ],
     [
      "tr",
-     "Türkçedeki -dir ve -yor gibi düşün:"
+     "Süreyi ise for ya da since söyler:"
     ],
     [
      "en",
@@ -202,7 +202,7 @@
     ]
    ],
    "olaylar": [],
-   "metin": "Have geçmişi bugüne bağlar. Been ve -ing işin sürdüğünü gösterir. Türkçedeki -dir ve -yor gibi düşün: I have been working for two hours. İki saattir çalışıyorum. Kod: have been, artı -ing."
+   "metin": "Have geçmişi bugüne bağlar. Been ve -ing işin bir süre sürdüğünü gösterir. Süreyi ise for ya da since söyler: I have been working for two hours. İki saattir çalışıyorum. Kod: have been, artı -ing."
   }
  ],
  "zaman": {
@@ -216,7 +216,7 @@
   "satir1": "PRESENT PERFECT",
   "satir2": "CONTINUOUS",
   "rozetler": [
-   "YDT · BASIC",
+   "YDT · TEMEL",
    "GRAMMAR"
   ],
   "sahne": [
@@ -243,17 +243,18 @@
   "seviye": "temel",
   "kapak": {
    "satir1": "İKİ SAATTİR",
-   "satir2": "= HAVE BEEN",
-   "canAlici": "Türkçedeki -dir ... -yor, İngilizcede have been ... -ing"
+   "satir2": "NASIL DENİR?",
+   "kucuk": "I have been working for two hours.",
+   "canAlici": "Süreyi for two hours, süren işi have been working taşır"
   },
   "amaclar": [
    "Present Perfect Continuous formunu kurmak (have/has been + V-ing)",
    "for ile since farkını ayırt etmek",
    "sonucu görünen eylemi tanımak",
-   "Türkçe -dir ... -yor ile köprü"
+   "Türkçe -dir ... -yor cümlesini aktarmak: süre for / since, süren iş have/has been + V-ing"
   ],
   "canAlici": [
-   "Türkçedeki -dir ... -yor = İngilizcedeki have been ... -ing",
+   "Süreyi for / since söyler, süren işi have/has been + -ing kurar",
    "'İki saattir çalışıyorum' — I have been working for two hours",
    "for = süre uzunluğu, since = başlangıç noktası",
    "Sokak ıslak = yağmurun izi: sonucu görünen eylem",

@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """Sahne 07 hikâye karesi B (soru kartı) index.html üretici (02-04-ydt-temel-s2 huni v2; DİKEY 1080×1920, tek kare, ses yok).
 Durağan PNG üretimi için tek kare zaman çizelgesi (1,0 sn).
-Yerleşim: kanal katmanı + künye (280–450) -> başlık (536) -> kök kartı (570–736) -> şık A (748–840) -> şık B (852–944) -> ipucu (956–1023) -> Kaydet (1036–1138); 1150–1920 boş."""
+Yerleşim: kanal katmanı + künye (280–450) -> başlık (536) -> kök kartı (570–736) -> şık A (748–840) -> şık B (852–944) -> kural (956–1023) -> Kaydet (1036–1138); 1150–1920 boş.
+DUZ2 (15.11, J2 A6): ipucu satırı ("Genel mi, şu an mı?") yerine kural özeti; terimler sesle aynı (cümle 1 "Genel mi, şu an mı?", cümle 2 "Genel durum: …")."""
 from __future__ import annotations
 
 import json
@@ -34,7 +35,7 @@ assert Z["kare"] == 1, f"kare {Z['kare']} != 1"
 assert Z["fps"] == 30, f"fps {Z['fps']} != 30"
 
 assert Y.KONU == "Simple Present vs Present Continuous"
-assert Y.ROZETLER == ("YDT · BASIC",)
+assert Y.ROZETLER == ("YDT · TEMEL",)
 
 R: dict[str, str] = Y.RENK
 assert set(R.keys()) >= {"zemin", "murekkep", "vurgu"}
@@ -56,7 +57,8 @@ SIK_Y = (750, 854)
 DAIRE_X, DAIRE_R, SIK_TX, SIK_BOY = 122, 36, 184, 64  # r 34 → 36 (şef QA tur 1)
 HARF_KAYMA = 19  # harf tabanı cy + 19 (şef QA tur 1: cy + 22'de "A" ayakları daire çizgisine değdi)
 BOS_KAYMA = 6  # boşluk çizgisi L1 + 6 (şef QA tur 1: L1 + 12'de alt satır "today" harflerine 8 px kaldı)
-IPUCU_BOY, IPUCU_TABAN = 64, 1004
+KURAL_BOY, KURAL_TABAN = 64, 1004
+KURAL_METIN = "Genel: wears · Şu an: is wearing"  # huni §6 hikâye kural özeti (A6); → glifi yazı tiplerinde yok
 YERIMI_S, YERIMI_X, YERIMI_UST = 5, 63, 1039
 KAYDET_BOY, KAYDET_TABAN = 88, 1116
 BOS_UST = 1150
@@ -123,12 +125,12 @@ def blok_kutulari() -> list[dict[str, float]]:
         "h": 92.0,
     }
 
-    w_ipucu = Y.genislik("Caveat", 700, "Genel mi, şu an mı?", IPUCU_BOY)
-    ipucu = {
-        "ad": "ipucu",
+    w_kural = Y.genislik("Caveat", 700, KURAL_METIN, KURAL_BOY)
+    kural = {
+        "ad": "kural",
         "x": float(X0),
-        "y": float(IPUCU_TABAN) - 48.0,
-        "w": w_ipucu,
+        "y": float(KURAL_TABAN) - 48.0,
+        "w": w_kural,
         "h": 1.05 * 64.0,
     }
 
@@ -150,7 +152,7 @@ def blok_kutulari() -> list[dict[str, float]]:
         "h": 75.6,
     }
 
-    return [kanal, kunye, baslik, kok, kA, kB, ipucu, kaydet, tisort]
+    return [kanal, kunye, baslik, kok, kA, kB, kural, kaydet, tisort]
 
 
 def defs_svg() -> str:
@@ -270,12 +272,12 @@ def secenek_karti_svg(grup_id: str, y0: int, harf: str, metin: str) -> str:
     return f'<g id="{grup_id}">{crv}{daire}{harf_yazi}{metin_yazi}</g>'
 
 
-def ipucu_svg() -> str:
-    """İpucu satırı SVG çıktısı (#ipucu, §4.3)."""
+def kural_svg() -> str:
+    """Kural özeti satırı SVG çıktısı (#kural; DUZ2 A6, eski #ipucu yerinde)."""
     return (
-        f'<text id="ipucu" x="{X0}" y="{IPUCU_TABAN}" '
-        f'font-family="Caveat" font-weight="700" font-size="{IPUCU_BOY}" '
-        f'fill="{R["murekkep"]}" xml:space="preserve">Genel mi, şu an mı?</text>'
+        f'<text id="kural" x="{X0}" y="{KURAL_TABAN}" '
+        f'font-family="Caveat" font-weight="700" font-size="{KURAL_BOY}" '
+        f'fill="{R["murekkep"]}" xml:space="preserve">{KURAL_METIN}</text>'
     )
 
 
@@ -314,13 +316,13 @@ def kurallari_dogrula(bloklar: list[dict[str, float]], html: str) -> None:
             assert b["x"] >= 60.0 - 1e-4, f"{b['ad']} sol kenar {b['x']} < 60"
         assert b["y"] >= 280.0 - 1e-4, f"{b['ad']} üst {b['y']} < 280"
 
-    for ad in ("baslik", "kok", "kA", "kB", "ipucu", "kaydet"):
+    for ad in ("baslik", "kok", "kA", "kB", "kural", "kaydet"):
         b = b_dict[ad]
         assert b["y"] >= 460.0 - 1e-4, f"{ad} üst {b['y']} < 460"
         assert b["y"] + b["h"] <= float(BOS_UST) + 1e-4, f"{ad} alt {b['y'] + b['h']} > {BOS_UST}"
 
-    # 2. İçerik yazı boyu ≥ 64 (başlık 88, kök 64, harf 64, şık 64, ipucu 64, Kaydet 88). Künye/kanal hariç
-    for boy in (BASLIK_BOY, KOK_BOY, SIK_BOY, IPUCU_BOY, KAYDET_BOY):
+    # 2. İçerik yazı boyu ≥ 64 (başlık 88, kök 64, harf 64, şık 64, kural 64, Kaydet 88). Künye/kanal hariç
+    for boy in (BASLIK_BOY, KOK_BOY, SIK_BOY, KURAL_BOY, KAYDET_BOY):
         assert boy >= 64, f"İçerik yazı boyu {boy} < 64"
 
     # 3. İçerik satırı ≤ 24 karakter (len)
@@ -332,13 +334,14 @@ def kurallari_dogrula(bloklar: list[dict[str, float]], html: str) -> None:
         "wears",
         "B",
         "is wearing",
-        "Genel mi, şu an mı?",
         "Kaydet",
     ]
     for s in satirlar:
         assert len(s) <= 24, f"Satır uzunluğu {len(s)} > 24: {s}"
+    # Kural satırı 32 karakter: ≤ 24 sınırı ders kalıbıdır (DK-2); kısa türevde ölçü genişliktir (x 60–960 içinde)
+    assert X0 + Y.genislik("Caveat", 700, KURAL_METIN, KURAL_BOY) <= X1 + 1e-4, "kural satırı 960'ı aşıyor"
 
-    # 4. Ana blok çiftleri (tisort hariç 8 blok) kesişmez (alan 0). Dikey sıra kanal → kunye → baslik → kok → kA → kB → ipucu → kaydet komşu boşluğu ≥ 12
+    # 4. Ana blok çiftleri (tisort hariç 8 blok) kesişmez (alan 0). Dikey sıra kanal → kunye → baslik → kok → kA → kB → kural → kaydet komşu boşluğu ≥ 12
     ana_bloklar = [b for b in bloklar if b["ad"] != "tisort"]
     assert len(ana_bloklar) == 8, f"Ana blok sayısı 8 olmalı, bulunan: {len(ana_bloklar)}"
     for i in range(len(ana_bloklar)):
@@ -346,7 +349,7 @@ def kurallari_dogrula(bloklar: list[dict[str, float]], html: str) -> None:
             k = kesisim(ana_bloklar[i], ana_bloklar[j])
             assert k == 0.0, f"Kesişim {ana_bloklar[i]['ad']} - {ana_bloklar[j]['ad']}: {k}"
 
-    dikey_sirali = ["kanal", "kunye", "baslik", "kok", "kA", "kB", "ipucu", "kaydet"]
+    dikey_sirali = ["kanal", "kunye", "baslik", "kok", "kA", "kB", "kural", "kaydet"]
     for i in range(len(dikey_sirali) - 1):
         b1 = b_dict[dikey_sirali[i]]
         b2 = b_dict[dikey_sirali[i + 1]]
@@ -502,7 +505,7 @@ def uret() -> tuple[str, list[dict[str, float]]]:
     kok = kok_karti_svg()
     kA = secenek_karti_svg("kA", SIK_Y[0], "A", "wears")
     kB = secenek_karti_svg("kB", SIK_Y[1], "B", "is wearing")
-    ipucu = ipucu_svg()
+    kural = kural_svg()
     kaydet = kaydet_svg()
 
     html = f"""<!doctype html>
@@ -522,7 +525,7 @@ def uret() -> tuple[str, list[dict[str, float]]]:
 {kok}
 {kA}
 {kB}
-{ipucu}
+{kural}
 {kaydet}
 </g>
 </svg>
@@ -568,6 +571,6 @@ if __name__ == "__main__":
         f"kok={int(round(b_dict['kok']['y']))}-{int(round(b_dict['kok']['y'] + b_dict['kok']['h']))} "
         f"kA={int(round(b_dict['kA']['y']))}-{int(round(b_dict['kA']['y'] + b_dict['kA']['h']))} "
         f"kB={int(round(b_dict['kB']['y']))}-{int(round(b_dict['kB']['y'] + b_dict['kB']['h']))} "
-        f"ipucu={int(round(b_dict['ipucu']['y']))}-{int(round(b_dict['ipucu']['y'] + b_dict['ipucu']['h']))} "
+        f"kural={int(round(b_dict['kural']['y']))}-{int(round(b_dict['kural']['y'] + b_dict['kural']['h']))} "
         f"kaydet={int(round(b_dict['kaydet']['y']))}-{int(round(b_dict['kaydet']['y'] + b_dict['kaydet']['h']))}"
     )

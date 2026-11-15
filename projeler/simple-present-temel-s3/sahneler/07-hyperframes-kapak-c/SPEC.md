@@ -40,7 +40,7 @@ Fredoka 700 ölçüleri (fontTools'tan ölçüldü, sabit yaz): `CAP = 0.691` (b
 y    0 ┌────────────────────────────────────────────┬────────┐
        │ (boş zemin, çip YOK)                       │        │
    280 │ [logo] @ydspublishing                      │  sağ   │  Y.kunye_svg() → #kanal
-   360 │ Simple Present (YDT · BASIC)               │ 960–   │  #ku-konu + #rz0
+   360 │ Simple Present (YDT · TEMEL)               │ 960–   │  #ku-konu + #rz0
    470 │          DOES VARSA                        │ 1080   │  Fredoka 700 S≈147, orta x 510, kontur 10
    ~748│          FİİL YALIN                        │  boş   │
    840 │ ┌ kart1 (soluk) He doesn't go[es].      ✗ ┐ │        │  ikincil; es kırmızı üstü çizili; ✗ kırmızı

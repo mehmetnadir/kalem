@@ -1,16 +1,16 @@
-// Sahne 02 — Kanca, DİKEY 1080x1920 (PPC temel, 436 kare, t_bas 3,00; cümle 2 = 3,39–17,13).
+// Sahne 02 — Kanca, DİKEY 1080x1920 (PPC temel, 580 kare, t_bas 3,00; cümle 2 = 3,39–21,93; 16.11 DUZ3).
 // Yerel kare = round((t − 3,00) × 30).
 // Bantlar: içerik 352–1392 · altyazı 1400–1536 (kalem-paper.js çizer) ·
 // platform 1536–1920 boş.
 // Yerleşim: üstte kanca cümlesi + iki not satırı; ORTA solda figür (470 px, hep aynı boy),
 // sağda saat + zaman çizgisi + dizüstü; altta İngilizce cümle.
-// 10,6 sn'de saat karta taşınır, zaman çizgisi + dizüstü sağ alta toplanır
+// 15,64 sn'de saat karta taşınır, zaman çizgisi + dizüstü sağ alta toplanır
 // (yazı ≥ 48 px).
 import { sahneKur, RT }
   from "/projeler/present-perfect-cont-temel-dikey/sahneler/02-paperjs-kanca/kalem-paper.js";
 import { yaziNoktalari } from "/projeler/present-perfect-cont-temel-dikey/ortak/kalem-canvas.js";
 
-export const KARE = 436, T_BAS = 3.0;
+export const KARE = 580, T_BAS = 3.0;   // 16.11 DUZ3: cümle 2 yeni ses (18,54 sn)
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook" });
@@ -21,7 +21,7 @@ export async function kur(P) {
   const SARI = RT.vurgu, IKI = RT.ikincil, MUR = RT.murekkep;
   const GB = 12;                                                    // geçiş karesi: çizimler
                                                                     // bundan sonra
-  const TOPLA0 = fr(10.6), TOPLA1 = fr(11.1);
+  const TOPLA0 = fr(15.64), TOPLA1 = fr(16.14);
 
   // El yazısı (Caveat 700 tegaki, dalga 5 / K26): not ve etiketler kalemle yazılır. Sağa hizada
   // genişlik tegaki verisinden ölçülür; sözcük pencereleri anlatımın f / f1 karelerinden gelir
@@ -98,17 +98,17 @@ export async function kur(P) {
     const yB = 600, [b1, b2, b3] = parca([["çalış", null, 9], ["-ıyor", null, 9], ["-um", null, 9]],
       48, yB, fr(6.03));
     const d = daire((b2.x0 + b2.x1) / 2, yB - 26, b2.w / 2 + 14, 36,
-      { bas: fr(6.91), sure: 16, egim: 0.04, w: 10 });
+      { bas: fr(6.83), sure: 16, egim: 0.04, w: 10 });
     olay(bitis(d), "tik", 0.5); not("-yor daire", d.bas);
     const o2 = ok([b3.x1 + 30, yB - 22], [b3.x1 + 110, yB - 22],
-      { bas: fr(7.2), sure: 12, w: 9, uzun: 24, bukum: 0.08 });
+      { bas: fr(7.12), sure: 12, w: 9, uzun: 24, bukum: 0.08 });
     // 7,67 anlatımsız etiket `iş sürüyor`: hedef 16 kare (0,53 sn) → 8,20
     elYazisi("iş sürüyor", { x: b3.x1 + 126, y: yB, boyut: 72, renk: SARI, bas: bitis(o2) + 2,
       sure: 16 });
-    not("not -yor → iş sürüyor", fr(7.2));
+    not("not -yor → iş sürüyor", fr(7.12));
   }
   {   // 7,5–: zaman çizgisi `2 saat önce → now`
-    const ty = 890, b0 = fr(7.5);
+    const ty = 890, b0 = fr(7.42);
     ciz([[450, ty], [740, ty - 2], [1032, ty]],
       { w: 4, renk: MUR, bas: b0, sure: 14, uc0: 8, uc1: 20, oge: sag });
     daire(470, ty, 11, 11, { bas: b0 + 12, sure: 8, tur: 1.1, w: 6, oge: sag });
@@ -127,32 +127,35 @@ export async function kur(P) {
     not("zaman çizgisi", b0);
   }
 
-  // --- 8,10–10,66: I have been working / for two hours. (Fredoka 72, iki satır);
-  // have been + -ing daire
+  // --- 8,02–15,70: I have been working / for two hours. (Fredoka 72, iki satır); daireler sese bağlı:
+  // 9,54 «for» → for two hours · 12,74 «have» → have been · 14,34 «-ing» → -ing (16.11 DUZ3)
   {
     const kel = ["I", "have", "been", "working", "for", "two", "hours."];
-    const tl = [8.10, 8.36, 8.66, 8.98, 9.30, 9.52, 9.74];
+    const tl = [8.02, 8.22, 8.42, 8.62, 8.90, 9.08, 9.26];
     const e = cumle(kel.map((s, i) => ({ s, f: fr(tl[i]), satir: i < 4 ? 0 : 1 })),
       { x: 48, y: 1275, boyut: 72, aile: "Fredoka", agirlik: 700, aralik: 82 });
     altCizgi(e, { tut: 40, w: 9 }); not("İngilizce cümle başı", e[0].bas);
+    const xs = e[6].x1 - genislik(".", "700 72px Fredoka"), fo = daire((e[4].x0 + xs) / 2, 1275 + 82 - 24,
+      (xs - e[4].x0) / 2 + 8, 44, { bas: fr(9.54), sure: 18, a0: -2.0, w: 10 });
+    olay(bitis(fo), "tik", 0.5); not("for two hours daire", fo.bas);
     const hb = daire((e[1].x0 + e[2].x1) / 2, 1275 - 24, (e[2].x1 - e[1].x0) / 2 + 12, 44,
-      { bas: fr(9.66), sure: 18, a0: -2.0, w: 10 });
+      { bas: fr(12.74), sure: 18, a0: -2.0, w: 10 });
     olay(bitis(hb), "tik", 0.5); not("have been daire", hb.bas);
     const w = e[3], font = "700 72px Fredoka", wk = genislik("work", font),
       wi = genislik("ing", font);
     const di = daire(w.x0 + wk + wi / 2, 1275 - 24, wi / 2 + 12, 42,
-      { bas: fr(10.0), sure: 14, a0: -2.2, w: 10 });
+      { bas: fr(14.34), sure: 14, a0: -2.2, w: 10 });
     olay(bitis(di), "tik", 0.5); not("-ing daire", di.bas);
   }
 
-  // --- 10,73–17,13: ajanda kartı (sağ üst): saat + "Bu derste:" + 3 madde
+  // --- 15,77–21,93: ajanda kartı (sağ üst): saat + "Bu derste:" + 3 madde
   {
-    kutu(430, 655, 602, 340, { bas: fr(10.73), sure: 30, w: 4.4 }); not("kart çizimi", fr(10.73));
-    // 10,73–11,37 «Bu derste» (pencere: 10,73–10,81 · 10,93–11,37)
+    kutu(430, 655, 602, 340, { bas: fr(15.77), sure: 30, w: 4.4 }); not("kart çizimi", fr(15.77));
+    // 15,77–16,33 «Bu derste» (pencere: 15,77–15,85 · 15,93–16,33)
     elYazisi("Bu derste:", { x: 570, y: 740, boyut: 72, renk: SARI, sozcukler: pen("Bu", 2) });
-    not("Bu derste", fr(10.93));
-    parilti(520, 668, { bas: fr(11.96), r: 24, periyot: 170, adet: 3 });
-    const m = [["form", 13.05, 825], ["time expressions", 13.93, 900], ["result clue", 15.45, 975]];
+    not("Bu derste", fr(15.93));
+    parilti(520, 668, { bas: fr(17.0), r: 24, periyot: 170, adet: 3 });
+    const m = [["form", 18.09, 825], ["time expressions", 18.97, 900], ["result clue", 20.49, 975]];
     for (const [s, t, y] of m) {
       yazi(s,
         { x: 505, y, boyut: 64, aile: "Fredoka", agirlik: 700, renk: MUR, bas: fr(t), sure: 8 });

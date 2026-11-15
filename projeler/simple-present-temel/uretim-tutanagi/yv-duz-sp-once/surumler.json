@@ -1,0 +1,89 @@
+{
+  "video": {
+    "kimlik": "02-02-ydt-temel",
+    "ders": "İngilizce",
+    "konu": "Simple Present",
+    "seviye": "temel",
+    "kitle": "YDT",
+    "kod": "ING-YDT-GR-02-02-T",
+    "amaclar": [
+      "Simple Present formunu kurmak (fiil, fiil + s, do / does)",
+      "zaman ifadelerini tanımak",
+      "genelleme, alışkanlık ve tarife kullanımlarını ayırt etmek",
+      "Türkçe geniş zaman eki ile köprü"
+    ],
+    "canAlici": [
+      "Geniş zaman eki Türkçede her kişide gelir (giderim, gider); İngilizcede s yalnız he, she, it ile gelir (I go, he goes)",
+      "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
+      "usually, always, every day = tekrar eden iş sinyali",
+      "he, she, it fiile s alır; I, you, we, they almaz",
+      "3 örnek, 1 kural: üçünde de fiilin sonunda s"
+    ],
+    "kazanim": [],
+    "etiketler": [
+      "İngilizce",
+      "temel",
+      "gramer",
+      "Simple Present"
+    ]
+  },
+  "surumler": [
+    {
+      "kimlik": "ana-yatay",
+      "video": "simple-present-temel",
+      "tur": "ana-yatay",
+      "ad": "Ana video (yatay 16:9)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": null,
+      "seviye": "temel",
+      "kaynak": null,
+      "durum": "hazir",
+      "onizleme": "/p/simple-present-temel/onizle.html",
+      "tarih": "2026-11-05T01:30:00Z"
+    },
+    {
+      "kimlik": "dikey-tam",
+      "video": "simple-present-temel",
+      "tur": "dikey",
+      "ad": "Dikey tam ders (9:16, aynı ses)",
+      "senaryo": "ortak/anlatim/METIN.md",
+      "kapak": "GİDER = GOES",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "hazir",
+      "onizleme": "/p/simple-present-temel-dikey/onizle.html",
+      "tarih": "2026-11-05T01:30:00Z",
+      "proje": "simple-present-temel-dikey"
+    },
+    {
+      "kimlik": "shorts",
+      "video": "simple-present-temel",
+      "tur": "shorts",
+      "ad": "S1 Shorts (23 sn)",
+      "senaryo": "../simple-present-temel-s1/BRIEF-S1.md",
+      "kapak": "GİDER = GOES",
+      "seviye": "temel",
+      "kaynak": "ana-yatay",
+      "durum": "hazir",
+      "onizleme": "/p/simple-present-temel-s1/onizle.html",
+      "tarih": "2026-11-05T01:30:00Z",
+      "proje": "simple-present-temel-s1"
+    }
+  ],
+  "revizyonlar": [
+    {
+      "surum": "ana-yatay",
+      "no": "r1",
+      "tarih": "2026-11-15T20:52:00Z",
+      "degisiklik": "DUZ2 (J2 özeti A1–A3): rozet İngilizce seviye adından YDT · TEMEL’e (giriş + künye); kapak karakteri kadın öğrenci (K22, KS-10); cümle 7 yanlış denklik 'Türkçedeki er eki gibi: git-er, go-es' → 'Türkçede geniş zaman eki her kişide gelir, İngilizcede s yalnız üçüncü tekil kişide' (yalnız cümle 7 yeniden sentez, ders 93,47 → 96,47 sn), sahne 06 kartı giderim · gider / I go · he goes; canAlici[0] düzeltildi; render yok",
+      "cikti": null
+    },
+    {
+      "surum": "dikey-tam",
+      "no": "r1",
+      "tarih": "2026-11-15T20:52:00Z",
+      "degisiklik": "DUZ2 (J2 özeti A1–A3): rozet YDT · TEMEL (künye + giriş + form); dikey kapak yeni kadın karakterle; cümle 7 sesi ana dersle ortak (aynı dosya), sahne 06 kart satırı giderim · gider | I go · he goes; süre 96,47 sn; render yok",
+      "cikti": null
+    }
+  ]
+}

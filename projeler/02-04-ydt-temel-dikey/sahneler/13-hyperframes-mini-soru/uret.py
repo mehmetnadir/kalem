@@ -137,7 +137,7 @@ def uret() -> tuple[Y.Sahne, dict]:
     # ---------------- HUD (kare 0 sabit) ----------------
     kun = Y.kunye_svg("Mini question")
     gw_pc = Y.genislik("Fredoka", 700, "PRESENT CONTINUOUS", 56)
-    gw_rz = Y.genislik("Lexend", 700, "YDT · BASIC", 36)
+    gw_rz = Y.genislik("Lexend", 700, "YDT · TEMEL", 36)
     rx = 48.0 + gw_pc + 24.0
     rw = gw_rz + 56.0
     tx = rx + rw / 2.0
@@ -151,7 +151,7 @@ def uret() -> tuple[Y.Sahne, dict]:
         f'<g id="ku-rozet">'
         f'<rect x="{rx:.2f}" y="216" width="{rw:.2f}" height="72" rx="36" fill="#f2a93b"/>'
         f'<text x="{tx:.2f}" y="265" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="36" '
-        f'fill="#1b1a17">YDT · BASIC</text>'
+        f'fill="#1b1a17">YDT · TEMEL</text>'
         f'</g>'
     )
     kun = kun.replace('<g id="kunye">', f'<g id="kunye">{ku_ders}{ku_rozet}')

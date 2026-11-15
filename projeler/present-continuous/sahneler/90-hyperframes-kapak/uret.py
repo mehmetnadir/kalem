@@ -26,11 +26,10 @@ import yardim as Y  # noqa: E402
 KAPAK = AD.parent.parent / "ortak" / "kapak"
 LOGO = AD.parent.parent / "ortak" / "logo"
 
-# Kapak metni (şef kararı; değiştirme)
+# Kapak metni. 16.11 DUZ3-0201T (YV-DUZ-1511 §4, YVJ YV-6): ders cümlesi düzeldi; "= AM GOING" → "= I AM GOING"
+# (be fiili özneyle görünür) ve küçük satır "-yor → -ing" kalktı (her -yor -ing olmaz: biliyorum, I know).
 SATIR1 = "GİDİYORUM"
-SATIR2 = "= AM GOING"
-KUCUK_SOL = "-yor"
-KUCUK_SAG = "-ing"
+SATIR2 = "= I AM GOING"
 ROZET = "YDT · TEMEL"
 
 KREM = "#f3efe6"
@@ -161,13 +160,13 @@ def kesisir(a: Kutu, b: Kutu) -> bool:
 
 def yatay() -> Duzen:
     W, H = 1920, 1080
-    # 9 harflik metin: S 168 (vurgu kutusu x 1068, sol %56); saç ucu (kaynak x 19) kutudan 34 px uzak.
+    # DUZ3-0201T: "= I AM GOING" (12 karakter) → S 154 (vurgu kutusu x 1060, sol %55); küçük satır kalktı → T1 456 → 500 (blok ortalı).
     # Arka yumruk (kaynak x 720-830, y 985-1095) sağ alt süre rozeti bölgesine düşmesin diye karakter tam boy,
     # tabanı y 975'te (alttan taşmaz; çıkartma kenarı tabanı da çevreler, dikey emsaldeki düz kesik gibi).
     s, n = 0.84, 0.30
     return Duzen(
-        W=W, H=H, S=168.0, L=64.0, R=40.0, X0=96.0, LOGO_UST=54.0, LOGO_H=84.0,
-        T1=456.0, ROZET_ALT=1026.0,
+        W=W, H=H, S=154.0, L=64.0, R=40.0, X0=96.0, LOGO_UST=54.0, LOGO_H=84.0,
+        T1=500.0, ROZET_ALT=1026.0,
         karakter=Gorsel("karakter", "karakter.png", 1812.5 - 857 * s, 975.0 - 1112 * s, s),
         nesne=Gorsel("nesne", "nesne.png", 900.0 - 170 * n, 776.0 - 105 * n, n),
         daire=(1460.0, 470.0, 362.0),
@@ -181,8 +180,8 @@ def dikey() -> Duzen:
     W, H = 1080, 1920
     s, n, kirp = 0.78, 0.30, 990  # karakter arka yumruk üstünde (kaynak satır 990) düz kesilir: yüz büyür, alt %20 boş kalır
     return Duzen(
-        W=W, H=H, S=160.0, L=48.0, R=36.0, X0=72.0, LOGO_UST=400.0, LOGO_H=72.0,
-        T1=492.0 + 0.921 * 160.0, ROZET_ALT=1500.0,
+        W=W, H=H, S=148.0, L=48.0, R=36.0, X0=72.0, LOGO_UST=400.0, LOGO_H=72.0,  # DUZ3: S 160 → 148 (= I AM GOING)
+        T1=492.0 + 0.921 * 148.0, ROZET_ALT=1500.0,
         karakter=Gorsel("karakter", "karakter.png", 1014.0 - 856 * s, 866.0 - 173 * s, s, kirp),
         nesne=Gorsel("nesne", "nesne.png", 110.0 - 170 * n, 1150.0 - 105 * n, n),
         daire=(700.0, 1155.0, 300.0),
@@ -238,21 +237,7 @@ def ciz(d: Duzen, tema: str) -> tuple[str, list[Kutu]]:
     T2 = k_ust + pv + 0.70 * S
     kutu = Kutu("vurgu", d.X0, k_ust, d.X0 + k_gen + 2 * ph, T2 + pv)
 
-    # Küçük satır: "-yor" + ok (SVG; Lexend'de → glifi yok) + "-ing"
-    ks_sol, _ = gorunur("Lexend", 700, KUCUK_SOL, L)
-    gorunur("Lexend", 700, KUCUK_SAG, L)
-    bosluk = Y.genislik("Lexend", 700, " ", L)
-    ok_x0 = d.X0 - ks_sol + Y.genislik("Lexend", 700, KUCUK_SOL, L) + bosluk
-    ok_x1 = ok_x0 + 0.78 * L
-    sag_x = ok_x1 + bosluk
-    T3 = kutu.y1 + 0.62 * L + 0.74 * L
-    _, h_alt, _, h_ust, _ = sinir("Lexend", 700, "-")
-    ok_y = T3 - (h_alt + h_ust) / 2 * L
-    ok_k = (h_ust - h_alt) * L
-    ok_u = 0.30 * L
-    s_g = sinir("Lexend", 700, "s")
-    kucuk = Kutu("kucuk", d.X0, T3 - 0.74 * L, sag_x + Y.genislik("Lexend", 700, KUCUK_SAG, L) - (s_g[4] - s_g[2]) * L,
-                 T3 + 0.02 * L)
+    # Küçük satır yok (DUZ3-0201T; standart §2: isteğe bağlı)
 
     # Logo (svg kutusu 1920x476,3; mürekkep yaklaşık x 68-1850, y 73-400)
     lw = d.LOGO_H * Y.LOGO_EN_BOY
@@ -266,7 +251,7 @@ def ciz(d: Duzen, tema: str) -> tuple[str, list[Kutu]]:
     gorunur("Lexend", 700, ROZET, d.R)
     rozet = Kutu("rozet", d.X0, d.ROZET_ALT - rh, d.X0 + rw, d.ROZET_ALT)
 
-    yazilar = [s1, kutu, kucuk, logo, rozet]
+    yazilar = [s1, kutu, logo, rozet]
     gk = [gorsel_kutusu(d.karakter), gorsel_kutusu(d.nesne)]
     denetle(d, yazilar, gk, R["daire"] is not None)
 
@@ -279,11 +264,6 @@ def ciz(d: Duzen, tema: str) -> tuple[str, list[Kutu]]:
         f'<rect id="vurgu" x="{kutu.x0:.2f}" y="{kutu.y0:.2f}" width="{kutu.x1 - kutu.x0:.2f}" '
         f'height="{kutu.y1 - kutu.y0:.2f}" rx="{0.10 * S:.1f}" fill="{R["kutu"]}"/>'
         f'<text id="s2" x="{kutu.x0 + ph - k_sol:.2f}" y="{T2:.2f}" font-size="{S:.0f}" {fr} fill="{R["kutuYazi"]}">{SATIR2}</text>'
-        f'<text id="k1" x="{d.X0 - ks_sol:.2f}" y="{T3:.2f}" font-size="{L:.0f}" {lx_} fill="{R["yazi"]}">{KUCUK_SOL}</text>'
-        f'<path id="ok" d="M{ok_x0:.1f} {ok_y:.1f} H{ok_x1:.1f} M{ok_x1 - ok_u:.1f} {ok_y - ok_u:.1f} L{ok_x1:.1f} {ok_y:.1f} '
-        f'L{ok_x1 - ok_u:.1f} {ok_y + ok_u:.1f}" fill="none" stroke="{R["yazi"]}" stroke-width="{ok_k:.1f}" '
-        f'stroke-linecap="round" stroke-linejoin="round"/>'
-        f'<text id="k2" x="{sag_x:.2f}" y="{T3:.2f}" font-size="{L:.0f}" {lx_} fill="{R["yazi"]}">{KUCUK_SAG}</text>'
         f'<rect id="rozet" x="{rozet.x0 + 2.5:.1f}" y="{rozet.y0 + 2.5:.1f}" width="{rw - 5:.1f}" height="{rh - 5:.1f}" '
         f'rx="{(rh - 5) / 2:.1f}" fill="none" stroke="{R["yazi"]}" stroke-width="5"/>'
         f'<text id="rozet-yazi" x="{rozet.x0 + rw / 2:.1f}" y="{d.ROZET_ALT - rh / 2 + 0.35 * d.R:.1f}" '

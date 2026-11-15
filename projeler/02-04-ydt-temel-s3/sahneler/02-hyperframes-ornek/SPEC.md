@@ -1,5 +1,8 @@
 # SPEC v2 — 02-04-ydt-temel-s3 · sahne 02-hyperframes-ornek (değer) · huni v2 · 15.11.2026
 
+> DUZ2 (15.11): cümle 3 yeni metin (13 sözcük, SOZ 27–39); balonda TR soru yok, yalnız EN `-ing?` (A5); altyazı karaoke (tspan, ikincil → mürekkep; sahne 03 düzeni); etiketler `kesin düzenleme` (kart 2) ve `tarife` (kart 1), Caveat ikincil; `person → plan` / `train → timetable` kalktı; kol b için SOZ/TB kayması veriden. Kaynak `uret.py`; aşağıdaki eski zamanlar 28,31 sn sürümündendir.
+
+
 Şef tasarımı. Uygulayıcı (agy) YALNIZ şu dosyayı yerinde düzenler:
 `/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s3/sahneler/02-hyperframes-ornek/uret.py`
 Başka dosyaya dokunma. Silme yok. Test, render, git yok. Şef koşturur.
@@ -87,8 +90,8 @@ geçmedi; bu değerler şefin seçimidir, RAPOR'da karşılaştırılır.
 - `<g id="kunye">` içinde:
   - konu `<text id="ku-konu">`: `Simple Present vs Present Continuous`, Fredoka 700, x 60, taban y 420, fill KRE, boy `KB`.
   - rozet `<g id="ku-rz">`: `<rect>` x `RX`, y 386, genişlik `RW`, yükseklik 48, `rx 24`, fill SAR (tema `vurguDolgu` yapar) +
-    `<text>` `YDT · BASIC` Lexend 700 26, `text-anchor="middle"`, x `RX + RW/2`, taban y 419, fill ZEM (tema `pilMetin` yapar).
-- `RW = g_l700("YDT · BASIC", 26) + 40`. `KB` = 34'ten 28'e inen ilk tam sayı ki `60 + g_f700(konu, KB) + 20 + RW ≤ 960`; bulunamazsa `assert`.
+    `<text>` `YDT · TEMEL` Lexend 700 26, `text-anchor="middle"`, x `RX + RW/2`, taban y 419, fill ZEM (tema `pilMetin` yapar).
+- `RW = g_l700("YDT · TEMEL", 26) + 40`. `KB` = 34'ten 28'e inen ilk tam sayı ki `60 + g_f700(konu, KB) + 20 + RW ≤ 960`; bulunamazsa `assert`.
   `RX = 60 + g_f700(konu, KB) + 20`. (Ölçüm: KB 34 → konu 584,6, rozet sağ ucu ≈ 868.)
 - `id="t2"`, `id="rz1"`, `id="ku-nokta"`, `ku-ders1`, `ku-ders2`, `ku-bolum` YOK.
 
@@ -140,7 +143,7 @@ Gruplar (`#zc`, `#k2`, `#balg`) ve `s.svg` ekleme sırası v1 ile aynı.
 - Renk yalnız `Y.RENK` koyu değerleri (KRE, IKN, SAR, ZEM); açık tema hex'i (`#ffe066`, `#1b2440`, `#f7f3ea`) YAZMA. Kırmızı, yeşil,
   gradyan, gölge, emoji yok. `→` glifi yok (oklar çizilir). Her `s.svg` öğesinin ilk özniteliği `id`; kimlikler tekil.
 - Ekran metni yalnız: kart satırları, `now`, `7 pm`, `tonight`, `gelecek · V-s`, `gelecek · am + V-ing`, balon sözcükleri, `person`, `plan`,
-  `train`, `timetable`, künye (`Simple Present vs Present Continuous`, `YDT · BASIC`), `@ydspublishing`, altyazı.
+  `train`, `timetable`, künye (`Simple Present vs Present Continuous`, `YDT · TEMEL`), `@ydspublishing`, altyazı.
 - `assert` listesi (v1 listesinin yerine):
   1. kart 1 satır 1 sağ ucu ≤ 719 − 24; satır 2 sağ ucu ≤ 950 − 40; kart 2 satır 1 sağ ucu ≤ bilet sol ucu − 24.
   2. üst etiketler arası (now ↔ 7 pm, 7 pm ↔ tonight) ≥ 24; `tg1` sağ ucu ile `tg2` sol ucu arası ≥ 24; `tg2` sağ ucu ≤ 948; `tl_now` sol ucu ≥ 60.
@@ -157,7 +160,7 @@ Gruplar (`#zc`, `#k2`, `#balg`) ve `s.svg` ekleme sırası v1 ile aynı.
 ## 7. Kabul ölçütü (şef doğrular)
 
 1. `cd <sahne> && /usr/bin/python3 uret.py` çıkış 0; `Y.kontrol` geçer; `/usr/bin/python3 olay.py` çıkış 0.
-2. `proje/index.html`: `data-duration="13.4"`, `id="kanal"`, `@ydspublishing`, `id="ku-konu"`, `YDT · BASIC`, `id="zc"`, `id="k2"`,
+2. `proje/index.html`: `data-duration="13.4"`, `id="kanal"`, `@ydspublishing`, `id="ku-konu"`, `YDT · TEMEL`, `id="zc"`, `id="k2"`,
    `id="balg"`, `İzmir`, `x="510"`; `Example`, `SIMPLE PRESENT vs`, `ku-bolum`, `Izmir`, `seven`, `p.m.`, `→`, `#ffe066`, `#1b2440` YOK.
 3. `logoimg` x 53.2, y 291, yükseklik 48; `kanal-ad` x 263, y 330.
 4. Şef: `qa-yerel.sh … 3.0,9.5,15.96 13.5 --hazirla` çıkış 0; çakışma kapısı 0 uyarı.

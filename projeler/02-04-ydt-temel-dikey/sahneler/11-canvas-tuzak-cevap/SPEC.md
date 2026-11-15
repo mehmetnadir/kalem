@@ -1,5 +1,7 @@
 # SPEC — 02-04 dikey · sahne 11-canvas-tuzak-cevap (düz canvas, 1080×1920)
 
+> **16.11 DUZ3:** cümle 13 «Ailenle hep orada yaşıyorsan» → «Ailenle kalıcı olarak yaşıyorsan»; not «always» → «long-term» (EK-5c); 643 kare; TBAS 183,79 eski çerçeve + KAYMA −1,68; cümle içi sabit zamanlar sözcüğe bağlı. Bu belgedeki saniye ve metinler önceki sürümündür; geçerli olan kod + `zaman.json`.
+
 Şef tasarımı (15.11). Uygulayan agy yalnız şu dosyayı yazar:
 
 **`/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-dikey/sahneler/11-canvas-tuzak-cevap/sahne.js`**
@@ -53,7 +55,7 @@ Cümleler: `a = S.sozc.slice(4, 9)` → `I am living in İstanbul.` · `b = S.so
  670 │ ──────────────────[kısa bant 690–830]──●now(760)──────────────► eksen 1, now taban 730        │
  840 │            ≠  meaning        (≠ sarı kalem + Caveat 88, ortalı x 540, taban 840)              │
  910 │ Kart 2 910–1050: I live in İstanbul.  (Fredoka 72, taban 990, x 88)                            │
-1120 │ → always (permanent)         (ok x 88–152 · Caveat 64 x 172, taban 1120)                      │
+1120 │ → long-term (permanent)         (ok x 88–152 · Caveat 64 x 172, taban 1120)                      │
 1196 │ ──[uzun bant 150–880]────────────────●now(760)─────────────────► eksen 2, now taban 1256      │
 1228 │                                                       [öğrenci başı x 892–1009, y 1228–1388]  │
 1392 └──────────────────────────────────────────────────────────────────────────────────────────────┘
@@ -76,8 +78,8 @@ Not sütunu iki kartta aynı x (ok 88 → 152, yazı 172). now x iki çizgide ay
 | 8 | `t(13)` 191,55 | Geçici. | `nTmp = S.elYazisi({ metin: "(temporary)", x: 172 + eyGen("for now", 64) + 20, y: 592, boy: 64, renk: RT.murekkep, tb: t(13), sure: 0.75 })` | 191,55–192,30 |
 | 9 | `t(14)` 192,48 | Ailenle | Kart 2 çerçevesi `S.kart({ x: 48, y: 910, w: 984, h: 140, tb: t(14), ad: "kart-2", tohum: 12, kutuSure: 0.2, kutuAralik: 0.12, satirlar: [] })` | 910–1050; 185,42'de ÇİZİLMEZ |
 | 10 | `t(14)` 192,48 · 192,90 · `t(16)` 193,36 | Ailenle · — · orada | Zaman çizgisi 2: `zamanCizgisi({ TY: 1196, bant: [150, 880], tEksen: t(14), tNokta: 192.9, tBant: t(16), bantSure: 0.85, tohum: 620, nowY: 1256 })` | uzun bant 193,36–194,21 |
-| 11 | `t(15)` 193,12 | hep | `notOk(1120, t(15), 241)`, sonra `S.elYazisi({ metin: "always", x: 172, y: 1120, boy: 64, renk: RT.murekkep, tb: t(15) + 0.16, sure: 0.45 })` | taban 1120 |
-| 12 | 193,95 | yaşıyorsan: | `nPer = S.elYazisi({ metin: "(permanent)", x: 172 + eyGen("always", 64) + 20, y: 1120, boy: 64, renk: RT.murekkep, tb: 193.95, sure: 0.7 })` | |
+| 11 | `t(15)` 193,12 | hep | `notOk(1120, t(15), 241)`, sonra `S.elYazisi({ metin: "long-term", x: 172, y: 1120, boy: 64, renk: RT.murekkep, tb: t(15) + 0.16, sure: 0.45 })` | taban 1120 |
+| 12 | 193,95 | yaşıyorsan: | `nPer = S.elYazisi({ metin: "(permanent)", x: 172 + eyGen("long-term", 64) + 20, y: 1120, boy: 64, renk: RT.murekkep, tb: 193.95, sure: 0.7 })` | |
 | 13 | 194,89–196,65 | I … Istanbul. | `c2 = S.cumleYaz({ sozcukler: b, x: 88, y: 990, font: FF(72), satirH: 92, satirSay: [4], bosluk: 6 })` | tek satır |
 | 14 | `t(23)` 197,70 | yor | odak *am living*: `A = c1.kel[1]`, `B = c1.kel[2]`; `altCizgi(A.x − 6, B.x + B.w + 6, B.y + 0.48 × 72, 11)`; `{ w: 9, renk: RT.vurgu, alfa: 0.9, uc0: 8, uc1: 14, tohum: 501 }`, `sure 0.4`, `ses 0.55`. §6 `donenAlti` ile (201,30'da ikincile döner) | `g` kuyruğunun altından (sözleşme: Fredoka taban + 0,48 × boy) |
 | 15 | `t(23)+0.08` 197,78 | yor | odak *live*: `L = c2.kel[1]`; `altCizgi(L.x − 6, L.x + L.w + 6, L.y + 0.48 × 72, 12)`; tohum 502, `ses false`; `donenAlti` | |

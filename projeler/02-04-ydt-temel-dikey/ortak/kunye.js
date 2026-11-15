@@ -54,7 +54,7 @@ try { temaSec(new URLSearchParams(location.search).get("tema") || "koyu"); } cat
 export const KUNYE = { kenar: 48, logoY: 48, logoYuk: 96, dersTaban: 212, dersYazi: 56, dersSatir: 64, rozetY: 216,
   rozetH: 72, rozetAra: 24, rozetYazi: 36, cipY: 48, cipH: 80, cipYazi: 40, hudSon: 320, icerikBas: 352,
   icerikSon: 1392, altyaziBas: 1400, altyaziSon: 1536, altyaziYazi: 44, altyaziSatir: 56,
-  ders: ["SIMPLE PRESENT vs", "PRESENT CONTINUOUS"], rozet: "YDT · BASIC", ajanda: ["Hook", "Examples", "Rule", "Trap"],
+  ders: ["SIMPLE PRESENT vs", "PRESENT CONTINUOUS"], rozet: "YDT · TEMEL", ajanda: ["Hook", "Examples", "Rule", "Trap"],
   cipler: { "01-hyperframes-giris": "Hook", "02-paperjs-kanca": "Hook", "03-paperjs-ornek1": "Example 1 / 3",
     "04-canvas-ornek2": "Example 2 / 3", "05-canvas-ornek3": "Example 3 / 3", "06-hyperframes-soru1": "Question",
     "07-hyperframes-kural": "Rule", "08-canvas-karsit1": "Contrast 1 / 2", "09-canvas-karsit2": "Contrast 2 / 2",
@@ -259,11 +259,14 @@ function altyaziDilimle(liste, soz) {
   return cikti;
 }
 
+// Satır en çok ALTYAZI_KR karakter (16.11 DUZ3, DK-2: dikey kalıp «satır en çok 24 karakter»; genişlik de sınır).
+const ALTYAZI_KR = 24;
 function altyaziSar(ctx, metin, genislik) {
   const satirlar = []; let s = "";
   for (const w of metin.split(" ")) {
     const d = s ? s + " " + w : w;
-    if (ctx.measureText(d).width > genislik && s) { satirlar.push(s); s = w; } else s = d;
+    const tasar = ctx.measureText(d).width > genislik || d.length > ALTYAZI_KR;
+    if (tasar && s) { satirlar.push(s); s = w; } else s = d;
   }
   if (s) satirlar.push(s);
   return satirlar;

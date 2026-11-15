@@ -1,11 +1,11 @@
-// SAHNE 05 (DİKEY) — Örnek 3: düz canvas, 517 kare, t_bas 45,98; cümle 5.
+// SAHNE 05 (DİKEY) — Örnek 3: düz canvas, 517 kare, t_bas 47,02 (16.11 DUZ3: bütün küresel sabitler +1,04); cümle 5.
 // Zaman yalnız kare numarasından.
 // Yerleşim BRIEF-DIKEY §4: kart (Look! + cümle) -> TR çeviri ->
 // ağaç+kedi (sol) + etiket sütunu (sağ) -> formül.
 import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, renkCoz, kutu, elips, olc, geriTasma, yavasla, kis } from "./sahne-ortak.js";
 
-const KARE = 517, TBAS = 45.98, ICERIK = 505;
+const KARE = 517, TBAS = 47.02, ICERIK = 505;
 const KOKDIZ = "/projeler/present-continuous-dikey/ortak/cizim";
 const S = new Sahne({
   tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: 0, bolum: "Example 3 / 3", cumle: 5
@@ -28,9 +28,9 @@ async function kur() {
   // 47,27 Look! kırmızı pop + cümle sözcük zamanında
   S.koy(S.darbeler(
     kutu(48, 372, 984, 316, 11), { w: 4, renk: IKINCIL, uc0: 10, uc1: 16 },
-    46.5, 0.12, 0.1, 0.5
+    47.54, 0.12, 0.1, 0.5
   ));
-  const lx = 88, ly = 480, lf = FF(110), lw = olc(lf, "Look"), lfb = S.fr(47.27);
+  const lx = 88, ly = 480, lf = FF(110), lw = olc(lf, "Look"), lfb = S.fr(48.31);
   S.bas(lfb); S.olay(lfb, "vurus", 0.9);
   S.koy({ ciz: (ctx, f) => {
     const u = (f - lfb) / 13; if (u <= 0) return;
@@ -43,13 +43,13 @@ async function kur() {
   } });
   const ux = lx + lw + 14;
   S.koy(S.darbe([[ux - 2, ly - 86], [ux + 2, ly - 56], [ux + 3, ly - 28]],
-    { w: 16, renk: KIRMIZI, alfa: 0.95, uc0: 6, uc1: 18, tohum: 61 }, 47.5, 0.22, 0.7));
+    { w: 16, renk: KIRMIZI, alfa: 0.95, uc0: 6, uc1: 18, tohum: 61 }, 48.54, 0.22, 0.7));
   S.koy(S.darbe(
     elips(ux + 3, ly - 6, 3.5, 3.5, 0, 62),
     { w: 13, renk: KIRMIZI, alfa: 0.95, uc0: 4, uc1: 4, tohum: 63 },
-    47.78, 0.12, false));
+    48.82, 0.12, false));
 
-  const cum = S.koy(S.cumleYaz({ sozcukler: S.dizi("The", 47.99, 6), x: 88, y: 574, maxGen: 740,
+  const cum = S.koy(S.cumleYaz({ sozcukler: S.dizi("The", 49.03, 6), x: 88, y: 574, maxGen: 740,
     font: FF(72), satirH: 84, bosluk: 8 }));
   const sonSatir = Math.max(...cum.kel.map((k) => k.y));
   const kel = (ad) => cum.kel.find((k) => k.m === ad);
@@ -58,22 +58,22 @@ async function kur() {
   const ytr = sonSatir + 100;
   // 50,32–52,80 «Bak, kedi ağaca tırmanıyor.» (pencere: 4 sözcük)
   S.koy(S.elYazisi({ metin: "Bak, kedi ağaca tırmanıyor.", x: 88, y: ytr, boy: 64, renk: KREM,
-    sozcukler: pen("Bak,", 50.32, 4) }));
+    sozcukler: pen("Bak,", 51.36, 4) }));
 
   // 47,3–48,6 ağaç (460 px); 48,4 kedi (150 px) gövde boyunca aşağıdan ortaya tırmanır
   const TX = 80, TY = 810, TB = 460;
   S.koy(S.cizim({
     svg: agac, kutu: { x: TX, y: TY, w: TB, h: TB }, ad: "agac", esik: 0.01,
-    enCok: 40, w: 4.2, tb: 47.3,
+    enCok: 40, w: 4.2, tb: 48.34,
     sure: 1.3, olayEnCok: 8, nefes: false }));
-  S.koy(S.parilti(TX + TB - 30, TY + 70, 48.65, 30));
+  S.koy(S.parilti(TX + TB - 30, TY + 70, 49.69, 30));
   const KB = 150, kcx = TX + TB / 2, kx = kcx - KB / 2, ky0 = TY + TB - KB + 32;
-  const fTir = S.fr(49.15), fTirSon = S.fr(50.5), MES = 245;
+  const fTir = S.fr(50.19), fTirSon = S.fr(51.54), MES = 245;
   const kg = S.cizim({
     svg: kedi, kutu: { x: kx, y: ky0, w: KB, h: KB }, ad: "kedi", esik: 0.01,
     enCok: 30, w: 4.6,
-    tb: 48.4, sure: 0.6, olayEnCok: 2, nefes: false });
-  kg.dolgu = { nokta: kg.yollar, renk: RT.zemin, fb: S.fr(48.4) };
+    tb: 49.44, sure: 0.6, olayEnCok: 2, nefes: false });
+  kg.dolgu = { nokta: kg.yollar, renk: RT.zemin, fb: S.fr(49.44) };
   kg.donusum = (f) => {
     const u = kis((f - fTir) / (fTirSon - fTir)), e = yavasla(u);
     const fi = Math.min(f, ICERIK), son = f >= fTirSon;
@@ -90,8 +90,8 @@ async function kur() {
     .forEach((p, i) => {
       const d = S.darbe(
         p, { duz: true, w: 3.6, renk: IKINCIL, alfa: 0.8, uc0: 4, uc1: 8, tohum: 80 + i },
-        49.15 + i * 0.05, 0.15, i === 0 ? 0.45 : false);
-      const f0 = S.fr(49.95), oc = d.ciz;
+        50.19 + i * 0.05, 0.15, i === 0 ? 0.45 : false);
+      const f0 = S.fr(50.99), oc = d.ciz;
       d.ciz = (ctx, f) => {
         d.carpan = 1 - kis((f - f0) / 8); if (d.carpan > 0) oc(ctx, f);
       };
@@ -103,8 +103,8 @@ async function kur() {
   const RX = 610, bh = 80, lfn = CV(64);
   // pencereler: Look! 52,88–53,52 · Listen! 53,60–54,40 ·
   // Watch 54,52–54,72 (uzatıldı) · out 54,72–55,04
-  [["Look!", 52.88, 830, pen("Look,", 52.88, 1)], ["Listen!", 53.6, 925, pen("listen,", 53.6, 1)],
-    ["Watch out!", 54.52, 1020, pen("watch", 54.52, 2)]]
+  [["Look!", 53.92, 830, pen("Look,", 53.92, 1)], ["Listen!", 54.64, 925, pen("listen,", 54.64, 1)],
+    ["Watch out!", 55.56, 1020, pen("watch", 55.56, 2)]]
     .forEach(([m, tb, yy, soz], i) => {
     const w = olc(lfn, m) + 56;
     S.koy(S.darbeler(
@@ -115,24 +115,24 @@ async function kur() {
   });
   // 57,12 anlatımsız formül etiketi `= şimdi`: hedef 0,5 sn → 57,62; alt çizgi 57,70
   const sx = RX + 30, sy = 1170;
-  const ey = S.elYazisi({ metin: "= şimdi", x: sx, y: sy, boy: 84, renk: SARI, tb: 57.12,
+  const ey = S.elYazisi({ metin: "= şimdi", x: sx, y: sy, boy: 84, renk: SARI, tb: 58.16,
     sure: 0.5 });
   S.koy(ey);
   const sw = ey.w;
   S.koy(S.darbe([[sx, sy + 18], [sx + sw * 0.5, sy + 14], [sx + sw, sy + 19]],
-    { w: 8, renk: RT.vurguDolgu, alfa: 0.85, uc0: 8, uc1: 14, duz: true }, 57.7, 0.3, 0.55));
-  S.koy(S.parilti(sx + sw + 40, sy - 60, 58.0, 30));
+    { w: 8, renk: RT.vurguDolgu, alfa: 0.85, uc0: 8, uc1: 14, duz: true }, 58.74, 0.3, 0.55));
+  S.koy(S.parilti(sx + sw + 40, sy - 60, 59.04, 30));
 
   // 59,37–59,69 is / climbing halka; formül is + climb-ing (Fredoka 110); 61,14 be + V-ing
-  S.koy(S.halka(kel("is"), 59.37, 0.3, 21));
-  S.koy(S.halka(kel("climbing"), 59.69, 0.3, 22));
+  S.koy(S.halka(kel("is"), 60.41, 0.3, 21));
+  S.koy(S.halka(kel("climbing"), 60.73, 0.3, 22));
   S.koy(S.metinPop({
     parca: [["is", KREM], [" + ", IKINCIL], ["climb", KREM], ["-ing", SARI]],
     x: 540, y: 1364,
-    font: FF(110), hiza: "orta", tb: 60.0, sure: 0.4, ses: 0.8, turu: "vurus" }));
+    font: FF(110), hiza: "orta", tb: 61.04, sure: 0.4, ses: 0.8, turu: "vurus" }));
   // 61,14 anlatımsız formül etiketi `be + V-ing`: hedef 0,7 sn → 61,84
   S.koy(S.elYazisi({ metin: "be + V-ing", x: RX + 30, y: 1255, boy: 72, renk: IKINCIL,
-    tb: 61.14, sure: 0.7 }));
+    tb: 62.18, sure: 0.7 }));
 }
 
 surucu(kur, (f) => S.kare(f), KARE);

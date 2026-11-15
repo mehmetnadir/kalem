@@ -13,7 +13,7 @@ AD = Path(__file__).resolve().parent
 ORTAK = AD.parent.parent / "ortak"
 FONT = ORTAK / "font"
 W, H = 1080, 1920
-DERS, ROZET = "PRESENT PERFECT", "YDT · ADVANCED"
+DERS, ROZET = "PRESENT PERFECT", "YDT · İLERİ"
 RENK = {"zemin": "#1b1a17", "murekkep": "#f3efe6", "ikincil": "#c9c2b3", "vurgu": "#f2a93b",
         "logoSari": "#fece00", "kirmizi": "#e0473b"}
 LOGO_EN_BOY = 1920 / 476.3

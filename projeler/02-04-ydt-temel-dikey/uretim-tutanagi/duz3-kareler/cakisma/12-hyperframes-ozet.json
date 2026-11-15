@@ -1,0 +1,26 @@
+{
+  "paket": "02-04-ydt-temel-dikey",
+  "sikilik": 4,
+  "pay": 4,
+  "tarih": "2026-11-15T22:30:10.716Z",
+  "ozet": {
+    "toplamSahne": 1,
+    "olculen": 1,
+    "olculmedi": 0,
+    "olcumHatasi": 0,
+    "toplamHata": 0,
+    "toplamUyari": 0
+  },
+  "sahneler": [
+    {
+      "sahne": "12-hyperframes-ozet",
+      "motor": "HyperFrames",
+      "durum": "olculdu",
+      "ornekSayisi": 66,
+      "kutuSayisi": 30982,
+      "t_bas": 206.5,
+      "t_son": 222.65,
+      "olaylar": []
+    }
+  ]
+}

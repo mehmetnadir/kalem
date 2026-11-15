@@ -107,5 +107,13 @@
       "kaynak": "ana-yatay"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "s1",
+      "no": "r1",
+      "tarih": "2026-11-15T21:50:00Z",
+      "degisiklik": "DUZ2 (J2 A1/TD-1, A2/TD-2; C1/HV-22): rozet YDT · TEMEL (senaryo giris.rozetler, BRIEF, ortak/kunye.js, 7 yardim.py, SPEC); SP karakteri kadın: ortak/kapak/karakter.png ana paketten kopya (sha256 5a902b40…), ana-kapak/-koyu = ana paket kapak.png/kapak-koyu.png; kapak B yerleşimi yeni işaret yönüne göre (KAR_KUTU, BAS_X, PARMAK, NESNE_UST); BRIEF can alıcı satırı senaryo meta ile eşitlendi. A3, A4, A6, TD-3, TD-4 bu pakette yok. Ses ve zaman değişmedi (24,00 sn). Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    }
+  ]
 }

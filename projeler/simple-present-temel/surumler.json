@@ -13,9 +13,9 @@
       "Türkçe geniş zaman eki ile köprü"
     ],
     "canAlici": [
-      "Türkçedeki geniş zaman eki = İngilizcedeki s: gider = goes",
+      "Geniş zaman eki Türkçede her kişide gelir (giderim, gider); İngilizcede s yalnız he, she, it ile gelir (I go, he goes)",
       "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
-      "usually, always, every day = tekrar eden iş sinyali",
+      "usually, always, every day çoğu zaman alışkanlığı işaret eder; zamanı tek başına belirlemez (always öteki zamanlarla da gelir)",
       "he, she, it fiile s alır; I, you, we, they almaz",
       "3 örnek, 1 kural: üçünde de fiilin sonunda s"
     ],
@@ -70,5 +70,34 @@
       "proje": "simple-present-temel-s1"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "ana-yatay",
+      "no": "r1",
+      "tarih": "2026-11-15T20:52:00Z",
+      "degisiklik": "DUZ2 (J2 özeti A1–A3): rozet İngilizce seviye adından YDT · TEMEL’e (giriş + künye); kapak karakteri kadın öğrenci (K22, KS-10); cümle 7 yanlış denklik 'Türkçedeki er eki gibi: git-er, go-es' → 'Türkçede geniş zaman eki her kişide gelir, İngilizcede s yalnız üçüncü tekil kişide' (yalnız cümle 7 yeniden sentez, ders 93,47 → 96,47 sn), sahne 06 kartı giderim · gider / I go · he goes; canAlici[0] düzeltildi; render yok",
+      "cikti": null
+    },
+    {
+      "surum": "dikey-tam",
+      "no": "r1",
+      "tarih": "2026-11-15T20:52:00Z",
+      "degisiklik": "DUZ2 (J2 özeti A1–A3): rozet YDT · TEMEL (künye + giriş + form); dikey kapak yeni kadın karakterle; cümle 7 sesi ana dersle ortak (aynı dosya), sahne 06 kart satırı giderim · gider | I go · he goes; süre 96,47 sn; render yok",
+      "cikti": null
+    },
+    {
+      "surum": "ana-yatay",
+      "no": "r2",
+      "tarih": "2026-11-16T00:00:00Z",
+      "degisiklik": "YV-DUZ-SP (yalnız yayın verisi; ses, sahne, zaman değişmedi): açıklamaya 'Bölümler:' satırı; açıklama satır 1 üç öğeye indi; bölüm 3 adı 'Alışkanlık: usually, always, every day' → 'Alışkanlık: My brother usually goes to school'; canAlici[2] mutlak kod ('= tekrar eden iş sinyali') yumuşatıldı; bölüm ve bildirim zamanları 96,47 sn derste yeniden ölçüldü, değişmedi. Rapor: uretim-tutanagi/YV-DUZ-SP-RAPOR.md",
+      "cikti": null
+    },
+    {
+      "surum": "dikey-tam",
+      "no": "r2",
+      "tarih": "2026-11-16T00:00:00Z",
+      "degisiklik": "YV-DUZ-SP: dikey youtube.json ve youtube-aciklama.md yatayla aynı metne getirildi (utm_content=dikey-tam kaldı)",
+      "cikti": null
+    }
+  ]
 }

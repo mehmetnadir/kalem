@@ -1,6 +1,6 @@
 # Sahne 08 · hikâye karesi B, soru kartı — huni v2 (simple-present-temel-s2, HyperFrames 1080×1920, tek kare, ses yok) · 15.11.2026
 
-Tema: acik (son hazırlık açık; koyu kare ayrıca yakalandı)
+Tema: acik
 
 | Kapı | Sonuç |
 |---|---|

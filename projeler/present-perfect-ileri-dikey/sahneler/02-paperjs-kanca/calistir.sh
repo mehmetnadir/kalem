@@ -1,9 +1,9 @@
 #!/bin/bash
-# Sahne 02 D1 (Paper.js, dikey 1080x1920, 431 kare): yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png
+# Sahne 02 D1 (Paper.js, dikey 1080x1920, 473 kare): yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png
 # Tema: --tema acik|koyu (varsayılan acik). Geçici kareler ~/Silinecekler/2026-11-05-kalem-ppi/ altına taşınır (silme yok).
 set -eo pipefail
-D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=461
-KLASOR=02-paperjs-kanca; TBAS=3.0; GLOBAL_SN="4.5 11.5 14.8"
+D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=473
+KLASOR=02-paperjs-kanca; TBAS=3.0; GLOBAL_SN="4.9 11.9 15.2"
 . "$D/../../ortak/tema.sh" "$@"
 cd "$K"
 BAS=$(date +%s)

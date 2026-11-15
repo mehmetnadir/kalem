@@ -1,7 +1,7 @@
 """Ortak yardımcılar, DİKEY 1080x1920 (simple-present-temel-s1 sahne 05 v2 kopyası; sahne 06 kapak B).
 Sahne 06: kunye_svg(konu=False, cerceve=True) -> künye satırında yalnız rozet, çerçeveli hap (sarı zemin).
 Yol verisi, yazı genişliği (fontTools, kerning yok), künye SVG'si, yazı tipi CSS'i.
-huni v2 (15.11): kanal katmanı (`#kanal`, logo `#logoimg`) + künye satırı (konu `Simple Present` + `YDT · BASIC`)
+huni v2 (15.11): kanal katmanı (`#kanal`, logo `#logoimg`) + künye satırı (konu `Simple Present` + `YDT · TEMEL`)
 + v2 bantları (BRIEF-S1 "Kanal katmanı"); çip yok."""
 import json
 import math
@@ -156,7 +156,7 @@ HUD = {"kenar": 60, "sagSinir": 960,
        "altyaziBas": 1400, "altyaziSon": 1550, "altyaziYazi": 44, "altyaziSatir": 56,
        "altyaziMerkez": 510, "altyaziEn": 900}
 KONU = "Simple Present"
-ROZETLER = ("YDT · BASIC",)
+ROZETLER = ("YDT · TEMEL",)
 KANAL_YAZI = "@ydspublishing"
 
 

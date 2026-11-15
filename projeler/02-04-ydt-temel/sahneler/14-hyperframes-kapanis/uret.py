@@ -97,7 +97,8 @@ def uret():
                    round(0.12 + w / 1100, 2), tur=None if j == 1 else "tik", guc=0.45)
             kayit("soru %d: %s" % (k + 1, m.strip()), t, i)
             x += w + SORU_ARA
-    # ---- "Sonraki derste -ing almayan fiilleri görüyoruz.": sonraki ders kartı (02-05) ----
+    # ---- "Sonraki derste durum bildiren fiilleri görüyoruz.": sonraki ders kartı (02-05) ----
+    # 16.11 DUZ3: eski cümle «-ing almayan fiiller» mutlak kuraldı (durum fiilleri de -ing alabilir); Stative = «durum»
     kx, ky, kw, kh = KART
     assert KART_IC + g("Stative Verbs", KART_BOY) <= kw - KART_IC, "kart başlığı taştı"
     t = S(T(20, "Sonraki"))
@@ -108,7 +109,7 @@ def uret():
            tur=None)
     kayit("Next lesson", t, 21)
     ws = g("Stative ", KART_BOY)
-    for kim, m, x, i, bas in (("k2", "Stative", kx + KART_IC, 22, "-ing"),
+    for kim, m, x, i, bas in (("k2", "Stative", kx + KART_IC, 22, "durum"),
                               ("k3", "Verbs", kx + KART_IC + ws, 24, "fiil")):
         t = S(T(i, bas))
         s.yazi(kim, x, ky + u(172), [(m, KRE)], "Fredoka", 700, KART_BOY, t, 0.3, tur="tik",

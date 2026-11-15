@@ -1,0 +1,190 @@
+# diff -rq K/projeler/simple-present-temel-s3 K/projeler/simple-present-temel-s3b · 16.11.2026 01:11 · 189 satır
+Files projeler/simple-present-temel-s3/aciklama-a.md and projeler/simple-present-temel-s3b/aciklama-a.md differ
+Files projeler/simple-present-temel-s3/aciklama-b.md and projeler/simple-present-temel-s3b/aciklama-b.md differ
+Files projeler/simple-present-temel-s3/aciklama.md and projeler/simple-present-temel-s3b/aciklama.md differ
+Only in projeler/simple-present-temel-s3: hikaye-a.png
+Only in projeler/simple-present-temel-s3: hikaye-b.png
+Only in projeler/simple-present-temel-s3: hikaye.png
+Files projeler/simple-present-temel-s3/kapak-a-168.png and projeler/simple-present-temel-s3b/kapak-a-168.png differ
+Files projeler/simple-present-temel-s3/kapak-a.png and projeler/simple-present-temel-s3b/kapak-a.png differ
+Only in projeler/simple-present-temel-s3: kapak-b-168.png
+Only in projeler/simple-present-temel-s3: kapak-b.png
+Only in projeler/simple-present-temel-s3: kapak-c-168.png
+Only in projeler/simple-present-temel-s3: kapak-c.png
+Files projeler/simple-present-temel-s3/kapak.png and projeler/simple-present-temel-s3b/kapak.png differ
+Files projeler/simple-present-temel-s3/ortak/anlatim/altyazi.json and projeler/simple-present-temel-s3b/ortak/anlatim/altyazi.json differ
+Files projeler/simple-present-temel-s3/ortak/anlatim/anlatim.m4a and projeler/simple-present-temel-s3b/ortak/anlatim/anlatim.m4a differ
+Files projeler/simple-present-temel-s3/ortak/anlatim/anlatim.m4a.imza and projeler/simple-present-temel-s3b/ortak/anlatim/anlatim.m4a.imza differ
+Files projeler/simple-present-temel-s3/ortak/anlatim/anlatim.wav and projeler/simple-present-temel-s3b/ortak/anlatim/anlatim.wav differ
+Files projeler/simple-present-temel-s3/ortak/anlatim/baslar.json and projeler/simple-present-temel-s3b/ortak/anlatim/baslar.json differ
+Files projeler/simple-present-temel-s3/ortak/anlatim/cumle-1.wav and projeler/simple-present-temel-s3b/ortak/anlatim/cumle-1.wav differ
+Files projeler/simple-present-temel-s3/ortak/anlatim/METIN.md and projeler/simple-present-temel-s3b/ortak/anlatim/METIN.md differ
+Files projeler/simple-present-temel-s3/ortak/anlatim/senaryo.json and projeler/simple-present-temel-s3b/ortak/anlatim/senaryo.json differ
+Files projeler/simple-present-temel-s3/ortak/anlatim/sentez.wav and projeler/simple-present-temel-s3b/ortak/anlatim/sentez.wav differ
+Files projeler/simple-present-temel-s3/ortak/anlatim/sentez.wav.rapor.json and projeler/simple-present-temel-s3b/ortak/anlatim/sentez.wav.rapor.json differ
+Files projeler/simple-present-temel-s3/ortak/anlatim/sozcukler.json and projeler/simple-present-temel-s3b/ortak/anlatim/sozcukler.json differ
+Files projeler/simple-present-temel-s3/ortak/anlatim/sureler.json and projeler/simple-present-temel-s3b/ortak/anlatim/sureler.json differ
+Files projeler/simple-present-temel-s3/ortak/kunye.js and projeler/simple-present-temel-s3b/ortak/kunye.js differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/calistir.sh and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/calistir.sh differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/devir.json and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/devir.json differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/k/01-hyperframes-kanca-0.9.png and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/k/01-hyperframes-kanca-0.9.png differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/k/01-hyperframes-kanca-0.png and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/k/01-hyperframes-kanca-0.png differ
+Only in projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/k: 01-hyperframes-kanca-1.4.png
+Only in projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/k: 01-hyperframes-kanca-1.95.png
+Only in projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/k: 01-hyperframes-kanca-2.12.png
+Only in projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/k: 01-hyperframes-kanca-2.5.png
+Only in projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/k: 01-hyperframes-kanca-2.8.png
+Only in projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/k: 01-hyperframes-kanca-2.9.png
+Only in projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/k: 01-hyperframes-kanca-3.23.png
+Only in projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/k: 01-hyperframes-kanca-3.2.png
+Only in projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/k: 01-hyperframes-kanca-3.5.png
+Only in projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/k: 01-hyperframes-kanca-3.8.png
+Only in projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/k: 01-hyperframes-kanca-3.png
+Only in projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/k/koyu: 01-hyperframes-kanca-1.95.png
+Only in projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/k/koyu: 01-hyperframes-kanca-2.12.png
+Only in projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/k/koyu: 01-hyperframes-kanca-2.8.png
+Only in projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/k/koyu: 01-hyperframes-kanca-2.9.png
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/k/koyu/kapak-a-koyu.png and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/k/koyu/kapak-a-koyu.png differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/olaylar.json and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/olaylar.json differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/olay.py and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/olay.py differ
+Only in projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/proje/.hyperframes/artifacts/checks: 57a55f42-1a1b-4d61-b6cb-4c41f237eb1e.json
+Only in projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/proje/.hyperframes/artifacts/checks: 754b5deb-2cac-48eb-b12a-f4396c47024d.json
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/proje/.hyperframes/history-id and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/proje/.hyperframes/history-id differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/proje/.hyperframes/video-state.json and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/proje/.hyperframes/video-state.json differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/proje/index.html and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/proje/index.html differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/proje-ka/.hyperframes/history-id and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/proje-ka/.hyperframes/history-id differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/proje-ka/.hyperframes/video-state.json and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/proje-ka/.hyperframes/video-state.json differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/proje-ka/index.html and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/proje-ka/index.html differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/proje-ka/k/ka-acik/at-0.9s.png and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/proje-ka/k/ka-acik/at-0.9s.png differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/proje-ka-koyu/.hyperframes/history-id and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/proje-ka-koyu/.hyperframes/history-id differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/proje-ka-koyu/.hyperframes/video-state.json and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/proje-ka-koyu/.hyperframes/video-state.json differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/proje-ka-koyu/index.html and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/proje-ka-koyu/index.html differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/proje-ka-koyu/k/ka-koyu/at-0.9s.png and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/proje-ka-koyu/k/ka-koyu/at-0.9s.png differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/__pycache__/uret.cpython-310.pyc and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/__pycache__/uret.cpython-310.pyc differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/__pycache__/yardim.cpython-310.pyc and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/__pycache__/yardim.cpython-310.pyc differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/RAPOR.md and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/RAPOR.md differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/SPEC.md and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/SPEC.md differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/uret.py and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/uret.py differ
+Files projeler/simple-present-temel-s3/sahneler/01-hyperframes-kanca/zamanlar.json and projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/zamanlar.json differ
+Files projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/calistir.sh and projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/calistir.sh differ
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k: 02-paperjs-deger-10.35.png
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k: 02-paperjs-deger-10.95.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k: 02-paperjs-deger-11.6.png
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k: 02-paperjs-deger-11.75.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k: 02-paperjs-deger-11.png
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k: 02-paperjs-deger-12.05.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k: 02-paperjs-deger-12.4.png
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k: 02-paperjs-deger-12.75.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k: 02-paperjs-deger-12.7.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k: 02-paperjs-deger-13.4.png
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k: 02-paperjs-deger-13.95.png
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k: 02-paperjs-deger-14.4.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k: 02-paperjs-deger-14.6.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k: 02-paperjs-deger-15.05.png
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k: 02-paperjs-deger-3.25.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k: 02-paperjs-deger-3.9.png
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k: 02-paperjs-deger-4.55.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k: 02-paperjs-deger-5.2.png
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k: 02-paperjs-deger-5.95.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k: 02-paperjs-deger-6.6.png
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k: 02-paperjs-deger-7.75.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k: 02-paperjs-deger-8.4.png
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k: 02-paperjs-deger-8.95.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k: 02-paperjs-deger-9.6.png
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k/koyu: 02-paperjs-deger-10.95.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k/koyu: 02-paperjs-deger-11.6.png
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k/koyu: 02-paperjs-deger-11.75.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k/koyu: 02-paperjs-deger-12.4.png
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k/koyu: 02-paperjs-deger-13.95.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k/koyu: 02-paperjs-deger-14.6.png
+Only in projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/k/koyu: 02-paperjs-deger-4.55.png
+Only in projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/k/koyu: 02-paperjs-deger-5.2.png
+Files projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/kalem-paper.js and projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/kalem-paper.js differ
+Files projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/sahne-02.js and projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/sahne-02.js differ
+Files projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/sayfa.html and projeler/simple-present-temel-s3b/sahneler/02-paperjs-deger/sayfa.html differ
+Only in projeler/simple-present-temel-s3b/sahneler/03-hyperframes-kaydet/k: 03-hyperframes-kaydet-14.55.png
+Only in projeler/simple-present-temel-s3/sahneler/03-hyperframes-kaydet/k: 03-hyperframes-kaydet-15.2.png
+Only in projeler/simple-present-temel-s3b/sahneler/03-hyperframes-kaydet/k: 03-hyperframes-kaydet-15.35.png
+Only in projeler/simple-present-temel-s3b/sahneler/03-hyperframes-kaydet/k: 03-hyperframes-kaydet-15.95.png
+Only in projeler/simple-present-temel-s3/sahneler/03-hyperframes-kaydet/k: 03-hyperframes-kaydet-16.6.png
+Only in projeler/simple-present-temel-s3/sahneler/03-hyperframes-kaydet/k: 03-hyperframes-kaydet-16.png
+Only in projeler/simple-present-temel-s3b/sahneler/03-hyperframes-kaydet/k: 03-hyperframes-kaydet-17.05.png
+Only in projeler/simple-present-temel-s3/sahneler/03-hyperframes-kaydet/k: 03-hyperframes-kaydet-17.7.png
+Only in projeler/simple-present-temel-s3b/sahneler/03-hyperframes-kaydet/k: 03-hyperframes-kaydet-19.05.png
+Only in projeler/simple-present-temel-s3b/sahneler/03-hyperframes-kaydet/k: 03-hyperframes-kaydet-19.65.png
+Only in projeler/simple-present-temel-s3/sahneler/03-hyperframes-kaydet/k: 03-hyperframes-kaydet-19.7.png
+Only in projeler/simple-present-temel-s3/sahneler/03-hyperframes-kaydet/k: 03-hyperframes-kaydet-20.3.png
+Only in projeler/simple-present-temel-s3b/sahneler/03-hyperframes-kaydet/k/koyu: 03-hyperframes-kaydet-17.05.png
+Only in projeler/simple-present-temel-s3/sahneler/03-hyperframes-kaydet/k/koyu: 03-hyperframes-kaydet-17.7.png
+Only in projeler/simple-present-temel-s3b/sahneler/03-hyperframes-kaydet/k/koyu: 03-hyperframes-kaydet-19.05.png
+Only in projeler/simple-present-temel-s3/sahneler/03-hyperframes-kaydet/k/koyu: 03-hyperframes-kaydet-19.7.png
+Only in projeler/simple-present-temel-s3/sahneler/03-hyperframes-kaydet/proje/.hyperframes/artifacts/checks: b8ff46d2-1c68-4e2b-9907-041cd0b30d5d.json
+Only in projeler/simple-present-temel-s3b/sahneler/03-hyperframes-kaydet/proje/.hyperframes/artifacts/checks: fb417bee-a5b4-4a1a-8e37-28450b5f769c.json
+Files projeler/simple-present-temel-s3/sahneler/03-hyperframes-kaydet/proje/.hyperframes/history-id and projeler/simple-present-temel-s3b/sahneler/03-hyperframes-kaydet/proje/.hyperframes/history-id differ
+Files projeler/simple-present-temel-s3/sahneler/03-hyperframes-kaydet/proje/.hyperframes/video-state.json and projeler/simple-present-temel-s3b/sahneler/03-hyperframes-kaydet/proje/.hyperframes/video-state.json differ
+Files projeler/simple-present-temel-s3/sahneler/03-hyperframes-kaydet/__pycache__/yardim.cpython-310.pyc and projeler/simple-present-temel-s3b/sahneler/03-hyperframes-kaydet/__pycache__/yardim.cpython-310.pyc differ
+Files projeler/simple-present-temel-s3/sahneler/03-hyperframes-kaydet/zamanlar.json and projeler/simple-present-temel-s3b/sahneler/03-hyperframes-kaydet/zamanlar.json differ
+Only in projeler/simple-present-temel-s3b/sahneler/04-hyperframes-cagri/k: 04-hyperframes-cagri-19.75.png
+Only in projeler/simple-present-temel-s3/sahneler/04-hyperframes-cagri/k: 04-hyperframes-cagri-20.4.png
+Only in projeler/simple-present-temel-s3b/sahneler/04-hyperframes-cagri/k: 04-hyperframes-cagri-20.55.png
+Only in projeler/simple-present-temel-s3/sahneler/04-hyperframes-cagri/k: 04-hyperframes-cagri-21.2.png
+Only in projeler/simple-present-temel-s3b/sahneler/04-hyperframes-cagri/k: 04-hyperframes-cagri-22.25.png
+Only in projeler/simple-present-temel-s3/sahneler/04-hyperframes-cagri/k: 04-hyperframes-cagri-22.9.png
+Only in projeler/simple-present-temel-s3b/sahneler/04-hyperframes-cagri/k: 04-hyperframes-cagri-23.95.png
+Only in projeler/simple-present-temel-s3/sahneler/04-hyperframes-cagri/k: 04-hyperframes-cagri-24.6.png
+Only in projeler/simple-present-temel-s3b/sahneler/04-hyperframes-cagri/k: 04-hyperframes-cagri-26.65.png
+Only in projeler/simple-present-temel-s3/sahneler/04-hyperframes-cagri/k: 04-hyperframes-cagri-27.3.png
+Only in projeler/simple-present-temel-s3b/sahneler/04-hyperframes-cagri/k/koyu: 04-hyperframes-cagri-22.25.png
+Only in projeler/simple-present-temel-s3/sahneler/04-hyperframes-cagri/k/koyu: 04-hyperframes-cagri-22.9.png
+Only in projeler/simple-present-temel-s3b/sahneler/04-hyperframes-cagri/k/koyu: 04-hyperframes-cagri-26.65.png
+Only in projeler/simple-present-temel-s3/sahneler/04-hyperframes-cagri/k/koyu: 04-hyperframes-cagri-27.3.png
+Only in projeler/simple-present-temel-s3/sahneler/04-hyperframes-cagri/proje/.hyperframes/artifacts/checks: 79f1377f-7d2c-4abd-871a-e9e64484730c.json
+Only in projeler/simple-present-temel-s3b/sahneler/04-hyperframes-cagri/proje/.hyperframes/artifacts/checks: ecd6861c-e04c-4726-a965-906347b8489a.json
+Files projeler/simple-present-temel-s3/sahneler/04-hyperframes-cagri/proje/.hyperframes/history-id and projeler/simple-present-temel-s3b/sahneler/04-hyperframes-cagri/proje/.hyperframes/history-id differ
+Files projeler/simple-present-temel-s3/sahneler/04-hyperframes-cagri/proje/.hyperframes/video-state.json and projeler/simple-present-temel-s3b/sahneler/04-hyperframes-cagri/proje/.hyperframes/video-state.json differ
+Files projeler/simple-present-temel-s3/sahneler/04-hyperframes-cagri/__pycache__/yardim.cpython-310.pyc and projeler/simple-present-temel-s3b/sahneler/04-hyperframes-cagri/__pycache__/yardim.cpython-310.pyc differ
+Files projeler/simple-present-temel-s3/sahneler/04-hyperframes-cagri/zamanlar.json and projeler/simple-present-temel-s3b/sahneler/04-hyperframes-cagri/zamanlar.json differ
+Only in projeler/simple-present-temel-s3/sahneler/05-hyperframes-hikaye-a: k
+Only in projeler/simple-present-temel-s3/sahneler/05-hyperframes-hikaye-a/proje: .hyperframes
+Files projeler/simple-present-temel-s3/sahneler/05-hyperframes-hikaye-a/__pycache__/yardim.cpython-310.pyc and projeler/simple-present-temel-s3b/sahneler/05-hyperframes-hikaye-a/__pycache__/yardim.cpython-310.pyc differ
+Only in projeler/simple-present-temel-s3/sahneler/06-hyperframes-kapak-b: k
+Only in projeler/simple-present-temel-s3/sahneler/06-hyperframes-kapak-b/proje: .hyperframes
+Files projeler/simple-present-temel-s3/sahneler/06-hyperframes-kapak-b/__pycache__/yardim.cpython-310.pyc and projeler/simple-present-temel-s3b/sahneler/06-hyperframes-kapak-b/__pycache__/yardim.cpython-310.pyc differ
+Only in projeler/simple-present-temel-s3/sahneler/07-hyperframes-kapak-c: k
+Only in projeler/simple-present-temel-s3/sahneler/07-hyperframes-kapak-c/proje: .hyperframes
+Files projeler/simple-present-temel-s3/sahneler/07-hyperframes-kapak-c/__pycache__/yardim.cpython-310.pyc and projeler/simple-present-temel-s3b/sahneler/07-hyperframes-kapak-c/__pycache__/yardim.cpython-310.pyc differ
+Only in projeler/simple-present-temel-s3/sahneler/08-hyperframes-hikaye-b: k
+Only in projeler/simple-present-temel-s3/sahneler/08-hyperframes-hikaye-b/proje: .hyperframes
+Files projeler/simple-present-temel-s3/sahneler/08-hyperframes-hikaye-b/__pycache__/yardim.cpython-310.pyc and projeler/simple-present-temel-s3b/sahneler/08-hyperframes-hikaye-b/__pycache__/yardim.cpython-310.pyc differ
+Files projeler/simple-present-temel-s3/surumler.json and projeler/simple-present-temel-s3b/surumler.json differ
+Only in projeler/simple-present-temel-s3b/uretim-tutanagi: ab3-duz2.txt
+Only in projeler/simple-present-temel-s3/uretim-tutanagi: aciklama-taslak.md
+Only in projeler/simple-present-temel-s3b/uretim-tutanagi: BK-RAPOR.md
+Only in projeler/simple-present-temel-s3b/uretim-tutanagi: diff-rq-duz2.txt
+Only in projeler/simple-present-temel-s3b/uretim-tutanagi: diff-rq.txt
+Files projeler/simple-present-temel-s3/uretim-tutanagi/DUZ2-RAPOR.md and projeler/simple-present-temel-s3b/uretim-tutanagi/DUZ2-RAPOR.md differ
+Files projeler/simple-present-temel-s3/uretim-tutanagi/hf-check-duz2.txt and projeler/simple-present-temel-s3b/uretim-tutanagi/hf-check-duz2.txt differ
+Only in projeler/simple-present-temel-s3/uretim-tutanagi: hikaye-taslak.md
+Files projeler/simple-present-temel-s3/uretim-tutanagi/huni-kapi-duz2.txt and projeler/simple-present-temel-s3b/uretim-tutanagi/huni-kapi-duz2.txt differ
+Only in projeler/simple-present-temel-s3/uretim-tutanagi: istem
+Only in projeler/simple-present-temel-s3/uretim-tutanagi/juri: J2-hukum.md
+Only in projeler/simple-present-temel-s3b/uretim-tutanagi/juri: KBJ-hukum.md
+Only in projeler/simple-present-temel-s3/uretim-tutanagi/juri: s3.dil.md
+Only in projeler/simple-present-temel-s3/uretim-tutanagi/juri: s3.kaynak-kural.md
+Files projeler/simple-present-temel-s3/uretim-tutanagi/kapak-taslak.md and projeler/simple-present-temel-s3b/uretim-tutanagi/kapak-taslak.md differ
+Only in projeler/simple-present-temel-s3b/uretim-tutanagi: kapi-cikti.txt
+Files projeler/simple-present-temel-s3/uretim-tutanagi/kapi-duz2.json and projeler/simple-present-temel-s3b/uretim-tutanagi/kapi-duz2.json differ
+Files projeler/simple-present-temel-s3/uretim-tutanagi/kapi-duz2.txt and projeler/simple-present-temel-s3b/uretim-tutanagi/kapi-duz2.txt differ
+Only in projeler/simple-present-temel-s3b/uretim-tutanagi: KBC-RAPOR.md
+Only in projeler/simple-present-temel-s3b/uretim-tutanagi: kol-b.json
+Only in projeler/simple-present-temel-s3b/uretim-tutanagi/kontak: simple-present-temel-s3b-v2-kontak.png
+Only in projeler/simple-present-temel-s3/uretim-tutanagi/kontak: simple-present-temel-s3-v2-kontak.png
+Only in projeler/simple-present-temel-s3b/uretim-tutanagi: kopya-denetim.txt
+Only in projeler/simple-present-temel-s3/uretim-tutanagi: S3-A-RAPOR.md
+Only in projeler/simple-present-temel-s3/uretim-tutanagi: S3-C-RAPOR.md
+Only in projeler/simple-present-temel-s3/uretim-tutanagi: S3-duzeltme.md
+Files projeler/simple-present-temel-s3/uretim-tutanagi/senaryo-taslak.md and projeler/simple-present-temel-s3b/uretim-tutanagi/senaryo-taslak.md differ
+Files projeler/simple-present-temel-s3/uretim-tutanagi/ses-sentez-DUZ2.log and projeler/simple-present-temel-s3b/uretim-tutanagi/ses-sentez-DUZ2.log differ
+Files projeler/simple-present-temel-s3/uretim-tutanagi/ses-sentez.log and projeler/simple-present-temel-s3b/uretim-tutanagi/ses-sentez.log differ
+Only in projeler/simple-present-temel-s3b/uretim-tutanagi: siniflama-duz2.txt
+Files projeler/simple-present-temel-s3/zaman.json and projeler/simple-present-temel-s3b/zaman.json differ

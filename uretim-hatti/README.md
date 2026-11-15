@@ -32,3 +32,8 @@ Bağlayıcı standartlar: `~/01dev/dijital-anlatim/.claude/docs/` (huni-v2, kapa
 3. mp4 yalnız Nadir'in açık sözüyle.
 4. Kanca atlama bayrağı yok.
 5. Jüri çıktıyı görür, içerik değişince yeniden koşar, modeli üreticiden farklıdır.
+
+## YouTube yayın verisi kuralları (YV-DUZ, 16.11)
+- Başlık kalıbı: temel `<Konu> | YDT İngilizce`; ileri `<Konu>: <2–4 sözcük> | YDT İngilizce İleri`. Alt başlık kapak metnini yinelemez (KS-4).
+- Açıklama: damga bloğu "Bölümler:" satırıyla başlar. Sabit yorum ve gönderide aynı cümle ya da yan cümle en çok 2 derste geçer.
+- Tutarlılık kapısı: `python3 uretim-hatti/betikler/yv-tutarlilik.py [--kilitli <paket,…>]` (çıkış 0 = geçti). Rapor: `raporlar/YV-DUZ-1511.md`.

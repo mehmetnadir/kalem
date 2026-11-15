@@ -8,17 +8,17 @@
 | 4 | 28.24 | 43.36 | öğretmen | İkinci örnek. My brother usually goes to school by bus. Kardeşim genellikle okula otobüsle gider. Usually, always, every day: alışkanlık işareti. Fiil goes. Yine s harfi var. |
 | 5 | 43.91 | 60.47 | öğretmen | Üçüncü örnek. Our plane takes off at nine tomorrow. Uçağımız yarın dokuzda kalkar. Gelecek, ama tarifede yazılı. Tarife, program, takvim: Türkçe gibi geniş zaman. Fiil takes off. Yine s harfi. |
 | 6 | 61.02 | 65.18 | öğrenci | Hocam, üçünde de fiilin sonunda s var. Neden hep s? |
-| 7 | 65.73 | 92.47 | öğretmen | Çünkü özne üçüncü tekil kişi: he, she, it. Fiile s gelir. I, you, we, they ile gelmez. Olumsuzda ve soruda does girer, s ona geçer. He does not go. Does he go? Türkçedeki er eki gibi: git-er, go-es. Kod: always, usually, every day, Simple Present. |
+| 7 | 65.73 | 95.43 | öğretmen | Çünkü özne üçüncü tekil kişi: he, she, it. Fiile s gelir. I, you, we, they ile gelmez. Olumsuzda ve soruda does girer, s ona geçer. He does not go. Does he go? Türkçede geniş zaman eki her kişide gelir, İngilizcede s yalnız üçüncü tekil kişide. Kod: always, usually, every day, Simple Present. |
 
 ## Parçalar (cümle içi dil/duraklama parçaları, küresel sn)
 
 - cümle 1: [1.00–2.76]
-- cümle 2: [3.31–7.63], [7.78–10.50], [10.65–15.45]
+- cümle 2: [3.31–7.63], [7.78–10.50], [10.65–15.21]
 - cümle 3: [16.00–16.96], [17.21–19.61], [19.86–23.70], [23.85–27.69]
 - cümle 4: [28.24–29.28], [29.53–32.49], [32.74–35.38], [35.53–40.17], [40.32–43.36]
 - cümle 5: [43.91–44.95], [45.20–47.76], [48.01–52.73], [52.88–57.20], [57.35–60.47]
 - cümle 6: [61.02–65.18]
-- cümle 7: [65.73–68.21], [68.46–70.62], [70.87–76.23], [76.38–80.22], [80.47–83.43], [83.68–87.60], [87.75–92.47]
+- cümle 7: [65.73–68.05], [68.30–70.46], [70.71–76.07], [76.22–80.38], [80.63–83.59], [83.84–90.40], [90.55–95.43]
 
 ## Sözcükler (küresel sn): `ortak/anlatim/sozcukler.json` — {cumle, sozcuk, t0, t1}; yerel kare = round((t − t_bas) × 30)
 
@@ -41,4 +41,4 @@ Birinci(16.00) örnek.(16.48) The(17.21) sun(17.45) rises(17.77) in(18.33) the(1
 Hocam,(61.02) üçünde(61.82) de(62.22) fiilin(62.38) sonunda(62.78) s(63.26) var.(63.66) Neden(64.10) hep(64.46) s?(64.82)
 
 ### cümle 7
-Çünkü(65.73) özne(66.29) üçüncü(67.01) tekil(67.41) kişi:(67.73) he,(68.46) she,(69.30) it.(69.90) Fiile(70.87) s(71.43) gelir.(71.75) I,(72.55) you,(73.19) we,(73.91) they(74.51) ile(74.95) gelmez.(75.19) Olumsuzda(76.38) ve(77.10) soruda(77.26) does(77.74) girer,(78.02) s(78.70) ona(79.02) geçer.(79.26) He(80.47) does(80.75) not(80.95) go.(81.27) Does(82.23) he(82.47) go?(82.99) Türkçedeki(83.68) er(84.40) eki(84.64) gibi:(84.92) git-er,(85.60) go-es.(86.52) Kod:(87.75) always,(88.95) usually,(89.59) every(90.47) day,(90.79) Simple(91.51) Present.(91.83)
+Çünkü(65.73) özne(66.29) üçüncü(66.85) tekil(67.25) kişi:(67.65) he,(68.30) she,(69.10) it.(69.74) Fiile(70.71) s(71.19) gelir.(71.55) I,(72.39) you,(73.03) we,(73.71) they(74.31) ile(74.63) gelmez.(74.87) Olumsuzda(76.22) ve(77.10) soruda(77.50) does(77.98) girer,(78.26) s(78.94) ona(79.26) geçer.(79.50) He(80.63) does(80.79) not(81.11) go.(81.43) Does(82.31) he(82.55) go?(83.11) Türkçede(83.84) geniş(84.56) zaman(84.92) eki(85.36) her(85.60) kişide(85.84) gelir,(86.24) İngilizcede(86.92) s(87.92) yalnız(88.32) üçüncü(88.80) tekil(89.20) kişide.(89.52) Kod:(90.55) always,(91.43) usually,(92.39) every(93.43) day,(93.75) Simple(94.39) Present.(94.71)

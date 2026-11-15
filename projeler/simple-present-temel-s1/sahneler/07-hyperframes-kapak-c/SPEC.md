@@ -6,7 +6,7 @@ Bağlayıcı: `/home/sef/01dev/dijital-anlatim/.claude/docs/huni-v2-standart.md`
 `P/uretim-tutanagi/kapak-taslak.md` §2 ve §5. Paket yeni: bu sahnenin eski sürümü yok.
 
 İçerik: başlık `HE GOES` / `I GO` (`ES` sarı hap; satır 2 mürekkep, vurgusuz) + otobüs kalem çizimi (sağa gider) + zemin çizgisi.
-Figür yok, etiket yok, altyazı yok, çip yok. Künye satırında yalnız rozet `YDT · BASIC` (x 60'tan).
+Figür yok, etiket yok, altyazı yok, çip yok. Künye satırında yalnız rozet `YDT · TEMEL` (x 60'tan).
 
 ## 1. Dosyalar
 
@@ -40,7 +40,7 @@ Modül docstring'i: "Bantlar: kanal (280–350) → künye (360–450; yalnız r
 y    0 ┌──────────────────────────────────────┐────────┐
        │ (boş zemin, çip YOK)                  │        │
    280 │ [logo] @ydspublishing                 │ sağ    │  Y.kunye_svg() → #kanal (değiştirme)
-   360 │ (YDT · BASIC)                         │ 960–   │  #rz0 x 60'a kayar, #ku-konu gizli
+   360 │ (YDT · TEMEL)                         │ 960–   │  #rz0 x 60'a kayar, #ku-konu gizli
    470 │   HE GO[ES]                           │ 1080   │  Fredoka 700 S=190; hap 470–664
    842 │      I GO                             │ boş    │  GO, üstteki GO ile aynı x'te
   1053 │     ┌──otobüs (sağa)──┐               │        │  coco/bus, 780×303 kutu, ayna yok

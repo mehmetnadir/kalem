@@ -23,8 +23,15 @@
  },
  {
   "dil": "tr",
-  "metin": "Planı bir kişi yapar. Tren tarifeye uyar: geniş zaman.",
-  "duyulan": "Planı bir kişi yapar. Tren tarifeye uyar. Geniş zaman.",
+  "metin": "Biletimi aldım, saat belli: kesin düzenleme, şimdiki zaman.",
+  "duyulan": "Biletimi aldım. Saat belli. Kesin düzenleme. Şimdiki zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tren tarifeye uyar: geniş zaman.",
+  "duyulan": "Tren tarifeye uyar. Geniş zaman.",
   "benzerlik": 1.0,
   "tohum": 0
  },

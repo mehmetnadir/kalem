@@ -52,7 +52,7 @@ Kare: 1080×1920, durağan, ses yok, altyazı yok, çip yok. Zaman çizelgesi 1,
 ```
 y   0 ┌───────────────────────────────────────┐ boş zemin 0–280
   291 │ [logo] @ydspublishing                 │ Y.kunye_svg() (kanal + künye, 291–434)
-  386 │ Simple Present (YDT · BASIC)          │
+  386 │ Simple Present (YDT · TEMEL)          │
   536 │ Hangisi doğru?                        │ Fredoka 88 · 471–557
   634 │ My brother usually ________           │ Fredoka 64 · boşluk = kalem çizgisi (x 636–808)
   714 │ to school by bus.            [otobüs] │ Fredoka 64 · otobüs 818–956 × 668–722

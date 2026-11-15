@@ -1,0 +1,26 @@
+{
+  "paket": "02-04-ydt-temel",
+  "sikilik": 4,
+  "pay": 4,
+  "tarih": "2026-11-15T20:51:20.344Z",
+  "ozet": {
+    "toplamSahne": 1,
+    "olculen": 1,
+    "olculmedi": 0,
+    "olcumHatasi": 0,
+    "toplamHata": 0,
+    "toplamUyari": 0
+  },
+  "sahneler": [
+    {
+      "sahne": "01-hyperframes-giris",
+      "motor": "HyperFrames",
+      "durum": "olculdu",
+      "ornekSayisi": 13,
+      "kutuSayisi": 79,
+      "t_bas": 0,
+      "t_son": 3,
+      "olaylar": []
+    }
+  ]
+}

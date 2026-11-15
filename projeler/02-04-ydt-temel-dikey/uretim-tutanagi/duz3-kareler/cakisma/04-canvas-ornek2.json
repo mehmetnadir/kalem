@@ -1,0 +1,26 @@
+{
+  "paket": "02-04-ydt-temel-dikey",
+  "sikilik": 4,
+  "pay": 4,
+  "tarih": "2026-11-15T22:26:36.124Z",
+  "ozet": {
+    "toplamSahne": 1,
+    "olculen": 1,
+    "olculmedi": 0,
+    "olcumHatasi": 0,
+    "toplamHata": 0,
+    "toplamUyari": 0
+  },
+  "sahneler": [
+    {
+      "sahne": "04-canvas-ornek2",
+      "motor": "Düz canvas",
+      "durum": "olculdu",
+      "ornekSayisi": 104,
+      "kutuSayisi": 1698,
+      "t_bas": 43.85,
+      "t_son": 69.4,
+      "olaylar": []
+    }
+  ]
+}

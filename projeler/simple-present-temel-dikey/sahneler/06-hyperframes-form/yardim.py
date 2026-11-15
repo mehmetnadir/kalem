@@ -144,7 +144,7 @@ def tabler(ad):
 def kunye_svg(bolum, bolum2=None):
     """HUD. bolum: sağ üst çip; bolum2 verilirse ikinci çip (ku-bolum2, başta saydam) aynı yerde sağa hizalı."""
     sar, kre, zem = RENK["vurgu"], RENK["murekkep"], RENK["zemin"]
-    rw = genislik("Lexend", 700, "YDT · BASIC", 36) + 56
+    rw = genislik("Lexend", 700, "YDT · TEMEL", 36) + 56
 
     def cip(ad, m, opak):
         cw = genislik("Lexend", 700, m, 40) + 64
@@ -157,7 +157,7 @@ def kunye_svg(bolum, bolum2=None):
             'SIMPLE PRESENT</text>'
             '<g id="ku-rz"><rect x="48" y="236" width="%.1f" height="72" rx="36" fill="%s"/>'
             '<text x="%.1f" y="285" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="36" '
-            'fill="%s">YDT · BASIC</text></g>%s%s</g>'
+            'fill="%s">YDT · TEMEL</text></g>%s%s</g>'
             % (kre, rw, sar, 48 + rw / 2, zem, cip("ku-bolum", bolum, 1),
                cip("ku-bolum2", bolum2, 0) if bolum2 else ""))
 

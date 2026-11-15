@@ -55,7 +55,11 @@
    "parcalar": [
     [
      "en",
-     "Usually, always, every day: Simple Present."
+     "Usually, always, every day:"
+    ],
+    [
+     "tr",
+     "çoğunlukla Simple Present."
     ],
     [
      "tr",
@@ -63,7 +67,7 @@
     ]
    ],
    "olaylar": [],
-   "metin": "Usually, always, every day: Simple Present. Ekran görüntüsü al, sınav günü bak."
+   "metin": "Usually, always, every day: çoğunlukla Simple Present. Ekran görüntüsü al, sınav günü bak."
   },
   {
    "ses": "ogrenci",
@@ -92,7 +96,7 @@
   "satir1": "USUALLY",
   "satir2": "= ALIŞKANLIK",
   "rozetler": [
-   "YDT · BASIC"
+   "YDT · TEMEL"
   ],
   "sahne": [
    {
@@ -119,7 +123,7 @@
   "kapak": {
    "satir1": "USUALLY",
    "satir2": "= ALIŞKANLIK",
-   "canAlici": "usually, always, every day = tekrar eden iş sinyali"
+   "canAlici": "usually, always, every day çoğu zaman alışkanlığı işaret eder"
   },
   "amaclar": [
    "Simple Present formunu kurmak (fiil, fiil + s, do / does)",
@@ -128,9 +132,9 @@
    "Türkçe geniş zaman eki ile köprü"
   ],
   "canAlici": [
-   "Türkçedeki geniş zaman eki = İngilizcedeki s: gider = goes",
+   "Geniş zaman eki Türkçede her kişide gelir (giderim, gider); İngilizcede s yalnız he, she, it ile gelir (I go, he goes)",
    "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
-   "usually, always, every day = tekrar eden iş sinyali",
+   "usually, always, every day çoğu zaman alışkanlığı işaret eder; zamanı tek başına belirlemez (always öteki zamanlarla da gelir)",
    "he, she, it fiile s alır; I, you, we, they almaz",
    "3 örnek, 1 kural: üçünde de fiilin sonunda s"
   ],

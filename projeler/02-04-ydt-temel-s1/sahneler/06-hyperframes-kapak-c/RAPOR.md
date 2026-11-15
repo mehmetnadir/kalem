@@ -1,5 +1,7 @@
 # RAPOR — 02-04-ydt-temel-s1 · sahne 06-hyperframes-kapak-c (huni v2) · 15.11.2026
 
+Tema: acik
+
 | Ölçüm | Değer |
 |---|---|
 | `calistir.sh --tema acik` | çıkış 0 · `P/kapak-c.png` PNG 1080×1920 |

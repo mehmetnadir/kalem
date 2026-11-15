@@ -1,5 +1,7 @@
 # SPEC — 02-04 sahne 06 `06-hyperframes-soru1` · uret.py (şef tasarımı, 14.11)
 
+> **16.11 DUZ3:** cümle 7 «Planı bir kişi yapar» → «Planı insanlar yapar», «varsa geniş zaman» → «varsa çoğunlukla geniş zaman» (EK-5b); figür ve «person» zinciri T7("insanlar"); 646 kare. Bu belgedeki saniye ve metinler önceki sürümündür; geçerli olan kod + `zaman.json`.
+
 ## 0. Görev
 
 | Alan | Değer |

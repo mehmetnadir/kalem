@@ -339,9 +339,10 @@ def uret() -> str:
         f'stroke-linejoin="round">{kenar}</g><g clip-path="url(#cps)">{yazi}</g></g>'
     )
 
-    # Başlık 2 (kol b: hapsız `GO.` + kırmızı kalem ✗; ✗ hf_tema ile temaya göre --kirmizi)
+    # Başlık 2 (kol b: hapsız `GO.` + kalem ✗; ✗ hf_tema ile temaya göre --murekkep)
+    # DUZ4 A5 / ST-1 (16.11): ✗ kırmızı → mürekkep (s3b kalıbı; tek vurgu rengi)
     carpi = "".join(
-        f'<path id="carpi-{i}" d="{d}" fill="none" stroke="{R["kirmizi"]}" stroke-width="{X_SW:.2f}" '
+        f'<path id="carpi-{i}" d="{d}" fill="none" stroke="{R["murekkep"]}" stroke-width="{X_SW:.2f}" '
         f'stroke-linecap="round" stroke-linejoin="round" style="opacity:0"/>' for i, d in ((1, X1_D), (2, X2_D))
     )
     bas2_svg = (

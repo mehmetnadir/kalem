@@ -1,5 +1,7 @@
 # SPEC — 02-04-ydt-temel-dikey · sahne 12-hyperframes-ozet (HyperFrames, 1080×1920, 463 kare)
 
+> **16.11 DUZ3:** cümle 14 «Zaman sözcüğü ve Türkçe ek ipucu verir» → «Zaman sözcüğü ipucu verir. Türkçe ek yanıltabilir.»; madde 3 ekranı «time word → clue · -yor → trap» (dikey: iki satır, «MEANING → decision» satırı kalktı); 497 kare. Bu belgedeki saniye ve metinler önceki sürümündür; geçerli olan kod + `zaman.json`.
+
 Kaynak: `projeler/02-04-ydt-temel-dikey/BRIEF-DIKEY.md` §0, §2 + §3 satır 12. Yazan: şef (15.11.2026). Kod yazmaz; tasarım verir.
 K = `/home/sef/01dev/_worktrees/kalem-0204`. Sahne dizini: `K/projeler/02-04-ydt-temel-dikey/sahneler/12-hyperframes-ozet/` (= D).
 Sahne: küresel 205,30–220,33 sn, 463 kare, `t_bas` 205,30, `sure` = 463/30 = 15,4333. Cümle 14 (öğretmen, Türkçe).
@@ -31,8 +33,8 @@ Yeni imza `kunye_svg(bolum)`. 03–14 HUD'u kare 0'dan tam çizer (BRIEF §2.2).
 1. `<g id="ku-ders">`: iki `<text>`; x 48; tabanlar y 212 ve y 276; Fredoka 700 56; `fill=RENK["murekkep"]`; metinler
    `SIMPLE PRESENT vs` ve `PRESENT CONTINUOUS`.
 2. `<g id="ku-rz">`: `rect` x = 48 + genislik("Fredoka", 700, "PRESENT CONTINUOUS", 56) + 24 (≈ 670), y 216,
-   w = genislik("Lexend", 700, "YDT · BASIC", 36) + 56 (≈ 282), h 72, rx 36, `fill=RENK["vurgu"]`; `text` ortalı (rect ortası),
-   y 265, Lexend 700 36, `fill=RENK["zemin"]` (hf_tema → pilMetin), metin `YDT · BASIC`.
+   w = genislik("Lexend", 700, "YDT · TEMEL", 36) + 56 (≈ 288), h 72, rx 36, `fill=RENK["vurgu"]`; `text` ortalı (rect ortası),
+   y 265, Lexend 700 36, `fill=RENK["zemin"]` (hf_tema → pilMetin), metin `YDT · TEMEL`.
 3. `<g id="ku-bolum">` (gizli DEĞİL): çip, dikey 01'deki çizimin aynısı (cw = genislik(Lexend 700, bolum, 40) + 64, x = 1032 − cw,
    y 48, h 80, rx 40, `fill="none"`, stroke vurgu 4; yazı x = 1032 − cw/2, y 102, Lexend 700 40, fill vurgu).
 ID yasağı: `t1`, `t2`, `rz1`, `ku-nokta` (hf_tema bunlara özel kural uygular). Docstring: "dikey tam HUD (sahne 03–14)".
@@ -68,7 +70,7 @@ ID yasağı: `t1`, `t2`, `rz1`, `ku-nokta` (hf_tema bunlara özel kural uygular)
 ```
 y   48 ┌ [logo 387×96]                                  [ Recap ] ┐  çip x≈842–1032
    212 │ SIMPLE PRESENT vs                                         │  ders Fredoka 56
-   276 │ PRESENT CONTINUOUS  [YDT · BASIC]                         │  rozet x≈670 y216 h72
+   276 │ PRESENT CONTINUOUS  [YDT · TEMEL]                         │  rozet x≈670 y216 h72
    360 ├─ blok 1 çerçeve ────────────────────────────────────────┤
    430 │  general · permanent ·                     (taban 430)    │  Caveat 64, belirteç taban+23
    540 │  timetable                [mont] [ev] [tren] (ikon 472–582)│  ikon hücreleri x 502–992

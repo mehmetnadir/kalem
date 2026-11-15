@@ -7,9 +7,11 @@ import {
 import { yaziNoktalari }
   from "/projeler/02-04-ydt-temel-dikey/ortak/kalem-canvas.js";
 
-const KARE = 459, TBAS = 130.4, ICERIK = 447;
+const KARE = 459, TBAS = 130.4, ICERIK = 447, KAYMA = -1.68;
+// 16.11 DUZ3: zaman.json t_bas 132,08 (cümle 4/7 yeniden sentezlendi). TBAS ve sabit
+// zamanlar eski çerçevede kalır; sözcük zamanları KAYMA ile ona çekilir.
 const S = new Sahne({
-  tbas: TBAS, kare: KARE, icerik: ICERIK, klasor: "08-canvas-karsit1", cumle: 9
+  tbas: TBAS, kayma: KAYMA, kare: KARE, icerik: ICERIK, klasor: "08-canvas-karsit1", cumle: 9
 });
 
 const FF = (b) => `700 ${b}px Fredoka`;
@@ -136,7 +138,8 @@ function altyaziSar(ctx, metin, genislik) {
   let s = "";
   for (const w of metin.split(" ")) {
     const d = s ? `${s} ${w}` : w;
-    if (ctx.measureText(d).width > genislik && s) {
+    // 16.11 DUZ3 (DK-2): satır en çok 24 karakter; ortak/kunye.js altyaziSar ile aynı
+    if ((ctx.measureText(d).width > genislik || d.length > 24) && s) {
       satirlar.push(s);
       s = w;
     } else {
@@ -162,7 +165,9 @@ function altyaziDuzelt() {
   const enIndex = c9.indexOf(en);
   const trKalan = c9.slice(enIndex + 1);
   const tr3Metin = trKalan.map((a) => a.metin).join(" ");
-  const yeniEn = { ...en, t0: EN[0].t0, t1: EN[6].t1 };
+  // S.sozc eski çerçevede (KAYMA); altyazı yeni çerçevede aranır (sahne-ortak satır 450) → kayma geri alınır
+  const k = S.kayma || 0;
+  const yeniEn = { ...en, t0: EN[0].t0 - k, t1: EN[6].t1 - k };
 
   if (!olcAltyazi) {
     olcAltyazi = document.createElement("canvas").getContext("2d");
@@ -186,10 +191,10 @@ function altyaziDuzelt() {
 
   const sablonTr = trKalan[0] || { ...tr1, dil: "tr" };
   const yeniTr3 = dilimler.map((d, j) => {
-    const t0 = S.sozc[8 + d.bas].t0;
-    const t1 = j < dilimler.length - 1
+    const t0 = S.sozc[8 + d.bas].t0 - k;
+    const t1 = (j < dilimler.length - 1
       ? S.sozc[8 + dilimler[j + 1].bas].t0 - 0.4
-      : S.sozc[19].t1;
+      : S.sozc[19].t1) - k;
     return { ...sablonTr, metin: d.metin, t0, t1 };
   });
 

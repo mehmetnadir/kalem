@@ -4,7 +4,7 @@
 set -eo pipefail
 [ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"
 D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=602
-KLASOR=03-paperjs-ornek1; PROJE=simple-past-ileri; TBAS=13.47; GLOBAL_SN="20.2 26.5 31.7"
+KLASOR=03-paperjs-ornek1; PROJE=simple-past-ileri; TBAS=13.79; GLOBAL_SN="20.52 26.82 32.02"
 . "$D/../../ortak/tema.sh" "$@"
 cd "$K"
 BAS=$(date +%s)

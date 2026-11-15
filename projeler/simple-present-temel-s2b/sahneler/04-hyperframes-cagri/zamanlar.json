@@ -2,7 +2,7 @@
   "fps": 30,
   "kare": 230,
   "sure": 7.6667,
-  "t_bas": 19.07,
+  "t_bas": 20.34,
   "kart_giris": [
     0.0,
     0.5
@@ -58,49 +58,49 @@
       "olay": "kart_giris",
       "kare": 0,
       "yerel": 0.0,
-      "kuresel": 19.07,
+      "kuresel": 20.34,
       "sozcuk": "sahne başı"
     },
     {
       "olay": "konu_giris",
       "kare": 16,
       "yerel": 0.55,
-      "kuresel": 19.62,
+      "kuresel": 20.89,
       "sozcuk": "Konu"
     },
     {
       "olay": "burada_giris",
       "kare": 26,
       "yerel": 0.87,
-      "kuresel": 19.94,
+      "kuresel": 21.21,
       "sozcuk": "burada"
     },
     {
       "olay": "bitmiyor_giris",
       "kare": 38,
       "yerel": 1.27,
-      "kuresel": 20.34,
+      "kuresel": 21.61,
       "sozcuk": "bitmiyor."
     },
     {
       "olay": "hap_giris",
       "kare": 103,
       "yerel": 3.42,
-      "kuresel": 22.49,
+      "kuresel": 23.76,
       "sozcuk": "YDS"
     },
     {
       "olay": "youtube_giris",
       "kare": 136,
       "yerel": 4.54,
-      "kuresel": 23.61,
+      "kuresel": 24.88,
       "sozcuk": "YouTube"
     },
     {
       "olay": "kuyruk_durgun",
       "kare": 172,
       "yerel": 5.74,
-      "kuresel": 24.81,
+      "kuresel": 26.08,
       "sozcuk": "kanalında."
     }
   ]

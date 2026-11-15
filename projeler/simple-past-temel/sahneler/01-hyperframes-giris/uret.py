@@ -43,7 +43,7 @@ def uret():
     # rozetler
     roz = []
     x = SOL
-    for i, (m, dolgu) in enumerate((("YDT · BASIC", R["vurgu"]), ("GRAMMAR", R["murekkep"]))):
+    for i, (m, dolgu) in enumerate((("YDT · TEMEL", R["vurgu"]), ("GRAMMAR", R["murekkep"]))):
         w = Y.genislik("Lexend", 700, m, 26) + 44
         roz.append('<g id="rz%d" style="opacity:0"><rect x="%.1f" y="%d" width="%.1f" height="%d" rx="24" fill="%s"/>'
                    '<text x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" font-weight="700" '

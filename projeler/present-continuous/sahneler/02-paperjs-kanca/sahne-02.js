@@ -1,8 +1,9 @@
-// Sahne 02 — Kanca (385 kare, t_bas 3,00; cümle 2). Zamanlar eski çerçevede (t − 7,00) × 30 yazılı;
+// Sahne 02 — Kanca (416 kare, t_bas 3,00; cümle 2). Zamanlar eski çerçevede (t − 7,00) × 30 yazılı;
 // cümle 2'den sonraki her şey fr() ile 60 kare (2,0 sn) öne alınır (K23 sıkıştırma, 04.11).
+// 16.11 DUZ3-0201T: cümle 2 yeniden sentezlendi (12,54 sn); zamanlar yeni sozcukler.json'dan (küresel = eski − 6,00).
 import { sahneKur, RT } from "/projeler/present-continuous/sahneler/02-paperjs-kanca/kalem-paper.js";
 
-export const KARE = 385, T_BAS = 7.0, KAYMA = 6.0;   // T_BAS: eski çerçeve; zaman.json t_bas 3,00
+export const KARE = 416, T_BAS = 7.0, KAYMA = 6.0;   // T_BAS: eski çerçeve; zaman.json t_bas 3,00
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook", etkin: 0, kayma: KAYMA });
@@ -39,27 +40,28 @@ export async function kur(P) {
     const y1 = 372, a = elYazisi("-yor", { x: 140, y: y1, boyut: 48, renk: IKI, bas: fr(10.19), sure: 10 });
     ok([a.x1 + 14, y1 - 14], [a.x1 + 84, y1 - 14], { bas: fr(10.19) + 4, sure: 10, w: 5, uzun: 16, bukum: 0.08 });
     const b = elYazisi("şimdiki zaman", { x: a.x1 + 100, y: y1, boyut: 48, renk: IKI, bas: fr(10.19) + 16, sure: 20 }); not("not -yor → şimdiki zaman", a.bas);
-    ok([b.x1 + 26, y1 - 12], [b.x1 + 112, y1 - 6], { bas: fr(11.0), sure: 12, w: 5, uzun: 18, bukum: 0.1 });
-    await S.svgCiz("tabler/calendar.svg", { kutu: [b.x1 + 130, 336, 88, 88], bas: fr(11.15), sure: 24, azami: 25, w: 3.4, sesAralik: 3 });
-    not("takvim çizimi", fr(11.15));
-    const y2 = 470, n1 = elYazisi("bu akşam", { x: 520, y: y2, boyut: 48, renk: IKI, bas: fr(11.63), sure: 14 });
-    ok([n1.x1 + 14, y2 - 14], [n1.x1 + 84, y2 - 14], { bas: fr(11.63) + 6, sure: 10, w: 5, uzun: 16, bukum: 0.08 });
-    elYazisi("gelecek", { x: n1.x1 + 100, y: y2, boyut: 48, renk: SARI, bas: fr(11.63) + 18, sure: 14, ses: true }); not("not bu akşam → gelecek", n1.bas);
+    ok([b.x1 + 26, y1 - 12], [b.x1 + 112, y1 - 6], { bas: fr(11.12), sure: 12, w: 5, uzun: 18, bukum: 0.1 });
+    await S.svgCiz("tabler/calendar.svg", { kutu: [b.x1 + 130, 336, 88, 88], bas: fr(11.27), sure: 24, azami: 25, w: 3.4, sesAralik: 3 });
+    not("takvim çizimi", fr(11.27));
+    const y2 = 470, n1 = elYazisi("bu akşam", { x: 520, y: y2, boyut: 48, renk: IKI, bas: fr(11.79), sure: 14 });
+    ok([n1.x1 + 14, y2 - 14], [n1.x1 + 84, y2 - 14], { bas: fr(11.79) + 6, sure: 10, w: 5, uzun: 16, bukum: 0.08 });
+    elYazisi("gelecek", { x: n1.x1 + 100, y: y2, boyut: 48, renk: SARI, bas: fr(11.79) + 18, sure: 14, ses: true }); not("not bu akşam → gelecek", n1.bas);
   }
 
-  // --- 12,50–14,58: I'm going to my uncle's tonight. (Fredoka 56 krem)
+  // --- 12,62–14,58: I'm going to my uncle's tonight. (Fredoka 56 krem); "tonight → planlı gelecek" notu (DUZ3: eski "-yor ⇄ -ing")
   {
-    const tl = [12.5, 12.86, 13.06, 13.22, 13.42, 13.62], kel = ["I'm", "going", "to", "my", "uncle's", "tonight."];
+    const tl = [12.62, 12.78, 12.9, 13.0, 13.12, 13.26], kel = ["I'm", "going", "to", "my", "uncle's", "tonight."];
     const e = cumle(kel.map((s, i) => ({ s, f: fr(tl[i]) })), { x: 140, y: 570, boyut: 56, aile: "Fredoka", agirlik: 700 });
     altCizgi(e, { tut: 30 }); not("İngilizce cümle başı", e[0].bas);
-    const g = e[1], d = daire((g.x0 + g.x1) / 2, g.y - 20, g.w / 2 + 3, 33, { bas: fr(13.62) - 8, sure: 22, a0: -2.0 });
+    const y = 668, a = elYazisi("tonight", { x: 140, y, boyut: 52, renk: IKI, bas: fr(13.46), sure: 12 });
+    ok([a.x1 + 14, y - 14], [a.x1 + 84, y - 14], { bas: fr(13.46) + 8, sure: 10, w: 5, uzun: 16, bukum: 0.08 });
+    elYazisi("planlı gelecek", { x: a.x1 + 100, y, boyut: 52, renk: SARI, bas: fr(13.86), sure: 18, ses: true });
+    not("not tonight → planlı gelecek", a.bas);
+    const g = e[1], d = daire((g.x0 + g.x1) / 2, g.y - 20, g.w / 2 + 3, 33, { bas: fr(14.58) - 8, sure: 22, a0: -2.0 });
     olay(bitis(d), "tik", 0.5); not("going daire", d.bas);
-    const y = 668, a = elYazisi("-yor", { x: 140, y, boyut: 52, renk: IKI, bas: fr(13.95), sure: 10 });
-    const ar = ok([a.x1 + 22, y - 16], [a.x1 + 132, y - 16], { bas: fr(13.95) + 5, sure: 18, w: 6.5, cift: true, uzun: 20, bukum: 0.05 });
-    elYazisi("-ing", { x: a.x1 + 156, y, boyut: 52, renk: SARI, bas: bitis(ar) + 4, sure: 10, ses: true }); not("ok -yor ⇄ -ing", ar.bas);
   }
 
-  // --- 14,49–20,89: sol alta taşınan el kutusu (x>=140, alt kenar y<=960), saat, zaman.json süresi, 3 madde
+  // --- 16,09–20,49 (DUZ3; eski 14,49–18,73): sol alta taşınan el kutusu (x>=140, alt kenar y<=960), saat, zaman.json süresi, 3 madde
   {
     let sureMetni = "";
     try {
@@ -81,14 +83,14 @@ export async function kur(P) {
     }
 
     const kx = 140, ky = 705, kw = 560, kh = 245;
-    S.kutu(kx, ky, kw, kh, { bas: fr(14.49) - 8, sure: 38 }); not("kutu çizimi", fr(14.49) - 8);
-    await S.svgCiz("tabler/clock.svg", { kutu: [kx + 32, ky + 18, 68, 68], bas: fr(14.49), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
+    S.kutu(kx, ky, kw, kh, { bas: fr(16.09) - 8, sure: 38 }); not("kutu çizimi", fr(16.09) - 8);
+    await S.svgCiz("tabler/clock.svg", { kutu: [kx + 32, ky + 18, 68, 68], bas: fr(16.09), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
     if (sureMetni) {
-      elYazisi(sureMetni, { x: kx + 120, y: ky + 68, boyut: 56, renk: SARI, bas: fr(14.49) + 14, sure: 14 });
+      elYazisi(sureMetni, { x: kx + 120, y: ky + 68, boyut: 56, renk: SARI, bas: fr(16.09) + 14, sure: 14 });
     }
-    not("saat + süre", fr(14.49));
-    parilti(kx + 100, ky + 20, { bas: fr(15.66), r: 22, periyot: 170, adet: 3 });
-    const m = [["form", 16.41, ky + 126], ["time expressions", 17.25, ky + 172], ["6 uses", 18.73, ky + 218]];
+    not("saat + süre", fr(16.09));
+    parilti(kx + 100, ky + 20, { bas: fr(17.26), r: 22, periyot: 170, adet: 3 });
+    const m = [["form", 18.01, ky + 126], ["time expressions", 18.89, ky + 172], ["3 uses", 20.49, ky + 218]];
     for (const [s, t, y] of m) {
       yazi(s, { x: kx + 76, y, boyut: 40, aile: "Fredoka", agirlik: 700, renk: RT.murekkep, bas: fr(t), sure: 8 });
       tik(kx + 44, y - 12, { bas: fr(t) + 4 }); not("madde " + s, fr(t));

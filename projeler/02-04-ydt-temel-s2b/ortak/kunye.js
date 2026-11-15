@@ -5,7 +5,8 @@
 // 02-04 (15.11): ders adı 56 px'te 1119 px, 984 px'e sığmaz → 2 satır; rozet 2. satırın sağında (BRIEF-DIKEY.md §2).
 // S1 (15.11, S1-C): 02-04-ydt-temel-dikey/ortak/kunye.js kopyası (sha256 34252b76…); yalnız KOK ve cipler değişti.
 // S2 (15.11, S2-C): 02-04-ydt-temel-s1/ortak/kunye.js kopyası; yalnız KOK ve cipler değişti (7 sahne klasörü).
-export const KOK = "/projeler/02-04-ydt-temel-s2/ortak";
+// S2 DUZ4 (16.11, J3 A1 + A9): altyaziCiz { sozcukler, t } karaoke seçeneği (altyaziParca) · altyazı x 60–960 (≤ 900 px).
+export const KOK = "/projeler/02-04-ydt-temel-s2b/ortak";
 export const TEMALAR = {
   koyu: { zemin: "#1b1a17", murekkep: "#f3efe6", ikincil: "#c9c2b3", vurgu: "#f2a93b", vurguDolgu: "#f2a93b",
     logoSari: "#fece00", logoMetin: "#ffffff", kirmizi: "#e0473b", pilMetin: "#1b1a17" },
@@ -56,7 +57,8 @@ try { temaSec(new URLSearchParams(location.search).get("tema") || "koyu"); } cat
 export const KUNYE = { kenar: 48, logoY: 48, logoYuk: 96, dersTaban: 212, dersYazi: 56, dersSatir: 64, rozetY: 216,
   rozetH: 72, rozetAra: 24, rozetYazi: 36, cipY: 48, cipH: 80, cipYazi: 40, hudSon: 320, icerikBas: 352,
   icerikSon: 1392, altyaziBas: 1400, altyaziSon: 1536, altyaziYazi: 44, altyaziSatir: 56,
-  ders: ["SIMPLE PRESENT vs", "PRESENT CONTINUOUS"], rozet: "YDT · BASIC", ajanda: ["Hook", "Examples", "Rule", "Trap"],
+  altyaziEn: 900, altyaziMerkez: 510,   // DUZ4 A9: altyazı x 60–960 (huni §2; sağ ray 960–1080), sahne 08 HUD ile aynı
+  ders: ["SIMPLE PRESENT vs", "PRESENT CONTINUOUS"], rozet: "YDT · TEMEL", ajanda: ["Hook", "Examples", "Rule", "Trap"],
   cipler: { "01-hyperframes-kapak": "Hook", "02-paperjs-ornek": "Example",
     "03-hyperframes-cta": "Channel", "04-hyperframes-hikaye": "Channel", "05-hyperframes-kapak-b": "Hook",
     "06-hyperframes-kapak-c": "Hook", "07-hyperframes-hikaye-b": "Channel" } };
@@ -197,14 +199,21 @@ export function kunyeCiz(ctx, { bolum, logo, alfa = 1 }) {
 }
 
 // Altyazı bandı (y 1400–1536): konuşulan parça, en çok 2 satır, ortalı. Sessiz izleme için zorunlu (kalıp §1 kural 3).
+export function altyaziParca(liste, t) {
+  if (!liste) return null;
+  return liste.find((a) => t >= a.t0 - 0.05 && t < a.t1 + 0.35) || null;
+}
 export function altyaziMetin(liste, t) {
-  if (!liste) return "";
-  const p = liste.find((a) => t >= a.t0 - 0.05 && t < a.t1 + 0.35);
+  const p = altyaziParca(liste, t);
   return p ? p.metin : "";
 }
-export function altyaziCiz(ctx, metin, { alfa = 1 } = {}) {
+// DUZ4 A1: sozcukler (isteğe bağlı) = metnin her sözcüğü için sırayla { t0, t1 } (küresel sn), t = küresel sn.
+// Verilirse t0 ≤ t < t1 olan sözcüğün altına karaoke çizgisi (sahne 08 kalıbı: vurgu rengi, 6 px, taban + 12,
+// yuvarlak uç, 0,15 sn soldan çizilir). Sözcük sayısı tutmazsa çizgi yok; seçeneksiz çağrı eskisi gibi çizer.
+// DUZ4 A9: satır genişliği ≤ altyaziEn (900), merkez altyaziMerkez (510) → x 60–960.
+export function altyaziCiz(ctx, metin, { alfa = 1, sozcukler = null, t = null } = {}) {
   if (!metin) return;
-  const k = KUNYE, R = RENK, genislik = W - 2 * k.kenar; ctx.save(); ctx.globalAlpha = alfa;
+  const k = KUNYE, R = RENK, genislik = k.altyaziEn, mx = k.altyaziMerkez; ctx.save(); ctx.globalAlpha = alfa;
   ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
   // Uzun parça (05.11): yazı 44 → 40 → 36 küçülür; hâlâ 2 satıra sığmazsa 3 satır (satır 44, bant 136 px).
   let satirlar = [];
@@ -216,8 +225,27 @@ export function altyaziCiz(ctx, metin, { alfa = 1 } = {}) {
   const adim = satirlar.length === 3 ? 44 : k.altyaziSatir;
   const y0 = k.altyaziBas + (satirlar.length === 1 ? 84 : satirlar.length === 2 ? 56 : 40);
   ctx.fillStyle = R.murekkep;
-  satirlar.forEach((sat, i) => ctx.fillText(sat, W / 2, y0 + i * adim));
+  satirlar.forEach((sat, i) => ctx.fillText(sat, mx, y0 + i * adim));
+  if (sozcukler && t !== null) karaokeCiz(ctx, satirlar, sozcukler, t, mx, y0, adim);
   ctx.restore();
+}
+
+// Karaoke çizgisi (DUZ4 A1): satırları sözcüklere açar; sözcük sayısı tutmazsa çizmez.
+function karaokeCiz(ctx, satirlar, sozcukler, t, mx, y0, adim) {
+  if (sozcukler.length !== satirlar.join(" ").split(" ").length) return;
+  ctx.strokeStyle = RENK.vurgu; ctx.lineWidth = 6; ctx.lineCap = "round";
+  let j = 0;
+  satirlar.forEach((sat, i) => {
+    const kel = sat.split(" "), x0 = mx - ctx.measureText(sat).width / 2, y = y0 + i * adim + 12;
+    kel.forEach((w, s) => {
+      const z = sozcukler[j++];
+      if (!(t >= z.t0 && t < z.t1)) return;
+      const x1 = x0 + (s > 0 ? ctx.measureText(kel.slice(0, s).join(" ") + " ").width : 0);
+      const x2 = x1 + ctx.measureText(w.replace(/[.,:;!?]+$/, "")).width;
+      const u = Math.min(1, (t - z.t0) / 0.15), e = 1 - (1 - u) * (1 - u);   // power2.out
+      if (e > 0) { ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x1 + (x2 - x1) * e, y); ctx.stroke(); }
+    });
+  });
 }
 
 // 2 satıra sığmayan parça sözcük zamanıyla dilimlenir; sözcük sayısı tutmazsa karakter oranı.
@@ -225,7 +253,7 @@ function altyaziDilimle(liste, soz) {
   if (!liste || !liste.length) return [];
   const ctx = document.createElement("canvas").getContext("2d");
   ctx.font = `500 ${KUNYE.altyaziYazi}px Lexend`;
-  const genislik = W - 2 * KUNYE.kenar, cikti = [];
+  const genislik = KUNYE.altyaziEn, cikti = [];
   for (const p of liste) {
     if (altyaziSar(ctx, p.metin, genislik).length <= 2) {
       cikti.push(p);

@@ -71,5 +71,13 @@
       "kaynak": "ana-yatay"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "s1b",
+      "no": "r1",
+      "tarih": "2026-11-15T21:50:00Z",
+      "degisiklik": "DUZ2 (J2 A1/TD-1, A2/TD-2; KBJ HV-1/7/13/14 kopya kare, HV-22): rozet YDT · TEMEL (BRIEF, 03/04 yardim.py ve 04 SPEC kol a'dan kopya; senaryo giris.rozetler, ortak/kunye.js, 01 yardim.py + SPEC); karakter ve ana kapak ana paketten (sha256 kol a ile eşit). Ses ve zaman değişmedi (24,33 sn; cümle 2–4 sha256 kol a ile eşit). 4 sahne + kapak A açık + koyu kol b'den yeniden çekildi; sahne 03/04 kareleri kol a ile aynı göreli anda 0 px fark; çakışma kapısı çıkış 0. Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    }
+  ]
 }

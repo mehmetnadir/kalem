@@ -1,4 +1,4 @@
-"""Sahne 06 (PPC temel: öğrenci sorusu + form) DİKEY 1080x1920, HyperFrames (PPC temel), 681 kare, t_bas 61,51.
+"""Sahne 06 (PPC temel: öğrenci sorusu + form) DİKEY 1080x1920, HyperFrames (PPC temel), 681 kare, t_bas 66,87 (16.11 DUZ3).
 Tek kaynak: zamanlar.json (küresel sn) -> yerel sn = t - t_bas. Komut listesi veri olarak JS'e gömülür,
 olaylar aynı çağrılardan toplanır (olay.py yalnız bu modülü içe alır)."""
 import json
@@ -220,7 +220,7 @@ def uret():
         t = S(Z["satir_been"][i])
         s.goster("#row%d" % i, t, 0.3, dx=30)
         s.olay(t, "tik", 0.5)
-    # ---------------- 65,97: Form — balon+baş küçülür, been'ler tek büyük been'e toplanır ----------------
+    # ---------------- 71,33: Form — balon+baş küçülür, been'ler tek büyük been'e toplanır ----------------
     tf = S(Z["form"])
     s.to("#ku-bolum", tf, {"opacity": 0, "duration": 0.2, "ease": "power1.in"})
     s.to("#ku-bolum2", tf, {"opacity": 1, "duration": 0.2, "ease": "power1.out"})
@@ -264,18 +264,17 @@ def uret():
           5, 1, "cizgi", 0.45, g="recap")
     s.to("#bigw", tp + 0.5, {"svgOrigin": "%.1f %.1f" % (BXB + bigw / 2, BYB - 52), "scale": 1.025, "duration": 2.6,
                              "ease": "sine.inOut", "repeat": 5, "yoyo": True})
-    # ---------------- -dir … -yor ⇄ have been … -ing (Fredoka 107): grup "recap" ----------------
-    AF, AX, AY, BY2 = 107, 80.0, 1030, 1190   # 0,6 ölçekle etkin 64,2 px
-    wd = Y.genislik(FF, 700, "-dir", AF)
-    wm = Y.genislik(FF, 700, " … ", AF)
-    s.yazi("a1", AX, AY, [("-dir", SAR)], FF, 700, AF, S(Z["dir"]), 0.3, tur="tik", guc=0.55, g="recap")
-    s.yazi("a2", AX + wd, AY, [(" … ", IKN)], FF, 700, AF, S(Z["dir"]) + 0.35, 0.2, tur=None, g="recap")
-    s.yazi("a3", AX + wd + wm, AY, [("-yor", SAR)], FF, 700, AF, S(Z["yor"]), 0.3, tur="tik", guc=0.55, g="recap")
-    s.yazi("b1", AX, BY2, [("have been", SAR), (" … ", IKN), ("-ing", SAR)], FF, 700, AF, S(Z["satir_b"]), 0.7,
-           tur="tik", guc=0.55, g="recap")
-    s.yol("cok", el_cift_ok(AX + 230, AY + 34, AX + 230, BY2 - 110, 18), S(Z["cift_ok"]), 0.4, SAR, 8, 0.9, "cizgi",
-          0.5, g="recap")
-    # ---------------- 74,20: üst blok toplanır (ölçek 0,6), alta cümle + Türkçe köprü + kart ----------------
+    # ---------------- süre: for / since (Fredoka 107): grup "recap" (16.11 DUZ3; "-dir … -yor ⇄ have been … -ing"
+    # denkliği kalktı) ----------------
+    AF, AX, AY = 107, 80.0, 1030   # 0,6 ölçekle etkin 64,2 px
+    sw = Y.genislik("Caveat", 700, "süre:", 96)
+    wf, wm = Y.genislik(FF, 700, "for", AF), Y.genislik(FF, 700, " / ", AF)
+    s.yazi("a1", AX, AY, [("süre:", IKN)], "Caveat", 700, 96, S(Z["sure_etiket"]), 0.35, tur="tik", guc=0.45, g="recap")
+    s.yazi("a2", AX + sw + 30, AY, [("for", SAR)], FF, 700, AF, S(Z["for"]), 0.3, tur="tik", guc=0.55, g="recap")
+    s.yazi("a3", AX + sw + 30 + wf, AY, [(" / ", IKN)], FF, 700, AF, S(Z["for"]) + 0.35, 0.2, tur=None, g="recap")
+    s.yazi("a4", AX + sw + 30 + wf + wm, AY, [("since", SAR)], FF, 700, AF, S(Z["since"]), 0.3, tur="tik", guc=0.55,
+           g="recap")
+    # ---------------- 79,96: üst blok toplanır (ölçek 0,6), alta cümle + Türkçe köprü + kart ----------------
     s.to("#recapg", S(Z["toplan"]), {"svgOrigin": "48 600", "scale": 0.6, "y": -40, "duration": 0.6,
                                      "ease": "power3.inOut"})
     s.olay(S(Z["toplan"]), "parilti", 0.5)

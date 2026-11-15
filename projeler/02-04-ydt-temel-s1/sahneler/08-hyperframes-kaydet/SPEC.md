@@ -60,7 +60,8 @@ Kart 21,00'den 25,49'a sabittir: `#kart` üzerinde 0,55 + 0,45 sn sonrasında hi
 | Kart grubu | `#kart` (`<g>`, `style="opacity:0"`) | aşağıdaki 3 öğe bu sırayla, DOĞRUDAN `#kart` çocuğu (ara `<g>` yok) |
 | — kâğıt | `#kagit` (`<rect>`) | x 61, y 601, w 898, h 378, rx 22, `fill="#fff9e6"`, `stroke="#c9c2b3"`, `stroke-width="2"` (dış kenar 60–960 × 600–980) |
 | — kalem kenarı | `#kart-kenar` (`<path>`) | elle çizilmiş dikdörtgen, §6; `fill="none"`, `stroke="#1b1a17"`, `stroke-width="4.5"`, round cap/join |
-| — kural satırı 1 | `#kural1` (`<text>`) | `Kalıcıysa geniş zaman,` Fredoka 700, boy B, x 110, taban T1, `fill="#1b1a17"` |
+| — kural satırı 0 (DUZ2 15.11) | `#kural0` (`<text>`) | `Live, work fiillerinde:` Fredoka 700, boy B (76 → 64; 3 satır), x 110, taban T0 = T1 − A |
+| — kural satırı 1 | `#kural1` (`<text>`) | `kalıcıysa geniş zaman,` Fredoka 700, boy B, x 110, taban T1, `fill="#1b1a17"` |
 | — kural satırı 2 | `#kural2` (`<text>`) | `geçiciyse şimdiki zaman.` Fredoka 700, boy B, x 110, taban T2, `fill="#1b1a17"` |
 | Kaydet grubu | `#kaydet` (`<g>`) | yer imi + sarı hap, yatayda 510'a ortalı, y 1020–1140; §7 |
 | Altyazı | `#altyazi` | `Y.altyazi_svg(...)` çıktısı, y 1400–1550 |

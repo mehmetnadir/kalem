@@ -43,7 +43,7 @@ Tema dönüşümü `ortak/hf_tema.py` ile dışarıda yapılır (açık temada `
 ```
 y   0 ─ 280  boş zemin
   291 ─ 339  kanal: logo + @ydspublishing                    (Y.kunye_svg)
-  386 ─ 434  künye: Simple Present + YDT · BASIC              (Y.kunye_svg)
+  386 ─ 434  künye: Simple Present + YDT · TEMEL              (Y.kunye_svg)
   535        Hangisi doğru?                                   80
   650 / 740  My parents ⎯⎯⎯⎯ (kalem çizgisi) / to work by bus.  72
   790 ─ 890  [ A) go        ✓ ]   [ B) goes        ]          72; A yeşil çerçeve + yeşil tik, B soluk (opaklık 0,45)

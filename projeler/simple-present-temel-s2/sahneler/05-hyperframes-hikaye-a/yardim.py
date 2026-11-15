@@ -155,7 +155,7 @@ HUD = {"kenar": 60, "sagSinir": 960,
        "altyaziBas": 1400, "altyaziSon": 1550, "altyaziYazi": 44, "altyaziSatir": 56,
        "altyaziMerkez": 510, "altyaziEn": 900}
 KONU = "Simple Present"
-ROZETLER = ("YDT · BASIC",)
+ROZETLER = ("YDT · TEMEL",)
 KANAL_YAZI = "@ydspublishing"
 
 

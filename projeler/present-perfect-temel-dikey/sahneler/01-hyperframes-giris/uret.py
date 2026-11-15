@@ -54,7 +54,7 @@ def uret():
     figs = "".join('<path id="f%d" transform="translate(%.2f %.2f)" d="%s" style="opacity:0"/>'
                    % (i, s["tx"], s["ty"], s["d"]) for i, s in enumerate(fig))
     evs = "".join('<path id="k%d" d="%s" style="opacity:0"/>' % (i, d) for i, d in enumerate(ev))
-    # GRAMMAR hapı: YDT · BASIC hapının yanında (kapakta); uçuşta söner
+    # GRAMMAR hapı: YDT · TEMEL hapının yanında (kapakta); uçuşta söner
     rw0 = Y.genislik("Lexend", 700, Y.ROZET, 36) + 56
     gw = Y.genislik("Lexend", 700, "GRAMMAR", 36) + 56
     gx = 48 + rw0 + 16

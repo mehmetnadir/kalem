@@ -176,7 +176,7 @@ HUD = {
 }
 KONU = "Simple Present"
 KONU_PARCA = ("Simple Present",)
-ROZET = "YDT · BASIC"
+ROZET = "YDT · TEMEL"
 KANAL_YAZI = "@ydspublishing"
 
 

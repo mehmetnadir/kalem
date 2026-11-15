@@ -5,7 +5,8 @@ import json
 from pathlib import Path
 
 AD = Path(__file__).resolve().parent
-BASLAR = [1.0, 3.39, 15.44, 30.15, 45.98, 62.81, 66.72]
+# 16.11 DUZ3-0201T: cümle 2 (12,54 sn) ve 7 (25,25 sn) yeniden sentezlendi; cümle 3–7 başı +1,04 (zincir: önceki bitiş + 0,55)
+BASLAR = [1.0, 3.39, 16.48, 31.19, 47.02, 63.85, 67.76]
 sure = json.loads((AD / "sureler.json").read_text())
 out = []
 for e, b in zip(sure, BASLAR):

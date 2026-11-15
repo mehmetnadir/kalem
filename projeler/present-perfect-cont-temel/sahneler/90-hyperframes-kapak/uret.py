@@ -27,11 +27,11 @@ import yardim as Y  # noqa: E402
 KAPAK = AD.parent.parent / "ortak" / "kapak"
 LOGO = AD.parent.parent / "ortak" / "logo"
 
-# Kapak metni (şef kararı; değiştirme)
+# Kapak metni (16.11 DUZ3-0209T: "= HAVE BEEN" ve "-dir … -yor → have been -ing" denkliği kalktı; dersin c1 sorusu
+# ve c7 örneği; senaryo meta.kapak ile aynı)
 SATIR1 = "İKİ SAATTİR"
-SATIR2 = "= HAVE BEEN"
-KUCUK_SOL = "-dir … -yor"
-KUCUK_SAG = "have been -ing"
+SATIR2 = "NASIL DENİR?"
+KUCUK = "I have been working for two hours."
 ROZET = "YDT · TEMEL"
 
 KREM = "#f3efe6"
@@ -156,7 +156,7 @@ def yatay() -> Duzen:
     # Saat (alfa x 198-826, y 106-920) masanın solunda, tabanı masa tabanıyla aynı hizada.
     s, n = 0.95, 0.28
     return Duzen(
-        W=W, H=H, S=160.0, L=64.0, R=40.0, X0=96.0, LOGO_UST=54.0, LOGO_H=84.0,
+        W=W, H=H, S=156.0, L=64.0, R=40.0, X0=96.0, LOGO_UST=54.0, LOGO_H=84.0,   # 16.11: NASIL DENİR? 160 px karaktere değer
         T1=430.0, ROZET_ALT=1026.0,
         karakter=Gorsel("karakter", "karakter.png", 1814.0 - 863 * s, 970.0 - 1112 * s, s),
         nesne=Gorsel("nesne", "nesne.png", 990.0 - 826 * n, 970.0 - 920 * n, n),
@@ -230,21 +230,16 @@ def ciz(d: Duzen, tema: str) -> tuple[str, list[Kutu]]:
     T2 = k_ust + pv + 0.70 * S
     kutu = Kutu("vurgu", d.X0, k_ust, d.X0 + k_gen + 2 * ph, T2 + pv)
 
-    # Küçük satır: "-dir … -yor" + ok (SVG; Lexend'de → glifi yok) + "have been -ing"
-    ks_sol, _ = gorunur("Lexend", 700, KUCUK_SOL, L)
-    gorunur("Lexend", 700, KUCUK_SAG, L)
-    bosluk = Y.genislik("Lexend", 700, " ", L)
-    ok_x0 = d.X0 - ks_sol + Y.genislik("Lexend", 700, KUCUK_SOL, L) + bosluk
-    ok_x1 = ok_x0 + 0.78 * L
-    sag_x = ok_x1 + bosluk
-    T3 = kutu.y1 + 0.62 * L + 0.74 * L
-    _, h_alt, _, h_ust, _ = sinir("Lexend", 700, "-")
-    ok_y = T3 - (h_alt + h_ust) / 2 * L
-    ok_k = (h_ust - h_alt) * L
-    ok_u = 0.30 * L
-    s_g = sinir("Lexend", 700, KUCUK_SAG[-1])
-    kucuk = Kutu("kucuk", d.X0, T3 - 0.74 * L, sag_x + Y.genislik("Lexend", 700, KUCUK_SAG, L) - (s_g[4] - s_g[2]) * L,
-                 T3 + 0.02 * L)
+    # Küçük satır: tek EN örnek (standart §2); sol %55 (dikeyde kenar payları) içine sığana ve karaktere
+    # değmeyene dek küçülür (denetle() ile aynı pay: KENAR_PX + 24)
+    azami = 0.55 * d.W - d.X0 if d.W > d.H else d.W - 2 * d.X0
+    while True:
+        ks_sol, ks_gen = gorunur("Lexend", 700, KUCUK, L)
+        T3 = kutu.y1 + 0.62 * L + 0.74 * L
+        kucuk = Kutu("kucuk", d.X0, T3 - 0.74 * L, d.X0 + ks_gen, T3 + 0.22 * L)   # g, f alt uzantısı dahil
+        if L <= 0.6 * d.L or (ks_gen <= azami and not degiyor(d.karakter, kucuk.genis(KENAR_PX + 24.0))):
+            break
+        L -= 1.0
 
     # Logo (svg kutusu 1920x476,3; mürekkep yaklaşık x 68-1850, y 73-400)
     lw = d.LOGO_H * Y.LOGO_EN_BOY
@@ -271,11 +266,7 @@ def ciz(d: Duzen, tema: str) -> tuple[str, list[Kutu]]:
         f'<rect id="vurgu" x="{kutu.x0:.2f}" y="{kutu.y0:.2f}" width="{kutu.x1 - kutu.x0:.2f}" '
         f'height="{kutu.y1 - kutu.y0:.2f}" rx="{0.10 * S:.1f}" fill="{R["kutu"]}"/>'
         f'<text id="s2" x="{kutu.x0 + ph - k_sol:.2f}" y="{T2:.2f}" font-size="{S:.0f}" {fr} fill="{R["kutuYazi"]}">{SATIR2}</text>'
-        f'<text id="k1" x="{d.X0 - ks_sol:.2f}" y="{T3:.2f}" font-size="{L:.0f}" {lx_} fill="{R["yazi"]}">{KUCUK_SOL}</text>'
-        f'<path id="ok" d="M{ok_x0:.1f} {ok_y:.1f} H{ok_x1:.1f} M{ok_x1 - ok_u:.1f} {ok_y - ok_u:.1f} L{ok_x1:.1f} {ok_y:.1f} '
-        f'L{ok_x1 - ok_u:.1f} {ok_y + ok_u:.1f}" fill="none" stroke="{R["yazi"]}" stroke-width="{ok_k:.1f}" '
-        f'stroke-linecap="round" stroke-linejoin="round"/>'
-        f'<text id="k2" x="{sag_x:.2f}" y="{T3:.2f}" font-size="{L:.0f}" {lx_} fill="{R["yazi"]}">{KUCUK_SAG}</text>'
+        f'<text id="k1" x="{d.X0 - ks_sol:.2f}" y="{T3:.2f}" font-size="{L:.1f}" {lx_} fill="{R["yazi"]}">{KUCUK}</text>'
         f'<rect id="rozet" x="{rozet.x0 + 2.5:.1f}" y="{rozet.y0 + 2.5:.1f}" width="{rw - 5:.1f}" height="{rh - 5:.1f}" '
         f'rx="{(rh - 5) / 2:.1f}" fill="none" stroke="{R["yazi"]}" stroke-width="5"/>'
         f'<text id="rozet-yazi" x="{rozet.x0 + rw / 2:.1f}" y="{d.ROZET_ALT - rh / 2 + 0.35 * d.R:.1f}" '

@@ -66,7 +66,7 @@ def yanlis_svg() -> str:
     """Yanlış grubu SVG çıktısı."""
     carpi = (
         f'<path id="yanlis-carpi" d="M64 799 Q85 819 107 842 M107 798 Q87 821 65 841" '
-        f'fill="none" stroke="{R["kirmizi"]}" stroke-width="7" stroke-linecap="round"/>'
+        f'fill="none" stroke="{R["murekkep"]}" stroke-width="7" stroke-linecap="round"/>'
     )
     yazi = (
         f'<text id="yanlis-yazi" x="132" y="840" font-family="Fredoka" font-weight="700" '
@@ -77,7 +77,7 @@ def yanlis_svg() -> str:
     w_es = Y.genislik("Fredoka", 700, "es", 56)
     cizik = (
         f'<path id="yanlis-cizik" d="M{x_es + 1.0:.1f} 827 L{x_es + w_es - 1.0:.1f} 821" '  # QA 1: uç `o`ya ve noktaya değmez
-        f'fill="none" stroke="{R["kirmizi"]}" stroke-width="6" stroke-linecap="round"/>'
+        f'fill="none" stroke="{R["murekkep"]}" stroke-width="6" stroke-linecap="round"/>'
     )
     return f'<g id="yanlis">{carpi}{yazi}{cizik}</g>'
 
@@ -233,12 +233,13 @@ def kurallari_dogrula(bloklar: list[dict[str, float]], html: str) -> None:
         assert len(s) <= 24, f"Satır uzunluğu {len(s)} > 24: {s}"
 
     # 8. Renk kuralları
+    # DUZ2 A7 (16.11): ✗ ve üstü çizgi kırmızı değil mürekkep (stil anayasası §1: 1 vurgu rengi + yeşil)
     c_kirmizi = html.count(R["kirmizi"])
-    assert c_kirmizi == 2, f"R['kirmizi'] sayısı {c_kirmizi} != 2"
+    assert c_kirmizi == 0, f"R['kirmizi'] sayısı {c_kirmizi} != 0"
     y_bas = html.find('<g id="yanlis">')
     y_son = html.find("</g>", y_bas) + 4
     yanlis_parca = html[y_bas:y_son]
-    assert yanlis_parca.count(R["kirmizi"]) == 2, "Kırmızı yalnız yanlis grubunda olmalı"
+    assert yanlis_parca.count(f'stroke="{R["murekkep"]}"') == 2, "✗ ve üstü çizgi mürekkep olmalı"
 
     c_vurgu = html.count(R["vurgu"])
     assert c_vurgu == 2, f"R['vurgu'] sayısı {c_vurgu} != 2 (künye rozeti + kaydet-hap)"

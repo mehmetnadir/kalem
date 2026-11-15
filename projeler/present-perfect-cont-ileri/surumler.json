@@ -10,14 +10,14 @@
       "have/has been + V-ing formunu kural olarak söylemek",
       "since + geçmiş zamanlı yan cümle kökünü çözmek",
       "süreç (been -ing) ile sonuç (have + V3) ayrımını yapmak",
-      "durum fiillerinin -ing almadığını bilmek"
+      "durum anlatan fiillerin genellikle -ing almadığını bilmek"
     ],
     "canAlici": [
-      "Süreç varsa been var, sonuç varsa been yok",
-      "Since + geçmiş zamanlı yan cümle -> ana cümle have been -ing",
+      "Süreç için been + -ing; sonuç ve durum için have + V3",
+      "Since + geçmiş zamanlı yan cümle -> ana cümle çoğu zaman Present Perfect; iş hâlâ sürüyorsa have been -ing",
       "Bütün hafta okuyorum (been reading) ama iki bölüm bitirdim (have finished)",
-      "know, like, belong: durum fiili, have been knowing olmaz",
-      "Türkçede -yor süreci, -di sonucu söyler"
+      "know, like, belong çoğu zaman durum anlatır: have been knowing olmaz",
+      "İkinci örnekte okuyorum süreci, bitirdim sonucu söyler"
     ],
     "kazanim": [],
     "etiketler": [
@@ -46,7 +46,7 @@
       "kimlik": "dikey-tam",
       "video": "present-perfect-cont-ileri",
       "tur": "dikey",
-      "ad": "Dikey tam ders (9:16, aynı ses, 86 sn)",
+      "ad": "Dikey tam ders (9:16, aynı ses, 93 sn)",
       "senaryo": "ortak/anlatim/METIN.md",
       "kapak": "PRESENT PERFECT CONTINUOUS",
       "seviye": "ileri",
@@ -72,5 +72,20 @@
       "proje": "present-perfect-cont-ileri-s1"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "ana-yatay",
+      "no": "r1",
+      "tarih": "2026-11-16T03:00:00Z",
+      "degisiklik": "DUZ3-0209I (YV-DUZ-1511 §4, jüri c sınıfı): c3 'Ana cümlede have been ve -ing gelir.' → 'Burada iş hâlâ sürüyor: ana cümlede have been ve -ing.'; c5 'Durum fiili -ing almaz.' → 'Durum anlatan fiiller genellikle -ing almaz.'; c7 'Olmaz. Durum fiilleri -ing almaz.' → 'Olmaz. Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    },
+    {
+      "surum": "dikey-tam",
+      "no": "r1",
+      "tarih": "2026-11-16T03:00:00Z",
+      "degisiklik": "DUZ3-0209I: ses ana dersle ortak (ortak/anlatim bağı); sahne 03 formül kartı 2. satır '→ have been + V-ing' → 'hâlâ sürüyor: have been + V-ing', 05 not 3 satır 'durum fiili: / genellikle / -ing yok', 06 kart, oklar ve kod; 04 kayma −1,60 ve altyazı kayma düzeltmesi; rozet YDT · İLERİ; süre 92,89 sn; render yok. Rapor: ../present-perfect-cont-ileri-dikey/uretim-tutanagi/DUZ3-RAPOR.md",
+      "cikti": null
+    }
+  ]
 }

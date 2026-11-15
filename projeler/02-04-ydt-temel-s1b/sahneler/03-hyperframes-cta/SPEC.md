@@ -36,7 +36,7 @@ HUD = {"kenar": 60, "sagSinir": 960,
        "altyaziBas": 1400, "altyaziSon": 1550, "altyaziYazi": 44, "altyaziSatir": 56,
        "altyaziMerkez": 510, "altyaziEn": 900}
 KONU = "Simple Present vs Present Continuous"
-ROZETLER = ("YDT · BASIC",)
+ROZETLER = ("YDT · TEMEL",)
 KANAL_YAZI = "@ydspublishing"
 ```
 `rozetDolgu` = rozet yazısının iki yanındaki iç boşluk (BRIEF'te değer yok; 20 seçildi, RAPOR'a açık nokta olarak girer).
@@ -61,7 +61,7 @@ sonraki rozet `x += w + 12` (şu an tek rozet).
   <text id="ku-konu" x="60" y="420" font-family="Fredoka" font-weight="700" font-size="<konu_boyu()>" fill="#f3efe6">Simple Present vs Present Continuous</text>
   <g id="rz0">
     <rect x="<x>" y="386" width="<w>" height="48" rx="24" fill="#f2a93b"/>
-    <text x="<x + w/2>" y="419" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#1b1a17">YDT · BASIC</text>
+    <text x="<x + w/2>" y="419" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#1b1a17">YDT · TEMEL</text>
   </g>
 </g>
 ```

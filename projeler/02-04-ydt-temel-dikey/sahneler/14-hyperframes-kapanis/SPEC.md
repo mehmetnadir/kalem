@@ -1,5 +1,7 @@
 # SPEC — 02-04-ydt-temel-dikey · sahne 14-hyperframes-kapanis (HyperFrames, 1080×1920, 431 kare)
 
+> **16.11 DUZ3:** cümle 18 «-ing almayan fiiller» → «durum bildiren fiiller» (mutlak kural kalktı); kart «Stative» «durum» sözcüğüyle gelir; 434 kare. Bu belgedeki saniye ve metinler önceki sürümündür; geçerli olan kod + `zaman.json`.
+
 Kaynak: `projeler/02-04-ydt-temel-dikey/BRIEF-DIKEY.md` §2 + §3 satır 14. Yazan: şef (15.11.2026). Kod yazmaz; tasarım verir.
 K = `/home/sef/01dev/_worktrees/kalem-0204`. Sahne dizini D = `K/projeler/02-04-ydt-temel-dikey/sahneler/14-hyperframes-kapanis/`.
 
@@ -30,9 +32,9 @@ Başka dosyaya dokunma. Silme yok. Test, render, git yok. `ortak/`, BRIEF, yatay
 1. `<g id="ku-ders">`: iki `<text>`, x 48, taban y 212 ve 276, Fredoka 700 56, `fill=RENK["murekkep"]`:
    `SIMPLE PRESENT vs` / `PRESENT CONTINUOUS`.
 2. `<g id="ku-rz">`: rozet hapı. rx0 = 48 + `genislik("Fredoka", 700, "PRESENT CONTINUOUS", 56)` + 24 (≈ 670).
-   rw = `genislik("Lexend", 700, "YDT · BASIC", 36)` + 56 (≈ 282). `rect` x rx0, y 216, w rw, h 72, rx 36, `fill=RENK["vurgu"]`
+   rw = `genislik("Lexend", 700, "YDT · TEMEL", 36)` + 56 (≈ 288). `rect` x rx0, y 216, w rw, h 72, rx 36, `fill=RENK["vurgu"]`
    (hf_tema rect dolgusunu vurguDolgu yapar). `text` x rx0 + rw/2, y 265, `text-anchor="middle"`, Lexend 700 36,
-   `fill=RENK["zemin"]` (= `#1b1a17`; hf_tema `text[fill="#1b1a17"]` → pilMetin). Metin `YDT · BASIC`.
+   `fill=RENK["zemin"]` (= `#1b1a17`; hf_tema `text[fill="#1b1a17"]` → pilMetin). Metin `YDT · TEMEL`.
 3. `<g id="ku-bolum">`: çip (sahne 01 işlevindeki çizimin aynısı: cw = metin + 64, x = 1032 − cw, y 48, h 80, rx 40,
    `fill="none"`, vurgu çerçeve 4 px, Lexend 700 40, metin tabanı y 102, ortalı, vurgu yazı).
 - `gizli` parametresi kalkar (bu sahnede HUD kare 0'dan tam görünür).
@@ -100,7 +102,7 @@ Hareket en geç 11,53'te biter. `Y.kontrol(s, Z["kare"])` (ilk=True: ilk 12 kare
 ```
 y   48 ┌ logo 387×96            [ Next lesson ] çip ┐  HUD 0–320 (kare 0'dan)
   212  │ SIMPLE PRESENT vs                          │
-  276  │ PRESENT CONTINUOUS  (YDT · BASIC)          │
+  276  │ PRESENT CONTINUOUS  (YDT · TEMEL)          │
   ~422 │ MEANING FIRST            (taban 505, 120)  │  içerik 352–1392
   ~539 │ ═════════ sarı alt çizgi ═══════           │
   ~614 │ (1)  general  or  now?          (taban 690)│  halka r 46, merkez (142, taban−30)

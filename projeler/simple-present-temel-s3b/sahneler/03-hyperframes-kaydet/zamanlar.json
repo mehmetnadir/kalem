@@ -1,0 +1,151 @@
+{
+  "fps": 30,
+  "kare": 170,
+  "sure": 5.6667,
+  "t_bas": 14.44,
+  "kart_cerceve": [
+    0.0,
+    0.4
+  ],
+  "soz_does": [
+    0.55,
+    0.18
+  ],
+  "soz_varsa": [
+    0.87,
+    0.18
+  ],
+  "soz_fiil": [
+    1.51,
+    0.18
+  ],
+  "soz_yalin": [
+    1.91,
+    0.18
+  ],
+  "kart_tam": [
+    2.47,
+    3.197
+  ],
+  "yerimi_ciz": [
+    2.62,
+    0.3
+  ],
+  "kaydet_hap": [
+    2.72,
+    0.3
+  ],
+  "ucak_ciz": [
+    3.42,
+    0.3
+  ],
+  "gonder_yazi": [
+    3.5,
+    0.2
+  ],
+  "kuyruk_durgun": [
+    5.34,
+    0.327
+  ],
+  "olaylar": [
+    [
+      0.4,
+      "cizgi",
+      0.4
+    ],
+    [
+      2.62,
+      "cizgi",
+      0.5
+    ],
+    [
+      2.72,
+      "tik",
+      0.6
+    ],
+    [
+      3.42,
+      "cizgi",
+      0.5
+    ]
+  ],
+  "olay_listesi": [
+    {
+      "olay": "kart_cerceve",
+      "kare": 0,
+      "yerel": 0.0,
+      "kuresel": 14.44,
+      "sozcuk": "sahne başı"
+    },
+    {
+      "olay": "soz_does",
+      "kare": 16,
+      "yerel": 0.55,
+      "kuresel": 14.99,
+      "sozcuk": "Does"
+    },
+    {
+      "olay": "soz_varsa",
+      "kare": 26,
+      "yerel": 0.87,
+      "kuresel": 15.31,
+      "sozcuk": "varsa"
+    },
+    {
+      "olay": "soz_fiil",
+      "kare": 45,
+      "yerel": 1.51,
+      "kuresel": 15.95,
+      "sozcuk": "fiil"
+    },
+    {
+      "olay": "soz_yalin",
+      "kare": 57,
+      "yerel": 1.91,
+      "kuresel": 16.35,
+      "sozcuk": "yalın."
+    },
+    {
+      "olay": "kart_tam",
+      "kare": 74,
+      "yerel": 2.47,
+      "kuresel": 16.91,
+      "sozcuk": "kart tam"
+    },
+    {
+      "olay": "yerimi_ciz",
+      "kare": 79,
+      "yerel": 2.62,
+      "kuresel": 17.06,
+      "sozcuk": "Bir"
+    },
+    {
+      "olay": "kaydet_hap",
+      "kare": 82,
+      "yerel": 2.72,
+      "kuresel": 17.16,
+      "sozcuk": "Kaydet"
+    },
+    {
+      "olay": "ucak_ciz",
+      "kare": 103,
+      "yerel": 3.42,
+      "kuresel": 17.86,
+      "sozcuk": "gönder;"
+    },
+    {
+      "olay": "gonder_yazi",
+      "kare": 105,
+      "yerel": 3.5,
+      "kuresel": 17.94,
+      "sozcuk": "Gönder"
+    },
+    {
+      "olay": "kuyruk_durgun",
+      "kare": 160,
+      "yerel": 5.34,
+      "kuresel": 19.78,
+      "sozcuk": "sahne sonu"
+    }
+  ]
+}

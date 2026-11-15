@@ -102,7 +102,7 @@ def kunye(bolum: str, etkin: int) -> str:
     return ('<g id="kunye">'
             '<text id="ku-ders" x="56" y="72" font-family="Fredoka" font-weight="700" font-size="30" fill="%s">'
             'PRESENT CONTINUOUS vs SIMPLE PRESENT<tspan id="ku-sev" dx="14" font-family="Lexend" font-weight="500" '
-            'font-size="22" fill="%s">· YDT BASIC</tspan></text>'
+            'font-size="22" fill="%s">· YDT TEMEL</tspan></text>'
             '<text id="ku-bolum" x="1864" y="72" text-anchor="end" font-family="Lexend" font-weight="700" '
             'font-size="24" fill="%s">%s</text>'
             '<g id="ku-ajA"><text x="%d" y="1030" text-anchor="end" font-family="Lexend" font-weight="500" '
@@ -234,11 +234,11 @@ def uret() -> tuple:
     # fm0 vurgu altçizgisi kaldırıldı (13.11 QA): boşluk çizgisi (gb0) zaten vurgu renginde
 
     # ---------------- çeldirici notları: imleç + sik_not pili ----------------
-    # (harf, imleç sözcüğü, pil sözcüğü, imleç kalır mı, parçalar)
+    # (harf, imleç sözcüğü, pil sözcüğü, imleç kalır mı, parçalar) — DUZ3: c18'e "burada" (17) girdi, D pili ve sonrası +1
     NOT = [("A", 1, 5, False, [["t", "now"], ["<>"], ["t", "write"], ["x"]]),          # Now … alışkanlığı
-           ("D", 15, 17, False, [["t", "now"], ["<>"], ["t", "wrote"], ["x"]]),         # D şıkkı: now
-           ("C", 22, 27, True, [["t", "I"], ["<>"], ["t", "writes"], ["x"]]),           # C şıkkı … özne
-           ("E", 25, 28, True, [["t", "I"], ["<>"], ["t", "is"], ["x"]])]               # E şıkkı … I
+           ("D", 15, 18, False, [["t", "now"], ["<>"], ["t", "wrote"], ["x"]]),         # D şıkkı: now
+           ("C", 23, 28, True, [["t", "I"], ["<>"], ["t", "writes"], ["x"]]),           # C şıkkı … özne
+           ("E", 26, 29, True, [["t", "I"], ["<>"], ["t", "is"], ["x"]])]               # E şıkkı … I
     onceki = None
     kal = []
     for h, i_isaret, i_not, tut, parcalar in NOT:
@@ -284,9 +284,9 @@ def uret() -> tuple:
                   None)
         if h == "A":   # A elenir: satır soluklaşır
             s.to("#rowA", tn + 0.2, {"opacity": 0.4, "duration": 0.35})
-    # C ve E imleçleri birlikte söner (son 12 kareden önce: global 272,00 → yerel 29,72)
+    # C ve E imleçleri birlikte söner (sahne sonundan 0,72 sn önce; DUZ3: sabit 271,70 eski t_son 270,34'ün ötesinde kalmıştı)
     for h in kal:
-        s.to("#pt" + h, S(271.70), {"opacity": 0, "duration": 0.2})
+        s.to("#pt" + h, S(SAH["t_son"] - 0.72), {"opacity": 0, "duration": 0.2})
     return s, {"kun": kunye("Mini question", 3), "pos": pos, "nsat": nsat, "bal_ids": bal_ids}
 
 

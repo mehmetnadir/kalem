@@ -9,7 +9,7 @@ ses olayları, kabul (§7) oradan aynen; yerleşim ve ölçek burada.
 Kaynak: ../present-continuous-dikey/BRIEF-DIKEY.md §0 (tek kaynak, 05.11 karar 6b).
 
 ## 1. Teknik çerçeve
-`zaman.json` hazır: 6 sahne, ana projeyle AYNI t_bas/t_son/kare (01 102 · 02 440 · 03 505 · 04 478 · 05 392 · 06 752), 1080×1920,
+`zaman.json` hazır: 6 sahne, ana projeyle AYNI t_bas/t_son/kare (01 102 · 02 440 · 03 553 · 04 478 · 05 428 · 06 877; 16.11 DUZ3), 1080×1920,
 `gecis_kare` 12. Ses: `ortak/anlatim` → ana projeye sembolik bağ (`cumle-1..7.wav`, `anlatim.wav`, `sureler.json`,
 `sozcukler.json`, `METIN.md`, `altyazi.json` [26 parça: {cumle, dil, t0, t1, metin, konusan}]). Yerel kare f ↔ küresel
 `t_bas + f/30`. İlk/son 12 kare geçiş altında DURGUN. Kareler `ortak/yakala.py ... 1080 1920`. HyperFrames kökü
@@ -43,7 +43,7 @@ uygular (logo `<img>` 387×96 sol üst; ders adı; rozet; çip; altyazı `div` 1
 | İngilizce örnek cümle (kart içinde, sözcük zamanlı) | Fredoka 700 | 72 (3 satıra sığmazsa 64) | mürekkep; okunan sözcük altı sarı |
 | Türkçe çeviri / kanca cümlesi | Caveat 700 | 64–80 | mürekkep |
 | El notu, ok etiketi ("şimdiki zaman", "= iş sürüyor") | Caveat 700 | 64 (ikincil yalnız ≥ 72) | vurgu ya da mürekkep |
-| Formül / anahtar sözcük (`be + V-ing`, `-yor = -ing`, `go → go-ing`) | Fredoka 700 | 110–160 | mürekkep + vurgu |
+| Formül / anahtar sözcük (`be + V-ing`, `have been + V-ing`, `go → go-ing`) | Fredoka 700 | 110–160 | mürekkep + vurgu |
 | Kapak başlığı (sahne 01) | Fredoka 700 | 190–230, 2 satır, kontur 12 | mürekkep / vurgu |
 | Kart | kenar 4 px kalem çizgisi, iç boşluk 40, genişlik 984 | | |
 | Figür / nesne | 420–560 px yüksek; kalınlık figür 4,0–4,8, nesne 4,0; belirteç (daire/altı/ok) w 9–12 | | |
@@ -54,12 +54,12 @@ yukarı toplanır ve küçülür, ama küçülünce de ≥ 48 px kalır).
 ## 4. Sahne sözleşmeleri (içerik ve zamanlar ana BRIEF §4'ten; burada yalnız dikey yerleşim)
 | # | Klasör / motor / kare | Dikey yerleşim (içerik bandı 352–1392, üstten alta) |
 |---|---|---|
-| 01 | `01-hyperframes-giris` HF 102 | Kapak kalıbı: logo damgası sol üst (0,0–0,4) → rozetler `YDT · ADVANCED` + `GRAMMAR` → başlık 3 satır `PRESENT` / `PERFECT` / `CONTINUOUS` (Fredoka 150, y ≈ 470/630/790; 15 harflik tek satır 984 px'e sığmaz; kalemle, 0,65–1,45) → cümle 1 Caveat 80 (1,00'dan, y ≈ 930) → yarım okunmuş kitap + saat (y 1000–1380) → 2,0–3,0 uçuş: başlık künye ders adına küçülür, cümle yukarı kayar, figür solar; altyazı bandı cümle 1 |
+| 01 | `01-hyperframes-giris` HF 102 | Kapak kalıbı: logo damgası sol üst (0,0–0,4) → rozetler `YDT · İLERİ` + `GRAMMAR` → başlık 3 satır `PRESENT` / `PERFECT` / `CONTINUOUS` (Fredoka 150, y ≈ 470/630/790; 15 harflik tek satır 984 px'e sığmaz; kalemle, 0,65–1,45) → cümle 1 Caveat 80 (1,00'dan, y ≈ 930) → yarım okunmuş kitap + saat (y 1000–1380) → 2,0–3,0 uçuş: başlık künye ders adına küçülür, cümle yukarı kayar, figür solar; altyazı bandı cümle 1 |
 | 02 | `02-paperjs-kanca` Paper.js 385 | Cümle 1 Caveat 80 `Süreç mi, sonuç mu?` (y 400–480); ORTA: kural kartı tam genişlik, 3 satır Fredoka 110: `have / has` · `+ been` · `+ -ing` (y 560–1100) sözcük zamanlı, her satır ayrı sarı daire; alt: `Bu derste:` üç satır ajanda `form · time clues · 2 traps` Fredoka 64 (y 1180–1392); altyazı: cümle 2 parçaları |
-| 03 | `03-paperjs-ornek1` Paper.js 453 | Çip `Example 1 / 3`; kart `Since the school changed the timetable, students have been complaining.` Fredoka 72 (4 satır, y 400–760) sözcük zamanlı; `Since … changed` ve `have been complaining` iki sarı ayraç; TR Caveat 64; ORTA: okul + öğrenci 440 px (y 800–1200); alt: `since + past simple → have been + V-ing` Fredoka 80 (y 1230–1380) |
+| 03 | `03-paperjs-ornek1` Paper.js 453 | Çip `Example 1 / 3`; kart `Since the school changed the timetable, students have been complaining.` Fredoka 72 (4 satır, y 400–760) sözcük zamanlı; `Since … changed` ve `have been complaining` iki sarı ayraç; TR Caveat 64; ORTA: okul + öğrenci 440 px (y 800–1200); alt: `since + past simple` / `hâlâ sürüyor: have been + V-ing` Fredoka 80 + 72, Caveat 64 (y 1230–1380; 16.11 DUZ3, eski `→` kaldırıldı) |
 | 04 | `04-canvas-ornek2` canvas 487 | Çip `Example 2 / 3`; kart `I have been reading this novel all week, but I have only finished two chapters.` Fredoka 64 (4 satır); ORTA: roman + okuyan figür 460 px; iki sütunlu kart `PROCESS been reading` · `RESULT have finished` (y 1100–1380) sözcük zamanlı; TR Caveat 64 |
 | 05 | `05-canvas-ornek3` canvas 517 | Çip `Example 3 / 3` + `TRAP` sarı etiket; kart `We have known each other since we were at primary school.` (3 satır); ORTA: iki figür + okul 460 px; `known` sarı daire; alt: `STATE VERB` kartı + `know-ing` kırmızı tek çizgiyle silinir; çıkış fade |
-| 06 | `06-hyperframes-form` HF 766 | Çip `Question` → `Form`; üst: öğrenci balonu + Caveat 64 `Hocam, have been knowing olmaz mıydı?` (y 400–640); ORTA: `have been knowing` kırmızı çizgi + `have known` tik (y 700–900); iki sütunlu özet `PROCESS have / has been + V-ing` · `RESULT have / has + V3` Fredoka 80 (y 920–1240); alt: kod kartı `süreç varsa been var / sonuç varsa been yok` Fredoka 72; altyazı: cümle 6 ve 7 |
+| 06 | `06-hyperframes-form` HF 766 | Çip `Question` → `Form`; üst: öğrenci balonu + Caveat 64 `Hocam, have been knowing olmaz mıydı?` (y 400–640); ORTA: `have been knowing` kırmızı çizgi + `have known` tik (y 700–900); iki sütunlu özet `PROCESS have / has been + V-ing` · `RESULT have / has + V3` Fredoka 80 (y 920–1240); alt: kod kartı `süreç → been + -ing / sonuç, durum → have + V3` Fredoka 72 (16.11 DUZ3); altyazı: cümle 6 ve 7 |
 
 ## 5. Çalıştırma ve kabul (sahne başına)
 1. Sahne klasörü: D1'deki ile aynı dosya düzeni (`calistir.sh` tema.sh'ı `. "$D/../../ortak/tema.sh" "$@"` ile çağırır,

@@ -179,11 +179,11 @@
     ],
     [
      "tr",
-     "İngilizce de aynısını yapar."
+     "İngilizce de planlı gelecek için aynısını yapar."
     ],
     [
      "tr",
-     "Bu derste Present Continuous'ın formunu, zaman ifadelerini ve altı kullanımını görüyoruz."
+     "Bu derste Present Continuous'ın formunu, zaman ifadelerini ve üç kullanımını görüyoruz."
     ]
    ],
    "olaylar": [
@@ -204,7 +204,7 @@
       "sozcuk": "gidiyorum",
       "alan": "tr"
      },
-     "etiket": "−ing ↔ −yor",
+     "etiket": "planlı gelecek",
      "sesParca": 1,
      "kesikli": true,
      "dugum": true,
@@ -232,7 +232,7 @@
      "ofset": -4.2
     }
    ],
-   "metin": "Türkçede şimdiki zamanla geleceği anlatırız. İngilizce de aynısını yapar. Bu derste Present Continuous'ın formunu, zaman ifadelerini ve altı kullanımını görüyoruz."
+   "metin": "Türkçede şimdiki zamanla geleceği anlatırız. İngilizce de planlı gelecek için aynısını yapar. Bu derste Present Continuous'ın formunu, zaman ifadelerini ve üç kullanımını görüyoruz."
   },
   {
    "ses": "ogretmen",
@@ -532,7 +532,7 @@
    "parcalar": [
     [
      "tr",
-     "Çünkü -ing devam eden işi gösterir. Olay bitmemiş, sürüyor."
+     "Çünkü burada -ing devam eden işi gösterir. Olay bitmemiş, sürüyor."
     ],
     [
      "tr",
@@ -544,7 +544,15 @@
     ],
     [
      "tr",
-     "-ing ekini Türkçedeki -yor gibi düşün: koşu-yor, runn-ing."
+     "-ing çoğu zaman Türkçedeki -yor'a denk gelir: koşuyor, running."
+    ],
+    [
+     "tr",
+     "Ama her -yor -ing olmaz: biliyorum,"
+    ],
+    [
+     "en",
+     "I know."
     ]
    ],
    "olaylar": [
@@ -659,7 +667,7 @@
       "sozcuk": "yor",
       "alan": "tr"
      },
-     "etiket": "aynı iş",
+     "etiket": "çoğu zaman",
      "sesParca": 3,
      "ofset": 2
     },
@@ -703,7 +711,7 @@
      "ofset": 0.3
     }
    ],
-   "metin": "Çünkü -ing devam eden işi gösterir. Olay bitmemiş, sürüyor. Be fiili ise zamanı taşır: am, is, are şimdiki zaman demek. Past olsaydı was, were derdik. -ing ekini Türkçedeki -yor gibi düşün: koşu-yor, runn-ing."
+   "metin": "Çünkü burada -ing devam eden işi gösterir. Olay bitmemiş, sürüyor. Be fiili ise zamanı taşır: am, is, are şimdiki zaman demek. Past olsaydı was, were derdik. -ing çoğu zaman Türkçedeki -yor'a denk gelir: koşuyor, running. Ama her -yor -ing olmaz: biliyorum, I know."
   }
  ],
  "zaman": {
@@ -714,7 +722,7 @@
   "satir1": "PRESENT",
   "satir2": "CONTINUOUS",
   "rozetler": [
-   "YDT · BASIC",
+   "YDT · TEMEL",
    "GRAMMAR"
   ],
   "sahne": [

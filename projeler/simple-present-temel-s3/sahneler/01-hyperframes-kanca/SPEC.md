@@ -1,5 +1,8 @@
 # SPEC — simple-present-temel-s3 · sahne 01-hyperframes-kanca (huni v2, HyperFrames 1080×1920, 129 kare)
 
+> **DUZ2 (16.11, `uretim-tutanagi/DUZ2-RAPOR.md`):** rozet `YDT · TEMEL`; karakter kadın öğrenci (`ortak/kapak/karakter.png` 1024×1024,
+> boy dosyadan okunur); `karakter_ustu()` daire merkezinin `?` kutusuna uzaklığını da arar (üst 888); `?` kırmızı değil mürekkep (A7).
+
 Kaynak: `uretim-tutanagi/istem/sahne/D-01-hyperframes-kanca.md`, `BRIEF-S3.md` ("Yerleşim", "Kanal katmanı", "Sahne içeriği"
 0,00–3,89, "Kapak"), `D/.claude/docs/huni-v2-standart.md` §1, §2, §6, §7, `uretim-tutanagi/kapak-taslak.md` §2–§3. Yazan: şef (15.11.2026).
 Bu belge tasarım verir; tam kod içermez. K = `/home/sef/01dev/_worktrees/kalem-0204`.
@@ -97,7 +100,7 @@ t0 − `Z.altyazi_on`. Kanal katmanı (`#kanal`) ve künye (`#ku-konu`, `#rz0`) 
 
 ```
 y  291 ┌ [logo 53–247] @ydspublishing (Lexend 42, x 263, taban 330) — 0. kareden son kareye, hareketsiz         ┐ kanal 280–350
-   386 │ Simple Present (Fredoka 34, x 60, taban 420) + [YDT · BASIC] x ≈ 310 — hareketsiz                         │ künye 360–450
+   386 │ Simple Present (Fredoka 34, x 60, taban 420) + [YDT · TEMEL] x ≈ 310 — hareketsiz                         │ künye 360–450
    468 │ BU CÜMLE  (B ≈ 133, orta 510, zemin konturu 10)                                                         │ içerik 460–1380
    648 │ ( YANLIŞ ) sarı hap x ≈ 259–761, çerçeve 0,30–0,80 kalemle (hap kenarı üstünde, mürekkep 5)               │
    816 │                                         ? kırmızı (2,69; kutu 705–761 × 816–916, kartın sağ üst köşesi)  │

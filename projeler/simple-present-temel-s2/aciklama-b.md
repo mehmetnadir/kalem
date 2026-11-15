@@ -1,7 +1,7 @@
 # simple-present-temel-s2 · açıklama metni — SET B (YouTube · Instagram · TikTok)
 
 Kaynak: `uretim-tutanagi/aciklama-taslak.md` §4 (S2-B jürisi + S2-C düzeltmeleri, `uretim-tutanagi/S2-duzeltme.md` madde 1 ve 5).
-Sürüm: B (`s2-aciklama-b`), soru ile açılır (kapak B ile aynı soru). A seti: `aciklama-a.md` (`utm_content=s2-a`).
+Sürüm: B (`s2-aciklama-b`), soru ile açılır; kapak B başlığı yinelemez (`ALWAYS` / `NEYİN İŞARETİ?`, DUZ2 16.11, HV-20b). A seti: `aciklama-a.md` (`utm_content=s2-a`).
 Ana ders: Simple Present (`ING-YDT-GR-02-02-T`, öğe `02-02-ydt-temel`). Shorts: `ING-YDT-GR-02-02-T-S2`. Kimlik `@ydspublishing`.
 Huni v2 (`D/.claude/docs/huni-v2-standart.md` §1 kural 4–6, §4): her platform metninin ilk satırı kaydet + kanal satırıdır; QR yok, emoji yok.
 Eşleşen kapak: `kapak-b.png`.
@@ -32,7 +32,7 @@ Sıradaki ders: Present Continuous ve Simple Present
 #YDT #İngilizce #gramer #SimplePresent
 ```
 
-Elle adım: Studio'da "İlgili video" = ana ders (API alanı yok). Kapak: `kapak-b.png` (başlık ile aynı soru).
+Elle adım: Studio'da "İlgili video" = ana ders (API alanı yok). Kapak: `kapak-b.png` (`ALWAYS` / `NEYİN İŞARETİ?`; başlıktan ayrı).
 
 ## 2. Instagram
 

@@ -39,8 +39,12 @@
    "ses": "ogretmen",
    "parcalar": [
     [
+     "en",
+     "He, she, it"
+    ],
+    [
      "tr",
-     "Olumsuzda ve soruda does girer, s ona geçer."
+     "ile olumsuzda ve soruda does girer; s ona geçer."
     ],
     [
      "tr",
@@ -52,7 +56,7 @@
     ]
    ],
    "olaylar": [],
-   "metin": "Olumsuzda ve soruda does girer, s ona geçer. Fiile s gelmez. He doesn't go. Does she go?"
+   "metin": "He, she, it ile olumsuzda ve soruda does girer; s ona geçer. Fiile s gelmez. He doesn't go. Does she go?"
   },
   {
    "ses": "ogretmen",
@@ -96,7 +100,7 @@
   "satir1": "BU CÜMLE",
   "satir2": "YANLIŞ",
   "rozetler": [
-   "YDT · BASIC"
+   "YDT · TEMEL"
   ]
  },
  "meta": {
@@ -118,7 +122,6 @@
    "Türkçe geniş zaman eki ile köprü"
   ],
   "canAlici": [
-   "Türkçedeki geniş zaman eki = İngilizcedeki s: gider = goes",
    "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
    "usually, always, every day = tekrar eden iş sinyali",
    "he, she, it fiile s alır; I, you, we, they almaz",

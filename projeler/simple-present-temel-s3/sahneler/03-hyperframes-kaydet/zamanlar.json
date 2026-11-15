@@ -2,7 +2,7 @@
   "fps": 30,
   "kare": 170,
   "sure": 5.6667,
-  "t_bas": 12.84,
+  "t_bas": 15.09,
   "kart_cerceve": [
     0.0,
     0.4
@@ -74,77 +74,77 @@
       "olay": "kart_cerceve",
       "kare": 0,
       "yerel": 0.0,
-      "kuresel": 12.84,
+      "kuresel": 15.09,
       "sozcuk": "sahne başı"
     },
     {
       "olay": "soz_does",
       "kare": 16,
       "yerel": 0.55,
-      "kuresel": 13.39,
+      "kuresel": 15.64,
       "sozcuk": "Does"
     },
     {
       "olay": "soz_varsa",
       "kare": 26,
       "yerel": 0.87,
-      "kuresel": 13.71,
+      "kuresel": 15.96,
       "sozcuk": "varsa"
     },
     {
       "olay": "soz_fiil",
       "kare": 45,
       "yerel": 1.51,
-      "kuresel": 14.35,
+      "kuresel": 16.6,
       "sozcuk": "fiil"
     },
     {
       "olay": "soz_yalin",
       "kare": 57,
       "yerel": 1.91,
-      "kuresel": 14.75,
+      "kuresel": 17.0,
       "sozcuk": "yalın."
     },
     {
       "olay": "kart_tam",
       "kare": 74,
       "yerel": 2.47,
-      "kuresel": 15.31,
+      "kuresel": 17.56,
       "sozcuk": "kart tam"
     },
     {
       "olay": "yerimi_ciz",
       "kare": 79,
       "yerel": 2.62,
-      "kuresel": 15.46,
+      "kuresel": 17.71,
       "sozcuk": "Bir"
     },
     {
       "olay": "kaydet_hap",
       "kare": 82,
       "yerel": 2.72,
-      "kuresel": 15.56,
+      "kuresel": 17.81,
       "sozcuk": "Kaydet"
     },
     {
       "olay": "ucak_ciz",
       "kare": 103,
       "yerel": 3.42,
-      "kuresel": 16.26,
+      "kuresel": 18.51,
       "sozcuk": "gönder;"
     },
     {
       "olay": "gonder_yazi",
       "kare": 105,
       "yerel": 3.5,
-      "kuresel": 16.34,
+      "kuresel": 18.59,
       "sozcuk": "Gönder"
     },
     {
       "olay": "kuyruk_durgun",
       "kare": 160,
       "yerel": 5.34,
-      "kuresel": 18.18,
+      "kuresel": 20.43,
       "sozcuk": "sahne sonu"
     }
   ]

@@ -144,7 +144,7 @@ def tabler(ad):
 HUD = {"kenar": 48, "logoY": 48, "logoYuk": 96, "dersTaban": 212, "dersYazi": 56, "rozetY": 236,
        "rozetH": 72, "rozetYazi": 36, "cipY": 48, "cipH": 80, "cipYazi": 40, "cipDolgu": 64,
        "altyaziBas": 1400, "altyaziYazi": 44, "altyaziSatir": 56}
-ROZETLER = ("YDT · BASIC", "GRAMMAR")
+ROZETLER = ("YDT · TEMEL", "GRAMMAR")
 
 
 def rozet_konumlari():

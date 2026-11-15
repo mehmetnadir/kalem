@@ -1,12 +1,13 @@
-// SAHNE 04 — Örnek 2/3 (düz canvas, 762 kare, t_bas 43,85; cümle 4). 02-04 YDT temel.
+// SAHNE 04 — Örnek 2/3 (düz canvas, 779 kare, t_bas 43,85; cümle 4). 02-04 YDT temel.
+// 16.11 DUZ3: cümle 4 yeniden sentezlendi ("Orada hep yaşıyorum" → "Burası bizim evimiz"); sözcük sırası aynı.
 // Kendini çizen kalem; zaman yalnız kare numarasından; sözcük zamanları ortak/anlatim/sozcukler.json.
 // Sol kart: "I live in İstanbul with my family." (ev, PERMANENT)
 // Sağ kart: "My parents are out of town, so I am living with my uncle." (bavul, TEMPORARY)
-// Altta iki zaman çizgisi: solda uzun bant (hep), sağda kısa bant (şimdilik) + now noktaları.
+// Altta iki zaman çizgisi: solda uzun bant (bizim evimiz), sağda kısa bant (şimdilik) + now noktaları.
 import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, elips, ok, altCizgi, olc } from "./sahne-ortak.js";
 
-const KARE = 762, TBAS = 43.85, ICERIK = 750;
+const KARE = 779, TBAS = 43.85, ICERIK = 767;
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Example 2 / 3", cumle: 4 });
 const KOKDIZ = "/projeler/02-04-ydt-temel/ortak/cizim";
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
@@ -68,18 +69,18 @@ async function kur() {
   }));
 
   // Sol zaman ekseni ve bant (S.koy sırası: bant → eksen → now noktası → "now" etiketi)
-  // 53,30 hep: uzun bant
+  // 53,06 bizim: uzun bant
   S.koy(S.darbe([[u(170), u(800)], [u(860), u(800)]],
     { duz: true, w: u(30), renk: RT.vurguDolgu, alfa: 0.8, uc0: 4, uc1: 8, tohum: 101 }, t(16), 1.0, 0.5));
 
-  // 52,90 Orada: sol eksen
+  // 52,66 Burası: sol eksen
   {
     const [, uc1, uc2] = ok([u(140), u(800)], [u(910), u(800)], 21);
     S.koy(S.darbeler([[[u(140), u(800)], [u(910), u(800)]], uc1, uc2],
       { duz: true, w: u(4), renk: RT.ikincil, uc0: 6, uc1: 12 }, t(15), 0.4, 0.15, 0.4));
   }
 
-  // 53,15 Orada: sol now noktası + etiket
+  // 52,91 Burası: sol now noktası + etiket
   S.koy(S.darbe(elips(u(520), u(800), u(15), u(15), 0, 31),
     { w: u(6), renk: RT.murekkep, tohum: 71 }, t(15) + 0.25, 0.35, 0.45));
   S.koy(S.metinPop({

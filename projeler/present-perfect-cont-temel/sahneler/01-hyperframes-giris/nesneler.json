@@ -1,7 +1,7 @@
 [
  {"ad": "logo damgası", "t0": 0, "t1": 0.4, "tur": "cizim"},
  {"ad": "logo (sol sütun)", "t0": 0.4, "t1": 2.2, "tur": "cizim"},
- {"ad": "rozet YDT · BASIC", "t0": 0.3, "t1": 2.2, "tur": "kart"},
+ {"ad": "rozet YDT · TEMEL", "t0": 0.3, "t1": 2.2, "tur": "kart"},
  {"ad": "rozet GRAMMAR", "t0": 0.4, "t1": 2.2, "tur": "kart"},
  {"ad": "figür eskizi (sitting-5)", "t0": 0.2, "t1": 1.8, "tur": "cizim"},
  {"ad": "dizüstü eskizi", "t0": 1.5, "t1": 3.5, "tur": "cizim"},

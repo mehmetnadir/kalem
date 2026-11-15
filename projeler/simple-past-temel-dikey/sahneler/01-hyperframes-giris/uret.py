@@ -43,7 +43,7 @@ def uret():
     figs = "".join('<path id="f%d" transform="translate(%.2f %.2f)" d="%s" style="opacity:0"/>'
                    % (i, s["tx"], s["ty"], s["d"]) for i, s in enumerate(fig))
     tvs = "".join('<path id="k%d" d="%s" style="opacity:0"/>' % (i, d) for i, d in enumerate(tv))
-    rw0 = Y.rozet_genislik("YDT · BASIC")
+    rw0 = Y.rozet_genislik("YDT · TEMEL")
     gw = Y.rozet_genislik("GRAMMAR")
     gx = Y.ROZET_X + rw0 + 16
     roz = ('<g id="rz1" style="opacity:0"><rect x="%.1f" y="%d" width="%.1f" height="%d" rx="36" fill="%s"/>'

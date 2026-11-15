@@ -1,5 +1,8 @@
 # SPEC v2 — 02-04-ydt-temel-s3 · sahne 07-hyperframes-hikaye-b (hikâye B, soru + cevap) · huni v2
 
+> DUZ2 (15.11): soru `Tarife mi, düzenleme mi?`, şık B `DÜZENLEME` (seste "kesin düzenleme"); şık yazısı 64 px, daire r 32, harf 56 px; A kutusu daralır, B genişler; rozet `YDT · TEMEL`. Kaynak `uret.py`; aşağıdaki `PLAN` geçen satırlar eski tasarımdır.
+
+
 Yazan: şef (15.11.2026, istem D-V2-S3). Kod yazmaz; tasarım verir. K = `/home/sef/01dev/_worktrees/kalem-0204`.
 Sahne dizini D = `K/projeler/02-04-ydt-temel-s3/sahneler/07-hyperframes-hikaye-b/`. Paket P = `K/projeler/02-04-ydt-temel-s3/`.
 Bağlayıcı: `/home/sef/01dev/dijital-anlatim/.claude/docs/huni-v2-standart.md` §2, §6 · `P/BRIEF-S3.md` "Yerleşim" + "Hikâye karesi B".
@@ -50,7 +53,7 @@ Kaynak renkler koyu temadır; `hf_tema.py` açık temaya çevirir.
 |---|---|---|---|
 | 0–280 | boş | — | yalnız zemin |
 | 291–339 | kanal katmanı | `<g id="kunye"><g id="kanal">` | 04 `kunye_svg` BİREBİR (logo `#logoimg` x 53,15 y 291 w 193,49 h 48 · `#kanal-yazi` `@ydspublishing` Lexend 700 42, x 263, taban 330) |
-| 386–434 | künye | `#ku-konu`, `#rz0` | 04 `kunye_svg` BİREBİR (konu Fredoka 700 `konu_boyu()` = 34, x 60, taban 420 · rozet `YDT · BASIC` Lexend 700 26). Çip YOK |
+| 386–434 | künye | `#ku-konu`, `#rz0` | 04 `kunye_svg` BİREBİR (konu Fredoka 700 `konu_boyu()` = 34, x 60, taban 420 · rozet `YDT · TEMEL` Lexend 700 26). Çip YOK |
 | 460–560 | soru | `#soru` | §5.1 |
 | 580–760 | cümle kartı | `#kart` | §5.2–5.3 |
 | 780–900 | şıklar | `#sA`, `#sB` | §6 |
@@ -139,7 +142,7 @@ Kurallar:
    `kart-s2` sağ ≤ saat sol − 24; tren alt ≤ saat üst − 10; `kart-s1` alt (taban + 0.02·64) ≤ `kart-s2` üst (taban − 0.73·64) − 10; `alti` üst ≥ 730 + 2.
 5. Şık içi: daire sağı + 12 ≤ yazı solu; A: yazı sağı + 10 ≤ ✓ sol, ✓ sağ ≤ 496 − 10; B: yazı sağı ≤ 958 − 24.
 6. İçerik yazı boyu ≥ 64: soru S ≥ 64, kart 64, harf 64, şık 72, kural 64, kaydet 64. Kanal 42 ve künye 28–34 standart ölçüsü (muaf).
-7. Ekran satırları ≤ 24 karakter: `@ydspublishing`, `YDT · BASIC`, `Tarife mi, plan mı?`, `The train to İzmir`, `leaves at 7 pm today.`,
+7. Ekran satırları ≤ 24 karakter: `@ydspublishing`, `YDT · TEMEL`, `Tarife mi, plan mı?`, `The train to İzmir`, `leaves at 7 pm today.`,
    `TARİFE`, `PLAN`, `Tren tarifeye uyar:`, `geniş zaman.`, `Kaydet`. Künye satırı `Simple Present vs Present Continuous` (36) standart ölçüsü: listede `muaf` notuyla.
 8. Üretilen HTML'de şu dizgiler YOK (büyük/küçük harf duyarsız): `tam ders`, `dakika`, `Full lesson`, `profildeki`, `Cevap`, `font-family="Caveat"`
    (font-face tanımı serbest), `✓`, `id="altyazi"`, `id="rz1"`, `kirmizi`, `#e0473b`. Büyük/küçük harf DUYARLI: `Izmir` YOK; `İzmir` ve `7 pm` VAR.

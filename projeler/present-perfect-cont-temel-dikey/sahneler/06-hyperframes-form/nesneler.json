@@ -4,11 +4,11 @@
  {"ad": "have/has been satırları", "t0": 1.44, "t1": 5.1, "tur": "metin"},
  {"ad": "büyük been", "t0": 5.3, "t1": 22.7, "tur": "metin"},
  {"ad": "past → now oku", "t0": 4.5, "t1": 22.7, "tur": "cizim"},
- {"ad": "been kutusu + -ing", "t0": 7.1, "t1": 22.7, "tur": "kart"},
- {"ad": "in progress bandı", "t0": 8.4, "t1": 22.7, "tur": "kart"},
- {"ad": "-dir … -yor ⇄ have been … -ing", "t0": 10.6, "t1": 22.7, "tur": "metin"},
- {"ad": "cümle: I have been working for two hours.", "t0": 13.0, "t1": 22.7, "tur": "metin"},
- {"ad": "Türkçe köprü saat-tir çalış-ıyor-um", "t0": 15.9, "t1": 22.7, "tur": "metin"},
- {"ad": "formül kartı have / has been + V-ing", "t0": 17.6, "t1": 22.7, "tur": "kart"},
- {"ad": "Next lesson →", "t0": 20.8, "t1": 22.7, "tur": "metin"}
+ {"ad": "been kutusu + -ing", "t0": 7.02, "t1": 22.7, "tur": "kart"},
+ {"ad": "in progress bandı", "t0": 8.54, "t1": 22.7, "tur": "kart"},
+ {"ad": "süre: for / since", "t0": 10.13, "t1": 22.7, "tur": "metin"},
+ {"ad": "cümle: I have been working for two hours.", "t0": 13.42, "t1": 22.7, "tur": "metin"},
+ {"ad": "Türkçe köprü saat-tir çalış-ıyor-um", "t0": 16.15, "t1": 22.7, "tur": "metin"},
+ {"ad": "formül kartı have / has been + V-ing", "t0": 17.83, "t1": 22.7, "tur": "kart"},
+ {"ad": "Next lesson →", "t0": 20.79, "t1": 22.7, "tur": "metin"}
 ]

@@ -63,11 +63,11 @@
     ],
     [
      "tr",
-     "Bebek uyuyor, ben telefonda konuşuyorum. İki iş de şu anda sürüyor. While, tam anı gösterir."
+     "Bebek uyuyor, ben telefonda konuşuyorum. İki iş de şu anda sürüyor. Burada while, aynı anda süren iki işi bağlar."
     ]
    ],
    "olaylar": [],
-   "metin": "Birinci kök. Please be quiet! The baby is sleeping in the next room while I am talking on the phone. Bebek uyuyor, ben telefonda konuşuyorum. İki iş de şu anda sürüyor. While, tam anı gösterir."
+   "metin": "Birinci kök. Please be quiet! The baby is sleeping in the next room while I am talking on the phone. Bebek uyuyor, ben telefonda konuşuyorum. İki iş de şu anda sürüyor. Burada while, aynı anda süren iki işi bağlar."
   },
   {
    "ses": "ogretmen",
@@ -131,7 +131,7 @@
    "parcalar": [
     [
      "tr",
-     "Olmaz. Know, believe, own, belong durum fiilidir, -ing almaz."
+     "Olmaz. Know, believe, own, belong durum fiilidir, durum anlamında -ing almaz."
     ],
     [
      "en",
@@ -147,11 +147,11 @@
     ],
     [
      "tr",
-     "Always artı -ing şikâyettir. Sınavda ikisi de çıkar. Kod: olay -ing alır, durum almaz."
+     "Always artı -ing çoğu zaman şikâyet bildirir. Sınavda ikisi de çıkar. Kod: olay -ing alabilir, durum genellikle almaz."
     ]
    ],
    "olaylar": [],
-   "metin": "Olmaz. Know, believe, own, belong durum fiilidir, -ing almaz. I know the answer. Türkçede biliyorum deriz, ama İngilizcede -ing yok. He is always losing his keys. Always artı -ing şikâyettir. Sınavda ikisi de çıkar. Kod: olay -ing alır, durum almaz."
+   "metin": "Olmaz. Know, believe, own, belong durum fiilidir, durum anlamında -ing almaz. I know the answer. Türkçede biliyorum deriz, ama İngilizcede -ing yok. He is always losing his keys. Always artı -ing çoğu zaman şikâyet bildirir. Sınavda ikisi de çıkar. Kod: olay -ing alabilir, durum genellikle almaz."
   }
  ],
  "zaman": {
@@ -165,7 +165,7 @@
   "satir1": "PRESENT",
   "satir2": "CONTINUOUS",
   "rozetler": [
-   "YDT · ADVANCED",
+   "YDT · İLERİ",
    "GRAMMAR"
   ],
   "sahne": [
@@ -206,7 +206,7 @@
    "Her fiile -ing eklenmez: know, believe, own, belong durum fiilidir",
    "Formül tek satır: am / is / are + V-ing",
    "Yarın + Present Continuous = planlı gelecek (bilet alınmış, saat belli)",
-   "always + -ing = şikâyet; sınav bunu tuzak yapar",
+   "always + -ing çoğu zaman şikâyet bildirir; sınav bunu tuzak yapar",
    "Biliyorum = I know; Türkçedeki -yor İngilizcede her zaman -ing değil"
   ],
   "kazanim": [],

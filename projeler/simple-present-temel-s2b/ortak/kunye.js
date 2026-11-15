@@ -4,7 +4,7 @@
 //           altyaziCiz(ctx, altyaziMetin(K.altyazi, t));   // t = küresel sn
 // S1 (15.11, S1-C): 02-04-ydt-temel-dikey/ortak/kunye.js kopyası (sha256 34252b76…); yalnız KOK ve cipler değişti.
 // simple-present-temel-s2 (15.11, S2-C): 02-04-ydt-temel-s1/ortak/kunye.js kopyası; yalnız KOK ve KUNYE.konu değişti.
-export const KOK = "/projeler/simple-present-temel-s2/ortak";
+export const KOK = "/projeler/simple-present-temel-s2b/ortak";
 export const TEMALAR = {
   koyu: { zemin: "#1b1a17", murekkep: "#f3efe6", ikincil: "#c9c2b3", vurgu: "#f2a93b", vurguDolgu: "#f2a93b",
     logoSari: "#fece00", logoMetin: "#ffffff", kirmizi: "#e0473b", pilMetin: "#1b1a17" },
@@ -95,7 +95,7 @@ export const KUNYE = {
   konuTaban: 420,
   konuAzami: 34,
   konuAsgari: 28,
-  rozet: "YDT · BASIC",
+  rozet: "YDT · TEMEL",
   rozetY: 386,
   rozetH: 48,
   rozetYazi: 26,

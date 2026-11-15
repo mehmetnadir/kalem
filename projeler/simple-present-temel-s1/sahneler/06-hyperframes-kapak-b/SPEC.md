@@ -38,7 +38,7 @@ HTML şablonu ve zaman çizelgesi (580–608), `__main__` (614–638). Balon, d�
 ```
 y    0 ┌──────────────────────────────────────────────┐ zemin (açık #fece00 · koyu #141414)
    291 │ [logo 193,5×48] @ydspublishing                │ kanal 280–350 (Y.kunye_svg)
-   386 │ (YDT · BASIC)  ← çerçeveli hap, x 60           │ künye 360–450
+   386 │ (YDT · TEMEL)  ← çerçeveli hap, x 60           │ künye 360–450
   ≈558 │ FİİLE -S                                      │ başlık bloğu, 470–900'de dikey orta
   ≈676 │ ┌HANGİ ÖZNEYLE?───────────────────────────┐   │ satır 2 kutuda (S ≈ 106)
   ≈812 │ └─────────────────────────────────────────┘   │
@@ -50,7 +50,7 @@ y    0 ┌───────────────────────�
 
 ### 3.1 Kanal + künye
 `Y.kunye_svg(konu=False, cerceve=True)` aynen; uret.py künyeye kendi değer yazmaz. Çıktı: `#kanal` (logo `#logoimg` x 53,2 y 291
-193,5×48 + `#kanal-yazi` Lexend 700 42 x 263 taban 330) ve `#rz0` (hap x 60–263,6, y 386–434, 3 px çerçeve, `YDT · BASIC` Lexend 700 26).
+193,5×48 + `#kanal-yazi` Lexend 700 42 x 263 taban 330) ve `#rz0` (hap x 60–263,6, y 386–434, 3 px çerçeve, `YDT · TEMEL` Lexend 700 26).
 Logo dosyası `calistir.sh` yazar (açık: tek renk #141414; koyu: `yds-publishing-seffaf.svg`).
 
 ### 3.2 Başlık — `<g id="baslik">`

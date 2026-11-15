@@ -1,6 +1,6 @@
 """Ortak yardımcılar, DİKEY 1080x1920 (02-04-ydt-temel-s1 sahne 08 kopyası, değişiklik yok; S3 sahne 08 Kaydet).
 Yol verisi, yazı genişliği (fontTools, kerning yok), künye SVG'si, yazı tipi CSS'i.
-huni v2 (15.11): kanal katmanı (`#kanal`, logo `#logoimg`) + künye satırı (konu + `YDT · BASIC`) + v2 bantları
+huni v2 (15.11): kanal katmanı (`#kanal`, logo `#logoimg`) + künye satırı (konu + `YDT · TEMEL`) + v2 bantları
 (BRIEF-S1 "Kanal katmanı"); çip yok."""
 import json
 import math
@@ -155,7 +155,7 @@ HUD = {"kenar": 60, "sagSinir": 960,
        "altyaziBas": 1400, "altyaziSon": 1550, "altyaziYazi": 44, "altyaziSatir": 56,
        "altyaziMerkez": 510, "altyaziEn": 900}
 KONU = "Simple Present vs Present Continuous"
-ROZETLER = ("YDT · BASIC",)
+ROZETLER = ("YDT · TEMEL",)
 KANAL_YAZI = "@ydspublishing"
 
 
@@ -255,7 +255,8 @@ def altyazi_cumleleri(liste: list[dict]) -> list[dict]:
 
 
 def altyazi_svg(t_bas: float, sure: float, liste: list[dict]) -> tuple[str, list[list], list[list]]:
-    """Altyazı bandı (y 1400-1550, x 60-960) + karaoke altçizgisi.
+    """Altyazı bandı (y 1400-1550, x 60-960) + karaoke (DUZ2: sahne 02/03 düzeni; sözcük <tspan id="ak<i>_<j>">
+    ikincil dolguyla başlar, t0'ında mürekkep olur). Sözcük sayısı tutmazsa parça karaokesiz mürekkep yazılır.
     -> (svg, [["al<i>", ac, kapat], ...], [["ak<i>_<j>", ac, kapat, uzunluk], ...]) yerel sn."""
     svg_parcalar: list[str] = []
     zaman: list[list] = []
@@ -288,6 +289,9 @@ def altyazi_svg(t_bas: float, sure: float, liste: list[dict]) -> tuple[str, list
         satir_elemanlari: list[str] = []
         satir_bilgileri: list[dict] = []
 
+        w_list = [w for w in sozcukler if t0 - 0.05 <= w["t0"] < t1 + 0.05]
+        kar = len(w_list) == sum(len(sat.split(" ")) for sat in satirlar)
+        j = 0
         for k, sat in enumerate(satirlar):
             satir_y = y0 + k * HUD["altyaziSatir"]
             satir_eni = genislik("Lexend", 500, sat, ayazi)
@@ -295,44 +299,28 @@ def altyazi_svg(t_bas: float, sure: float, liste: list[dict]) -> tuple[str, list
             assert 60 <= satir_x and satir_x + satir_eni <= 960, (
                 "Satır x aralığı 60-960 dışına çıktı: %.1f..%.1f" % (satir_x, satir_x + satir_eni)
             )
+            if kar:
+                tsp = []
+                for sw in sat.split(" "):
+                    w = w_list[j]
+                    cizgi_ac = round(w["t0"] - t_bas, 3)
+                    ilk = murekkep if cizgi_ac <= 0 else RENK["ikincil"]
+                    tsp.append('<tspan id="ak%d_%d" fill="%s">%s</tspan>' % (i, j, ilk, sw))
+                    if cizgi_ac > 0:
+                        karaoke.append(["ak%d_%d" % (i, j), cizgi_ac, round(parca_kapat, 3),
+                                        round(genislik("Lexend", 500, sw, ayazi), 2)])
+                    j += 1
+                icerik = " ".join(tsp)
+            else:
+                icerik = sat
             satir_elemanlari.append(
                 '<text x="%.1f" y="%d" text-anchor="start" font-family="Lexend" font-weight="500" '
                 'font-size="%d" fill="%s" style="font-kerning:none">%s</text>'
-                % (satir_x, satir_y, ayazi, murekkep, sat)
+                % (satir_x, satir_y, ayazi, murekkep, icerik)
             )
             satir_bilgileri.append({"satir": sat, "x": satir_x, "y": satir_y})
 
-        # Karaoke altçizgileri
-        w_list = [w for w in sozcukler if t0 - 0.05 <= w["t0"] < t1 + 0.05]
-        satir_sozcukleri = []
-        for k, sb in enumerate(satir_bilgileri):
-            sw_list = sb["satir"].split(" ")
-            for s_idx, sw in enumerate(sw_list):
-                satir_sozcukleri.append((k, s_idx, sw, sb))
-
         cizgi_elemanlari: list[str] = []
-        if len(w_list) == len(satir_sozcukleri):
-            for j, ((k, s_idx, sw, sb), w) in enumerate(zip(satir_sozcukleri, w_list)):
-                sw_list = sb["satir"].split(" ")
-                onceki = (" ".join(sw_list[:s_idx]) + " ") if s_idx > 0 else ""
-                x1 = sb["x"] + (genislik("Lexend", 500, onceki, ayazi) if onceki else 0.0)
-                sw_temiz = sw.rstrip(".,:;!?")
-                x2 = x1 + genislik("Lexend", 500, sw_temiz, ayazi)
-                y1 = sb["y"] + 12
-                y2 = y1
-                cizgi_ac = round(w["t0"] - t_bas, 3)
-                if j + 1 < len(w_list):
-                    cizgi_kapat = round(w_list[j + 1]["t0"] - t_bas, 3)
-                else:
-                    cizgi_kapat = round(min(w["t1"] - t_bas + 0.25, parca_kapat), 3)
-                uzunluk = round(x2 - x1, 2)
-                karaoke.append(["ak%d_%d" % (i, j), cizgi_ac, cizgi_kapat, uzunluk])
-                cizgi_elemanlari.append(
-                    '<line id="ak%d_%d" x1="%.1f" y1="%d" x2="%.1f" y2="%d" stroke="%s" '
-                    'stroke-width="6" stroke-linecap="round" style="opacity:0"/>'
-                    % (i, j, x1, y1, x2, y2, vurgu)
-                )
-
         svg_parcalar.append(
             '<g id="al%d" style="opacity:0">' % i + "".join(satir_elemanlari) + "".join(cizgi_elemanlari) + "</g>"
         )

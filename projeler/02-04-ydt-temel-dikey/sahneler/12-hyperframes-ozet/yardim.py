@@ -153,7 +153,7 @@ def kunye_svg(bolum):
     """dikey tam HUD (sahne 03–14)"""
     sar, kre, zem = RENK["vurgu"], RENK["murekkep"], RENK["zemin"]
     rx = 48 + genislik("Fredoka", 700, "PRESENT CONTINUOUS", 56) + 24
-    rw = genislik("Lexend", 700, "YDT · BASIC", 36) + 56
+    rw = genislik("Lexend", 700, "YDT · TEMEL", 36) + 56
     cw = genislik("Lexend", 700, bolum, 40) + 64
     cx = 1032 - cw
     return ('<g id="kunye">'
@@ -166,7 +166,7 @@ def kunye_svg(bolum):
             '<g id="ku-rz">'
             '<rect x="%.2f" y="216" width="%.2f" height="72" rx="36" fill="%s"/>'
             '<text x="%.2f" y="265" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="36" '
-            'fill="%s">YDT · BASIC</text>'
+            'fill="%s">YDT · TEMEL</text>'
             '</g>'
             '<g id="ku-bolum">'
             '<rect x="%.2f" y="48" width="%.2f" height="80" rx="40" fill="none" stroke="%s" stroke-width="4"/>'
@@ -175,6 +175,10 @@ def kunye_svg(bolum):
             '</g>'
             '</g>'
             % (kre, kre, rx, rw, sar, rx + rw / 2, zem, cx, cw, sar, cx + cw / 2, sar, bolum))
+
+
+# Altyazı satırı en çok 24 karakter (16.11 DUZ3, DK-2: dikey kalıp «satır en çok 24 karakter»); kunye.js ile aynı.
+ALTYAZI_KR = 24
 
 
 def altyazi_svg(parcalar):
@@ -186,7 +190,7 @@ def altyazi_svg(parcalar):
         sat, s = [], ""
         for w in met.split(" "):
             d = (s + " " + w) if s else w
-            if genislik("Lexend", 500, d, 44) > W - 96 and s:
+            if (genislik("Lexend", 500, d, 44) > W - 96 or len(d) > ALTYAZI_KR) and s:
                 sat.append(s)
                 s = w
             else:
@@ -215,7 +219,7 @@ def altyazi_dilimleri(cumleler):
         n, cur = 1, ""
         for w in m.split(" "):
             d = (cur + " " + w) if cur else w
-            if genislik("Lexend", 500, d, 44) > gen and cur:
+            if (genislik("Lexend", 500, d, 44) > gen or len(d) > ALTYAZI_KR) and cur:
                 n += 1
                 cur = w
             else:

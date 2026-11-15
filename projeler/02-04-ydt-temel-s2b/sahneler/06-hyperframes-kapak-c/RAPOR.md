@@ -1,7 +1,7 @@
 # RAPOR v2 — 02-04-ydt-temel-s2 · sahne 06-hyperframes-kapak-c (Kapak C, karşıt çift; huni v2)
 
 15.11.2026 · istem D-S2-V2 · srv21 (Linux x86_64). HyperFrames, 1080×1920, tek kare, ses yok, zaman çizelgesi dışı (`zaman.json` → `duragan`).
-Tema: açık (teslim) + koyu. v1 (SPEC, RAPOR, kod, kareler) yedeği: `~/Silinecekler/2026-11-15-huni-v2/02-04-ydt-temel-s2/sahneler/06-hyperframes-kapak-c/`.
+Tema: acik
 
 | Öğe | Durum |
 |---|---|

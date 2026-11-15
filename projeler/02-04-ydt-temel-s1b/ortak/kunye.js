@@ -2,6 +2,7 @@
 // Paper.js ve düz canvas sahneleri bunu çağırır; HyperFrames sahneleri aynı sayıları HTML/CSS ile uygular.
 // Kullanım: const K = await kunyeHazirla(); ... zeminCiz(ctx, f, K); ... kunyeCiz(ctx, { logo: K.logo });
 //           altyaziCiz(ctx, altyaziMetin(K.altyazi, t));   // t = küresel sn
+//           karaokeli: p = altyaziParca(K.altyazi, t); altyaziCiz(ctx, p.metin, { sozcukler: <p'nin sözcükleri>, t })
 // S1 (15.11, S1-C): 02-04-ydt-temel-dikey/ortak/kunye.js kopyası (sha256 34252b76…); yalnız KOK ve cipler değişti.
 export const KOK = "/projeler/02-04-ydt-temel-s1b/ortak";
 export const TEMALAR = {
@@ -94,7 +95,7 @@ export const KUNYE = {
   konuTaban: 420,
   konuAzami: 34,
   konuAsgari: 28,
-  rozet: "YDT · BASIC",
+  rozet: "YDT · TEMEL",
   rozetY: 386,
   rozetH: 48,
   rozetYazi: 26,
@@ -226,12 +227,19 @@ export function kunyeCiz(ctx, { logo, alfa = 1 } = {}) {
 }
 
 // Altyazı bandı (y 1400–1550): konuşulan parça, en çok 2 satır, ortalı. Sessiz izleme için zorunlu (kalıp §1 kural 3).
+export function altyaziParca(liste, t) {
+  if (!liste) return null;
+  return liste.find((a) => t >= a.t0 - 0.05 && t < a.t1 + 0.35) || null;
+}
 export function altyaziMetin(liste, t) {
-  if (!liste) return "";
-  const p = liste.find((a) => t >= a.t0 - 0.05 && t < a.t1 + 0.35);
+  const p = altyaziParca(liste, t);
   return p ? p.metin : "";
 }
-export function altyaziCiz(ctx, metin, { alfa = 1 } = {}) {
+// Karaoke (DUZ4 A1, 16.11): `sozcukler` (bu parçanın sözcükleri, küresel sn t0/t1) ve `t` (küresel sn) verilirse okunan
+// sözcüğün altı çizilir. Görünüm 08-hyperframes-kaydet karaokesiyle aynı: vurgu rengi, 6 px, yuvarlak uç, taban + 12,
+// 0,15 sn power2.out ile soldan uzar; sözcüğün t0'ından sonraki sözcüğün t0'ına (son sözcük t1 + 0,25) kadar görünür.
+// Sözcük sayısı satırdaki sözcük sayısını tutmazsa çizgi çizilmez (yardim.py altyazi_svg kuralı). Seçeneksiz çağrı eskisi gibi.
+export function altyaziCiz(ctx, metin, { alfa = 1, sozcukler = null, t = null } = {}) {
   if (!metin) return;
   const k = KUNYE, R = RENK, genislik = k.sag - k.kenar;
   const ortaX = (k.kenar + k.sag) / 2;
@@ -251,7 +259,28 @@ export function altyaziCiz(ctx, metin, { alfa = 1 } = {}) {
   const y0 = k.altyaziBas + (satirlar.length === 1 ? 84 : 56);
   ctx.fillStyle = R.murekkep;
   satirlar.forEach((sat, i) => ctx.fillText(sat, ortaX, y0 + i * k.altyaziSatir));
+  if (sozcukler && t !== null) karaokeCiz(ctx, satirlar, y0, ortaX, sozcukler, t);
   ctx.restore();
+}
+
+function karaokeCiz(ctx, satirlar, y0, ortaX, soz, t) {
+  const ogeler = [];
+  satirlar.forEach((sat, i) => {
+    const x0 = ortaX - ctx.measureText(sat).width / 2, kel = sat.split(" ");
+    kel.forEach((w, j) => ogeler.push({ w, y: y0 + i * KUNYE.altyaziSatir,
+      x: x0 + (j ? ctx.measureText(kel.slice(0, j).join(" ") + " ").width : 0) }));
+  });
+  if (ogeler.length !== soz.length) return;
+  for (let j = 0; j < soz.length; j++) {
+    const bas = soz[j].t0, son = j + 1 < soz.length ? soz[j + 1].t0 : soz[j].t1 + 0.25;
+    if (t < bas || t >= son) continue;
+    const o = ogeler[j], on = o.w.match(/^["“‘'(]*/)[0];
+    const govde = o.w.slice(on.length).replace(/[.,:;!?"”’')]+$/, "");
+    const x1 = o.x + (on ? ctx.measureText(on).width : 0), x2 = x1 + ctx.measureText(govde).width;
+    const u = 1 - Math.pow(1 - Math.min(1, (t - bas) / 0.15), 2);
+    ctx.strokeStyle = RENK.vurgu; ctx.lineWidth = 6; ctx.lineCap = "round";
+    ctx.beginPath(); ctx.moveTo(x1, o.y + 12); ctx.lineTo(x1 + (x2 - x1) * u, o.y + 12); ctx.stroke();
+  }
 }
 
 // 2 satıra sığmayan parça sözcük zamanıyla dilimlenir; sözcük sayısı tutmazsa karakter oranı.

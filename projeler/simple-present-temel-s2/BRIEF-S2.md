@@ -1,5 +1,7 @@
 # S2 Shorts — "USUALLY = ALIŞKANLIK" (simple-present-temel-s2, YDT TEMEL) · huni v2
 
+> DUZ2 (16.11, J2-OZET A1–A4): rozet `YDT · TEMEL`; ses c3 `Usually, always, every day: çoğunlukla Simple Present. …` (3 parça); süre 26,68 sn (cümle başları 1,00 · 3,95 · 12,42 · 20,57; sahne 03 11,87–20,02, 04 20,02–26,68; güncel değer `zaman.json`); kart 2. satır `every day: çoğunlukla`; kapak B `ALWAYS` / `NEYİN İŞARETİ?`; kapak C `ÜÇ İFADE,` / `GÜÇLÜ İPUCU`; karakter ana paketin kadın öğrencisi. Rapor `uretim-tutanagi/DUZ2-RAPOR.md`.
+
 Çıktı: önizleme (mp4 yok, standart §1 kural 9; 1080×1920, 30 fps, 25,73 sn, anlatım 25,73 sn hazır) + `kapak-a|b|c.png` (`kapak.png` = A)
 + `hikaye-a|b.png` (`hikaye.png` = A). Bağlayıcı standart: `D/.claude/docs/huni-v2-standart.md` (15.11; bu belge onunla çelişirse standart geçer).
 Biçim emsali: `../02-04-ydt-temel-s1/BRIEF-S1.md` (v2). Stil, kalem darbesi, olay sesi kuralları `../simple-present-temel/BRIEF.md` ile aynı;
@@ -7,17 +9,17 @@ Biçim emsali: `../02-04-ydt-temel-s1/BRIEF-S1.md` (v2). Stil, kalem darbesi, ol
 Kaynaklar: ses `ortak/anlatim/` (cümle başları 1,00 · 3,95 · 12,42 · 19,62; toplam 25,73), senaryo `ortak/anlatim/senaryo.json`
 (kaynak: `uretim-tutanagi/senaryo-taslak.md`, jüri `uretim-tutanagi/juri/`, düzeltme `uretim-tutanagi/S2-duzeltme.md`, rapor `uretim-tutanagi/S2-C-RAPOR.md`).
 
-Kapak başlığı (2 satır, 2 sözcük + simge): `USUALLY` / `= ALIŞKANLIK`. Can alıcı: "usually, always, every day = tekrar eden iş sinyali"
+Kapak başlığı (2 satır, 2 sözcük + simge): `USUALLY` / `= ALIŞKANLIK`. Can alıcı: "usually, always, every day çoğu zaman alışkanlığı işaret eder" (DUZ2 16.11; ana ders canAlici[2])
 (`canAlici[2]`; üç kapakta tek kaynak). Ses: cümle 1–3 öğretmen (`gsJ9nrlXYbPztJxC4fwc`, ana ders `sesler.ogretmen`), cümle 4 (çağrı)
 öğrenci (`kadro.ogrenci`, `oPC5I9GKjMReiaM29gjY`; ana dersten). Kalem figürü `kadro.ogrenci` (kadın, genç, LongBangs, GlassRound; peeps-kit).
-Kural özeti (kaydet kartı ve hikâye A, tek cümle, cümle 3 ile birebir): `Usually, always,` / `every day:` / `Simple Present.`
+Kural özeti (kaydet kartı ve hikâye A, tek cümle, cümle 3 ile birebir): `Usually, always,` / `every day: çoğunlukla` / `Simple Present.` (DUZ2 16.11, A3)
 
 ## Yerleşim (px) — huni v2 §2
 | Bölge | y | İçerik |
 |---|---|---|
 | Üst boş | 0–280 | yalnız zemin; çip YOK |
 | Kanal katmanı | 280–350 | aşağıdaki tablo; kalıcı |
-| Künye | 360–450 | konu `Simple Present` (Fredoka 700, x 60, taban 420; boy ≤ 34, rozetle x 960'a sığan en büyük, alt sınır 28) + rozet `YDT · BASIC` (hap y 386–434, Lexend 700 26, dolgu `vurguDolgu`, yazı `pilMetin`, konu sonu + 20); 0. kareden son kareye aynı |
+| Künye | 360–450 | konu `Simple Present` (Fredoka 700, x 60, taban 420; boy ≤ 34, rozetle x 960'a sığan en büyük, alt sınır 28) + rozet `YDT · TEMEL` (hap y 386–434, Lexend 700 26, dolgu `vurguDolgu`, yazı `pilMetin`, konu sonu + 20); 0. kareden son kareye aynı |
 | İçerik | 460–1380 | x 60–960 |
 | Altyazı + karaoke | 1400–1550 | en çok 2 satır (kapak ve hikâye karelerinde yok) |
 | Alt boş | 1570–1920 | yalnız zemin |
@@ -53,7 +55,7 @@ Zaman sözcük çapasından okunur (`ortak/anlatim/sozcukler.json`), sabit saniy
 | 0,00 | Kapak tam görünür (ilk kare = kapak A; kanal katmanı + künye dahil): başlık `USUALLY` / `= ALIŞKANLIK` (900 px'e sığan en büyük boy, üst sınır 190; iki satır aynı boy; satır 2 sarı hapta: dolgu `#ffe066`, yazı `#1b2440`) · solda takvim yaprağı (`tabler/calendar.svg` biçimi, 5 gün kutusu) · sağda kalem çizgisi figür (`kadro.ogrenci`, peeps-kit) takvime işaret eder; başlık y 460–800, görsel y 820–1380 |
 | 0,30–0,80 | Takvimde 5 kutudan 4'üne kalemle tik (5. kutu boş: `usually` ≠ her gün; jüri dil 1) |
 | 1,00–3,48 | Cümle 1 yalnız altyazıda, sözcük zamanlı: `Usually` 1,00 · `görünce` 1,80 · `hangi` 2,60 · `zaman?` 2,92 |
-| 2,40–3,00 | Uçuş: başlık küçülerek künye satırının sağ boş bölümüne (konu + rozet sonrası, x ≈ 500–940, y ≈ 370–440) gider ve 3,00'te saydamlığı 0 olur; künye metni değişmez, son metin `Simple Present` + `YDT · BASIC`. Figür ve takvim solar. Kanal katmanı yerinde |
+| 2,40–3,00 | Uçuş: başlık küçülerek künye satırının sağ boş bölümüne (konu + rozet sonrası, x ≈ 500–940, y ≈ 370–440) gider ve 3,00'te saydamlığı 0 olur; künye metni değişmez, son metin `Simple Present` + `YDT · TEMEL`. Figür ve takvim solar. Kanal katmanı yerinde |
 | 3,00–3,40 | Sahne 02: boş kart çerçevesi girer (yazısız, tek hareket); kart x 60–960, y ≈ 480–660 |
 | 3,95–6,59 | Kart karaoke, Fredoka 64: `My brother usually` / `goes to school by bus.` (`My` 3,95 · `usually` 4,59 · `goes` 4,99 · `bus.` 5,95). `usually` çapasında (4,59) sarı el dairesi: sahnenin tek sarısı. Alt bölgede oturan figür (`open-peeps/sitting-4.svg`) + otobüs (`coco/bus.svg`) kalemle çizilir (3,95–6,59; ana ders sahne 04 dizisi) |
 | 6,59 | Kartın altında soluk TR (Caveat 64, `ikincil`, 2 satır, seslendirilmez): `Kardeşim genellikle` / `okula otobüsle gider.`; y ≈ 690–830 |
@@ -76,9 +78,9 @@ Ekranda `@ydspublishing`; seste "YDS Publishing" (`ses-sozluk.json` → "YeDeSe"
 
 ## Kapak (`kapak-a.png` = `kapak.png`, 1080×1920)
 A: sahne 01'in kanca karesi t 0,90 (kare 27: başlık tam, 4 tik bitmiş, ses başlamamış), altyazı katmanı gizli (S1-KAPAK-A yöntemi: `proje` kopyasında
-CSS `#altyazi{display:none}`, `hyperframes snapshot --at 0.90`), açık + koyu. B (`06`, `kapak-b.png`): `ALWAYS VARSA` / `HANGİ ZAMAN?`
+CSS `#altyazi{display:none}`, `hyperframes snapshot --at 0.90`), açık + koyu. B (`06`, `kapak-b.png`): `ALWAYS` / `NEYİN İŞARETİ?` (DUZ2 16.11)
 (mürekkep, hapsız) · solda öğrenci başı (`peeps-kit/ogrenci-bas.svg`, kalem çizgisi) + el çizimi balon `always?` (Fredoka 72) · sağda büyük sarı `?`.
-C (`07`, `kapak-c.png`): `ÜÇ İFADE,` / `TEK İŞARET` (mürekkep, hapsız; jüri dil 3 + kaynak 1a) · el çizimi kart: `usually` · `always` · `every day`
+C (`07`, `kapak-c.png`): `ÜÇ İFADE,` / `GÜÇLÜ İPUCU` (DUZ2 16.11) (mürekkep, hapsız; jüri dil 3 + kaynak 1a) · el çizimi kart: `usually` · `always` · `every day`
 alt alta (Fredoka 72) → kalem oku → `Simple Present` sarı hap (Fredoka 80) · kartın sağında karakter görseli (`ortak/kapak/karakter.png`: genç erkek,
 gözlüklü, sola işaret eden "buldum" duruşu; 10 px krem `#f3efe6` çıkartma kenarı, kapak-standardi.md) karta işaret eder; kart x 60–600,
 karakter x 620–960; sığmazsa köşedeki küçük takvim çıkar. Üçünde kanal katmanı + künye var, altyazı yok; başlık 2 satır, rakam ve emoji yok.
@@ -91,7 +93,7 @@ Durağan; ses yok; altyazı yok; kanal katmanı + künye + kural özeti + `Kayde
 | Bölge (y) | A (`05`, kural kartı) | B (`08`, soru kartı "Hangisi doğru?") |
 |---|---|---|
 | 460–560 | `Usually görünce hangi zaman?` (Caveat 72, mürekkep) | `Hangisi doğru?` (Fredoka 88) |
-| 570–820 / 580–740 | kural kartı `Usually, always,` / `every day:` / `Simple Present.` (Fredoka 72; `Simple Present` sarı hap, tek vurgu) | kök `My brother usually ____` / `to school by bus.` (Fredoka 64; boşluk kalem çizgisi; köşede küçük otobüs) |
+| 570–820 / 580–740 | kural kartı `Usually, always,` / `every day: çoğunlukla` / `Simple Present.` (DUZ2 16.11, A3) (Fredoka 72; `Simple Present` sarı hap, tek vurgu) | kök `My brother usually ____` / `to school by bus.` (Fredoka 64; boşluk kalem çizgisi; köşede küçük otobüs) |
 | 840–1000 / 770–990 | örnek `My brother usually goes` / `to school by bus.` (Fredoka 64; `usually` altında mürekkep altçizgi; köşede küçük otobüs) | şıklar `A) goes` (770–870) · `B) is going` (890–990), el çizimi kart, Fredoka 64; ikisi aynı biçim, sarı yok |
 | 1010–1140 | yer imi + `Kaydet` (Fredoka 88, sağa yaslı) | kural özeti `usually = alışkanlık` (Caveat 64, sola yaslı; jüri kaynak 2 b) · yer imi + `Kaydet` (Fredoka 72, sağa yaslı) |
 

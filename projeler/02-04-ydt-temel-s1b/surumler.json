@@ -73,5 +73,20 @@
       "kaynak": "ana-yatay"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "s1b",
+      "no": "r1",
+      "tarih": "2026-11-15T20:58:00Z",
+      "degisiklik": "DUZ2 (J2 A1/TD-1, A3; KBJ HV-22, EK-3, EK-6, AB-8): kol a düzeltmeleri birebir (rozet YDT · TEMEL, kaydet kartı fiil sınırıyla 3 satır, sahne 02 sönme kayması 24 px); bütün kol b sahne kareleri ve kapak A kol b'den yeniden çekildi, kol a'dan kalan kareler Silinecekler'e taşındı; açıklama başlık notları s1b künyesine (27,89 sn) çevrildi, grup türevi atıfları kol a paketini gösterir; meta.kimlik s1b. Ses ve zaman değişmedi (27,89 sn). Çakışma kapısı çıkış 0. Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    },
+    {
+      "surum": "s1b",
+      "no": "r2",
+      "tarih": "2026-11-15T23:14:00Z",
+      "degisiklik": "DUZ4 (J3 A1, A4; C1, C2, C3): kol a düzeltmeleri birebir (sahne 02 altyazı karaokesi, kart 'Istanbul.', açıklamada 'I live mi'); altyazı 'Bu iki \"yaşıyorum\" aynı mı?' (ses metni ve cumle-1.wav aynı). kapak-a-168, kontak, hyperframes check. Sahne 02 T_BAS ve kare farkı korundu (B3 bekliyor). Ses değişmedi (sha256 eş, 27,89 sn). Sahne 01, 02 ve kapak A açık + koyu yeniden çekildi; çakışma kapısı çıkış 0. Ayrıntı: uretim-tutanagi/DUZ4-RAPOR.md",
+      "cikti": null
+    }
+  ]
 }

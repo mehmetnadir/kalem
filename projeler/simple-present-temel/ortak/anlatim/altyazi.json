@@ -155,55 +155,55 @@
 "cumle": 7,
 "dil": "tr",
 "t0": 65.73,
-"t1": 68.21,
+"t1": 68.05,
 "metin": "Çünkü özne üçüncü tekil kişi:",
 "konusan": "ogretmen"
 },
 {
 "cumle": 7,
 "dil": "en",
-"t0": 68.46,
-"t1": 70.62,
+"t0": 68.3,
+"t1": 70.46,
 "metin": "he, she, it.",
 "konusan": "ogretmen"
 },
 {
 "cumle": 7,
 "dil": "tr",
-"t0": 70.87,
-"t1": 76.23,
+"t0": 70.71,
+"t1": 76.07,
 "metin": "Fiile s gelir. I, you, we, they ile gelmez.",
 "konusan": "ogretmen"
 },
 {
 "cumle": 7,
 "dil": "tr",
-"t0": 76.38,
-"t1": 80.22,
+"t0": 76.22,
+"t1": 80.46,
 "metin": "Olumsuzda ve soruda does girer, s ona geçer.",
 "konusan": "ogretmen"
 },
 {
 "cumle": 7,
 "dil": "en",
-"t0": 80.47,
-"t1": 83.51,
+"t0": 80.63,
+"t1": 83.67,
 "metin": "He does not go. Does he go?",
 "konusan": "ogretmen"
 },
 {
 "cumle": 7,
 "dil": "tr",
-"t0": 83.68,
-"t1": 87.6,
-"metin": "Türkçedeki er eki gibi: git-er, go-es.",
+"t0": 83.84,
+"t1": 90.4,
+"metin": "Türkçede geniş zaman eki her kişide gelir, İngilizcede s yalnız üçüncü tekil kişide.",
 "konusan": "ogretmen"
 },
 {
 "cumle": 7,
 "dil": "tr",
-"t0": 87.75,
-"t1": 92.55,
+"t0": 90.55,
+"t1": 95.51,
 "metin": "Kod: always, usually, every day, Simple Present.",
 "konusan": "ogretmen"
 }

@@ -1,11 +1,22 @@
-// Sahne 02 (simple-present-temel-s3 Shorts) — Değer: Paper.js, 1080x1920, 281 kare, t_bas 3.89.
+// Sahne 02 (simple-present-temel-s3 Shorts) — Değer: Paper.js, 1080x1920, 348 kare; t_bas paketin zaman.json dosyasından.
+// DUZ2 (16.11): cümle 2 "He, she, it ile …" ile başlar (sözcük sırası +4); kapsam etiketi "he, she, it"; ✗ ve üstü çizgi mürekkep (A7).
+// DUZ4 (16.11): A3 etiket altına "be ve can hariç" (EK-5b kapsam); A1 altyazı karaokesi kalem-paper.js → kunye.js altyaziCiz.
 // Kart 0 (He doesn't goes.) -> sarı daire (does), ek oku (es->does), üstü çizili es ve carpi -> kart 1-2.
 // huni v2 (15.11): yerleşim x 60–960, y 460–1380; çip yok; kanal katmanı kunye.js'te.
 import { sahneKur, RT, KUNYE } from "/projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/kalem-paper.js";
 
-export const KARE = 281, T_BAS = 3.89;
+export const KARE = 348;
+
+// DUZ2 (16.11): t_bas paketin zaman.json kaydından (kol a 3,89 · kol b 3,24); sahne kodu iki A/B kolunda paket adı dışında aynı (AB-3, AB-8).
+async function tBasOku() {
+  const z = await (await fetch(new URL("../../zaman.json", import.meta.url))).json();
+  const s = (z.sahneler || []).find((x) => x.klasor === "02-paperjs-deger");
+  if (!s || typeof s.t_bas !== "number") throw new Error("zaman.json: 02-paperjs-deger t_bas yok");
+  return s.t_bas;
+}
 
 export async function kur(P) {
+  const T_BAS = await tBasOku();
   const S = await sahneKur(P, { KARE, tBas: T_BAS });
   const {
     fr, ciz, daire, ok, kutu, yazi, elYazisi, cumle, altCizgi, oge, not, genislik, kis,
@@ -27,17 +38,19 @@ export async function kur(P) {
   // Zaman ve sözcükler
   const s2 = S.sozcukler(2);
 
-  const wDoes = al(s2, 3, "does");
-  const wS1 = al(s2, 5, "s");
-  const wOna = al(s2, 6, "ona");
-  const wS2 = al(s2, 9, "s");
-  const wGelmez = al(s2, 10, "gelmez.");
-  const wHe = al(s2, 11, "He");
-  const wDoesnt = al(s2, 12, "doesn't");
-  const wGo1 = al(s2, 13, "go.");
-  const wDoes2 = al(s2, 14, "Does");
-  const wShe = al(s2, 15, "she");
-  const wGo2 = al(s2, 16, "go?");
+  const wHe0 = al(s2, 0, "He,");
+  const wIt0 = al(s2, 2, "it");
+  const wDoes = al(s2, 7, "does");
+  const wS1 = al(s2, 9, "s");
+  const wOna = al(s2, 10, "ona");
+  const wS2 = al(s2, 13, "s");
+  const wGelmez = al(s2, 14, "gelmez.");
+  const wHe = al(s2, 15, "He");
+  const wDoesnt = al(s2, 16, "doesn't");
+  const wGo1 = al(s2, 17, "go.");
+  const wDoes2 = al(s2, 18, "Does");
+  const wShe = al(s2, 19, "she");
+  const wGo2 = al(s2, 20, "go?");
 
   const F_HE = fr(wHe.t);
   const F_S2 = fr(wS2.t);
@@ -130,8 +143,15 @@ export async function kur(P) {
     kay: { f0: F_HE, f1: F_HE + 10, dx: 0, dy: 120 },   // şef kare turu 1: 70 → 120 (5 karelik sönüşte düşüş görünsün)
     alfa: sonma(F_HE, 5),
   });
+  // DUZ2 A7: üstü çizgi mürekkep; çizilen es harfleri aynı anda soluk tona geçer (mürekkep çizgi mürekkep harfte görünmüyordu)
+  const DUSEN_KAY = { f0: F_HE, f1: F_HE + 10, dx: 0, dy: 120 };
+  const ES_MUR = oge({ kay: DUSEN_KAY, alfa: (f) => Math.min(sonma(F_S2, 4)(f), sonma(F_HE, 5)(f)) });
+  const ES_SOL = oge({ kay: DUSEN_KAY, alfa: (f) => Math.min(1 - sonma(F_S2, 4)(f), sonma(F_HE, 5)(f)) });
   const OK1 = oge({ alfa: sonma(F_S2, 6) });
   const CARPI = oge({ alfa: sonma(F_HE, 4) });
+  // DUZ2: kapsam etiketinin kendi grubu (elYazisi `oge` grubunu kendi adıyla etiketler; ESKI verilse kart 0 grubu "he, she, it" sayılırdı)
+  const KAPSAM = oge({ alfa: sonma(F_HE, 4) });
+  const HARIC = oge({ alfa: sonma(F_HE, 4) });   // DUZ4 A3: "be ve can hariç" kendi grubunda (kapı adı ayrı kalsın)
 
   // 1. Kart 0 kutusu hazır
   kutu(KX, KY0, KW, KH0, {
@@ -167,13 +187,46 @@ export async function kur(P) {
   });
   yazi("es", {
     x: xEs2, y: Y0, boyut: B0, aile: "Fredoka", agirlik: 700,
-    renk: RT.murekkep, bas: -30, sure: 4, ses: false, oge: DUSEN,
+    renk: RT.murekkep, bas: -30, sure: 4, ses: false, oge: ES_MUR,
+  });
+  yazi("es", {
+    x: xEs2, y: Y0, boyut: B0, aile: "Fredoka", agirlik: 700,
+    renk: RT.ikincil, bas: -30, sure: 4, ses: false, oge: ES_SOL,
   });
   yazi(".", {
     x: xNokta, y: Y0, boyut: B0, aile: "Fredoka", agirlik: 700,
     renk: RT.murekkep, bas: -30, sure: 4, ses: false, oge: ESKI,
   });
   not("kart 0 yazısı", 0);
+
+  // 2b. Kapsam etiketi (DUZ2 A3: kural he, she, it içindir; ses "He, she, it ile …" anında, soluk el yazısı)
+  // DUZ4 A3 (EK-5b): etiket 12 px yukarı (92 → 80), altına soluk küçük "be ve can hariç" (etiketten sonra yazılır)
+  const KAPSAM_Y = KY0 + KH0 + 80;
+  const HARIC_Y = KAPSAM_Y + 38;
+  if (HARIC_Y + 10 > KY2 - 10) {   // 10 = 36 px Caveat alt uzantısı (ç)
+    throw new Error(`Bekçi: kapsam satırı kart 2 alanına taştı (${HARIC_Y + 10} > ${KY2 - 10})`);
+  }
+  const etiket = elYazisi("he, she, it", {
+    x: IC,
+    y: KAPSAM_Y,
+    boyut: BTR,
+    renk: RT.ikincil,
+    bas: fr(wHe0.t),
+    sure: Math.max(10, fr(wIt0.t) - fr(wHe0.t) + 6),
+    oge: KAPSAM,
+  });
+  not("kapsam etiketi (He, … it)", fr(wHe0.t));
+  elYazisi("be ve can hariç", {
+    x: IC,
+    y: HARIC_Y,
+    boyut: 36,
+    renk: RT.ikincil,
+    alfa: 0.75,
+    bas: Math.round(etiket.bit),
+    sure: 16,
+    oge: HARIC,
+  });
+  not("kapsam satırı be ve can hariç (etiket sonu)", Math.round(etiket.bit));
 
   // 3. does sarı dairesi
   daire(DCX, DCY, DRX, DRY, {
@@ -233,11 +286,11 @@ export async function kur(P) {
   });
   not("es bandı does (ona)", fr(wOna.t));
 
-  // 7. Kırmızı üstü çizgi es (goes)
+  // 7. Üstü çizgi es (goes) — DUZ2 A7: kırmızı yerine mürekkep (tek vurgu rengi)
   ciz([[xEs2 - 4, Y0 - 18], [xEs2 + gEs + 4, Y0 - 26]], {
     duz: true,
     w: 7,
-    renk: RT.kirmizi,
+    renk: RT.murekkep,
     alfa: 0.95,
     uc0: 4,
     uc1: 6,
@@ -253,11 +306,11 @@ export async function kur(P) {
   // 8. Ok + bant 1 söner
   not("ok ve bant söner (s)", F_S2);
 
-  // 9. Kırmızı ✗
+  // 9. ✗ — DUZ2 A7: mürekkep
   ciz([[XX, Y0 - 56], [XX + XS, Y0 + 8]], {
     duz: true,
     w: 8,
-    renk: RT.kirmizi,
+    renk: RT.murekkep,
     alfa: 0.95,
     uc0: 5,
     uc1: 8,
@@ -271,7 +324,7 @@ export async function kur(P) {
   ciz([[XX + XS, Y0 - 56], [XX, Y0 + 8]], {
     duz: true,
     w: 8,
-    renk: RT.kirmizi,
+    renk: RT.murekkep,
     alfa: 0.95,
     uc0: 5,
     uc1: 8,

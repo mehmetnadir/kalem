@@ -1,0 +1,225 @@
+{
+  "paket": "present-continuous",
+  "sikilik": 4,
+  "pay": 4,
+  "tarih": "2026-11-15T22:26:38.451Z",
+  "ozet": {
+    "toplamSahne": 1,
+    "olculen": 1,
+    "olculmedi": 0,
+    "olcumHatasi": 0,
+    "toplamHata": 6,
+    "toplamUyari": 5
+  },
+  "sahneler": [
+    {
+      "sahne": "06-hyperframes-form",
+      "motor": "HyperFrames",
+      "durum": "olculdu",
+      "ornekSayisi": 124,
+      "kutuSayisi": 17879,
+      "t_bas": 63.85,
+      "t_son": 94.61,
+      "olaylar": [
+        {
+          "t0": 68.1,
+          "t1": 68.35,
+          "a": "ok0",
+          "b": "row0:text1",
+          "turler": [
+            "yazi",
+            "cizim"
+          ],
+          "tip": "hata",
+          "kesisim": {
+            "x": 1382,
+            "y": 353,
+            "w": 19,
+            "h": 16
+          },
+          "png": null
+        },
+        {
+          "t0": 68.1,
+          "t1": 68.6,
+          "a": "ok2",
+          "b": "row2:text1",
+          "turler": [
+            "yazi",
+            "cizim"
+          ],
+          "tip": "hata",
+          "kesisim": {
+            "x": 1356,
+            "y": 522,
+            "w": 19,
+            "h": 16
+          },
+          "png": null
+        },
+        {
+          "t0": 68.6,
+          "t1": 68.6,
+          "a": "row0:text1",
+          "b": "row1:text1",
+          "turler": [
+            "yazi",
+            "yazi"
+          ],
+          "tip": "uyari",
+          "kesisim": {
+            "x": 1499,
+            "y": 341,
+            "w": 295,
+            "h": 167
+          },
+          "png": null
+        },
+        {
+          "t0": 68.6,
+          "t1": 68.6,
+          "a": "row0:text1",
+          "b": "row2:text1",
+          "turler": [
+            "yazi",
+            "yazi"
+          ],
+          "tip": "uyari",
+          "kesisim": {
+            "x": 1499,
+            "y": 387,
+            "w": 213,
+            "h": 122
+          },
+          "png": null
+        },
+        {
+          "t0": 68.6,
+          "t1": 68.6,
+          "a": "row1:text1",
+          "b": "row2:text1",
+          "turler": [
+            "yazi",
+            "yazi"
+          ],
+          "tip": "uyari",
+          "kesisim": {
+            "x": 1486,
+            "y": 387,
+            "w": 226,
+            "h": 121
+          },
+          "png": null
+        },
+        {
+          "t0": 68.6,
+          "t1": 68.6,
+          "a": "ok0",
+          "b": "row2:text1",
+          "turler": [
+            "yazi",
+            "cizim"
+          ],
+          "tip": "hata",
+          "kesisim": {
+            "x": 1446,
+            "y": 398,
+            "w": 22,
+            "h": 10
+          },
+          "png": null
+        },
+        {
+          "t0": 82.35,
+          "t1": 94.6,
+          "a": "kir",
+          "b": "was",
+          "turler": [
+            "yazi",
+            "cizim"
+          ],
+          "tip": "hata",
+          "kesisim": {
+            "x": 361,
+            "y": 675,
+            "w": 27,
+            "h": 8
+          },
+          "png": null
+        },
+        {
+          "t0": 82.35,
+          "t1": 94.6,
+          "a": "dotw",
+          "b": "kir",
+          "turler": [
+            "yazi",
+            "cizim"
+          ],
+          "tip": "hata",
+          "kesisim": {
+            "x": 479,
+            "y": 671,
+            "w": 27,
+            "h": 8
+          },
+          "png": null
+        },
+        {
+          "t0": 82.35,
+          "t1": 94.6,
+          "a": "kir",
+          "b": "were",
+          "turler": [
+            "yazi",
+            "cizim"
+          ],
+          "tip": "hata",
+          "kesisim": {
+            "x": 538,
+            "y": 670,
+            "w": 27,
+            "h": 8
+          },
+          "png": null
+        },
+        {
+          "t0": 86.85,
+          "t1": 94.6,
+          "a": "yk00:text0",
+          "b": "yk00:text1",
+          "turler": [
+            "yazi",
+            "yazi"
+          ],
+          "tip": "uyari",
+          "kesisim": {
+            "x": 382,
+            "y": 804,
+            "w": 9,
+            "h": 39
+          },
+          "png": null
+        },
+        {
+          "t0": 90.85,
+          "t1": 94.6,
+          "a": "yk10:text0",
+          "b": "yk10:text1",
+          "turler": [
+            "yazi",
+            "yazi"
+          ],
+          "tip": "uyari",
+          "kesisim": {
+            "x": 686,
+            "y": 804,
+            "w": 12,
+            "h": 27
+          },
+          "png": null
+        }
+      ]
+    }
+  ]
+}

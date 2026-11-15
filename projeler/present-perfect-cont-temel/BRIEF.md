@@ -3,9 +3,11 @@
 Amaç: ana örnek paketin (`../present-continuous/BRIEF.md`) görsel dilini bu konuya uygulamak. Çıktı `cikti.mp4`
 (1920×1080, 30 fps, ≈83 sn). Anlatım hazır: `ortak/anlatim/anlatim.wav` (soğuk açılış: ilk söz 1,00 sn).
 Metin ve zamanlar: `ortak/anlatim/METIN.md`, sözcük zamanları `ortak/anlatim/sozcukler.json` (küresel sn).
-Kod `ING-YDT-GR-02-09-T`, rozet `YDT · BASIC`, ders adı `PRESENT PERFECT CONTINUOUS`. HUD'a sığmazsa ders adı `PRES. PERFECT CONT.`
+Kod `ING-YDT-GR-02-09-T`, rozet `YDT · TEMEL` (HV-24, 16.11), ders adı `PRESENT PERFECT CONTINUOUS`. HUD'a sığmazsa ders adı `PRES. PERFECT CONT.`
 olur (`ortak/kunye.js` `ders` alanı; sığma ölçülmedi, sahne ajanı kareye bakıp karar verir).
-Seviye kuralı (temel): tümevarım — 3 günlük örnek → kalıp; EN yalnız örnek; Türkçe -dir … -yor köprüsü.
+Seviye kuralı (temel): tümevarım — 3 günlük örnek → kalıp; EN yalnız örnek; Türkçe -dir … -yor köprüsü anlam düzeyinde: süreyi for / since, süren işi have been + -ing taşır (ek ek denklik yok).
+
+> **16.11 DUZ3-0209T:** c2, c4, c5, c7 yeniden sentezlendi (ders 83,22 → 88,58 sn). Aşağıdaki §4 zaman tabloları 13.11 sesine aittir; güncel zamanlar `ortak/anlatim/METIN.md`, `zaman.json`, sahne dosyaları. Ayrıntı `uretim-tutanagi/DUZ3-RAPOR.md`.
 
 ## 0. Nadir'in istekleri (kaynak: 03–04.11 konuşmaları; hepsi bu videoda görünür olmalı)
 
@@ -102,7 +104,7 @@ yalnız yer açmak için küçülüp köşeye toplanır · ses olayı görsel an
 
 | Köşe | İçerik | Konum / boy | Renk |
 |---|---|---|---|
-| Sol üst | `PRESENT PERFECT CONTINUOUS` + ` · YDT BASIC` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
+| Sol üst | `PRESENT PERFECT CONTINUOUS` + ` · YDT TEMEL` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
 | Sağ üst | bölüm adı: `Hook` · `Example 1 / 3` · `Example 2 / 3` · `Example 3 / 3` · `Question` → `Form` | sağ kenar x 1864, taban 72; Lexend 700 24 px | vurgu |
 | Sol alt | logo svg | x 56, yükseklik 34 px (en ≈ 137), alt kenar y 1036 | logonun kendi renkleri |
 | Sağ alt | ajanda `Hook  Examples  Form`, etkin olan sarı + 4 px nokta solunda | sağ kenar 1864, taban 1030; Lexend 500 20 px, 36 px aralık | ikincil / vurgu |
@@ -121,7 +123,7 @@ Karar (Nadir 04.11, K23): giriş 3 sn, ilk söz ≤ 1 sn, kalem sesi 0. kareden,
 | sn | Hareket |
 |---|---|
 | 0,00–0,40 | Logo damgası sol sütun altında (110 px, x 96, y ≈ 880): ölçek 1,18→1,0 + dönme −2°→0, alfa 0→1 (vurus kare 3) |
-| 0,30–0,90 | Rozet hapları: `YDT · BASIC`, `GRAMMAR` (stagger 0,1) |
+| 0,30–0,90 | Rozet hapları: `YDT · TEMEL`, `GRAMMAR` (stagger 0,1) |
 | 0,00–2,20 | Başlık kalemle çizilir (soldan açılan kırpma): `PRESENT PERFECT` 0,0–1,1, `CONTINUOUS` 1,0–2,2; Fredoka 700 112 (en ≤ 1100; 15 harflik satır 140'a sığmaz). Kalem sesi kare 0 (cizgi + hisirti) |
 | 0,20–2,30 | Sağ sütun: oturan figür (sitting-5) + dizüstü (laptop) + saat (clock), stroke-dash, cizgi olayları |
 | 1,00–2,84 | Başlığın altında (x 96, y 650) Caveat 700 64: `İki saattir çalışıyorum.` sözcük sözcük (`sozcukler.json`) |
@@ -135,7 +137,7 @@ Karar (Nadir 04.11, K23): giriş 3 sn, ilk söz ≤ 1 sn, kalem sesi 0. kareden,
 | 3,00–3,40 | Cümle 1 yazısı hazır sayılır: Caveat 64 (x 140, y 300) `İki saattir çalışıyorum.`; sağda eskiz: figür + dizüstü + saat |
 | 4,91–5,43 | `saat-tir` içindeki `-dir` sarı daire; Caveat not `-dir → süre` (ok) |
 | 6,91–7,95 | `çalış-ıyor-um` içindeki `-yor` sarı daire; Caveat not `-yor → iş sürüyor`; alt çizgi: zaman çizgisi (el çizgisi): `2 saat önce` noktası → `now`, aradaki bant sarı |
-| 8,10–10,66 | Altına Fredoka 56 (y 520): `I have been working for two hours.`; `have been` ve `-ing` sarı daire; iki yönlü kalem oku `-dir … -yor ⇄ have been … -ing` |
+| 8,10–10,66 | Altına Fredoka 56 (y 520): `I have been working for two hours.`; `for two hours`, `have been`, `-ing` sarı daire (sese bağlı); alt iki satır `süre → for / since`, `iş sürüyor → have been + -ing` (16.11: denklik oku kalktı) |
 | 10,73–17,13 | Alt sağ el çizimi kutu, 3 madde tik zamanlı: `form` (formunu) · `time expressions` (ikinci `süre`) · `result clue` (sonuç); küçük saat `6 min` (dakikada) |
 
 ### 03 Örnek 1 (Paper.js, 467 kare, t 17,13–32,28; cümle 3)
@@ -171,7 +173,7 @@ Karar (Nadir 04.11, K23): giriş 3 sn, ilk söz ≤ 1 sn, kalem sesi 0. kareden,
 | 49,11–49,75 | `Look!` Fredoka 110 kırmızı, ölçek 0,6→1 taşmalı (vurus) + kalem ünlem çizgisi |
 | 49,83–52,87 | Fredoka 64: `The street is wet. It has been raining.` sözcük sözcük (Look! ayrı, üstte) |
 | 49,83–52,87 | Sağ: yağmur bulutu (rain, 520 px) kalemle; `wet` anında sokak çizgisi + 3 su birikintisi çizgisi; şemsiye (umbrella, 260 px) `It` anında |
-| 53,12–56,40 | Caveat 48: `Bak, sokak ıslak.` sonra `Yağmur bir süredir yağıyor.` |
+| 53,12–56,40 | Caveat 48: `Bak, sokak ıslak.` sonra `Yağmur yağıyormuş.` (16.11) |
 | 56,56–57,76 | Sarı ok ıslak sokağa; Caveat vurgu `izi şimdi görünüyor` (sonuç ipucu) |
 | 57,91–61,51 | Formül kartı: `has been  +  V-ing` → `has been` (ikinci `has`) sarı daire / `rain-ing` |
 
@@ -182,7 +184,7 @@ Karar (Nadir 04.11, K23): giriş 3 sn, ilk söz ≤ 1 sn, kalem sesi 0. kareden,
 | 62,06–63,66 | Künye sağ üst `Question`. Sol: öğrenci BAŞI (peeps-kit ogrenci-bas.svg, 0,4 sn; K22 kadın ses = kadın çizim) + el çizimi konuşma balonu; Fredoka 600 44 sözcük sözcük: `Hocam, üçünde de been var. Neden hep been?` Sağ: `have been waiting` · `has been playing` · `has been raining` dikey, `been` sarı (tik) |
 | 65,97–68,33 | Künye `Form`. Üç `been` tek büyük `been`'e toplanır (Fredoka 160 sarı, sağ orta; vurus); altında `past → now` kalem oku (`have` geçmişi bugüne bağlar); balon ve baş küçülüp yukarı kayar (alfa 0,45) |
 | 68,61–71,17 | `been` kutusu + `-ing` sarı; Caveat `in progress →` bandı |
-| 71,32–74,36 | Sol sütun: `-dir … -yor` Fredoka 96, çift yönlü ok, `have been … -ing` (sarı eşleşme) |
+| 71,32–74,36 | Sol sütun (16.11): Caveat `süre:` + Fredoka 96 `for / since` (denklik satırı ve çift yönlü ok kalktı) |
 | 74,53–76,93 | Fredoka 64: `I have been working for two hours.` sözcük sözcük |
 | 77,10–79,10 | Altında Caveat 56: `saat-tir  çalış-ıyor-um`; `-dir`/`-yor` sarı ↔ `for two hours`/`have been … -ing` kalem bağı |
 | 79,14–82,30 | Formül kartı el kutusunda toplanır: `have / has been  +  V-ing` (tik); sağ altta ajandanın üstünde küçük `Next lesson →` Lexend 24 ikincil |

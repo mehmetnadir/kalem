@@ -4,6 +4,9 @@ Durum: P1 tamam (senaryo.json + paket iskeleti). Ses sentezi YAPILMADI. Sahneler
 Görsel dil: `../present-continuous/BRIEF.md` (kalem prototipi) ve `../present-continuous-ileri/BRIEF.md` §2–§4 ile aynı; bu BRIEF yalnız içerik, iskelet ve sahne planını verir.
 Senaryo (jüri GEÇTİ, D-0204): `uretim-tutanagi/senaryo-taslak.md` (+ `uretim-tutanagi/juri.md`, `uretim-tutanagi/juri/02-04-ydt-temel.*.md`).
 
+
+> **16.11 DUZ3 (DJ-hukum-1611-0019, EK-5b/EK-5c):** cümle 4, 7, 13, 14, 18 düzeltildi ve yeniden sentezlendi; süre 264,64 → 267,04 sn. Sahne zamanları `zaman.json`'dan okunur; bu belgedeki saniyeler 15.11 zamanlarıdır. Ayrıntı `uretim-tutanagi/DUZ3-RAPOR.md`.
+
 ## 0. Künye
 
 | Alan | Değer |
@@ -26,7 +29,7 @@ Senaryo (jüri GEÇTİ, D-0204): `uretim-tutanagi/senaryo-taslak.md` (+ `uretim-
 | Senaryo taslağı + jüri | `uretim-tutanagi/senaryo-taslak.md` · `uretim-tutanagi/juri.md` · `uretim-tutanagi/juri/` |
 
 Kaynak slayt 3'ün ilk 3 satırıdır (iki sütunlu fark tablosu): genel ↔ konuşma anı, kalıcı ↔ geçici, tarifeli gelecek ↔ planlanmış gelecek.
-Slayt 3 satır 4 (*smell*, durum ↔ eylem) ve slayt 4–13 (-ing almayan fiiller) 02-05'in konusudur ("Stative Verbs"); kapanışta tek cümleyle işaret edilir.
+Slayt 3 satır 4 (*smell*, durum ↔ eylem) ve slayt 4–13 (durum fiilleri; çoğu zaman -ing almaz) 02-05'in konusudur ("Stative Verbs"); kapanışta tek cümleyle işaret edilir.
 Kaynakta olmayan kural eklenmedi. Türetilmiş 3 öğe taslak §3'te işaretli: *I am living in Istanbul.*, mini soru kökü, "planı kişi yapar".
 
 ## 2. İskelet (gerçek süreler sentez sonrası; ses 1,00 sn'de başlar)
@@ -37,8 +40,8 @@ Kaynakta olmayan kural eklenmedi. Türetilmiş 3 öğe taslak §3'te işaretli: 
 | 2 Örnekler (3) | 3–7 | 90 | 85 | sentez sonrası | 3 örnek çifti (wears ↔ is wearing · live ↔ am living · leaves ↔ am going); GENERAL / RIGHT NOW · PERMANENT / TEMPORARY · TIMETABLE / ARRANGEMENT; soru anı 1 balonu; person → plan · train → timetable | Sol/sağ kart çifti; mont/tişört, ev/bavul, tren+saat/bilet çizimi; zaman çizgisi; öğrenci balonu + 0,75 sn duraklama; cevap 2 sn içinde |
 | 3 Kural kartı | 8 | 45 | 16 | sentez sonrası | SIMPLE PRESENT (V1 / V-s) ‖ PRESENT CONTINUOUS (am / is / are + V-ing); general ‖ right now; permanent ‖ temporary; timetable ‖ arrangement; MEANING FIRST | `tanim` iki sütun (slayt 3 düzeni), 3 satır kademeli; satır → örnek ikonu kalem çizgisi |
 | 4 Karşıt çift | 9–10 | 60 | 31 | sentez sonrası | today → this day only; today + 7 pm → timetable; RIGHT NOW ≠ TIMETABLE | Aynı *today* iki kartta; zaman çizgisi (gün bandı, now nabzı / now → 7 pm oku) |
-| 5 Tuzak | 11–13 | 60 | 38 | sentez sonrası | TRAP; I live in İstanbul with my family (TR: yaşı-yor-um); soru anı 2; for now (temporary) ≠ always (permanent) | `yaklas`, `ek_ayir` *yor*; balon; iki kart alt alta, kısa / uzun bant; "≠ meaning" (çarpı yok) |
-| 6 Ara özet | 14 | 20 | 14 | sentez sonrası | general · permanent · timetable → V1 / V-s; right now · temporary · arrangement → am / is / are + V-ing; time word · Turkish -yor → clue · MEANING → decision | `ozet` 3 madde kademeli, bölüm perdesi yok |
+| 5 Tuzak | 11–13 | 60 | 38 | sentez sonrası | TRAP; I live in İstanbul with my family (TR: yaşı-yor-um); soru anı 2; for now (temporary) ≠ long-term (permanent) | `yaklas`, `ek_ayir` *yor*; balon; iki kart alt alta, kısa / uzun bant; "≠ meaning" (çarpı yok) |
+| 6 Ara özet | 14 | 20 | 14 | sentez sonrası | general · permanent · timetable → V1 / V-s; right now · temporary · arrangement → am / is / are + V-ing; time word → clue · -yor → trap · MEANING → decision | `ozet` 3 madde kademeli, bölüm perdesi yok |
 | 7 Mini soru | 15–17 | 55 | 31 | sentez sonrası | My brother lives in Ankara, but this month he ____ with us. A lives · B is living · C live · D to live · E are living | `soru` kök + 5 şık, sayaç; yanlış cevap A (soluk sarı çerçeve); doğru B vurgu dolgusu + tik (ham yeşil yok); `sik_not` pilleri |
 | 8 Kapanış | 18 | 15 | 14 | sentez sonrası | MEANING FIRST: general or now? · permanent or temporary? · timetable or plan? · Next lesson: Stative Verbs | üç soru satırı kalemle; sonraki ders kartı (02-05) |
 | Toplam | 1–18 | 360 | 246 | sentez sonrası | | zaman.json son t_son |
@@ -62,13 +65,13 @@ Dağılım 02-03 ile aynı: HyperFrames 7, Paper.js 2, Düz canvas 5. Olay adlar
 | 8 | `08-canvas-karsit1` | Düz canvas | sentez sonrası | 9 | *She is wearing her pink T-shirt today.* · today → this day only | `kart` alt0, `odak` (*today*), `zaman_cizgisi` (today gün bandı, now noktası bandın içinde nabız), `cizim` (tişört köşede küçük) |
 | 9 | `09-canvas-karsit2` | Düz canvas | sentez sonrası | 10 | *The train to İzmir leaves at 7 pm today.* · today + 7 pm → timetable · RIGHT NOW ≠ TIMETABLE | `kart` alt1, çoklu kart `odak` (iki *today* aynı anda), `isaret` (*7 pm* daire; dar öbekte `alti`), `zaman_cizgisi` (now → 7 pm kalem oku) |
 | 10 | `10-hyperframes-tuzak` | HyperFrames | sentez sonrası | 11, 12 (öğrenci) | TRAP: *I live in İstanbul with my family.* (TR: Ailemle İstanbul'da yaşı-yor-um.); SORU ANI 2 balonu sözcük sözcük, 0,75 sn duraklama | `yaklas` (tek kart tam genişlik, çevre karartma), `ek_ayir` (*yor* sarı kutu), `bag` (*yor* → *live*, ortada sarı soru işareti), balon, sarı nokta (balon → *yor*) |
-| 11 | `11-canvas-tuzak-cevap` | Düz canvas | sentez sonrası | 13 | *I am living in İstanbul.* → for now (temporary) · *I live in İstanbul.* → always (permanent); iki kart arasında kalemle "≠ meaning" (çarpı yok; iki cümle de doğru) | iki `kart` alt alta, `zaman_cizgisi` (Örnek 2'den geri gelir: üstte kısa bant, altta uzun bant), öğrenci 1 sn baş sallar; cevap 2 sn içinde |
-| 12 | `12-hyperframes-ozet` | HyperFrames | sentez sonrası | 14 | 3 madde: general · permanent · timetable → V1 / V-s; right now · temporary · arrangement → am / is / are + V-ing; time word · Turkish -yor → clue · MEANING → decision | `ozet` 3 madde kademeli, madde → kural kartı satırı ince çizgi; perde yok, geçiş çizgisi |
+| 11 | `11-canvas-tuzak-cevap` | Düz canvas | sentez sonrası | 13 | *I am living in İstanbul.* → for now (temporary) · *I live in İstanbul.* → long-term (permanent); iki kart arasında kalemle "≠ meaning" (çarpı yok; iki cümle de doğru) | iki `kart` alt alta, `zaman_cizgisi` (Örnek 2'den geri gelir: üstte kısa bant, altta uzun bant), öğrenci 1 sn baş sallar; cevap 2 sn içinde |
+| 12 | `12-hyperframes-ozet` | HyperFrames | sentez sonrası | 14 | 3 madde: general · permanent · timetable → V1 / V-s; right now · temporary · arrangement → am / is / are + V-ing; time word → clue · -yor → trap · MEANING → decision | `ozet` 3 madde kademeli, madde → kural kartı satırı ince çizgi; perde yok, geçiş çizgisi |
 | 13 | `13-hyperframes-mini-soru` | HyperFrames | sentez sonrası | 15, 16 (öğrenci), 17 | *My brother lives in Ankara, but this month he ____ with us.* A) lives · B) is living · C) live · D) to live · E) are living; ses şıkları okumaz (D-0205) | `soru` kök + 5 şık + sayaç ("Beş şık var"), yanlış cevap A balonu + soluk sarı çerçeve, `odak` (*lives in Ankara*, *this month*), `dogru` (B vurgu dolgusu + zemin renginde tik), `sik_not` pilleri; çıkış fade |
 | 14 | `14-hyperframes-kapanis` | HyperFrames | sentez sonrası | 18 | MEANING FIRST: general or now? · permanent or temporary? · timetable or plan? · Next lesson: Stative Verbs | üç soru satırı ses sırasıyla kalemle yazılır, sonraki ders kartı (02-05); son sahne +0,5 sn kuyruk |
 
 Sahne dizinleri P1'de OLUŞTURULMADI. Sahne zamanlarını sentezden sonra `ortak/anlatim/zaman_uret.py` üretir (`zaman.json`); eşleme bu tabloyla birebir.
-Künye: sol üst `SIMPLE PRESENT vs PRESENT CONTINUOUS · YDT BASIC` (`ortak/kunye.js`); sağ üst bölüm çipi; tek vurgu sarı, doğru şık vurgu dolgusu + tik (ham yeşil yok, 13.11 QA), kırmızı yok, çarpı sarı.
+Künye: sol üst `SIMPLE PRESENT vs PRESENT CONTINUOUS · YDT · TEMEL` (`ortak/kunye.js`; rozet HV-24, 15.11 DUZ2); sağ üst bölüm çipi; tek vurgu sarı, doğru şık vurgu dolgusu + tik (ham yeşil yok, 13.11 QA), kırmızı yok, çarpı sarı.
 
 ## 4. Ses dosyaları (`ortak/anlatim/`)
 

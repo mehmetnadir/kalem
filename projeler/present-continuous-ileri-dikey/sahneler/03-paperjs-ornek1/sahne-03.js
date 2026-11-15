@@ -1,9 +1,9 @@
-// Sahne 03 (İLERİ, DİKEY 1080x1920) — Örnek 1 (442 kare, t_bas 15,25; cümle 3). Yerel kare = round((t − 15,25) × 30).
+// Sahne 03 (İLERİ, DİKEY 1080x1920) — Örnek 1 (472 kare, t_bas 15,25; cümle 3; 16.11 DUZ3 sesi). Yerel kare = round((t − 15,25) × 30).
 // Bantlar: içerik 352–1392 dolu, altyazı 1400–1536 (kalem-paper.js çizer), platform boş. Telefon ölçeği: yazı ≥ 64 px.
-// Üstten alta: kart (372–708) · TR 3 satır (720–912) · sahne 940–1370 (27,9'da 0,42'ye toplanır) · formül kartı (1135–1390).
+// Üstten alta: kart (372–708) · TR 3 satır (720–912) · sahne 940–1370 (27,78'de 0,42'ye toplanır) · formül kartı (1135–1390).
 import { sahneKur, RT } from "/projeler/present-continuous-ileri-dikey/sahneler/03-paperjs-ornek1/kalem-paper.js";
 
-export const KARE = 442, T_BAS = 15.25;
+export const KARE = 472, T_BAS = 15.25;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1, kayma: 0 });
@@ -27,30 +27,30 @@ export async function kur(P) {
     const d = daire((x0 + x1) / 2, y, (x1 - x0) / 2 + 5, 46, { bas, sure: 22, a0: -2.6, egim, w: 10 });
     olay(bitis(d), "tik", 0.5); not(ad, d.bas); return d;
   };
-  cevre(5, 6, fr(18.75), -0.03, "is sleeping daire");
-  cevre(13, 14, fr(20.40), -0.025, "am talking daire");
+  cevre(5, 6, fr(18.91), -0.03, "is sleeping daire");
+  cevre(13, 14, fr(20.42), -0.025, "am talking daire");
   {
-    const w = cz[11], k = kutu(w.x0 - 10, w.y - 52, w.w + 6, 74, { bas: fr(20.13), sure: 14, w: 6, renk: SARI });
-    not("while kutusu", fr(20.13)); olay(k.bit, "tik", 0.5);
+    const w = cz[11], k = kutu(w.x0 - 10, w.y - 52, w.w + 6, 74, { bas: fr(20.21), sure: 14, w: 6, renk: SARI });
+    not("while kutusu", fr(20.21)); olay(k.bit, "tik", 0.5);
   }
 
   // --- 16,9–20,0: ORTA sahne (940–1370): tek grupta; duvar, solda uyuyan bebek, sağda telefonda konuşan figür
-  const G = S.oge({ topla: { f0: fr(27.9), f1: fr(28.7), ax: 540, ay: 940, olcek: 0.42, dy: 0 } });
-  const wall = ciz([[528, 950], [524, 1090], [531, 1230], [526, 1370]], { w: 6, renk: IKI, alfa: 0.9, bas: f0(16.9), sure: 22, uc0: 12, uc1: 30, oge: G });
+  const G = S.oge({ topla: { f0: fr(27.78), f1: fr(28.56), ax: 540, ay: 940, olcek: 0.42, dy: 0 } });
+  const wall = ciz([[528, 950], [524, 1090], [531, 1230], [526, 1370]], { w: 6, renk: IKI, alfa: 0.9, bas: f0(16.98), sure: 22, uc0: 12, uc1: 30, oge: G });
   not("duvar çizgisi", wall.bas);
-  await S.svgCiz("open-peeps/sitting-6.svg", { kutu: [80, 1080, 400, 290], bas: f0(17.3), sure: fr(18.5) - f0(17.3), azami: 60, yuz: 3,
+  await S.svgCiz("open-peeps/sitting-6.svg", { kutu: [80, 1080, 400, 290], bas: f0(17.38), sure: fr(18.58) - f0(17.38), azami: 60, yuz: 3,
     w: 4.4, oge: G, sesAralik: 5 });
-  not("uyuyan figür çizimi başı", f0(17.3));
-  await S.svgCiz("open-peeps/sitting-4.svg", { kutu: [580, 950, 420, 420], bas: f0(17.6), sure: fr(19.2) - f0(17.6), azami: 60, yuz: 3,
+  not("uyuyan figür çizimi başı", f0(17.38));
+  await S.svgCiz("open-peeps/sitting-4.svg", { kutu: [580, 950, 420, 420], bas: f0(17.68), sure: fr(19.28) - f0(17.68), azami: 60, yuz: 3,
     w: 4.4, oge: G, sesAralik: 5 });
-  not("konuşan figür çizimi başı", f0(17.6));
-  await S.svgCiz("tabler/phone.svg", { kutu: [560, 940, 150, 150], bas: fr(19.3), sure: 14, azami: 6, w: 5, sesAralik: 1, oge: G });
-  not("telefon çizimi başı", fr(19.3));
+  not("konuşan figür çizimi başı", f0(17.68));
+  await S.svgCiz("tabler/phone.svg", { kutu: [560, 940, 150, 150], bas: fr(19.38), sure: 14, azami: 6, w: 5, sesAralik: 1, oge: G });
+  not("telefon çizimi başı", fr(19.38));
   [[150, 1060, 44], [226, 1000, 54], [316, 936, 64]].forEach(([x, y, b], i) => {   // z z z
-    ciz([[x, y + 8], [x + b, y + 8], [x, y + b + 8], [x + b, y + b + 8]], { duz: true, w: 6, renk: IKI, alfa: 0.9, bas: fr(18.7) + i * 7, sure: 9,
+    ciz([[x, y + 8], [x + b, y + 8], [x, y + b + 8], [x + b, y + b + 8]], { duz: true, w: 6, renk: IKI, alfa: 0.9, bas: fr(18.78) + i * 7, sure: 9,
       uc0: 4, uc1: 6, amp: 0.5, oge: G });
   });
-  not("z z z", fr(18.7));
+  not("z z z", fr(18.78));
 
   // --- 22,30–27,42: Türkçe çeviri (Caveat 64, 2 satır) + "iki iş de sürüyor" (sarı, 3. satır);
   // el yazısı, her sözcük kendi konuşma penceresinde. Kısa sözcük (< 0,2 sn) penceresi sonraki
@@ -63,24 +63,28 @@ export async function kur(P) {
   not("Türkçe çeviri", pen("Bebek", 1)[0].f0);
   elYazisi("ben telefonda konuşuyorum.", { x: 88, y: 838, boyut: 64, renk: KRE,
     sozcukler: pen("ben", 3) });
-  {   // İki 25,14 · iş 25,34 · de 25,58 (şu anda 25,74–26,14 yazılmaz) · sürüyor. 26,18–27,42
+  {   // İki 24,98 · iş 25,26 · de 25,42 (şu anda 25,62–25,98 yazılmaz) · sürüyor. 26,06–26,86
     const w = [...pen("İki", 3), ...pen("sürüyor.", 1)];
     elYazisi("İki iş de sürüyor.", { x: 88, y: 904, boyut: 64, renk: SARI, sozcukler: w });
     not("iki iş de sürüyor", w[0].f0);
   }
 
-  // --- 27,66: While vurgusu (kutu yerinde kalır, parıltı) ; 27,9–28,7 sahne toplanır
-  olay(fr(27.66), "vurus", 0.8);
-  parilti(cz[11].x1 + 34, cz[11].y - 70, { bas: fr(27.66), r: 26 }); not("While vurgusu", fr(27.66));
-  not("sahne toplanır (0,42)", fr(27.9));
+  // --- 27,74: while vurgusu (kutu yerinde kalır, parıltı) ; 27,78–28,56 sahne toplanır (16.11 DUZ3)
+  olay(fr(27.74), "vurus", 0.8);
+  parilti(cz[11].x1 + 34, cz[11].y - 70, { bas: fr(27.74), r: 26 }); not("While vurgusu", fr(27.74));
+  not("sahne toplanır (0,42)", fr(27.78));
+  // 28,58–29,02 "aynı anda" (eski "tam an" iddiası kalktı): toplanan sahnenin sağ boşluğu
+  // (x 745–1032, y 940–1121), sözcük zamanlı el yazısı
+  elYazisi("aynı anda", { x: 770, y: 1062, boyut: 64, renk: SARI, sozcukler: pen("aynı", 2) });
+  not("aynı anda", pen("aynı", 1)[0].f0);
 
-  // --- 28,30–29,58: formül kartı (el kutusu 4 px) + is sleep-ing / am talk-ing (Fredoka 110, -ing sarı)
-  kutu(48, 1135, 984, 252, { bas: fr(28.30), sure: 26, w: 4.2, renk: IKI }); not("formül kartı kutusu", fr(28.30));
+  // --- 28,90–30,54: formül kartı (el kutusu 4 px) + is sleep-ing / am talk-ing (Fredoka 110, -ing sarı)
+  kutu(48, 1135, 984, 252, { bas: fr(28.90), sure: 26, w: 4.2, renk: IKI }); not("formül kartı kutusu", fr(28.90));
   const F = { boyut: 110, aile: "Fredoka", agirlik: 700 };
-  const s1 = yazi("is sleep", { ...F, x: 100, y: 1244, bas: fr(28.9), sure: 10, olcek: true });
-  yazi("-ing", { ...F, x: s1.x1 + 4, y: 1244, bas: fr(28.98), sure: 10, olcek: true, renk: SARI, ses: true }); not("is sleep-ing", fr(28.9));
-  const s2 = yazi("am talk", { ...F, x: 100, y: 1362, bas: fr(29.2), sure: 10, olcek: true });
-  yazi("-ing", { ...F, x: s2.x1 + 4, y: 1362, bas: fr(29.28), sure: 10, olcek: true, renk: SARI, ses: true }); not("am talk-ing", fr(29.2));
-  parilti(960, 1180, { bas: fr(29.3), r: 28 });
+  const s1 = yazi("is sleep", { ...F, x: 100, y: 1244, bas: fr(29.20), sure: 10, olcek: true });
+  yazi("-ing", { ...F, x: s1.x1 + 4, y: 1244, bas: fr(29.28), sure: 10, olcek: true, renk: SARI, ses: true }); not("is sleep-ing", fr(29.20));
+  const s2 = yazi("am talk", { ...F, x: 100, y: 1362, bas: fr(29.54), sure: 10, olcek: true });
+  yazi("-ing", { ...F, x: s2.x1 + 4, y: 1362, bas: fr(29.62), sure: 10, olcek: true, renk: SARI, ses: true }); not("am talk-ing", fr(29.54));
+  parilti(960, 1180, { bas: fr(29.98), r: 28 });
   return S;
 }

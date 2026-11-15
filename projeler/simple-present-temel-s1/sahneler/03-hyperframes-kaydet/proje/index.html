@@ -36,10 +36,12 @@ html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1080px;heig
  fill="#fff9e6" stroke="#c9c2b3" stroke-width="2"/>
 <path id="kart-kenar" d="M 86.0 616.0 L 293.0 617.6 L 510.0 614.8 L 727.0 618.2 L 944.0 616.0 L 943.2 703.0 L 945.0 790.0 L 942.0 877.0 L 944.0 964.0 L 727.0 964.6 L 510.0 965.8 L 293.0 962.6 L 76.0 964.0 L 76.4 877.0 L 74.0 790.0 L 77.2 703.0 L 76.0 616.0 L 100.0 616.0" fill="none" stroke="#1b1a17" stroke-width="4.5"
  stroke-linecap="round" stroke-linejoin="round"/>
-<text id="kural1" x="110" y="763" font-family="Fredoka" font-weight="700"
- font-size="80" fill="#1b1a17">He, she, it: s gelir;</text>
-<text id="kural2" x="110" y="869" font-family="Fredoka" font-weight="700"
- font-size="80" fill="#1b1a17">I, you, we, they: s yok.</text>
+<text id="kural1" x="110" y="734" font-family="Fredoka" font-weight="700"
+ font-size="64" fill="#1b1a17">He, she, it: fiile -s / -es gelir;</text>
+<text id="kural2" x="110" y="818" font-family="Fredoka" font-weight="700"
+ font-size="64" fill="#1b1a17">I, you, we, they: s yok.</text>
+<text id="kural3" x="110" y="884" font-family="Fredoka" font-weight="600"
+ font-size="44" fill="#1b1a17" opacity="0.6">olumlu cümlede · be ve can hariç</text>
 </g>
 
 <!-- Kaydet grubu -->
@@ -56,16 +58,16 @@ html,body{margin:0;background:#1b1a17;}#root{position:relative;width:1080px;heig
 </g>
 
 <!-- Künye ve kanal katmanı -->
-<g id="kunye"><g id="kanal"><image id="logoimg" href="assets/logo.svg" x="53.2" y="291" width="193.5" height="48"/><text id="kanal-yazi" x="263" y="330" font-family="Lexend" font-weight="700" font-size="42" fill="#f3efe6">@ydspublishing</text></g><text id="ku-konu" x="60" y="420" font-family="Fredoka" font-weight="700" font-size="34" fill="#f3efe6">Simple Present</text><g id="rz0"><rect x="309.7" y="386" width="203.6" height="48" rx="24" fill="#f2a93b"/><text x="411.5" y="419" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#1b1a17">YDT · BASIC</text></g></g>
+<g id="kunye"><g id="kanal"><image id="logoimg" href="assets/logo.svg" x="53.2" y="291" width="193.5" height="48"/><text id="kanal-yazi" x="263" y="330" font-family="Lexend" font-weight="700" font-size="42" fill="#f3efe6">@ydspublishing</text></g><text id="ku-konu" x="60" y="420" font-family="Fredoka" font-weight="700" font-size="34" fill="#f3efe6">Simple Present</text><g id="rz0"><rect x="309.7" y="386" width="207.6" height="48" rx="24" fill="#f2a93b"/><text x="413.5" y="419" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#1b1a17">YDT · TEMEL</text></g></g>
 
 <!-- Altyazı -->
-<g id="altyazi"><g id="al0" style="opacity:0"><text x="201.8" y="1484" text-anchor="start" font-family="Lexend" font-weight="500" font-size="44" fill="#f3efe6" style="font-kerning:none">Sınavdan önce lazım olacak.</text></g><g id="al1" style="opacity:0"><text x="425.9" y="1484" text-anchor="start" font-family="Lexend" font-weight="500" font-size="44" fill="#f3efe6" style="font-kerning:none">Kaydet.</text><line id="ak1_0" x1="425.9" y1="1496" x2="583.7" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/></g></g>
+<g id="altyazi"><g id="al0" style="opacity:0"><text x="201.8" y="1484" text-anchor="start" font-family="Lexend" font-weight="500" font-size="44" fill="#f3efe6" style="font-kerning:none">Sınavdan önce lazım olacak.</text><line id="ak0_0" x1="201.8" y1="1496" x2="404.7" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak0_1" x1="417.7" y1="1496" x2="521.4" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak0_2" x1="534.4" y1="1496" x2="649.4" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/><line id="ak0_3" x1="662.3" y1="1496" x2="807.8" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/></g><g id="al1" style="opacity:0"><text x="425.9" y="1484" text-anchor="start" font-family="Lexend" font-weight="500" font-size="44" fill="#f3efe6" style="font-kerning:none">Kaydet.</text><line id="ak1_0" x1="425.9" y1="1496" x2="583.7" y2="1496" stroke="#f2a93b" stroke-width="6" stroke-linecap="round" style="opacity:0"/></g></g>
 </svg>
 </div>
 <script src="lib/gsap.min.js"></script>
 <script>
 (function () {
-  var V = {"Z": {"kart_giris": [0.55, 0.45], "imi_ciz": [2.47, 0.3], "hap_giris": [2.57, 0.2], "kuyruk_durgun": [2.77, 0.73]}, "alt": [["al0", 0.5, 2.42], ["al1", 2.42, 3.5]], "karaoke": [["ak1_0", 2.47, 3.44, 157.83]]};
+  var V = {"Z": {"kart_giris": [0.55, 0.45], "imi_ciz": [2.47, 0.3], "hap_giris": [2.57, 0.2], "kuyruk_durgun": [2.77, 0.73]}, "alt": [["al0", 0.5, 2.42], ["al1", 2.42, 3.5]], "karaoke": [["ak0_0", 0.55, 1.11, 202.97], ["ak0_1", 1.11, 1.31, 103.75], ["ak0_2", 1.31, 1.67, 115.02], ["ak0_3", 1.67, 2.42, 145.46], ["ak1_0", 2.47, 3.44, 157.83]]};
   var Z = V.Z;
   var $ = function (s) { return document.querySelector(s); };
   var tl = gsap.timeline({ paused: true });

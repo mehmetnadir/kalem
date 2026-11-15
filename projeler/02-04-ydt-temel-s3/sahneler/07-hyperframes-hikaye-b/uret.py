@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """Sahne 07 hikâye karesi B (soru kartı) index.html üretici (HyperFrames DİKEY 1080x1920; tek kare, ses yok).
 Durağan PNG üretimi için tek kare zaman çizelgesi (1,0 sn).
-Bantlar: kanal (291-339) -> künye (386-434) -> soru (460-560) -> kart (580-760) -> şıklar (780-900) -> kural (920-1060) -> kaydet (1070-1140)."""
+Bantlar: kanal (291-339) -> künye (386-434) -> soru (460-560) -> kart (580-760) -> şıklar (780-900) -> kural (920-1060) -> kaydet (1070-1140).
+DUZ2 (15.11): soru "Tarife mi, düzenleme mi?", şık B `DÜZENLEME` (seste "kesin düzenleme"; hikâye sesle aynı terimi taşır);
+şık yazısı 64 px, daire r 32, harf 56 px; A kutusu daralır, B genişler (B yazısı 64 px'te sığsın diye)."""
 from __future__ import annotations
 
 import json
@@ -144,7 +146,7 @@ HUD = {
     "sagSinir": 960,
 }
 KONU = "Simple Present vs Present Continuous"
-ROZET = "YDT · BASIC"
+ROZET = "YDT · TEMEL"
 
 
 def konu_boyu() -> int:
@@ -197,7 +199,21 @@ def kunye_svg() -> str:
     return f'<g id="kunye">{kanal}{konu_txt}{rz}</g>'
 
 
-SORU = "Tarife mi, plan mı?"
+SORU = "Tarife mi, düzenleme mi?"
+SIK_BOY = 64
+HARF_BOY = 56
+DAIRE_R = 32.0
+SIK_A = "TARİFE"
+SIK_B = "DÜZENLEME"
+SA_X = 63.0                                   # A çerçeve (çizgi 6): dış kenar SA_X - 3
+SA_CX = SA_X + 44.0
+SA_YX = SA_CX + DAIRE_R + 12.0
+TIK_X = SA_YX + Y.genislik("Fredoka", 700, SIK_A, SIK_BOY) + 14.0
+SA_W = TIK_X + 39.0 + 12.0 - SA_X
+SB_X = SA_X + SA_W + 3.0 + 22.0 + 2.0          # B çerçeve (çizgi 4); A-B dış kenar arası 22
+SB_W = 958.0 - SB_X
+SB_CX = SB_X + 44.0
+SB_YX = SB_CX + DAIRE_R + 12.0
 
 
 def hesapla_s_soru() -> int:
@@ -277,28 +293,30 @@ def kart_svg() -> str:
 def siklar_svg() -> tuple[str, str]:
     """Şık A (doğru, yeşil) ve Şık B (soluk) SVG çıktıları (§6)."""
     mur = R["murekkep"]
+    yt = 840.0 + 0.36 * SIK_BOY
+    ht = 840.0 + 0.36 * HARF_BOY
     sA = (
         f'<g id="sA">'
-        f'<rect id="sA-crv" x="63" y="782" width="432" height="116" rx="24" '
+        f'<rect id="sA-crv" x="{SA_X:.1f}" y="782" width="{SA_W:.1f}" height="116" rx="24" '
         f'fill="none" class="dogru" stroke="#3a9a6a" stroke-width="6"/>'
-        f'<circle id="sA-daire" cx="120" cy="840" r="38" fill="none" stroke="{mur}" stroke-width="4"/>'
-        f'<text id="sA-harf" x="120" y="862" text-anchor="middle" font-family="Fredoka" font-weight="700" '
-        f'font-size="64" fill="{mur}" xml:space="preserve">A</text>'
-        f'<text id="sA-yazi" x="176" y="865" font-family="Fredoka" font-weight="700" font-size="72" '
-        f'fill="{mur}" xml:space="preserve">TARİFE</text>'
-        f'<path id="sA-tik" d="M437 842 L451 857 L476 826" fill="none" class="dogru" stroke="#3a9a6a" '
-        f'stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>'
+        f'<circle id="sA-daire" cx="{SA_CX:.1f}" cy="840" r="{DAIRE_R:g}" fill="none" stroke="{mur}" stroke-width="4"/>'
+        f'<text id="sA-harf" x="{SA_CX:.1f}" y="{ht:.1f}" text-anchor="middle" font-family="Fredoka" font-weight="700" '
+        f'font-size="{HARF_BOY}" fill="{mur}" xml:space="preserve">A</text>'
+        f'<text id="sA-yazi" x="{SA_YX:.1f}" y="{yt:.1f}" font-family="Fredoka" font-weight="700" font-size="{SIK_BOY}" '
+        f'fill="{mur}" xml:space="preserve">{SIK_A}</text>'
+        f'<path id="sA-tik" d="M{TIK_X:.1f} 842 L{TIK_X + 14:.1f} 857 L{TIK_X + 39:.1f} 826" fill="none" class="dogru" '
+        f'stroke="#3a9a6a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>'
         f'</g>'
     )
     sB = (
         f'<g id="sB" opacity="0.4">'
-        f'<rect id="sB-crv" x="524" y="782" width="434" height="116" rx="24" '
+        f'<rect id="sB-crv" x="{SB_X:.1f}" y="782" width="{SB_W:.1f}" height="116" rx="24" '
         f'fill="none" stroke="{mur}" stroke-width="4"/>'
-        f'<circle id="sB-daire" cx="582" cy="840" r="38" fill="none" stroke="{mur}" stroke-width="4"/>'
-        f'<text id="sB-harf" x="582" y="862" text-anchor="middle" font-family="Fredoka" font-weight="700" '
-        f'font-size="64" fill="{mur}" xml:space="preserve">B</text>'
-        f'<text id="sB-yazi" x="638" y="865" font-family="Fredoka" font-weight="700" font-size="72" '
-        f'fill="{mur}" xml:space="preserve">PLAN</text>'
+        f'<circle id="sB-daire" cx="{SB_CX:.1f}" cy="840" r="{DAIRE_R:g}" fill="none" stroke="{mur}" stroke-width="4"/>'
+        f'<text id="sB-harf" x="{SB_CX:.1f}" y="{ht:.1f}" text-anchor="middle" font-family="Fredoka" font-weight="700" '
+        f'font-size="{HARF_BOY}" fill="{mur}" xml:space="preserve">B</text>'
+        f'<text id="sB-yazi" x="{SB_YX:.1f}" y="{yt:.1f}" font-family="Fredoka" font-weight="700" font-size="{SIK_BOY}" '
+        f'fill="{mur}" xml:space="preserve">{SIK_B}</text>'
         f'</g>'
     )
     return sA, sB
@@ -355,10 +373,10 @@ def blok_kutulari(s_soru: int) -> tuple[list[dict[str, Any]], list[dict[str, Any
     kart = {"ad": "kart", "x": 60.0, "y": 580.0, "w": 900.0, "h": 180.0}
 
     # 5. sA
-    sA = {"ad": "sA", "x": 60.0, "y": 779.0, "w": 438.0, "h": 122.0}  # çizgi 6: dış kenar 60-498
+    sA = {"ad": "sA", "x": SA_X - 3.0, "y": 779.0, "w": SA_W + 6.0, "h": 122.0}  # çizgi 6: dış kenar
 
     # 6. sB
-    sB = {"ad": "sB", "x": 522.0, "y": 780.0, "w": 438.0, "h": 120.0}
+    sB = {"ad": "sB", "x": SB_X - 2.0, "y": 780.0, "w": SB_W + 4.0, "h": 120.0}
 
     # 7. kural
     w_kural1 = Y.genislik("Lexend", 500, "Tren tarifeye uyar:", 64)
@@ -387,7 +405,7 @@ def blok_kutulari(s_soru: int) -> tuple[list[dict[str, Any]], list[dict[str, Any
     tren = {"ad": "tren", "x": 752.0, "y": 594.0, "w": 180.0, "h": 62.0}
     saat = {"ad": "saat", "x": 805.6, "y": 675.6, "w": 72.8, "h": 72.8}
     alti = {"ad": "alti", "x": 79.0, "y": 733.0, "w": 208.2, "h": 18.0}
-    tik = {"ad": "tik", "x": 433.0, "y": 822.0, "w": 47.0, "h": 39.0}
+    tik = {"ad": "tik", "x": TIK_X - 4.0, "y": 822.0, "w": 47.0, "h": 39.0}
 
     ic_ogeler = [tren, saat, alti, tik]
 
@@ -477,16 +495,16 @@ def kurallari_dogrula(
     assert ic_dict["alti"]["y"] >= 730.0 + 2.0 - 1e-4, "alti üst >= 732 sağlanmadı"
 
     # 5. Şık içi: daire sağı + 12 <= yazı solu; A: yazı sağı + 10 <= ✓ sol, ✓ sağ <= 496 - 10; B: yazı sağı <= 958 - 24
-    assert 120.0 + 38.0 + 12.0 <= 176.0 + 1e-4, "A: daire sağı + 12 <= yazı solu sağlanmadı"
-    w_tarife = Y.genislik("Fredoka", 700, "TARİFE", 72)
+    assert SA_CX + DAIRE_R + 12.0 <= SA_YX + 1e-4, "A: daire sağı + 12 <= yazı solu sağlanmadı"
+    w_tarife = Y.genislik("Fredoka", 700, SIK_A, SIK_BOY)
     tik_sol = ic_dict["tik"]["x"]
     tik_sag = ic_dict["tik"]["x"] + ic_dict["tik"]["w"]
-    assert 176.0 + w_tarife + 10.0 <= tik_sol + 1e-4, "A: yazı sağı + 10 <= ✓ sol sağlanmadı"
-    assert tik_sag <= 496.0 - 10.0 + 1e-4, "A: ✓ sağ <= 496 - 10 sağlanmadı"
+    assert SA_YX + w_tarife + 10.0 <= tik_sol + 1e-4, "A: yazı sağı + 10 <= ✓ sol sağlanmadı"
+    assert tik_sag <= SA_X + SA_W - 4.0 + 1e-4, "A: ✓ sağ <= çerçeve iç kenarı sağlanmadı"
 
-    assert 582.0 + 38.0 + 12.0 <= 638.0 + 1e-4, "B: daire sağı + 12 <= yazı solu sağlanmadı"
-    w_plan = Y.genislik("Fredoka", 700, "PLAN", 72)
-    assert 638.0 + w_plan <= 958.0 - 24.0 + 1e-4, "B: yazı sağı <= 958 - 24 sağlanmadı"
+    assert SB_CX + DAIRE_R + 12.0 <= SB_YX + 1e-4, "B: daire sağı + 12 <= yazı solu sağlanmadı"
+    w_b = Y.genislik("Fredoka", 700, SIK_B, SIK_BOY)
+    assert SB_YX + w_b <= 958.0 - 24.0 + 1e-4, f"B: yazı sağı {SB_YX + w_b:.1f} <= 934 sağlanmadı"
 
     # 6. İçerik yazı boyu >= 64: soru S >= 64, kart 64, harf 64, şık 72, kural 64, kaydet 64.
     assert s_soru >= 64, f"soru boyu {s_soru} < 64"
@@ -494,12 +512,12 @@ def kurallari_dogrula(
     # 7. Ekran satırları <= 24 karakter (künye standart ölçüsü muaf)
     satirlar = [
         "@ydspublishing",
-        "YDT · BASIC",
-        "Tarife mi, plan mı?",
+        "YDT · TEMEL",
+        SORU,
         "The train to İzmir",
         "leaves at 7 pm today.",
-        "TARİFE",
-        "PLAN",
+        SIK_A,
+        SIK_B,
         "Tren tarifeye uyar:",
         "geniş zaman.",
         "Kaydet",

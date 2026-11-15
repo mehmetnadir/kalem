@@ -1,5 +1,7 @@
 # SPEC — 02-04 DİKEY sahne 06 `06-hyperframes-soru1` · uret.py (şef tasarımı, 15.11)
 
+> **16.11 DUZ3:** cümle 7 «Planı bir kişi yapar» → «Planı insanlar yapar», «varsa geniş zaman» → «varsa çoğunlukla geniş zaman» (EK-5b); figür ve «person» zinciri T7("insanlar"); 646 kare. Bu belgedeki saniye ve metinler önceki sürümündür; geçerli olan kod + `zaman.json`.
+
 ## 0. Görev
 
 | Alan | Değer |
@@ -47,7 +49,7 @@
 | Kök | `<g id="kunye">…</g>` |
 | Ders satır 1 | `<text id="ku-ders1">` `SIMPLE PRESENT vs`, x 48, taban 212, Fredoka 700 56, fill KRE |
 | Ders satır 2 | `<text id="ku-ders2">` `PRESENT CONTINUOUS`, x 48, taban 276, aynı yazı |
-| Rozet | `<g id="ku-rz">`: `rect` x = 48 + g("PRESENT CONTINUOUS", Fredoka 700 56) + 24 (≈ 670), y 216, w = g("YDT · BASIC", Lexend 700 36) + 56 (≈ 282), h 72, rx 36, fill SAR; `text` `YDT · BASIC` ortası, taban 265, `text-anchor="middle"`, Lexend 700 36, fill ZEM |
+| Rozet | `<g id="ku-rz">`: `rect` x = 48 + g("PRESENT CONTINUOUS", Fredoka 700 56) + 24 (≈ 670), y 216, w = g("YDT · TEMEL", Lexend 700 36) + 56 (≈ 288), h 72, rx 36, fill SAR; `text` `YDT · TEMEL` ortası, taban 265, `text-anchor="middle"`, Lexend 700 36, fill ZEM |
 | Çip | `<g id="ku-bolum">`: cw = g("Question", Lexend 700 40) + 64; `rect` x 1032 − cw, y 48, w cw, h 80, rx 40, fill none, stroke SAR, stroke-width 4; `text` `Question` ortası, taban 102, middle, Lexend 700 40, fill SAR |
 | Logo | `Y.html` logo parametresi `(48, 48, round(96 * Y.LOGO_EN_BOY, 2), 96)` |
 

@@ -1,5 +1,7 @@
 # RAPOR — simple-present-temel-s2 · sahne 06-hyperframes-kapak-b (huni v2, durağan kapak B) · 15.11.2026
 
+Tema: acik
+
 İstem: `../../uretim-tutanagi/istem/sahne/D-06-hyperframes-kapak-b.md`. Tasarım: `SPEC.md` (şef). Kod: `uret.py` (agy, rol `kod`).
 
 | Kapı | Sonuç |

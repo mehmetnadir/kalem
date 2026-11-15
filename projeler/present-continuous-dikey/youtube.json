@@ -1,0 +1,45 @@
+{
+  "baslik": "Present Continuous | YDT İngilizce",
+  "etiketler": [
+    "İngilizce",
+    "temel",
+    "gramer",
+    "Present Continuous",
+    "YDT",
+    "şimdiki zaman",
+    "Present Progressive",
+    "YDT İngilizce",
+    "İngilizce gramer",
+    "am is are",
+    "ing eki",
+    "zaman ifadeleri",
+    "YKS"
+  ],
+  "bolumler": [
+    {"t": 0, "ad": "Gidiyorum: şimdiki zamanla gelecek"},
+    {"t": 16.48, "ad": "Şu an süren iş: I am sitting now"},
+    {"t": 31.19, "ad": "Bugünlerde süren iş: this semester"},
+    {"t": 47.02, "ad": "Şu an işareti: Look! Listen! Watch out!"},
+    {"t": 63.85, "ad": "Neden hep -ing? Am, is, are + -ing"}
+  ],
+  "sabitYorum": "Sınavdan önce yeniden bakmak için videoyu kaydet; açıklamadaki bölüm damgalarından istediğin bölüme doğrudan geç.",
+  "gonderiler": [
+    {
+      "kimlik": "g1",
+      "metin": "\"Bu akşam amcamlara gidiyorum\" cümlesini İngilizcede nasıl kurarsın? Present Continuous dersinde be fiili ve -ing ekini üç örnekle gösteriyoruz. Sınavdan önce bakmak için videoyu kaydet.",
+      "gorsel": "kapak.png"
+    }
+  ],
+  "liste": {
+    "ad": "Tenses · YDT Temel",
+    "sira": 1,
+    "onceki": null,
+    "sonraki": "02-02-ydt-temel"
+  },
+  "bildirimler": [
+    {"t": 31.19, "sure": 3.0}
+  ],
+  "giris": true,
+  "cikis": true,
+  "aciklamaDosya": "youtube-aciklama.md"
+}

@@ -7,9 +7,11 @@ import {
 import { yaziNoktalari }
   from "/projeler/02-04-ydt-temel-dikey/ortak/kalem-canvas.js";
 
-const KARE = 523, TBAS = 145.29, ICERIK = 511;
+const KARE = 523, TBAS = 145.29, ICERIK = 511, KAYMA = -1.68;
+// 16.11 DUZ3: zaman.json t_bas 146,97 (cümle 4/7 yeniden sentezlendi). TBAS ve sabit
+// zamanlar eski çerçevede kalır; sözcük zamanları KAYMA ile ona çekilir.
 const S = new Sahne({
-  tbas: TBAS, kare: KARE, icerik: ICERIK, klasor: "09-canvas-karsit2", cumle: 10
+  tbas: TBAS, kayma: KAYMA, kare: KARE, icerik: ICERIK, klasor: "09-canvas-karsit2", cumle: 10
 });
 
 const FF = (b) => `700 ${b}px Fredoka`;

@@ -1,7 +1,7 @@
 """Sahne 06 DİKEY (İLERİ, 1080x1920): öğrenci sorusu + durum fiili tuzağı + süreç/sonuç tablosu + kod.
 Yerleşim BRIEF-DIKEY §2-§4: HUD 0-320, içerik 352-1392, altyazı 1400-1536, platform bandı boş.
 Üst yarı: balon (372-620) + yanlış/doğru kalıp (700-960); alt yarı: tablo iskeleti erken çizilir (1010-1392),
-hücreler konuşma anında dolar. 79,4'te üst yarı tek satırlık çipe toplanır, yerine kod kartı gelir.
+hücreler konuşma anında dolar. 84,73'te üst yarı tek satırlık çipe toplanır, yerine kod kartı gelir.
 Tek kaynak: ortak/anlatim/{sozcukler,altyazi}.json (küresel sn) + zamanlar.json. Yerel sn = t - t_bas."""
 import json
 import re
@@ -102,33 +102,36 @@ def uret():
     s.yazi("hk", X0, 860, [("have known", KRE)], "Fredoka", 700, FB, tx + 0.5, 0.35, tur="tik", guc=0.6)
     wk = Y.genislik("Fredoka", 700, "have known", FB)
     s.yol("hkt", Y.tik_yolu(X0 + wk + 40, 780, 76), tx + 0.95, 0.3, SAR, 12, 0.9, "cizgi", 0.55)
-    s.yazi("dn", X0, 950, [("durum fiilleri ", KRE), ("-ing", SAR), (" almaz", KRE)], "Caveat", 700, 72,
-           S(T(7, 1)), 0.9, tur="tik", guc=0.5)
+    # 16.11 DUZ3: ses "Bu fiil bir durum anlatır, süreç değil." (eski mutlak "durum fiilleri -ing almaz")
+    s.yazi("dn", X0, 950, [("durum", SAR), (" anlatır, süreç değil", KRE)], "Caveat", 700, 72,
+           S(T(7, 4)), 1.5, tur="tik", guc=0.5)
     g1 = kimlikler(s, i0)
 
     # ---------------- alt: tablo iskeleti erken (1010-1392), hücreler konuşma anında ----------------
-    s.yol("kA", Y.el_kutu(X0, 1010, 984, 176), 63.5 - TB, 0.5, KRE, 4.6, 1, "cizgi", 0.6)
-    s.yol("kB", Y.el_kutu(X0, 1210, 984, 176), 63.9 - TB, 0.5, KRE, 4.6, 1, "cizgi", 0.6)
+    # iskelet öğrenci sorusunda: "have" + 0,19 · "knowing," + 0,03 (eski sabit 63,5 / 63,9; c6 sesi aynı, +2,80 sn)
+    s.yol("kA", Y.el_kutu(X0, 1010, 984, 176), S(T(6, 1)) + 0.19, 0.5, KRE, 4.6, 1, "cizgi", 0.6)
+    s.yol("kB", Y.el_kutu(X0, 1210, 984, 176), S(T(6, 3)) + 0.03, 0.5, KRE, 4.6, 1, "cizgi", 0.6)
     FZ = 72
-    s.yazi("pl", X0 + 36, 1062, [("PROCESS", SAR)], "Lexend", 700, 36, S(T(7, 5)), 0.3, tur="tik", guc=0.5)
+    s.yazi("pl", X0 + 36, 1062, [("PROCESS", SAR)], "Lexend", 700, 36, S(T(7, 8)), 0.3, tur="tik", guc=0.5)
     p1 = Y.genislik("Fredoka", 700, "have / has", FZ)
     p2 = Y.genislik("Fredoka", 700, " been", FZ)
     p3 = Y.genislik("Fredoka", 700, " + ", FZ)
     fx = X0 + 36
-    s.yazi("pf1", fx, 1160, [("have / has", KRE)], "Fredoka", 700, FZ, S(T(7, 6)), 0.3, tur="tik", guc=0.55)
-    s.yazi("pf2", fx + p1, 1160, [(" been", KRE)], "Fredoka", 700, FZ, S(T(7, 7)), 0.25, tur="tik", guc=0.5)
-    s.yazi("pf3", fx + p1 + p2, 1160, [(" + ", IKN)], "Fredoka", 700, FZ, S(T(7, 8)), 0.2, tur=None)
-    s.yazi("pf4", fx + p1 + p2 + p3, 1160, [("V", KRE), ("-ing", SAR)], "Fredoka", 700, FZ, S(T(7, 9)), 0.3,
+    s.yazi("pf1", fx, 1160, [("have / has", KRE)], "Fredoka", 700, FZ, S(T(7, 9)), 0.3, tur="tik", guc=0.55)
+    s.yazi("pf2", fx + p1, 1160, [(" been", KRE)], "Fredoka", 700, FZ, S(T(7, 10)), 0.25, tur="tik", guc=0.5)
+    s.yazi("pf3", fx + p1 + p2, 1160, [(" + ", IKN)], "Fredoka", 700, FZ, S(T(7, 11)), 0.2, tur=None)
+    s.yazi("pf4", fx + p1 + p2 + p3, 1160, [("V", KRE), ("-ing", SAR)], "Fredoka", 700, FZ, S(T(7, 12)), 0.3,
            tur="tik", guc=0.6)
-    s.yazi("rl", X0 + 36, 1262, [("RESULT", SAR)], "Lexend", 700, 36, S(T(7, 10)), 0.3, tur="tik", guc=0.5)
+    s.yazi("rl", X0 + 36, 1262, [("RESULT", SAR)], "Lexend", 700, 36, S(T(7, 13)), 0.3, tur="tik", guc=0.5)
     r1 = Y.genislik("Fredoka", 700, "have / has", FZ)
     r3 = Y.genislik("Fredoka", 700, " + ", FZ)
-    s.yazi("rf1", fx, 1360, [("have / has", KRE)], "Fredoka", 700, FZ, S(T(7, 11)), 0.3, tur="tik", guc=0.55)
-    s.yazi("rf2", fx + r1, 1360, [(" + ", IKN)], "Fredoka", 700, FZ, S(T(7, 12)), 0.2, tur=None)
-    s.yazi("rf3", fx + r1 + r3, 1360, [("V3", SAR)], "Fredoka", 700, FZ, S(T(7, 14)), 0.3, tur="tik", guc=0.6)
-    # -yor -> süreç, -di -> sonuç (etiket satırının sağı, Caveat 64)
-    for sol, ya, sag, yy, tt in (("o1", "-yor", "süreç", 1066, S(T(7, 17))),
-                                 ("o2", "-di", "sonuç", 1266, S(T(7, 19)))):
+    s.yazi("rf1", fx, 1360, [("have / has", KRE)], "Fredoka", 700, FZ, S(T(7, 14)), 0.3, tur="tik", guc=0.55)
+    s.yazi("rf2", fx + r1, 1360, [(" + ", IKN)], "Fredoka", 700, FZ, S(T(7, 15)), 0.2, tur=None)
+    s.yazi("rf3", fx + r1 + r3, 1360, [("V3", SAR)], "Fredoka", 700, FZ, S(T(7, 17)), 0.3, tur="tik", guc=0.6)
+    # okuyorum -> süreç, bitirdim -> sonuç (etiket satırının sağı, Caveat 64). 16.11 DUZ3: eski "-yor → süreç,
+    # -di → sonuç" birebir denklikti; ses artık ikinci örneğin sözcüklerini söyler.
+    for sol, ya, sag, yy, tt in (("o1", "okuyorum", "süreç", 1066, S(T(7, 21))),
+                                 ("o2", "bitirdim", "sonuç", 1266, S(T(7, 23)))):
         wy = Y.genislik("Caveat", 700, ya, 64)
         ws = Y.genislik("Caveat", 700, sag, 64)
         px = 1032 - 36 - (wy + 16 + 74 + 16 + ws) - 12
@@ -137,8 +140,8 @@ def uret():
               "cizgi", 0.5)
         s.yazi(sol + "s", px + wy + 106, yy, [(sag, KRE)], "Caveat", 700, 64, tt + 0.45, 0.4, tur="tik", guc=0.5)
 
-    # ---------------- üst yarı çipe toplanır, kod kartı (79,97–85,01) ----------------
-    tk = S(T(7, 22))
+    # ---------------- üst yarı çipe toplanır, kod kartı (85,33–91,97) ----------------
+    tk = S(T(7, 26))
     tc = tk - 0.6
     topla(s, "s1", tc, 540, 830, 240, 420, 0.45)
     topla(s, "balg", tc, 540, 496, 240, 420, 0.45)
@@ -147,24 +150,22 @@ def uret():
     s.yol("chipt", Y.tik_yolu(X0 + wc + 30, 392, 48), tc + 0.6, 0.25, SAR, 9, 0.9, "cizgi", 0.5)
     s.yol("kk", Y.el_kutu(X0, 500, 984, 470), tk - 0.1, 0.5, KRE, 4.6, 1, "cizgi", 0.6)
     s.yazi("kod", X0 + 40, 590, [("Kod:", KRE)], "Caveat", 700, 72, tk, 0.4, tur="tik")
-    KF, K1, K2 = 80, 730, 870
-    w1 = Y.genislik("Fredoka", 700, "süreç varsa", KF)
-    s.yazi("k1a", X0 + 40, K1, [("süreç varsa", KRE)], "Fredoka", 700, KF, S(T(7, 24)), 0.4, tur="tik", guc=0.6)
-    s.yazi("k1b", X0 + 40 + w1 + 36, K1, [("been", SAR), (" var", KRE)], "Fredoka", 700, KF, S(T(7, 26)), 0.4,
-           tur="tik", guc=0.6)
-    w1b = Y.genislik("Fredoka", 700, "been var", KF)
-    s.yol("k1t", Y.tik_yolu(X0 + 40 + w1 + 36 + w1b + 24, K1 - 60, 52), S(T1(7, 27)), 0.3, SAR, 10, 0.9, "cizgi",
-          0.55)
-    w2 = Y.genislik("Fredoka", 700, "sonuç varsa", KF)
-    s.yazi("k2a", X0 + 40, K2, [("sonuç varsa", KRE)], "Fredoka", 700, KF, S(T(7, 28)), 0.4, tur="tik", guc=0.6)
-    s.yazi("k2b", X0 + 40 + w2 + 36, K2, [("been", SAR), (" yok", KRE)], "Fredoka", 700, KF, S(T(7, 30)), 0.4,
-           tur="tik", guc=0.6)
-    w2b = Y.genislik("Fredoka", 700, "been yok", KF)
-    s.yol("k2t", Y.tik_yolu(X0 + 40 + w2 + 36 + w2b + 24, K2 - 60, 52), S(T1(7, 31)), 0.3, SAR, 10, 0.9, "cizgi",
-          0.55)
-    s.olay(S(T1(7, 31)), "vurus", 0.8)
+    # 16.11 DUZ3: süreç → been + -ing / sonuç, durum → have + V3 (Fredoka 72; ok 20 + 52 + 20 px; sağ uç ≈ 1008)
+    KF, K1, K2, OA, OB = 72, 730, 870, 20, 72
+    for n, (a, ta, b, tb, i1) in enumerate((((("süreç", KRE),), 28, (("been", SAR), (" + -ing", KRE)), 30, 32),
+                                            ((("sonuç, durum", KRE),), 33, (("have", SAR), (" + V3", KRE)), 37, 40))):
+        ky, ka, x = (K1, K2)[n], "k%d" % (n + 1), X0 + 40
+        wa = Y.genislik("Fredoka", 700, a[0][0], KF)
+        s.yazi(ka + "a", x, ky, list(a), "Fredoka", 700, KF, S(T(7, ta)), 0.4 + 0.35 * n, tur="tik", guc=0.6)
+        s.yol(ka + "o", Y.el_ok(x + wa + OA, ky - 26, x + wa + OB, ky - 26, 1), S(T(7, ta)) + 0.3 + 0.35 * n,
+              0.3, SAR, 7, 0.9, "cizgi", 0.5)
+        s.yazi(ka + "b", x + wa + OB + OA, ky, list(b), "Fredoka", 700, KF, S(T(7, tb)), 0.6, tur="tik", guc=0.6)
+        wb = Y.genislik("Fredoka", 700, "".join(m for m, _ in b), KF)
+        s.yol(ka + "t", Y.tik_yolu(x + wa + OB + OA + wb + 20, ky - 56, 52), S(T1(7, i1)), 0.3, SAR, 10, 0.9,
+              "cizgi", 0.55)
+    s.olay(S(T1(7, 40)), "vurus", 0.8)
     nw = Y.genislik("Lexend", 700, "Next lesson", 56)
-    tn2 = S(T1(7, 31)) - 0.3
+    tn2 = S(T1(7, 40)) - 0.3
     s.yazi("nx", 1032 - nw - 76, 944, [("Next lesson", KRE)], "Lexend", 700, 56, tn2, 0.3, tur="tik", guc=0.4)
     s.yol("nxok", "M%.1f 925 L%.1f 925 M%.1f 915 L%.1f 925 L%.1f 935" % (1032 - 66, 1032 - 30, 1032 - 42,
                                                                           1032 - 30, 1032 - 42), tn2 + 0.3,

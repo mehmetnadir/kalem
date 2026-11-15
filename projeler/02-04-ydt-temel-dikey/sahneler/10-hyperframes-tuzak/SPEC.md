@@ -70,7 +70,7 @@ Kart kenarı AÇIK yol: uret.py içinde `el_kutu`'ya benzer el çizimi; TRAP bo�
 | Öğe | id | Değer |
 |---|---|---|
 | ders satır 1 / 2 | `ku-ders1`, `ku-ders2` | `SIMPLE PRESENT vs` / `PRESENT CONTINUOUS`, Fredoka 700 56, `#f3efe6`, x 48, taban 212 / 276 |
-| rozet | `ku-rozet` | rect x RX = 48 + genislik(Fredoka 700 "PRESENT CONTINUOUS" 56) + 24, y 216, w = genislik(Lexend 700 "YDT · BASIC" 36)+56, h 72, rx 36, fill `#f2a93b`; yazı Lexend 700 36 `#1b1a17`, ortalı, taban 265 |
+| rozet | `ku-rozet` | rect x RX = 48 + genislik(Fredoka 700 "PRESENT CONTINUOUS" 56) + 24, y 216, w = genislik(Lexend 700 "YDT · TEMEL" 36)+56, h 72, rx 36, fill `#f2a93b`; yazı Lexend 700 36 `#1b1a17`, ortalı, taban 265 |
 | çip | `ku-bolum` | `Trap`: yardim.kunye_svg içindeki rect + text ile aynı (x = 1032 − cw, y 48, h 80, rx 40, çizgi 4 `#f2a93b`, Lexend 700 40, taban 102) |
 | logo | `#logoimg` | `Y.html` logo = (48, 48, 96·Y.LOGO_EN_BOY, 96) |
 

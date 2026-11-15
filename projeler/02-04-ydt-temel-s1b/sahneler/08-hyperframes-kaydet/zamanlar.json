@@ -2,7 +2,7 @@
   "fps": 30,
   "kare": 177,
   "sure": 5.9,
-  "t_bas": 19.99,
+  "t_bas": 16.13,
   "kart_giris": [
     0.55,
     0.45
@@ -45,35 +45,35 @@
       "olay": "kart_giris",
       "kare": 16,
       "yerel": 0.55,
-      "kuresel": 20.54,
+      "kuresel": 16.68,
       "sozcuk": "Bu,"
     },
     {
       "olay": "uc_giris",
       "kare": 31,
       "yerel": 1.03,
-      "kuresel": 21.02,
+      "kuresel": 17.16,
       "sozcuk": "üç"
     },
     {
       "olay": "imi_ciz",
       "kare": 147,
       "yerel": 4.9,
-      "kuresel": 24.89,
+      "kuresel": 21.03,
       "sozcuk": "Kaydet."
     },
     {
       "olay": "hap_giris",
       "kare": 150,
       "yerel": 5.0,
-      "kuresel": 24.99,
+      "kuresel": 21.13,
       "sozcuk": "Kaydet."
     },
     {
       "olay": "kuyruk_durgun",
       "kare": 165,
       "yerel": 5.5,
-      "kuresel": 25.49,
+      "kuresel": 21.63,
       "sozcuk": "sahne sonu"
     }
   ]

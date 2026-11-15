@@ -1,6 +1,9 @@
-// SAHNE 11 — Tuzak cevabı (düz canvas, 657 kare, t_bas 183,79; cümle 13). 02-04 YDT temel.
+// SAHNE 11 — Tuzak cevabı (düz canvas, 643 kare, t_bas 183,79 eski çerçeve; cümle 13). 02-04 YDT temel.
+// 16.11 DUZ3: cümle 13 «Ailenle hep orada yaşıyorsan» → «Ailenle kalıcı olarak yaşıyorsan»; ekran «always» →
+// «long-term» (EK-5c: geniş zaman «her zaman» demek değildir). zaman.json t_bas 185,47; TBAS ve 184,2 eski
+// çerçevede kalır, sözcük zamanları KAYMA ile ona çekilir; cümle içi sabit zamanlar sözcüğe bağlandı.
 // Kendini çizen kalem; zaman yalnız kare numarasından; sözcük zamanları ortak/anlatim/sozcukler.json.
-// İki kart alt alta: I am living in İstanbul. → for now (temporary) · I live in İstanbul. → always (permanent).
+// İki kart alt alta: I am living in İstanbul. → for now (temporary) · I live in İstanbul. → long-term (permanent).
 // Her kartın altında zaman çizgisi (Örnek 2'den geri gelir): üstte kısa bant, altta uzun bant; now iki
 // çizgide aynı x. Kartlar arasında kalemle "≠ meaning" (çarpı yok; iki cümle de doğru). Sağ altta öğrenci
 // başı (peeps-kit/ogrenci-bas.svg); cevap bitiminde 1 sn baş sallar. Ölçü mantıksal px (1920) → u().
@@ -8,9 +11,9 @@ import { surucu } from "/ortak/surucu.js";
 import { KUNYE } from "/projeler/02-04-ydt-temel/ortak/kunye.js";
 import { Sahne, RT, renkCoz, ok, altCizgi, olc, geriTasma } from "./sahne-ortak.js";
 
-const KARE = 657, TBAS = 183.79, ICERIK = 645;
+const KARE = 643, TBAS = 183.79, ICERIK = 631, KAYMA = -1.68;
 const ETKIN = ((i) => (i >= 0 ? i : 3))(KUNYE.ajanda.findIndex((a) => /trap/i.test(a)));
-const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Trap · answer", cumle: 13,
+const S = new Sahne({ tbas: TBAS, kayma: KAYMA, kare: KARE, icerik: ICERIK, bolum: "Trap · answer", cumle: 13,
   etkin: ETKIN });
 const MUR = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu, DOLGU = RT.vurguDolgu;
 const KOKDIZ = "/projeler/02-04-ydt-temel/ortak/cizim";
@@ -55,7 +58,7 @@ async function kur() {
   const EK = u(6), OKW = u(70), ARA = u(20), P0 = u(72), L0 = u(64);
   const wCum = (px, s) => olc(`700 ${px}px Fredoka`, metin(s)) + (s.length - 1) * EK;
   const wNot = (px) => OKW + ARA + Math.max(olc(`700 ${px}px Caveat`, "for now (temporary)"),
-    olc(`700 ${px}px Caveat`, "always (permanent)"));
+    olc(`700 ${px}px Caveat`, "long-term (permanent)"));
   const IC = Y.KW - 2 * Y.PAD - Y.GAP;
   const oran = Math.min(1, IC / (Math.max(wCum(P0, a), wCum(P0, b)) + wNot(L0)));
   const PX = Math.max(u(30), Math.floor(P0 * oran)), LP = Math.max(u(30), Math.floor(L0 * oran));
@@ -66,10 +69,10 @@ async function kur() {
   const sari = (x0, x1, y, tb, tohum, ses = 0.55) => S.koy(S.darbe(altCizgi(x0, x1, y, tohum),
     { w: u(8), renk: SARI, alfa: 0.9, uc0: 8, uc1: 14, tohum: 500 + tohum }, tb, 0.4, ses));
 
-  // 184,20 öğrenci başı (soru anı 2'nin sahibi) sağ altta kalemle; 202,30'da 1 sn baş sallar
+  // 184,20 öğrenci başı (soru anı 2'nin sahibi) sağ altta kalemle; «Kalıcı» − 0,44 sn'de 1 sn baş sallar
   const og = S.koy(S.cizim({ svg: bas, ad: "ogrenci", kutu: Y.OG, esik: 0.004, enCok: 60, w: u(3.2),
     tb: 184.2, sure: 0.55, olayEnCok: 3, nefes: false }));
-  const fSal = S.fr(202.3), ocx = Y.OG.x + Y.OG.w / 2, ocy = Y.OG.y + Y.OG.h;
+  const fSal = S.fr(t0("Kalıcı", 202.74) - 0.44), ocx = Y.OG.x + Y.OG.w / 2, ocy = Y.OG.y + Y.OG.h;
   og.donusum = (f) => {
     const p = (f - fSal) / 30, ty = p > 0 && p < 1 ? Y.OG.h * 0.06 * Math.sin(Math.PI * 2 * p) ** 2 : 0;
     return { cx: ocx, cy: ocy, tx: 0, ty, dondur: 0, olcek: 1 };
@@ -96,7 +99,7 @@ async function kur() {
   const c1 = S.koy(S.cumleYaz({ sozcukler: a, x: Y.KX + Y.PAD, y: Y1, font: F, satirH: PX * 1.4,
     satirSay: [a.length], bosluk: EK }));
 
-  // Not: ok + el yazısı (→ for now · → always), parantezli sözcük ayrı anda yazılır
+  // Not: ok + el yazısı (→ for now · → long-term), parantezli sözcük ayrı anda yazılır
   const okY = (yb) => yb - LP * 0.28;
   const notOk = (yb, tb, tohum) => ok([LX, okY(yb)], [LX + OKW, okY(yb)], tohum).forEach((p, i) =>
     S.koy(S.darbe(p, { duz: i > 0, w: u(4.5), renk: MUR, uc0: 4, uc1: 6, tohum: tohum + i },
@@ -128,23 +131,25 @@ async function kur() {
       TY - u(30), Y.AX1 - Y.AX0 + u(8), u(60)); } });
   };
 
-  // 189,68 «İstanbul'da»: eksen 1 · 190,00 now · 190,24 «yaşıyorum»: kısa bant (for now)
-  zamanCizgisi("zaman-1", Y.T1Y, Y.B1, t0("İstanbul'da", 189.68), 190.0, t0("yaşıyorum", 190.24),
+  // «İstanbul'da»: eksen 1 · +0,32 now · «yaşıyorum»: kısa bant (for now)
+  zamanCizgisi("zaman-1", Y.T1Y, Y.B1, t0("İstanbul'da", 189.68), t0("İstanbul'da", 189.68) + 0.32,
+    t0("yaşıyorum", 190.24),
     0.4, 600);
 
   // 191,55 «Geçici.»: (temporary)
-  const wFor = olc(CF, "for now "), wAlw = olc(CF, "always ");
+  const wFor = olc(CF, "for now "), wAlw = olc(CF, "long-term ");
   const nTmp = S.koy(S.elYazisi({ metin: "(temporary)", x: NTX + wFor, y: Y1, boy: LP, renk: MUR,
     tb: t0("Geçici.", 191.55), sure: 0.75 }));
 
-  // 192,48 «Ailenle»: eksen 2 · 192,90 now · 193,12 «hep»: → always · 193,36 «orada yaşıyorsan»: uzun bant
-  zamanCizgisi("zaman-2", Y.T2Y, Y.B2, t0("Ailenle", 192.48), 192.9, t0("orada", 193.36), 0.85, 620);
-  const tHep = t0("hep", 193.12);
-  notOk(Y2, tHep, 241);
-  S.koy(S.elYazisi({ metin: "always", x: NTX, y: Y2, boy: LP, renk: MUR, tb: tHep + 0.16, sure: 0.45 }));
-  // 193,95 «yaşıyorsan:» (hep orada → kalıcı): (permanent)
+  // «Ailenle»: eksen 2 · +0,42 now · «kalıcı»: → long-term · «olarak yaşıyorsan»: uzun bant
+  const tAil = t0("Ailenle", 192.48);
+  zamanCizgisi("zaman-2", Y.T2Y, Y.B2, tAil, tAil + 0.42, t0("olarak", 193.36), 0.85, 620);
+  const tKal = t0("kalıcı", 193.04);
+  notOk(Y2, tKal, 241);
+  S.koy(S.elYazisi({ metin: "long-term", x: NTX, y: Y2, boy: LP, renk: MUR, tb: tKal + 0.16, sure: 0.5 }));
+  // «yaşıyorsan:» + 0,35 (kalıcı olarak → kalıcı): (permanent)
   const nPer = S.koy(S.elYazisi({ metin: "(permanent)", x: NTX + wAlw, y: Y2, boy: LP, renk: MUR,
-    tb: 193.95, sure: 0.7 }));
+    tb: t0("yaşıyorsan:", 193.76) + 0.35, sure: 0.7 }));
 
   // 194,89–196,65 kart 2 cümlesi sözcük sözcük
   const c2 = S.koy(S.cumleYaz({ sozcukler: b, x: Y.KX + Y.PAD, y: Y2, font: F, satirH: PX * 1.4,

@@ -38,12 +38,12 @@ bant, `now` noktası, altçizgi (`-odak`). Künye artık `Y.kunye_svg()` çağr�
 | Blok | Kimlik | x | y | İçerik |
 |---|---|---|---|---|
 | kanal | `kanal` (Y.kunye_svg içinde) | resim 53,2–246,7; yazı 263 → | 291–339 | logo + `@ydspublishing` (dokunma) |
-| künye | `ku-konu`, `rz0` (Y.kunye_svg içinde) | 60–868 | 386–434 | konu + rozet `YDT · BASIC` (dokunma) |
+| künye | `ku-konu`, `rz0` (Y.kunye_svg içinde) | 60–868 | 386–434 | konu + rozet `YDT · TEMEL` (dokunma) |
 | ek | `ek` | merkez 510, genişlik ≤ 900 | kutu 476,4–602,9; blok 476–611 | `YAŞI-YOR-UM`, S = 124, taban 583 |
 | kart 1 | `kart1` | 60–498 | 636–840 | ev ikonu + `I live` + `PERMANENT` |
 | kart 2 | `kart2` | 522–960 | 636–840 | bavul ikonu + `I am living` + `TEMPORARY` |
-| özet | `ozet` | 60 → | taban 924 ve 1008 | `Kalıcıysa geniş zaman,` / `geçiciyse şimdiki zaman.` |
-| kaydet | `kaydet` | 60–416 | 1048–1136 | yer imi simgesi + `Kaydet` sarı hap |
+| özet | `ozet` | 60 → | taban 924, 1008, 1092 | `Live, work fiillerinde:` / `kalıcıysa geniş zaman,` / `geçiciyse şimdiki zaman.` (DUZ2 15.11) |
+| kaydet | `kaydet` | 60–416 | 1416–1504 (DUZ2: hikâye B ile aynı yer) | yer imi simgesi + `Kaydet` sarı hap |
 | boş | — | — | 1150–1920 | hiçbir öğe yok (bağ çıkartması elle konur; kutu, çerçeve çizme) |
 
 ### 3.1 Kart (`kart_svg(simge, x0, ikon_yollar, baslik, etiket)`)
@@ -57,16 +57,16 @@ bant, `now` noktası, altçizgi (`-odak`). Künye artık `Y.kunye_svg()` çağr�
 - Kart 1 x0 = 60, kart 2 x0 = 522.
 
 ### 3.2 Özet
-İki `<text>`: `id="ozet1"` x 60 y 924 ve `id="ozet2"` x 60 y 1008; Fredoka 700, 68, R["murekkep"]; bir `<g id="ozet">` içinde.
+Üç `<text>` (DUZ2): `id="ozet1"` y 924, `ozet2` y 1008, `ozet3` y 1092, x 60; Fredoka 700, 68, R["murekkep"]; bir `<g id="ozet">` içinde.
 
 ### 3.3 Kaydet
 - `<g id="kaydet">` içinde:
-- Yer imi: `<path id="kaydet-imi" d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z">`, bir `<g transform="translate(36 1044)
+- Yer imi: `<path id="kaydet-imi" d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z">`, bir `<g transform="translate(39 1412)
   scale(4)" fill="none" stroke=R["murekkep"] stroke-width=1.5 stroke-linejoin="round" stroke-linecap="round">` içinde
   (görünür kutu x 60–108, y 1056–1128). Emoji yok.
-- Hap: `hap_w = Y.genislik("Fredoka", 700, "Kaydet", 64) + 80`; `<rect id="kaydet-hap" x=128 y=1048 width=hap_w height=88 rx=44
+- Hap: `hap_w = Y.genislik("Fredoka", 700, "Kaydet", 64) + 80`; `<rect id="kaydet-hap" x=128 y=1416 width=hap_w height=88 rx=44
   fill=R["vurgu"]>` (tema dönüştürücüsü açıkta `#ffe066` yapar).
-- Yazı: `<text id="kaydet-yazi" x={128 + hap_w/2} y=1114 text-anchor="middle">` Fredoka 700, 64, fill R["zemin"] (açıkta `pilMetin`).
+- Yazı: `<text id="kaydet-yazi" x={128 + hap_w/2} y=1482 text-anchor="middle">` Fredoka 700, 64, fill R["zemin"] (açıkta `pilMetin`).
 
 ### 3.4 SVG sırası
 `Y.kunye_svg()` → `ek` → `kart1` → `kart2` → `ozet` → `kaydet`. Kanal katmanında animasyon yok; timeline yalnız `#sahne` opaklık 1.
@@ -80,18 +80,18 @@ bant, `now` noktası, altçizgi (`-odak`). Künye artık `Y.kunye_svg()` çağr�
 | ek | 510 − top/2 | EK_Y − 0,86·S | top | 1,08·S (alt = EK_Y + 0,22·S, Ş çengeli) |
 | kart1 | 60 | 636 | 438 | 204 |
 | kart2 | 522 | 636 | 438 | 204 |
-| ozet | 60 | 924 − 0,75·68 | max(iki satır genişliği) | (1008 + 0,25·68) − y |
-| kaydet | 60 | 1048 | 128 + hap_w − 60 | 88 |
+| ozet | 60 | 924 − 0,75·68 | max(üç satır genişliği) | (1092 + 0,25·68) − y |
+| kaydet | 60 | 1416 | 128 + hap_w − 60 | 88 |
 
 ## 5. Kurallar (`kurallari_dogrula`, assert)
 
-1. İçerik blokları (ek, kart1, kart2, ozet, kaydet): x ≥ 60, x + w ≤ 960, y ≥ 460, y + h ≤ 1140.
+1. İçerik blokları (ek, kart1, kart2, ozet): x ≥ 60, x + w ≤ 960, y ≥ 460, y + h ≤ 1140; kaydet y 1400–1520 (DUZ2).
 2. kanal ve kunye: y ≥ 280, y + h ≤ 450.
 3. Bütün blok çiftlerinin kesişim alanı 0.
 4. Dikey boşluk ≥ 16: kunye → ek, ek → kart1, ek → kart2, kart1 → ozet, ozet → kaydet. Yatay: kart2.x − (kart1.x + kart1.w) ≥ 16.
 5. Kart içi: `116 + genişlik(Fredoka 700 başlık 64) ≤ 438 − 24`; `genişlik(Caveat 700 etiket 64) ≤ 438 − 48`.
 6. Yazı boyları: S ≥ 64; kart başlığı, etiket, hap yazısı 64; özet 68.
-7. Ekran satırı ≤ 24 karakter: `YAŞI-YOR-UM`, `I live`, `PERMANENT`, `I am living`, `TEMPORARY`, `Kalıcıysa geniş zaman,`,
+7. Ekran satırı ≤ 24 karakter: `YAŞI-YOR-UM`, `I live`, `PERMANENT`, `I am living`, `TEMPORARY`, `Live, work fiillerinde:`, `kalıcıysa geniş zaman,`,
    `geçiciyse şimdiki zaman.`, `Kaydet` (künye ve kanal satırı hariç).
 8. (QA 1'de kaldırıldı) Yasak söz denetimi kodda değil, dış grep kapısında: koddaki literal liste grep'i kirletiyordu.
 9. HTML'de `id="kanal"` ve `id="logoimg"` tam 1 kez geçer.

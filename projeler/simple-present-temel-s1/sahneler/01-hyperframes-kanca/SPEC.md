@@ -22,7 +22,7 @@ tip ipucu. Çalıştırma `/usr/bin/python3 uret.py` (fontTools kullanıcı site
 
 | Ad (yardim.py) | Tür | Değer / davranış |
 |---|---|---|
-| `HUD`, `KANAL_YAZI`, `ROZET` | — | E ile aynı (değişmez; `ROZET` = `"YDT · BASIC"`) |
+| `HUD`, `KANAL_YAZI`, `ROZET` | — | E ile aynı (değişmez; `ROZET` = `"YDT · TEMEL"`) |
 | `KONU` | str | `"Simple Present"` |
 | `KONU_PARCA` | tuple[str, str] | `("Simple", "Present")` (uçuş hedefi; aradaki tek boşluk KONU'daki boşluktur) |
 | `konu_boyu()`, `rozet_konumu()`, `kunye_svg()`, `altyazi_svg(t_bas, sure, liste)` | işlev | E ile aynı |
@@ -115,7 +115,7 @@ Kanal katmanı (`#kanal`) bütün sahne boyunca opaklık 1, konum sabit: ona hi�
 ### 4.5 Yerleşim
 ```
 y  291 ┌ [logo 53–247] @ydspublishing (Lexend 42, x 263, taban 330) — 0. kareden son kareye, hareketsiz ┐ kanal 280–350
-   386 │ [YDT · BASIC] kapakta x 60 ─(1,90–2,20)→ x ≈ 310 · konu `Simple Present` 2,33'ten (Fredoka 34, taban 420) │ künye
+   386 │ [YDT · TEMEL] kapakta x 60 ─(1,90–2,20)→ x ≈ 310 · konu `Simple Present` 2,33'ten (Fredoka 34, taban 420) │ künye
    472 │        GO mu,   (B ≈ 178, orta 510, zemin konturu 12)          ← uçuşla `Simple` yerine         │ içerik 460–1380
    657 │ ( GOES mu? ) sarı hap x 60–960; `?` 0,30–0,80 kalemle               ← uçuşla `Present` yerine      │
    932 │   [figür 120–248]        [otobüs 340–940, ön yüz SOLDA]            ← 1,90–2,45: x 700–956, y 465–595 │

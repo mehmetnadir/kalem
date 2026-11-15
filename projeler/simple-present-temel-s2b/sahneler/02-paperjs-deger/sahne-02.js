@@ -1,8 +1,8 @@
 // Sahne 02 (simple-present-temel-s2 Shorts) — Değer: Paper.js, 1080x1920, 278 kare, t_bas 3.00.
 // Cümle 2: My brother usually goes to school by bus. Alışkanlık işareti. Şu an değil, her sabah yedide kalkarım gibi.
 // huni v2 (15.11): içerik x 60–960, y 460–1380; çip yok; kanal katmanı ve künye kunye.js'te.
-import { sahneKur, RT, KUNYE } from "/projeler/simple-present-temel-s2/sahneler/02-paperjs-deger/kalem-paper.js";
-import { yaziNoktalari } from "/projeler/simple-present-temel-s2/ortak/kalem-canvas.js";
+import { sahneKur, RT, KUNYE } from "/projeler/simple-present-temel-s2b/sahneler/02-paperjs-deger/kalem-paper.js";
+import { yaziNoktalari } from "/projeler/simple-present-temel-s2b/ortak/kalem-canvas.js";
 
 export const KARE = 278, T_BAS = 3.0;
 

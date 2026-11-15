@@ -374,7 +374,7 @@ def kurallari_dogrula(
     # 6. Görünen metin taraması
     gorunen_metinler: set[str] = set(re.findall(r">([^<]+)</text>", html))
     beklenen_metinler: set[str] = {
-        "@ydspublishing", "Simple Present", "YDT · BASIC", "GOES mu,", "GO mu?",
+        "@ydspublishing", "Simple Present", "YDT · TEMEL", "GOES mu,", "GO mu?",
         "He doesn't", ".", "Does she", "?", "go", "goes",
     }
     assert gorunen_metinler == beklenen_metinler, f"Görünen metinler eşleşmiyor: {gorunen_metinler ^ beklenen_metinler}"

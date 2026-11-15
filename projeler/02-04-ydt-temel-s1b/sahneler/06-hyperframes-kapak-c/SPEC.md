@@ -5,6 +5,7 @@ Sahne dizini D = `K/projeler/02-04-ydt-temel-s1/sahneler/06-hyperframes-kapak-c/
 Bağlayıcı: `/home/sef/01dev/dijital-anlatim/.claude/docs/huni-v2-standart.md` §1–§2, `P/BRIEF-S1.md` "Yerleşim" + "Kanal katmanı".
 v1 SPEC yedeği: `~/Silinecekler/2026-11-15-huni-v2/02-04-ydt-temel-s1/sahneler/06-hyperframes-kapak-c/SPEC.md`.
 İçerik v1 ile aynı (`I LIVE` / `I AM LIVING`, ev · figür · bavul, `kalıcı` / `geçici`). Değişen: kanal katmanı + künye satırı + v2 bantları.
+**DUZ4 (16.11, J3 A2, HV-20b):** başlık `LIVE` / `≠ [LIVING]` (2 sözcük + çizili ≠; ≠ çizimi 02-04-ydt-temel-s2 kapak A kalıbı, 3 yol). S = 187 (yükseklik sınırı: kutu altı 470 + 1,93·S, figür üstüne ≥ 48); blok ortalı, x 141–879; LIVE ve LIVING aynı x'ten başlar; `bs-2i` artık ≠ yol grubu (stroke murekkep, 0,10·S / 0,09·S). Aşağıdaki §4.2 ölçüleri v2 içindir; güncel ölçüler `uret.py` ve `nesneler.json`'da.
 
 ## 1. Dosyalar
 
@@ -42,7 +43,7 @@ Başka dosyaya dokunma. Silme yok. Test, render, snapshot, `calistir.sh`, git YO
 y    0 ┌──────────────────────────────────────┐────────┐
        │ (boş zemin, çip YOK)                  │        │
    280 │ [logo] @ydspublishing                 │ sağ    │  Y.kunye_svg() → #kanal (x 60'tan)
-   360 │ Simple Present vs Present Continuous (YDT · BASIC) │  #ku-konu + #rz0 (taban 420, hap 386–434)
+   360 │ Simple Present vs Present Continuous (YDT · TEMEL) │  #ku-konu + #rz0 (taban 420, hap 386–434)
    470 │   I LIVE                              │ 960–   │  Fredoka 700 S=160, x0 ≈ 72
    615 │   I [AM LIVING]                       │ 1080   │  kutu 616–779
    984 │  kalıcı                  geçici       │ boş    │  Caveat 700 88

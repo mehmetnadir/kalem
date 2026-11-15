@@ -195,9 +195,11 @@ HUD = {
     "altyaziBas": 1400,
     "altyaziYazi": 44,
     "altyaziSatir": 56,
+    "altyaziMerkez": 510,  # DUZ4 A9: altyazı x 60–960 (sahne 08 HUD ile aynı)
+    "altyaziEn": 900,
 }
 KONU = "Simple Present vs Present Continuous"
-ROZETLER = ("YDT · BASIC",)
+ROZETLER = ("YDT · TEMEL",)
 
 
 def konu_boyu() -> int:
@@ -256,12 +258,12 @@ def kunye_svg() -> str:
 
 
 def altyazi_satirlari(metin: str) -> list[str]:
-    """Lexend 500 44, genişlik 984'e göre en çok 2 satır (kunye.js altyaziCiz ile aynı kural)."""
+    """Lexend 500 44, satır genişliği <= altyaziEn (900); en çok 2 satır (kunye.js altyaziCiz ile aynı kural)."""
     sat: list[str] = []
     s = ""
     for w in metin.split(" "):
         d = s + " " + w if s else w
-        if genislik("Lexend", 500, d, HUD["altyaziYazi"]) > W - 2 * HUD["kenar"] and s:
+        if genislik("Lexend", 500, d, HUD["altyaziYazi"]) > HUD["altyaziEn"] and s:
             sat.append(s)
             s = w
         else:
@@ -296,10 +298,53 @@ def altyazi_cumleleri(liste: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return out
 
 
-def altyazi_svg(t_bas: float, sure: float, liste: list[dict[str, Any]]) -> tuple[str, list[list[Any]]]:
-    """Altyazı bandı (y 1400-1536): her parça bir #al<i> grubu. -> (svg, [[id, aç, kapat], ...]) yerel sn."""
+def _altyazi_satir_svg(
+    i: int, sat: list[str], y0: int, w_list: list[dict[str, Any]], t_bas: float,
+    parca_kapat: float, karaoke: list[list[Any]],
+) -> tuple[str, str]:
+    """Satır <text> öğeleri (start, x 60-960) + karaoke <line> öğeleri; sözcük sayısı tutmazsa çizgi yok."""
+    ayazi, txt = HUD["altyaziYazi"], ""
+    kel: list[tuple[float, int, str]] = []
+    for k, s in enumerate(sat):
+        y = y0 + k * HUD["altyaziSatir"]
+        eni = genislik("Lexend", 500, s, ayazi)
+        x = HUD["altyaziMerkez"] - eni / 2
+        assert 60 <= x and x + eni <= 960, "Satır x aralığı 60-960 dışına çıktı: %.1f..%.1f" % (x, x + eni)
+        txt += (f'<text x="{x:.1f}" y="{y}" text-anchor="start" font-family="Lexend" font-weight="500" '
+                f'font-size="{ayazi}" fill="{RENK["murekkep"]}" style="font-kerning:none">{s}</text>')
+        sw = s.split(" ")
+        kel += [(x + (genislik("Lexend", 500, " ".join(sw[:j]) + " ", ayazi) if j else 0.0), y, w)
+                for j, w in enumerate(sw)]
+    return txt, _karaoke_svg(i, kel, w_list, t_bas, parca_kapat, karaoke)
+
+
+def _karaoke_svg(
+    i: int, kel: list[tuple[float, int, str]], w_list: list[dict[str, Any]], t_bas: float,
+    parca_kapat: float, karaoke: list[list[Any]],
+) -> str:
+    """Sözcük başına karaoke çizgisi (vurgu, 6 px, taban + 12); kapanış sonraki sözcüğün t0'ı, sonda t1 + 0,25."""
+    if len(kel) != len(w_list):
+        return ""
+    cizgi = ""
+    for j, ((x1, y, w), z) in enumerate(zip(kel, w_list)):
+        uz = round(genislik("Lexend", 500, w.rstrip(".,:;!?"), HUD["altyaziYazi"]), 2)
+        ac = round(z["t0"] - t_bas, 3)
+        son = w_list[j + 1]["t0"] - t_bas if j + 1 < len(w_list) else min(z["t1"] - t_bas + 0.25, parca_kapat)
+        karaoke.append([f"ak{i}_{j}", ac, round(son, 3), uz])
+        cizgi += (f'<line id="ak{i}_{j}" x1="{x1:.1f}" y1="{y + 12}" x2="{x1 + uz:.1f}" y2="{y + 12}" '
+                  f'stroke="{RENK["vurgu"]}" stroke-width="6" stroke-linecap="round" style="opacity:0"/>')
+    return cizgi
+
+
+def altyazi_svg(
+    t_bas: float, sure: float, liste: list[dict[str, Any]]
+) -> tuple[str, list[list[Any]], list[list[Any]]]:
+    """Altyazı bandı (y 1400-1550, x 60-960) + karaoke altçizgisi (DUZ4 A1/A9; sahne 08 yardim.py kalıbı).
+    -> (svg, [["al<i>", aç, kapat], ...], [["ak<i>_<j>", aç, kapat, uzunluk], ...]) yerel sn."""
     svg = ""
     zaman: list[list[Any]] = []
+    karaoke: list[list[Any]] = []
+    soz = json.loads((ORTAK / "anlatim" / "sozcukler.json").read_text(encoding="utf-8"))
     parcalar = altyazi_cumleleri(liste)
     for i, a in enumerate(parcalar):
         ac = max(0.0, a["t0"] - 0.05 - t_bas)
@@ -309,17 +354,15 @@ def altyazi_svg(t_bas: float, sure: float, liste: list[dict[str, Any]]) -> tuple
         kapat = son - t_bas
         if kapat <= 0 or ac >= sure:
             continue
+        parca_kapat = min(kapat, sure)
         sat = altyazi_satirlari(a["metin"])
         y0 = HUD["altyaziBas"] + (84 if len(sat) == 1 else 56)
-        txt = "".join(
-            f'<text x="540" y="{y0 + k * HUD["altyaziSatir"]}" text-anchor="middle" '
-            f'font-family="Lexend" font-weight="500" font-size="{HUD["altyaziYazi"]}" '
-            f'fill="{RENK["murekkep"]}">{t}</text>'
-            for k, t in enumerate(sat)
-        )
-        svg += f'<g id="al{i}" style="opacity:0">{txt}</g>'
-        zaman.append([f"al{i}", round(ac, 3), round(min(kapat, sure), 3)])
-    return svg, zaman
+        # üst sınır t1 (pay yok): sahne 08 kuralı
+        w_list = [w for w in soz if a["t0"] - 0.05 <= w["t0"] < a["t1"]]
+        txt, cizgi = _altyazi_satir_svg(i, sat, y0, w_list, t_bas, parca_kapat, karaoke)
+        svg += f'<g id="al{i}" style="opacity:0">{txt}{cizgi}</g>'
+        zaman.append([f"al{i}", round(ac, 3), round(parca_kapat, 3)])
+    return svg, zaman, karaoke
 
 
 def zemin_html() -> str:

@@ -1,10 +1,10 @@
-// SAHNE 05 — Örnek 3/3 (düz canvas, 522 kare, t_bas 51,57; cümle 5). 02-03 YDT temel.
+// SAHNE 05 — Örnek 3/3 (düz canvas, 522 kare, t_bas 51,65; cümle 5). 02-03 YDT temel.
 // Kendini çizen kalem; zaman yalnız kare numarasından; sözcük zamanları ortak/anlatim/sozcukler.json.
 // Kök: "It is getting harder and harder to find a good job nowadays." (yükselen basamaklar + ok, laptop, CHANGING).
 import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, elips, ok, kutu, altCizgi } from "./sahne-ortak.js";
 
-const KARE = 522, TBAS = 51.57, ICERIK = 510;
+const KARE = 522, TBAS = 51.65, ICERIK = 510;
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Example 3 / 3", cumle: 5 });
 const KOKDIZ = "/projeler/02-03-ydt-temel/ortak/cizim";
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();

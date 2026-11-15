@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 AD = Path(__file__).resolve().parent
-BASLAR = [1.0, 3.39, 17.68, 32.83, 47.82, 62.06, 65.97]
+BASLAR = [1.0, 3.39, 22.48, 37.63, 53.02, 67.42, 71.33]  # 16.11 DUZ3: c2, c4, c5, c7 yeni ses
 sure = json.loads((AD / "sureler.json").read_text())
 out = []
 for e, b in zip(sure, BASLAR):

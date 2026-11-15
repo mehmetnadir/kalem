@@ -4,15 +4,16 @@
   "gorseller": [
     {
       "dosya": "karakter.png",
-      "uretim_id": "d97e66af-da14-49aa-b016-c7df0b7fd6cd",
-      "kaynak_uretim_id": "5debca50-1608-4f92-8f9c-3c5095b64fe0",
-      "tarif": "genç erkek, iri kıvırcık saç, yuvarlak gözlük, koyu düğmeli ceket; bel üstü; sola işaret eden 'buldum' ifadesi",
+      "uretim_id": "f312969e-8b2f-4d67-bdb7-f94c3be81fdb",
+      "kaynak_uretim_id": "e0b6d5c6-02db-4b3f-93bc-1c6f9c41c73c",
+      "referans": "uretim:3c22184a-e98e-4fbd-892f-e0f028e2490d (02-04 karakteri)",
+      "tarif": "genç kadın öğrenci, uzun düz saç, uzun kâkül, yuvarlak gözlük, kazak; sol eliyle işaret eden 'buldum' ifadesi; 02-04 dersindeki öğrenciyle aynı kişi",
       "model": "nano-banana-2",
       "kalite": "1k",
       "usd": 0.04,
       "tarih": "2026-11-15",
       "stil": "bold flat sticker, thick confident black outline, hand-drawn doodle feel, palette limited to warm yellow #fece00, off-white cream and black, flat shading, no gradients",
-      "zemin": "şeffaf (panel arka plan temizleyici)"
+      "zemin": "şeffaf"
     },
     {
       "dosya": "nesne.png",

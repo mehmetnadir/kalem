@@ -359,23 +359,31 @@ def uret():
         x0, W = s.yazi("dh%d" % k, x, b4, [(m, fill)], "Fredoka", 700, LF2, S(t), 0.2,
                        tur="tik" if k == 0 else None, guc=0.5)
         x += W
-    # ---------------- 83,68: Türkçe: -er eki ; 85,60: git-er = go-es ----------------
-    LY = 1222
-    EF = 84
-    trw = gen("Caveat", 700, "Türkçe: ", 72)
-    gw1 = gen("Fredoka", 700, "git-er", EF)
-    eqw = gen("Fredoka", 700, " = ", EF)
-    gw2 = gen("Fredoka", 700, "go-es", EF)
-    toplam = trw + gw1 + eqw + gw2
+    # ---------------- 83,84: TR ek her kişide / EN s yalnız 3. tekil (DUZ2 A3: "git-er = go-es" denkliği kalktı) ---
+    # Tek satır: TR (Caveat 64, soluk, er sarı) | EN (Fredoka 72, es sarı); DK-2: EN büyük, TR soluk.
+    LY, TF2, EF2, ARA = 1222, 64, 72, 40
+    tw1, tsep, tw2 = (gen("Caveat", 700, m, TF2) for m in ("giderim", " · ", "gider"))
+    ew1, esep, ew2 = (gen("Fredoka", 700, m, EF2) for m in ("I go", " · ", "he goes"))
+    toplam = tw1 + tsep + tw2 + 2 * ARA + ew1 + esep + ew2
+    assert toplam <= 1080 - 96, "kart satırı dikey genişliği aşıyor"
     lx = 540 - toplam / 2
-    s.yazi("tr", lx, LY, [("Türkçe: ", IKN)], "Caveat", 700, 72, S(Z["turkce"]), 0.4, tur="tik", guc=0.4)
-    s.yazi("gter", lx + trw, LY, [("git", KRE), ("-er", SAR)], "Fredoka", 700, EF, S(Z["git_er"]), 0.4, tur="tik",
-           guc=0.5)
-    ex = lx + trw + gw1
-    te = S(Z["esit"])
-    s.yol("es1", el_cizgi(ex + 14, LY - 40, ex + eqw - 14, LY - 43, 1), te, 0.2, KRE, 6, 1, "cizgi", 0.5)
-    s.yol("es2", el_cizgi(ex + 16, LY - 18, ex + eqw - 12, LY - 21, -1), te + 0.2, 0.2, KRE, 6, 1, "cizgi", 0.5)
-    s.yazi("goes", ex + eqw, LY, [("go", KRE), ("-es", SAR)], "Fredoka", 700, EF, S(Z["go_es"]), 0.4, tur="tik", guc=0.5)
+    s.yazi("tr1", lx, LY, [("gid", IKN), ("er", SAR), ("im", IKN)], "Caveat", 700, TF2, S(Z["eki"]), 0.4, tur="tik",
+           guc=0.45)
+    s.yazi("tr2", lx + tw1, LY, [(" · ", IKN), ("gid", IKN), ("er", SAR)], "Caveat", 700, TF2, S(Z["her"]), 0.35,
+           tur="tik", guc=0.45)
+    gidw, erw = gen("Caveat", 700, "gid", TF2), gen("Caveat", 700, "er", TF2)
+    for k, (x0, t) in enumerate(((lx, Z["kisi"]), (lx + tw1 + tsep, Z["kisi"] + 0.2))):   # er her kişide
+        s.yol("tra%d" % k, el_cizgi(x0 + gidw - 2, LY + 12, x0 + gidw + erw + 4, LY + 10), S(t), 0.25, SAR, 7, 0.85,
+              "cizgi", 0.4)
+    ax = lx + tw1 + tsep + tw2 + ARA   # TR | EN ayracı (el çizgisi)
+    s.yol("ayr", el_cizgi(ax, LY - 54, ax + 2, LY + 8, 0), S(Z["ingilizce"]) - 0.15, 0.2, IKN, 3.6, 0.7, "cizgi", 0.3)
+    ex = ax + ARA
+    s.yazi("en1", ex, LY, [("I go", KRE)], "Fredoka", 700, EF2, S(Z["ingilizce"]), 0.35, tur="tik", guc=0.5)
+    s.yazi("en2", ex + ew1, LY, [(" · ", IKN), ("he go", KRE), ("es", SAR)], "Fredoka", 700, EF2, S(Z["ucuncu"]),
+           0.45, tur="tik", guc=0.55)
+    sx0 = ex + ew1 + esep + gen("Fredoka", 700, "he go", EF2)
+    s.yol("ena", el_cizgi(sx0 - 2, LY + 14, sx0 + gen("Fredoka", 700, "es", EF2) + 6, LY + 11), S(Z["tekil"]), 0.3,
+          SAR, 9, 0.85, "cizgi", 0.5)
     # ---------------- 87,75: always · usually · every day -> Simple Present ----------------
     CF = 72
     x = 60.0

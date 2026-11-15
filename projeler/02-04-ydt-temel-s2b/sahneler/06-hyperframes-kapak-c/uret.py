@@ -46,7 +46,7 @@ assert Y.HUD["konuTaban"] == 420
 assert Y.HUD["rozetY"] == 386
 assert Y.HUD["rozetH"] == 48
 assert Y.HUD["rozetYazi"] == 26
-assert Y.ROZET == "YDT · BASIC"
+assert Y.ROZET == "YDT · TEMEL"
 assert Y.KONU == "Simple Present vs Present Continuous"
 _kunye_svg_denetim = Y.kunye_svg()
 assert 'id="kanal"' in _kunye_svg_denetim
@@ -352,7 +352,7 @@ def kurallari_dogrula(
         "in the winter.",
         "She is wearing her",
         "pink T-shirt today.",
-        "YDT · BASIC",
+        "YDT · TEMEL",
     ]
     for s in satirlar:
         assert len(s) <= 24, f"Satir uzunlugu {len(s)} > 24: {s}"

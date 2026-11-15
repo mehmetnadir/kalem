@@ -1,0 +1,301 @@
+# hyperframes check (hyperframes 0.8.226) — simple-present-temel-s1b · DUZ4-0202S1 · 16.11.2026 02:30
+# Komut: (paket kökünde) hyperframes check sahneler/<k>/proje · uyarılar düzeltilmedi (B1 bekler)
+
+=== 01-hyperframes-kanca
+◆  Checking proje
+[hyperframes] browserGpuMode probe → software (WebGL renderer vendor="Google Inc. (Mesa)" renderer="ANGLE (Mesa, llvmpipe (LLVM 15.0.7 256 bits), OpenGL ES 3.2)")
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/28
+[hyperframes] check: craft 2/28
+[hyperframes] check: craft 3/28
+[hyperframes] check: craft 4/28
+[hyperframes] check: craft 5/28
+[hyperframes] check: craft 6/28
+[hyperframes] check: craft 7/28
+[hyperframes] check: craft 8/28
+[hyperframes] check: craft 9/28
+[hyperframes] check: craft 10/28
+[hyperframes] check: craft 11/28
+[hyperframes] check: craft 12/28
+[hyperframes] check: craft 13/28
+[hyperframes] check: craft 14/28
+[hyperframes] check: craft 15/28
+[hyperframes] check: craft 16/28
+[hyperframes] check: craft 17/28
+[hyperframes] check: craft 18/28
+[hyperframes] check: craft 19/28
+[hyperframes] check: craft 20/28
+[hyperframes] check: craft 21/28
+[hyperframes] check: craft 22/28
+[hyperframes] check: craft 23/28
+[hyperframes] check: craft 24/28
+[hyperframes] check: craft 25/28
+[hyperframes] check: craft 26/28
+[hyperframes] check: craft 27/28
+[hyperframes] check: craft 28/28
+[hyperframes] check: overlap 1/4
+[hyperframes] check: overlap 2/4
+[hyperframes] check: overlap 3/4
+[hyperframes] check: overlap 4/4
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+
+Lint
+  ◇ 0 errors, 0 warnings
+
+Runtime
+  ◇ 0 errors, 0 warnings
+
+Layout
+  ℹ t=2.429s content_overlap #bas2t inside #ku-konu > text:nth-of-type(1) "GO." — Two text blocks overlap and may render unreadable.
+        Fix: Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.
+  ℹ t=2.429s content_overlap #bas1t inside #ku-konu > text:nth-of-type(1) "MY BROTHER" — Two text blocks overlap and may render unreadable.
+        Fix: Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.
+  0 error(s), 0 warning(s), 2 info(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 23/23 text checks pass WCAG AA
+
+Craft
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 3.40 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  ⚠ line_unread: The film's last line "Simple Present" (2 words) is on screen 1.04 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ku-konu > text:nth-of-type(1) t=2.368s
+  ⚠ line_unread: The film's last line "My brother go" (3 words) is on screen 0.87 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #kart-yanlis > g:nth-of-type(2) > text:nth-of-type(1) t=2.535s
+  ⚠ line_unread: The film's last line "to school by bus." (4 words) is on screen 0.87 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #kart-yanlis > g:nth-of-type(2) > text:nth-of-type(2) t=2.535s
+  0 error(s), 4 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+çıkış: 0
+
+=== 03-hyperframes-kaydet
+◆  Checking proje
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/28
+[hyperframes] check: craft 2/28
+[hyperframes] check: craft 3/28
+[hyperframes] check: craft 4/28
+[hyperframes] check: craft 5/28
+[hyperframes] check: craft 6/28
+[hyperframes] check: craft 7/28
+[hyperframes] check: craft 8/28
+[hyperframes] check: craft 9/28
+[hyperframes] check: craft 10/28
+[hyperframes] check: craft 11/28
+[hyperframes] check: craft 12/28
+[hyperframes] check: craft 13/28
+[hyperframes] check: craft 14/28
+[hyperframes] check: craft 15/28
+[hyperframes] check: craft 16/28
+[hyperframes] check: craft 17/28
+[hyperframes] check: craft 18/28
+[hyperframes] check: craft 19/28
+[hyperframes] check: craft 20/28
+[hyperframes] check: craft 21/28
+[hyperframes] check: craft 22/28
+[hyperframes] check: craft 23/28
+[hyperframes] check: craft 24/28
+[hyperframes] check: craft 25/28
+[hyperframes] check: craft 26/28
+[hyperframes] check: craft 27/28
+[hyperframes] check: craft 28/28
+[hyperframes] check: overlap 1/4
+[hyperframes] check: overlap 2/4
+[hyperframes] check: overlap 3/4
+[hyperframes] check: overlap 4/4
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+
+Lint
+  ◇ 0 errors, 0 warnings
+
+Runtime
+  ◇ 0 errors, 0 warnings
+
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 32/32 text checks pass WCAG AA
+
+Craft
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 3.50 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  ⚠ line_unread: The film's last line "Kaydet." (1 word) is on screen 1.07 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #al1 > text:nth-of-type(1) t=2.438s
+  ⚠ line_unread: The film's last line "Kaydet" (1 word) is on screen 0.90 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #kaydet-hap > text:nth-of-type(1) t=2.602s
+  0 error(s), 3 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+çıkış: 0
+
+=== 04-hyperframes-cagri
+◆  Checking proje
+[hyperframes] browserGpuMode probe → software (WebGL renderer vendor="Google Inc. (Mesa)" renderer="ANGLE (Mesa, llvmpipe (LLVM 15.0.7 256 bits), OpenGL ES 3.2)")
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/59
+[hyperframes] check: craft 2/59
+[hyperframes] check: craft 3/59
+[hyperframes] check: craft 4/59
+[hyperframes] check: craft 5/59
+[hyperframes] check: craft 6/59
+[hyperframes] check: craft 7/59
+[hyperframes] check: craft 8/59
+[hyperframes] check: craft 9/59
+[hyperframes] check: craft 10/59
+[hyperframes] check: craft 11/59
+[hyperframes] check: craft 12/59
+[hyperframes] check: craft 13/59
+[hyperframes] check: craft 14/59
+[hyperframes] check: craft 15/59
+[hyperframes] check: craft 16/59
+[hyperframes] check: craft 17/59
+[hyperframes] check: craft 18/59
+[hyperframes] check: craft 19/59
+[hyperframes] check: craft 20/59
+[hyperframes] check: craft 21/59
+[hyperframes] check: craft 22/59
+[hyperframes] check: craft 23/59
+[hyperframes] check: craft 24/59
+[hyperframes] check: craft 25/59
+[hyperframes] check: craft 26/59
+[hyperframes] check: craft 27/59
+[hyperframes] check: craft 28/59
+[hyperframes] check: craft 29/59
+[hyperframes] check: craft 30/59
+[hyperframes] check: craft 31/59
+[hyperframes] check: craft 32/59
+[hyperframes] check: craft 33/59
+[hyperframes] check: craft 34/59
+[hyperframes] check: craft 35/59
+[hyperframes] check: craft 36/59
+[hyperframes] check: craft 37/59
+[hyperframes] check: craft 38/59
+[hyperframes] check: craft 39/59
+[hyperframes] check: craft 40/59
+[hyperframes] check: craft 41/59
+[hyperframes] check: craft 42/59
+[hyperframes] check: craft 43/59
+[hyperframes] check: craft 44/59
+[hyperframes] check: craft 45/59
+[hyperframes] check: craft 46/59
+[hyperframes] check: craft 47/59
+[hyperframes] check: craft 48/59
+[hyperframes] check: craft 49/59
+[hyperframes] check: craft 50/59
+[hyperframes] check: craft 51/59
+[hyperframes] check: craft 52/59
+[hyperframes] check: craft 53/59
+[hyperframes] check: craft 54/59
+[hyperframes] check: craft 55/59
+[hyperframes] check: craft 56/59
+[hyperframes] check: craft 57/59
+[hyperframes] check: craft 58/59
+[hyperframes] check: craft 59/59
+[hyperframes] check: overlap 1/8
+[hyperframes] check: overlap 2/8
+[hyperframes] check: overlap 3/8
+[hyperframes] check: overlap 4/8
+[hyperframes] check: overlap 5/8
+[hyperframes] check: overlap 6/8
+[hyperframes] check: overlap 7/8
+[hyperframes] check: overlap 8/8
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+
+Lint
+  ◇ 0 errors, 0 warnings
+
+Runtime
+  ◇ 0 errors, 0 warnings
+
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 34/34 text checks pass WCAG AA
+
+Craft
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 7.27 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  0 error(s), 1 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+çıkış: 0
+
+=== 02-paperjs-deger (Paper.js; hyperframes check uygulanmaz) — paketin ortak/kunye.js boyut sabitleri
+  ortak/kunye.js:55:  logoH: 48,
+  ortak/kunye.js:58:  yaziFont: "700 42px Lexend",
+  ortak/kunye.js:90:  altyaziYazi: 44,
+  ortak/kunye.js:91:  altyaziSatir: 56,
+  ortak/kunye.js:95:  konuAzami: 34,
+  ortak/kunye.js:96:  konuAsgari: 28,
+  ortak/kunye.js:99:  rozetH: 48,
+  ortak/kunye.js:100:  rozetYazi: 26,
+  ortak/kunye.js:246:  for (const boy of [k.altyaziYazi, 40, 36]) {
+  ortak/kunye.js:283:  ctx.strokeStyle = RENK.vurgu; ctx.lineWidth = 6; ctx.lineCap = "round";  (karaoke çizgisi, DUZ4 A1)
+  Özet: kanal 42 px (Lexend 700) · künye konu 34→28 px (Fredoka 700) · rozet 26 px (Lexend 700, hap 48) · altyazı 44 px (Lexend 500; 2 satıra sığmazsa 40/36) · satır aralığı 56 · karaoke 6 px
+  ST-2 kısa tabanı (juri §2b): kanal 40–44 ✓, altyazı ≥ 44 ✓ (44; 40/36 yalnız 2 satıra sığmayan parçada, bu pakette yok), künye ≥ 30 ✓ (34), rozet ≥ 26 ✓ (26)

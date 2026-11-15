@@ -8,7 +8,7 @@ Dikey sürüm = yatayla AYNI anlatım ve AYNI ses; sahne düzeni dikey için SIF
 Kaynak: ../present-continuous-dikey/BRIEF-DIKEY.md §0 (tek kaynak, 05.11 karar 6b).
 
 ## 1. Teknik çerçeve
-`zaman.json` hazır: 6 sahne, ana projeyle AYNI t_bas/t_son/kare (01 102 · 02 484 · 03 475 · 04 521 · 05 494 · 06 860), 1080×1920,
+`zaman.json` hazır: 6 sahne, ana projeyle AYNI t_bas/t_son/kare (01 102 · 02 484 · 03 475 · 04 564 · 05 482 · 06 939; 16.11 DUZ3-0206T: c4, c5, c7 yeni ses, süre 98,53 sn), 1080×1920,
 `gecis_kare` 12. Ses: `ortak/anlatim` → ana projeye sembolik bağ (`cumle-1..7.wav`, `anlatim.wav`, `sureler.json`,
 `sozcukler.json`, `METIN.md`, `altyazi.json` [parça başına {cumle, dil, t0, t1, metin, konusan}]). Yerel kare f ↔ küresel
 `t_bas + f/30`. İlk/son 12 kare geçiş altında DURGUN. Kareler `ortak/yakala.py ... 1080 1920`. HyperFrames kökü
@@ -51,12 +51,12 @@ yukarı toplanır ve küçülür, ama küçülünce de ≥ 48 px kalır).
 ## 4. Sahne sözleşmeleri (içerik ve zamanlar ana BRIEF §4'ten; burada yalnız dikey yerleşim)
 | # | Klasör / motor / kare | Dikey yerleşim (içerik bandı 352–1392, üstten alta) |
 |---|---|---|
-| 01 | `01-hyperframes-giris` HF 102 | Kapak kalıbı: logo damgası sol üst → rozetler `YDT · BASIC` + `GRAMMAR` → başlık 2 satır `PRESENT` / `PERFECT` (190 px, y ≈ 520/740, kalemle, 0,65–1,45) → cümle 1 `Kaybettim, kapıda kaldım.` Caveat 80 sözcük zamanlı (1,00'dan, y ≈ 900) → figür standing-4 + ev (y 980–1380) → 2,0–3,0 uçuş: başlık künye ders adına küçülür, cümle yukarı kayar, figür solar; altyazı bandı cümle 1 |
+| 01 | `01-hyperframes-giris` HF 102 | Kapak kalıbı: logo damgası sol üst → rozetler `YDT · TEMEL` + `GRAMMAR` → başlık 2 satır `PRESENT` / `PERFECT` (190 px, y ≈ 520/740, kalemle, 0,65–1,45) → cümle 1 `Kaybettim, kapıda kaldım.` Caveat 80 sözcük zamanlı (1,00'dan, y ≈ 900) → figür standing-4 + ev (y 980–1380) → 2,0–3,0 uçuş: başlık künye ders adına küçülür, cümle yukarı kayar, figür solar; altyazı bandı cümle 1 |
 | 02 | `02-paperjs-kanca` Paper.js 484 | Kanca cümlesi Caveat 80 iki satır (y 400–560), `kaybettim` sarı daire; altında zaman çizgisi `past ● ━ ● now` + `sonucu şimdi bizimle` (y 620–760, 64 px); ORTA: ev + kapıda figür (standing-4) 480 px (y 780–1240); alt: ajanda kartı `6 dakikada:` `Form · since / for · sinyal sözcükleri` üç satır Fredoka 64 (y 1260–1392), 13,85 / 15,17 / 16,89 sn'de tik |
 | 03 | `03-paperjs-ornek1` Paper.js 475 | Çip `Example 1 / 3`; kart `I have broken my phone.` Fredoka 72 (3 satır, y 400–660) sözcük zamanlı; TR `Telefonumu kırdım.` Caveat 64 (y 700); ORTA: kırık ekranlı telefon 460 px (y 760–1220), çatlak çizgileri 25,2'de; alt: formül `have + broken` → `have + V3` Fredoka 110 (y 1240–1380) |
-| 04 | `04-canvas-ornek2` canvas 521 | Çip `Example 2 / 3`; kart `My brother has played the guitar for five years.` (3 satır, `for` sarı daire); TR Caveat 64; ORTA: figür (sitting-6) + gitar 460 px; takvim şeridi `5 years` + ok; alt: `has + played` 110 |
-| 05 | `05-canvas-ornek3` canvas 494 | Çip `Example 3 / 3`; kart `I have never flown in a plane.` (`never` sarı daire); TR Caveat 64; ORTA: uçak 480 px + üstünde sarı çarpı; yaşam çizgisi `birth ● now`; alt: `have + flown` 110; çıkış fade |
-| 06 | `06-hyperframes-form` HF 860 | Çip `Question` → `Form` (72,13'te); üst: öğrenci balonu (kadro başı `peeps-kit/ogrenci-bas.svg`, baş 160 px) + Caveat 64 `Hocam, üçünde de have var. Neden hep üçüncü hâl?` (67,74–71,58, y 400–640); ORTA: `I · you · we · they → have` / `he · she · it → has` Fredoka 96 (y 700–1060); sinyal tablosu 3 satır (82,0 / 84,6 / 86,4); alt: kod kartı `have + V3` 150 (88,98) + `geçmiş iş → şimdiki etki` Caveat 72; son 1 sn durgun; altyazı: cümle 6 ve 7 |
+| 04 | `04-canvas-ornek2` canvas 564 | Çip `Example 2 / 3`; kart `My brother has played the guitar for five years.` (3 satır, `for` sarı daire); TR Caveat 64; ORTA: figür (sitting-6) + gitar 460 px; takvim şeridi `5 years` + ok; alt: `has + played` 110 |
+| 05 | `05-canvas-ornek3` canvas 482 | Çip `Example 3 / 3`; kart `I have never flown in a plane.` (`never` sarı daire); TR Caveat 64; ORTA: uçak 480 px + üstünde sarı çarpı; yaşam çizgisi `birth ● now`; tek etiket `never` → now (16.11: ever/just etiketi kalktı); alt: `have + flown` 110; çıkış fade |
+| 06 | `06-hyperframes-form` HF 939 | Çip `Question` → `Form` (73,17'de); notlar `geçmiş → şimdiye bağlanıyor`; üst: öğrenci balonu (kadro başı `peeps-kit/ogrenci-bas.svg`, baş 160 px) + Caveat 64 `Hocam, üçünde de have var. Neden hep üçüncü hâl?` (68,78–72,62, y 400–640); ORTA: `I · you · we · they → have` / `he · she · it → has` Fredoka 96 (y 700–1060); sinyal tablosu 3 satır, parça başına sözcük zamanı (`for · since → süre · başlangıç` · `never · ever → deneyim` · `just · already → az önce · çoktan`); alt: kod kartı `have + V3` 150 (93,05) + `geçmişten → şimdiye` Caveat 72 (ok "köprü"de); son 1 sn durgun; altyazı: cümle 6 ve 7 |
 
 ## 5. Çalıştırma ve kabul (sahne başına)
 1. Sahne klasörü: D1'deki ile aynı dosya düzeni (`calistir.sh` tema.sh'ı `. "$D/../../ortak/tema.sh" "$@"` ile çağırır,

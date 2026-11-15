@@ -60,7 +60,8 @@ R = Y.RENK
 KREM = R["murekkep"]
 
 SAT1 = "ÜÇ İFADE,"
-SAT2 = "TEK İŞARET"
+# DUZ2 (16.11, A3/A4, EK-5c): "TEK İŞARET" mutlak sunumdu (always öteki zamanlarla da gelir) → "GÜÇLÜ İPUCU"
+SAT2 = "GÜÇLÜ İPUCU"
 
 
 def glif_sinir(metin: str) -> tuple[float, float]:
@@ -89,7 +90,7 @@ def glif_sinir(metin: str) -> tuple[float, float]:
 U1, A1 = glif_sinir(SAT1)
 U2, A2 = glif_sinir(SAT2)
 assert round(U1, 3) == 0.928 and round(A1, 3) == -0.182, f"SAT1 glif sınırı beklenenden farklı: {U1}, {A1}"
-assert round(U2, 3) == 0.921 and round(A2, 3) == -0.182, f"SAT2 glif sınırı beklenenden farklı: {U2}, {A2}"
+assert round(U2, 3) == 0.928 and round(A2, 3) == -0.182, f"SAT2 glif sınırı beklenenden farklı: {U2}, {A2}"
 
 
 def hesapla_s_ve_baslik() -> tuple[int, float, float, float, float, float, float, float]:
@@ -105,7 +106,7 @@ def hesapla_s_ve_baslik() -> tuple[int, float, float, float, float, float, float
             S_secilen = s
             break
     assert S_secilen is not None, "Başlık boyutu S bulunamadı"
-    assert S_secilen == 143, f"S={S_secilen} != 143 bekleniyordu"
+    assert S_secilen == 140, f"S={S_secilen} != 140 bekleniyordu"  # DUZ2: "GÜÇLÜ İPUCU" (önce 143)
 
     S = S_secilen
     g1 = Y.genislik("Fredoka", 700, SAT1, S)
@@ -302,14 +303,20 @@ def karakter_yerlesim(baslik_alt: float, gh: float) -> tuple[float, float, float
         )
         parmak_pos = ky + parmak_y * s
         sart4 = (832.0 + 24.0) <= parmak_pos <= (1148.0 - 24.0)
-        if sart1 and sart2 and sart3 and sart4:
+        # DUZ2 (16.11): yeni karakterde maske boş ama kutu hapa biniyordu (kurallari_dogrula kesişim kuralı);
+        # aramada da kutu kesişimi aranır: kutu hap kutusunun altına ya da sağına düşmeli
+        sart5 = (
+            ky + ay1 * s + KENAR_PX <= hap_kutu[1]
+            or kx + ax0 * s - KENAR_PX >= hap_kutu[2]
+        )
+        if sart1 and sart2 and sart3 and sart4 and sart5:
             gecen_s = s
             gecen_kx = kx
             gecen_ky = ky
             break
 
     assert gecen_s is not None, "Hiçbir s ölçeği şartları sağlamadı"
-    assert gecen_s == 0.465, f"s={gecen_s} != 0.465 bekleniyordu"
+    assert gecen_s == 0.455, f"s={gecen_s} != 0.455 bekleniyordu"  # DUZ2: yeni kadın karakter (önce 0.465)
     return gecen_s, gecen_kx, gecen_ky, (ax0, ay0, ax1, ay1)
 
 

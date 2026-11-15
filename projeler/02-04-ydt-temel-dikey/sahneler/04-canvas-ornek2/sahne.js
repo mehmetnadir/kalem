@@ -1,4 +1,6 @@
-// SAHNE 04 (DİKEY) — Örnek 2/3: düz canvas, 1080x1920, 762 kare, t_bas 43,85; cümle 4.
+// SAHNE 04 (DİKEY) — Örnek 2/3: düz canvas, 1080x1920, 779 kare, t_bas 43,85; cümle 4.
+// 16.11 DUZ3: cümle 4 yeniden sentezlendi ("Orada hep yaşıyorum" → "Burası bizim evimiz"); cümle içi sabit
+// zamanlar sözcüğe bağlandı (t(4) live., t(22) My).
 // Zaman yalnız kare numarasından; sözcük zamanları sozcukler.json'dan.
 import { surucu } from "/ortak/surucu.js";
 import {
@@ -7,7 +9,7 @@ import {
 import { yaziNoktalari }
   from "/projeler/02-04-ydt-temel-dikey/ortak/kalem-canvas.js";
 
-const KARE = 762, TBAS = 43.85, ICERIK = 750;
+const KARE = 779, TBAS = 43.85, ICERIK = 767;
 const S = new Sahne({
   tbas: TBAS, kare: KARE, icerik: ICERIK, klasor: "04-canvas-ornek2", cumle: 4
 });
@@ -130,13 +132,13 @@ async function kur() {
     0.55
   ));
 
-  // 47,70 —: Kart A çerçevesi
+  // live. + 0,50: Kart A çerçevesi
   ogelerA.push(S.kart({
     x: 48,
     y: 540,
     w: 984,
     h: 236,
-    tb: 47.70,
+    tb: t(4) + 0.50,
     ad: "kartA",
     tohum: 4,
     kutuSure: 0.14,
@@ -173,7 +175,7 @@ async function kur() {
     nefes: false,
   }));
 
-  // 53,30 hep: uzun bant
+  // 53,06 bizim: uzun bant
   ogelerA.push(S.darbe(
     [[150, 1330], [930, 1330]],
     { duz: true, w: 30, renk: RT.vurguDolgu, alfa: 0.45, uc0: 4, uc1: 8, tohum: 101 },
@@ -182,7 +184,7 @@ async function kur() {
     0.5
   ));
 
-  // 52,90 Orada: sol zaman ekseni
+  // 52,66 Burası: sol zaman ekseni
   const [, uc1A, uc2A] = ok([96, 1330], [984, 1330], 21);
   ogelerA.push(S.darbeler(
     [[[96, 1330], [984, 1330]], uc1A, uc2A],
@@ -193,11 +195,11 @@ async function kur() {
     0.4
   ));
 
-  // 53,15 Orada: sol now noktası ve nabız
+  // 52,91 Burası: sol now noktası ve nabız
   ogelerA.push(nowNokta(540, 1330, t(15) + 0.25));
   ogelerA.push(S.nabiz(540, 1330, 14, t(15) + 0.25 + 0.35));
 
-  // 53,30 Orada: sol now etiketi
+  // 53,06 Burası: sol now etiketi
   const gNow = eyGen("now", 64);
   ogelerA.push(S.elYazisi({
     metin: "now",
@@ -229,16 +231,16 @@ async function kur() {
     0.55
   ));
 
-  // 56,20 —: Grup A küçülür ve söner
-  S.koy(grupKucul(ogelerA, 56.20, 0.36));
+  // My − 0,79: Grup A küçülür ve söner
+  S.koy(grupKucul(ogelerA, t(22) - 0.79, 0.36));
 
-  // 56,50 —: şerit çerçevesi
+  // My − 0,49: şerit çerçevesi
   S.koy(S.kart({
     x: 48,
     y: 352,
     w: 984,
     h: 120,
-    tb: 56.50,
+    tb: t(22) - 0.49,
     ad: "serit",
     tohum: 8,
     kutuSure: 0.1,
@@ -246,40 +248,40 @@ async function kur() {
     satirlar: [],
   }));
 
-  // 56,54 —: şerit live pop
+  // My − 0,45: şerit live pop
   S.koy(S.metinPop({
     parca: [["live", RT.murekkep]],
     x: 88,
     y: 434,
     font: FF(64),
-    tb: 56.54,
+    tb: t(22) - 0.45,
     sure: 0.3,
     ses: 0.4,
   }));
 
-  // 56,60 —: şerit ok
+  // My − 0,39: şerit ok
   const xL = 88 + olc(FF(64), "live");
   S.koy(S.darbeler(
     ok([xL + 24, 412], [xL + 134, 412], 23),
     { w: 6, renk: RT.ikincil, uc0: 6, uc1: 10 },
-    56.60,
+    t(22) - 0.39,
     0.16,
     0.06,
     false
   ));
 
-  // 56,68 —: şerit PERMANENT pop
+  // My − 0,31: şerit PERMANENT pop
   S.koy(S.metinPop({
     parca: [["PERMANENT", RT.murekkep]],
     x: xL + 158,
     y: 434,
     font: FC(64),
-    tb: 56.68,
+    tb: t(22) - 0.31,
     sure: 0.3,
     ses: false,
   }));
 
-  // 56,62 —: şerit ev simgesi
+  // My − 0,37: şerit ev simgesi
   S.koy(S.cizim({
     svg: evSvg,
     ad: "ev-simge",
@@ -287,7 +289,7 @@ async function kur() {
     enCok: 10,
     esik: 0.01,
     w: 4,
-    tb: 56.62,
+    tb: t(22) - 0.37,
     sure: 0.35,
     olayEnCok: 1,
     nefes: false,

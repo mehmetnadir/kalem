@@ -21,8 +21,8 @@ Açıklama:
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Simple Present (ING-YDT-GR-02-02-T): Gider = goes; ama yalnız he, she, it ile. I, you, we, they ile go.
-My brother goes to school by bus. → my brother = he, fiile s gelir
-He, she, it: s gelir. I, you, we, they: s yok.
+My brother goes to school by bus. → my brother = he, fiile -s / -es gelir
+He, she, it: fiile -s / -es gelir (olumlu cümlede; be ve can hariç). I, you, we, they: s yok.
 Ders videosu: {UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-02-T&utm_content=s1-a
 Sıradaki ders: Present Continuous ve Simple Present: ayrım alıştırması
 Ders sayfası: https://ydspublishing.com/grammar/02-02-ydt-temel?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-02-T&utm_content=s1-a
@@ -39,7 +39,7 @@ Reels açıklaması:
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Kardeşim gider → My brother goes.
-He, she, it: fiile s gelir. I, you, we, they: s yok.
+He, she, it: fiile -s / -es gelir (olumlu cümlede; be ve can hariç). I, you, we, they: s yok.
 Öğretmenseniz sınıfınızla paylaşın.
 Sıradaki ders: Present Continuous ve Simple Present: ayrım alıştırması
 
@@ -58,7 +58,7 @@ Açıklamaya adres yazılmaz (Instagram açıklamada bağlantı tıklanmaz).
 
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
-Kardeşim gider → My brother goes. He, she, it: s gelir. I, you, we, they: s yok.
+Kardeşim gider → My brother goes. He, she, it: fiile -s / -es gelir (olumlu cümlede; be ve can hariç). I, you, we, they: s yok.
 #YDT #İngilizce #gramer #SimplePresent
 ```
 

@@ -13,9 +13,9 @@
       "Türkçe geniş zaman eki ile köprü"
     ],
     "canAlici": [
-      "Türkçedeki geniş zaman eki = İngilizcedeki s: gider = goes",
+      "Geniş zaman eki Türkçede her kişide gelir (giderim, gider); İngilizcede s yalnız he, she, it ile gelir (I go, he goes)",
       "'Her sabah yedide kalkarım' — alışkanlık iki dilde aynı zamanla",
-      "usually, always, every day = tekrar eden iş sinyali",
+      "usually, always, every day çoğu zaman alışkanlığı işaret eder; zamanı tek başına belirlemez (always öteki zamanlarla da gelir)",
       "he, she, it fiile s alır; I, you, we, they almaz",
       "3 örnek, 1 kural: üçünde de fiilin sonunda s"
     ],
@@ -31,7 +31,7 @@
     {
       "kimlik": "s2b",
       "tur": "shorts",
-      "ad": "S2b Shorts (25,73 sn)",
+      "ad": "S2b Shorts (27,00 sn)",
       "durum": "inceleme",
       "onizleme": "/p/simple-present-temel-s2b/onizle.html",
       "seviye": "temel",
@@ -62,5 +62,13 @@
       "kaynak": "ana-yatay"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "s2b",
+      "no": "r1",
+      "tarih": "2026-11-15T22:03:00Z",
+      "degisiklik": "DUZ2 (J2 özeti A1–A4, TD-1…TD-3 + KBJ E1, E2/AB-8, kopya kareler, E4): kol a düzeltmeleri birebir (rozet YDT · TEMEL; kadın karakter + yeni ana kapak, sha256 ana paketle eş; kart 2. satır 'every day: çoğunlukla'; kapak B/C ve hikâye A kaynakları kol a ile eş; canAlici ana dersle eş); cümle 3 'çoğunlukla' ile yeniden sentez (değişken cümlesi; cümle 1, 2 sha256 kol a ile eş; 25,73 → 27,00 sn); KOK ve sahne 02 içe aktarımları kol b yolunu gösterir. Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    }
+  ]
 }

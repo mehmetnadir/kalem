@@ -10,10 +10,10 @@
       "Present Perfect Continuous formunu kurmak (have/has been + V-ing)",
       "for ile since farkını ayırt etmek",
       "sonucu görünen eylemi tanımak",
-      "Türkçe -dir ... -yor ile köprü"
+      "Türkçe -dir ... -yor cümlesini aktarmak: süre for / since, süren iş have/has been + V-ing"
     ],
     "canAlici": [
-      "Türkçedeki -dir ... -yor = İngilizcedeki have been ... -ing",
+      "Süreyi for / since söyler, süren işi have/has been + -ing kurar",
       "'İki saattir çalışıyorum' — I have been working for two hours",
       "for = süre uzunluğu, since = başlangıç noktası",
       "Sokak ıslak = yağmurun izi: sonucu görünen eylem",
@@ -45,7 +45,7 @@
       "kimlik": "dikey-tam",
       "video": "present-perfect-cont-temel",
       "tur": "dikey",
-      "ad": "Dikey tam ders (9:16, aynı ses, 83 sn)",
+      "ad": "Dikey tam ders (9:16, aynı ses, 89 sn)",
       "senaryo": "ortak/anlatim/METIN.md",
       "kapak": "PRESENT PERFECT CONTINUOUS",
       "seviye": "temel",
@@ -71,5 +71,20 @@
       "proje": "present-perfect-cont-temel-s1"
     }
   ],
-  "revizyonlar": []
+  "revizyonlar": [
+    {
+      "surum": "ana-yatay",
+      "no": "r1",
+      "tarih": "2026-11-16T03:00:00Z",
+      "degisiklik": "DUZ3-0209T (YV-DUZ-1511 §4, jüri c sınıfı + kendi taramam): c2 'İngilizce de iki parçayla yapar.' → 'İngilizcede süreyi for ya da since söyler, süren işi have been artı -ing kurar.'; c4 'Tekil kişide has been' → 'Üçüncü tekil kişide has been' (I de tekildir, have alır); c5 'Yağmur bir süredir yağıyor.' → 'Yağmur yağıyormuş.' (ıslak sokak: iz kalmış, yağmur durmuş olabilir). Ayrıntı: uretim-tutanagi raporu.",
+      "cikti": null
+    },
+    {
+      "surum": "dikey-tam",
+      "no": "r1",
+      "tarih": "2026-11-16T03:00:00Z",
+      "degisiklik": "DUZ3-0209T: ses ana dersle ortak (ortak/anlatim bağı); sahne 02–06 yeni zamanlarla (03–05 kayma, altyazı gerçek zamanda), 02 for two hours dairesi, 05 'Yağmur yağıyormuş.', 06 'süre: for / since' (denklik satırı kalktı); kapak yeni metin; rozet YDT · TEMEL. Ayrıntı: dikey paket uretim-tutanagi/DUZ3-RAPOR.md.",
+      "cikti": null
+    }
+  ]
 }

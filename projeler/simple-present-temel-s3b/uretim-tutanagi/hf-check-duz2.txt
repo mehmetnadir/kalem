@@ -1,0 +1,81 @@
+$ hyperframes check sahneler/01-hyperframes-kanca/proje
+Contrast
+  ◇ 49/49 text checks pass WCAG AA
+
+Craft
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 3.63 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  ⚠ line_unread: The film's last line "s" (1 word) is on screen 1.63 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #aw1 t=2.006s
+  ⚠ line_unread: The film's last line "nereye" (1 word) is on screen 1.40 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #aw2 t=2.241s
+  ⚠ line_unread: The film's last line "gider?" (1 word) is on screen 1.00 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #aw3 t=2.634s
+  0 error(s), 4 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+Report: /home/sef/01dev/_worktrees/kalem-0204/projeler/simple-present-temel-s3b/sahneler/01-hyperframes-kanca/proje/.hyperframes/artifacts/checks/57a55f42-1a1b-4d61-b6cb-4c41f237eb1e.json
+Revision: none (unversioned)
+çıkış: 0
+$ hyperframes check sahneler/03-hyperframes-kaydet/proje
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 39/39 text checks pass WCAG AA
+
+Craft
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 5.67 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  0 error(s), 1 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+Report: /home/sef/01dev/_worktrees/kalem-0204/projeler/simple-present-temel-s3b/sahneler/03-hyperframes-kaydet/proje/.hyperframes/artifacts/checks/fb417bee-a5b4-4a1a-8e37-28450b5f769c.json
+Revision: none (unversioned)
+çıkış: 0
+$ hyperframes check sahneler/04-hyperframes-cagri/proje
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 37/37 text checks pass WCAG AA
+
+Craft
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 7.97 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  0 error(s), 1 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+Report: /home/sef/01dev/_worktrees/kalem-0204/projeler/simple-present-temel-s3b/sahneler/04-hyperframes-cagri/proje/.hyperframes/artifacts/checks/ecd6861c-e04c-4726-a965-906347b8489a.json
+Revision: none (unversioned)
+çıkış: 0

@@ -145,14 +145,14 @@ def tabler(ad):
 # "şu an" çipi sağ üst y 48 h 80. Renkler koyu tema değerleridir (hf_tema.py temaya çevirir).
 def kunye_svg(bolum, ders_class="", gizli=False):
     sar, kre, zem = RENK["vurgu"], RENK["murekkep"], RENK["zemin"]
-    rw = genislik("Lexend", 700, "YDT · BASIC", 36) + 56
+    rw = genislik("Lexend", 700, "YDT · TEMEL", 36) + 56
     cw = genislik("Lexend", 700, bolum, 40) + 64
     return ('<g id="kunye">'
             '<text id="ku-ders" x="48" y="212" font-family="Fredoka" font-weight="700" font-size="56" fill="%s">'
             'SIMPLE PAST</text>'
             '<g id="ku-rz"><rect x="48" y="236" width="%.1f" height="72" rx="36" fill="%s"/>'
             '<text x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="36" '
-            'fill="%s">YDT · BASIC</text></g>'
+            'fill="%s">YDT · TEMEL</text></g>'
             '<g id="ku-bolum"><rect x="%.1f" y="48" width="%.1f" height="80" rx="40" fill="none" stroke="%s" '
             'stroke-width="4"/><text x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" '
             'font-weight="700" font-size="40" fill="%s">%s</text></g></g>'

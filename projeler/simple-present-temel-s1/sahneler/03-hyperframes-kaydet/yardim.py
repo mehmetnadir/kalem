@@ -1,6 +1,6 @@
 """Ortak yardımcılar, DİKEY 1080x1920 (02-04-ydt-temel-s1 sahne 03 v2 kopyası; simple-present-temel-s1 sahne 03 Kaydet).
 Yol verisi, yazı genişliği (fontTools, kerning yok), künye SVG'si, yazı tipi CSS'i.
-huni v2 (15.11): kanal katmanı (`#kanal`, logo `#logoimg`) + künye satırı (konu `Simple Present` + `YDT · BASIC`)
+huni v2 (15.11): kanal katmanı (`#kanal`, logo `#logoimg`) + künye satırı (konu `Simple Present` + `YDT · TEMEL`)
 + v2 bantları (BRIEF-S1 "Kanal katmanı"); çip yok."""
 import json
 import math
@@ -155,7 +155,7 @@ HUD = {"kenar": 60, "sagSinir": 960,
        "altyaziBas": 1400, "altyaziSon": 1550, "altyaziYazi": 44, "altyaziSatir": 56,
        "altyaziMerkez": 510, "altyaziEn": 900}
 KONU = "Simple Present"
-ROZETLER = ("YDT · BASIC",)
+ROZETLER = ("YDT · TEMEL",)
 KANAL_YAZI = "@ydspublishing"
 
 
@@ -302,8 +302,10 @@ def altyazi_svg(t_bas: float, sure: float, liste: list[dict]) -> tuple[str, list
             )
             satir_bilgileri.append({"satir": sat, "x": satir_x, "y": satir_y})
 
-        # Karaoke altçizgileri
-        w_list = [w for w in sozcukler if t0 - 0.05 <= w["t0"] < t1 + 0.05]
+        # Karaoke altçizgileri. DUZ4 A1 (16.11): üst sınır t1 (eski t1 + 0,05). altyazi_cumleleri bölünen cümlenin t1'ini
+        # sonraki cümlenin ilk sözcüğüne eşitler; eski sınır o sözcüğü (Kaydet.) de alıyordu, sayı tutmadığı için ilk
+        # cümlenin karaokesi düşüyordu (P1 jürisi: 15,65 ve 16,2 sn çizgisiz).
+        w_list = [w for w in sozcukler if t0 - 0.05 <= w["t0"] < t1]
         satir_sozcukleri = []
         for k, sb in enumerate(satir_bilgileri):
             sw_list = sb["satir"].split(" ")

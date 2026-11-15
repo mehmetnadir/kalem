@@ -1,10 +1,10 @@
-# simple-present-temel-s2 · açıklama metni — SET A (YouTube · Instagram · TikTok)
+# simple-present-temel-s2b (A/B kol b) · açıklama metni — SET A (YouTube · Instagram · TikTok)
 
-Kaynak: `uretim-tutanagi/aciklama-taslak.md` §3 (S2-B jürisi + S2-C düzeltmeleri, `uretim-tutanagi/S2-duzeltme.md`).
-Sürüm: A (`s2-aciklama-a`), kısa ve doğrudan; kural cümlesiyle açılır. `aciklama.md` bu dosyanın kopyasıdır. B seti: `aciklama-b.md`.
+Kaynak: kol a (`simple-present-temel-s2`) açıklama seti A kopyası; yalnız `utm_content` değişti (`s2b-a`). Kol b'de taslak dosyası yok.
+Sürüm: A (`s2b-aciklama-a`), kısa ve doğrudan; kural cümlesiyle açılır. `aciklama.md` bu dosyanın kopyasıdır. B seti: `aciklama-b.md`.
 Ana ders: Simple Present (`ING-YDT-GR-02-02-T`, öğe `02-02-ydt-temel`). Shorts: `ING-YDT-GR-02-02-T-S2`. Kimlik `@ydspublishing`.
 Huni v2 (`D/.claude/docs/huni-v2-standart.md` §1 kural 4–6, §4): her platform metninin ilk satırı kaydet + kanal satırıdır; QR yok, emoji yok.
-Eşleşen kapak: `kapak-a.png` (C de olur; taslak §5 önerisi A).
+Eşleşen kapak (grup türevi, kol a paketinde; huni-ab §4): `kapak-a.png` (C de olur; taslak §5 önerisi A).
 
 **UYARI:** `https://ydspublishing.com/grammar/02-02-ydt-temel` belgeden türedi; canlılığı ölçülmedi. Paylaşımdan önce adresi aç.
 Açılmazsa adresi `{PLATFORM_URL}` ile değiştir ya da satırı çıkar.

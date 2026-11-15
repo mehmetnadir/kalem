@@ -1,5 +1,9 @@
 # SPEC — 02-04-ydt-temel-s3 sahne 08 Kaydet (HyperFrames, DİKEY 1080×1920, huni v2) · 15.11.2026
 
+> DUZ2 (15.11): kart satır 2 `kesin düzenleme → am going.` (A3); satırlar 64 px, sol x 96; karttaki tren/bilet simgesi kalktı; altyazı karaoke tspan (ikincil → mürekkep); kol b için cümle no veriden (KAYMA). Kaynak `uret.py`.
+> DUZ2 (16.11, KBJ EK-7): `leaves` hap geçişi: hap yazısı ve hap virgülü anında söner, mürekkep `leaves,` anında gelir, yalnız hap zemini 0,10 sn'de söner; `#leaves-hap` mürekkep yazının altına alındı. Eski 0,20 sn çapraz geçişte koyu temada hap yazısı soluk hap üstünde 2,1:1 kalıyordu; yeni geçiş karesi (yerel 3,57) açık mürekkep 7,1:1.
+
+
 Yazan: şef (istem D-V2-S3 + şef notu 19:00). Uygulayan: `agy-filo tek --rol kod`. K = `/home/sef/01dev/_worktrees/kalem-0204`.
 Sahne dizini D = `K/projeler/02-04-ydt-temel-s3/sahneler/08-hyperframes-kaydet/`. Paket P = `K/projeler/02-04-ydt-temel-s3/`.
 Bağlayıcı: `/home/sef/01dev/dijital-anlatim/.claude/docs/huni-v2-standart.md` §1–§3 · `P/BRIEF-S3.md` "Yerleşim" + "Sahne içeriği" 15,99–21,33.

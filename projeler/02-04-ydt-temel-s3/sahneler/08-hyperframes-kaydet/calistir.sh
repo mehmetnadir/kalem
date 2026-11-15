@@ -1,5 +1,5 @@
 #!/bin/bash
-# Sahne 08 Kaydet (02-04-ydt-temel-s3, huni v2, HyperFrames DİKEY 1080x1920, 172 kare, t_bas 15,99, cümle 4 öğretmen):
+# Sahne 08 Kaydet (02-04-ydt-temel-s3, huni v2, HyperFrames DİKEY 1080x1920, 172 kare, t_bas 18,78 (DUZ2 15.11), cümle 4 öğretmen):
 # üret -> olaylar -> [önizleme burada biter]
 # -> render -> video.mp4 + kontrol.png + k/*.png. Tema: --tema acik|koyu (varsayılan acik, K19).
 # Önizleme hazırlığı: ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu]
@@ -29,7 +29,7 @@ ffmpeg -loglevel error -y -i "$OUT" -c:v libx264 -crf 16 -pix_fmt yuv420p -r 30 
   -vf "tpad=stop_mode=clone:stop_duration=2" -frames:v $KARE "$AD/video.mp4"
 SEL="eq(n,0)+eq(n,$((KARE/5)))+eq(n,$((KARE*2/5)))+eq(n,$((KARE*3/5)))+eq(n,$((KARE*4/5)))+eq(n,$((KARE-13)))"
 ffmpeg -loglevel error -y -i "$AD/video.mp4" -vf "select='$SEL',scale=240:-1,tile=6x1" -frames:v 1 "$AD/kontrol.png"
-# denetim kareleri (yerel): 0,00 / 2,67 / 5,31 sn (küresel 15,99 / 18,66 / 21,30)
+# denetim kareleri (yerel): 0,00 / 2,67 / 5,31 sn (küresel 18,78 / 21,45 / 24,09; DUZ2)
 for sn in 0.00 2.67 5.31; do
   n=$(awk "BEGIN{printf \"%d\", $sn*30+0.5}")
   ffmpeg -loglevel error -y -i "$AD/video.mp4" -vf "select=eq(n\,$n)" -frames:v 1 "$AD/k/$n.png"

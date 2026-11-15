@@ -7,10 +7,12 @@ import { surucu } from "/ortak/surucu.js";
 import { KUNYE } from "/projeler/02-04-ydt-temel/ortak/kunye.js";
 import { Sahne, RT, renkCoz, elips, ok, altCizgi, olc, geriTasma } from "./sahne-ortak.js";
 
-const KARE = 459, TBAS = 130.4, ICERIK = 447;
+const KARE = 459, TBAS = 130.4, ICERIK = 447, KAYMA = -1.68;
+// 16.11 DUZ3: zaman.json t_bas 132,08 (cümle 4/7 yeniden sentezlendi). TBAS ve sabit
+// zamanlar eski çerçevede kalır; sözcük zamanları KAYMA ile ona çekilir.
 // Künye ajandasında "Contrast" varsa o, yoksa Rule (karşıt çift kural kartından sonra gelir)
 const ETKIN = ((i) => (i >= 0 ? i : 2))(KUNYE.ajanda.findIndex((a) => /contrast|pair/i.test(a)));
-const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Contrast 1 / 2", cumle: 9,
+const S = new Sahne({ tbas: TBAS, kayma: KAYMA, kare: KARE, icerik: ICERIK, bolum: "Contrast 1 / 2", cumle: 9,
   etkin: ETKIN });
 const MUR = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu, DOLGU = RT.vurguDolgu;
 

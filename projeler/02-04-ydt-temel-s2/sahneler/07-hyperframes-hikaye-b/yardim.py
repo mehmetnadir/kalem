@@ -197,7 +197,7 @@ HUD = {
     "altyaziSatir": 56,
 }
 KONU = "Simple Present vs Present Continuous"
-ROZETLER = ("YDT · BASIC",)
+ROZETLER = ("YDT · TEMEL",)
 
 
 def konu_boyu() -> int:

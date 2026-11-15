@@ -1,0 +1,514 @@
+== 01-hyperframes-kapak
+◆  Checking proje
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/36
+[hyperframes] check: craft 2/36
+[hyperframes] check: craft 3/36
+[hyperframes] check: craft 4/36
+[hyperframes] check: craft 5/36
+[hyperframes] check: craft 6/36
+[hyperframes] check: craft 7/36
+[hyperframes] check: craft 8/36
+[hyperframes] check: craft 9/36
+[hyperframes] check: craft 10/36
+[hyperframes] check: craft 11/36
+[hyperframes] check: craft 12/36
+[hyperframes] check: craft 13/36
+[hyperframes] check: craft 14/36
+[hyperframes] check: craft 15/36
+[hyperframes] check: craft 16/36
+[hyperframes] check: craft 17/36
+[hyperframes] check: craft 18/36
+[hyperframes] check: craft 19/36
+[hyperframes] check: craft 20/36
+[hyperframes] check: craft 21/36
+[hyperframes] check: craft 22/36
+[hyperframes] check: craft 23/36
+[hyperframes] check: craft 24/36
+[hyperframes] check: craft 25/36
+[hyperframes] check: craft 26/36
+[hyperframes] check: craft 27/36
+[hyperframes] check: craft 28/36
+[hyperframes] check: craft 29/36
+[hyperframes] check: craft 30/36
+[hyperframes] check: craft 31/36
+[hyperframes] check: craft 32/36
+[hyperframes] check: craft 33/36
+[hyperframes] check: craft 34/36
+[hyperframes] check: craft 35/36
+[hyperframes] check: craft 36/36
+[hyperframes] check: overlap 1/4
+[hyperframes] check: overlap 2/4
+[hyperframes] check: overlap 3/4
+[hyperframes] check: overlap 4/4
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+
+Lint
+  ◇ 0 errors, 0 warnings
+
+Runtime
+  ◇ 0 errors, 0 warnings
+
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 30/30 text checks pass WCAG AA
+
+Craft
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 4.40 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  ⚠ line_unread: The film's last line "The train to İzmir" (4 words) is on screen 0.94 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #r1 > text:nth-of-type(1) t=3.468s
+  ⚠ line_unread: The film's last line "leaves at 7" (3 words) is on screen 0.84 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #r2 > text:nth-of-type(1) t=3.567s
+  ⚠ line_unread: The film's last line "Simple Present vs Present Continuous" (5 words) is on screen 0.70 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.
+    index.html #ku-konu t=3.705s
+  0 error(s), 4 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+Report: /home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s3b/sahneler/01-hyperframes-kapak/proje/.hyperframes/artifacts/checks/e2116268-a9ef-43d6-8eef-f489ca6cbf97.json
+Revision: 3774ecd8-245c-4eda-8fe9-712b135fe2d2 (recorded-revision)
+çıkış 0
+== 02-hyperframes-ornek
+◆  Checking proje
+[hyperframes] browserGpuMode probe → software (WebGL renderer vendor="Google Inc. (Mesa)" renderer="ANGLE (Mesa, llvmpipe (LLVM 15.0.7 256 bits), OpenGL ES 3.2)")
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/130
+[hyperframes] check: craft 2/130
+[hyperframes] check: craft 3/130
+[hyperframes] check: craft 4/130
+[hyperframes] check: craft 5/130
+[hyperframes] check: craft 6/130
+[hyperframes] check: craft 7/130
+[hyperframes] check: craft 8/130
+[hyperframes] check: craft 9/130
+[hyperframes] check: craft 10/130
+[hyperframes] check: craft 11/130
+[hyperframes] check: craft 12/130
+[hyperframes] check: craft 13/130
+[hyperframes] check: craft 14/130
+[hyperframes] check: craft 15/130
+[hyperframes] check: craft 16/130
+[hyperframes] check: craft 17/130
+[hyperframes] check: craft 18/130
+[hyperframes] check: craft 19/130
+[hyperframes] check: craft 20/130
+[hyperframes] check: craft 21/130
+[hyperframes] check: craft 22/130
+[hyperframes] check: craft 23/130
+[hyperframes] check: craft 24/130
+[hyperframes] check: craft 25/130
+[hyperframes] check: craft 26/130
+[hyperframes] check: craft 27/130
+[hyperframes] check: craft 28/130
+[hyperframes] check: craft 29/130
+[hyperframes] check: craft 30/130
+[hyperframes] check: craft 31/130
+[hyperframes] check: craft 32/130
+[hyperframes] check: craft 33/130
+[hyperframes] check: craft 34/130
+[hyperframes] check: craft 35/130
+[hyperframes] check: craft 36/130
+[hyperframes] check: craft 37/130
+[hyperframes] check: craft 38/130
+[hyperframes] check: craft 39/130
+[hyperframes] check: craft 40/130
+[hyperframes] check: craft 41/130
+[hyperframes] check: craft 42/130
+[hyperframes] check: craft 43/130
+[hyperframes] check: craft 44/130
+[hyperframes] check: craft 45/130
+[hyperframes] check: craft 46/130
+[hyperframes] check: craft 47/130
+[hyperframes] check: craft 48/130
+[hyperframes] check: craft 49/130
+[hyperframes] check: craft 50/130
+[hyperframes] check: craft 51/130
+[hyperframes] check: craft 52/130
+[hyperframes] check: craft 53/130
+[hyperframes] check: craft 54/130
+[hyperframes] check: craft 55/130
+[hyperframes] check: craft 56/130
+[hyperframes] check: craft 57/130
+[hyperframes] check: craft 58/130
+[hyperframes] check: craft 59/130
+[hyperframes] check: craft 60/130
+[hyperframes] check: craft 61/130
+[hyperframes] check: craft 62/130
+[hyperframes] check: craft 63/130
+[hyperframes] check: craft 64/130
+[hyperframes] check: craft 65/130
+[hyperframes] check: craft 66/130
+[hyperframes] check: craft 67/130
+[hyperframes] check: craft 68/130
+[hyperframes] check: craft 69/130
+[hyperframes] check: craft 70/130
+[hyperframes] check: craft 71/130
+[hyperframes] check: craft 72/130
+[hyperframes] check: craft 73/130
+[hyperframes] check: craft 74/130
+[hyperframes] check: craft 75/130
+[hyperframes] check: craft 76/130
+[hyperframes] check: craft 77/130
+[hyperframes] check: craft 78/130
+[hyperframes] check: craft 79/130
+[hyperframes] check: craft 80/130
+[hyperframes] check: craft 81/130
+[hyperframes] check: craft 82/130
+[hyperframes] check: craft 83/130
+[hyperframes] check: craft 84/130
+[hyperframes] check: craft 85/130
+[hyperframes] check: craft 86/130
+[hyperframes] check: craft 87/130
+[hyperframes] check: craft 88/130
+[hyperframes] check: craft 89/130
+[hyperframes] check: craft 90/130
+[hyperframes] check: craft 91/130
+[hyperframes] check: craft 92/130
+[hyperframes] check: craft 93/130
+[hyperframes] check: craft 94/130
+[hyperframes] check: craft 95/130
+[hyperframes] check: craft 96/130
+[hyperframes] check: craft 97/130
+[hyperframes] check: craft 98/130
+[hyperframes] check: craft 99/130
+[hyperframes] check: craft 100/130
+[hyperframes] check: craft 101/130
+[hyperframes] check: craft 102/130
+[hyperframes] check: craft 103/130
+[hyperframes] check: craft 104/130
+[hyperframes] check: craft 105/130
+[hyperframes] check: craft 106/130
+[hyperframes] check: craft 107/130
+[hyperframes] check: craft 108/130
+[hyperframes] check: craft 109/130
+[hyperframes] check: craft 110/130
+[hyperframes] check: craft 111/130
+[hyperframes] check: craft 112/130
+[hyperframes] check: craft 113/130
+[hyperframes] check: craft 114/130
+[hyperframes] check: craft 115/130
+[hyperframes] check: craft 116/130
+[hyperframes] check: craft 117/130
+[hyperframes] check: craft 118/130
+[hyperframes] check: craft 119/130
+[hyperframes] check: craft 120/130
+[hyperframes] check: craft 121/130
+[hyperframes] check: craft 122/130
+[hyperframes] check: craft 123/130
+[hyperframes] check: craft 124/130
+[hyperframes] check: craft 125/130
+[hyperframes] check: craft 126/130
+[hyperframes] check: craft 127/130
+[hyperframes] check: craft 128/130
+[hyperframes] check: craft 129/130
+[hyperframes] check: craft 130/130
+[hyperframes] check: overlap 1/17
+[hyperframes] check: overlap 2/17
+[hyperframes] check: overlap 3/17
+[hyperframes] check: overlap 4/17
+[hyperframes] check: overlap 5/17
+[hyperframes] check: overlap 6/17
+[hyperframes] check: overlap 7/17
+[hyperframes] check: overlap 8/17
+[hyperframes] check: overlap 9/17
+[hyperframes] check: overlap 10/17
+[hyperframes] check: overlap 11/17
+[hyperframes] check: overlap 12/17
+[hyperframes] check: overlap 13/17
+[hyperframes] check: overlap 14/17
+[hyperframes] check: overlap 15/17
+[hyperframes] check: overlap 16/17
+[hyperframes] check: overlap 17/17
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+
+Lint
+  ◇ 0 errors, 0 warnings
+
+Runtime
+  ◇ 0 errors, 0 warnings
+
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 116/116 text checks pass WCAG AA
+
+Craft
+  ⚠ line_unread: "The train to İzmir leaves at 7 pm today." (9 words) is on screen 1.40 s (±0.01 s), under its 2.40 s floor: hold it about 0.5 s + 0.3 s a word (3.20 s here) before it leaves or changes; see references/motion.md.
+    index.html #alt0 > text:nth-of-type(1) t=0s
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 16.17 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #ku-rz > text:nth-of-type(1) t=0s
+  ⚠ film_silent: This 16 s film has no sound source (no <audio>, no <video> with sound): add a music bed and sounds on the visible actions unless the person asked for silence; see references/sound.md.
+    index.html [data-composition-id] t=0s
+  ⚠ line_unread: "gelecek · am + V-ing" (4 words) is on screen 0.57 s (±0.01 s), under its 1.27 s floor: hold it about 0.5 s + 0.3 s a word (1.70 s here) before it leaves or changes; see references/motion.md.
+    index.html #tg2 > text:nth-of-type(1) t=3.14s
+  0 error(s), 4 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+Report: /home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s3b/sahneler/02-hyperframes-ornek/proje/.hyperframes/artifacts/checks/30042c01-6ea6-47d1-ad2f-3a2e79582d8f.json
+Revision: 009b950a-8265-4c3b-989a-dc9798267d9c (recorded-revision)
+çıkış 0
+== 08-hyperframes-kaydet
+◆  Checking proje
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/47
+[hyperframes] check: craft 2/47
+[hyperframes] check: craft 3/47
+[hyperframes] check: craft 4/47
+[hyperframes] check: craft 5/47
+[hyperframes] check: craft 6/47
+[hyperframes] check: craft 7/47
+[hyperframes] check: craft 8/47
+[hyperframes] check: craft 9/47
+[hyperframes] check: craft 10/47
+[hyperframes] check: craft 11/47
+[hyperframes] check: craft 12/47
+[hyperframes] check: craft 13/47
+[hyperframes] check: craft 14/47
+[hyperframes] check: craft 15/47
+[hyperframes] check: craft 16/47
+[hyperframes] check: craft 17/47
+[hyperframes] check: craft 18/47
+[hyperframes] check: craft 19/47
+[hyperframes] check: craft 20/47
+[hyperframes] check: craft 21/47
+[hyperframes] check: craft 22/47
+[hyperframes] check: craft 23/47
+[hyperframes] check: craft 24/47
+[hyperframes] check: craft 25/47
+[hyperframes] check: craft 26/47
+[hyperframes] check: craft 27/47
+[hyperframes] check: craft 28/47
+[hyperframes] check: craft 29/47
+[hyperframes] check: craft 30/47
+[hyperframes] check: craft 31/47
+[hyperframes] check: craft 32/47
+[hyperframes] check: craft 33/47
+[hyperframes] check: craft 34/47
+[hyperframes] check: craft 35/47
+[hyperframes] check: craft 36/47
+[hyperframes] check: craft 37/47
+[hyperframes] check: craft 38/47
+[hyperframes] check: craft 39/47
+[hyperframes] check: craft 40/47
+[hyperframes] check: craft 41/47
+[hyperframes] check: craft 42/47
+[hyperframes] check: craft 43/47
+[hyperframes] check: craft 44/47
+[hyperframes] check: craft 45/47
+[hyperframes] check: craft 46/47
+[hyperframes] check: craft 47/47
+[hyperframes] check: overlap 1/6
+[hyperframes] check: overlap 2/6
+[hyperframes] check: overlap 3/6
+[hyperframes] check: overlap 4/6
+[hyperframes] check: overlap 5/6
+[hyperframes] check: overlap 6/6
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+
+Lint
+  ◇ 0 errors, 0 warnings
+
+Runtime
+  ◇ 0 errors, 0 warnings
+
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 56/56 text checks pass WCAG AA
+
+Craft
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 5.73 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  0 error(s), 1 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+Report: /home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s3b/sahneler/08-hyperframes-kaydet/proje/.hyperframes/artifacts/checks/8e6bda2b-9269-4d35-822a-b238331849d5.json
+Revision: 437d7aaa-3f87-40f2-bc0c-adeb79725632 (recorded-revision)
+çıkış 0
+== 03-hyperframes-cta
+◆  Checking proje
+[hyperframes] browserGpuMode probe → software (WebGL renderer vendor="Google Inc. (Mesa)" renderer="ANGLE (Mesa, llvmpipe (LLVM 15.0.7 256 bits), OpenGL ES 3.2)")
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/64
+[hyperframes] check: craft 2/64
+[hyperframes] check: craft 3/64
+[hyperframes] check: craft 4/64
+[hyperframes] check: craft 5/64
+[hyperframes] check: craft 6/64
+[hyperframes] check: craft 7/64
+[hyperframes] check: craft 8/64
+[hyperframes] check: craft 9/64
+[hyperframes] check: craft 10/64
+[hyperframes] check: craft 11/64
+[hyperframes] check: craft 12/64
+[hyperframes] check: craft 13/64
+[hyperframes] check: craft 14/64
+[hyperframes] check: craft 15/64
+[hyperframes] check: craft 16/64
+[hyperframes] check: craft 17/64
+[hyperframes] check: craft 18/64
+[hyperframes] check: craft 19/64
+[hyperframes] check: craft 20/64
+[hyperframes] check: craft 21/64
+[hyperframes] check: craft 22/64
+[hyperframes] check: craft 23/64
+[hyperframes] check: craft 24/64
+[hyperframes] check: craft 25/64
+[hyperframes] check: craft 26/64
+[hyperframes] check: craft 27/64
+[hyperframes] check: craft 28/64
+[hyperframes] check: craft 29/64
+[hyperframes] check: craft 30/64
+[hyperframes] check: craft 31/64
+[hyperframes] check: craft 32/64
+[hyperframes] check: craft 33/64
+[hyperframes] check: craft 34/64
+[hyperframes] check: craft 35/64
+[hyperframes] check: craft 36/64
+[hyperframes] check: craft 37/64
+[hyperframes] check: craft 38/64
+[hyperframes] check: craft 39/64
+[hyperframes] check: craft 40/64
+[hyperframes] check: craft 41/64
+[hyperframes] check: craft 42/64
+[hyperframes] check: craft 43/64
+[hyperframes] check: craft 44/64
+[hyperframes] check: craft 45/64
+[hyperframes] check: craft 46/64
+[hyperframes] check: craft 47/64
+[hyperframes] check: craft 48/64
+[hyperframes] check: craft 49/64
+[hyperframes] check: craft 50/64
+[hyperframes] check: craft 51/64
+[hyperframes] check: craft 52/64
+[hyperframes] check: craft 53/64
+[hyperframes] check: craft 54/64
+[hyperframes] check: craft 55/64
+[hyperframes] check: craft 56/64
+[hyperframes] check: craft 57/64
+[hyperframes] check: craft 58/64
+[hyperframes] check: craft 59/64
+[hyperframes] check: craft 60/64
+[hyperframes] check: craft 61/64
+[hyperframes] check: craft 62/64
+[hyperframes] check: craft 63/64
+[hyperframes] check: craft 64/64
+[hyperframes] check: overlap 1/8
+[hyperframes] check: overlap 2/8
+[hyperframes] check: overlap 3/8
+[hyperframes] check: overlap 4/8
+[hyperframes] check: overlap 5/8
+[hyperframes] check: overlap 6/8
+[hyperframes] check: overlap 7/8
+[hyperframes] check: overlap 8/8
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+
+Lint
+  ◇ 0 errors, 0 warnings
+
+Runtime
+  ◇ 0 errors, 0 warnings
+
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 47/47 text checks pass WCAG AA
+
+Craft
+  ⚠ text_below_floor: Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and "YDT · TEMEL" renders at 26 px for 7.97 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.
+    index.html #rz0 > text:nth-of-type(1) t=0s
+  0 error(s), 1 warning(s), 0 info(s)
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+Report: /home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s3b/sahneler/03-hyperframes-cta/proje/.hyperframes/artifacts/checks/c8da09f7-b248-4700-82df-9528daf668df.json
+Revision: fac79250-12b3-41de-b839-61bdd83822ea (recorded-revision)
+çıkış 0

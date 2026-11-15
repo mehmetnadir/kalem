@@ -1,4 +1,4 @@
-// Sahne 02 — Kanca (366 kare, t_bas 3,00; cümle 2 = 3,39–14,25). Yerel kare = round((t − 3,00) × 30).
+// Sahne 02 — Kanca (409 kare, t_bas 3,00; cümle 2 = 3,39–15,69). Yerel kare = round((t − 3,00) × 30).
 // Cümle 1 (Dün akşam amcamlara gittim.) sahne 01'de söylendi; yazı sahne başında hazır belirir (kare 0–9).
 import { sahneKur, RT } from "/projeler/simple-past-temel/sahneler/02-paperjs-kanca/kalem-paper.js";
 
@@ -12,7 +12,7 @@ const SURE_METNI = await fetch(new URL("../../zaman.json", location.href))
   })
   .catch((e) => { console.warn("zaman.json süre okunamadı:", e); return ""; });
 
-export const KARE = 366, T_BAS = 3.0;
+export const KARE = 409, T_BAS = 3.0;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Hook", etkin: 0 });
@@ -62,29 +62,30 @@ export async function kur(P) {
     not("takvim + dün", bitis(o2));
   }
 
-  // --- 6,02–8,10: I visited my uncle last night. (Fredoka 56, y 520); -ed sarı daire; -di ⇄ -ed oku
+  // --- 6,02–9,54: I visited my uncle last night. (Fredoka 56, y 520); -ed sarı daire (-ed 7,94);
+  // DUZ3 (16.11): "-di ⇄ -ed" çift oku denklik söylüyordu → "düzenli fiil → -ed" (söz: düzenli fiile -ed ekler)
   {
     const tl = [6.02, 6.30, 6.62, 6.78, 7.10, 7.44], kel = ["I", "visited", "my", "uncle", "last", "night."];
     const e = cumle(kel.map((s, i) => ({ s, f: fr(tl[i]) })), { x: 140, y: 520, boyut: 56, aile: "Fredoka", agirlik: 700 });
     altCizgi(e, { tut: 40 }); not("İngilizce cümle başı", e[0].bas);
     const v = e[1], font = "700 56px Fredoka", wv = genislik("visit", font), we = genislik("ed", font);
-    const d = daire(v.x0 + wv + we / 2, v.y - 20, we / 2 + 7, 32, { bas: fr(6.90) - 6, sure: 18, a0: -2.0 });
+    const d = daire(v.x0 + wv + we / 2, v.y - 20, we / 2 + 7, 32, { bas: fr(7.94) - 6, sure: 18, a0: -2.0 });
     olay(bitis(d), "tik", 0.5); not("-ed daire", d.bas);
-    const y = 630, a = elYazisi("-di", { x: 140, y, boyut: 52, renk: IKI, bas: fr(7.14),
-      sure: 12 });
-    const ar = ok([a.x1 + 22, y - 16], [a.x1 + 132, y - 16], { bas: fr(7.14) + 5, sure: 18, w: 6.5, cift: true, uzun: 20, bukum: 0.05 });
-    elYazisi("-ed", { x: a.x1 + 156, y, boyut: 52, renk: SARI, bas: bitis(ar) + 4, sure: 12,
-      ses: true }); not("ok -di ⇄ -ed", ar.bas);
+    const y = 630, a = elYazisi("düzenli fiil", { x: 140, y, boyut: 52, renk: IKI,
+      sozcukler: [pen("düzenli"), pen("fiile")] });
+    const ar = ok([a.x1 + 22, y - 16], [a.x1 + 132, y - 16], { bas: fr(7.94), sure: 14, w: 6.5, uzun: 20, bukum: 0.05 });
+    elYazisi("-ed", { x: a.x1 + 156, y, boyut: 52, renk: SARI, bas: bitis(ar) + 2, sure: 12,
+      ses: true }); not("ok düzenli fiil → -ed", ar.bas);
   }
 
-  // --- 8,25–14,25: el kutusu, saat + süre etiketi (derste 8,45), 3 madde
+  // --- 9,69–15,69: el kutusu, saat + süre etiketi (derste 9,89), 3 madde
   {
-    kutu(1060, 690, 760, 280, { bas: fr(8.25) - 4, sure: 36 }); not("kutu çizimi", fr(8.25) - 4);
-    await S.svgCiz("tabler/clock.svg", { kutu: [1096, 712, 76, 76], bas: fr(8.53), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
-    elYazisi(SURE_METNI, { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(8.53) + 14,
-      sure: 14 }); not("saat + süre etiketi", fr(8.53));
-    parilti(1176, 714, { bas: fr(9.56), r: 22, periyot: 170, adet: 3 });
-    const m = [["form", 9.93, 835], ["time expressions", 11.05, 890], ["irregular verbs", 12.73, 945]];
+    kutu(1060, 690, 760, 280, { bas: fr(9.69) - 4, sure: 36 }); not("kutu çizimi", fr(9.69) - 4);
+    await S.svgCiz("tabler/clock.svg", { kutu: [1096, 712, 76, 76], bas: fr(9.97), sure: 20, azami: 25, w: 3.4, sesAralik: 3 });
+    elYazisi(SURE_METNI, { x: 1196, y: 772, boyut: 56, renk: SARI, bas: fr(9.97) + 14,
+      sure: 14 }); not("saat + süre etiketi", fr(9.97));
+    parilti(1176, 714, { bas: fr(11.0), r: 22, periyot: 170, adet: 3 });
+    const m = [["form", 11.37, 835], ["time expressions", 12.49, 890], ["irregular verbs", 14.17, 945]];
     for (const [s, t, y] of m) {
       yazi(s, { x: 1140, y, boyut: 44, aile: "Fredoka", agirlik: 700, renk: RT.murekkep, bas: fr(t), sure: 8 });
       tik(1108, y - 12, { bas: fr(t) + 4 }); not("madde " + s, fr(t));

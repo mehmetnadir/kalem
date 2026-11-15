@@ -7,7 +7,9 @@ import { Sahne, RT, elips, kutu, altCizgi, olc } from "./sahne-ortak.js";
 
 const KARE = 532, TBAS = 51.25, ICERIK = 520;
 const KOKDIZ = "/projeler/present-perfect-ileri-dikey/ortak/cizim";
-const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Trap 3 / 3", cumle: 5 });
+// 16.11 DUZ3-0206I: c1 +0,4 · c3 +1,2 sn; zaman.json t_bas +1,6. Sahne eski çerçevede (TBAS) kalır,
+// kayma −1,6 sözcükleri oraya çevirir (yerel kareler aynı).
+const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: -1.6, bolum: "Trap 3 / 3", cumle: 5 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKI = RT.ikincil, SARI = RT.vurgu, KIRMIZI = RT.kirmizi;
 const FF = (b) => `700 ${b}px Fredoka`, CV = (b) => `700 ${b}px Caveat`;

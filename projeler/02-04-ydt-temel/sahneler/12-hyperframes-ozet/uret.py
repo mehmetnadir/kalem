@@ -3,7 +3,9 @@ BRIEF §3 No 12: `ozet` 3 madde kademeli, her madde kural kartının (sahne 07) 
 bölüm perdesi yok, sonda geçiş çizgisi. Ekran metni (senaryo-taslak §cümle 14):
   1. general · permanent · timetable → V1 / V-s
   2. right now · temporary · arrangement → am / is / are + V-ing
-  3. time word · Turkish -yor → clue · MEANING → decision
+  3. time word → clue · -yor → trap / MEANING → decision
+     (16.11 DUZ3: cümle 14 «Zaman sözcüğü ipucu verir. Türkçe ek yanıltabilir.»; eski ekran «Turkish -yor → clue»
+     dersin tuzak bölümüyle çelişiyordu.)
 Sol: madde bantları (sahne 02-03/12 dili: kalemle bant, sarı belirteç, kalem oku). Sağ: kural kartının küçük kartları
 (1: SIMPLE PRESENT sütunu, 2: PRESENT CONTINUOUS sütunu, 3: MEANING FIRST satırı); sütun kartında sahne 07'nin satır
 ikonları (mont/ev/tren, tişört/bavul/bilet) ilgili sözcük söylenince çizilir. Kalıp hapı: vurgu dolgusu + zemin
@@ -186,8 +188,8 @@ def uret():
         s.yol(kim, Y.el_cizgi(x0 - u(4), y + u(16), x1 + u(4), y + u(15), 1), L(t), 0.4, SAR, u(9), 0.85,
               "cizgi", 0.5)
 
-    def ok(kim, x, y, t, d=0.3):
-        s.yol(kim, Y.el_ok(x, y - u(15), x + AU, y - u(15), 2.0), L(t), d, KRE, u(6), 0.9, "cizgi", 0.5)
+    def ok(kim, x, y, t, d=0.3, au=AU):
+        s.yol(kim, Y.el_ok(x, y - u(15), x + au, y - u(15), 2.0), L(t), d, KRE, u(6), 0.9, "cizgi", 0.5)
 
     def hap(kim, x, y, m, t, d=0.35):
         """Kalıp hapı: vurgu dolgulu yuvarlak kutu + zemin renginde yazı; soldan açılan kırpma. Döner: sağ kenar."""
@@ -281,20 +283,24 @@ def uret():
     w2b = hap("h2", IX + AU + BO, yb, "am / is / are + V-ing", ts + 0.14, d=0.5)
     kayit("kalem oku + hap am / is / are + V-ing", ts, "şimdiki (17)")
 
-    # ---- madde 3: time word · Turkish -yor -> clue · MEANING -> decision ----
+    # ---- madde 3: time word -> clue · -yor -> trap / MEANING -> decision (16.11 DUZ3) ----
     ya, yb = BANT[2][0] + SA, BANT[2][0] + SB
-    tw, tr, ti, tkr, ta, tv = (T(19, "Zaman"), T(22, "Türkçe"), T(24, "ipucu"), T(26, "Kararı"), T(27, "anlam"),
-                               T(28, "verir"))
+    tw, ti, tr, ty, tkr, ta, tv = (T(19, "Zaman"), T(21, "ipucu"), T(23, "Türkçe"), T(25, "yanıltabilir"),
+                                   T(26, "Kararı"), T(27, "anlam"), T(28, "verir"))
+    AU3 = u(64)                                   # satır a iki ok taşır: kısa ok (genişlik 923 <= sınır 946)
     xe = parca("m3a", IX, ya, "time word", tw, d=0.4)
     belirtec("b3a", IX, xe, ya, tw + 0.1)
     kayit("time word + belirteç", tw, "Zaman (19)")
-    x = xe + sp
-    xe = parca("m3b", x, ya, "· Turkish -yor", tr, d=0.45)
+    ok("o3", xe + BO, ya, ti, d=0.25, au=AU3)
+    xe = hap("h3", xe + BO + AU3 + BO, ya, "clue", ti + 0.12, d=0.3)
+    kayit("kalem oku + hap clue", ti, "ipucu (21)")
+    x = xe + sp + u(8)                            # hap kenarından sonra ayraç nefesi (genişlik 931 <= 946)
+    xe = parca("m3b", x, ya, "· -yor", tr, d=0.35)
     belirtec("b3b", x + dot, xe, ya, tr + 0.1)
-    kayit("· Turkish -yor + belirteç", tr, "Türkçe (22)")
-    ok("o3", xe + BO, ya, ti, d=0.25)
-    w3a = hap("h3", xe + BO + AU + BO, ya, "clue", ti + 0.12, d=0.3)
-    kayit("kalem oku + hap clue", ti, "ipucu (24)")
+    kayit("· -yor + belirteç", tr, "Türkçe (23)")
+    ok("o3b", xe + BO, ya, ty, d=0.25, au=AU3)
+    w3a = hap("h3b", xe + BO + AU3 + BO, ya, "trap", ty + 0.12, d=0.3)
+    kayit("kalem oku + hap trap", ty, "yanıltabilir (25)")
     kt, kb = kart(2, tkr, "MEANING FIRST")
     kayit("ince çizgi -> MEANING FIRST kartı (çerçeve + başlık)", tkr, "Kararı (26)")
     xm = CX + u(28)

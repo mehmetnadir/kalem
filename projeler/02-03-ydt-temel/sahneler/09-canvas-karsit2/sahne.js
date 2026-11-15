@@ -6,7 +6,7 @@ import { surucu } from "/ortak/surucu.js";
 import { KUNYE } from "/projeler/02-03-ydt-temel/ortak/kunye.js";
 import { Sahne, RT, elips, altCizgi, olc } from "./sahne-ortak.js";
 
-const KARE = 1118, TBAS = 130.66, ICERIK = 1106;
+const KARE = 1118, TBAS = 132.5, ICERIK = 1106;
 const ETKIN = ((i) => (i >= 0 ? i : 2))(KUNYE.ajanda.findIndex((a) => /contrast|pair/i.test(a)));
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Contrast 2–3 / 3", cumle: 10,
   etkin: ETKIN });
@@ -41,8 +41,8 @@ async function kur() {
 
   // 4 cümle (EN) ortak yazı tipi: en geniş satır kart içine (730 px) sığar
   const dizi = {
-    l1: S.dizi("I", 133.06, 7), r1: S.dizi("My", 137.56, 10),
-    l2: S.dizi("The", 150.69, 11), r2: S.dizi("People", 159.83, 8),
+    l1: S.dizi("I", 134.9, 7), r1: S.dizi("My", 139.4, 10),
+    l2: S.dizi("The", 152.53, 11), r2: S.dizi("People", 161.67, 8),
   };
   const bol = { l1: [7], r1: [4, 6], l2: [5, 6], r2: [4, 4] };
   const KAT = 44, EK = 4;
@@ -83,55 +83,55 @@ async function kur() {
   // ===== Üst çift (cümle 10: 131,29–148,93) =====
   const Y1 = P1.y + 85, YE1 = P1.y + 255;
   // 131,35 sol kart · 133,14 cümle · 134,10 for a week sarı belirteç · 136,35 TEMPORARY
-  kartCiz(XL, P1.y, P1.h, 131.27, 1, "kart-sol-1");
+  kartCiz(XL, P1.y, P1.h, 133.11, 1, "kart-sol-1");
   const l1 = yaz("l1", XL + PAD, Y1);
-  belirtec(l1.kel[4], l1.kel[6], 134.02, 71);
-  const tmp = etiket("TEMPORARY", XL + PAD, YE1, SARI, 136.27, 0.7);
+  belirtec(l1.kel[4], l1.kel[6], 135.86, 71);
+  const tmp = etiket("TEMPORARY", XL + PAD, YE1, SARI, 138.11, 0.7);
   // 137,50 sağ kart · 137,64 cümle · 138,92 includes daire · 142,05 ≠ · 142,61 GENERAL
-  kartCiz(XR, P1.y, P1.h, 137.42, 2, "kart-sag-1");
+  kartCiz(XR, P1.y, P1.h, 139.26, 2, "kart-sag-1");
   const r1 = yaz("r1", XR + PAD, Y1);
-  halka(r1.kel[3], r1.kel[3], 138.84, 73);
-  esit(P1.y + P1.h / 2, 141.97);
-  const gen1 = etiket("GENERAL", XR + PAD, YE1, KREM, 142.53, 0.6);
+  halka(r1.kel[3], r1.kel[3], 140.68, 73);
+  esit(P1.y + P1.h / 2, 143.81);
+  const gen1 = etiket("GENERAL", XR + PAD, YE1, KREM, 144.37, 0.6);
   // 145,33 Geçici: · 147,33 Genel: etiket altı sarı çizgi
-  altCiz(tmp, YE1, 145.25, 81);
-  altCiz(gen1, YE1, 147.25, 82);
+  altCiz(tmp, YE1, 147.09, 81);
+  altCiz(gen1, YE1, 149.09, 82);
 
   // ===== Alt çift (cümle 11: 149,48–167,68) =====
   const Y2 = P2.y + 85, YE2 = P2.y + 475;
   // 149,55 sol kart · 150,77 cümle · 151,33 offers sarı belirteç
-  kartCiz(XL, P2.y, P2.h, 149.47, 3, "kart-sol-2");
+  kartCiz(XL, P2.y, P2.h, 151.31, 3, "kart-sol-2");
   const l2 = yaz("l2", XL + PAD, Y2);
-  belirtec(l2.kel[2], l2.kel[2], 151.25, 91);
+  belirtec(l2.kel[2], l2.kel[2], 153.09, 91);
   // 154,30–156,6 sahil çizgisi: iki dalga, kıyı, şemsiye; 157,26 GENERAL
   S.koy(S.darbe(dalga(150, 640, 705, 9, 110), { w: 5, renk: IKINCIL, alfa: 0.9, uc0: 10,
-    uc1: 16, tohum: 311 }, 154.22, 0.6, 0.45));
+    uc1: 16, tohum: 311 }, 156.06, 0.6, 0.45));
   S.koy(S.darbe(dalga(190, 600, 755, 9, 100), { w: 5, renk: IKINCIL, alfa: 0.9, uc0: 10,
-    uc1: 16, tohum: 312 }, 154.78, 0.55, false));
+    uc1: 16, tohum: 312 }, 156.62, 0.55, false));
   S.koy(S.darbe([[140, 860], [330, 835], [540, 848], [720, 815], [880, 832]], { w: 6, renk: KREM,
-    alfa: 0.9, uc0: 12, uc1: 20, tohum: 313 }, 155.5, 0.7, 0.5));
+    alfa: 0.9, uc0: 12, uc1: 20, tohum: 313 }, 157.34, 0.7, 0.5));
   S.koy(S.cizim({ svg: sahilSvg, ad: "semsiye", kutu: { x: 690, y: 640, w: 180, h: 180 },
-    enCok: 6, w: 4, tb: 155.74, sure: 0.8, olayEnCok: 3 }));
-  etiket("GENERAL", XL + PAD, YE2, KREM, 157.18, 0.6);
+    enCok: 6, w: 4, tb: 157.58, sure: 0.8, olayEnCok: 3 }));
+  etiket("GENERAL", XL + PAD, YE2, KREM, 159.02, 0.6);
   // 159,80 sağ kart · 159,91 cümle · 160,23 are really enjoying daire
-  kartCiz(XR, P2.y, P2.h, 159.72, 4, "kart-sag-2");
+  kartCiz(XR, P2.y, P2.h, 161.56, 4, "kart-sag-2");
   const r2 = yaz("r2", XR + PAD, Y2);
-  halka(r2.kel[1], r2.kel[3], 160.15, 93);
+  halka(r2.kel[1], r2.kel[3], 161.99, 93);
   // 163,76 figür (standing) · 164,00 RIGHT NOW · 165,36 ≠ · 166,72 figür kollarını açar
   const FX = 1420, FY = 650, FW = 150, FH = 300;
   const kisiOge = S.cizim({ svg: kisi, ad: "figur", kutu: { x: FX, y: FY, w: FW, h: FH },
-    esik: 0.004, enCok: 60, w: 3.2, tb: 163.68, sure: 1.2, olayEnCok: 5 });
-  const fHop = S.fr(166.64), fCx = FX + FW / 2, fCy = FY + FH;
+    esik: 0.004, enCok: 60, w: 3.2, tb: 165.52, sure: 1.2, olayEnCok: 5 });
+  const fHop = S.fr(168.48), fCx = FX + FW / 2, fCy = FY + FH;
   kisiOge.donusum = (f) => ({ cx: fCx, cy: fCy, tx: 0, dondur: 0, olcek: 1,
     ty: f < fHop ? 0 : -16 * Math.sin(Math.PI * Math.min(1, (f - fHop) / 14)) });
   S.koy(kisiOge);
-  etiket("RIGHT NOW", XR + PAD, YE2, SARI, 163.92, 0.7);
-  esit(P2.y + P2.h / 2, 165.28);
+  etiket("RIGHT NOW", XR + PAD, YE2, SARI, 165.76, 0.7);
+  esit(P2.y + P2.h / 2, 167.12);
   // kollar açılır: figürün iki yanında sarı çizgiler (ışın) 166,72
   [[[FX - 36, FY + 92], [FX - 8, FY + 112]], [[FX + FW + 36, FY + 92], [FX + FW + 8, FY + 112]],
     [[FX - 44, FY + 150], [FX - 14, FY + 150]], [[FX + FW + 44, FY + 150], [FX + FW + 14,
       FY + 150]]].forEach((p, i) => S.koy(S.darbe(p, { duz: true, w: 6, renk: SARI, alfa: 0.9,
-    uc0: 3, uc1: 6, tohum: 330 + i }, 166.64 + i * 0.04, 0.12, i ? false : 0.5)));
+    uc0: 3, uc1: 6, tohum: 330 + i }, 168.48 + i * 0.04, 0.12, i ? false : 0.5)));
 }
 
 surucu(kur, (f) => S.kare(f), KARE);

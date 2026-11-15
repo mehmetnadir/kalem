@@ -35,7 +35,7 @@ const TISORT = [
 
 export async function kur(P) {
   const KONU = "Simple Present vs Present Continuous";
-  const ROZET = "YDT · BASIC";
+  const ROZET = "YDT · TEMEL";
   const ROZET_P = 20;
   const ROZET_ARA = 20;
 
@@ -69,7 +69,8 @@ export async function kur(P) {
     }
   }
 
-  const S = await sahneKur(P, { KARE, tBas: T_BAS, kunye: (ctx, K) => kanalCiz(ctx, K) });
+  // DUZ4 A1: EN2 çapası altyazı karaokesine de girer (parça 3 sözcükleri sozcukler.json'da yok)
+  const S = await sahneKur(P, { KARE, tBas: T_BAS, kunye: (ctx, K) => kanalCiz(ctx, K), ekSozcuk: EN2 });
   const {
     fr, not, olay, ciz, ok, kutu, yazi, elYazisi, cumle, altCizgi, dinamik, oge, genislik, kis, cikis,
   } = S;

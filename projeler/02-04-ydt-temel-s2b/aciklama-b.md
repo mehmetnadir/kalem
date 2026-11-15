@@ -1,9 +1,9 @@
-# 02-04-ydt-temel-s2 · açıklama metni — SET B (YouTube · Instagram · TikTok)
+# 02-04-ydt-temel-s2b · açıklama metni — SET B (YouTube · Instagram · TikTok)
 
-Kaynak: `uretim-tutanagi/aciklama-taslak.md` §4 (S2-B jürisi + S2-C düzeltmeleri, `uretim-tutanagi/S2-duzeltme.md`).
-Sürüm: B (`s2-aciklama-b`), soruyla açılır: "Cümlede today var: hangi zaman?". A seti: `aciklama-a.md`.
+Kaynak: kol a (`02-04-ydt-temel-s2`) açıklamasının kopyası; yalnız `utm_content` değişti (`uretim-tutanagi/KBC-RAPOR.md` §2).
+Sürüm: B (`s2b-aciklama-b`), soruyla açılır: "Cümlede today var: hangi zaman?". A seti: `aciklama-a.md`.
 Ana ders: Simple Present ve Present Continuous (`ING-YDT-GR-02-04-T`).
-Shorts: `ING-YDT-GR-02-04-T-S2`, 29,41 sn (huni v2). Kimlik `@ydspublishing`. "kanal" sözü yalnız ilk satırda (huni v2 §4), QR yok.
+Shorts: `ING-YDT-GR-02-04-T-S2`, 29,49 sn (huni v2). Kimlik `@ydspublishing`. "kanal" sözü yalnız ilk satırda (huni v2 §4), QR yok.
 Eşleşen kapak: `kapak-b.png` (`TODAY VARSA` / `HANGİ ZAMAN?`, aynı soru).
 
 **UYARI:** `https://ydspublishing.com/grammar/02-04-ydt-temel` belgeden türedi; canlılığı ölçülmedi (grammar-kapi Worker 11.11'de
@@ -16,7 +16,7 @@ yayında değil). Paylaşımdan önce adresi aç. Açılmazsa adresi `{PLATFORM_
 Başlık:
 
 ```
-Today varsa hangi zaman? | YDT İngilizce #Shorts
+Today görünce hangi zamanı seçersin? | YDT İngilizce #Shorts
 ```
 
 Açıklama:
@@ -69,7 +69,7 @@ Açıklamaya adres yazılmaz (Instagram açıklamada bağlantı tıklanmaz).
 
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
-Today varsa hangi zaman?
+Today görünce hangi zamanı seçersin?
 Today iki zamanda da geçebilir; farkı anlam yapar. Genel durum: wears. Konuşma anı: is wearing.
 Bu, üç farktan biri. Üç farkın hepsi dersin tamamında; bağlantı profilde.
 Sıradaki ders: Stative Verbs
@@ -93,7 +93,6 @@ Profil bağlantısı:
 - `{UZUN_VIDEO_URL}` `watch?v=…` biçiminde gelirse ilk `?` yerine `&` yaz.
 - YouTube adresindeki UTM grammar-kapi kayıtlarına düşmez; YouTube tarafını Studio "Trafik Kaynakları" ölçer.
 - Profil bağlantısı hesap başına tektir: set A ve B profilde aynı anda ölçülemez. B, A döneminden sonra.
-- **DİKKAT:** S1 `utm_campaign=ing-ydt-gr-02-04-t` (küçük harf) yazar. Eşitleme kararı Nadir'de (`uretim-tutanagi/S2-C-RAPOR.md`).
 
 ## 5. Yer tutucular
 

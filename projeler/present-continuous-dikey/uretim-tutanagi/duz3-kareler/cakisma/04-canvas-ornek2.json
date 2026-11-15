@@ -1,0 +1,207 @@
+{
+  "paket": "present-continuous-dikey",
+  "sikilik": 4,
+  "pay": 4,
+  "tarih": "2026-11-15T22:30:44.911Z",
+  "ozet": {
+    "toplamSahne": 1,
+    "olculen": 1,
+    "olculmedi": 0,
+    "olcumHatasi": 0,
+    "toplamHata": 6,
+    "toplamUyari": 4
+  },
+  "sahneler": [
+    {
+      "sahne": "04-canvas-ornek2",
+      "motor": "Düz canvas",
+      "durum": "olculdu",
+      "ornekSayisi": 65,
+      "kutuSayisi": 1203,
+      "t_bas": 31.19,
+      "t_son": 47.02,
+      "olaylar": [
+        {
+          "t0": 42.44,
+          "t1": 42.94,
+          "a": "bu günlerde",
+          "b": "nota",
+          "turler": [
+            "yazi",
+            "cizim"
+          ],
+          "tip": "hata",
+          "kesisim": {
+            "x": 740,
+            "y": 740,
+            "w": 100,
+            "h": 6
+          },
+          "png": null
+        },
+        {
+          "t0": 42.94,
+          "t1": 47.02,
+          "a": "is",
+          "b": "kiz",
+          "turler": [
+            "cizim",
+            "yazi"
+          ],
+          "tip": "hata",
+          "kesisim": {
+            "x": 269,
+            "y": 1175,
+            "w": 78,
+            "h": 5
+          },
+          "png": null
+        },
+        {
+          "t0": 42.94,
+          "t1": 47.02,
+          "a": "+",
+          "b": "kiz",
+          "turler": [
+            "cizim",
+            "yazi"
+          ],
+          "tip": "hata",
+          "kesisim": {
+            "x": 372,
+            "y": 1175,
+            "w": 54,
+            "h": 5
+          },
+          "png": null
+        },
+        {
+          "t0": 43.19,
+          "t1": 47.02,
+          "a": "kiz",
+          "b": "tak-ing",
+          "turler": [
+            "cizim",
+            "yazi"
+          ],
+          "tip": "hata",
+          "kesisim": {
+            "x": 452,
+            "y": 1175,
+            "w": 61,
+            "h": 5
+          },
+          "png": null
+        },
+        {
+          "t0": 43.19,
+          "t1": 47.02,
+          "a": "piyano",
+          "b": "tak-ing",
+          "turler": [
+            "cizim",
+            "yazi"
+          ],
+          "tip": "hata",
+          "kesisim": {
+            "x": 557,
+            "y": 1175,
+            "w": 254,
+            "h": 5
+          },
+          "png": null
+        },
+        {
+          "t0": 44.19,
+          "t1": 47.02,
+          "a": "be",
+          "b": "is",
+          "turler": [
+            "yazi",
+            "yazi"
+          ],
+          "tip": "uyari",
+          "kesisim": {
+            "x": 290,
+            "y": 1283,
+            "w": 57,
+            "h": 13
+          },
+          "png": null
+        },
+        {
+          "t0": 44.19,
+          "t1": 47.02,
+          "a": "+",
+          "b": "be",
+          "turler": [
+            "yazi",
+            "yazi"
+          ],
+          "tip": "uyari",
+          "kesisim": {
+            "x": 372,
+            "y": 1283,
+            "w": 38,
+            "h": 13
+          },
+          "png": null
+        },
+        {
+          "t0": 45.19,
+          "t1": 47.02,
+          "a": "+",
+          "b": "tak-ing",
+          "turler": [
+            "yazi",
+            "yazi"
+          ],
+          "tip": "uyari",
+          "kesisim": {
+            "x": 452,
+            "y": 1283,
+            "w": 38,
+            "h": 13
+          },
+          "png": null
+        },
+        {
+          "t0": 45.44,
+          "t1": 47.02,
+          "a": "V-ing",
+          "b": "tak-ing",
+          "turler": [
+            "yazi",
+            "yazi"
+          ],
+          "tip": "uyari",
+          "kesisim": {
+            "x": 516,
+            "y": 1283,
+            "w": 274,
+            "h": 13
+          },
+          "png": null
+        },
+        {
+          "t0": 45.69,
+          "t1": 46.19,
+          "a": "bu günlerde",
+          "b": "nota",
+          "turler": [
+            "yazi",
+            "cizim"
+          ],
+          "tip": "hata",
+          "kesisim": {
+            "x": 740,
+            "y": 740,
+            "w": 100,
+            "h": 6
+          },
+          "png": null
+        }
+      ]
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 set -eo pipefail
 D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KAREDIR="$D/kareler"
 . "$D/../../ortak/tema.sh" "$@"
-N=566; TBAS=29.35; KLASOR=04-canvas-ornek2; GLOBAL_SN="33.5 39.2 47.3"
+N=566; TBAS=31.35; KLASOR=04-canvas-ornek2; GLOBAL_SN="35.5 41.2 49.3"
 cd "$K"
 BAS=$(date +%s)
 for i in 1 2 3 4 5; do

@@ -1,0 +1,45 @@
+{
+  "baslik": "Simple Past | YDT İngilizce",
+  "etiketler": [
+    "İngilizce",
+    "temel",
+    "gramer",
+    "Simple Past",
+    "YDT",
+    "geçmiş zaman",
+    "Past Simple",
+    "YDT İngilizce",
+    "İngilizce gramer",
+    "düzensiz fiiller",
+    "did didn't",
+    "zaman ifadeleri",
+    "YKS"
+  ],
+  "bolumler": [
+    {"t": 0, "ad": "Türkçe -di ekinden köprü: Simple Past"},
+    {"t": 14.8, "ad": "Düzenli fiile -ed: I watched a movie"},
+    {"t": 29.35, "ad": "Düzensiz fiil: go değil, went"},
+    {"t": 47.82, "ad": "Olumsuz ve soru: didn't, Did you play?"},
+    {"t": 64.78, "ad": "Neden -ed yok? Özet ve zaman ifadeleri"}
+  ],
+  "sabitYorum": "Sınavdan önce hızlıca dönmek için videoyu kaydet; düzensiz fiillere ve did yapısına açıklamadaki bölüm damgalarıyla doğrudan geç.",
+  "gonderiler": [
+    {
+      "kimlik": "g1",
+      "metin": "Neden \"watched\" ama \"went\" diyoruz? Simple Past dersinde -ed ekini, düzensiz fiilleri ve did yapısını üç örnekle gösteriyoruz. Sınav haftasında yeniden izlemek için videoyu kaydet.",
+      "gorsel": "kapak.png"
+    }
+  ],
+  "liste": {
+    "ad": "Tenses · YDT Temel",
+    "sira": 10,
+    "onceki": "02-09-ydt-temel",
+    "sonraki": "02-11-ydt-temel"
+  },
+  "bildirimler": [
+    {"t": 47.82, "sure": 3.0}
+  ],
+  "giris": true,
+  "cikis": true,
+  "aciklamaDosya": "youtube-aciklama.md"
+}

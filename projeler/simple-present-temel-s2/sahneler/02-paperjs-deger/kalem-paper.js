@@ -1,5 +1,6 @@
 // Paper.js "kendini çizen kalem" ortak modülü (DİKEY 1080x1920, simple-present-temel-s2 Shorts; altyazı bandı dahil).
 // S2 (15.11): 02-04-ydt-temel-s1/sahneler/02-paperjs-ornek/kalem-paper.js kopyası (cp -p); yalnız iki içe aktarma yolu değişti.
+// DUZ4 (16.11, J3 A1): altyaziCiz çağrısı sözcük zamanlarını (sozcukler.json) ve küresel zamanı geçirir (karaoke).
 // Kaynak: present-continuous-ileri-s1/sahneler/02-paperjs-ornek/kalem-paper.js kopyası. 02-04-s1 değişiklikleri (15.11):
 // yollar 02-04-ydt-temel-s1 · altyazı kunye.js altyaziMetin (dilimleme kunye.js'te; yerel altyaziSec kalktı) ·
 // yazi kapı etiketi (kalemTur yazi) + `oge` grubuna bağlanır (öğe kayınca yazı da kayar) · svgCiz "/" ile başlayan
@@ -399,7 +400,8 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0, tGercek
     for (const e of OGELER) matrisUygula(e, fe);
     P.view.update();
     zeminCiz(oc, f, K); oc.drawImage(document.getElementById("cv"), 0, 0); kunyeCiz(oc, { bolum, logo: K.logo });
-    altyaziCiz(oc, altyaziMetin(K.altyazi, tGercek + Math.min(f, SON - 2) / 30));
+    const tA = tGercek + Math.min(f, SON - 2) / 30;                 // küresel sn (DUZ4 A1: karaoke sözcük zamanı)
+    altyaziCiz(oc, altyaziMetin(K.altyazi, tA), { sozcukler: sozcukJson, t: tA });
     if (f === KARE - 1) {
       const ev = [...OLAY.values()].sort((a, b) => a.kare - b.kare || b.guc - a.guc), say = {}, son = [];
       for (const e of ev) { if (e.kare > SON) continue; say[e.kare] = (say[e.kare] || 0) + 1; if (say[e.kare] <= 3) son.push(e); }   // son 12 kare durgun: olay yok

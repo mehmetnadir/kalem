@@ -1,0 +1,39 @@
+{
+  "baslik": "Simple Past: ago ve düzensiz fiiller | YDT İngilizce İleri",
+  "etiketler": [
+    "İngilizce",
+    "ileri",
+    "gramer",
+    "Simple Past",
+    "YDT",
+    "Present Perfect",
+    "geçmiş zaman"
+  ],
+  "bolumler": [
+    {"t": 0.0, "ad": "Simple Past: bitmiş eylem, belli zaman"},
+    {"t": 13.47, "ad": "In 1911 ve begin, began, begun tuzağı"},
+    {"t": 33.15, "ad": "Used to ve would: hangisi durum anlatır?"},
+    {"t": 48.99, "ad": "Asıl tuzak: ago ve yet aynı cümlede"},
+    {"t": 66.19, "ad": "Ago varken has resigned olur mu?"}
+  ],
+  "sabitYorum": "Sınav öncesi göz atmak için bu dersi kaydet; aradığın kısma açıklamadaki bölüm damgalarıyla doğrudan geç.",
+  "gonderiler": [
+    {
+      "kimlik": "g1",
+      "metin": "Used to mu, would mu? We used to live in a village doğru; would live yanlış, çünkü geçmişteki durumu would anlatmaz. Derste two weeks ago varken neden resigned geldiğini ve begin, began, begun tuzağını da görüyoruz.",
+      "gorsel": "kapak.png"
+    }
+  ],
+  "liste": {
+    "ad": "Tenses · YDT İleri",
+    "sira": 10,
+    "onceki": "02-09-ydt-ileri",
+    "sonraki": "02-11-ydt-ileri"
+  },
+  "bildirimler": [
+    {"t": 33.15, "sure": 3.0}
+  ],
+  "giris": true,
+  "cikis": true,
+  "aciklamaDosya": "youtube-aciklama.md"
+}

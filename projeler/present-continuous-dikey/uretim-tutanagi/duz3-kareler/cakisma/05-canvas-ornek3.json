@@ -1,0 +1,45 @@
+{
+  "paket": "present-continuous-dikey",
+  "sikilik": 4,
+  "pay": 4,
+  "tarih": "2026-11-15T22:31:08.001Z",
+  "ozet": {
+    "toplamSahne": 1,
+    "olculen": 1,
+    "olculmedi": 0,
+    "olcumHatasi": 0,
+    "toplamHata": 1,
+    "toplamUyari": 0
+  },
+  "sahneler": [
+    {
+      "sahne": "05-canvas-ornek3",
+      "motor": "Düz canvas",
+      "durum": "olculdu",
+      "ornekSayisi": 69,
+      "kutuSayisi": 992,
+      "t_bas": 47.02,
+      "t_son": 63.85,
+      "olaylar": [
+        {
+          "t0": 61.27,
+          "t1": 63.85,
+          "a": "agac",
+          "b": "is + climb-ing",
+          "turler": [
+            "cizim",
+            "yazi"
+          ],
+          "tip": "hata",
+          "kesisim": {
+            "x": 219,
+            "y": 1265,
+            "w": 321,
+            "h": 5
+          },
+          "png": null
+        }
+      ]
+    }
+  ]
+}

@@ -3,9 +3,10 @@
 // yollar 02-04-ydt-temel-s1 · altyazı kunye.js altyaziMetin (dilimleme kunye.js'te; yerel altyaziSec kalktı) ·
 // yazi kapı etiketi (kalemTur yazi) + `oge` grubuna bağlanır (öğe kayınca yazı da kayar) · svgCiz "/" ile başlayan
 // tam yol alır · altCizgi `alt` (taban altı pay, boy oranı; varsayılan 0,16) + kapı etiketi isaret · KUNYE dışa aktarılır.
+// DUZ4 (16.11, J3 A1): altyazı bandı karaokeli; parçanın sözcük zamanları sozcukler.json'dan küresel zamanla altyaziCiz'e gider.
 // Zaman yalnız kare numarasından gelir; Math.random / Date yok (tohumlu hash).
 // Kullanım: const S = await sahneKur(paper, { KARE, tBas, bolum, etkin }); ...içerik...; S.kare(f) -> canvas
-import { kunyeHazirla, zeminCiz, kunyeCiz, altyaziMetin, altyaziCiz, RENK, RT, renkCoz, temaSurum, KOK, KUNYE }
+import { kunyeHazirla, zeminCiz, kunyeCiz, altyaziParca, altyaziCiz, RENK, RT, renkCoz, temaSurum, KOK, KUNYE }
   from "/projeler/02-04-ydt-temel-s1/ortak/kunye.js";
 import { yaziNoktalari } from "/projeler/02-04-ydt-temel-s1/ortak/kalem-canvas.js";
 // Geliştirme günlüğü (12.11, pp g-11): POST /log yalnız yerel geliştirme sunucusunda; yayında istek yok.
@@ -187,7 +188,7 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0, tGercek
     g.addChild(tx); g.visible = false;
     g.data = { kalemTur: "yazi", kalemAd: str };
     if (o.oge) o.oge.g.addChild(g);                                // öğe kayınca (kay) yazı da kayar
-    const y = { g, tx, renk: o.renk || RT.murekkep, str, x0, x1: x0 + w, y: o.y, boyut, bas: o.bas, sure: o.sure || 4, olcek: !!o.olcek, w, oge: o.oge, son: o.son };
+    const y = { g, tx, renk: o.renk || RT.murekkep, str, x0, x1: x0 + w, y: o.y, boyut, bas: o.bas, sure: o.sure || 4, olcek: !!o.olcek, w, oge: o.oge, son: o.son, sonKay: o.sonKay ?? 36 };
     YAZILAR.push(y);
     if (o.ses) olay(o.bas, o.ses === true ? "tik" : o.ses, 0.5);
     return y;
@@ -206,9 +207,9 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0, tGercek
     } else if (k.length > 1) { k[0].remove(); y.g.clipped = false; }
     y.g.opacity = kis((f - y.bas) / Math.max(2, y.sure * 0.6));
     if (y.olcek) { const s = 0.92 + 0.08 * cikis((f - y.bas) / 10.5), cx = y.x0 + y.w / 2, cy = y.y - y.boyut * 0.3;
-      y.g.matrix = new P.Matrix().translate(cx, cy).scale(s).translate(-cx, -cy); }    if (y.son) {                                                   // sönme: 36 px yukarı kayar, opaklık 1 -> 0
+      y.g.matrix = new P.Matrix().translate(cx, cy).scale(s).translate(-cx, -cy); }    if (y.son) {                                                   // sönme: sonKay px (varsayılan 36) yukarı kayar, opaklık 1 -> 0
       const v = kis((f - y.son[0]) / (y.son[1] - y.son[0]));
-      if (v > 0) { y.g.opacity *= 1 - v; y.g.matrix = new P.Matrix().translate(0, -36 * cikis(v)); }
+      if (v > 0) { y.g.opacity *= 1 - v; y.g.matrix = new P.Matrix().translate(0, -y.sonKay * cikis(v)); }
       if (v >= 1) y.g.visible = false;
     }
   }
@@ -398,7 +399,9 @@ export async function sahneKur(P, { KARE, tBas, bolum, etkin, kayma = 0, tGercek
     for (const e of OGELER) matrisUygula(e, fe);
     P.view.update();
     zeminCiz(oc, f, K); oc.drawImage(document.getElementById("cv"), 0, 0); kunyeCiz(oc, { bolum, logo: K.logo });
-    altyaziCiz(oc, altyaziMetin(K.altyazi, tGercek + Math.min(f, SON - 2) / 30));
+    const tA = tGercek + Math.min(f, SON - 2) / 30, pA = altyaziParca(K.altyazi, tA);   // DUZ4 A1: karaoke
+    if (pA) altyaziCiz(oc, pA.metin, { t: tA,
+      sozcukler: sozcukJson.filter((s) => s.t0 >= pA.t0 - 0.05 && s.t0 < pA.t1 + 0.05) });
     if (f === KARE - 1) {
       const ev = [...OLAY.values()].sort((a, b) => a.kare - b.kare || b.guc - a.guc), say = {}, son = [];
       for (const e of ev) { if (e.kare > SON) continue; say[e.kare] = (say[e.kare] || 0) + 1; if (say[e.kare] <= 3) son.push(e); }   // son 12 kare durgun: olay yok

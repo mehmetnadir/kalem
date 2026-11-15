@@ -163,6 +163,10 @@ def kunye_svg(bolum, gizli=False):
             % (g, cx, cw, sar, cx + cw / 2, sar, bolum))
 
 
+# Altyazı satırı en çok 24 karakter (16.11 DUZ3, DK-2: dikey kalıp «satır en çok 24 karakter»); kunye.js ile aynı.
+ALTYAZI_KR = 24
+
+
 def altyazi_svg(parcalar):
     """Altyazı bandı (y 1400-1536): Lexend 500 44, satır 56, ortalı, en çok 2 satır; kunye.js ile aynı kırılma.
     parcalar: [{id, metin}] -> her biri ayrı <text> grubu (opaklık 0; sahne açıp kapatır)."""
@@ -172,7 +176,7 @@ def altyazi_svg(parcalar):
         sat, s = [], ""
         for w in met.split(" "):
             d = (s + " " + w) if s else w
-            if genislik("Lexend", 500, d, 44) > W - 96 and s:
+            if (genislik("Lexend", 500, d, 44) > W - 96 or len(d) > ALTYAZI_KR) and s:
                 sat.append(s)
                 s = w
             else:
@@ -201,7 +205,7 @@ def altyazi_dilimleri(cumleler):
         n, cur = 1, ""
         for w in m.split(" "):
             d = (cur + " " + w) if cur else w
-            if genislik("Lexend", 500, d, 44) > gen and cur:
+            if (genislik("Lexend", 500, d, 44) > gen or len(d) > ALTYAZI_KR) and cur:
                 n += 1
                 cur = w
             else:

@@ -1,8 +1,8 @@
 #!/bin/bash
-# Sahne 02 (Paper.js, 461 kare): yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png Tema: --tema acik|koyu (varsayılan acik, K19).
+# Sahne 02 (Paper.js, 473 kare): yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png Tema: --tema acik|koyu (varsayılan acik, K19).
 # Geçici kareler bitince ~/Silinecekler/<tarih>-kalem/ altına taşınır (silme yok).
 set -eo pipefail
-D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=${KARE_SAYISI:-461}
+D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=${KARE_SAYISI:-473}
 . "$D/../../ortak/tema.sh" "$@"
 cd "$K"
 BAS=$(date +%s)

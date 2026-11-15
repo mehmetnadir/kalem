@@ -21,9 +21,9 @@ Açıklama:
 
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
-"Yaşıyorum" İngilizcede nasıl denir: I live mı, I am living mi?
+"Yaşıyorum" İngilizcede nasıl denir: I live mi, I am living mi?
 İkisi de doğru; seçimi anlam yapar.
-I live in İstanbul. → kalıcı durum, geniş zaman
+I live in Istanbul. → kalıcı durum, geniş zaman
 I am living with my uncle. → geçici durum, şimdiki zaman
 Bu, Simple Present ve Present Continuous (ING-YDT-GR-02-04-T) arasındaki üç farktan biri.
 Dersin tamamını izle: {UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s1-b
@@ -41,9 +41,9 @@ Reels açıklaması:
 
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
-"Yaşıyorum" İngilizcede hangisi: I live mı, I am living mi?
+"Yaşıyorum" İngilizcede hangisi: I live mi, I am living mi?
 Cevap anlama bağlı:
-I live in İstanbul. → kalıcı durum, Simple Present
+I live in Istanbul. → kalıcı durum, Simple Present
 I am living with my uncle. → geçici durum, Present Continuous
 Bu, üç farktan biri.
 Ders sayfası: profildeki bağlantı.
@@ -65,7 +65,7 @@ Açıklamaya adres yazılmaz (Instagram açıklamada bağlantı tıklanmaz).
 
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
-Hangisi: I live mı, I am living mi?
+Hangisi: I live mi, I am living mi?
 "Yaşıyorum" ikisine de karşılık gelir. Kalıcı durum: I live. Geçici durum: I am living.
 Bu, üç farktan biri. Ders sayfası: profildeki bağlantı.
 Sıradaki ders: Stative Verbs

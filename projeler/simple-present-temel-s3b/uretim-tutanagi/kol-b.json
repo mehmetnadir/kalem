@@ -1,0 +1,32 @@
+{
+  "paket": "simple-present-temel-s3b",
+  "kol_a": "simple-present-temel-s3",
+  "varyant": {
+    "grup": "s3",
+    "kol": "b",
+    "degisken": "kanca",
+    "deger": "soru"
+  },
+  "kol_a_deger": "yanlis-cumle",
+  "degisen_sahneler": [
+    "01-hyperframes-kanca"
+  ],
+  "ayni_sahneler": [
+    "02-paperjs-deger",
+    "03-hyperframes-kaydet",
+    "04-hyperframes-cagri"
+  ],
+  "yeni_cumleler": [
+    {
+      "sahne": "01-hyperframes-kanca",
+      "konusan": "ogretmen",
+      "metin": "Olumsuzda s nereye gider?"
+    }
+  ],
+  "onbellekten_cumleler": [
+    "Olumsuzda ve soruda does girer, s ona geçer. Fiile s gelmez. He doesn't go. Does she go?",
+    "Does varsa fiil yalın. Bir arkadaşına gönder; o da karıştırıyor.",
+    "Bu sadece başlangıç. Dersin tamamı YDS Publishing YouTube kanalında."
+  ],
+  "sure_tahmini_sn": 24.67
+}

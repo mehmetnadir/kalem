@@ -213,17 +213,19 @@ def uret():
     s.yazi("past", xe + 40, YB["was"] - 6, [("past", IKN)], "Caveat", 700, 56, S(Z["past"]), 0.4, tur="tik", guc=0.45)
     s.yol("kir", el_cizgi(CX - 14, YB["was"] - 24, xe + 14, YB["was"] - 40, 2), S(Z["cizgi_kirmizi"]), 0.45, KIR, 7,
           1, "cizgi", 0.7)
-    # ---------------- -ing halka, koşu-yor = runn-ing ----------------
+    # ---------------- -ing halka; 2×2 kart (16.11 DUZ3-0201T: eski "koşu-yor = runn-ing" yanlış denklikti) ----------------
+    # Sütun 1: -yor → -ing; sütun 2: -yor var, -ing yok (biliyorum, I know). DK-2: TR soluk Caveat 60, EN mürekkep Caveat 72.
     th = S(Z["ing_halka"])
     s.yol("halka", el_daire(BXB + bigw / 2, BYB - 62, bigw / 2 + 34, 92, 1.0), th, 0.55, SAR, 7, 0.85, "parilti", 0.5)
-    LX, LY, LF = 760.0, 860, 72
-    ty = S(Z["yor"])
-    kx, kw = s.yazi("kosu", LX, LY, [("koşu", KRE), ("-yor", SAR)], "Caveat", 700, LF, ty, 0.45)
-    ex = LX + kw + 40
-    te = S(Z["esit"])
-    s.yol("es1", el_cizgi(ex, LY - 38, ex + 60, LY - 41, 1), te, 0.2, KRE, 5, 1, "cizgi", 0.5)
-    s.yol("es2", el_cizgi(ex + 2, LY - 16, ex + 62, LY - 19, -1), te + 0.2, 0.2, KRE, 5, 1, "cizgi", 0.5)
-    s.yazi("runn", ex + 100, LY, [("runn", KRE), ("-ing", SAR)], "Caveat", 700, LF, S(Z["runn"]), 0.45)
+    for kol, (x, satir) in enumerate(((CX, [("koşu", "yor", "", "kosuyor"), ("runn", "ing", "", "running")]),
+                                      (CX + 330, [("bili", "yor", "um", "biliyorum"), ("I know", "", "", "iknow")]))):
+        for sn, (on, ek, son, an) in enumerate(satir):
+            boy, y, renk, t = (60, 830, IKN, S(Z[an])) if sn == 0 else (72, 926, KRE, S(Z[an]))
+            s.yazi("yk%d%d" % (kol, sn), x, y, [(on, renk), (ek, SAR), (son, renk)], "Caveat", 700, boy, t, 0.4)
+            if ek:
+                x0 = x + Y.genislik("Caveat", 700, on, boy)
+                x1 = x0 + Y.genislik("Caveat", 700, ek, boy)
+                s.yol("ya%d%d" % (kol, sn), el_cizgi(x0 - 2, y + 12, x1 + 2, y + 9), t + 0.4, 0.28, SAR, 6, 0.85, "cizgi", 0.45)
     # ---------------- formül kartı ----------------
     tk = S(Z["kart"])
     KX, KY, KW, KH = 950.0, 650, 900, 132

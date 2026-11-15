@@ -24,13 +24,20 @@
   "dil": "tr",
   "metin": "Şu an değil, her sabah yedide kalkarım gibi.",
   "duyulan": "Şu an değil, her sabah 7'de kalkarım gibi.",
-  "benzerlik": 0.92,
+  "benzerlik": 1.0,
   "tohum": 0
  },
  {
   "dil": "en",
-  "metin": "Usually, always, every day: Simple Present.",
-  "duyulan": "Usually, always, every day, simple present.",
+  "metin": "Usually, always, every day:",
+  "duyulan": "Usually, always, every day.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "çoğunlukla Simple Present.",
+  "duyulan": "Çoğunlukla Simple Present.",
   "benzerlik": 1.0,
   "tohum": 0
  },

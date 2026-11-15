@@ -92,7 +92,7 @@ yalnız yer açmak için küçülüp köşeye toplanır · ses olayı görsel an
 
 | Köşe | İçerik | Konum / boy | Renk |
 |---|---|---|---|
-| Sol üst | `SIMPLE PRESENT` + ` · YDT ADVANCED` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
+| Sol üst | `SIMPLE PRESENT` + ` · YDT İLERİ` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
 | Sağ üst | bölüm adı: `Hook` · `Example 1 / 3` · `Example 2 / 3` · `Example 3 / 3` · `Question` → `Form` | sağ kenar x 1864, taban 72; Lexend 700 24 px | vurgu |
 | Sol alt | logo svg | x 56, yükseklik 34 px (en ≈ 137), alt kenar y 1036 | logonun kendi renkleri |
 | Sağ alt | ajanda `Hook  Examples  Form`, etkin olan sarı + 4 px nokta solunda | sağ kenar 1864, taban 1030; Lexend 500 20 px, 36 px aralık | ikincil / vurgu |
@@ -106,7 +106,7 @@ HyperFrames: aynı sayılar CSS'te; sahne 01'in uçuş hedefleri bu tablodur (bi
 | küresel sn | Hareket |
 |---|---|
 | 0,00–0,40 | Logo damgası sol sütun altında (110 px, x 96, y ≈ 880): ölçek 1,18→1,0 + dönme −2°→0 |
-| 0,30–0,90 | Rozet hapları: `YDT · ADVANCED`, `GRAMMAR` |
+| 0,30–0,90 | Rozet hapları: `YDT · İLERİ`, `GRAMMAR` |
 | 0,00–2,20 | Başlık kalemle çizilir: `SIMPLE` 0,0–1,1, `PRESENT` 1,0–2,2; Fredoka 700 140 |
 | 0,20–2,30 | Sağ sütun: ayakta figür `open-peeps/standing-3.svg`, uçak `coco/plane.svg` 1,6–2,2 |
 | 1,00–3,00 | Caveat 700 64: `Uçak yarın dokuzda kalkıyor.` sözcük sözcük; `kalkıyor` sarı daire |
@@ -120,41 +120,41 @@ HyperFrames: aynı sayılar CSS'te; sahne 01'in uçuş hedefleri bu tablodur (bi
 | 10,60–13,97 | İkinci satır: `does + base verb` (olumsuz + soru); `does` sarı daire (12,28) |
 | 13,97–17,65 | Alt sağ kutu 3 madde tik: `form` · `time expressions` · `3 YDT roots` (16,05); küçük saat `6 min` |
 
-### 03 Örnek 1 (Paper.js, 456 kare, t 17,65–32,45)
+### 03 Örnek 1 (Paper.js, 482 kare, t 17,65–33,33)
 | küresel sn | Hareket |
 |---|---|
 | 18,20–19,41 | Daire içinde `1` |
 | 19,41–23,17 | Fredoka 56 (3 satır): `Although the sun looks small from here, it gives plants the energy they need.` sözcük sözcük; `Although` kırmızı değil, mürekkep; `gives` sarı alt çizgi |
 | 19,41–23,77 | Sağ: güneş `coco/sun.svg` (360 px) + ağaç `coco/tree.svg` (360 px) kalemle |
 | 24,30–27,34 | Caveat 48: `Güneş küçük görünse de bitkilere gereken enerjiyi verir.` |
-| 28,93–32,45 | `Although` kutuya alınır; ok `zaman değişmez` → `gives` sarı daire; formül `it gives` (V-s) |
+| 28,93–33,33 | `Although` kutuya alınır; ok → `genel gerçek:` (30,21); `gives` sarı daire (32,61); formül `it gives` (V-s) (DUZ3 16.11) |
 
-### 04 Örnek 2 (düz canvas, 487 kare, t 32,45–48,29)
+### 04 Örnek 2 (düz canvas, 497 kare, t 33,33–49,49)
 | küresel sn | Hareket |
 |---|---|
-| 33,00–34,13 | Daire içinde `2` |
-| 34,13–39,17 | Fredoka 56 (3 satır): `Mike owns two cars, but he usually takes the bus because parking costs so much.`; `owns` + `costs` turuncu daire, `usually` sarı alt çizgi |
-| 34,13–39,77 | Sağ: araba `coco/car.svg` (300 px) üstü çizgili ✗ değil (sahip) + otobüs `coco/bus.svg` (300 px) |
-| 39,90–42,94 | Caveat 48: `Mike'ın iki arabası var, ama genellikle otobüse biner.` |
-| 46,05–48,29 | Kutu `durum fiili: own · cost · know` ; `ing` kırmızı çizgiyle silinir (`owns` ✗ `is owning`) |
+| 33,88–35,01 | Daire içinde `2` |
+| 35,01–40,05 | Fredoka 56 (3 satır): `Mike owns two cars, but he usually takes the bus because parking costs so much.`; `owns` + `costs` turuncu daire, `usually` sarı alt çizgi |
+| 35,01–40,65 | Sağ: araba `coco/car.svg` (300 px) üstü çizgili ✗ değil (sahip) + otobüs `coco/bus.svg` (300 px) |
+| 40,78–43,82 | Caveat 48: `Mike'ın iki arabası var, ama genellikle otobüse biner.` |
+| 47,41–49,49 | Kutu `durum anlamı: own · cost · know` (DUZ3 16.11); `ing` kırmızı çizgiyle silinir (`owns` ✗ `is owning`) |
 
-### 05 Örnek 3 (düz canvas, 406 kare, t 48,29–61,41, çıkış fade)
+### 05 Örnek 3 (düz canvas, 406 kare, t 49,49–62,61, çıkış fade)
 | küresel sn | Hareket |
 |---|---|
-| 48,84–50,05 | Daire içinde `3` |
-| 50,05–54,21 | Fredoka 56 (3 satır): `Our flight takes off at eleven tomorrow morning, so we have to leave home at nine.`; `tomorrow` kırmızı daire (tuzak), `takes off` sarı |
-| 50,05–54,81 | Sağ: uçak `coco/plane.svg` (400 px) + takvim `tabler/calendar.svg` + saat `coco/clock.svg` `11:00` |
-| 54,94–56,38 | Caveat 48: `Uçuşumuz yarın sabah on birde kalkıyor.` |
-| 57,41–61,41 | El çizimi tarife tablosu `11:00  takes off`; `tomorrow` kırmızı çizgi `≠ will`; çıkış fade |
+| 50,04–51,25 | Daire içinde `3` |
+| 51,25–55,41 | Fredoka 56 (3 satır): `Our flight takes off at eleven tomorrow morning, so we have to leave home at nine.`; `tomorrow` kırmızı daire (tuzak), `takes off` sarı |
+| 51,25–56,01 | Sağ: uçak `coco/plane.svg` (400 px) + takvim `tabler/calendar.svg` + saat `coco/clock.svg` `11:00` |
+| 56,14–57,58 | Caveat 48: `Uçuşumuz yarın sabah on birde kalkıyor.` |
+| 58,61–62,61 | El çizimi tarife tablosu `11:00  takes off`; `tomorrow` kırmızı çizgi + `tuzak` (DUZ3 16.11: `≠ will` mutlaktı); çıkış fade |
 
-### 06 Soru + Form (HyperFrames, 901 kare, t 61,41–90,43)
+### 06 Soru + Form (HyperFrames, 963 kare, t 62,61–93,71)
 | küresel sn | Hareket |
 |---|---|
-| 61,96–65,88 | Künye `Question`. Sol: öğrenci başı `peeps-kit/ogrenci-bas.svg` + balon; Fredoka 600 44: `Hocam, yarın dediği için will take off olmaz mıydı?` Sağ: `will take off` ? |
-| 66,43–71,24 | Künye `Form`. Balon ve baş küçülür; büyük kırmızı `✗ will` ; yeşil yerine mürekkep `takes off ✓` |
-| 71,24–75,01 | Fredoka 72: `Will` = `predictions · sudden decisions` (iki etiket); `tarife · program · takvim` Simple Present kutusunda |
-| 75,01–84,87 | Durum fiilleri: `know` `own` `cost` el kutusu; `I know the answer.` ✓ / `I am knowing.` ✗ (kırmızı çizgi, 83,70) |
-| 84,87–90,43 | Alt: Fredoka 110 `tarife → Simple Present` / `tahmin → will` (iki satır, sarı); sağ alt `Next lesson →`; son 1 sn durgun |
+| 63,16–67,08 | Künye `Question`. Sol: öğrenci başı `peeps-kit/ogrenci-bas.svg` + balon; Fredoka 600 44: `Hocam, yarın dediği için will take off olmaz mıydı?` Sağ: `will take off` ? |
+| 67,63–74,12 | Künye `Form`. «istemez» sözünde balon ve baş küçülür, takvim söner; `will take off ?` üstü çizilmez (DUZ3 16.11: will de doğru); `tarife · program · takvim` Simple Present kutusunda; «seçilir» sözünde mürekkep `takes off ✓` |
+| 74,12–78,13 | Fredoka 80: `will` el oku + `often` → `predictions` · `sudden decisions` (iki etiket; `=` yok) |
+| 78,13–88,15 | Başlık `durum anlamında`: `know` `own` `cost`, now, `-ing` ✗ almaz; `I know the answer.` ✓ / `I am knowing.` ✗ (kırmızı çizgi «knowing») |
+| 88,15–93,71 | Alt: Fredoka 110 `tarife → Simple Present` / `tahmin → will` (iki satır, sarı); sağ alt `Next lesson →`; son 1 sn durgun |
 
 ## 5. Çalıştırma (her sahne kendi `calistir.sh`; paket kökünden)
 - Canvas/Paper.js: `python3 ortak/yakala.py projeler/simple-present-ileri/sahneler/<klasor>/sayfa.html "$KARE"` →

@@ -40,9 +40,11 @@ Kapalı kararlar: DUR kartı yok · video ortasında soru kartı yok · QR bu pr
 | 1 | 01-hyperframes-giris | HyperFrames | 102 | 0.00–3.00 | cümle 1 (1,00–3,16) |
 | 2 | 02-paperjs-kanca | Paper.js | 484 | 3.00–18.73 | cümle 2 |
 | 3 | 03-paperjs-ornek1 | Paper.js | 475 | 18.73–34.16 | cümle 3 |
-| 4 | 04-canvas-ornek2 | Düz canvas | 521 | 34.16–51.12 | cümle 4 |
-| 5 | 05-canvas-ornek3 | Düz canvas | 494 | 51.12–67.19 | cümle 5 |
-| 6 | 06-hyperframes-form | HyperFrames | 860 | 67.19–94.86 | cümle 6 (öğrenci) + 7 |
+| 4 | 04-canvas-ornek2 | Düz canvas | 564 | 34.16–52.56 | cümle 4 |
+| 5 | 05-canvas-ornek3 | Düz canvas | 482 | 52.56–68.23 | cümle 5 |
+| 6 | 06-hyperframes-form | HyperFrames | 939 | 68.23–98.53 | cümle 6 (öğrenci) + 7 |
+
+16.11 DUZ3-0206T: c4, c5, c7 yeniden sentezlendi (içerik düzeltmesi); süre 94,86 → 98,53 sn. Rapor `uretim-tutanagi/DUZ3-RAPOR.md`.
 
 Çip adları (sağ üst): `Hook` · `Example 1 / 3` · `Example 2 / 3` · `Example 3 / 3` · `Question` → `Form`. Ajanda (sağ alt): `Hook  Examples  Form`.
 Çizim kaynağı (YALNIZ `ortak/cizim/` içinde VAR olanlar): `coco/` (home, phone, guitar, plane, calendar, clock, music, laptop, book …), `tabler/` (home, phone, plane, calendar, clock, music, book, device-laptop; gitar yalnız coco/guitar.svg), `open-peeps/` (sitting-1,2,4..7 · standing-1..6), `peeps-kit/ogrenci-bas.svg`. Anahtar, banka, grafik simgesi YOK: el çizgisiyle (`cizgi()`) çizilir.
@@ -98,7 +100,7 @@ yalnız yer açmak için küçülüp köşeye toplanır · ses olayı görsel an
 
 | Köşe | İçerik | Konum / boy | Renk |
 |---|---|---|---|
-| Sol üst | `PRESENT PERFECT` + ` · YDT BASIC` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
+| Sol üst | `PRESENT PERFECT` + ` · YDT TEMEL` | x 56, taban y 72; Fredoka 700 30 px; Lexend 500 22 px, 14 px boşluk | krem / ikincil |
 | Sağ üst | bölüm adı: `Hook` · `Example 1 / 3` · `Example 2 / 3` · `Example 3 / 3` · `Question` → `Form` | sağ kenar x 1864, taban 72; Lexend 700 24 px | vurgu |
 | Sol alt | logo svg | x 56, yükseklik 34 px (en ≈ 137), alt kenar y 1036 | logonun kendi renkleri |
 | Sağ alt | ajanda `Hook  Examples  Form`, etkin olan sarı + 4 px nokta solunda | sağ kenar 1864, taban 1030; Lexend 500 20 px, 36 px aralık | ikincil / vurgu |
@@ -113,7 +115,7 @@ Kapak kalıbı (ana `present-continuous` sahne 01 ile aynı); içerik kare 0–9
 | sn | Hareket |
 |---|---|
 | 0,0–0,4 | Logo damgası sol sütun altında (110 px, x 96, y ≈ 880): ölçek 1,18→1,0 + dönme −2°→0 |
-| 0,3–0,9 | Rozet hapları: `YDT · BASIC`, `GRAMMAR` |
+| 0,3–0,9 | Rozet hapları: `YDT · TEMEL`, `GRAMMAR` (HV-24; 16.11) |
 | 0,0–2,2 | Başlık kalemle çizilir: `PRESENT` 0,0–1,1, `PERFECT` 1,0–2,2; Fredoka 700 140. Kalem sesi kare 0 |
 | 0,2–2,3 | Sağ sütun: ayakta figür (standing-4) 0,2–2,0, ev (home) 1,6–2,2 (stroke-dash) |
 | 1,0–3,16 | Başlığın altında (x 96, y 650) Caveat 700 64: `Kaybettim, kapıda kaldım.` sözcük zamanlı (Kaybettim 1,00 · kapıda 2,20 · kaldım 2,60) |
@@ -140,37 +142,37 @@ Kapak kalıbı (ana `present-continuous` sahne 01 ile aynı); içerik kare 0–9
 | 29,37–30,9 | `have` ve `broken` sarı daire |
 | 31,44–34,16 | Formül kartı (el kutusu): `have  +  V3`; altında `have` / `broken` (V3 sarı) |
 
-### 04 Örnek 2 (düz canvas, 521 kare, t 34,16–51,12; cümle 4; çip `Example 2 / 3`)
+### 04 Örnek 2 (düz canvas, 564 kare, t 34,16–52,56; cümle 4; çip `Example 2 / 3`; 16.11 DUZ3 sesi)
 | sn | Hareket |
 |---|---|
 | 34,71–35,5 | Daire içinde `2` |
-| 36,00–39,12 | Fredoka 64: `My brother has played the guitar for five years.` sözcük sözcük; `for` (37,60) sarı daire |
-| 36,2–38,6 | Sağ: oturan figür (sitting-6) + gitar (guitar, 420 px); notalar (music) 3 adet 39,4–40,8 teker teker |
-| 39,37–41,0 | Caveat 48: `Kardeşim beş yıldır gitar çalıyor.` |
-| 41,77–43,69 | Takvim şeridi (el çizimi 5 kutu) `5 years`; sarı köşeli ayraç; sağ uçta `now` noktası; Caveat `başladı, hâlâ sürüyor` |
-| 43,84–47,9 | `for → süre` etiketi (sarı); soluk `since → başlangıç` Caveat (47,12) |
-| 48,32–51,12 | `has` sarı daire (48,88); formül kartı `has + played` |
+| 36,00–39,36 | Fredoka 64: `My brother has played the guitar for five years.` sözcük sözcük; `for` (37,60) sarı daire |
+| 36,2–38,6 | Sağ: oturan figür (sitting-6) + gitar (guitar, 420 px); notalar (music) 3 adet 39,64–41,03 teker teker |
+| 39,61–41,97 | Caveat 48: `Kardeşim beş yıldır gitar çalıyor.` |
+| 42,01–44,57 | Takvim şeridi (el çizimi 5 kutu) `5 years`; sarı köşeli ayraç; sağ uçta `now` noktası; Caveat `başladı, hâlâ sürüyor` |
+| 44,64–48,8 | `for → süre` etiketi (sarı); soluk `since → başlangıç` Caveat (47,92) |
+| 49,20–52,56 | `has` sarı daire (49,76); formül kartı `has + played` (ses: "özne üçüncü tekil kişi") |
 
-### 05 Örnek 3 (düz canvas, 494 kare, t 51,12–67,19; cümle 5; çip `Example 3 / 3`; çıkış fade)
+### 05 Örnek 3 (düz canvas, 482 kare, t 52,56–68,23; cümle 5; çip `Example 3 / 3`; çıkış fade; 16.11 DUZ3 sesi)
 | sn | Hareket |
 |---|---|
-| 51,67–52,5 | Daire içinde `3` |
-| 52,88–54,4 | Fredoka 64: `I have never flown in a plane.` sözcük sözcük; `never` (53,28) sarı daire |
-| 53,0–55,0 | Sağ: uçak (plane, 440 px) kalemle; yanında duran figür (standing-1) |
-| 55,37–58,6 | Caveat 48: `Hayatımda hiç uçağa binmedim.` ; uçak üstüne el çizimi çarpı (sarı, w 8) 56,9 |
-| 57,48–59,5 | Yaşam çizgisi (y 620): `birth ●━━━━━● now`, tamamı sarı bantla kapanır; Caveat `bugüne kadar hiç` |
-| 59,68–63,8 | Etiketler el kutusunda: `never` (60,40) · `ever` (61,52) · `just` (62,48), her biri tik; sarı ok → `now` |
-| 63,99–67,19 | `have`, `flown` sarı daire; formül kartı `have + flown` |
+| 53,11–53,9 | Daire içinde `3` |
+| 54,40–56,64 | Fredoka 64: `I have never flown in a plane.` sözcük sözcük; `never` (54,88) sarı daire |
+| 54,52–56,5 | Sağ: uçak (plane, 440 px) kalemle; yanında duran figür (standing-1) |
+| 56,81–60,0 | Caveat 48: `Hayatımda hiç uçağa binmedim.` ; uçak üstüne el çizimi çarpı (sarı, w 8) 58,34 |
+| 58,92–61,0 | Yaşam çizgisi (y 620): `birth ●━━━━━● now`, tamamı sarı bantla kapanır; Caveat `bugüne kadar hiç` |
+| 61,12–65,2 | Ses "Burada never, hayatın bugüne kadarki kısmını kapsar.": tek etiket `never` (61,84) el kutusunda, tik; sarı ok → `now` (63,12), nabız 63,52. (16.11: `ever` ve `just` etiketi kalktı; just bugüne kadarki dönemi anlatmaz) |
+| 65,35–68,23 | `have`, `flown` sarı daire; formül kartı `have + flown` |
 
-### 06 Soru + Form (HyperFrames, 860 kare, t 67,19–94,86; cümle 6 öğrenci, cümle 7 öğretmen)
+### 06 Soru + Form (HyperFrames, 939 kare, t 68,23–98,53; cümle 6 öğrenci, cümle 7 öğretmen; 16.11 DUZ3 sesi)
 | sn | Hareket |
 |---|---|
-| 67,74–71,58 | Künye sağ üst `Question`. Sol: öğrenci BAŞI (`peeps-kit/ogrenci-bas.svg`, K22 kadın ses = kadın çizim) + el çizimi konuşma balonu; Fredoka 600 44 sözcük sözcük: `Hocam, üçünde de have var. Neden hep üçüncü hâl?`. Sağ: `broken` · `played` · `flown` dikey, V3 sarı (68,6 / 69,4 / 70,2, tik) |
-| 72,13–76,37 | Künye `Form`. Üç fiil tek büyük `V3`'e toplanır (Fredoka 160 sarı, vurus); altında el bandı `geçmiş iş → şimdiki etki`; balon ve baş küçülür, soluklaşır |
-| 76,52–81,48 | Sol sütun: `I · you · we · they → have` ve `he · she · it → has` Fredoka 72; Caveat `şimdiyi taşır` sarı |
-| 81,63–88,83 | Alt: sinyal tablosu el kutusu, 3 satır tik zamanlı: `for · since → süre` (82,0) · `never · ever → deneyim` (84,6) · `just · already · yet → yeni biten iş` (86,4) |
-| 88,98–93,86 | Kod kartı el kutusunda toplanır: `have / has  +  V3`; altında `geçmiş iş → şimdiki etki` (ok kalemle çizilir); sağ alt ajandanın üstünde `Next lesson →` |
-| 93,86–94,86 | Durgun (1 sn kuyruk) |
+| 68,78–72,62 | Künye sağ üst `Question`. Sol: öğrenci BAŞI (`peeps-kit/ogrenci-bas.svg`, K22 kadın ses = kadın çizim) + el çizimi konuşma balonu; Fredoka 600 44 sözcük sözcük: `Hocam, üçünde de have var. Neden hep üçüncü hâl?`. Sağ: `broken` · `played` · `flown` dikey, V3 sarı (69,64 / 70,44 / 71,24, tik) |
+| 73,17–76,05 | Künye `Form`. Üç fiil tek büyük `V3`'e toplanır ("üçünde" 73,73; Fredoka 160 sarı, vurus); notlar `geçmiş` (74,37) → `şimdiye bağlanıyor` (74,85); balon ve baş küçülür, soluklaşır |
+| 76,20–81,08 | Sol sütun: `I · you · we · they → have` ve `he · she · it → has` Fredoka 72; Caveat `şimdiyi taşır` sarı |
+| 81,15–92,98 | Alt: sinyal tablosu el kutusu, 3 satır, her parça kendi sözcüğünde: `for · since → süre · başlangıç` · `never · ever → deneyim` · `just · already → az önce · çoktan` (yet sesi yok, satırdan çıktı) |
+| 93,05–97,61 | Kod kartı el kutusunda toplanır: `have / has  +  V3`; altında `geçmişten` (95,93) `şimdiye` (96,49), ok "köprü"de (96,97); sağ alt ajandanın üstünde `Next lesson →` (97,3) |
+| 97,61–98,53 | Durgun (≈ 1 sn kuyruk) |
 
 ## 5. Çalıştırma (her sahne kendi `calistir.sh`; paket kökünden)
 - Canvas/Paper.js: `python3 ortak/yakala.py projeler/present-perfect-temel/sahneler/<klasor>/sayfa.html "$KARE"` →

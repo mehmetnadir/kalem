@@ -8,7 +8,8 @@ import { yaziNoktalari } from "/projeler/present-continuous-ileri-dikey/ortak/ka
 
 const KARE = 387, TBAS = 29.58, ICERIK = 375;
 const KOKDIZ = "/projeler/present-continuous-ileri-dikey/ortak/cizim";
-const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, bolum: "Example 2 / 3", cumle: 4 });
+// 16.11 DUZ3: c3 +1,00 sn uzadı; zaman.json t_bas 30,58. Sahne eski çerçevede (TBAS 29,58) kalır, kayma −1,00 sözcükleri oraya çevirir.
+const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: -1.0, bolum: "Example 2 / 3", cumle: 4 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
 const KREM = RT.murekkep, IKINCIL = RT.ikincil, SARI = RT.vurgu;
 

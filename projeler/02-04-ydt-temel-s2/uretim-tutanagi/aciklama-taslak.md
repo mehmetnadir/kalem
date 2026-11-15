@@ -29,9 +29,6 @@ Yayından önce adresi aç. Açılmazsa adresi `{PLATFORM_URL}` ile değiştir y
 
 `utm_campaign` = ders kodu olduğu gibi: `ING-YDT-GR-02-04-T` (istem S2-A). `utm_content` seti ayırır.
 
-**DİKKAT:** S1 `utm_campaign=ing-ydt-gr-02-04-t` (küçük harf) yazar. Analitik büyük/küçük harfi ayırırsa S1 ve S2 aynı kampanyada toplanmaz.
-S1 bu istemin yazma kapsamı dışında; eşitleme kararı şefte (`S2-A-RAPOR.md` açık nokta 1).
-
 | Kullanım | Set A | Set B |
 |---|---|---|
 | YouTube açıklaması → uzun ders | `{UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s2-a` | `…&utm_content=s2-b` |
@@ -171,7 +168,7 @@ Kapak C ile hangi set eşleşir: ikisi de olur; önerim set A (C örneği göste
 | `ders_kodu` = `meta.kod` (Shorts) | ana ders kodu | açıklama ana dersi tanıtır; Shorts `utm_content` ile ayrılır; S1 ile aynı |
 | `utm_content={kanca_id}` tek değer | `s2-a` / `s2-b` | iki açıklama seti (istem S2-A) |
 
-`utm_campaign` şemaya uyar (`ING-YDT-GR-02-04-T`, olduğu gibi). S1'in küçük harf sapması bu sette yok.
+`utm_campaign` şemaya uyar (`ING-YDT-GR-02-04-T`, olduğu gibi).
 
 ## 7. Yer tutucular (S1 ile aynı)
 

@@ -1,0 +1,74 @@
+[
+ {
+  "dil": "tr",
+  "metin": "Hata nerede?",
+  "duyulan": "Hata nerede?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "The train to Izmir leaves at seven p.m. today.",
+  "duyulan": "The train to Izmir leaves at 7 p.m. today.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "I am going to the movie theater tonight.",
+  "duyulan": "I am going to the movie theater tonight.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Hocam, tren de plana göre kalkmıyor mu? Neden -ing yok?",
+  "ses_metni": "Hocam, tren de plana göre kalkmıyor mu? Neden /ɪŋ/ yok?",
+  "duyulan": "Hocam trende plana göre kalkmıyor mu? Neden ingi yok?",
+  "benzerlik": 0.98,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Biletimi aldım, saat belli: kesin düzenleme, şimdiki zaman.",
+  "duyulan": "Biletimi aldım. Saat belli. Kesin düzenleme. Şimdiki zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Tren tarifeye uyar: geniş zaman.",
+  "duyulan": "Tren tarifeye uyar. Geniş zaman.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu, üç farktan yalnız biri.",
+  "duyulan": "Bu 3 farktan yalnız biri.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bir arkadaşına gönder; o da karıştırıyor.",
+  "duyulan": "Bir arkadaşına gönder. O da karıştırıyor.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Bu sadece başlangıç.",
+  "duyulan": "Bu sadece başlangıç.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Dersin tamamı YDS Publishing YouTube kanalında.",
+  "ses_metni": "Dersin tamamı YeDeSe Publishing YouTube kanalında.",
+  "duyulan": "Dersin tamamı YEDESE Publishing YouTube kanalında.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ }
+]

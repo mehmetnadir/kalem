@@ -2,8 +2,8 @@
 # Sahne 02 dikey (Paper.js, 1080x1920, 436 kare): yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png
 # Tema: --tema acik|koyu (varsayılan acik). Geçici kareler ~/Silinecekler/2026-11-05-kalem-ppc/ altına taşınır (silme yok).
 set -eo pipefail
-D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=436
-KLASOR=02-paperjs-kanca; TBAS=3.0; GLOBAL_SN="5.5 9.5 14.5"
+D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=580
+KLASOR=02-paperjs-kanca; TBAS=3.0; GLOBAL_SN="5.5 10.9 14.8 19.0"
 . "$D/../../ortak/tema.sh" "$@"
 cd "$K"
 BAS=$(date +%s)

@@ -146,7 +146,7 @@ DERS_TABAN = 212
 LOGO_YUK = 96
 
 
-def rozet_genislik(metin="YDT · BASIC"):
+def rozet_genislik(metin="YDT · TEMEL"):
     return genislik("Lexend", 700, metin, 36) + 56
 
 
@@ -161,7 +161,7 @@ def kunye_svg(bolum, ders="SIMPLE PAST"):
             '%s</text>'
             '<g id="ku-rz"><rect x="%d" y="%d" width="%.1f" height="%d" rx="%d" fill="%s"/>'
             '<text x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="36" '
-            'fill="%s">YDT · BASIC</text></g>'
+            'fill="%s">YDT · TEMEL</text></g>'
             '<g id="ku-bolum"><rect x="%.1f" y="48" width="%.1f" height="80" rx="40" fill="none" stroke="%s" '
             'stroke-width="4"/><text x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" '
             'font-weight="700" font-size="40" fill="%s">%s</text></g></g>'

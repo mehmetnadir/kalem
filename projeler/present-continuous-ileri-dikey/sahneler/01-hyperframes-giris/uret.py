@@ -28,7 +28,7 @@ FIG_S, FIG_X, FIG_Y = 0.69, 600.0, 905.0
 KAM_S, KAM_X, KAM_Y = 10.0, 760.0, 960.0
 LOGO_W, LOGO_H = 96 * Y.LOGO_EN_BOY, 96
 ALT_Y = 1484                         # altyazı taban (tek satır: 1400 + 84)
-SATIRLAR = [[0, 1], [2, 3]]          # sözcük indisleri / satır
+SATIRLAR = [[0, 1], [2, 3, 4]]       # sözcük indisleri / satır (c1 13.11: Dil sınavındaki -ing tuzağına düşme.)
 
 
 def yapi():
@@ -47,7 +47,7 @@ def uret():
     kams = "".join('<path id="k%d" d="%s" style="opacity:0"/>' % (i, d) for i, d in enumerate(kam))
     # rozetler (cover): y 372 h 72; 1. hap HUD rozetine uçar
     roz, x = [], KENAR
-    for i, (m, dolgu) in enumerate((("YDT · ADVANCED", R["vurgu"]), ("GRAMMAR", R["murekkep"]))):
+    for i, (m, dolgu) in enumerate((("YDT · İLERİ", R["vurgu"]), ("GRAMMAR", R["murekkep"]))):
         w = Y.genislik("Lexend", 700, m, ROZET_YAZI) + 56
         roz.append('<g id="rz%d" style="opacity:0"><rect x="%.1f" y="%d" width="%.1f" height="%d" rx="36" fill="%s"/>'
                    '<text x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" font-weight="700" '
@@ -76,10 +76,13 @@ def uret():
     cum = "".join('<text id="cm%d" x="%d" y="%d" font-family="Caveat" font-weight="700" font-size="%d" '
                   'fill="%s" clip-path="url(#cpc%d)">%s</text>'
                   % (k, CUMLE_X, CUMLE_Y[k], CUMLE_BOY, R["murekkep"], k, satir_metin[k]) for k in (0, 1))
-    # -ing halkası (satır 1, 2. sözcük)
-    ing_x0 = CUMLE_X + Y.genislik("Caveat", 700, SOZ[0]["sozcuk"] + " ", CUMLE_BOY)
-    ing_w = Y.genislik("Caveat", 700, SOZ[1]["sozcuk"], CUMLE_BOY)
-    hcx, hcy, hrx, hry = ing_x0 + ing_w / 2 + 12, CUMLE_Y[0] - 28, ing_w / 2 + 20, 46
+    # -ing halkası: "-ing" sözcüğü aranır (ana paket 13.11 accccbb; dikeye 16.11 DUZ3'te taşındı)
+    ing_i = next(i for i, w in enumerate(SOZ) if w["sozcuk"] == "-ing")
+    ing_k = next(k for k, idx in enumerate(SATIRLAR) if ing_i in idx)
+    once = " ".join(SOZ[j]["sozcuk"] for j in SATIRLAR[ing_k] if j < ing_i)
+    ing_x0 = CUMLE_X + (Y.genislik("Caveat", 700, once + " ", CUMLE_BOY) if once else 0)
+    ing_w = Y.genislik("Caveat", 700, SOZ[ing_i]["sozcuk"], CUMLE_BOY)
+    hcx, hcy, hrx, hry = ing_x0 + ing_w / 2 + 12, CUMLE_Y[ing_k] - 28, ing_w / 2 + 20, 46
     nok = []
     for k in range(49):
         u = k / 48
@@ -100,7 +103,7 @@ def uret():
     ders = ('<text id="ku-ders" x="%d" y="212" font-family="Fredoka" font-weight="700" font-size="56" '
             'fill="%s" style="opacity:0">PRESENT CONTINUOUS</text>' % (KENAR, R["murekkep"]))
     alt = ('<text id="alt" x="540" y="%d" text-anchor="middle" font-family="Lexend" font-weight="500" '
-           'font-size="44" fill="%s" style="opacity:0">YDT\'nin -ing tuzağına düşme.</text>' % (ALT_Y, R["murekkep"]))
+           'font-size="44" fill="%s" style="opacity:0">Dil sınavındaki -ing tuzağına düşme.</text>' % (ALT_Y, R["murekkep"]))
     veri = {"Z": Z, "fz": fz, "kz": kz, "nF": len(fig), "nK": len(kam), "hedef": hedef,
             "ts": TS, "t1y": T1_Y, "t2y": T2_Y, "tw": tw, "cw": cw, "sw": sw,
             "hc": [0, HEDEF_CUMLE_Y[0] - CUMLE_Y[0]], "cx": CUMLE_X,

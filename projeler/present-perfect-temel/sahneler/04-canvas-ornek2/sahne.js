@@ -1,9 +1,9 @@
-// SAHNE 04 — Örnek 2 (düz canvas, 521 kare, t_bas 34,16; cümle 4). Kendini çizen kalem; zaman yalnız kare numarasından.
+// SAHNE 04 — Örnek 2 (düz canvas, 564 kare, t_bas 34,16; cümle 4). Kendini çizen kalem; zaman yalnız kare numarasından.
 import { surucu } from "/ortak/surucu.js";
 import { Sahne, RT, renkCoz, kutu, ok, geriTasma } from "./sahne-ortak.js";
 import { yaziNoktalari } from "/projeler/present-perfect-temel/ortak/kalem-canvas.js";
 
-const KARE = 521, TBAS = 34.16, ICERIK = 509;
+const KARE = 564, TBAS = 34.16, ICERIK = 552;
 const KOKDIZ = "/projeler/present-perfect-temel/ortak/cizim";
 const S = new Sahne({ tbas: TBAS, kare: KARE, icerik: ICERIK, kayma: 0, bolum: "Example 2 / 3", cumle: 4 });
 const svgOku = async (yol) => (await fetch(`${KOKDIZ}/${yol}`)).text();
@@ -30,7 +30,7 @@ async function kur() {
   // 34,71–35,5 daire içinde 2
   S.koy(S.daireSayi(2, 190, 205, 34.71));
 
-  // 36,00–39,12 cümle + sarı alt çizgi (My … years.)
+  // 36,00–39,36 cümle + sarı alt çizgi (My … years.)
   const cum = S.koy(S.cumleYaz({ sozcukler: S.dizi("My", 36.0, 9), x: 140, y: 330, maxGen: 980 }));
   const sonSatir = Math.max(...cum.kel.map((k) => k.y));
   const kel = (ad) => cum.kel.find((k) => k.m === ad);
@@ -40,7 +40,7 @@ async function kur() {
     tb: 36.2, sure: 1.8, olayEnCok: 7 }));
   S.koy(S.cizim({ svg: gitar, ad: "gitar", kutu: { x: 1150, y: 330, w: 300, h: 420 }, enCok: 24, w: 3.8, tb: 37.5,
     sure: 1.1, olayEnCok: 4 }));
-  [[1160, 220, 39.4], [1280, 170, 40.1], [1390, 235, 40.8]].forEach(([x, y, tb], i) => {
+  [[1160, 220, 39.64], [1280, 170, 40.33], [1390, 235, 41.03]].forEach(([x, y, tb], i) => {
     const g = S.cizim({ svg: nota, kutu: { x, y, w: 110, h: 110 }, ad: "nota", enCok: 4, w: 3.6, tb, sure: 0.5,
       olayEnCok: 1, nefes: false });
     g.donusum = (f) => ({ cx: x, cy: y, tx: 0, ty: f < S.fr(tb + 0.5) ? 0 :
@@ -48,26 +48,26 @@ async function kur() {
     S.koy(g); S.koy(S.parilti(x + 62, y + 52, tb + 0.45));
   });
 
-  // 39,37–41,0 Türkçe çeviri
+  // 39,61–41,97 Türkçe çeviri
   const ytr = sonSatir + 78;
-  // pencere: Kardeşim 39,37–39,93 · beş 40,09–40,25 (0,16 sn → 40,33'e uzar) · yıldır · gitar ·
-  // çalıyor. –41,45
-  const kd = S.dizi("Kardeşim", 39.37, 5).map((w) => ({ t0: w.t0, t1: w.t1 }));
+  // pencere (16.11 DUZ3 sesi): Kardeşim 39,61–40,25 · beş 40,33–40,49 (0,16 sn → 40,53'e uzar) · yıldır · gitar ·
+  // çalıyor. –41,97
+  const kd = S.dizi("Kardeşim", 39.61, 5).map((w) => ({ t0: w.t0, t1: w.t1 }));
   kd[1].t1 = kd[2].t0;
   S.koy(S.elYazisi({ metin: "Kardeşim beş yıldır gitar çalıyor.", x: 140, y: ytr, renk: IKINCIL,
     sozcukler: kd }));
 
-  // 41,77–43,69 takvim şeridi: 5 el kutusu (5 years), sarı ayraç, sağ uçta now noktası
+  // 42,01–44,57 takvim şeridi: 5 el kutusu (5 years), sarı ayraç, sağ uçta now noktası
   const yEtiket = ytr + 76, yBrk = yEtiket + 14, yKutu = yBrk + 30, kh = 90;
   for (let i = 0; i < 5; i++) {
     S.koy(S.darbeler(kutu(140 + 170 * i, yKutu, 150, kh, 20 + i), { w: 3.4, renk: KREM, uc0: 8, uc1: 14 },
-      41.77 + i * 0.2, 0.12, 0.07, 0.45));
+      42.01 + i * 0.2, 0.12, 0.07, 0.45));
   }
   S.koy(S.metinPop({ parca: [["5 years", SARI]], x: 140 + 415, y: yEtiket, font: "700 26px Lexend", hiza: "orta",
-    tb: 42.1, sure: 0.35, ses: 0.5 }));
+    tb: 42.34, sure: 0.35, ses: 0.5 }));
   S.koy(S.darbe([[140, yBrk + 18], [140, yBrk], [140 + 830, yBrk], [140 + 830, yBrk + 18]],
-    { duz: true, w: 7, renk: SARI, alfa: 0.85, uc0: 12, uc1: 24 }, 42.15, 0.5, 0.6));
-  const nx = 140 + 850 + 56, ny = yKutu + kh / 2, nf = S.fr(42.65);
+    { duz: true, w: 7, renk: SARI, alfa: 0.85, uc0: 12, uc1: 24 }, 42.39, 0.5, 0.6));
+  const nx = 140 + 850 + 56, ny = yKutu + kh / 2, nf = S.fr(42.89);
   S.olay(nf, "tik", 0.5);
   S.koy({ ciz: (ctx, f) => {
     const u = geriTasma((f - nf) / 10); if (u <= 0) return;
@@ -75,30 +75,30 @@ async function kur() {
     ctx.restore();
   } });
   S.koy(S.darbe([[140 + 830 + 8, ny], [nx - 22, ny]], { duz: true, w: 5, renk: SARI, alfa: 0.85, uc0: 6, uc1: 10 },
-    42.5, 0.2, false));
-  S.koy(S.nabiz(nx, ny, 13, 42.65));
-  S.koy(S.elYazisi({ metin: "now", x: nx - 30, y: yKutu + kh + 52, renk: SARI, tb: 42.8, sure: 0.45,
+    42.74, 0.2, false));
+  S.koy(S.nabiz(nx, ny, 13, 42.89));
+  S.koy(S.elYazisi({ metin: "now", x: nx - 30, y: yKutu + kh + 52, renk: SARI, tb: 43.04, sure: 0.45,
     ses: false }));
   S.koy(S.elYazisi({ metin: "başladı, hâlâ sürüyor", x: 140, y: yKutu + kh + 62, renk: IKINCIL,
-    tb: 43.05, sure: 0.6 }));
+    tb: 43.33, sure: 0.6 }));
 
-  // 43,84–47,9 for → süre (sarı); 47,12 soluk since → başlangıç
+  // 44,64–48,8 for → süre (sarı); 47,92 soluk since → başlangıç
   const yF = yKutu + kh + 150;
   S.koy(okluYazi("for", "süre",
-    { x: 140, y: yF, boy: 48, renk: SARI, w: 5, tb: 43.84, sure: 0.5, tohum: 6 }));
+    { x: 140, y: yF, boy: 48, renk: SARI, w: 5, tb: 44.64, sure: 0.5, tohum: 6 }));
   S.koy(okluYazi("since", "başlangıç",
-    { x: 140, y: yF + 72, boy: 48, renk: IKINCIL, w: 5, tb: 47.12, sure: 0.6, tohum: 7 }));
+    { x: 140, y: yF + 72, boy: 48, renk: IKINCIL, w: 5, tb: 47.92, sure: 0.6, tohum: 7 }));
 
-  // 36,0–39,12 for (37,6) sarı daire; 48,32–51,12 has sarı daire (48,88), formül kartı has + played
+  // 36,0–39,12 for (37,6) sarı daire; 49,20–52,64 has sarı daire (49,76), formül kartı has + played
   S.koy(S.halka(kel("for"), 37.6, 0.3, 11));
-  S.koy(S.halka(kel("has"), 48.88, 0.35, 12));
+  S.koy(S.halka(kel("has"), 49.76, 0.35, 12));
   const ky = yF - 70, fo = "700 64px Fredoka";
-  S.koy(S.kart({ x: 760, y: ky, w: 600, h: 170, tb: 48.32, tohum: 4, satirlar: [
-    { parca: [["has", KREM]], x: 830, y: ky + 108, font: fo, tb: 48.88 },
-    { parca: [["+", IKINCIL]], x: 1000, y: ky + 108, font: fo, tb: 49.6 },
-    { parca: [["played", SARI]], x: 1080, y: ky + 108, font: fo, tb: 50.4 },
+  S.koy(S.kart({ x: 760, y: ky, w: 600, h: 170, tb: 49.2, tohum: 4, satirlar: [
+    { parca: [["has", KREM]], x: 830, y: ky + 108, font: fo, tb: 49.76 },
+    { parca: [["+", IKINCIL]], x: 1000, y: ky + 108, font: fo, tb: 50.36 },
+    { parca: [["played", SARI]], x: 1080, y: ky + 108, font: fo, tb: 51.36 },
   ] }));
-  S.koy(S.parilti(1330, ky + 20, 50.8, 24));
+  S.koy(S.parilti(1330, ky + 20, 51.76, 24));
 }
 
 surucu(kur, (f) => S.kare(f), KARE);

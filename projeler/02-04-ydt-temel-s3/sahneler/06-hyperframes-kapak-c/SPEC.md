@@ -38,7 +38,7 @@ Başka dosyaya dokunma. Silme yok. Test, render, snapshot, `calistir.sh`, git YO
 ```
 y    0 ┌──────────────────────────────────────────┐ 0–280 yalnız zemin
    291 │[logo 193,5×48] @ydspublishing            │ kanal katmanı (kapak A ile aynı piksel)
-   386 │                      (YDT · BASIC)       │ rozet x ≈ 664,6–868,2 (kapak A konumu); konu adı YOK
+   386 │                      (YDT · TEMEL)       │ rozet x ≈ 664,6–868,2 (kapak A konumu); konu adı YOK
    460 │   İKİ ÖRNEK                              │ Fredoka 700 S = 170; kontur dahil üst = 460
   ≈645 │  [İKİ ZAMAN]                             │ sarı kutu x ≈ 87,6–932,4
   ≈849 │                                          │ başlık altı
@@ -55,7 +55,7 @@ y    0 ┌───────────────────────�
 |---|---|
 | `<g id="kanal">` logo | `<image id="logoimg" href="assets/logo.svg" x=LOGO_X y="291" width=LOGO_W height="48"/>`; `LOGO_W = 48·Y.LOGO_EN_BOY` (≈ 193,49), `LOGO_X = 60 − Y.LOGO_KAYMA·LOGO_W` (≈ 53,15) |
 | `kanal` yazısı | `<text id="kanal-ad" x="263" y="330" font-family="Lexend" font-weight="700" font-size="42" fill=murekkep>@ydspublishing</text>` |
-| `<g id="rz0">` | `KONU = "Simple Present vs Present Continuous"`, `ROZET = "YDT · BASIC"`, `ROZET_W = Y.genislik("Lexend", 700, ROZET, 26) + 40` (≈ 203,57); `KB_K` = 34'ten 28'e ilk `60 + g(KONU, k) + 20 + ROZET_W ≤ 960` (≈ 34); `ROZET_X = 60 + g(KONU, KB_K) + 20` (≈ 664,63). `<rect x=ROZET_X y="386" width=ROZET_W height="48" rx="24" fill=vurgu/>` + `<text x=ROZET_X+ROZET_W/2 y="419.4" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill=zemin>YDT · BASIC</text>` |
+| `<g id="rz0">` | `KONU = "Simple Present vs Present Continuous"`, `ROZET = "YDT · TEMEL"`, `ROZET_W = Y.genislik("Lexend", 700, ROZET, 26) + 40` (≈ 203,57); `KB_K` = 34'ten 28'e ilk `60 + g(KONU, k) + 20 + ROZET_W ≤ 960` (≈ 34); `ROZET_X = 60 + g(KONU, KB_K) + 20` (≈ 664,63). `<rect x=ROZET_X y="386" width=ROZET_W height="48" rx="24" fill=vurgu/>` + `<text x=ROZET_X+ROZET_W/2 y="419.4" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill=zemin>YDT · TEMEL</text>` |
 
 Opaklık 1; giriş/çıkış yok (zaman çizelgesinde yalnız iki `tl.set("#sahne", {opacity:1})`).
 
@@ -98,7 +98,7 @@ Kart 2 (`<g id="kart2">`): `kc2` + `ik-bilet` + `<text id="m2">` `I am going …
 |---|---|---|
 | kapak tam görünür (kanal, rozet, başlık, kutu, iki kart, ikonlar, hap, figür, zemin çizgisi) | 0 / 0,00 → son (çizelge 1,0 sn, yakalama 0,5 sn) | — (anlatımdan bağımsız) |
 
-Ekran metni (tam liste): `@ydspublishing` · `YDT · BASIC` · `İKİ ÖRNEK` · `İKİ ZAMAN` · `The train` `leaves` `…` · `I am going …`. Başka yazı yok.
+Ekran metni (tam liste): `@ydspublishing` · `YDT · TEMEL` · `İKİ ÖRNEK` · `İKİ ZAMAN` · `The train` `leaves` `…` · `I am going …`. Başka yazı yok.
 Can alıcı: `canAlici[1]` (V-s, `leaves`) + `[2]` (am + V-ing, `am going`).
 
 ## 6. Kurallar ve kabul ölçütü (uret.py içinde `assert`)

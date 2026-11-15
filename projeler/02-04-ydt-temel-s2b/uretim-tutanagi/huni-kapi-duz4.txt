@@ -1,0 +1,37 @@
+# huni-kapi.mjs 8afc202 2026-11-16T02:03:01+03:00 · koşu 16.11.2026 02:16:44
+$ node /home/sef/01dev/dijital-anlatim/araclar/huni-kapi.mjs /home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s2b --kol-a /home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s2
+HV-1 ÖLÇÜLEMEDİ — kare ölçümü tarayıcı ister (ayrı iş: kare-denetim.mjs; kaynak denetimi HV-1s)
+HV-1s GEÇTİ — [betik-içi] statik: 8/8 sahnede @ydspublishing kaynağı (01-hyperframes-kapak←yardim.py, 02-paperjs-ornek←sahne-02.js, 08-hyperframes-kaydet←yardim.py, (+5)); kare görünürlüğü ölçülmedi
+HV-2 GEÇTİ — son cümle (4) ses=ogrenci (senaryo.json; Whisper doğrulaması ayrı)
+HV-3 GEÇTİ — çekirdek cümle birebir: senaryo.json son cümle + altyazi.json satırı
+HV-4 GEÇTİ — "Tam ders" yok (18 dosya tarandı)
+HV-5 GEÇTİ — dakika/dk yok (18 dosya tarandı)
+HV-7 GEÇTİ — ana ders kapağı (açık + koyu) dosyaları var; son karede görünürlüğü ölçülmedi
+HV-9 GEÇTİ — pakette *.mp4 yok
+HV-10 ÖLÇÜLEMEDİ — kutu ölçümü tarayıcı ister (ayrı iş: kare-denetim.mjs)
+HV-11 GEÇTİ — 4 sahne, 29.49 sn (hedef 22–26 dışı; zaman.json)
+HV-12 GEÇTİ — ilk söz 1 sn (baslar.json[1][0] + sureler.json[0].sozcukler[0]); kanca sahnesi bitişi 2.84 sn (zaman.json sahneler[0].t_son); bilgi: kanca cümlesi bitişi 2.84 sn (baslar.json[1][1])
+HV-15 GEÇTİ — "Konu burada bitmiyor." listeden; 2 kardeş pakette yinelenmiyor
+HV-16 GEÇTİ — "Ekran görüntüsü al, sınav günü bak." listeden; 2 kardeş pakette yinelenmiyor
+HV-17 ÖLÇÜLEMEDİ — ses-sozluk.json + Whisper raporu (el.py) ister; bu betik model ve ses çözümü koşmaz
+HV-18 GEÇTİ — 9 açıklama bloğunun ilk satırı sabit; 3 Reels bloğunda bağ yok
+HV-19 GEÇTİ — 15 bağ (3 dosya): utm_campaign=ING-YDT-GR-02-04-T, utm_content=s2b-<set>
+HV-20 GEÇTİ — teslim dosyaları tam (kol b: kapak/hikâye UYGULANMAZ)
+HV-22 ÖLÇÜLEMEDİ — çakışma kapısı tarayıcı ister (araclar/cakisma-kapisi.mjs)
+HV-23 ÖLÇÜLEMEDİ — Whisper benzerliği ister; bu betik model koşmaz
+EK-1 GEÇTİ — ses metninde YDT kısaltması yok (4 cümle)
+HV-24 GEÇTİ — 2 kaynakta rozet "YDT · TEMEL"; "BASIC" yok (32 dosya tarandı); aynı karede iki rozet için kare gerekir (G)
+JR-1b KALDI — [betik-içi] jüri 2026-11-16 00:06:02 yerel (KBJ-hukum-1611-0003.md) ≤ son içerik 2026-11-16 02:14:07 yerel (surumler.json); dosya değişim zamanı
+KR-1 KALDI — kareler kaynaktan eski: 01-hyperframes-kapak (8220 sn eski; en yeni kaynak: ortak/kunye.js), 04-hyperframes-hikaye (8273 sn eski; en yeni kaynak: ortak/kunye.js), 05-hyperframes-kapak-b (8256 sn eski; en yeni kaynak: ortak/kunye.js), 06-hyperframes-kapak-c (8246 sn eski; en yeni kaynak: ortak/kunye.js), 07-hyperframes-hikaye-b (8238 sn eski; en yeni kaynak: ortak/kunye.js), (+1)
+AB-1 GEÇTİ — 2 kol (02-04-ydt-temel-s2, 02-04-ydt-temel-s2b); s2→kapanis=ekran-goruntusu (surumler.json)
+AB-6 GEÇTİ — varyant kaydı var; 15 bağda utm_content=s2b-<set>
+AB-8 GEÇTİ — kol b metin dosyalarında "02-04-ydt-temel-s2" yolu yok, kol a içine simge bağı yok (ortak kaynak bağı 0, olağan); bilgi: 11 yorum satırı
+AB-2 GEÇTİ — kapanis: 29 beklenen fark, 0 beklenmeyen; ses sha256: AB-9'da
+AB-3 GEÇTİ — değer sahnesi (02-paperjs-ornek), kanal katmanı, ses kadrosu, çekirdek cümle iki kolda aynı
+KS-6f GEÇTİ — kol a kapak-a|b|c-168.png 168 px; kol b için uygulanmaz (değişken kanca değil)
+AB-9 GEÇTİ — 2 ortak cümlenin ses sha256 eşit: a1↔b1, a2↔b2
+AB-4 UYGULANMAZ — yayın sonrası (üretim jürisinde uygulanmaz, juri-olcutleri.md §2d); kol b mp4 dosyası HV-9'da
+AB-5 UYGULANMAZ — yayın sonrası (üretim jürisinde uygulanmaz, juri-olcutleri.md §2d); kol b mp4 dosyası HV-9'da
+AB-7 UYGULANMAZ — yayın sonrası (üretim jürisinde uygulanmaz, juri-olcutleri.md §2d); kol b mp4 dosyası HV-9'da
+ÖZET: 23 GEÇTİ, 2 KALDI, 5 ÖLÇÜLEMEDİ, 3 UYGULANMAZ
+çıkış 1

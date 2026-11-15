@@ -14,6 +14,10 @@ Z = json.loads((AD / "zamanlar.json").read_text())
 R = Y.RENK
 KRE, IKN, SAR, KIR, ZEM = R["murekkep"], R["ikincil"], R["vurgu"], R["kirmizi"], R["zemin"]
 TB = Z["t_bas"]
+# Sinyal tablosu (16.11 DUZ3): (sol 1, sol 2, sağ 1, sağ 2) — her parça (metin, zamanlar.json anahtarı)
+SINYAL_SATIRLARI = [(("for", "satir1"), (" · since", "since"), ("süre", "sure_"), (" · başlangıç", "baslangic")),
+                    (("never", "satir2"), (" · ever", "ever"), ("deneyim", "deneyim"), None),
+                    (("just", "satir3"), (" · already", "already"), ("az önce", "az_once"), (" · çoktan", "coktan"))]
 
 
 def S(t):
@@ -152,7 +156,7 @@ def uret():
                      '<text x="%.1f" y="%d" fill="%s">%s</text></g>' % (i, RF, RX, RY[i], SAR, fiil[i]))
         s.goster("#row%d" % i, t, 0.3, dx=30)
         s.olay(t, "tik", 0.5)
-    # ---------------- 72,13: fiiller tek V3'e toplanır ----------------
+    # ---------------- 73,17: fiiller tek V3'e toplanır (16.11: V3 "üçünde" 73,73) ----------------
     tf = S(Z["form"])
     s.to("#ku-bolum", tf, {"opacity": 0, "duration": 0.2, "ease": "power1.in"})
     s.to("#ku-bolum2", tf, {"opacity": 1, "duration": 0.2, "ease": "power1.out"})
@@ -176,10 +180,11 @@ def uret():
     s.olay(tp, "vurus", 0.85)
     s.yol("band", el_cizgi(BXB - 6, BYB + 40, BXB + bigw + 8, BYB + 36), tp + 0.4, 0.4, SAR, 9, 0.85, "cizgi", 0.55)
     NX = 1230.0
-    s.yazi("n1", NX, BYB + 130, [("geçmişte bitti", IKN)], "Caveat", 700, 52, S(Z["bitti"]), 0.45, tur="tik",
+    # 16.11 DUZ3: ses "üçünde de geçmiş şimdiye bağlanıyor" (eski "iş geçmişte bitti" played örneğiyle çelişiyordu)
+    s.yazi("n1", NX, BYB + 130, [("geçmiş", IKN)], "Caveat", 700, 52, S(Z["gecmis"]), 0.3, tur="tik",
            guc=0.5)
-    ok_yol(s, "n2ok", NX, BYB + 188, 56, S(Z["etkisi"]) - 0.1, 4.0, IKN)
-    s.yazi("n2", NX + 74, BYB + 200, [("etkisi şimdiye uzanıyor", SAR)], "Caveat", 700, 52, S(Z["etkisi"]), 0.5,
+    ok_yol(s, "n2ok", NX, BYB + 188, 56, S(Z["simdiye"]) - 0.1, 4.0, IKN)
+    s.yazi("n2", NX + 74, BYB + 200, [("şimdiye bağlanıyor", SAR)], "Caveat", 700, 52, S(Z["simdiye"]), 0.5,
            tur="tik", guc=0.5)
     # balon ve baş birlikte küçülür, yukarı kayar, soluklaşır
     s.to("#balg", tf + 0.5, {"svgOrigin": "362 182", "x": 300, "y": -40, "scale": 0.55, "opacity": 0.45,
@@ -203,15 +208,18 @@ def uret():
     TX, TY, TW, TH = 140.0, 660, 1000, 270
     s.yol("tablo", el_kutu(TX, TY, TW, TH), tt, 0.55, KRE, 4.2, 1, "cizgi", 0.7)
     SF = 44
-    satirlar = [("for · since", "süre", 82.0), ("never · ever", "deneyim", 84.6),
-                ("just · already · yet", "yeni biten iş", 86.4)]
-    L = max(Y.genislik("Fredoka", 700, a, SF) for a, _b, _t in satirlar)
-    for i, (a, b, t) in enumerate(satirlar):
-        y = TY + 78 + 78 * i
-        ts = S(t)
-        s.yazi("sg%d" % i, TX + 40, y, [(a, KRE)], "Fredoka", 700, SF, ts, 0.35, tur="tik", guc=0.55)
-        ok_yol(s, "so%d" % i, TX + 40 + L + 20, y - 16, 64, ts + 0.3, 4.0, IKN)
-        s.yazi("sb%d" % i, TX + 40 + L + 20 + 64 + 18, y, [(b, SAR)], "Fredoka", 700, SF, ts + 0.45, 0.35, tur=None)
+    # 16.11 DUZ3: her parça kendi sözcüğünde; since = başlangıç, already = çoktan; yet sesi yok, satırdan çıktı
+    satirlar = SINYAL_SATIRLARI
+    L = max(Y.genislik("Fredoka", 700, r[0][0] + r[1][0], SF) for r in satirlar)
+    for i, (a1, a2, b1, b2) in enumerate(satirlar):
+        y, xb = TY + 78 + 78 * i, TX + 40 + L + 36 + 64 + 18
+        w1, wb = Y.genislik("Fredoka", 700, a1[0], SF), Y.genislik("Fredoka", 700, b1[0], SF)
+        s.yazi("sg%d" % i, TX + 40, y, [(a1[0], KRE)], "Fredoka", 700, SF, S(Z[a1[1]]), 0.3, tur="tik", guc=0.55)
+        s.yazi("sh%d" % i, TX + 40 + w1, y, [(a2[0], KRE)], "Fredoka", 700, SF, S(Z[a2[1]]), 0.35, tur="tik", guc=0.5)
+        ok_yol(s, "so%d" % i, TX + 40 + L + 36, y - 16, 64, S(Z[b1[1]]) - 0.2, 4.0, IKN)
+        s.yazi("sb%d" % i, xb, y, [(b1[0], SAR)], "Fredoka", 700, SF, S(Z[b1[1]]), 0.3, tur=None)
+        if b2:
+            s.yazi("sc%d" % i, xb + wb, y, [(b2[0], SAR)], "Fredoka", 700, SF, S(Z[b2[1]]), 0.35, tur="tik", guc=0.45)
     # ---------------- kod kartı: have / has + V3 ----------------
     tk = S(Z["kod"])
     KX, KY, KW, KH = 1270.0, 690, 580, 240
@@ -225,12 +233,12 @@ def uret():
     s.yazi("k3", cx0 + w1 + w2, KY + 92, [(a3, SAR)], "Fredoka", 700, CF, S(Z["k_v3"]), 0.3, tur="tik", guc=0.6)
     s.olay(S(Z["k_v3"]) + 0.3, "vurus", 0.8)
     GF = 48
-    g1, g3 = "geçmiş iş", "şimdiki etki"
+    g1, g3 = "geçmişten", "şimdiye"   # 16.11 DUZ3: ses "geçmişten şimdiye köprü"; ok köprü sözcüğünde çizilir
     gw1, gw3 = (Y.genislik("Caveat", 700, m, GF + 4) for m in (g1, g3))
-    gx = KX + (KW - (gw1 + gw3 + 70)) / 2
+    gx = KX + (KW - (gw1 + gw3 + 86)) / 2
     s.yazi("g1", gx, KY + 190, [(g1, IKN)], "Caveat", 700, GF + 4, S(Z["k_gecmis"]), 0.4, tur="tik", guc=0.45)
-    ok_yol(s, "gok", gx + gw1 + 8, KY + 176, 54, S(Z["k_ok"]), 4.0, IKN)
-    s.yazi("g3", gx + gw1 + 70, KY + 190, [(g3, SAR)], "Caveat", 700, GF + 4, S(Z["k_etki"]), 0.45, tur="tik",
+    ok_yol(s, "gok", gx + gw1 + 18, KY + 176, 54, S(Z["k_ok"]), 4.0, IKN)
+    s.yazi("g3", gx + gw1 + 86, KY + 190, [(g3, SAR)], "Caveat", 700, GF + 4, S(Z["k_etki"]), 0.45, tur="tik",
            guc=0.5)
     # Next lesson →
     tn2 = S(Z["sonraki"])

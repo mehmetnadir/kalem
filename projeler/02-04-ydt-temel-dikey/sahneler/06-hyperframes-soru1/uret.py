@@ -248,7 +248,7 @@ def kunye_tam() -> str:
     """Dikey HUD künyesi (kare 0'dan sabit)."""
     w_pc = g("PRESENT CONTINUOUS", 56, 700, "Fredoka")
     rx = 48 + w_pc + 24
-    rw = g("YDT · BASIC", 36, 700, "Lexend") + 56
+    rw = g("YDT · TEMEL", 36, 700, "Lexend") + 56
     cw = g("Question", 40, 700, "Lexend") + 64
     cx = 1032 - cw
     return (
@@ -259,7 +259,7 @@ def kunye_tam() -> str:
         f'xml:space="preserve">PRESENT CONTINUOUS</text>'
         f'<g id="ku-rz"><rect x="{rx:.2f}" y="216" width="{rw:.2f}" height="72" rx="36" fill="{SAR}"/>'
         f'<text x="{rx + rw / 2:.2f}" y="265" text-anchor="middle" font-family="Lexend" font-weight="700" '
-        f'font-size="36" fill="{ZEM}" xml:space="preserve">YDT · BASIC</text></g>'
+        f'font-size="36" fill="{ZEM}" xml:space="preserve">YDT · TEMEL</text></g>'
         f'<g id="ku-bolum"><rect x="{cx:.2f}" y="48" width="{cw:.2f}" height="80" rx="40" fill="none" stroke="{SAR}" '
         f'stroke-width="4"/>'
         f'<text x="{cx + cw / 2:.2f}" y="102" text-anchor="middle" font-family="Lexend" font-weight="700" '
@@ -419,7 +419,7 @@ def uret() -> tuple[Y.Sahne, dict]:
     )
 
     # Olay 7: Figür kalemle, soldur(klm -> klm_s), Zincir 1
-    t7 = S(T7("kişi"))
+    t7 = S(T7("insanlar"))
     _, FW = s.figur("standing-3", "fig", 72, 556, 420, t7, t7 + 1.0, w=4.4)
     assert 72 + FW + 40 <= 268, f"Figür çok sağa taştı: {72 + FW + 40:.1f} > 268"
 

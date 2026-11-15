@@ -1,5 +1,6 @@
-"""Sahne 06 (İLERİ yatay, 1920x1080, 785 kare, t_bas 68,60): öğrenci sorusu (cümle 6) + kural (cümle 7).
-Present Perfect: "ago varken has landed olmaz" -> bitmiş zaman sözcükleri -> Finished/Unfinished -> kod.
+"""Sahne 06 (İLERİ yatay, 1920x1080, 873 kare, t_bas 70,20): öğrenci sorusu (cümle 6) + kural (cümle 7).
+Present Perfect: "took off yerine has taken off olmaz" -> bitmiş zaman sözcükleri fiili Simple Past'a çeker ->
+Finished/Unfinished -> kod (yet satırı "çoğu zaman"). 16.11 DUZ3-0206I: sabit saniyeler sözcüğe bağlandı (I()).
 Tek kaynak: ortak/anlatim/sozcukler.json (küresel sn) + zamanlar.json (t_bas, kare). Yerel sn = t - t_bas.
 Komut listesi veri olarak JS'e gömülür; olaylar aynı çağrılardan toplanır (olay.py bu modülü içe alır).
 Ok işareti metin değil kalem yoludur (yazı tipi alt kümesinde U+2192 yok)."""
@@ -28,6 +29,13 @@ def T1(c, i):
     return SOZ[c][i]["t1"]
 
 
+def I(c, sozcuk, sira=0):
+    """Cümle c'de sozcuk'un (noktalama atılmış) sira'ncı geçişinin dizini."""
+    bul = [i for i, w in enumerate(SOZ[c]) if w["sozcuk"].strip(".,:;?!") == sozcuk]
+    assert len(bul) > sira, (c, sozcuk, sira)
+    return bul[sira]
+
+
 def kelimeler(s, kimlik, x, y, idx, c, aile, agr, boy, renk=KRE, metin=None):
     """Sözcükleri konuşma zamanında tek tek açar. metin: sözcük yerine gösterilecek yazı (ör. kesme işareti
     atılmış). Döner: [(x, w)]."""
@@ -41,13 +49,6 @@ def kelimeler(s, kimlik, x, y, idx, c, aile, agr, boy, renk=KRE, metin=None):
         yer.append((cx, w))
         cx += w + sp
     return yer
-
-
-def yasak(s, kimlik, cx, cy, r, t, renk=IKN):
-    """Yasak işareti: daire + çapraz çizgi (iki darbe)."""
-    s.yol(kimlik + "c", Y.el_daire(cx, cy, r, r, 0.6), t, 0.3, renk, 7, 0.95, "cizgi", 0.5)
-    s.yol(kimlik + "s", "M%.1f %.1f L%.1f %.1f" % (cx - r * 0.72, cy + r * 0.72, cx + r * 0.72, cy - r * 0.72),
-          t + 0.28, 0.2, renk, 7, 0.95, "cizgi", 0.6)
 
 
 def uret():
@@ -71,7 +72,7 @@ def uret():
     # ---------------- konuşma balonu + sözcükler (Fredoka 600 44) ----------------
     BF, BX, BASE = 44, 384.0, (234, 310)
     sp = Y.genislik("Fredoka", 600, " ", BF)
-    satir = ((0, 1, 2, 3), (4, 5, 6, 7))
+    satir = ((0, 1, 2, 3), (4, 5, 6, 7, 8))   # "Hocam, took off yerine" / "has taken off diyemez miyiz?"
     gens = [sum(Y.genislik("Fredoka", 600, SOZ[6][i]["sozcuk"], BF) for i in sat) + sp * (len(sat) - 1)
             for sat in satir]
     x1b = BX + max(gens) + 44
@@ -88,30 +89,31 @@ def uret():
             bal_ids.append("bw%d" % i)
             pos[i] = (x, w, base)
             x += w + sp
-    # fosforlu belirteç: ago altı (69,95)
-    xa, wa, ya = pos[1]
-    s.yol("bm", Y.el_cizgi(xa - 2, ya + 12, xa + wa + 2, ya + 9), S(T(6, 1)), 0.3, SAR, 8, 0.85, "cizgi", 0.5)
+    # fosforlu belirteç: took off altı (öğrencinin değiştirmek istediği Simple Past fiil)
+    xa, ya = pos[1][0], pos[1][2]
+    xb = pos[2][0] + pos[2][1]
+    s.yol("bm", Y.el_cizgi(xa - 2, ya + 12, xb + 2, ya + 9), S(T(6, 1)), 0.3, SAR, 8, 0.85, "cizgi", 0.5)
     bal_ids.append("bm")
-    # 71,15–71,99 has landed üstüne kırmızı kalem çarpısı
-    xs, xe = pos[4][0], pos[5][0] + pos[5][1]
+    # has taken off (ago ile yanlış) üstüne kırmızı kalem çarpısı, "has" anında
+    xs, xe = pos[4][0], pos[6][0] + pos[6][1]
     yb = pos[4][2]
-    tx = S(71.15)
+    tx = S(T(6, 4))
     s.yol("xk1", "M%.1f %.1f Q%.1f %.1f %.1f %.1f" % (xs - 12, yb - 44, (xs + xe) / 2, yb - 8, xe + 12, yb + 18),
           tx, 0.4, KIR, 8, 1, "cizgi", 0.7)
     s.yol("xk2", "M%.1f %.1f Q%.1f %.1f %.1f %.1f" % (xe + 12, yb - 44, (xs + xe) / 2, yb - 14, xs - 12, yb + 18),
           tx + 0.42, 0.4, KIR, 8, 1, "cizgi", 0.7)
     s.olay(tx + 0.42, "vurus", 0.85)
     bal_ids += ["xk1", "xk2"]
-    # künye: Question -> Rule (73,62); balon + baş köşeye toplanır (73,30)
-    tr = S(73.62)
+    # künye: Question -> Rule (cümle 7 başı); balon + baş köşeye toplanır (0,32 sn önce)
+    tr = S(T(7, 0))
     s.to("#ku-bolum", tr, {"opacity": 0, "duration": 0.2, "ease": "power1.in"})
     s.to("#ku-bolum2", tr, {"opacity": 1, "duration": 0.2, "ease": "power1.out"})
     s.to("#ku-ajA", tr, {"opacity": 0, "duration": 0.2})
     s.to("#ku-ajB", tr, {"opacity": 1, "duration": 0.2})
-    s.to("#balg", S(73.3), {"svgOrigin": "90 150", "scale": 0.62, "opacity": 0.9, "duration": 0.7,
+    s.to("#balg", tr - 0.32, {"svgOrigin": "90 150", "scale": 0.62, "opacity": 0.9, "duration": 0.7,
                             "ease": "power3.inOut"})
 
-    # ---------------- A (sol): Hayır. + Bitmiş zaman (sarı bant) + Present Perfect yasaklı (73,62–78,10) ----------------
+    # ---------------- A (sol): Hayır. + Bitmiş zaman (sarı bant) + fiil -> Simple Past (cümle 7 parça 1) ----------------
     AX, A1, A2 = 140.0, 470.0, 590.0
     hw = Y.genislik("Caveat", 700, "Hayır.", 120)
     s.yazi("hay", AX, A1, [("Hayır.", KRE)], "Caveat", 700, 120, S(T(7, 0)), 0.4, tur="tik", guc=0.6)
@@ -120,52 +122,64 @@ def uret():
     s.yol("band", Y.el_cizgi(bx - 14, A1 - 24, bx + bw + 14, A1 - 28, 1), S(T(7, 1)), 0.55, SAR, 70, 0.42, "cizgi",
           0.4)
     kelimeler(s, "bz", bx, A1, (1, 2), 7, "Caveat", 700, 104)
-    pp = kelimeler(s, "pp", AX, A2, (5, 6), 7, "Fredoka", 700, 80, metin=("Present", "Perfect"))
-    pe = pp[1][0] + pp[1][1]
-    ty_ = S(T(7, 7))
-    s.yol("pst", Y.el_cizgi(AX - 10, A2 - 30, pe + 10, A2 - 36, 2), ty_, 0.4, IKN, 10, 0.95, "cizgi", 0.7)
-    s.olay(ty_ + 0.3, "vurus", 0.8)
-    s.yazi("yas", pe + 50, A2, [("yasak", IKN)], "Caveat", 700, 76, ty_ + 0.3, 0.4, tur="tik", guc=0.5)
+    # "bağlandıkları fiili Simple Past'a çeker": fiil (soluk) -> Simple Past (eski: Present Perfect üstü çizili + yasak)
+    fw = Y.genislik("Caveat", 700, "fiil", 84)
+    tf_ = S(T(7, I(7, "fiili")))
+    s.yazi("af", AX, A2, [("fiil", IKN)], "Caveat", 700, 84, tf_, 0.3, tur="tik", guc=0.5)
+    s.yol("afo", Y.el_ok(AX + fw + 26, A2 - 26, AX + fw + 106, A2 - 28), tf_ + 0.25, 0.3, IKN, 7, 0.95, "cizgi",
+          0.5)
+    s.yazi("asp", AX + fw + 130, A2, [("Simple Past", KRE)], "Fredoka", 700, 80, S(T(7, I(7, "Simple"))), 0.35,
+           tur="tik", guc=0.6)
 
-    # ---------------- B (sağ): kırmızı etiketler el kutusunda (78,35–81,47) ----------------
-    BXX, BY0, BW, BH = 1080.0, 330.0, 700.0, 290.0
-    s.yol("bk", Y.el_kutu(BXX, BY0, BW, BH), S(70.2), 0.5, IKN, 4.4, 1, "cizgi", 0.6)
+    # ---------------- B (sağ): bitmiş zaman sözcükleri el kutusunda (cümle 7 parça 2) ----------------
+    # 16.11: yasak işaretleri kalktı (anlatım "yasaklar" demiyor); kutu sözcüklere göre daraldı (700 -> 460)
+    BXX, BY0, BW, BH = 1080.0, 330.0, 460.0, 290.0
+    t6 = T(6, 0)                                # iskelet çizimleri öğrenci sorusu sırasında (cümle 6 başı + sn)
+    s.yol("bk", Y.el_kutu(BXX, BY0, BW, BH), S(t6 + 1.05), 0.5, IKN, 4.4, 1, "cizgi", 0.6)
     LF = 68
-    for n, (i, m, yy) in enumerate(((8, "ago", 420.0), (9, "yesterday", 505.0), (10, "last year", 590.0))):
-        t = S(T(7, i))
+    for n, (m, yy) in enumerate((("ago", 420.0), ("yesterday", 505.0), ("last year", 590.0))):
+        t = S(T(7, I(7, m.split()[0])))
         s.yazi("e%d" % n, BXX + 56, yy, [(m, IKN)], "Fredoka", 700, LF, t, 0.3, tur="tik", guc=0.55)
-        w = Y.genislik("Fredoka", 700, m, LF)
-        yasak(s, "ey%d" % n, BXX + 56 + w + 70, yy - 24, 32, t + 0.45, renk=IKN)
 
     # ---------------- C: iki sütun Finished -> Simple Past / Unfinished -> Present Perfect (81,72–86,84) ----------------
     CY, CH = 660.0, 170.0
-    s.yol("ca", Y.el_kutu(140, CY, 760, CH), S(70.5), 0.5, IKN, 4.4, 1, "cizgi", 0.6)
-    s.yazi("cf", 180, CY + 66, [("Finished", KRE)], "Fredoka", 700, 60, S(T(7, 12)), 0.3, tur="tik", guc=0.55)
-    s.yol("cfo", Y.el_ok(180, CY + 132, 260, CY + 130), S(T(7, 13)) + 0.1, 0.3, KRE, 7, 0.95, "cizgi", 0.5)
-    s.yazi("cs", 290, CY + 146, [("Simple Past", KRE)], "Fredoka", 700, 72, S(T(7, 14)), 0.35, tur="tik", guc=0.6)
-    s.yol("cb", Y.el_kutu(1000, CY, 820, CH), S(70.8), 0.5, IKN, 4.4, 1, "cizgi", 0.6)
-    s.yazi("cu", 1040, CY + 66, [("Unfinished", KRE)], "Fredoka", 700, 60, S(T(7, 16)), 0.3, tur="tik", guc=0.55)
-    s.yol("cuo", Y.el_ok(1040, CY + 132, 1120, CY + 130), S(T(7, 17)) + 0.1, 0.3, SAR, 7, 0.95, "cizgi", 0.5)
-    s.yazi("cp", 1150, CY + 146, [("Present Perfect", SAR)], "Fredoka", 700, 72, S(T(7, 18)), 0.4, tur="tik", guc=0.6)
+    iF, iU = I(7, "Finished"), I(7, "Unfinished")
+    s.yol("ca", Y.el_kutu(140, CY, 760, CH), S(t6 + 1.35), 0.5, IKN, 4.4, 1, "cizgi", 0.6)
+    s.yazi("cf", 180, CY + 66, [("Finished", KRE)], "Fredoka", 700, 60, S(T(7, iF)), 0.3, tur="tik", guc=0.55)
+    s.yol("cfo", Y.el_ok(180, CY + 132, 260, CY + 130), S(T(7, iF + 1)) + 0.1, 0.3, KRE, 7, 0.95, "cizgi", 0.5)
+    s.yazi("cs", 290, CY + 146, [("Simple Past", KRE)], "Fredoka", 700, 72, S(T(7, iF + 2)), 0.35, tur="tik",
+           guc=0.6)
+    s.yol("cb", Y.el_kutu(1000, CY, 820, CH), S(t6 + 1.65), 0.5, IKN, 4.4, 1, "cizgi", 0.6)
+    s.yazi("cu", 1040, CY + 66, [("Unfinished", KRE)], "Fredoka", 700, 60, S(T(7, iU)), 0.3, tur="tik", guc=0.55)
+    s.yol("cuo", Y.el_ok(1040, CY + 132, 1120, CY + 130), S(T(7, iU + 1)) + 0.1, 0.3, SAR, 7, 0.95, "cizgi", 0.5)
+    s.yazi("cp", 1150, CY + 146, [("Present Perfect", SAR)], "Fredoka", 700, 72, S(T(7, iU + 2)), 0.4, tur="tik",
+           guc=0.6)
 
-    # ---------------- D: kod kartı el kutusunda (87,09–92,77) ----------------
+    # ---------------- D: kod kartı el kutusunda (cümle 7 parça 4): ago'nun fiili / yet'in fiili ----------------
     DX, DY, DW, DH = 140.0, 856.0, 1100.0, 140.0
-    tf = S(71.1)
+    tf = S(t6 + 1.95)
+    iA, iY = I(7, "ago'nun"), I(7, "yet'in")
     s.yol("kart", Y.el_kutu(DX, DY, DW, DH), tf, 0.5, KRE, 4.5, 1, "cizgi", 0.7)
     KFZ = 52
     aw = Y.genislik("Fredoka", 700, "ago", KFZ)
-    s.yazi("k1a", DX + 40, DY + 60, [("ago", IKN)], "Fredoka", 700, KFZ, S(T(7, 23)), 0.3, tur="tik", guc=0.6)
-    s.yol("k1o", Y.el_ok(DX + 40 + aw + 24, DY + 44, DX + 40 + aw + 100, DY + 42), S(T(7, 24)), 0.3, IKN, 7, 0.95,
-          "cizgi", 0.55)
-    s.yazi("k1b", DX + 40 + aw + 124, DY + 60, [("Simple Past", KRE)], "Fredoka", 700, KFZ, S(T(7, 25)), 0.35,
+    s.yazi("k1a", DX + 40, DY + 60, [("ago", IKN)], "Fredoka", 700, KFZ, S(T(7, iA)), 0.3, tur="tik", guc=0.6)
+    s.yol("k1o", Y.el_ok(DX + 40 + aw + 24, DY + 44, DX + 40 + aw + 100, DY + 42), S(T(7, iA + 1)), 0.3, IKN, 7,
+          0.95, "cizgi", 0.55)
+    s.yazi("k1b", DX + 40 + aw + 124, DY + 60, [("Simple Past", KRE)], "Fredoka", 700, KFZ, S(T(7, iA + 2)), 0.35,
            tur="tik", guc=0.6)
     yw = Y.genislik("Fredoka", 700, "yet", KFZ)
-    s.yazi("k2a", DX + 40, DY + 122, [("yet", SAR)], "Fredoka", 700, KFZ, S(T(7, 27)), 0.3, tur="tik", guc=0.6)
-    s.yol("k2o", Y.el_ok(DX + 40 + yw + 24, DY + 106, DX + 40 + yw + 100, DY + 104), S(T(7, 28)), 0.3, SAR, 7, 0.95,
-          "cizgi", 0.55)
-    s.yazi("k2b", DX + 40 + yw + 124, DY + 122, [("Present Perfect", KRE)], "Fredoka", 700, KFZ, S(T(7, 29)), 0.4,
+    s.yazi("k2a", DX + 40, DY + 122, [("yet", SAR)], "Fredoka", 700, KFZ, S(T(7, iY)), 0.3, tur="tik", guc=0.6)
+    s.yol("k2o", Y.el_ok(DX + 40 + yw + 24, DY + 106, DX + 40 + yw + 100, DY + 104), S(T(7, iY + 1)), 0.3, SAR, 7,
+          0.95, "cizgi", 0.55)
+    iP = I(7, "Present")
+    s.yazi("k2b", DX + 40 + yw + 124, DY + 122, [("Present Perfect", KRE)], "Fredoka", 700, KFZ, S(T(7, iP)), 0.4,
            tur="tik", guc=0.6)
-    tc = S(T1(7, 30)) - 0.35
+    # "çoğu zaman" (kural kapsamı, EK-5b): soluk el yazısı Present Perfect'in sağında, yazıldıktan sonra
+    czx = DX + 40 + yw + 124 + Y.genislik("Fredoka", 700, "Present Perfect", KFZ) + 26
+    assert czx + Y.genislik("Caveat", 700, "çoğu zaman", 44) < DX + DW - 110, "çoğu zaman tik işaretine değer"
+    s.yazi("k2c", czx, DY + 122, [("çoğu zaman", IKN)], "Caveat", 700, 44, S(T(7, iP)) + 0.35, 0.3, tur="tik",
+           guc=0.4)
+    tc = S(T1(7, len(SOZ[7]) - 1)) - 0.35
     s.yol("ctk", Y.tik_yolu(DX + DW - 90, DY + 44, 46), tc, 0.3, SAR, 8, 0.9, "cizgi", 0.55)
     s.olay(tc, "vurus", 0.8)
     nw = Y.genislik("Lexend", 500, "Next lesson", 24)

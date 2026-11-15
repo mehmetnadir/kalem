@@ -35,31 +35,39 @@
 "cumle": 3,
 "dil": "en",
 "t0": 12.42,
-"t1": 16.5,
-"metin": "Usually, always, every day: Simple Present.",
+"t1": 15.14,
+"metin": "Usually, always, every day:",
 "konusan": "ogretmen"
 },
 {
 "cumle": 3,
 "dil": "tr",
-"t0": 16.75,
-"t1": 19.15,
+"t0": 15.39,
+"t1": 17.55,
+"metin": "çoğunlukla Simple Present.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 17.7,
+"t1": 20.1,
 "metin": "Bu kuralı kaybetme. Kaydet.",
 "konusan": "ogretmen"
 },
 {
 "cumle": 4,
 "dil": "tr",
-"t0": 19.62,
-"t1": 21.06,
+"t0": 20.57,
+"t1": 22.01,
 "metin": "Bitmedi, gel.",
 "konusan": "ogrenci"
 },
 {
 "cumle": 4,
 "dil": "tr",
-"t0": 21.21,
-"t1": 24.81,
+"t0": 22.16,
+"t1": 25.76,
 "metin": "Dersin tamamı YDS Publishing YouTube kanalında.",
 "konusan": "ogrenci"
 }

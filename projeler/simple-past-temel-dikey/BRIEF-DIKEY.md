@@ -1,4 +1,4 @@
-# Simple Past — DİKEY tam ders (9:16, YDT BASIC) · `projeler/simple-past-temel-dikey`
+# Simple Past — DİKEY tam ders (9:16, YDT TEMEL) · `projeler/simple-past-temel-dikey`
 
 Nadir 04.11 gece (ONAYLI): dikey sürüm = yatayla AYNI anlatım ve AYNI ses; sahne düzeni dikey için SIFIRDAN tasarlanır.
 Yatay öğelerin döndürülmüş/responsive hâli YASAK. İzleyici telefondan bakar: 1080 px genişlik ekranda ≈ 390 CSS px olur
@@ -54,7 +54,7 @@ yukarı toplanır ve küçülür, ama küçülünce de ≥ 48 px kalır).
 ## 4. Sahne sözleşmeleri (içerik ve zamanlar ana BRIEF §4'ten; burada yalnız dikey yerleşim)
 | # | Klasör / motor / kare | Dikey yerleşim (içerik bandı 352–1392, üstten alta) |
 |---|---|---|
-| 01 | `01-hyperframes-giris` HF 102 | Kapak kalıbı: logo damgası sol üst (0,0–0,4) → rozetler `YDT · BASIC` + `GRAMMAR` → başlık 2 satır `SIMPLE` / `PAST` (190 px, y ≈ 520/740, kalemle, 0,65–1,45) → cümle 1 `Dün akşam amcamlara gittim.` Caveat 80 sözcük zamanlı (1,00'dan, y ≈ 900) → figür standing-3 + televizyon (y 980–1380, bant ortası) → 2,0–3,0 uçuş: başlık künye ders adına küçülür, cümle yukarı kayar, figür solar; altyazı bandı cümle 1 |
+| 01 | `01-hyperframes-giris` HF 102 | Kapak kalıbı: logo damgası sol üst (0,0–0,4) → rozetler `YDT · TEMEL` + `GRAMMAR` → başlık 2 satır `SIMPLE` / `PAST` (190 px, y ≈ 520/740, kalemle, 0,65–1,45) → cümle 1 `Dün akşam amcamlara gittim.` Caveat 80 sözcük zamanlı (1,00'dan, y ≈ 900) → figür standing-3 + televizyon (y 980–1380, bant ortası) → 2,0–3,0 uçuş: başlık künye ders adına küçülür, cümle yukarı kayar, figür solar; altyazı bandı cümle 1 |
 | 02 | `02-paperjs-kanca` Paper.js 366 | Kanca cümlesi Caveat 80 iki satır (y 400–560), `gittim` sarı daire; altında `-di → biten iş` + takvim (y 620–720, 64 px); ORTA: figür ev yönünde + ev + hilal, 480 px (y 760–1240); alt: `I visited my uncle last night.` Fredoka 64 (6,02'de) ve ajanda kartı `form · time expressions · irregular verbs` üç satır (y 1260–1392), cümle 2 sözcük zamanında belirir; altyazı: cümle 2 parçaları |
 | 03 | `03-paperjs-ornek1` Paper.js 448 | Çip `Example 1 / 3`; kart tam genişlik: `I watched a movie last night.` Fredoka 72 (3 satır, y 400–660) sözcük zamanlı; TR `Dün gece bir film izledim.` Caveat 64 (y 700); ORTA: oturan figür + televizyon 460 px (y 760–1220); alt: formül `watch + -ed` → `watched` Fredoka 110 (y 1240–1380); altyazı: cümle 3 parçaları |
 | 04 | `04-canvas-ornek2` canvas 566 | Çip `Example 2 / 3`; kart `My uncle went to London two years ago.` (3 satır); TR Caveat 64; ORTA: figür + uçak 460 px; takvim şeridi `two years ago` (Caveat 64); alt: `go → went` 110, `-ed` kırmızı çizili |

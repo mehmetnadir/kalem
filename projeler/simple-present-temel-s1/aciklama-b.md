@@ -21,7 +21,7 @@ Açıklama:
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Hangi özne fiile s getirir? Cevap: he, she, it. I, you, we, they ile s gelmez.
-My brother goes to school by bus. → my brother = he, fiile s gelir
+My brother goes to school by bus. → my brother = he, fiile -s / -es gelir (olumlu cümlede; be ve can hariç)
 Simple Present (ING-YDT-GR-02-02-T): Gider = goes; ama yalnız he, she, it ile. I, you, we, they ile go.
 Ders videosu: {UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-02-T&utm_content=s1-b
 Sıradaki ders: Present Continuous ve Simple Present: ayrım alıştırması

@@ -1,0 +1,26 @@
+{
+  "paket": "02-04-ydt-temel",
+  "sikilik": 4,
+  "pay": 4,
+  "tarih": "2026-11-15T22:11:38.336Z",
+  "ozet": {
+    "toplamSahne": 1,
+    "olculen": 1,
+    "olculmedi": 0,
+    "olcumHatasi": 0,
+    "toplamHata": 0,
+    "toplamUyari": 0
+  },
+  "sahneler": [
+    {
+      "sahne": "09-canvas-karsit2",
+      "motor": "Düz canvas",
+      "durum": "olculdu",
+      "ornekSayisi": 69,
+      "kutuSayisi": 1972,
+      "t_bas": 146.97,
+      "t_son": 164.01,
+      "olaylar": []
+    }
+  ]
+}

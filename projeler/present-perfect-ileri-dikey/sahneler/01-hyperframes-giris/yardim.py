@@ -11,7 +11,7 @@ from fontTools.ttLib import TTFont
 AD = Path(__file__).resolve().parent
 ORTAK = AD.parent.parent / "ortak"
 FONT = ORTAK / "font"
-W, H = 1920, 1080
+W, H = 1080, 1920   # 16.11 DUZ3-0206I: dikey tuval (eski 1920x1080 kökü 1080 px altını kırpıyordu)
 RENK = {"zemin": "#1b1a17", "murekkep": "#f3efe6", "ikincil": "#c9c2b3", "vurgu": "#f2a93b",
         "logoSari": "#fece00", "kirmizi": "#e0473b"}
 LOGO_EN_BOY = 1920 / 476.3
@@ -164,7 +164,7 @@ def kunye_svg(bolum, etkin, ders_class="", gizli=False):
     s = ('<g id="kunye">'
          '<text id="ku-ders" x="56" y="72" font-family="Fredoka" font-weight="700" font-size="30" fill="%s">'
          'PRESENT PERFECT<tspan id="ku-sev" dx="14" font-family="Lexend" font-weight="500" font-size="22" '
-         'fill="%s">· YDT ADVANCED</tspan></text>'
+         'fill="%s">· YDT İLERİ</tspan></text>'
          '<text id="ku-bolum" x="1864" y="72" text-anchor="end" font-family="Lexend" font-weight="700" '
          'font-size="24" fill="%s">%s</text>'
          '<text id="ku-ajanda" x="1864" y="1030" text-anchor="end" font-family="Lexend" font-weight="500" '
@@ -176,18 +176,18 @@ def kunye_svg(bolum, etkin, ders_class="", gizli=False):
 
 def zemin_html():
     return ('<div id="zemin"></div>'
-            '<svg id="gren" width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">'
+            '<svg id="gren" width="1080" height="1920" xmlns="http://www.w3.org/2000/svg">'
             '<filter id="grenf" x="0" y="0" width="100%" height="100%">'
             '<feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11"/>'
             '<feColorMatrix type="saturate" values="0"/></filter>'
-            '<rect width="1920" height="1080" filter="url(#grenf)"/></svg><div id="vinyet"></div>')
+            '<rect width="1080" height="1920" filter="url(#grenf)"/></svg><div id="vinyet"></div>')
 
 
 ZEMIN_CSS = ("html,body{margin:0;background:#1b1a17;}"
-             "#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:#1b1a17;}"
+             "#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#1b1a17;}"
              "#zemin{position:absolute;inset:0;background:#1b1a17;}"
              "#gren{position:absolute;left:0;top:0;opacity:.045;mix-blend-mode:overlay;}"
-             "#vinyet{position:absolute;inset:0;background:radial-gradient(circle 1026px at 50% 50%,"
+             "#vinyet{position:absolute;inset:0;background:radial-gradient(circle 1300px at 50% 50%,"
              "rgba(0,0,0,0) 47.4%,rgba(0,0,0,.38) 100%);}"
              ".abs{position:absolute;}")
 

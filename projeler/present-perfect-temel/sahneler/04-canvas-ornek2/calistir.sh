@@ -2,8 +2,8 @@
 # Sahne 04-canvas-ornek2 (yatay): yakala -> OLAYLAR -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png
 # Tema: --tema acik|koyu (varsayılan acik). Geçici kareler ~/Silinecekler/2026-11-05-kalem-pp/ altına taşınır.
 set -eo pipefail
-D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=521
-KLASOR=04-canvas-ornek2; TBAS=34.16; GLOBAL_SN="40.5 44.5 50.0"; PROJE=present-perfect-temel; BOY=""
+D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=564
+KLASOR=04-canvas-ornek2; TBAS=34.16; GLOBAL_SN="40.7 45.4 51.6"; PROJE=present-perfect-temel; BOY=""
 . "$D/../../ortak/tema.sh" "$@"
 cd "$K"
 BAS=$(date +%s)

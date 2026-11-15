@@ -32,6 +32,8 @@ assert set(R.keys()) >= {"zemin", "murekkep", "ikincil", "vurgu"}
 
 W, H = Y.W, Y.H
 EK_Y = 583.0
+OZET_SATIR = ("Live, work fiillerinde:", "kalıcıysa geniş zaman,", "geçiciyse şimdiki zaman.")
+OZET_B = (924, 1008, 1092)  # özet satır tabanları (Fredoka 700 68, aralık 84)
 
 BAVUL: list[str] = [
     "M6 8a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v11a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z",
@@ -130,29 +132,27 @@ def kart_svg(simge: str, x0: int, ikon_yollar: list[str], baslik: str, etiket: s
 
 def ozet_svg() -> str:
     """Özet grubu SVG çıktısı."""
-    t1 = (
-        f'<text id="ozet1" x="60" y="924" font-family="Fredoka" font-weight="700" '
-        f'font-size="68" fill="{R["murekkep"]}">Kalıcıysa geniş zaman,</text>'
+    # DUZ2 (15.11, J2 A3): kural fiil sınırı taşır; 3 satır (tabanlar OZET_B), Kaydet 1416'ya indi.
+    t = "".join(
+        f'<text id="ozet{i}" x="60" y="{b}" font-family="Fredoka" font-weight="700" '
+        f'font-size="68" fill="{R["murekkep"]}">{s}</text>'
+        for i, (s, b) in enumerate(zip(OZET_SATIR, OZET_B), 1)
     )
-    t2 = (
-        f'<text id="ozet2" x="60" y="1008" font-family="Fredoka" font-weight="700" '
-        f'font-size="68" fill="{R["murekkep"]}">geçiciyse şimdiki zaman.</text>'
-    )
-    return f'<g id="ozet">{t1}{t2}</g>'
+    return f'<g id="ozet">{t}</g>'
 
 
 def kaydet_svg() -> str:
     """Kaydet grubu SVG çıktısı."""
     hap_w = Y.genislik("Fredoka", 700, "Kaydet", 64) + 80.0
     imi = (
-        f'<g transform="translate(39 1044) scale(4)" fill="none" stroke="{R["murekkep"]}" '  # QA 1: çizgi x ≥ 60
+        f'<g transform="translate(39 1412) scale(4)" fill="none" stroke="{R["murekkep"]}" '  # QA 1: çizgi x ≥ 60
         f'stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">'
         f'<path id="kaydet-imi" d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z"/>'
         f'</g>'
     )
-    hap = f'<rect id="kaydet-hap" x="128" y="1048" width="{hap_w:.1f}" height="88" rx="44" fill="{R["vurgu"]}"/>'
+    hap = f'<rect id="kaydet-hap" x="128" y="1416" width="{hap_w:.1f}" height="88" rx="44" fill="{R["vurgu"]}"/>'
     yazi = (
-        f'<text id="kaydet-yazi" x="{128.0 + hap_w / 2.0:.1f}" y="1114" text-anchor="middle" '
+        f'<text id="kaydet-yazi" x="{128.0 + hap_w / 2.0:.1f}" y="1482" text-anchor="middle" '
         f'font-family="Fredoka" font-weight="700" font-size="64" fill="{R["zemin"]}">Kaydet</text>'
     )
     return f'<g id="kaydet">{imi}{hap}{yazi}</g>'
@@ -171,16 +171,13 @@ def blok_kutulari(S: int, top: float) -> list[dict[str, float]]:
     kart1 = {"ad": "kart1", "x": 60.0, "y": 636.0, "w": 438.0, "h": 204.0}
     kart2 = {"ad": "kart2", "x": 522.0, "y": 636.0, "w": 438.0, "h": 204.0}
 
-    w_ozet = max(
-        Y.genislik("Fredoka", 700, "Kalıcıysa geniş zaman,", 68),
-        Y.genislik("Fredoka", 700, "geçiciyse şimdiki zaman.", 68),
-    )
-    ozet_y = 924.0 - 0.75 * 68.0
-    ozet_h = (1008.0 + 0.25 * 68.0) - ozet_y
+    w_ozet = max(Y.genislik("Fredoka", 700, s, 68) for s in OZET_SATIR)
+    ozet_y = OZET_B[0] - 0.75 * 68.0
+    ozet_h = (OZET_B[-1] + 0.25 * 68.0) - ozet_y
     ozet = {"ad": "ozet", "x": 60.0, "y": ozet_y, "w": w_ozet, "h": ozet_h}
 
     hap_w = Y.genislik("Fredoka", 700, "Kaydet", 64) + 80.0
-    kaydet = {"ad": "kaydet", "x": 60.0, "y": 1048.0, "w": 128.0 + hap_w - 60.0, "h": 88.0}
+    kaydet = {"ad": "kaydet", "x": 60.0, "y": 1416.0, "w": 128.0 + hap_w - 60.0, "h": 88.0}
 
     return [kanal, kunye, ek, kart1, kart2, ozet, kaydet]
 
@@ -196,13 +193,18 @@ def kurallari_dogrula(bloklar: list[dict[str, float]], S: int, html: str) -> Non
     """SPEC.md §5 kurallarını doğrular."""
     b_dict = {b["ad"]: b for b in bloklar}
 
-    # 1. İçerik blokları (ek, kart1, kart2, ozet, kaydet): x >= 60, x + w <= 960, y >= 460, y + h <= 1140
-    for ad in ("ek", "kart1", "kart2", "ozet", "kaydet"):
+    # 1. İçerik blokları (ek, kart1, kart2, ozet): x >= 60, x + w <= 960, y >= 460, y + h <= 1140
+    for ad in ("ek", "kart1", "kart2", "ozet"):
         b = b_dict[ad]
         assert b["x"] >= 60.0 - 1e-4, f"{ad} sol kenar {b['x']} < 60"
         assert b["x"] + b["w"] <= 960.0 + 1e-4, f"{ad} sağ kenar {b['x'] + b['w']} > 960"
         assert b["y"] >= 460.0 - 1e-4, f"{ad} üst {b['y']} < 460"
         assert b["y"] + b["h"] <= 1140.0 + 1e-4, f"{ad} alt {b['y'] + b['h']} > 1140"
+
+    # 1b. kaydet (DUZ2, hikâye B ile aynı yer): x 60–960, y 1400–1520 (1150–1380 boş, 1570–1920 boş)
+    bk = b_dict["kaydet"]
+    assert bk["x"] >= 60.0 - 1e-4 and bk["x"] + bk["w"] <= 960.0 + 1e-4, f"kaydet x sınır dışı: {bk}"
+    assert bk["y"] >= 1400.0 - 1e-4 and bk["y"] + bk["h"] <= 1520.0 + 1e-4, f"kaydet y sınır dışı: {bk}"
 
     # 2. kanal ve kunye: y >= 280, y + h <= 450
     for ad in ("kanal", "kunye"):
@@ -240,8 +242,7 @@ def kurallari_dogrula(bloklar: list[dict[str, float]], S: int, html: str) -> Non
         "PERMANENT",
         "I am living",
         "TEMPORARY",
-        "Kalıcıysa geniş zaman,",
-        "geçiciyse şimdiki zaman.",
+        *OZET_SATIR,
         "Kaydet",
     ]
     for s in satirlar:

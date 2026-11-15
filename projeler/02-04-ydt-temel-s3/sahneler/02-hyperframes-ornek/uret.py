@@ -1,6 +1,9 @@
 """Sahne 02 — Örnek (02-04-ydt-temel-s3 shorts, HyperFrames DİKEY 1080x1920, huni v2).
 
 Tasarım: SPEC.md (şef); kod agy-filo (15.11.2026).
+DUZ2 (15.11): cümle 3 "Biletimi aldım, saat belli: kesin düzenleme, şimdiki zaman. Tren tarifeye uyar: geniş zaman.";
+etiketler `kesin düzenleme` / `tarife` (TR, soluk); balonda TR soru yok (`-ing?`), TR soru yalnız altyazıda; altyazı karaoke
+(sahne 03 düzeni: söylenmemiş sözcük ikincil, söylenen mürekkep); rozet `YDT · TEMEL`; kol b için kayma veriden (SOZ, TB).
 """
 from __future__ import annotations
 
@@ -20,10 +23,19 @@ SAH = next(
     s for s in json.loads((PAKET / "zaman.json").read_text(encoding="utf-8"))["sahneler"]
     if s["klasor"] == AD.name
 )
-Z = {"t_bas": SAH["t_bas"], "kare": SAH["kare"], "sure": round(SAH["kare"] / 30, 4)}
+SOZ_TUM = json.loads((PAKET / "ortak" / "anlatim" / "sozcukler.json").read_text(encoding="utf-8"))
+ALT_TUM = json.loads((PAKET / "ortak" / "anlatim" / "altyazi.json").read_text(encoding="utf-8"))
+# A/B kol b (kanca değişkeni) başa cümle ekler. Kod iki kolda bayt aynı kalsın diye sözcük dizini ve zaman kol a
+# ölçeğine indirgenir: kayma = örnek cümlesinin ilk sözcüğü ("The"; kol a'da cümle 1, t0 1,00). Yerel zaman değişmez.
+_ILK = next(i for i, w in enumerate(SOZ_TUM) if w["sozcuk"] == "The")
+C1 = int(SOZ_TUM[_ILK]["cumle"])
+DT = round(float(SOZ_TUM[_ILK]["t0"]) - 1.00, 3)
+SOZ = [{**w, "t0": round(w["t0"] - DT, 3), "t1": round(w["t1"] - DT, 3)} for w in SOZ_TUM[_ILK:]]
+ALT = [{**a, "t0": round(a["t0"] - DT, 3), "t1": round(a["t1"] - DT, 3)} for a in ALT_TUM
+       if C1 <= int(a["cumle"]) <= C1 + 2]
+Z = {"t_bas": round(SAH["t_bas"] - DT, 3), "kare": SAH["kare"], "sure": round(SAH["kare"] / 30, 4)}
 TB = Z["t_bas"]
-
-SOZ = json.loads((PAKET / "ortak" / "anlatim" / "sozcukler.json").read_text(encoding="utf-8"))
+assert TB == 3.0, f"sahne 02 t_bas (kol a ölçeği) {TB} != 3,0"
 
 BEKLENEN_SOZ = {
     7: "p.m.",
@@ -46,15 +58,19 @@ BEKLENEN_SOZ = {
     24: "Neden",
     25: "-ing",
     26: "yok?",
-    27: "Planı",
-    28: "bir",
-    29: "kişi",
-    30: "yapar.",
-    31: "Tren",
-    32: "tarifeye",
-    33: "uyar:",
-    34: "geniş",
-    35: "zaman.",
+    27: "Biletimi",
+    28: "aldım,",
+    29: "saat",
+    30: "belli:",
+    31: "kesin",
+    32: "düzenleme,",
+    33: "şimdiki",
+    34: "zaman.",
+    35: "Tren",
+    36: "tarifeye",
+    37: "uyar:",
+    38: "geniş",
+    39: "zaman.",
 }
 for idx, beklenen in BEKLENEN_SOZ.items():
     assert SOZ[idx]["sozcuk"] == beklenen, (
@@ -75,13 +91,12 @@ assert SOZ[17]["t0"] == 7.00
 assert SOZ[24]["t0"] == 9.72
 assert SOZ[26]["t1"] == 10.84
 assert SOZ[27]["t0"] == 11.51
-assert SOZ[28]["t0"] == 12.07
-assert SOZ[29]["t0"] == 12.31
-assert SOZ[30]["t0"] == 12.51
-assert SOZ[31]["t0"] == 13.43
-assert SOZ[32]["t0"] == 13.83
-assert SOZ[34]["t0"] == 15.19
-assert SOZ[35]["t1"] == 16.07
+assert SOZ[31]["t0"] == 13.87
+assert SOZ[32]["t0"] == 14.15
+assert SOZ[35]["t0"] == 16.06
+assert SOZ[36]["t0"] == 16.46
+assert SOZ[38]["t0"] == 17.90
+assert SOZ[39]["t1"] == 18.86
 
 
 def T(i: int, bas: str | None = None) -> float:
@@ -319,9 +334,9 @@ def soldur(s: Y.Sahne, a: str, b: str, t: float, d: float = 0.25) -> None:
 
 
 def kunye_v2() -> str:
-    """SPEC §3.1 Künye v2: Simple Present vs Present Continuous + YDT · BASIC rozeti."""
+    """SPEC §3.1 Künye v2: Simple Present vs Present Continuous + YDT · TEMEL rozeti."""
     konu = "Simple Present vs Present Continuous"
-    rw = g_l700("YDT · BASIC", 26) + 40.0
+    rw = g_l700("YDT · TEMEL", 26) + 40.0
     kb = None
     for b in range(34, 27, -1):
         if 60.0 + g_f700(konu, b) + 20.0 + rw <= 960.0:
@@ -336,7 +351,7 @@ def kunye_v2() -> str:
         f'<g id="ku-rz">'
         f'<rect x="{rx:.2f}" y="386" width="{rw:.2f}" height="48" rx="24" fill="{SAR}"/>'
         f'<text x="{rx + rw / 2.0:.2f}" y="419.4" text-anchor="middle" font-family="Lexend" font-weight="700" '
-        f'font-size="26" fill="{ZEM}" xml:space="preserve">YDT · BASIC</text>'
+        f'font-size="26" fill="{ZEM}" xml:space="preserve">YDT · TEMEL</text>'
         '</g>'
         '</g>'
     )
@@ -473,14 +488,52 @@ def cevir_ekran(m: str) -> str:
     return " ".join(EKRAN.get(w, w) for w in m.split(" "))
 
 
+def altyazi_dilimleri_k() -> list[tuple[float, float, list[tuple[str, float]]]]:
+    """altyazi.json parçalarını (örnek cümlesi + 2 cümle, kol a ölçeği) en çok 2 satıra sığan dilimlere böler.
+    -> [(t0, t1, [(ekran sözcüğü, t0), ...])]; sözcük sayısı parça metniyle birebir (karaoke eşlemesi)."""
+
+    def satir(m: str) -> int:
+        n, cur = 1, ""
+        for w in m.split(" "):
+            d = (cur + " " + w) if cur else w
+            if Y.genislik("Lexend", 500, d, 44) > 900.0 and cur:
+                n += 1
+                cur = w
+            else:
+                cur = d
+        return n
+
+    out: list[tuple[float, float, list[tuple[str, float]]]] = []
+    for a in ALT:
+        kel = [w for w in SOZ if w["cumle"] == a["cumle"] and a["t0"] - 0.05 <= w["t0"] < a["t1"]]
+        assert len(kel) == len(a["metin"].split(" ")), f"altyazı/sözcük sayısı tutmuyor: {a['metin']}"
+        soz = [(EKRAN.get(w["sozcuk"], w["sozcuk"]), float(w["t0"])) for w in kel]
+        if satir(" ".join(x for x, _ in soz)) <= 2:
+            out.append((a["t0"], a["t1"], soz))
+            continue
+        cur: list[tuple[str, float]] = []
+        grup: list[list[tuple[str, float]]] = []
+        for k in soz:
+            if cur and satir(" ".join(x for x, _ in cur + [k])) > 2:
+                grup.append(cur)
+                cur = [k]
+            else:
+                cur.append(k)
+        grup.append(cur)
+        for i, g in enumerate(grup):
+            out.append((a["t0"] if i == 0 else g[0][1], grup[i + 1][0][1] if i < len(grup) - 1 else a["t1"], g))
+    return out
+
+
 def altyazi_v2_svg(parcalar: list[dict]) -> str:
     """SPEC §5 Altyazı bandı v2: Lexend 500, satır genişliği <= 900, orta x 510.
     Boy sırası 44 -> 40 -> 36: 2 satıra sığan ilk boy. Satır aralığı round(boy * 1.27).
     Tek satır tabanı 1484; iki satır tabanları 1456 ve 1456 + aralık.
+    DUZ2: her sözcük ayrı <tspan id="<pid>w<k>"> (karaoke); ilk dolgu `renk[k]`.
     """
     cikis: list[str] = []
     for p in parcalar:
-        pid, met = p["id"], p["metin"]
+        pid, met = p["id"], " ".join(p["sozler"])
         secilen_boy: int | None = None
         secilen_sat: list[str] = []
 
@@ -512,11 +565,19 @@ def altyazi_v2_svg(parcalar: list[dict]) -> str:
         else:
             tabanlar = [1462, 1462 + aralik]
 
-        tsp = "".join(
-            f'<text x="510" y="{y}" text-anchor="middle" font-family="Lexend" font-weight="500" '
-            f'font-size="{secilen_boy}" fill="{KRE}">{t.replace("&", "&amp;")}</text>'
-            for y, t in zip(tabanlar, secilen_sat)
-        )
+        tsp_list: list[str] = []
+        k = 0
+        for y, t in zip(tabanlar, secilen_sat):
+            parca: list[str] = []
+            for w in t.split(" "):
+                parca.append(f'<tspan id="{pid}w{k}" fill="{p["renk"][k]}">{w.replace("&", "&amp;")}</tspan>')
+                k += 1
+            tsp_list.append(
+                f'<text x="510" y="{y}" text-anchor="middle" font-family="Lexend" font-weight="500" '
+                f'font-size="{secilen_boy}" fill="{KRE}">' + " ".join(parca) + "</text>"
+            )
+        assert k == len(p["sozler"]), f"altyazı sözcük sayısı {k} != {len(p['sozler'])}"
+        tsp = "".join(tsp_list)
         cikis.append(f'<g id="{pid}" style="opacity:0">{tsp}</g>')
 
     return "".join(cikis)
@@ -744,35 +805,17 @@ def uret() -> tuple[Y.Sahne, dict]:
     )
     bal_ids.append("bal")
 
-    # Olay 18: Balon sözcükleri (bw17..bw26)
-    balon_satirlar = [
-        (17, 18, 19, 20),
-        (21, 22, 23),
-        (24, 25, 26),
-    ]
-    sp_balon = g_f600(" ")
-    for sat_indices, taban in zip(balon_satirlar, BAL_TABANLAR):
-        cur_x = BAL_WX
-        for idx in sat_indices:
-            w_text = SOZ[idx]["sozcuk"]
-            w_len = g_f600(w_text)
-            t_bw = s.S(T(idx))
-            s.yazi(
-                f"bw{idx}",
-                cur_x,
-                taban,
-                [(w_text, KRE)],
-                "Fredoka",
-                600,
-                64,
-                t_bw,
-                0.12,
-                tur="tik" if idx in (17, 21, 24) else None,
-                guc=0.4,
-            )
-            bal_ids.append(f"bw{idx}")
-            cur_x += w_len + sp_balon
-        assert cur_x - sp_balon <= BAL_X1 - 36.0, f"Balon satırı sağ ucu taştı: {cur_x - sp_balon} > {BAL_X1 - 36.0}"
+    # Olay 18 (DUZ2 A5): TR soru balonda yazılmaz (yalnız altyazıda, karaoke). Balonda EN anahtar `-ing?`:
+    # `?` "mu?" sözüyle, `-ing` "-ing" sözüyle (ekran sesten önce gelmez).
+    b_bal = 120.0
+    g_ing = g_f700("-ing", b_bal)
+    g_bal = g_f700("-ing?", b_bal)
+    x_bal = (BAL_WX + BAL_X1 - 36.0) / 2.0 - g_bal / 2.0
+    y_bal = (BAL_Y0 + BAL_Y1) / 2.0 + 0.36 * b_bal
+    s.yazi("bw23", x_bal + g_ing, y_bal, [("?", KRE)], "Fredoka", 700, b_bal, s.S(T(23, "mu?")), 0.12, guc=0.4)
+    s.yazi("bw25", x_bal, y_bal, [("-ing", KRE)], "Fredoka", 700, b_bal, s.S(T(25, "-ing")), 0.16, guc=0.45)
+    bal_ids.extend(["bw23", "bw25"])
+    assert x_bal >= BAL_WX and x_bal + g_bal <= BAL_X1 - 36.0, f"balon yazısı taştı: {x_bal}..{x_bal + g_bal}"
 
     # Olay 19: Sarı nokta nk
     t19 = s.S(T(24, "Neden"))
@@ -792,7 +835,7 @@ def uret() -> tuple[Y.Sahne, dict]:
     bal_ids.append("cn")
 
     # Olay 21: Balon grubu söner
-    t21 = s.S(T(27, "Planı"))
+    t21 = s.S(T(27, "Biletimi"))
     s.to("#balg", t21, {"opacity": 0, "duration": 0.35, "ease": "power2.in"})
     s.olay(t21, "vurus", 0.5)
 
@@ -824,8 +867,8 @@ def uret() -> tuple[Y.Sahne, dict]:
         if i == 0:
             s.olay(b, "cizgi", 0.5)
 
-    # Olay 23: Bağ öğretmenin eli -> am going (sarı ok) + ikiz
-    t23 = s.S(T(28, "bir"))
+    # Olay 23: Bağ öğretmenin eli -> am going (sarı ok) + ikiz ("kesin" çapası)
+    t23 = s.S(T(31, "kesin"))
     XG = K2_TX + g_f700("I ")
     WG = g_f700("am going")
     d_ok_fig = ok_tek(HX + 10.0, HY - 14.0, XG + WG / 2.0, OK_FIG_BITIS_Y, 2.0)
@@ -838,18 +881,13 @@ def uret() -> tuple[Y.Sahne, dict]:
     s.yol("krm", d_krm, t24, 0.30, SAR, 10.0, tur="cizgi", guc=0.55)
     s.yol("krm_s", d_krm, t24, 0.30, IKN, 10.0, alfa=0.0, tur=None)
 
-    # Olay 25: person
-    t25 = s.S(T(29, "kişi"))
-    s.yazi("lp0", LP_X, LP_TABAN, [("person", KRE)], "Caveat", 700, 64, t25, 0.30, tur="tik", guc=0.4)
-
-    # Olay 26: etiket oku + plan
-    t26 = s.S(T(30, "yapar."))
-    xa = LP_X + g_c700("person") + 16.0
-    s.yol("lpo", ok_tek(xa, LP_OK_Y, xa + 56.0, LP_OK_Y, 0.5), t26, 0.20, KRE, 4.5)
-    s.yazi("lp1", xa + 72.0, LP_TABAN, [("plan", KRE)], "Caveat", 700, 64, t26 + 0.15, 0.30)
+    # Olay 25 (DUZ2 A3): kart 2 etiketi `kesin düzenleme` (TR, soluk; seste aynı terim)
+    t25 = s.S(T(32, "düzenleme,"))
+    m_lp = "kesin düzenleme"
+    s.yazi("lp0", LP_X, LP_TABAN, [(m_lp, IKN)], "Caveat", 700, 64, t25, 0.35, tur="tik", guc=0.4)
 
     # Olay 27: Önceki sarı griye döner
-    t27 = s.S(T(31, "Tren"))
+    t27 = s.S(T(35, "Tren"))
     soldur(s, "ok_fig", "ok_fig_s", t27, 0.25)
     soldur(s, "krm", "krm_s", t27, 0.25)
 
@@ -862,18 +900,13 @@ def uret() -> tuple[Y.Sahne, dict]:
     s.yol("ok_trn", d_ok_trn, t28, 0.60, SAR, 8.0, tur="cizgi", guc=0.55)
     s.yol("ok_trn_s", d_ok_trn, t28, 0.60, IKN, 8.0, alfa=0.0, tur=None)
 
-    # Olay 29: train
-    t29 = t27 + 0.10
-    s.yazi("lt0", LT_X, LT_TABAN, [("train", KRE)], "Caveat", 700, 64, t29, 0.30, tur="tik", guc=0.4)
-
-    # Olay 30: etiket oku + timetable
-    t30 = s.S(T(32, "tarifeye"))
-    xb = LT_X + g_c700("train") + 16.0
-    s.yol("lto", ok_tek(xb, LT_OK_Y, xb + 56.0, LT_OK_Y, 0.5), t30, 0.20, KRE, 4.5)
-    s.yazi("lt1", xb + 72.0, LT_TABAN, [("timetable", KRE)], "Caveat", 700, 64, t30 + 0.15, 0.30)
+    # Olay 29 (DUZ2 A3): kart 1 etiketi `tarife` (TR, soluk; seste "tarifeye")
+    t29 = s.S(T(36, "tarifeye"))
+    m_lt = "tarife"
+    s.yazi("lt0", LT_X, LT_TABAN, [(m_lt, IKN)], "Caveat", 700, 64, t29, 0.25, tur="tik", guc=0.4)
 
     # Olay 31: Tren bağı griye döner + leaves odak (sarı)
-    t31 = s.S(T(34, "geniş"))
+    t31 = s.S(T(38, "geniş"))
     soldur(s, "ok_trn", "ok_trn_s", t31, 0.25)
     d_klm = Y.el_cizgi(95.0, KLM_Y, K1_TX + w_leaves + 2.0, KLM_Y, 1.0)
     s.yol("klm", d_klm, t31, 0.30, SAR, 10.0, tur="cizgi", guc=0.5)
@@ -881,9 +914,7 @@ def uret() -> tuple[Y.Sahne, dict]:
     # ----------------------------------------------------
     # Altyazı aç/kapa
     # ----------------------------------------------------
-    dilimler = []
-    for t0_alt, t1_alt, m_alt in Y.altyazi_dilimleri([1, 2, 3], gen=900):
-        dilimler.append((t0_alt, t1_alt, cevir_ekran(m_alt)))
+    dilimler = altyazi_dilimleri_k()
 
     acik0: list[int] = []  # 0'da açık dilim: GSAP seek(0) 0. sn set'ini uygulamaz -> baştan görünür yazılır
     for i, (t0_alt, t1_alt, _) in enumerate(dilimler):
@@ -900,7 +931,18 @@ def uret() -> tuple[Y.Sahne, dict]:
             if t_kapa < Z["sure"]:
                 s.set(f"#alt{i}", t_kapa, {"opacity": 0})
 
-    alt_svg = altyazi_v2_svg([{"id": f"alt{i}", "metin": m} for i, (_, _, m) in enumerate(dilimler)])
+    # Karaoke (DUZ2 A5; sahne 03 düzeni): söylenmemiş sözcük ikincil, sözcük t0'ında mürekkep. 0'da açık dilim
+    # sahne 01'in devamıdır (sahne 01 karaokesiz, mürekkep): kesmede renk sıçramasın diye baştan mürekkep.
+    for i, (_, _, sozler) in enumerate(dilimler):
+        for k, (_, w_t0) in enumerate(sozler):
+            t_k = s.S(w_t0)
+            if i not in acik0 and t_k > 0:
+                s.set(f"#alt{i}w{k}", t_k, {"attr": {"fill": KRE}})
+    alt_svg = altyazi_v2_svg([
+        {"id": f"alt{i}", "sozler": [w for w, _ in sozler],
+         "renk": [KRE if (i in acik0 or s.S(t) <= 0) else IKN for _, t in sozler]}
+        for i, (_, _, sozler) in enumerate(dilimler)
+    ])
     for i in acik0:
         assert f'<g id="alt{i}" style="opacity:0">' in alt_svg, "altyazı biçimi değişti"
         alt_svg = alt_svg.replace(f'<g id="alt{i}" style="opacity:0">', f'<g id="alt{i}">', 1)
@@ -948,9 +990,9 @@ def uret() -> tuple[Y.Sahne, dict]:
     bas_sag = BTX + 195.0 * BS0
     assert bas_sag < BAL_TX, f"baş sağ ucu balon kuyruğuna taştı: {bas_sag} >= {BAL_TX}"
 
-    # 5. person -> plan ve train -> timetable sağ ucu <= 760; öğretmen sağ ucu <= 290, altı <= 1380.
-    assert xa + 72.0 + g_c700("plan") <= 760.0, "person -> plan sağ ucu taştı"
-    assert xb + 72.0 + g_c700("timetable") <= 760.0, "train -> timetable sağ ucu taştı"
+    # 5. kesin düzenleme ve tarife etiketi sağ ucu <= 760; öğretmen sağ ucu <= 290, altı <= 1380.
+    assert LP_X + g_c700(m_lp) <= 760.0, "kesin düzenleme etiketi sağ ucu taştı"
+    assert LT_X + g_c700(m_lt) <= 760.0, "tarife etiketi sağ ucu taştı"
     assert tx_fig + x1 * fs <= 290.0, f"öğretmen sağ ucu taştı: {tx_fig + x1 * fs} > 290.0"
     assert ty_fig + y1 * fs <= 1380.0, f"öğretmen altı taştı: {ty_fig + y1 * fs} > 1380.0"
 

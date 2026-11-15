@@ -1,5 +1,5 @@
 #!/bin/bash
-# Sahne 01 kapak (02-04 YDT temel S3 Shorts "TARİFE ≠ PLAN", HyperFrames DİKEY 1080x1920, 102 kare): üret -> olaylar
+# Sahne 01 kapak (02-04 YDT temel S3 Shorts "TARİFE ≠ DÜZENLEME", HyperFrames DİKEY 1080x1920, 102 kare): üret -> olaylar
 # -> tema -> [önizleme burada biter] -> render -> video.mp4 + kontrol.png + k/*.png (huni v2; kapak A ayrı yoldan,
 # aşağıdaki nota bak). Kalıp: 02-04-ydt-temel-s1 sahne 01 calistir.sh.
 # Tema: --tema acik|koyu (varsayılan acik, K19). Önizleme hazırlığı: ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu]

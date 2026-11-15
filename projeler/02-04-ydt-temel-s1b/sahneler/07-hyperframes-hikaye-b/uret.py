@@ -50,10 +50,12 @@ BOY_ETIKET = 48  # küçük etiket (Caveat 700; hikâye A kart etiketiyle aynı 
 DOGRU_SATIR = ("I am living with", "my uncle.")
 YANLIS_SATIR = ("I live with", "my uncle.")
 KART_X = 100.0                      # kart içi yazı x
-KART_B1, KART_B2 = 742, 822         # iki satırın tabanı (kart ve soluk şık)
+KART_B1, KART_B2 = 714, 794         # iki satırın tabanı (kart ve soluk şık)
 KART_SAG = float(int(KART_X + max(Y.genislik("Fredoka", 700, s, BOY_KART) for s in DOGRU_SATIR) + 40.0) + 1)
 YANLIS_X = KART_SAG + 28.0          # soluk şık x (kart dış kenarından 28 px)
-ETIKET_B = 914                      # etiket satırı tabanı (iki etiket aynı satırda)
+ETIKET_B = 880                      # etiket satırı tabanı (iki etiket aynı satırda)
+OZET_SATIR = ("Live, work fiillerinde:", "kalıcıysa geniş zaman,", "geçiciyse şimdiki zaman.")
+OZET_B = (959, 1039, 1119)          # özet tabanları (DUZ2: 3 satır, aralık 80; alt kenar ≤ 1140)
 # Tabler Icons "arrow-right" (MIT), 24x24; yol kutusu x 5-19, y 6-18. Yazı tiplerinde U+2192 yok, ok çizilir.
 OK_D = "M5 12l14 0M13 18l6 -6M13 6l6 6"
 OK_OLCEK = 2.0
@@ -64,9 +66,9 @@ def tr_svg() -> str:
     """Türkçe cümle grubu SVG çıktısı."""
     return (
         f'<g id="tr">'
-        f'<text id="tr1" x="60" y="538" font-family="Fredoka" font-weight="700" '
+        f'<text id="tr1" x="60" y="517" font-family="Fredoka" font-weight="700" '
         f'font-size="{BOY_TR}" fill="{R["murekkep"]}" xml:space="preserve">Şimdilik amcamla</text>'
-        f'<text id="tr2" x="60" y="622" font-family="Fredoka" font-weight="700" '
+        f'<text id="tr2" x="60" y="601" font-family="Fredoka" font-weight="700" '
         f'font-size="{BOY_TR}" fill="{R["murekkep"]}" xml:space="preserve">yaşıyorum.</text>'
         f'</g>'
     )
@@ -75,7 +77,7 @@ def tr_svg() -> str:
 def dogru_svg() -> str:
     """Doğru şık kartı grubu SVG çıktısı."""
     crv = (
-        f'<rect id="dogru-crv" x="63" y="667" width="{KART_SAG - 66.0:.0f}" height="194" rx="28" '
+        f'<rect id="dogru-crv" x="63" y="639" width="{KART_SAG - 66.0:.0f}" height="194" rx="28" '
         f'fill="none" stroke="{YESIL}" stroke-width="6"/>'
     )
     s1, s2 = (
@@ -85,7 +87,7 @@ def dogru_svg() -> str:
     )
     tik = (
         # 2. satır hizasında, kartın sağında (görünür kutu x KART_SAG-100 .. KART_SAG-40, y 784-824)
-        f'<g id="dogru-tik" transform="translate({KART_SAG - 120.0:.0f} 756) scale(4)" fill="none" stroke="{YESIL}" '
+        f'<g id="dogru-tik" transform="translate({KART_SAG - 120.0:.0f} 728) scale(4)" fill="none" stroke="{YESIL}" '
         f'stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">'
         f'<path d="M5 12l5 5l10 -10"/>'
         f'</g>'
@@ -125,14 +127,13 @@ def etiket_svg() -> str:
 
 def ozet_svg() -> str:
     """Kural özeti grubu SVG çıktısı."""
-    return (
-        f'<g id="ozet">'
-        f'<text id="ozet1" x="60" y="1035" font-family="Fredoka" font-weight="700" '
-        f'font-size="{BOY_OZET}" fill="{R["murekkep"]}" xml:space="preserve">Kalıcıysa geniş zaman,</text>'
-        f'<text id="ozet2" x="60" y="1117" font-family="Fredoka" font-weight="700" '
-        f'font-size="{BOY_OZET}" fill="{R["murekkep"]}" xml:space="preserve">geçiciyse şimdiki zaman.</text>'
-        f'</g>'
+    # DUZ2 (15.11, J2 A3): kural fiil sınırı taşır; 3 satır (üst bloklar 28 px yukarı alındı)
+    t = "".join(
+        f'<text id="ozet{i}" x="60" y="{b}" font-family="Fredoka" font-weight="700" '
+        f'font-size="{BOY_OZET}" fill="{R["murekkep"]}" xml:space="preserve">{s}</text>'
+        for i, (s, b) in enumerate(zip(OZET_SATIR, OZET_B), 1)
     )
+    return f'<g id="ozet">{t}</g>'
 
 
 def kaydet_svg() -> str:
@@ -165,11 +166,11 @@ def blok_kutulari() -> list[dict[str, float]]:
         Y.genislik("Fredoka", 700, "Şimdilik amcamla", BOY_TR),
         Y.genislik("Fredoka", 700, "yaşıyorum.", BOY_TR),
     )
-    tr_y = 538.0 - 0.75 * BOY_TR
-    tr_h = (622.0 + 0.25 * BOY_TR) - tr_y
+    tr_y = 517.0 - 0.75 * BOY_TR
+    tr_h = (601.0 + 0.25 * BOY_TR) - tr_y
     tr = {"ad": "tr", "x": 60.0, "y": tr_y, "w": w_tr, "h": tr_h}
 
-    dogru = {"ad": "dogru", "x": 60.0, "y": 664.0, "w": KART_SAG - 60.0, "h": 200.0}
+    dogru = {"ad": "dogru", "x": 60.0, "y": 636.0, "w": KART_SAG - 60.0, "h": 200.0}
 
     w_yanlis = max(Y.genislik("Fredoka", 700, s, BOY_YANLIS) for s in YANLIS_SATIR)
     yanlis_y = KART_B1 - 0.75 * BOY_YANLIS
@@ -183,12 +184,9 @@ def blok_kutulari() -> list[dict[str, float]]:
     yanlis_et = {"ad": "yanlis-etiket", "x": YANLIS_X, "y": et_y,
                  "w": Y.genislik("Caveat", 700, "kalıcıysa", BOY_ETIKET), "h": et_h}
 
-    w_ozet = max(
-        Y.genislik("Fredoka", 700, "Kalıcıysa geniş zaman,", BOY_OZET),
-        Y.genislik("Fredoka", 700, "geçiciyse şimdiki zaman.", BOY_OZET),
-    )
-    ozet_y = 1035.0 - 0.75 * BOY_OZET
-    ozet_h = (1117.0 + 0.25 * BOY_OZET) - ozet_y
+    w_ozet = max(Y.genislik("Fredoka", 700, s, BOY_OZET) for s in OZET_SATIR)
+    ozet_y = OZET_B[0] - 0.75 * BOY_OZET
+    ozet_h = (OZET_B[-1] + 0.25 * BOY_OZET) - ozet_y
     ozet = {"ad": "ozet", "x": 60.0, "y": ozet_y, "w": w_ozet, "h": ozet_h}
 
     hap_w = Y.genislik("Fredoka", 700, "Kaydet", BOY_KAYDET) + 80.0
@@ -264,8 +262,7 @@ def kurallari_dogrula(bloklar: list[dict[str, float]], html: str) -> None:
         "şimdilik",
         "geçici",
         "kalıcıysa",
-        "Kalıcıysa geniş zaman,",
-        "geçiciyse şimdiki zaman.",
+        *OZET_SATIR,
         "Kaydet",
     ]
     for s in satirlar:

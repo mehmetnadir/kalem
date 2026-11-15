@@ -1,0 +1,6 @@
+$ node araclar/cakisma-kapisi.mjs simple-present-temel-s3b --port 41333 --sunucu 41022 --json projeler/simple-present-temel-s3b/uretim-tutanagi/kapi-duz2.json
+01-hyperframes-kanca | çakışma yok (14 örnek, 781 kutu)
+02-paperjs-deger | çakışma yok (46 örnek, 827 kutu)
+03-hyperframes-kaydet | çakışma yok (22 örnek, 3125 kutu)
+04-hyperframes-cagri | çakışma yok (29 örnek, 4974 kutu)
+çıkış kodu: 0

@@ -131,7 +131,7 @@ def uret():
     s.to("#ku-ajA", tx, {"opacity": 0, "duration": 0.2})
     s.to("#ku-ajB", tx, {"opacity": 1, "duration": 0.2})
     # balon + baş köşeye toplanır
-    s.to("#balg", S(61.25), {"svgOrigin": "90 150", "scale": 0.62, "opacity": 0.85, "duration": 0.7,
+    s.to("#balg", S(T(7, 1)) - 0.35, {"svgOrigin": "90 150", "scale": 0.62, "opacity": 0.85, "duration": 0.7,
                              "ease": "power3.inOut"})
 
     # ---------------- sol sütun: durum fiilleri listesi (61,60–66,04) ----------------
@@ -149,10 +149,10 @@ def uret():
     tw_ = Y.genislik("Caveat", 700, "durum fiili", 60)
     s.yazi("dtext", kx + (kw - tw_) / 2, ky + 66, [("durum fiili", KRE)], "Caveat", 700, 60, tdf + 0.25, 0.45)
     ing_x, ing_y, ing_f = kx + 10, 850.0, 130
-    tg = S(T(7, 7))
+    tg = S(T(7, 9))
     s.yazi("ing", ing_x, ing_y, [("-ing", SAR)], "Fredoka", 700, ing_f, tg, 0.3, tur="tik", guc=0.6)
     iw = Y.genislik("Fredoka", 700, "-ing", ing_f)
-    ta = S(T(7, 8))
+    ta = S(T(7, 10))
     s.yol("ikx1", "M%.1f %.1f Q%.1f %.1f %.1f %.1f" % (ing_x - 14, ing_y - 96, ing_x + iw / 2, ing_y - 40,
                                                       ing_x + iw + 14, ing_y + 12), ta, 0.28, KRE, 9, 1, "cizgi", 0.7)
     s.yol("ikx2", "M%.1f %.1f Q%.1f %.1f %.1f %.1f" % (ing_x + iw + 14, ing_y - 96, ing_x + iw / 2, ing_y - 46,
@@ -163,87 +163,98 @@ def uret():
     # ---------------- sağ sütun ----------------
     RX = 960.0
     # R1: I know the answer. (66,81–68,33)
-    yer = kelimeler(s, "ik", RX, 215, (9, 10, 11, 12), 7, "Fredoka", 700, 72)
-    s.yol("kh", el_daire(yer[1][0] + yer[1][1] / 2, 215 - 26, yer[1][1] / 2 + 9, 52, 2.0), S(T(7, 10)), 0.4, SAR,
+    yer = kelimeler(s, "ik", RX, 215, (11, 12, 13, 14), 7, "Fredoka", 700, 72)
+    s.yol("kh", el_daire(yer[1][0] + yer[1][1] / 2, 215 - 26, yer[1][1] / 2 + 9, 52, 2.0), S(T(7, 12)), 0.4, SAR,
           7, 0.85, "parilti", 0.5)
     # R2: köprü (68,58–73,14)
     A_Y, B_Y, C_Y = 330, 420, 520
-    ta = S(T(7, 14))
+    ta = S(T(7, 16))
     ax, aw = s.yazi("br", RX, A_Y, [("bili", KRE), ("yor", SAR), ("-um", KRE)], "Caveat", 700, 64, ta, 0.5)
-    s.yol("brok", el_ok(ax + aw + 40, A_Y - 22, ax + aw + 190, A_Y - 22), S(T1(7, 15)), 0.3, SAR, 7, 0.9, "cizgi", 0.5)
+    s.yol("brok", el_ok(ax + aw + 40, A_Y - 22, ax + aw + 190, A_Y - 22), S(T1(7, 17)), 0.3, SAR, 7, 0.9, "cizgi", 0.5)
     ix = ax + aw + 214
-    s.yazi("brik", ix, A_Y, [("I know", KRE)], "Fredoka", 700, 64, S(T(7, 16)), 0.3, tur="tik")
-    s.yol("brk", el_daire(ix + Y.genislik("Fredoka", 700, "I know", 64) / 2, A_Y - 22, 112, 50, 1.4), S(T(7, 16)) + 0.3,
+    s.yazi("brik", ix, A_Y, [("I know", KRE)], "Fredoka", 700, 64, S(T(7, 18)), 0.3, tur="tik")
+    s.yol("brk", el_daire(ix + Y.genislik("Fredoka", 700, "I know", 64) / 2, A_Y - 22, 112, 50, 1.4), S(T(7, 18)) + 0.3,
           0.4, SAR, 6, 0.85, "parilti", 0.5)
     pa = [("Türkçede ", KRE), ("-yor", SAR), (" var,", KRE)]
     pb = [(" İngilizcede ", KRE), ("-ing", SAR), (" yok", KRE)]
-    nx, nw = s.yazi("nota", RX, B_Y, pa, "Caveat", 700, 52, S(T(7, 15)), 0.5, tur="tik")
-    s.yazi("notb", nx + nw, B_Y, pb, "Caveat", 700, 52, S(T(7, 17)), 0.7, tur="tik")
+    nx, nw = s.yazi("nota", RX, B_Y, pa, "Caveat", 700, 52, S(T(7, 17)), 0.5, tur="tik")
+    s.yazi("notb", nx + nw, B_Y, pb, "Caveat", 700, 52, S(T(7, 19)), 0.7, tur="tik")
     kxx = RX
-    s.yazi("kn1", kxx, C_Y, [("know", KRE)], "Fredoka", 700, 64, S(T(7, 17)) + 0.2, 0.25, tur="tik")
+    s.yazi("kn1", kxx, C_Y, [("know", KRE)], "Fredoka", 700, 64, S(T(7, 19)) + 0.2, 0.25, tur="tik")
     kw1 = Y.genislik("Fredoka", 700, "know", 64)
-    s.yazi("kn2", kxx + kw1, C_Y, [("-ing", SAR)], "Fredoka", 700, 64, S(T(7, 18)), 0.25, tur="tik")
+    s.yazi("kn2", kxx + kw1, C_Y, [("-ing", SAR)], "Fredoka", 700, 64, S(T(7, 20)), 0.25, tur="tik")
     kw2 = Y.genislik("Fredoka", 700, "-ing", 64)
-    s.yol("kst", el_cizgi_(kxx - 10, C_Y - 22, kxx + kw1 + kw2 + 12, C_Y - 24), S(T(7, 19)), 0.35, KRE, 8, 1,
+    s.yol("kst", el_cizgi_(kxx - 10, C_Y - 22, kxx + kw1 + kw2 + 12, C_Y - 24), S(T(7, 21)), 0.35, KRE, 8, 1,
           "cizgi", 0.65)
     # R3: He is always losing his keys. (73,39–75,87)
-    h1 = kelimeler(s, "he", RX, 650, (20, 21, 22), 7, "Fredoka", 700, 60)
-    h2 = kelimeler(s, "hf", RX, 722, (23, 24, 25), 7, "Fredoka", 700, 60)
-    s.yol("alw", el_cizgi_(h1[2][0] - 4, 650 + 16, h1[2][0] + h1[2][1] + 4, 650 + 14), S(T(7, 22)) + 0.1, 0.35, SAR,
+    h1 = kelimeler(s, "he", RX, 650, (22, 23, 24), 7, "Fredoka", 700, 60)
+    h2 = kelimeler(s, "hf", RX, 722, (25, 26, 27), 7, "Fredoka", 700, 60)
+    s.yol("alw", el_cizgi_(h1[2][0] - 4, 650 + 16, h1[2][0] + h1[2][1] + 4, 650 + 14), S(T(7, 24)) + 0.1, 0.35, SAR,
           8, 0.9, "cizgi", 0.5)
-    s.yol("los", el_daire(h2[0][0] + h2[0][1] / 2, 722 - 22, h2[0][1] / 2 + 22, 46, 0.8), S(T(7, 23)), 0.35, SAR, 6,
+    s.yol("los", el_daire(h2[0][0] + h2[0][1] / 2, 722 - 22, h2[0][1] / 2 + 22, 46, 0.8), S(T(7, 25)), 0.35, SAR, 6,
           0.85, "parilti", 0.5)
-    s.figur("standing-5", "kz", 1640, 540, 440, S(T(7, 20)) + 0.05, S(T(7, 20)) + 1.6, 3.4)
-    tun = S(T1(7, 25)) - 0.55
+    s.figur("standing-5", "kz", 1640, 540, 440, S(T(7, 22)) + 0.05, S(T(7, 22)) + 1.6, 3.4)
+    tun = S(T1(7, 27)) - 0.55
     s.yol("un1", "M1604 582 Q1598 612 1600 640", tun, 0.25, KRE, 9, 1, "cizgi", 0.6)
     s.yol("un2", "M1600 662 L1601 664", tun + 0.22, 0.08, KRE, 11, 1, "cizgi", 0.5)
     for k, (dx, dy, ex, ey) in enumerate(((1632, 570, 1618, 552), (1636, 604, 1616, 604), (1632, 636, 1618, 654))):
         s.yol("un%d" % (3 + k), "M%d %d L%d %d" % (dx, dy, ex, ey), tun + 0.3 + 0.05 * k, 0.15, SAR, 5, 0.9,
               "cizgi", 0.4)
-    # R4: always + V-ing = şikâyet (76,12–79,92)
+    # R4 (16.11 DUZ3): always + V-ing: çoğu zaman şikâyet — eski "= şikâyet" mutlaktı (She is always
+    # helping). Caveat 52: 624 px, figür (x ≥ 1640) öncesinde biter.
     Q_Y = 830
     qx = RX
-    parc = [("always", KRE, 76.12), (" + ", IKN, T(7, 27)), ("V", KRE, T(7, 28)), ("-ing", SAR, T(7, 28)),
-            (" = ", IKN, T(7, 29) - 0.3), ("şikâyet", KRE, T(7, 29))]
+    parc = [("always", KRE, T(7, 28)), (" + ", IKN, T(7, 29)), ("V", KRE, T(7, 30)), ("-ing", SAR, T(7, 30)),
+            (": ", IKN, T(7, 31) - 0.2), ("çoğu zaman ", KRE, T(7, 31)), ("şikâyet", KRE, T(7, 33))]
     for n, (m, f, t) in enumerate(parc):
-        w = Y.genislik("Caveat", 700, m, 60)
-        s.yazi("al%d" % n, qx, Q_Y, [(m, f)], "Caveat", 700, 60, S(t), 0.3, tur="tik" if n in (0, 5) else None)
-        if n == 5:
+        w = Y.genislik("Caveat", 700, m, 52)
+        s.yazi("al%d" % n, qx, Q_Y, [(m, f)], "Caveat", 700, 52, S(t), 0.3, tur="tik" if n in (0, 6) else None)
+        if n == 6:
             s.yol("alu", el_cizgi_(qx - 4, Q_Y + 16, qx + w + 6, Q_Y + 12), S(t) + 0.25, 0.4, KRE, 6, 1, "cizgi", 0.5)
         qx += w
     # Sınavda ikisi de çıkar (78,96): iki küçük kutu
-    for n, (txt, ww, tt, yy) in enumerate((("know / believe / own / belong", 590, T(7, 30), 872),
-                                           ("always + V-ing", 340, T(7, 31), 946))):
+    for n, (txt, ww, tt, yy) in enumerate((("know / believe / own / belong", 590, T(7, 35), 872),
+                                           ("always + V-ing", 340, T(7, 36), 946))):
         s.yol("sk%d" % n, el_kutu_(RX, yy, ww, 62), S(tt), 0.35, IKN, 4, 1, "cizgi", 0.5)
         s.yazi("st%d" % n, RX + 24, yy + 44, [(txt, KRE)], "Fredoka", 700, 34, S(tt) + 0.25, 0.4, tur="tik")
-    tc = S(T(7, 33))
+    tc = S(T(7, 38))
     s.yol("sc1", Y.tik_yolu(RX + 620, 876, 44), tc, 0.3, SAR, 8, 0.9, "cizgi", 0.55)
     s.yol("sc2", Y.tik_yolu(RX + 370, 950, 44), tc + 0.2, 0.3, SAR, 8, 0.9, "cizgi", 0.55)
 
-    # ---------------- Kod: olay = -ing / durum ≠ -ing (80,72–83,96) ----------------
-    tk = S(T(7, 34))
+    # ---------------- Kod: olay + -ing ✓ / durum + -ing ✗ genellikle (16.11 DUZ3; 83,55–87,12) ----------------
+    tk = S(T(7, 39))
     s.to("#icerik", tk - 0.5, {"svgOrigin": "90 110", "scale": 0.55, "duration": 0.8, "ease": "power3.inOut"})
     i_kod = len(s.svg)
     s.yazi("kod", 140, 690, [("Kod:", KRE)], "Caveat", 700, 64, tk, 0.4, tur="tik")
     KF, K1, K2 = 150, 840, 990
     ow = Y.genislik("Fredoka", 700, "olay", KF)
-    s.yazi("k1a", 140, K1, [("olay", KRE)], "Fredoka", 700, KF, S(T(7, 35)), 0.35, tur="tik", guc=0.6)
+    s.yazi("k1a", 140, K1, [("olay", KRE)], "Fredoka", 700, KF, S(T(7, 40)), 0.35, tur="tik", guc=0.6)
     ex = 140 + ow + 34
-    te = S(T(7, 35)) + 0.35
-    s.yol("e1", el_cizgi_(ex, K1 - 84, ex + 92, K1 - 86, 1), te, 0.2, KRE, 11, 1, "cizgi", 0.6)
-    s.yol("e2", el_cizgi_(ex + 2, K1 - 44, ex + 94, K1 - 46, -1), te + 0.2, 0.2, KRE, 11, 1, "cizgi", 0.6)
-    s.yazi("k1b", ex + 126, K1, [("-ing", SAR)], "Fredoka", 700, KF, S(T(7, 36)), 0.35, tur="tik", guc=0.6)
+    te = S(T(7, 40)) + 0.35
+    # 16.11 DUZ3: "olay -ing alabilir" -> olay + -ing ✓ (eski "olay = -ing" mutlaktı)
+    s.yol("e1", el_cizgi_(ex + 4, K1 - 60, ex + 88, K1 - 62, 1), te, 0.2, KRE, 11, 1, "cizgi", 0.6)
+    s.yol("e2", "M%.1f %.1f L%.1f %.1f" % (ex + 46, K1 - 104, ex + 45, K1 - 18), te + 0.2, 0.2, KRE, 11, 1,
+          "cizgi", 0.6)
+    s.yazi("k1b", ex + 126, K1, [("-ing", SAR)], "Fredoka", 700, KF, S(T(7, 41)), 0.35, tur="tik", guc=0.6)
+    iw_ = Y.genislik("Fredoka", 700, "-ing", KF)
+    s.yol("k1t", Y.tik_yolu(ex + 126 + iw_ + 40, K1 - 64, 56), S(T(7, 42)), 0.3, SAR, 9, 0.9, "cizgi", 0.55)
     dw = Y.genislik("Fredoka", 700, "durum", KF)
-    s.yazi("k2a", 140, K2, [("durum", KRE)], "Fredoka", 700, KF, S(T(7, 38)), 0.35, tur="tik", guc=0.6)
+    s.yazi("k2a", 140, K2, [("durum", KRE)], "Fredoka", 700, KF, S(T(7, 43)), 0.35, tur="tik", guc=0.6)
     nx2 = 140 + dw + 34
-    tn = S(T(7, 39))
-    s.yol("n1", el_cizgi_(nx2, K2 - 84, nx2 + 92, K2 - 86, 1), tn, 0.2, KRE, 11, 1, "cizgi", 0.6)
-    s.yol("n2", el_cizgi_(nx2 + 2, K2 - 44, nx2 + 94, K2 - 46, -1), tn + 0.2, 0.2, KRE, 11, 1, "cizgi", 0.6)
-    s.yol("n3", "M%.1f %.1f L%.1f %.1f" % (nx2 + 72, K2 - 118, nx2 + 22, K2 + 6), tn + 0.4, 0.2, KRE, 11, 1, "cizgi",
+    # "durum genellikle almaz" -> durum + -ing ✗ genellikle (eski "durum ≠ -ing" mutlaktı)
+    tp = S(T(7, 43)) + 0.35
+    s.yol("n1", el_cizgi_(nx2 + 4, K2 - 60, nx2 + 88, K2 - 62, 1), tp, 0.2, KRE, 11, 1, "cizgi", 0.6)
+    s.yol("n2", "M%.1f %.1f L%.1f %.1f" % (nx2 + 46, K2 - 104, nx2 + 45, K2 - 18), tp + 0.2, 0.2, KRE, 11, 1,
+          "cizgi", 0.6)
+    s.yazi("k2b", nx2 + 126, K2, [("-ing", SAR)], "Fredoka", 700, KF, tp + 0.2, 0.3, tur="tik", guc=0.6)
+    cx_ = nx2 + 126 + iw_ + 36
+    s.yazi("k2g", cx_ + 112, K2 - 40, [("genellikle", IKN)], "Caveat", 700, 56, S(T(7, 44)), 0.4, tur="tik")
+    tn = S(T(7, 45))
+    s.yol("n3", "M%.1f %.1f L%.1f %.1f" % (cx_, K2 - 104, cx_ + 78, K2 - 26), tn, 0.2, KRE, 11, 1, "cizgi", 0.7)
+    s.yol("n4", "M%.1f %.1f L%.1f %.1f" % (cx_ + 78, K2 - 104, cx_, K2 - 26), tn + 0.2, 0.2, KRE, 11, 1, "cizgi",
           0.7)
-    s.yazi("k2b", nx2 + 126, K2, [("-ing", SAR)], "Fredoka", 700, KF, tn + 0.55, 0.3, tur="tik", guc=0.6)
     # formül kartı el kutusunda toplanır (83,96)
-    tf = S(T1(7, 39))
+    tf = S(T1(7, 45))
     CX, CY, CW, CH = 1180, 716, 650, 120
     s.yol("kart", el_kutu_(CX, CY, CW, CH), tf, 0.5, KRE, 4.5, 1, "cizgi", 0.7)
     parc = [("am / is / are", KRE), ("  +  ", IKN), ("V", KRE), ("-ing", SAR)]

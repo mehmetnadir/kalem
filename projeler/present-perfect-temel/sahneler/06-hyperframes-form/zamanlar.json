@@ -1,11 +1,12 @@
 {
-  "fps": 30, "kare": 860, "sure": 28.667, "t_bas": 67.19,
-  "balon_kelime": [["Hocam,", 67.74], ["üçünde", 68.54], ["de", 69.02], ["have", 69.14], ["var.", 69.58],
-                   ["Neden", 70.06], ["hep", 70.38], ["üçüncü", 70.62], ["hâl?", 71.06]],
-  "fiil_v3": [68.6, 69.4, 70.2],
-  "form": 72.13, "v3": 72.93, "bitti": 73.49, "etkisi": 74.61,
-  "have_satir": 76.52, "has_satir": 77.56, "simdiyi": 78.28,
-  "tablo": 81.63, "satir1": 82.0, "satir2": 84.6, "satir3": 86.4,
-  "kod": 88.98, "k_have": 89.86, "k_arti": 90.34, "k_v3": 90.74,
-  "k_gecmis": 91.86, "k_ok": 92.3, "k_etki": 92.82, "sonraki": 93.3, "bitis_icerik": 94.86
+  "fps": 30, "kare": 939, "sure": 31.3, "t_bas": 68.23,
+  "balon_kelime": [["Hocam,", 68.78], ["üçünde", 69.58], ["de", 70.06], ["have", 70.18], ["var.", 70.62],
+                   ["Neden", 71.10], ["hep", 71.42], ["üçüncü", 71.66], ["hâl?", 72.10]],
+  "fiil_v3": [69.64, 70.44, 71.24],
+  "form": 73.17, "v3": 73.73, "gecmis": 74.37, "simdiye": 74.85,
+  "have_satir": 76.20, "has_satir": 77.32, "simdiyi": 78.16,
+  "tablo": 81.15, "satir1": 81.45, "sure_": 81.71, "since": 82.67, "baslangic": 83.15,
+  "satir2": 86.18, "ever": 87.14, "deneyim": 87.46, "satir3": 88.42, "az_once": 88.98, "already": 90.34, "coktan": 91.02,
+  "kod": 93.05, "k_have": 93.89, "k_arti": 94.41, "k_v3": 94.81,
+  "k_gecmis": 95.93, "k_etki": 96.49, "k_ok": 96.97, "sonraki": 97.3, "bitis_icerik": 98.53
 }

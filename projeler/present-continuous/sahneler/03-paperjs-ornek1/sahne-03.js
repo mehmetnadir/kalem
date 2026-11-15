@@ -1,7 +1,7 @@
 // Sahne 03 — Örnek 1 (453 kare, t_bas 21,44; cümle 3). Zamanlar BRIEF §4; yerel kare = round((t − 21,44) × 30).
 import { sahneKur, RT, renkCoz } from "/projeler/present-continuous/sahneler/02-paperjs-kanca/kalem-paper.js";
 
-export const KARE = 453, T_BAS = 21.44, KAYMA = 6.0;   // T_BAS: eski çerçeve; zaman.json t_bas 15,44
+export const KARE = 453, T_BAS = 21.44, KAYMA = 4.96;   // T_BAS: eski çerçeve; zaman.json t_bas 16,48 (16.11 DUZ3: cümle 2 +1,04 sn → kayma 6,00 − 1,04)
 export const FIGUR_AYNA = false;                                   // sitting-4 yönü: kameraya bakması için
 
 export async function kur(P) {

@@ -1,4 +1,7 @@
-"""Sahne 12 Ara özet DİKEY (02-04 YDT temel, HyperFrames, 1080x1920, 463 kare; cümle 14).
+"""Sahne 12 Ara özet DİKEY (02-04 YDT temel, HyperFrames, 1080x1920, 497 kare; cümle 14).
+16.11 DUZ3: cümle 14 «Zaman sözcüğü ipucu verir. Türkçe ek yanıltabilir.»; blok 3 satır a «time word → clue»,
+satır b «-yor → trap» (eski «Turkish -yor → clue» dersin tuzak bölümüyle çelişiyordu); «MEANING → decision»
+satırı kalktı, aynı iddiayı alttaki MEANING FIRST taşır.
 SPEC: projeler/02-04-ydt-temel-dikey/sahneler/12-hyperframes-ozet/SPEC.md
 Yerleşim: HUD 0-320, içerik 352-1392, altyazı 1400-1536, platform 1536-1920 BOŞ."""
 import json
@@ -314,7 +317,7 @@ def uret():
     w2b = hap("h2", IX + AU + BO, yc_b2, "am / is / are + V-ing", ts + 0.14, d=0.50)
     kayit("kalem oku + hap am / is / are + V-ing", ts, "şimdiki (17)")
 
-    # ---- Blok 3: time word · Turkish -yor -> clue · MEANING -> decision ----
+    # ---- Blok 3: time word -> clue / -yor -> trap (16.11 DUZ3) ----
     y0_b3, h_b3 = BLOK[2]
     tw = T(19, "Zaman")
     s.yol("kf2", Y.el_kutu(KX, y0_b3, KW, h_b3), L(tw - 0.30), 0.45, IKN, u(4), 0.85, "cizgi", 0.45)
@@ -330,16 +333,21 @@ def uret():
     belirtec("b3a", IX, xe3_a, ya_b3, tw + 0.10)
     kayit("time word + belirteç", tw, "Zaman (19)")
 
-    tr = T(22, "Türkçe")
-    x3_b = xe3_a + sp
-    xe3_b = parca("m3b", x3_b, ya_b3, "· Turkish -yor", tr, d=0.45)
-    belirtec("b3b", x3_b + dot, xe3_b, ya_b3, tr + 0.10)
-    kayit("· Turkish -yor + belirteç", tr, "Türkçe (22)")
+    ti = T(21, "ipucu")
+    ok("o3", xe3_a + BO, ya_b3, ti, d=0.25)
+    w3a = hap("h3", xe3_a + BO + AU + BO, ya_b3, "clue", ti + 0.12, d=0.30)
+    kayit("kalem oku + hap clue", ti, "ipucu (21)")
 
-    ti = T(24, "ipucu")
-    ok("o3", xe3_b + BO, ya_b3, ti, d=0.25)
-    w3a = hap("h3", xe3_b + BO + AU + BO, ya_b3, "clue", ti + 0.12, d=0.30)
-    kayit("kalem oku + hap clue", ti, "ipucu (24)")
+    yb_b3 = y0_b3 + R3B
+    tr = T(23, "Türkçe")
+    xe3_b = parca("m3b", IX, yb_b3, "-yor", tr, d=0.35)
+    belirtec("b3b", IX, xe3_b, yb_b3, tr + 0.10)
+    kayit("-yor + belirteç", tr, "Türkçe (23)")
+
+    ty = T(25, "yanıltabilir")
+    ok("o4", xe3_b + BO, yb_b3, ty, d=0.25)
+    w3b = hap("h4", xe3_b + BO + AU + BO, yb_b3, "trap", ty + 0.12, d=0.30)
+    kayit("kalem oku + hap trap", ty, "yanıltabilir (25)")
 
     # ---- Alt: MEANING FIRST + sarı belirteç ----
     tkr = T(26, "Kararı")
@@ -355,14 +363,7 @@ def uret():
           MF_BEL_W, 0.85, "cizgi", 0.5)
     kayit("MEANING FIRST belirteci", t_bmf, "anlam (27)")
 
-    yb_b3 = y0_b3 + R3B
-    xe3_c = parca("m3c", IX, yb_b3, "MEANING", ta, d=0.35)
-    kayit("MEANING (blok 3 satır b)", ta, "anlam (27)")
-
     tv = T(28, "verir")
-    ok("o4", xe3_c + BO, yb_b3, tv, d=0.25)
-    w3b = hap("h4", xe3_c + BO + AU + BO, yb_b3, "decision", tv + 0.10, d=0.30)
-    kayit("kalem oku + hap decision", tv, "verir. (28)")
 
     # ---- Geçiş çizgisi ----
     t_gc = tv + 0.02
@@ -385,8 +386,7 @@ def uret():
     metinler = [
         "general · permanent ·", "timetable", "V1 / V-s",
         "right now · temporary ·", "arrangement", "am / is / are + V-ing",
-        "time word · Turkish -yor",
-        "time word", "· Turkish -yor", "clue", "MEANING", "decision", "MEANING FIRST"
+        "time word", "clue", "-yor", "trap", "MEANING FIRST"
     ]
     for m in metinler:
         assert len(m) <= 24, "metin 24 karakteri aştı: %r" % m
@@ -403,7 +403,7 @@ def uret():
     h2_ust = yc_b2 - TF * 0.80
     assert h2_ust - (y0_b2 + IKON_UST + IKON_BOY) >= u(10), "blok 2 hap ikon hücresine yakın"
 
-    # 5. blok 3 satır b hap rect üstü − satır a belirteç alt kenarı >= u(10)
+    # 5. blok 3 satır b hap rect üstü − satır a belirteç alt kenarı >= u(10) (satır b hap = trap)
     b3a_alt = ya_b3 + BEL_DY + BEL_W / 2
     h4_ust = yb_b3 - TF * 0.80
     assert h4_ust - b3a_alt >= u(10), "blok 3 hap satır a belirtecine yakın"

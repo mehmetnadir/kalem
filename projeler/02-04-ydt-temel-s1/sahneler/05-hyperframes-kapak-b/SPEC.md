@@ -10,7 +10,7 @@ v1 SPEC yedeği: `~/Silinecekler/2026-11-15-huni-v2/02-04-ydt-temel-s1/sahneler/
 | Öğe | v1 | v2 |
 |---|---|---|
 | Üst bant | logo 48–144, rozet 216–288 | 0–280 BOŞ; kanal katmanı 280–350; künye 360–450 |
-| Künye | yalnız rozet `YDT · BASIC` (36 px) | konu `Simple Present vs Present Continuous` + rozet (yardim.py `kunye_svg()`) |
+| Künye | yalnız rozet `YDT · TEMEL` (36 px) | konu `Simple Present vs Present Continuous` + rozet (yardim.py `kunye_svg()`) |
 | Görsel | doodle öğretmen figürü + zemin çizgisi | `P/ortak/kapak/karakter.png` + 10 px krem çıkartma kenarı; zemin çizgisi YOK |
 | Başlık | 952 px'e sığan boy, orta x 540 | 888 px'e sığan boy, orta x 510 (içerik bandı 60–960) |
 | Balon | x 360–1032 (sağ 960–1080 doluydu) | x `bx0`–960, yükseklik 140 |
@@ -60,7 +60,7 @@ Kaynak: `K/projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/yardim.py` 
 y    0 ┌──────────────────────────────────────────────┐
        │                (boş zemin)                    │ 0–280
    291 │ [logo 193,5×48] @ydspublishing                │ kanal 280–350 (Y.kunye_svg)
-   420 │ Simple Present vs Present Continuous (YDT·BASIC)│ künye 360–450
+   420 │ Simple Present vs Present Continuous (YDT·TEMEL)│ künye 360–450
    480 │       YAŞI[YOR]UM                             │ başlık, orta x 510
    ≈781│      NASIL DENİR?                             │ (S ≈ 142)
    864 │ ┌karakter┐   o  ┌─[ev]  I live? ──────────┐    │ bl1 864–1004

@@ -1,0 +1,53 @@
+[
+ {
+  "dil": "tr",
+  "metin": "Çünkü özne üçüncü tekil kişi:",
+  "duyulan": "Çünkü özne üçüncü tekil kişi.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "he, she, it.",
+  "duyulan": "He, she, it.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Fiile s gelir. I, you, we, they ile gelmez.",
+  "ses_metni": "Fiile s gelir. /aɪ/, /juː/, /wiː/, /ðeɪ/ ile gelmez.",
+  "duyulan": "Fiile s gelir. I, you, we, they ile gelmez.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Olumsuzda ve soruda does girer, s ona geçer.",
+  "ses_metni": "Olumsuzda ve, soruda /dʌz/ girer, s ona geçer.",
+  "duyulan": "Olumsuzda ve soruda döz girer, S 10'a geçer.",
+  "benzerlik": 0.96,
+  "tohum": 0
+ },
+ {
+  "dil": "en",
+  "metin": "He does not go. Does he go?",
+  "duyulan": "He does not go. Does he go?",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Türkçede geniş zaman eki her kişide gelir, İngilizcede s yalnız üçüncü tekil kişide.",
+  "duyulan": "Türkçe'de geniş zaman eki her kişide gelir. İngilizce'de S yalnız üçüncü tekil kişide.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Kod: always, usually, every day, Simple Present.",
+  "duyulan": "COD. Always. Usually. Every day. Simple Present.",
+  "benzerlik": 0.98,
+  "tohum": 0
+ }
+]

@@ -108,7 +108,7 @@
   "satir1": "YAŞIYORUM",
   "satir2": "= İKİ ZAMAN",
   "rozetler": [
-   "YDT · BASIC"
+   "YDT · TEMEL"
   ],
   "sahne": [
    {
@@ -132,7 +132,7 @@
   ]
  },
  "meta": {
-  "kimlik": "02-04-ydt-temel-s1",
+  "kimlik": "02-04-ydt-temel-s1b",
   "kod": "ING-YDT-GR-02-04-T-S1",
   "ders": "İngilizce",
   "konu": "Simple Present ve Present Continuous",

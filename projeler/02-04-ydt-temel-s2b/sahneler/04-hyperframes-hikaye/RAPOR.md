@@ -1,6 +1,6 @@
 # Sahne 04 · Hikâye A v2 — kural kartı (huni v2; HyperFrames, 1080×1920, tek kare, ses yok; zaman çizelgesi dışı)
 
-Tema: koyu
+Tema: acik
 
 Durum: v2 yazıldı. Tek kare iki temada yakalandı. mp4 yok, birleştirme yok. `zaman.json` değişmedi (`hikaye` alanı, `sahneler[]` dışında).
 v1 (SPEC, RAPOR, uret.py, yardim.py, kareler) yedekte: `~/Silinecekler/2026-11-15-huni-v2/02-04-ydt-temel-s2/sahneler/04-hyperframes-hikaye/`

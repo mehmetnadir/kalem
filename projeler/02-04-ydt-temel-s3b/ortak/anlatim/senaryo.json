@@ -1,0 +1,184 @@
+{
+ "ders": "İngilizce",
+ "baslik": "Simple Present ve Present Continuous",
+ "duzen": "konu",
+ "seviye": "temel",
+ "kitle": "YDT",
+ "sesler": {
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
+ },
+ "kadro": {
+  "ogretmen": {
+   "ses": "gsJ9nrlXYbPztJxC4fwc",
+   "cinsiyet": "erkek",
+   "yas": "yetiskin",
+   "govde": "ShirtPantsWB",
+   "yuz": "Smile",
+   "sac": "Short"
+  },
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
+  }
+ },
+ "cumleler": [
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Hata nerede?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Hata nerede?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "en",
+     "The train to Izmir leaves at seven p.m. today."
+    ],
+    [
+     "en",
+     "I am going to the movie theater tonight."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "The train to Izmir leaves at seven p.m. today. I am going to the movie theater tonight."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Hocam, tren de plana göre kalkmıyor mu? Neden -ing yok?"
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Hocam, tren de plana göre kalkmıyor mu? Neden -ing yok?"
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Biletimi aldım, saat belli: kesin düzenleme, şimdiki zaman."
+    ],
+    [
+     "tr",
+     "Tren tarifeye uyar: geniş zaman."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Biletimi aldım, saat belli: kesin düzenleme, şimdiki zaman. Tren tarifeye uyar: geniş zaman."
+  },
+  {
+   "ses": "ogretmen",
+   "parcalar": [
+    [
+     "tr",
+     "Bu, üç farktan yalnız biri."
+    ],
+    [
+     "tr",
+     "Bir arkadaşına gönder; o da karıştırıyor."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bu, üç farktan yalnız biri. Bir arkadaşına gönder; o da karıştırıyor."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Bu sadece başlangıç."
+    ],
+    [
+     "tr",
+     "Dersin tamamı YDS Publishing YouTube kanalında."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bu sadece başlangıç. Dersin tamamı YDS Publishing YouTube kanalında."
+  }
+ ],
+ "zaman": {
+  "giris": {
+   "sure": 3,
+   "ilkSoz": 1
+  }
+ },
+ "giris": {
+  "logo": "varlik/logo/yds-publishing.svg",
+  "satir1": "HATA",
+  "satir2": "NEREDE?",
+  "rozetler": [
+   "YDT · TEMEL"
+  ],
+  "sahne": [
+   {
+    "ad": "train",
+    "x": 28,
+    "y": 62,
+    "olcek": 0.6
+   },
+   {
+    "ad": "clock",
+    "x": 14,
+    "y": 60,
+    "olcek": 0.3
+   },
+   {
+    "figur": "ogretmen",
+    "x": 66,
+    "y": 64,
+    "olcek": 0.6
+   }
+  ]
+ },
+ "meta": {
+  "kimlik": "02-04-ydt-temel-s3",
+  "kod": "ING-YDT-GR-02-04-T-S3",
+  "ders": "İngilizce",
+  "konu": "Simple Present ve Present Continuous",
+  "kitle": "ydt",
+  "seviye": "temel",
+  "kapak": {
+   "satir1": "HATA",
+   "satir2": "NEREDE?",
+   "canAlici": "is leave → leaves (tarife: V-s)"
+  },
+  "amaclar": [
+   "Genel durumda geniş zamanı, konuşma anında şimdiki zamanı seçmek",
+   "Kalıcı durumda geniş zamanı, geçici durumda şimdiki zamanı seçmek",
+   "Tarifeli gelecekte geniş zamanı, kesin düzenlemede şimdiki zamanı seçmek",
+   "Türkçe -yor ekinin iki zamana da karşılık geldiğini bilmek; kararı anlamla vermek"
+  ],
+  "canAlici": [
+   "Önce anlama bak: genel mi, şu an mı? Kalıcı mı, geçici mi? Tarife mi, kesin düzenleme mi?",
+   "Genel durum, kalıcı durum, tarifeli gelecek: V1 / V-s",
+   "Konuşma anı, geçici durum, kesin düzenleme: am / is / are + V-ing",
+   "today iki zamanda da geçer; farkı anlam yapar",
+   "Türkçe yaşıyorum iki zamana karşılık gelir: I live (kalıcı), I am living (geçici)"
+  ],
+  "kazanim": [],
+  "etiketler": [
+   "İngilizce",
+   "temel",
+   "gramer",
+   "Simple Present",
+   "Present Continuous",
+   "YDT",
+   "shorts"
+  ]
+ }
+}

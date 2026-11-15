@@ -1,4 +1,4 @@
-// Sahne 03 (İLERİ, DİKEY 1080x1920) — Örnek 1 (456 kare, t_bas 17,65;
+// Sahne 03 (İLERİ, DİKEY 1080x1920) — Örnek 1 (482 kare, t_bas 17,65;
 // cümle 3). Yerel kare = round((t − 17,65) × 30).
 // Bantlar: içerik 352–1392 dolu, altyazı 1400–1536 (kalem-paper.js çizer),
 // platform boş. Telefon ölçeği: yazı ≥ 64 px.
@@ -13,7 +13,7 @@ import {
   yaziNoktalari
 } from "/projeler/simple-present-ileri-dikey/ortak/kalem-canvas.js";
 
-export const KARE = 456, T_BAS = 17.65;
+export const KARE = 482, T_BAS = 17.65;
 
 export async function kur(P) {
   const S = await sahneKur(P, {
@@ -151,8 +151,8 @@ export async function kur(P) {
   trSatir(4, 8, 814);
   not("Türkçe çeviri", tz1.bas);
 
-  // --- 28,40–32,45: formül kartı tek satır (835–945):
-  // zaman değişmez · it gives (V-s)
+  // --- 28,40–33,33: formül kartı tek satır (835–945):
+  // genel gerçek · it gives (V-s) (DUZ3 16.11: ses «Bağlaç gelse de genel gerçek Simple Present kalır»)
   {
     const a = cz[0];
     const k = kutu(a.x0 - 10, a.y - 54, a.w + 20, 76, {
@@ -172,33 +172,33 @@ export async function kur(P) {
     not("formül kartı kutusu", fr(28.4));
     const F = { boyut: 64, aile: "Fredoka", agirlik: 700 };
     const YK = 918;
-    const z = yazi("zaman", {
+    const z = yazi("genel", {
       ...F,
       x: 88,
       y: YK,
-      bas: fr(29.97),
+      bas: fr(30.21),
       sure: 10,
       olcek: true,
       ses: true
     });
-    const zd = yazi("değişmez", {
+    const zd = yazi("gerçek", {
       ...F,
       x: z.x1 + 18,
       y: YK,
-      bas: fr(30.37),
+      bas: fr(30.53),
       sure: 10,
       olcek: true,
       renk: SARI,
       ses: true
     });
-    not("zaman değişmez", fr(29.97));
+    not("genel gerçek", fr(30.21));
     const g = cz[8];
     const dg = daire(
       (g.x0 + g.x1) / 2,
       g.y - 22,
       (g.x1 - g.x0) / 2 + 8,
       46,
-      { bas: fr(31.62), sure: 18, a0: -2.6, egim: -0.03, w: 10 }
+      { bas: fr(32.58), sure: 18, a0: -2.6, egim: -0.03, w: 10 }
     );
     olay(bitis(dg), "tik", 0.5);
     not("gives daire", dg.bas);
@@ -206,7 +206,7 @@ export async function kur(P) {
       ...F,
       x: zd.x1 + 22,
       y: YK,
-      bas: fr(31.66),
+      bas: fr(32.62),
       sure: 8,
       renk: IKI
     });
@@ -214,7 +214,7 @@ export async function kur(P) {
       ...F,
       x: nok.x1 + 22,
       y: YK,
-      bas: fr(31.66),
+      bas: fr(32.62),
       sure: 10,
       olcek: true
     });
@@ -222,23 +222,23 @@ export async function kur(P) {
       ...F,
       x: s1.x1 + 2,
       y: YK,
-      bas: fr(31.72),
+      bas: fr(32.68),
       sure: 10,
       olcek: true,
       renk: SARI,
       ses: true
     });
-    // 31,90 anlatımsız etiket `(V-s)`: hedef 14 kare (0,47 sn) → 32,37
+    // 32,86 anlatımsız etiket `(V-s)`: hedef 14 kare (0,47 sn) → 33,33
     elYazisi("(V-s)", {
       x: s2.x1 + 24,
       y: YK,
       boyut: 72,
       renk: SARI,
-      bas: fr(31.9),
+      bas: fr(32.86),
       sure: 14
     });
-    not("it gives (V-s)", fr(31.66));
-    parilti(1008, 880, { bas: fr(32.0), r: 18 });
+    not("it gives (V-s)", fr(32.62));
+    parilti(1008, 880, { bas: fr(32.96), r: 18 });
   }
   return S;
 }

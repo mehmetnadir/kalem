@@ -1,7 +1,7 @@
 """simple-present-temel-s3 sahne 01 kanca (HyperFrames 1080x1920, 129 kare).
 
 SPEC v2 (15.11.2026): Kapak tam görünür, hap çerçevesi kalemle, kart karaoke,
-kırmızı soru işareti, altyazı karaoke ve sahne 02'ye çıkış geçişi.
+mürekkep soru işareti (DUZ2 A7: kırmızı ikinci vurgu rengiydi), altyazı karaoke ve sahne 02'ye çıkış geçişi.
 """
 from __future__ import annotations
 
@@ -160,17 +160,25 @@ SORU_KUTU: tuple[float, float, float, float] = (QX - 5.0, QY - 5.0, QX + QW + 5.
 
 
 def karakter_ustu() -> float:
-    """Alfa üstü 880'den 2 px adımla iner; kart ve ? kutusuna KENAR_PX + 16 pay kalan ilk y (şef QA tur 1)."""
+    """Alfa üstü 880'den 2 px adımla iner; kart ve ? kutusuna KENAR_PX + 16 pay kalan ilk y (şef QA tur 1).
+    DUZ2 (16.11): daire merkezi de ? kutusuna DAIRE_R + 16 uzak olmalı (denetim 5 aramaya alındı; kadın karakter
+    eski görselden kısa, 880'de sığıyor ama daire ? kutusuna yaklaşıyordu)."""
     for ust in range(880, 1001, 2):
         m = maske(KARAKTER_PNG, KAR_X0, ust - ay0 * KS, KS)
-        if bos_mu(m, KART_KUTU, KENAR_PX + 16.0) and bos_mu(m, SORU_KUTU, KENAR_PX + 16.0):
+        cy = ust + 0.372 * (ay1 - ay0) * KS
+        dx = max(SORU_KUTU[0] - DAIRE_CX, 0.0, DAIRE_CX - SORU_KUTU[2])
+        dy = max(SORU_KUTU[1] - cy, 0.0, cy - SORU_KUTU[3])
+        if (bos_mu(m, KART_KUTU, KENAR_PX + 16.0) and bos_mu(m, SORU_KUTU, KENAR_PX + 16.0)
+                and math.hypot(dx, dy) >= DAIRE_R + 16.0):
             return float(ust)
     raise ValueError(f"karakter 880–1000 arasında ? ve kartla çakışmadan yer bulamadı (KS={KS:.4f})")
 
 
 KAR_UST: float = karakter_ustu()
 KAR_Y0: float = KAR_UST - ay0 * KS
-DAIRE_CY: float = KAR_Y0 + 470.0 * KS
+KAR_W, KAR_H = Image.open(KARAKTER_PNG).size  # DUZ2 (16.11): görsel boyu dosyadan (kadın karakter 1024×1024; eskisi 896×1200)
+# Daire merkezi alfa kutusunun üst %37,2 noktası (eski görselde 470 px = 89 + 0,372 × 1024; oran korunur).
+DAIRE_CY: float = KAR_Y0 + (ay0 + 0.372 * (ay1 - ay0)) * KS
 
 
 def daire_kutu_uzakligi(cx: float, cy: float, k: tuple[float, float, float, float]) -> float:
@@ -449,9 +457,9 @@ def uret() -> str:
     soru_svg = (
         f'<g id="soru" transform="translate({QX:.2f} {QY:.2f})">'
         f'<path id="soru-kanca" d="M3 27 C3 11 15 2 29 2 C44 2 54 12 54 27 C54 41 44 47 35 53 C29 57 28 63 28 72" '
-        f'fill="none" stroke="#e0473b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" '
+        f'fill="none" stroke="{RENK["murekkep"]}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" '
         f'style="opacity:0"/>'
-        f'<circle id="soru-nokta" cx="28" cy="92" r="6.5" fill="#e0473b" style="opacity:0"/>'
+        f'<circle id="soru-nokta" cx="28" cy="92" r="6.5" fill="{RENK["murekkep"]}" style="opacity:0"/>'
         f'</g>'
     )
 
@@ -562,7 +570,7 @@ def uret() -> str:
 <svg id="alt" class="abs" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
 <circle id="daire" cx="{DAIRE_CX:.2f}" cy="{DAIRE_CY:.2f}" r="{DAIRE_R:.2f}" fill="#fece00"/>
 </svg>
-<img id="karakter" class="abs kenar" src="assets/karakter.png" alt="" style="left:{KAR_X0:.1f}px;top:{KAR_Y0:.1f}px;width:{896.0 * KS:.1f}px;height:{1200.0 * KS:.1f}px">
+<img id="karakter" class="abs kenar" src="assets/karakter.png" alt="" style="left:{KAR_X0:.1f}px;top:{KAR_Y0:.1f}px;width:{KAR_W * KS:.1f}px;height:{KAR_H * KS:.1f}px">
 </div>
 <svg id="sahne" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
 {baslik_svg}

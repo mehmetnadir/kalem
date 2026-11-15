@@ -174,10 +174,11 @@ export async function kur(P) {
   });
   not("figür ve otobüs (hazır)", 0);
 
-  // 4-5. kol b: kırmızı kalem ✗ ("nerede?"), satır 1'in sağ boşluğunda; kartla kayar, kol a `?` gibi söner
+  // 4-5. kol b: kalem ✗ ("nerede?"), satır 1'in sağ boşluğunda; kartla kayar, kol a `?` gibi söner
+  // DUZ4 A5 / ST-1: ✗ kırmızı → mürekkep (s3b kalıbı; tek vurgu rengi)
   const xOge = oge({ kay, alfa: (f) => 1 - kis((f - F_UC0) / 8) });
   const xd = (a, b, c, bas, ses) => ciz([a, b, c], {
-    w: 10, renk: RT.kirmizi, alfa: 0.95, amp: 0.5, bas, sure: 6, uc0: 6, uc1: 8, oge: xOge, ses, tur: "isaret", ad: "✗ nerede",
+    w: 10, renk: RT.murekkep, alfa: 0.95, amp: 0.5, bas, sure: 6, uc0: 6, uc1: 8, oge: xOge, ses, tur: "isaret", ad: "✗ nerede",
   });
   xd([X2_CX - X2_R, X2_CY - 0.9 * X2_R], [X2_CX + 0.05 * X2_R, X2_CY], [X2_CX + X2_R, X2_CY + X2_R], F_CARPI, undefined);
   xd([X2_CX + 0.92 * X2_R, X2_CY - X2_R], [X2_CX, X2_CY + 0.08 * X2_R], [X2_CX - 0.96 * X2_R, X2_CY + 0.94 * X2_R],
@@ -381,7 +382,7 @@ export async function kur(P) {
   });
   not("satır B ok (gelmez.)", F_DON0);
 
-  // 26. s yuvası + kırmızı kalem çizgisi
+  // 26. s yuvası + kalem çizgisi (DUZ4 A5 / ST-1: kırmızı → mürekkep; s3b kalıbı, tek vurgu rengi)
   const sYuva = { g: new P.Group({ applyMatrix: false }) };
   sYuva.g.opacity = 0.5;
   kartGo.g.addChild(sYuva.g);
@@ -391,11 +392,11 @@ export async function kur(P) {
   });
   const sx0 = sYazi.x0, sx1 = sYazi.x1;
   ciz([[sx0 - 8, Y_KART + 12], [sx1 + 8, Y_KART - 66]], {
-    duz: true, w: 12, renk: RT.kirmizi, alfa: 0.95, bas: F_DON1 + 3, sure: 8,
-    oge: kartGo, tur: "isaret", ad: "s yuvası kırmızı",
+    duz: true, w: 12, renk: RT.murekkep, alfa: 0.95, bas: F_DON1 + 3, sure: 8,
+    oge: kartGo, tur: "isaret", ad: "s yuvası üstü çizgi",
   });
   not("s yuvası (gelmez.)", F_DON1);
-  not("s yuvası kırmızı (gelmez.)", F_DON1 + 3);
+  not("s yuvası üstü çizgi (gelmez.)", F_DON1 + 3);
 
   // Dinamik matris ve ölçek kapları (§4)
   dinamik((f) => {

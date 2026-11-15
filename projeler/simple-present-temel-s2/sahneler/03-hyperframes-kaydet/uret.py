@@ -61,20 +61,21 @@ BEKLENEN_SOZLER: list[tuple[int, str]] = [
     (1, "always"),
     (2, "every"),
     (3, "day"),
-    (4, "Simple"),
-    (5, "Present"),
-    (6, "Bu"),
-    (7, "kuralı"),
-    (8, "kaybetme"),
-    (9, "Kaydet"),
+    (4, "çoğunlukla"),
+    (5, "Simple"),
+    (6, "Present"),
+    (7, "Bu"),
+    (8, "kuralı"),
+    (9, "kaybetme"),
+    (10, "Kaydet"),
 ]
-assert len(SOZ) == 10, f"Cümle 3 için 10 sözcük bekleniyor, {len(SOZ)} bulundu"
+assert len(SOZ) == 11, f"Cümle 3 için 11 sözcük bekleniyor, {len(SOZ)} bulundu"
 for _idx, _bas in BEKLENEN_SOZLER:
     T(_idx, _bas)
 
-assert len([p for p in ALT if p.get("cumle") == 3]) == 2, "Cümle 3 için 2 altyazı parçası bekleniyor"
+assert len([p for p in ALT if p.get("cumle") == 3]) == 3, "Cümle 3 için 3 altyazı parçası bekleniyor"
 assert len([p for p in ALT if p.get("cumle") == 2]) == 1, "Cümle 2 için 1 altyazı parçası bekleniyor"
-assert len(ALT) == 3, f"Toplam 3 altyazı parçası bekleniyor, {len(ALT)} bulundu"
+assert len(ALT) == 4, f"Toplam 4 altyazı parçası bekleniyor, {len(ALT)} bulundu"
 
 
 def kart_kenar_yolu() -> str:
@@ -115,18 +116,21 @@ def uret() -> tuple[str, dict[str, Any]]:
     assert len("always,") <= 24
     assert len("Usually, always,") <= 24
     assert len("every day:") <= 24
+    assert len("every day: çoğunlukla") <= 24
     assert len("Simple Present.") <= 24
     assert len("Kaydet") <= 24
 
     # Hap ve satır genişlikleri (§5); nokta hapın içinde (hap dışında kopuk görünüyordu, QA 15.11)
     hap_w = Y.genislik("Fredoka", 700, "Simple Present.", 72) + 56.0
     g1 = Y.genislik("Fredoka", 700, "Usually, always,", 72)
-    g2 = Y.genislik("Fredoka", 700, "every day:", 72)
+    # DUZ2 (16.11, A3/A4): 2. satır "every day: çoğunlukla" (ses c3 ile aynı terim); kart yüksekliği değişmez
+    g2 = Y.genislik("Fredoka", 700, "every day: çoğunlukla", 72)
     g3 = hap_w
     gmax = max(g1, g2, g3)
 
     bx = round(510.0 - gmax / 2.0, 1)
     s2_x = bx + Y.genislik("Fredoka", 700, "Usually, ", 72)
+    s4_x = bx + Y.genislik("Fredoka", 700, "every day: ", 72)
     hap_cx = bx + hap_w / 2.0
 
     t1 = 646
@@ -163,10 +167,12 @@ def uret() -> tuple[str, dict[str, Any]]:
     t_s1 = yerel(T(0, "Usually"))
     t_s2 = yerel(T(1, "always"))
     t_s3 = yerel(T(2, "every"))
-    t_hap = yerel(T(4, "Simple"))
-    t_sabit = yerel(T(5, "Present"))
-    t_imi = yerel(T(9, "Kaydet"))
-    t_yazi = round(yerel(T(9, "Kaydet")) + 0.10, 3)
+    t_s4 = yerel(T(4, "çoğunlukla"))
+    t_hap = yerel(T(5, "Simple"))
+    # Kart sabit: son kart tween'inin bitişi (hap 0,30 sn) ya da "Present" başı, hangisi geçse (DUZ2: Simple → Present 0,24 sn)
+    t_sabit = round(max(yerel(T(6, "Present")), t_hap + 0.30), 3)
+    t_imi = yerel(T(10, "Kaydet"))
+    t_yazi = round(yerel(T(10, "Kaydet")) + 0.10, 3)
     t_kuyruk = round((KARE - 12) / 30, 3)
 
     # Kart içindeki son tween kart_sabit'ten önce biter (§4)
@@ -183,6 +189,7 @@ def uret() -> tuple[str, dict[str, Any]]:
         "s1_giris": [t_s1, 0.25],
         "s2_giris": [t_s2, 0.25],
         "s3_giris": [t_s3, 0.25],
+        "s4_giris": [t_s4, 0.25],
         "hap_giris": [t_hap, 0.30],
         "kart_sabit": [t_sabit, round(t_kuyruk - t_sabit, 3)],
         "imi_ciz": [t_imi, 0.30],
@@ -224,31 +231,38 @@ def uret() -> tuple[str, dict[str, Any]]:
                 "sozcuk": "every day:",
             },
             {
+                "olay": "s4_giris",
+                "kare": round(t_s4 * 30),
+                "yerel": t_s4,
+                "kuresel": T(4, "çoğunlukla"),
+                "sozcuk": "çoğunlukla",
+            },
+            {
                 "olay": "hap_giris",
                 "kare": round(t_hap * 30),
                 "yerel": t_hap,
-                "kuresel": T(4, "Simple"),
+                "kuresel": T(5, "Simple"),
                 "sozcuk": "Simple Present.",
             },
             {
                 "olay": "kart_sabit",
                 "kare": round(t_sabit * 30),
                 "yerel": t_sabit,
-                "kuresel": T(5, "Present"),
+                "kuresel": round(T_BAS + t_sabit, 3),
                 "sozcuk": "Present.",
             },
             {
                 "olay": "imi_ciz",
                 "kare": round(t_imi * 30),
                 "yerel": t_imi,
-                "kuresel": T(9, "Kaydet"),
+                "kuresel": T(10, "Kaydet"),
                 "sozcuk": "Kaydet.",
             },
             {
                 "olay": "yazi_giris",
                 "kare": round(t_yazi * 30),
                 "yerel": t_yazi,
-                "kuresel": round(T(9, "Kaydet") + 0.10, 3),
+                "kuresel": round(T(10, "Kaydet") + 0.10, 3),
                 "sozcuk": "Kaydet.",
             },
             {
@@ -279,6 +293,7 @@ def uret() -> tuple[str, dict[str, Any]]:
             "s1_giris": zamanlar["s1_giris"],
             "s2_giris": zamanlar["s2_giris"],
             "s3_giris": zamanlar["s3_giris"],
+            "s4_giris": zamanlar["s4_giris"],
             "hap_giris": zamanlar["hap_giris"],
             "imi_ciz": zamanlar["imi_ciz"],
             "yazi_giris": zamanlar["yazi_giris"],
@@ -313,6 +328,8 @@ def uret() -> tuple[str, dict[str, Any]]:
  font-size="72" fill="#1b1a17" style="opacity:0">always,</text>
 <text id="s3" x="{bx:.1f}" y="{t2}" font-family="Fredoka" font-weight="700"
  font-size="72" fill="#1b1a17" style="opacity:0">every day:</text>
+<text id="s4" x="{s4_x:.1f}" y="{t2}" font-family="Fredoka" font-weight="700"
+ font-size="72" fill="#1b1a17" style="opacity:0">çoğunlukla</text>
 <g id="satir3" style="opacity:0">
 <rect x="{bx:.1f}" y="{t3 - 64}" width="{hap_w:.1f}" height="92" rx="46" fill="#f2a93b"/>
 <text x="{hap_cx:.1f}" y="{t3}" text-anchor="middle" font-family="Fredoka" font-weight="700"
@@ -377,6 +394,9 @@ def uret() -> tuple[str, dict[str, Any]]:
 
   tl.fromTo("#s3", {{ opacity: 0, y: 16 }},
     {{ opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }}, Z.s3_giris[0]);
+
+  tl.fromTo("#s4", {{ opacity: 0, y: 16 }},
+    {{ opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }}, Z.s4_giris[0]);
 
   gsap.set("#satir3", {{ svgOrigin: "{hap_cx:.1f} {t3 - 18}" }});
   tl.fromTo("#satir3", {{ opacity: 0, scale: 0.9 }},

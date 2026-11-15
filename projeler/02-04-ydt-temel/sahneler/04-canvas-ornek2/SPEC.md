@@ -1,5 +1,7 @@
 # SPEC — 02-04-ydt-temel sahne 04-canvas-ornek2 (düz canvas) · 14.11
 
+> **16.11 DUZ3:** cümle 4 «Orada hep yaşıyorum» → «Burası bizim evimiz» (EK-5c; sözcük sırası aynı, t(15) Burası, t(16) bizim); 779 kare. Bu belgedeki saniye ve metinler önceki sürümündür; geçerli olan kod + `zaman.json`.
+
 ## 1. Görev
 
 - YAZILACAK TEK DOSYA: `/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel/sahneler/04-canvas-ornek2/sahne.js`
@@ -37,7 +39,7 @@
 ## 4. Sözcük dizini (cümle 4, 49 sözcük)
 
 0 İkinci · 1 örnek. · 2 Kancadaki · 3 fiil: · 4 live. · 5–11 I live in Istanbul with my family. · 12–14 Ailemle
-İstanbul'da yaşıyorum. · 15–17 Orada hep yaşıyorum. · 18 Kalıcı · 19 durum: · 20 geniş · 21 zaman. · 22–34 My parents are
+İstanbul'da yaşıyorum. · 15–17 Burası bizim evimiz. · 18 Kalıcı · 19 durum: · 20 geniş · 21 zaman. · 22–34 My parents are
 out of town, so I am living with my uncle. (22 My … 30 am, 31 living … 34 uncle.) · 35–41 Ailem şehir dışında, bu yüzden
 amcamla yaşıyorum. (37 dışında,) · 42 Bu · 43 yalnız · 44 şimdilik. · 45 Geçici · 46 durum: · 47 şimdiki · 48 zaman.
 

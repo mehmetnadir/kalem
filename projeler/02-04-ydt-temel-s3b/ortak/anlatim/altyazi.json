@@ -1,0 +1,82 @@
+[
+{
+"cumle": 1,
+"dil": "tr",
+"t0": 0.41,
+"t1": 1.45,
+"metin": "Hata nerede?",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 2.0,
+"t1": 5.2,
+"metin": "The train to Izmir leaves at seven p.m. today.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 2,
+"dil": "en",
+"t0": 5.45,
+"t1": 7.53,
+"metin": "I am going to the movie theater tonight.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 3,
+"dil": "tr",
+"t0": 8.0,
+"t1": 11.84,
+"metin": "Hocam, tren de plana göre kalkmıyor mu? Neden -ing yok?",
+"konusan": "ogrenci"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 12.51,
+"t1": 16.91,
+"metin": "Biletimi aldım, saat belli: kesin düzenleme, şimdiki zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 17.06,
+"t1": 19.86,
+"metin": "Tren tarifeye uyar: geniş zaman.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 20.33,
+"t1": 22.41,
+"metin": "Bu, üç farktan yalnız biri.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 22.56,
+"t1": 25.2,
+"metin": "Bir arkadaşına gönder; o da karıştırıyor.",
+"konusan": "ogretmen"
+},
+{
+"cumle": 6,
+"dil": "tr",
+"t0": 25.67,
+"t1": 27.43,
+"metin": "Bu sadece başlangıç.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 6,
+"dil": "tr",
+"t0": 27.58,
+"t1": 31.18,
+"metin": "Dersin tamamı YDS Publishing YouTube kanalında.",
+"konusan": "ogrenci"
+}
+]

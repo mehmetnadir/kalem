@@ -1,0 +1,34 @@
+$ node D/araclar/huni-kapi.mjs K/projeler/simple-present-temel-s3b --kol-a K/projeler/simple-present-temel-s3
+HV-1 ÖLÇÜLEMEDİ — kare ölçümü tarayıcı ister (ayrı iş: kare-denetim.mjs; kaynak denetimi HV-1s)
+HV-1s GEÇTİ — [betik-içi] statik: 8/8 sahnede @ydspublishing kaynağı (01-hyperframes-kanca←yardim.py, 02-paperjs-deger←ortak/kunye.js (içe aktarma), 03-hyperframes-kaydet←yardim.py, (+5)); kare görünürlüğü ölçülmedi
+HV-2 GEÇTİ — son cümle (4) ses=ogrenci (senaryo.json; Whisper doğrulaması ayrı)
+HV-3 GEÇTİ — çekirdek cümle birebir: senaryo.json son cümle + altyazi.json satırı
+HV-4 GEÇTİ — "Tam ders" yok (19 dosya tarandı)
+HV-5 GEÇTİ — dakika/dk yok (19 dosya tarandı)
+HV-7 GEÇTİ — ana ders kapağı (açık + koyu) dosyaları var; son karede görünürlüğü ölçülmedi
+HV-9 GEÇTİ — pakette *.mp4 yok
+HV-10 ÖLÇÜLEMEDİ — kutu ölçümü tarayıcı ister (ayrı iş: kare-denetim.mjs)
+HV-11 GEÇTİ — 4 sahne, 26.68 sn (hedef 22–26 dışı; zaman.json)
+HV-12 GEÇTİ — ilk söz 1 sn (baslar.json[1][0] + sureler.json[0].sozcukler[0]); kanca sahnesi bitişi 3.24 sn (zaman.json sahneler[0].t_son); bilgi: kanca cümlesi bitişi 3.24 sn (baslar.json[1][1])
+HV-15 GEÇTİ — "Bu sadece başlangıç." listeden; 2 kardeş pakette yinelenmiyor
+HV-16 GEÇTİ — "Bir arkadaşına gönder; o da karıştırıyor." listeden; 2 kardeş pakette yinelenmiyor
+HV-17 ÖLÇÜLEMEDİ — ses-sozluk.json + Whisper raporu (el.py) ister; bu betik model ve ses çözümü koşmaz
+HV-18 GEÇTİ — 9 açıklama bloğunun ilk satırı sabit; 3 Reels bloğunda bağ yok
+HV-19 GEÇTİ — 15 bağ (3 dosya): utm_campaign=ING-YDT-GR-02-02-T, utm_content=s3b-<set>
+HV-20 GEÇTİ — teslim dosyaları tam (kol b: kapak/hikâye UYGULANMAZ)
+HV-22 ÖLÇÜLEMEDİ — çakışma kapısı tarayıcı ister (araclar/cakisma-kapisi.mjs)
+HV-23 ÖLÇÜLEMEDİ — Whisper benzerliği ister; bu betik model koşmaz
+EK-1 GEÇTİ — ses metninde YDT kısaltması yok (4 cümle)
+HV-24 GEÇTİ — 2 kaynakta rozet "YDT · TEMEL"; "BASIC" yok (33 dosya tarandı); aynı karede iki rozet için kare gerekir (G)
+JR-1b KALDI — [betik-içi] jüri 2026-11-15 23:40:31 yerel (KBJ-hukum.md) ≤ son içerik 2026-11-16 01:06:00 yerel (ortak/kunye.js); dosya değişim zamanı
+AB-1 GEÇTİ — 2 kol (simple-present-temel-s3, simple-present-temel-s3b); s3→kanca=soru (surumler.json)
+AB-6 GEÇTİ — varyant kaydı var; 15 bağda utm_content=s3b-<set>
+AB-8 GEÇTİ — kol b metin dosyalarında "simple-present-temel-s3" yolu yok, kol a içine simge bağı yok (ortak kaynak bağı 0, olağan)
+AB-2 KALDI — kanca: 30 beklenen fark, 2 beklenmeyen [sahneler/03-hyperframes-kaydet:1, sahneler/04-hyperframes-cagri:1]; ses sha256: AB-9'da; beklenmeyen: sahneler/03-hyperframes-kaydet/zamanlar.json, sahneler/04-hyperframes-cagri/zamanlar.json
+AB-3 GEÇTİ — değer sahnesi (02-paperjs-deger), kanal katmanı, ses kadrosu, çekirdek cümle iki kolda aynı
+AB-9 GEÇTİ — 3 ortak cümlenin ses sha256 eşit: a2↔b2, a3↔b3, a4↔b4
+AB-4 UYGULANMAZ — yayın sonrası (üretim jürisinde uygulanmaz, juri-olcutleri.md §2d); kol b mp4 dosyası HV-9'da
+AB-5 UYGULANMAZ — yayın sonrası (üretim jürisinde uygulanmaz, juri-olcutleri.md §2d); kol b mp4 dosyası HV-9'da
+AB-7 UYGULANMAZ — yayın sonrası (üretim jürisinde uygulanmaz, juri-olcutleri.md §2d); kol b mp4 dosyası HV-9'da
+ÖZET: 21 GEÇTİ, 2 KALDI, 5 ÖLÇÜLEMEDİ, 3 UYGULANMAZ
+çıkış: 1

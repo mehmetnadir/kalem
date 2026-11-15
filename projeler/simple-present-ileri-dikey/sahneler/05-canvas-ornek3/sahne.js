@@ -1,5 +1,5 @@
 // SAHNE 05 (DİKEY, İLERİ) — Örnek 3: düz canvas, 1080x1920, 406 kare,
-// t_bas 48,29; cümle 5; çıkış geçişi fade.
+// t_bas 49,49; cümle 5; çıkış geçişi fade.
 // Kök: "Our flight takes off at eleven tomorrow morning, so we have to
 // leave home at nine." (tarife + tomorrow tuzağı).
 // Zaman yalnız kare numarasından; zamanlar sozcukler.json / altyazi.json
@@ -10,7 +10,7 @@ import { surucu } from "/ortak/surucu.js";
 import { yaziNoktalari } from "/projeler/simple-present-ileri-dikey/ortak/kalem-canvas.js";
 import { Sahne, RT, kutu, olc } from "./sahne-ortak.js";
 
-const KARE = 406, TBAS = 48.29, ICERIK = 394;
+const KARE = 406, TBAS = 49.49, ICERIK = 394;
 const S = new Sahne({
   tbas: TBAS,
   kare: KARE,
@@ -43,7 +43,7 @@ async function kur() {
   // kart: tam genişlik 984, Fredoka 64, sözcük zamanlı
   // (ilk 12 kare boş; kutu 12. kareden çizilir)
   const cum = S.koy(S.cumleYaz({
-    sozcukler: S.dizi("Our", 50.05, 16),
+    sozcukler: S.dizi("Our", 51.25, 16),
     x: 88,
     y: 452,
     maxGen: 904,
@@ -70,17 +70,17 @@ async function kur() {
       S.koy(S.halka(b, tb + 0.16, 0.3, tohum + 1, 6, renk, 9));
     }
   };
-  iki(kel("takes"), kel("off"), 50.7, 31, SARI); // takes off: sarı
+  iki(kel("takes"), kel("off"), 51.9, 31, SARI); // takes off: sarı
   // tomorrow: kırmızı daire (tuzak)
-  S.koy(S.halka(kel("tomorrow"), 51.72, 0.4, 33, 8, KIRMIZI, 9));
+  S.koy(S.halka(kel("tomorrow"), 52.92, 0.4, 33, 8, KIRMIZI, 9));
 
-  // 54,94–57,34 Türkçe çeviri (Caveat 64, mürekkep, tek satır): her sözcük kendi
+  // 56,14–58,54 Türkçe çeviri (Caveat 64, mürekkep, tek satır): her sözcük kendi
   // penceresinde; `sabah` anlatım verisinde yok → yarın penceresi ikiye bölünür
-  // (yarın 55,58–55,74 · sabah 55,74–55,98); `on` 0,2 sn altı → birde başına dek.
+  // (yarın 56,78–56,94 · sabah 56,94–57,18); `on` 0,2 sn altı → birde başına dek.
   // Yatay kardeşle aynı yol (simple-present-ileri 05). İnceleme DÜZELT 2.
   const yTR = kartAlt + 62;
-  const tr = pen("Uçuşumuz", 54.94, 5), ya = tr[1];
-  const trSoz = [tr[0], { t0: ya.t0, t1: 55.74 }, { t0: 55.74, t1: tr[2].t0 }, ...tr.slice(2)];
+  const tr = pen("Uçuşumuz", 56.14, 5), ya = tr[1];
+  const trSoz = [tr[0], { t0: ya.t0, t1: 56.94 }, { t0: 56.94, t1: tr[2].t0 }, ...tr.slice(2)];
   S.koy(S.elYazisi({
     metin: "Uçuşumuz yarın sabah on birde kalkıyor.",
     x: 64,
@@ -98,14 +98,14 @@ async function kur() {
     kutu: { x: 48, y: B1 - 352, w: 660, h: 352 },
     enCok: 14,
     w: 4.2,
-    tb: 50.4,
+    tb: 51.6,
     sure: 1.3,
     olayEnCok: 5
   }));
   S.koy(S.darbe(
     [[40, B1 + 6], [380, B1 + 10], [720, B1 + 5]],
     { duz: true, w: 4, renk: IKI, alfa: 0.8, uc0: 6, uc1: 10, tohum: 77 },
-    53.0,
+    54.2,
     0.45,
     0.45
   ));
@@ -115,11 +115,11 @@ async function kur() {
     kutu: { x: 722, y: B0 + 16, w: 150, h: 150 },
     enCok: 8,
     w: 4.2,
-    tb: 51.7,
+    tb: 52.9,
     sure: 0.8,
     olayEnCok: 3
   }));
-  // 52,40 anlatımsız etiket `yarın`: hedef 0,45 sn → 52,85; orta x 797
+  // 53,60 anlatımsız etiket `yarın`: hedef 0,45 sn → 54,05; orta x 797
   const eyGen = (str, boy) => yaziNoktalari(str, S.EY.G, {
     upm: S.EY.M.unitsPerEm,
     asc: S.EY.M.ascender,
@@ -133,7 +133,7 @@ async function kur() {
     y: B0 + 238,
     boy: 64,
     renk: KREM,
-    tb: 52.4,
+    tb: 53.6,
     sure: 0.45
   }));
   S.koy(S.cizim({
@@ -142,7 +142,7 @@ async function kur() {
     kutu: { x: 882, y: B0 + 16, w: 150, h: 150 },
     enCok: 6,
     w: 4.2,
-    tb: 51.2,
+    tb: 52.4,
     sure: 0.8,
     olayEnCok: 3
   }));
@@ -152,13 +152,13 @@ async function kur() {
     y: B0 + 238,
     font: FF(64),
     hiza: "orta",
-    tb: 52.0,
+    tb: 53.2,
     sure: 0.35,
     ses: 0.5
   }));
-  S.koy(S.parilti(600, B0 + 40, 53.9, 28));
+  S.koy(S.parilti(600, B0 + 40, 55.1, 28));
 
-  // 57,41–61,41 alt tarife: 11:00 takes off / tomorrow ≠ will (kırmızı çizgi)
+  // 58,61–62,61 alt tarife: 11:00 takes off / tomorrow + "tuzak" (kırmızı çizgi; DUZ3 16.11: "≠ will" mutlaktı)
   const fz = FF(88), y1 = 1290, y2 = 1375;
   const w11 = olc(fz, "11:00");
   S.koy(S.metinPop({
@@ -166,7 +166,7 @@ async function kur() {
     x: 88,
     y: y1,
     font: fz,
-    tb: 57.6,
+    tb: 58.8,
     sure: 0.3,
     ses: 0.5
   }));
@@ -175,7 +175,7 @@ async function kur() {
     x: 88 + w11 + 56,
     y: y1,
     font: fz,
-    tb: 58.6,
+    tb: 59.8,
     sure: 0.3,
     ses: 0.5
   }));
@@ -185,27 +185,27 @@ async function kur() {
     x: 88,
     y: y2,
     font: fz,
-    tb: 60.17,
+    tb: 61.37,
     sure: 0.3,
     ses: 0.5
   }));
   S.koy(S.darbe(
     [[80, y2 + 10], [88 + tw / 2, y2 + 8], [96 + tw, y2 + 11]],
     { duz: true, w: 10, renk: KIRMIZI, alfa: 0.9, uc0: 8, uc1: 12 },
-    60.4,
+    61.6,
     0.2,
     0.7
   ));
   S.koy(S.metinPop({
-    parca: [["≠ will", KIRMIZI]],
+    parca: [["tuzak", KIRMIZI]],
     x: 88 + tw + 56,
     y: y2,
     font: fz,
-    tb: 60.6,
+    tb: 61.85,
     sure: 0.3,
     ses: 0.5
   }));
-  S.koy(S.parilti(990, y1 - 70, 60.8, 26));
+  S.koy(S.parilti(990, y1 - 70, 62.0, 26));
 }
 
 surucu(kur, (f) => S.kare(f), KARE);

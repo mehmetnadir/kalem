@@ -3,7 +3,7 @@
 Kaynak: `uretim-tutanagi/aciklama-taslak.md` §4 (S3-B jürisi + S3-C düzeltmeleri, `uretim-tutanagi/S3-duzeltme.md`).
 Sürüm: B (`s3-aciklama-b`), öğrencinin sorusuyla açılır (ana ders cümle 6). A seti: `aciklama-a.md` (`utm_content=s3-a`).
 Ana ders: Simple Present ve Present Continuous (`ING-YDT-GR-02-04-T`).
-Shorts: `ING-YDT-GR-02-04-T-S3`, 28,31 sn (huni v2). Kimlik `@ydspublishing`. Her platform metninin ilk satırı huni v2 standardı §4; standart §1 kural 4–5 sözleri yok, QR yok.
+Shorts: `ING-YDT-GR-02-04-T-S3`, 31,10 sn (huni v2; DUZ2 15.11). Kimlik `@ydspublishing`. Her platform metninin ilk satırı huni v2 standardı §4; standart §1 kural 4–5 sözleri yok, QR yok.
 
 **UYARI:** `https://ydspublishing.com/grammar/02-04-ydt-temel` belgeden türedi; canlılığı ölçülmedi (grammar-kapi Worker 11.11'de
 yayında değil). Paylaşımdan önce adresi aç. Açılmazsa adresi `{PLATFORM_URL}` ile değiştir ya da satırı çıkar.
@@ -21,8 +21,8 @@ Açıklama:
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 "Tren de plana göre kalkmıyor mu? Neden -ing yok?"
-Simple Present ve Present Continuous (ING-YDT-GR-02-04-T) dersinde bir öğrencinin sorusu. Cevap: planı bir kişi yapar; tren plan yapmaz, tarifeye uyar.
-I am going to the movie theater tonight. → planlanmış gelecek, şimdiki zaman
+Simple Present ve Present Continuous (ING-YDT-GR-02-04-T) dersinde bir öğrencinin sorusu. Cevap: bilet alındı, saat belli: kesin düzenleme; tren ise tarifeye uyar.
+I am going to the movie theater tonight. → kesin düzenleme, şimdiki zaman
 The train to İzmir leaves at 7 pm today. → tarifeli gelecek, geniş zaman
 Bu, iki zaman arasındaki üç farktan biri.
 Dersin tamamını izle: {UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s3-b
@@ -41,8 +41,8 @@ Reels açıklaması:
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 "Tren de plana göre kalkmıyor mu? Neden -ing yok?"
-Planı bir kişi yapar: I am going to the movie theater tonight.
-Tren plan yapmaz, tarifeye uyar: The train to İzmir leaves at 7 pm today.
+Bilet alındı, saat belli, kesin düzenleme: I am going to the movie theater tonight.
+Tren tarifeye uyar: The train to İzmir leaves at 7 pm today.
 Bu, üç farktan biri. Üç farkın hepsi dersin tamamında.
 Ders sayfası: profildeki bağlantı.
 Öğretmenseniz sınıfınızla paylaşın.
@@ -54,7 +54,7 @@ Sıradaki ders: Stative Verbs
 Profil bağlantısı:
 `https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=instagram&utm_medium=bio&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s3-b`
 
-Hikâye: `hikaye-b.png` (soru + cevap + Kaydet "Tarife mi, plan mı?", elle paylaşım). Bağlantı çıkartması (elle; uygulama özelliği, doğrulanmadı):
+Hikâye: `hikaye-b.png` (soru + cevap + Kaydet "Tarife mi, düzenleme mi?", elle paylaşım). Bağlantı çıkartması (elle; uygulama özelliği, doğrulanmadı):
 `https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=instagram&utm_medium=story&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s3-b`
 
 Açıklamaya adres yazılmaz (Instagram açıklamada bağlantı tıklanmaz).
@@ -64,7 +64,7 @@ Açıklamaya adres yazılmaz (Instagram açıklamada bağlantı tıklanmaz).
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Tren de plana göre kalkmıyor mu? Neden -ing yok?
-Planı bir kişi yapar: I am going. Tren tarifeye uyar: The train leaves.
+Kesin düzenleme: I am going. Tren tarifeye uyar: The train leaves.
 Bu, üç farktan biri. Üç farkın hepsi dersin tamamında. Ders sayfası: profildeki bağlantı.
 Sıradaki ders: Stative Verbs
 #YDT #İngilizce #gramer #SimplePresent #PresentContinuous

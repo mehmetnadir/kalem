@@ -42,7 +42,7 @@ Başka dosyaya dokunma. Silme yok. Test, render, snapshot, `calistir.sh`, git YO
 y    0 ┌──────────────────────────────────────────┬────┐
        │ (boş zemin)                               │    │
    291 │ [logo 193,5×48] @ydspublishing            │    │ kanal katmanı, kimlik kanal (kunye içinde)
-   386 │                          (YDT · BASIC)     │    │ yalnız rozet, kapak A son konumu (x ≈ 664,6)
+   386 │                          (YDT · TEMEL)     │    │ yalnız rozet, kapak A son konumu (x ≈ 664,6)
    591 │ NEDEN -ING                                │    │ Fredoka 700 S (≈164), merkez x 510, kontur
    617 │       (    YOK?    )                      │    │ sarı hap y 617–781, merkez x 510
    874 │  ◯saat       ?(sarı)    ┌karakter───┐     │    │ karakter: görünür üst 820, sağ 948 (+10 kenar)
@@ -59,11 +59,11 @@ y    0 ┌───────────────────────�
 - `<g id="kanal">`: `<image id="logoimg" href="assets/logo.svg" x=LOGO_X y="291" width=LOGO_W height="48"/>` +
   `<text id="kanal-ad" x="263" y="330" font-family="Lexend" font-weight="700" font-size="42" fill=murekkep>@ydspublishing</text>`.
   `LOGO_W = 48 · Y.LOGO_EN_BOY` (≈ 193,49), `LOGO_X = 60 − Y.LOGO_KAYMA · LOGO_W` (≈ 53,15). Opaklık 1; animasyon YOK.
-- `<g id="rz0">`: `KONU = "Simple Present vs Present Continuous"` YALNIZ ölçü içindir, ekrana YAZILMAZ. `ROZET = "YDT · BASIC"`,
+- `<g id="rz0">`: `KONU = "Simple Present vs Present Continuous"` YALNIZ ölçü içindir, ekrana YAZILMAZ. `ROZET = "YDT · TEMEL"`,
   `ROZET_W = genislik("Lexend", 700, ROZET, 26) + 40`. `KB_K` = 34'ten 28'e inen ilk boy: `60 + genislik("Fredoka", 700, KONU, k) + 20 + ROZET_W ≤ 960`.
   `ROZET_X = 60 + genislik("Fredoka", 700, KONU, KB_K) + 20` (beklenen KB_K 34, ROZET_X ≈ 664,6, ROZET_W ≈ 203,6).
   `<rect x=ROZET_X y="386" width=ROZET_W height="48" rx="24" fill=vurgu/>` + `<text x=ROZET_X+ROZET_W/2 y="419.4" text-anchor="middle"
-  font-family="Lexend" font-weight="700" font-size="26" fill=zemin>YDT · BASIC</text>`.
+  font-family="Lexend" font-weight="700" font-size="26" fill=zemin>YDT · TEMEL</text>`.
 - Grup: `<g id="kunye">{kanal}{rz0}</g>`. Konu metni, çip, ikinci rozet YOK.
 
 ### 4.2 Başlık — `<g id="baslik">`
@@ -154,7 +154,7 @@ y    0 ┌───────────────────────�
    `duman` üst ≥ 48 · saat alt ve soru alt → tren üst ≥ 16 · tren alt → kart üst ≥ 20 · karakter alt → kart üst ≥ 16 ·
    karakter sol − max(tren sağ, duman sağ) ≥ 24 · soru sağ → duman sol ≥ 24 · saat sağ → soru sol ≥ 24 · `DR ≥ 100`.
 4. Yazı boyu: S ≥ 64, KB = 72 (kanal 42 ve rozet 26 standart §2 ölçüsü, kapsam dışı). Başlık 2 satır, 3 sözcük. Her satır ≤ 24 karakter:
-   `@ydspublishing`, `YDT · BASIC`, `NEDEN -ING`, `YOK?`, `The train leaves …`. Başlıkta `İ` YOK; `-ING` içinde U+0049 VAR.
+   `@ydspublishing`, `YDT · TEMEL`, `NEDEN -ING`, `YOK?`, `The train leaves …`. Başlıkta `İ` YOK; `-ING` içinde U+0049 VAR.
 5. Zorunlu (html içinde): `id="kunye"`, `id="kanal"`, `@ydspublishing`, `assets/logo.svg`, `id="karakter"`, `assets/karakter.png`,
    `id="daire"`, `drop-shadow`. `id="kanal"` öğesi `id="kunye"` grubunun içinde.
 6. Yasak (html küçük harfe çevrilip aranır): `tam ders`, `dakika`, `qr`, `izle`, `tarife`, `timetable`, `6 dk`, `simple present`,
@@ -170,7 +170,7 @@ y    0 ┌───────────────────────�
 |---|---|---|
 | bütün öğeler tam görünür (tek `set`) | kare 0; yakalama 0,5 sn (`zamanlar.json` `yakala_sn`) | yok (ses yok, zaman çizelgesi dışı) |
 
-`olaylar.json` boş liste (`olay.py`). Ekran metni: `@ydspublishing` · `YDT · BASIC` · `NEDEN -ING` · `YOK?` · `The train leaves …`. Başka metin YOK.
+`olaylar.json` boş liste (`olay.py`). Ekran metni: `@ydspublishing` · `YDT · TEMEL` · `NEDEN -ING` · `YOK?` · `The train leaves …`. Başka metin YOK.
 
 ## 7. Kabul (şef koşturur, ajan koşturmaz)
 `/usr/bin/python3 D/uret.py` çıkış 0 · `bash calistir.sh --tema acik` → `P/kapak-b.png` · `bash calistir.sh --tema koyu` →

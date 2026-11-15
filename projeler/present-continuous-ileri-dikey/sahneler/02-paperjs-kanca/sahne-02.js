@@ -20,11 +20,11 @@ export async function kur(P) {
   const SARI = RT.vurgu, IKI = RT.ikincil, KRE = RT.murekkep, KIR = RT.kirmizi;
 
   // --- cümle 1: iki satır Caveat 80 (x 64, taban 450 / 540); 0. karede hazır (sahne 01 ile aynı yer)
-  const c1 = cumle([["YDT'nin", 0], ["-ing", 0], ["tuzağına", 1], ["düşme.", 1]].map(([s, satir]) => ({ s, f: -10, satir })),
+  const c1 = cumle([["Dil", 0], ["sınavındaki", 0], ["-ing", 1], ["tuzağına", 1], ["düşme.", 1]].map(([s, satir]) => ({ s, f: -10, satir })),
     { x: 64, y: 450, boyut: 80, aile: "Caveat", agirlik: 700, aralik: 90 });
   not("cümle 1 yerinde", 0);
   {   // -ing sarı daire titrer (3,00–3,71)
-    const g = c1[1], tit = S.oge({ tit: { f0: 0, f1: fr(3.71), g: 3 } });
+    const g = c1[2], tit = S.oge({ tit: { f0: 0, f1: fr(3.71), g: 3 } });
     daire((g.x0 + g.x1) / 2, g.y - 28, g.w / 2 + 16, 46, { bas: -30, sure: 20, ses: false, oge: tit, w: 10 });
     not("-ing daire titrer", 0);
   }

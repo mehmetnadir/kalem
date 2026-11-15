@@ -1,0 +1,118 @@
+{
+  "fps": 30,
+  "kare": 239,
+  "sure": 7.9667,
+  "t_bas": 19.7,
+  "bu_giris": [
+    0.55,
+    0.22
+  ],
+  "sadece_giris": [
+    0.79,
+    0.22
+  ],
+  "baslangic_giris": [
+    1.35,
+    0.22
+  ],
+  "kart_cerceve": [
+    2.46,
+    0.4
+  ],
+  "kapak_belir": [
+    2.46,
+    0.3
+  ],
+  "hap_giris": [
+    3.74,
+    0.3
+  ],
+  "youtube_giris": [
+    4.86,
+    0.3
+  ],
+  "kuyruk_durgun": [
+    6.06,
+    1.907
+  ],
+  "olaylar": [
+    [
+      0.55,
+      "tik",
+      0.4
+    ],
+    [
+      2.46,
+      "cizgi",
+      0.5
+    ],
+    [
+      3.74,
+      "tik",
+      0.6
+    ],
+    [
+      4.86,
+      "tik",
+      0.4
+    ]
+  ],
+  "olay_listesi": [
+    {
+      "olay": "bu_giris",
+      "kare": 16,
+      "yerel": 0.55,
+      "kuresel": 20.25,
+      "sozcuk": "Bu"
+    },
+    {
+      "olay": "sadece_giris",
+      "kare": 24,
+      "yerel": 0.79,
+      "kuresel": 20.49,
+      "sozcuk": "sadece"
+    },
+    {
+      "olay": "baslangic_giris",
+      "kare": 40,
+      "yerel": 1.35,
+      "kuresel": 21.05,
+      "sozcuk": "başlangıç."
+    },
+    {
+      "olay": "kart_cerceve",
+      "kare": 74,
+      "yerel": 2.46,
+      "kuresel": 22.16,
+      "sozcuk": "Dersin"
+    },
+    {
+      "olay": "kapak_belir",
+      "kare": 74,
+      "yerel": 2.46,
+      "kuresel": 22.16,
+      "sozcuk": "Dersin"
+    },
+    {
+      "olay": "hap_giris",
+      "kare": 112,
+      "yerel": 3.74,
+      "kuresel": 23.44,
+      "sozcuk": "YDS"
+    },
+    {
+      "olay": "youtube_giris",
+      "kare": 146,
+      "yerel": 4.86,
+      "kuresel": 24.56,
+      "sozcuk": "YouTube"
+    },
+    {
+      "olay": "kuyruk_durgun",
+      "kare": 182,
+      "yerel": 6.06,
+      "kuresel": 25.76,
+      "sozcuk": "kanalında."
+    }
+  ]
+}

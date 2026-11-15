@@ -25,7 +25,7 @@ DERS = json.loads(re.search(r'ders:\s*(\[[^\]]+\])', KUNYE_JS).group(1))
 ROZET = re.search(r'rozet:\s*"([^"]+)"', KUNYE_JS).group(1)
 CIP = re.search(r'"07-hyperframes-kural":\s*"([^"]+)"', KUNYE_JS).group(1)
 assert DERS == ["SIMPLE PRESENT vs", "PRESENT CONTINUOUS"], f"ders adı uyuşmuyor: {DERS}"
-assert ROZET == "YDT · BASIC", f"rozet uyuşmuyor: {ROZET}"
+assert ROZET == "YDT · TEMEL", f"rozet uyuşmuyor: {ROZET}"
 assert CIP == "Rule", f"çip uyuşmuyor: {CIP}"
 
 # ---- İkon verileri ve yardımcıları (SPEC §2 yatay kalıp) ----

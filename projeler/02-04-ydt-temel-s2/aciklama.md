@@ -88,8 +88,6 @@ Profil bağlantısı:
 - `{UZUN_VIDEO_URL}` `watch?v=…` biçiminde gelirse ilk `?` yerine `&` yaz.
 - YouTube adresindeki UTM grammar-kapi kayıtlarına düşmez; YouTube tarafını Studio "Trafik Kaynakları" ölçer.
 - Profil bağlantısı hesap başına tektir: set A ve B profilde aynı anda ölçülemez. Önerilen: profilde set A.
-- **DİKKAT:** S1 `utm_campaign=ing-ydt-gr-02-04-t` (küçük harf) yazar. Analitik büyük/küçük harfi ayırırsa S1 ve S2 aynı kampanyada
-  toplanmaz. Eşitleme kararı Nadir'de (`uretim-tutanagi/S2-C-RAPOR.md`).
 
 ## 5. Yer tutucular
 

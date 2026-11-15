@@ -1,9 +1,9 @@
 #!/bin/bash
-# Sahne 03 (Simple Past DİKEY, Paper.js, 448 kare): yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png
+# Sahne 03 (Simple Past DİKEY, Paper.js, 465 kare): yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png
 # Tema: --tema acik|koyu (varsayılan acik, K19). Geçici kareler ~/Silinecekler/<tarih>-kalem-spast/ altına taşınır (silme yok).
 set -eo pipefail
-D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=${KARE_SAYISI:-448}
-KLASOR=03-paperjs-ornek1; TBAS=14.8; GLOBAL_SN="18.3 23.5 28.7"
+D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=${KARE_SAYISI:-465}
+KLASOR=03-paperjs-ornek1; TBAS=16.24; GLOBAL_SN="19.74 24.94 30.5"
 . "$D/../../ortak/tema.sh" "$@"
 cd "$K"
 BAS=$(date +%s)

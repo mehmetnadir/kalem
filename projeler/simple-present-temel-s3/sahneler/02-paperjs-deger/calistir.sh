@@ -1,11 +1,11 @@
 #!/bin/bash
-# Sahne 02 simple-present-temel-s3 Shorts (Paper.js, 1080x1920, 281 kare, t_bas 3.89): önizleme hazırlığı (ONIZLE_YALNIZ=1) ya da
+# Sahne 02 simple-present-temel-s3 Shorts (Paper.js, 1080x1920, 348 kare; t_bas zaman.json'da): önizleme hazırlığı (ONIZLE_YALNIZ=1) ya da
 # yakala -> olaylar.json -> video.mp4 -> kontrol.png -> k/*.png. Tema: --tema acik|koyu (varsayılan acik, K19).
 # Geçici kareler bitince ~/Silinecekler/2026-11-15-0204/ altına taşınır (silme yok).
 set -eo pipefail
 [ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"
-D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=281
-KLASOR=02-paperjs-deger; PROJE=simple-present-temel-s3; TBAS=3.89; GLOBAL_SN="6.6 8.4 9.8 11.6"
+D="$(cd "$(dirname "$0")" && pwd)"; K="$(cd "$D/../../../.." && pwd)"; KARE_DIR="$D/kareler"; N=348
+KLASOR=02-paperjs-deger; PROJE=simple-present-temel-s3; YEREL_SN="1.31 4.51 7.71 10.01"   # sahne içi saniye (DUZ2: kol a/b aynı)
 . "$D/../../ortak/tema.sh" "$@"
 [ -n "$ONIZLE_YALNIZ" ] && { echo "önizleme hazır"; exit 0; }
 cd "$K"
@@ -24,7 +24,7 @@ ffmpeg -y -loglevel error -framerate 30 -i "$KARE_DIR/%04d.png" -frames:v "$N" -
 S=$((N - 13)); SEL="eq(n\,0)+eq(n\,$((N/5)))+eq(n\,$((N*2/5)))+eq(n\,$((N*3/5)))+eq(n\,$((N*4/5)))+eq(n\,$S)"
 ffmpeg -y -loglevel error -i "$D/video.mp4" -vf "select='$SEL',scale=360:-1,tile=6x1" -frames:v 1 "$D/kontrol.png"
 mkdir -p "$D/k"
-for T in $GLOBAL_SN; do F=$(perl -e "printf('%d', ($T-$TBAS)*30+0.5)"); cp "$KARE_DIR/$(printf '%04d' "$F").png" "$D/k/$(printf '%04d' "$F").png"; done
+for T in $YEREL_SN; do F=$(perl -e "printf('%d', $T*30+0.5)"); cp "$KARE_DIR/$(printf '%04d' "$F").png" "$D/k/$(printf '%04d' "$F").png"; done
 cp "$KARE_DIR/$(printf '%04d' "$S").png" "$D/k/$(printf '%04d' "$S").png"
 if [ "${KAREYI_TUT:-0}" != "1" ]; then
   H="$HOME/Silinecekler/2026-11-15-0204"; mkdir -p "$H"; mv "$KARE_DIR" "$H/kareler-$KLASOR-$(date +%H%M%S)"

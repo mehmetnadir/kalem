@@ -1,4 +1,4 @@
-// Sahne 03 (DİKEY) — Örnek 1: Paper.js, 1080x1920, 453 kare, t_bas 15,44; cümle 3.
+// Sahne 03 (DİKEY) — Örnek 1: Paper.js, 1080x1920, 453 kare, t_bas 16,48 (16.11 DUZ3: cümle 2 +1,04 sn; bütün küresel sabitler +1,04); cümle 3.
 // Yerel kare = round((t − 15,44) × 30);
 // zamanlar sozcukler.json ve altyazi.json ile aynı çerçevede.
 // Yerleşim sıfırdan dikey tasarım: kart (tam genişlik) → TR çeviri →
@@ -8,7 +8,7 @@ import { sahneKur, RT, renkCoz }
 import { yaziNoktalari }
   from "/projeler/present-continuous-dikey/ortak/kalem-canvas.js";
 
-export const KARE = 453, T_BAS = 15.44;
+export const KARE = 453, T_BAS = 16.48;
 
 export async function kur(P) {
   const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: "Example 1 / 3", etkin: 1, kayma: 0 });
@@ -52,32 +52,32 @@ export async function kur(P) {
   // oturuyorum 19,78–20,74; kısa pencereler sonraki sözcüğün başına uzatıldı)
   const tr = elYazisi("Şu anda oturuyorum.", { x: 64, y: yTR, boyut: 64, renk: RT.murekkep,
     sozcukler: pen("Şu", 3) });
-  not("Türkçe çeviri", fr(19.3));
+  not("Türkçe çeviri", fr(20.34));
 
   // --- ORTA: oturan figür + kamera + sehpa (bant: TR altı → formül üstü)
   const fUst = yTR + 40, fAlt = 1150, fYuk = fAlt - fUst;
-  const figOge = S.oge({ nefes: { bas: fr(18.7), cx: 280, cy: fAlt } });
-  await S.svgCiz("open-peeps/sitting-4.svg", { kutu: [70, fUst, 450, fYuk], bas: fr(16.5),
-    sure: fr(18.6) - fr(16.5), azami: 60, yuz: 3, w: 4.4, oge: figOge, sesAralik: 5, ayna: false });
-  not("figür çizimi başı", fr(16.5));
+  const figOge = S.oge({ nefes: { bas: fr(19.74), cx: 280, cy: fAlt } });
+  await S.svgCiz("open-peeps/sitting-4.svg", { kutu: [70, fUst, 450, fYuk], bas: fr(17.54),
+    sure: fr(19.64) - fr(17.54), azami: 60, yuz: 3, w: 4.4, oge: figOge, sesAralik: 5, ayna: false });
+  not("figür çizimi başı", fr(17.54));
   const kY = fUst + 10, kBoy = 300, kX = 640, kcx = kX + kBoy / 2;
   await S.svgCiz("tabler/camera.svg", {
-    kutu: [kX, kY, kBoy, kBoy], bas: fr(17.8), sure: 18, azami: 25, w: 4,
+    kutu: [kX, kY, kBoy, kBoy], bas: fr(18.84), sure: 18, azami: 25, w: 4,
     sesAralik: 1 });
-  not("kamera çizimi başı", fr(17.8));
+  not("kamera çizimi başı", fr(18.84));
   const ay = kY + kBoy - 24;
   [[[kcx, ay], [kcx - 120, fAlt]],
    [[kcx, ay], [kcx + 2, fAlt + 4]],
    [[kcx, ay], [kcx + 124, fAlt]]].forEach((p, i) => {
     ciz([p[0], [(p[0][0] + p[1][0]) / 2 + 2, (p[0][1] + p[1][1]) / 2], p[1]],
-      { w: 4.4, bas: fr(17.8) + 18 + i * 4, sure: 8, uc0: 6, uc1: 12, amp: 0.6 }); });
-  not("sehpa (3 çizgi)", fr(17.8) + 18);
-  parilti(kX + kBoy - 10, kY + 20, { bas: fr(18.7), r: 28, periyot: 170, adet: 4 });
+      { w: 4.4, bas: fr(18.84) + 18 + i * 4, sure: 8, uc0: 6, uc1: 12, amp: 0.6 }); });
+  not("sehpa (3 çizgi)", fr(18.84) + 18);
+  parilti(kX + kBoy - 10, kY + 20, { bas: fr(19.74), r: 28, periyot: 170, adet: 4 });
 
   // --- 18,65 now sarı daire + NOW etiketi (kartın son sözcüğü)
   {
     const g = cz[8];
-    const d = daire((g.x0 + g.x1) / 2, g.y - 26, g.w / 2 + 2, 40, { bas: fr(18.65), sure: 16 });
+    const d = daire((g.x0 + g.x1) / 2, g.y - 26, g.w / 2 + 2, 40, { bas: fr(19.69), sure: 16 });
     olay(bitis(d), "tik", 0.5); not("now daire", d.bas);
     // daire sonrası anlatımsız etiket `NOW`: hedef 14 kare (0,47 sn) → ≈ 19,72
     elYazisi("NOW", { x: g.x1 + 50, y: g.y, boyut: 72, renk: SARI, bas: bitis(d) + 2, sure: 14 });
@@ -91,14 +91,14 @@ export async function kur(P) {
         yb + 20 + 11 * Math.sin(u * 7.5 * Math.PI) * (0.55 + 0.45 * Math.sin(u * Math.PI))];
     });
     const w = ciz(dalga, {
-      w: 9, renk: SARI, alfa: 0.85, bas: fr(20.78), sure: 24, duz: true, uc0: 12, uc1: 24, amp: 0.5
+      w: 9, renk: SARI, alfa: 0.85, bas: fr(21.82), sure: 24, duz: true, uc0: 12, uc1: 24, amp: 0.5
     });
     not("in progress bandı", w.bas);
     // 21,38 anlatımsız etiket `in progress`: hedef 16 kare (0,53 sn) → 21,91; ortalı (x = orta −
     // gen/2)
     elYazisi("in progress", { x: (x0 + x1) / 2 - eyGen("in progress", 64) / 2, y: yb - 6,
       boyut: 64, renk: SARI, bas: bitis(w) - 6, sure: 16 });
-    const f0 = fr(21.5), nx = x0 + 30, ny = yb + 20;
+    const f0 = fr(22.54), nx = x0 + 30, ny = yb + 20;
     dinamik((f, g) => {
       if (f < f0) return;
       const t = f - f0, s = 1 + 0.16 * Math.sin(2 * Math.PI * t / 36);
@@ -116,10 +116,10 @@ export async function kur(P) {
   {
     const a = cz[1], s = cz[2];
     const da = daire((a.x0 + a.x1) / 2, a.y - 24, a.w / 2 + 2, 40,
-      { bas: fr(24.73), sure: 16, a0: -1.8 });
+      { bas: fr(25.77), sure: 16, a0: -1.8 });
     olay(bitis(da), "tik", 0.5); not("am daire", da.bas);
     const ds = daire((s.x0 + s.x1) / 2, s.y - 24, s.w / 2 + 2, 40,
-      { bas: fr(25.85), sure: 18, a0: -2.8 });
+      { bas: fr(26.89), sure: 18, a0: -2.8 });
     olay(bitis(ds), "tik", 0.5); not("sitting daire", ds.bas);
   }
 
@@ -144,16 +144,16 @@ export async function kur(P) {
       });
       return out;
     };
-    const a = hepsi(A, yA, [24.73, 25.3, 25.85, 26.2], [RT.murekkep, IKI, RT.murekkep, SARI], true);
-    not("am + sitting", fr(24.73));
-    const b = hepsi(B, yB, [27.04, 28.12, 28.4, 28.96],
+    const a = hepsi(A, yA, [25.77, 26.34, 26.89, 27.24], [RT.murekkep, IKI, RT.murekkep, SARI], true);
+    not("am + sitting", fr(25.77));
+    const b = hepsi(B, yB, [28.08, 29.16, 29.44, 30.0],
       [RT.murekkep, IKI, RT.murekkep, SARI], true);
-    not("be + V-ing", fr(27.04));
+    not("be + V-ing", fr(28.08));
     const ar = S.ok([130, yA - 50], [130, yB - 10], {
-      bas: fr(26.5), sure: 16, w: 8, uzun: 26, bukum: 0.14
+      bas: fr(27.54), sure: 16, w: 8, uzun: 26, bukum: 0.14
     });
     not("ok A → B", ar.bas);
-    parilti(b[3].x1 + 40, yB - boy * 0.8, { bas: fr(29.1), r: 24 });
+    parilti(b[3].x1 + 40, yB - boy * 0.8, { bas: fr(30.14), r: 24 });
     void a;
   }
   return S;

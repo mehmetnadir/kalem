@@ -1,5 +1,10 @@
 # SPEC — simple-present-temel-s3 · sahne 02-paperjs-deger · huni v2 (15.11)
 
+> **DUZ2 (16.11, `uretim-tutanagi/DUZ2-RAPOR.md`):** cümle 2 "He, she, it ile …" ile başlar; sözcük sırası +4 (`does` 7, `s` 9, `ona` 10, `s` 13,
+> `gelmez.` 14, `He` 15 …); KARE 348; `t_bas` kodda sabit değil, paketin `zaman.json` kaydından okunur (A/B kollarında kod paket adı dışında aynı).
+> Kapsam etiketi `he, she, it` (soluk el yazısı, kendi `KAPSAM` grubu, kart 0 altında taban KY0+KH0+92). ✗ ve üstü çizgi mürekkep; çizilen `es`
+> o anda soluk tona geçer (A7). Aşağıdaki zaman ve kare değerleri DUZ2 öncesidir.
+
 Şef tasarımı (istem `uretim-tutanagi/istem/sahne/D-02-paperjs-deger.md`). Tek dosya, tek agy koşusu:
 
 - YAZILACAK: `/home/sef/01dev/_worktrees/kalem-0204/projeler/simple-present-temel-s3/sahneler/02-paperjs-deger/sahne-02.js` (yeni dosya)
