@@ -1,106 +1,99 @@
-# 02-paperjs-ornek — RAPOR (15.11, istem D-S1; render yok)
+# 02-paperjs-ornek — RAPOR v2 (15.11, istem D-V2 huni v2; render yok)
 
-Motor: Paper.js · 1080×1920 · 30 fps · 522 kare (içerik 510 + geçiş 12) · t_bas 3,00 · t_son 19,99 · cümle 1 (sonu) + cümle 2.
-Tema: acik + koyu (kapı açık; kare koyu 16,0)
+| Ölçüm | Değer |
+|---|---|
+| Motor | Paper.js · 1080×1920 · 30 fps · 522 kare · t_bas 3,00 · t_son 19,99 (v1 ile aynı) |
+| Değişen | yerleşim (içerik x 60–960, y 460–1380) + kanal katmanı + künye satırı; içerik ve olay sırası v1 ile aynı |
+| `qa-yerel.sh … 3.05,11.50,19.90 11.50 --hazirla` | çıkış 0 (2 tur) |
+| `cakisma-kapisi.mjs … --sahne 02-paperjs-ornek` | çıkış 0 · "çakışma yok (69 örnek, 3180 kutu)" · uyarı 0 |
+| Metin taraması (`tam ders|dakika`, html/js/py) | boş (grep çıkış 1) |
+| Kanal katmanı (3 açık + 1 koyu karede piksel ölçümü) | 4 / 4 karede yerinde |
+| Yedek | `~/Silinecekler/2026-11-15-huni-v2/02-04-ydt-temel-s1/` (`ortak/kunye.js`, `sahneler/02-paperjs-ornek/` v1 dosyaları, `k-v1/`, `qa-kare-v1/`) |
 
 ## Yapım
 
 | Adım | Kim | Çıktı |
 |---|---|---|
-| Tasarım + spec | şef | `SPEC.md` (yerleşim, 24 olay, API, kurallar, kabul) |
-| Kalem modülü | şef | `kalem-paper.js` (present-continuous-ileri-s1 kopyası; değişiklikler aşağıda) |
-| `sayfa.html`, `calistir.sh`, `bavul.svg`, `nesneler.json` | şef | `ONIZLE_YALNIZ=1` dalı satır 10; bavul = ana ders 04 `BAVUL_SVG` |
-| Sahne betiği | agy-filo `tek --rol kod` (gemini-3.8-flash-high, 302 sn, 1 tur, başarılı) | `sahne-02.js`; özet `/home/sef/.claude/canavar/agy-filo/20261115-120738/ozet.md` |
-| İnceleme | şef | baştan sona okundu, spec'e uyuyor; 2 küçük Edit (aşağıda) |
-| Kapı + kare | şef | `qa-yerel.sh` 2 koşu, ikisi de çıkış 0 |
+| Tasarım + spec | şef | `SPEC.md` v2 (§A kunye.js, §B sahne-02.js; bantlar, sabit tablosu, bekçiler, olay listesi) |
+| `ortak/kunye.js` v2 | agy-filo `tek --rol kod` (gemini-3.8-flash-high, 182 sn, 1 tur, başarılı) | `KANAL`, `kanalCiz`, v2 `KUNYE`, `konuDuzen`, `kunyeCiz` (çip yok), altyazı x 60–960 · özet `/home/sef/.claude/canavar/agy-filo/20261115-184957/ozet.md` |
+| `sahne-02.js` v2 | agy-filo `tek --rol kod` (gemini-3.8-flash-high, 95 sn, 1 tur, başarılı) | sabitler, 2 yeni bekçi, `sahneKur` `bolum`suz · özet `/home/sef/.claude/canavar/agy-filo/20261115-185000/ozet.md` |
+| İnceleme | şef | iki dosya diff ile baştan sona okundu; SPEC'e uyuyor; `node --check` iki dosyada geçti |
+| Şef Edit (kare turu 1) | şef | `KUTU_PAY` 10: kart kutusu 70–950 (el çizimi köşe taşması dahil 62–957). Tur 1 ölçümü: kart çizgisi x 52–967, sağ 961–967 bandına girdi |
+| Sözleşme | şef | `K/.claude/docs/sozlesme.md` 1 satır (canvas huni v2 künyesi, kutu taşma payı) |
 
-`kalem-paper.js` değişiklikleri (yalnız bu kopya): yollar `02-04-ydt-temel-s1` · altyazı `kunye.js` `altyaziMetin` (dilimleme
-kunye.js'te; örneğin yerel `altyaziSec`'i kalktı, sahne 01/03 ile aynı altyazı) · `yazi` kapı etiketi (`kalemTur: yazi`) + `oge`
-grubuna bağlanma (öğe kayınca yazı kayar) · `svgCiz` "/" ile başlayan tam yol · `altCizgi` `alt` payı + kapı etiketi `isaret` ·
-`KUNYE` dışa aktarımı.
+`kalem-paper.js`, `sayfa.html`, `calistir.sh`, `bavul.svg` değişmedi (`kunyeCiz` `bolum`u yok sayar).
+agy özetlerindeki "değişen" listesinde başka sahnelerin dosyaları var (`01-hyperframes-kapak`, `03-…`, `-s3`, ana ders `90-…`):
+filo düzeyinde atıf, paralel oturumların işi. Bu koşularda agy yalnız hedef dosyasını yazdı (diff ile denetlendi).
 
-Şef Edit'leri (`sahne-02.js`): 1) çip yazı öğelerine kapı etiketi (`metinOge.g.data`): grup içindeki yazının kutusu yerel
-koordinatta kalıyordu, kapı kaymış çipi yanlış yerde ölçerdi. 2) Kare turu 1 bulgusu: 8,42 sn'de çip 1 sönen `yaşı-` parçasının
-üstünden geçiyordu → sönme `[G0, G0+8]`, kayma `GK0 = G0+6`'da başlar (`SPEC.md` §5 notu).
+## Kanal katmanı ve künye (karede ölçüm, eşik: zemin sapması > 90)
 
-agy özetindeki "değişen" listesinde bu sahne dışı 11 dosya var (`02-04-ydt-temel-dikey/...`, `01-hyperframes-kapak/...`,
-`.claude/docs/sozlesme.md`): filo düzeyinde atıf, paralel oturumların işi. Bu sahne dizininde agy yalnız `sahne-02.js` yazdı
-(öteki dosyaların mtime'ı agy koşusundan önce).
+| Öğe | Tablo | Ölçülen (4 karede aynı) |
+|---|---|---|
+| Logo | resim x 53,2, görünür x 60, y 291–339 | görünür x 60/61–239, y 298–330 (SVG iç boşluğu); resim kutusu 53,2–246,7 × 291–339 |
+| `@ydspublishing` | Lexend 700 42, x 263, taban 330 | x 264–598, y 296–339 (taban 330, `y`/`p` kuyruğu 339) |
+| Künye | y 360–450, konu + rozet sağ uç ≤ 960 | x 60–863, y 386–433; konu boyu 34 (rozet hapı 661–863) |
+| Kapı kutuları | `kunye:kanal`, `kunye:konu`, `kunye:rozet` | çakışma yok |
+
+## Bantlar (karede ölçüm, tur 2)
+
+| Kare | 0–280 | İçerik (455–1390) | Altyazı | 1560–1920 | x 961–1080 |
+|---|---|---|---|---|---|
+| 3,05 açık | boş | x 87–751, y 491–697 | x 79–939, y 1416–1522 (2 satır) | boş | boş |
+| 11,50 açık | boş | x 62–957, y 499–953 | x 98–923, y 1449–1494 | boş | boş |
+| 19,90 açık | boş | x 62–957, y 499–1363 | x 96–923, y 1449–1494 | boş | boş |
+| 11,50 koyu | boş | x 62–957, y 499–953 | x 98–923 | boş | boş |
 
 ## Olay ↔ sözcük (yerel kare = round((t − 3,00) × 30); zaman `sozcukler.json`'dan `al()` ile)
 
-| # | Olay | Kare | Cümle:sözcük (t0 sn) |
-|---|---|---|---|
-| 1 | İki TR satırı hazır (sahne 01'den), Caveat 80 | 0 | — |
-| 2 | Karaoke altçizgi: satır 2 `yaşı-yor-um.` | 12 (geçiş sonrası) | 1:3 yaşıyorum. (3,08) |
-| 3 | ek_ayir: satır 1 *yor* sarı kutu | 29 | 1:4 Türkçede (3,96) |
-| 4 | ek_ayir: satır 2 *yor* sarı kutu | 86 | 1:7 yaşıyorum. (5,56) + 9 kare (*yor* hecesi) |
-| 5 | TR parçaları yukarı solar · iki çip ayrılır (çip 1 kart 1'in, çip 2 kart 2'nin üstüne) | 156–164 / 162–177 | 2:2 ayrılır. (8,19) |
-| 6 | Kart 1 kutusu | 172 | 2:3 I (9,08) − 10 |
-| 7 | `I live in İstanbul.` sözcük zamanlı + karaoke altçizgi | 182 · 190 · 194 · 199 | 2:3–6 I live in Istanbul. |
-| 8 | `odak` *live* (kalıcı sarı altçizgi) | 190 | 2:4 live (9,32) |
-| 9 | `bag` çip 1 → *live* | 194 | 2:5 in (9,48) |
-| 10 | Ev ikonu (kart 1 sağ üst, 100 px) | 199 | 2:6 Istanbul. (9,64) |
-| 11 | Soluk TR `Hep orada.` (kalemle) | 245–279 | 2:7–8 Hep orada: (11,17–12,29) |
-| 12 | `PERMANENT` | 281 | 2:9 kalıcı (12,37) |
-| 13 | Zaman çizgisi 1: eksen + ok | 293 | 2:10 durum, (12,77) |
-| 14 | now noktası / `now` | 301 / 305 | durum, + 8 / + 12 |
-| 15 | Uzun bant, now bandın içinde | 308 | 2:11 geniş (13,25) |
-| 16 | Kart 2 kutusu | 341 | 2:13 I (14,70) − 10 |
-| 17 | `I am living` / `with my uncle.` + karaoke | 351 · 357 · 361 · 370 · 375 · 382 | 2:13–18 |
-| 18 | `odak` *am living* | 361 | 2:15 living (15,02) |
-| 19 | `bag` çip 2 → *am living* | 370 | 2:16 with (15,34) |
-| 20 | Bavul ikonu (kart 2 sağ üst, 100 px) | 382 | 2:18 uncle. (15,74) |
-| 21 | Soluk TR `Şimdilik.` | 391–420 | 2:19 Şimdilik: (17,03–17,99) |
-| 22 | `TEMPORARY` | 422 | 2:20 geçici (18,07) |
-| 23 | Zaman çizgisi 2: eksen + ok · now · `now` | 434 / 442 / 446 | 2:21 durum, (18,47) |
-| 24 | Kısa bant + 2 uç çentiği, now bandın içinde | 451 / 457 · 460 | 2:22 şimdiki (19,03) |
+| # | Olay | Kare | Cümle:sözcük (küresel sn) | v2 konum |
+|---|---|---|---|---|
+| 1 | İki TR satırı hazır (sahne 01'den), Caveat 80 | 0 | — | x 84, taban 560 / 680 |
+| 2 | Karaoke altçizgi satır 2 `yaşı-yor-um.` | 12 | 1:3 yaşıyorum. (3,08) | taban 680 |
+| 3 | ek_ayir satır 1 *yor* kutusu | 29 | 1:4 Türkçede (3,96) | x ≈ 551–636 |
+| 4 | ek_ayir satır 2 *yor* kutusu | 86 | 1:7 yaşıyorum. (5,56) + 9 | x ≈ 482–567 |
+| 5 | TR parçaları solar · iki çip kayar | 156–164 / 162–177 | 2:2 ayrılır. (8,19) | çip 1 → taban 540, çip 2 → 936 |
+| 6–7 | Kart 1 kutusu + `I live in İstanbul.` + karaoke | 172 / 182–199 | 2:3–6 (9,08–9,64) | kutu 70–950 × 570–766, taban 650 |
+| 8–10 | odak *live* · bag 1 · ev | 190 / 194 / 199 | 2:4–6 | ev 810–910 × 584–684 |
+| 11 | `Hep orada.` (soluk, kalemle) | 245–279 | 2:7–8 (11,17–12,29) | taban 736 |
+| 12–15 | `PERMANENT` · eksen 1 · now · uzun bant | 281 / 293 / 301–305 / 308 | 2:9–11 (12,37–13,25) | eksen y 816 |
+| 16–17 | Kart 2 kutusu + `I am living` / `with my uncle.` | 341 / 351–382 | 2:13–18 (14,70–15,74) | kutu 70–950 × 966–1238, taban 1044 / 1124 |
+| 18–20 | odak *am living* · bag 2 · bavul | 361 / 370 / 382 | 2:15–18 | bavul 810–910 × 980–1080 |
+| 21 | `Şimdilik.` (soluk) | 391–420 | 2:19 (17,03–17,99) | taban 1208 |
+| 22–24 | `TEMPORARY` · eksen 2 · now · kısa bant + çentik | 422 / 434–446 / 451–460 | 2:20–22 (18,07–19,03) | eksen y 1288, now taban 1364 |
 
-Son hareket kare 465'te biter; kare 509–521 durgun. İki görsel değişim arası en uzun boşluk 2,6 sn (5,86 → 8,19).
-
-## Kapı (son koşu, son satırlar)
+## Kapı (tur 2, son satırlar)
 
 ```
 == HAZIRLA
 önizleme hazır
 == KAPI
-02-paperjs-ornek | çakışma yok (69 örnek, 3249 kutu)
+02-paperjs-ornek | çakışma yok (69 örnek, 3180 kutu)
 == KARE (açık)
-"png":"/home/sef/qa-kare/02-04-ydt-temel-s1/02-paperjs-ornek/02-paperjs-ornek-6.png"
-"png":"/home/sef/qa-kare/02-04-ydt-temel-s1/02-paperjs-ornek/02-paperjs-ornek-13.8.png"
-"png":"/home/sef/qa-kare/02-04-ydt-temel-s1/02-paperjs-ornek/02-paperjs-ornek-19.6.png"
+"png":"/home/sef/qa-kare/02-04-ydt-temel-s1/02-paperjs-ornek/02-paperjs-ornek-3.05.png"
+"png":"/home/sef/qa-kare/02-04-ydt-temel-s1/02-paperjs-ornek/02-paperjs-ornek-11.5.png"
+"png":"/home/sef/qa-kare/02-04-ydt-temel-s1/02-paperjs-ornek/02-paperjs-ornek-19.9.png"
 == KARE (koyu)
-"png":"/home/sef/qa-kare/02-04-ydt-temel-s1/02-paperjs-ornek/koyu/02-paperjs-ornek-16.png"
+"png":"/home/sef/qa-kare/02-04-ydt-temel-s1/02-paperjs-ornek/koyu/02-paperjs-ornek-11.5.png"
 kapı çıkış kodu: 0
 ```
+Ayrı çakışma kapısı (`--port 41333 --sunucu 41022`): çıkış 0, aynı satır, "uyar" geçen satır 0.
 
-## Bakılan kareler (Read ile)
+## Bakılan kareler (Read ile; `k/`, `k/koyu/`)
 
 | Kare | Bulgu |
 |---|---|
-| `k/ara/…-3.png` (kare 0) | yalnız iki TR satırı + HUD + altyazı; sahne 01 son karesiyle eşleşmesi gereken durum |
-| `k/ara/…-3.5.png` | karaoke altçizgi satır 2 `yaşı-yor-um.` altında; harfe değmiyor |
-| `k/…-6.png` | satır 1 *yor* kutusu tam, satır 2 kutusu çiziliyor (beklenen) |
-| `k/ara/…-8.3.png`, `…-8.5.png`, `…-8.7.png` | 2. tur: TR parçaları sönerken çipler yerinde; kayma yazı söndükten sonra; üst üste binme yok |
-| `k/ara/…-9.95.png` | kart 1 cümlesi, odak + karaoke altçizgi, bag oku *live* üstünde, ev çiziliyor |
-| `k/…-13.8.png` | kart 1 bloğu tam; çip 2 kart 2 yerinde bekliyor |
-| `k/ara/…-15.75.png` | kart 2 sözcük zamanlı geliyor; bag 2 çiziliyor |
-| `k/…-19.6.png`, `k/ara/…-19.95.png` | son durum: iki kart, iki zaman çizgisi; içerik 378–1366 (bandın %94'ü); 1536 altı boş; altyazı bandında yalnız altyazı |
-| `k/koyu/…-16.png` | koyu tema: krem yazı, turuncu belirteçler okunur; bavul çiziliyor |
+| `k/02-paperjs-ornek-3.05.png` | kare 0 durumu: iki TR satırı (84, 560 / 680), kanal + künye, altyazı 2 satır; içerik bandının alt yarısı boş (beklenen, kartlar 9,08'de gelir) |
+| `k/02-paperjs-ornek-11.5.png` | kart 1 + ev + `Hep` yazılıyor; çip 1 kartın üstünde, bag oku *live*'a iner; çip 2 kart 2 yerinde bekler |
+| `k/02-paperjs-ornek-19.9.png` | son durum: iki kart, iki zaman çizgisi; taşma, kesik yazı, üst üste binme yok; çip 2 ile eksen 1 `now` aynı sırada (x 370–470 / 670–755), değmez |
+| `k/koyu/02-paperjs-ornek-11.5.png` | koyu tema: krem yazı, şeffaf logo (sarı `yds` + beyaz), turuncu rozet; okunur |
 
-Taşma, kesik yazı, üst üste binme, okunmaz kontrast, boş kare yok. 1. tur bulgusu (8,42 sn çip × sönen yazı) 2. turda düzeldi;
-1. tur karesi `~/Silinecekler/2026-11-15-0204/02-paperjs-ornek-8.42-tur1.png` altına taşındı.
+Tur 1 kareleri aynı adla üzerine yazıldı (qa-yerel kopyası); tur 1 bulgusu yukarıdaki ölçüm satırında.
 
 ## Açık noktalar
 
-1. **Sahne 01'e devir (kare 0):** iki satır `İstanbul'da yaşı-yor-um.` / `Amcamla yaşı-yor-um.` · Caveat 700 80 px · `RENK.murekkep` ·
-   sol x 72 · taban y 470 / 590 · *yor* kutusu YOK, altçizgi YOK. Sahne 01'in uçuş sonrası konumu bu ölçüye uymalı (sahne 01 dizini bu
-   istem sırasında boştu; ölçü sahne 02'de tanımlandı, örnek `uret.py` kalıbı).
-2. **"karaoke alt bantta" yorumu:** alt bantta `kunye.js` altyazısı (düz; kunye.js karaoke çizmez). Karaoke kart sözcüğünün sarı
-   altçizgisiyle (03.11 kararı: karaoke şeridi yok). Alt bantta sözcük vurgusu istenirse `ortak/kunye.js` işi (kapsam dışı).
-3. **Altyazı kaynağı:** dikey örnek sahne içi `altyaziSec` kullanıyordu; burada `kunye.js` `altyaziMetin` (cümle 1 altyazısı iki satır
-   tüm cümle). Sahne 01 ve 03 aynı kaynağı kullanırsa geçişte altyazı sıçramaz.
-4. **İkon boyu:** ev ve bavul 100 px (istem: "kart köşesinde küçük"); BRIEF-DIKEY §3 figür/nesne 420–560 kuralı uygulanmadı.
-5. **Kapı ölçüm riski (modül geneli):** `paperTopla` grup içindeki öğenin kutusunu grubun yerel koordinatında okur; `kay` alan
-   öğede kutu kaymayı görmez. Bu sahnede çip öğesi etiketlendi; ortak örneklerde de aynı risk var.
-6. `olaylar.json` / `zamanlar.json` render dalında üretilir; render yok, dosyalar yok.
+1. **Altyazı ortası 510 (x 60–960):** eski `W/2` (540) yerine; sağ 960–1080 platform düğmeleri. Sahne 01 `yardim.py` de `altyaziOrta 510`
+   kullanıyor (geçişte sıçrama yok). Sahne 08 ve 03 aynı değeri almalı (bu oturumda denetlenmedi).
+2. **Sahne 01 devri:** sahne 01 `devir.json` (18:55) sol 84, taban 560 / 680, *yor* x 550,08 / 481,28 → sahne 02 kare 0 ile uyuşuyor.
+3. **Açık temada logo:** `yds-publishing-lacivert.svg` içindeki sarı `yds` krem zeminde düşük kontrastlı (BRIEF değeri; değiştirilmedi).
+4. **`kalem-paper.js` baş yorumu** hâlâ "DİKEY … bolum" anlatır; dosya değişmedi, `bolum` artık `undefined` geçer ve yok sayılır.
+5. Süre 31,75 sn (standart ≈ 22–26) bu sahnenin dışında; şef kararı (`uretim-tutanagi/V2-C-RAPOR.md`).

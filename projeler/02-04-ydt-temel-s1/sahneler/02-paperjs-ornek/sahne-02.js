@@ -1,12 +1,13 @@
 // Sahne 02 (02-04-ydt-temel-s1 Shorts) — Örnek: Paper.js, 1080x1920, 522 kare, t_bas 3.00.
 // Cümle 1 sonu (Türkçe yaşıyorum satırları) + cümle 2 (İngilizce live / am living kartları ve zaman çizgileri).
+// huni v2 (15.11): yerleşim x 60–960, y 460–1380; çip yok; kanal katmanı kunye.js'te.
 import { sahneKur, RT, KUNYE } from "/projeler/02-04-ydt-temel-s1/sahneler/02-paperjs-ornek/kalem-paper.js";
 import { yaziNoktalari } from "/projeler/02-04-ydt-temel-s1/ortak/kalem-canvas.js";
 
 export const KARE = 522, T_BAS = 3.0;
 
 export async function kur(P) {
-  const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: KUNYE.cipler["02-paperjs-ornek"] });
+  const S = await sahneKur(P, { KARE, tBas: T_BAS });
   const {
     fr, ciz, daire, ok, kutu, yazi, elYazisi, cumle, altCizgi, svgCiz, oge, not, genislik,
   } = S;
@@ -75,42 +76,43 @@ export async function kur(P) {
   const wDurum2 = al(s2, 21, "durum,");
   const wSimdiki = al(s2, 22, "şimdiki");
 
-  // Ölçü ve sabitler (BRIEF-DIKEY §2–§3)
+  // Ölçü ve sabitler (huni v2 §B)
   const KENAR = KUNYE.kenar;
-  const W = 1080;
-  const SAG = W - KENAR;
+  const SAG = KUNYE.sag;
   const SOL = KENAR + 24;
-  const KX = KENAR;
-  const KW = W - 2 * KENAR;
+  // Kart kutusu el çizimi köşeleri 8 px + kalem 2 px taşar: kutu 70–950, çizgi 60–960 içinde kalır.
+  const KUTU_PAY = 10;
+  const KX = KENAR + KUTU_PAY;
+  const KW = SAG - KENAR - 2 * KUTU_PAY;
   const IC = KX + 40;
+  const Y_L1 = 560;
+  const Y_L2 = 680;
+  const YC1 = 540;
+  const KY1 = YC1 + 30;
+  const KH1 = 196;
+  const AXY1 = KY1 + KH1 + 50;
+  const YC2 = AXY1 + 120;
+  const KY2 = YC2 + 30;
+  const KH2 = 272;
+  const AXY2 = KY2 + KH2 + 50;
   const BTR = 80;
-  const Y_L1 = 470;
-  const Y_L2 = 590;
   const BEN = 64;
   const BTR2 = 72;
   const BET = 72;
   const BNOW = 64;
-  const KY1 = 460;
-  const KH1 = 220;
-  const KY2 = 935;
-  const KH2 = 300;
-  const YC1 = 430;
-  const YC2 = 905;
-  const AXY1 = 740;
-  const AXY2 = 1290;
   const IKON = 100;
   const ALT = 0.30;
 
   // Türetilen konumlar
-  const yb1 = KY1 + 88;
-  const yTr1 = KY1 + 182;
-  const yb2 = KY2 + 88;
-  const yTr2 = KY2 + 267;
+  const yb1 = KY1 + 80;
+  const yTr1 = KY1 + 166;
+  const yb2 = KY2 + 78;
+  const yTr2 = KY2 + 242;
   const yEtiket1 = AXY1 + 24;
   const yNow1 = AXY1 + 76;
   const yEtiket2 = AXY2 + 24;
   const yNow2 = AXY2 + 76;
-  const AX1 = W - KENAR - 24;
+  const AX1 = SAG - 24;
   const AX0 = SOL + Math.max(eyGen("PERMANENT", BET), eyGen("TEMPORARY", BET)) + 36;
   const NX = Math.round((AX0 + AX1) / 2);
   const ikonX = KX + KW - 40 - IKON;
@@ -131,7 +133,7 @@ export async function kur(P) {
     { s: wWith.s, f: fr(wWith.t), satir: 1 },
     { s: wMy.s, f: fr(wMy.t), satir: 1 },
     { s: wUncle.s, f: fr(wUncle.t), satir: 1 },
-  ], { x: IC, y: yb2, boyut: BEN, aile: "Fredoka", agirlik: 700, renk: RT.murekkep, aralik: 85 });
+  ], { x: IC, y: yb2, boyut: BEN, aile: "Fredoka", agirlik: 700, renk: RT.murekkep, aralik: 80 });
   altCizgi(kel2, { tut: 24, alt: ALT });
 
   // Çip hedef ve kayma hesapları
@@ -181,6 +183,13 @@ export async function kur(P) {
   }
   if (AXY2 + 76 > KUNYE.icerikSon) {
     throw new Error(`Bekçi: AXY2 + 76 > KUNYE.icerikSon (${AXY2 + 76} > ${KUNYE.icerikSon})`);
+  }
+  if (Math.min(YC1, Y_L1) - BTR * 0.9 < KUNYE.icerikBas) {
+    const ust = Math.min(YC1, Y_L1) - BTR * 0.9;
+    throw new Error(`Bekçi: içerik üst sınırı aşıldı (${ust} < ${KUNYE.icerikBas})`);
+  }
+  if (SAG > KUNYE.sag || KX + KW > KUNYE.sag) {
+    throw new Error(`Bekçi: SAG > KUNYE.sag veya KX + KW > KUNYE.sag (${SAG}, ${KX + KW} > ${KUNYE.sag})`);
   }
 
   // Çip öğeleri (katman sırası: bandOge -> metinOge -> UST)

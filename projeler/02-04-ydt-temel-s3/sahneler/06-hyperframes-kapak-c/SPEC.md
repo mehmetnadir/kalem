@@ -1,140 +1,126 @@
-# SPEC — 02-04-ydt-temel-s3 · sahne 06-hyperframes-kapak-c (HyperFrames, 1080×1920, tek kare, ses yok)
+# SPEC v2 — 02-04-ydt-temel-s3 · sahne 06-hyperframes-kapak-c (kapak C, karşıt çift) · huni v2 · 15.11.2026
 
-Yazan: şef (15.11.2026, istem D-S3). Kod yazmaz; tasarım verir. K = `/home/sef/01dev/_worktrees/kalem-0204`.
-Sahne dizini D = `K/projeler/02-04-ydt-temel-s3/sahneler/06-hyperframes-kapak-c/`. Paket P = `K/projeler/02-04-ydt-temel-s3/`.
-Kaynak: `P/BRIEF-S3.md` "Kapak B ve C" (C satırı), `P/uretim-tutanagi/kapak-taslak.md` §1–§3 (C), `P/uretim-tutanagi/S3-duzeltme.md`
-madde 1 ve 5. Kapak C = karşıt çift: başlık `İKİ ÖRNEK` / `İKİ ZAMAN`, iki kart `The train leaves …` / `I am going …`.
+Yazan: şef (istem D-V2-S3). Kod yazmaz; tasarım verir. K = `/home/sef/01dev/_worktrees/kalem-0204`.
+D = `K/projeler/02-04-ydt-temel-s3/sahneler/06-hyperframes-kapak-c/` · P = `K/projeler/02-04-ydt-temel-s3/`.
+BAĞLAYICI: `/home/sef/01dev/dijital-anlatim/.claude/docs/huni-v2-standart.md` §2 (bantlar), §6 (kapak: altyazı yok, kanal katmanı var).
+Tarif: `P/BRIEF-S3.md` "Yerleşim" + "Kapak B ve C" (C satırı). v1 SPEC yedeği: `~/Silinecekler/2026-11-15-huni-v2/02-04-ydt-temel-s3/sahneler-v1/06-hyperframes-kapak-c/SPEC.md`.
 
 ## 1. Dosyalar
 
 | Dosya | Durum | İş |
 |---|---|---|
-| `D/uret.py` | YOK | **YAZILACAK** — mutlak yol `/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s3/sahneler/06-hyperframes-kapak-c/uret.py` |
-| `D/yardim.py` | VAR (S1 kapak C kopyası) | DOKUNMA; yalnız `import yardim as Y` (`Y.genislik`, `Y.font_css`, `Y.font_kopyala`, `Y.ZEMIN_CSS`, `Y.zemin_html`, `Y.RENK`, `Y.LOGO_EN_BOY`, `Y.W`, `Y.H`) |
-| `D/cizim/ogretmen.json` | VAR | salt oku (`kutu`, `yollar[].d`, `yollar[].parca`) |
-| `D/calistir.sh`, `D/olay.py`, `D/zamanlar.json` | VAR (şef) | DOKUNMA |
-| `D/nesneler.json` | uret.py yazar | §6 |
+| `/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s3/sahneler/06-hyperframes-kapak-c/uret.py` | VAR (v1) | **YENİDEN YAZILACAK** (v1 başlangıç noktası; §2 tablosundaki işlevler korunur, §3–§7 değişir) |
+| `D/yardim.py` | VAR (v1 HUD) | DOKUNMA. Yalnız `Y.genislik`, `Y.font_css`, `Y.font_kopyala`, `Y.ZEMIN_CSS`, `Y.zemin_html`, `Y.RENK`, `Y.LOGO_EN_BOY`, `Y.LOGO_KAYMA`, `Y.W`, `Y.H`. `Y.kunye_svg`, `Y.HUD`, `Y.rozet_konumu`, `Y.DERS`, `Y.altyazi_*` KULLANILMAZ (v1 HUD) |
+| `D/cizim/ogretmen.json` | VAR | salt oku (`kutu` = [43,7, 54,6, 958,9, 3006,8], `yollar[].d`, `yollar[].parca`) |
+| `D/calistir.sh`, `D/olay.py`, `D/zamanlar.json` | VAR | DOKUNMA |
+| `D/nesneler.json`, `D/proje/index.html` | uret.py yazar | §7 |
 
-Başka dosyaya dokunma. Silme yok. Test, render, snapshot, `calistir.sh`, git YOK. `P/ortak/`, `P/zaman.json`, başka sahneler salt okunur.
+Başka dosyaya dokunma. Silme yok. Test, render, snapshot, `calistir.sh`, git YOK.
 
 ## 2. Kalıp kaynakları (salt oku)
 
 | Kalıp | Mutlak yol | Ne alınır |
 |---|---|---|
-| İskelet (aynı tür, aynı ders, bitmiş) | `/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s1/sahneler/06-hyperframes-kapak-c/uret.py` | dosya düzeni ve sırası: `zaman.json` + `zamanlar.json` doğrulaması, `kunye_svg()` (logo + rozet; çip YOK, ders adı YOK), başlık `<text>` konturu (`stroke` zemin, `stroke-width` 12, `stroke-linejoin="round"`, `style="font-kerning:none;paint-order:stroke fill"`), sarı kutu `<rect id="bk-kutu">` + kutudaki yazı `fill` zemin KONTURSUZ, figür çizimi (`fig_kalinlik` govde 4.4 · sac 3.6 · yuz 2.6, `/ fs`), `kesisim()`, HTML kabuğu (aynen: `Y.font_css()`, `Y.ZEMIN_CSS`, `#root data-composition-id="main" data-start="0" data-duration=… data-fps="30" data-width="1080" data-height="1920"`, `Y.zemin_html()`, tek `<svg id="sahne" … viewBox="0 0 1080 1920">`, `lib/gsap.min.js`, iki `tl.set("#sahne", …)` satırı, `window.__timelines["main"]`), `__main__` bloğu (aynen) |
-| Kart çizgisi (el kutusu) | `/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel/sahneler/12-hyperframes-ozet/yardim.py` satır 308–313 `el_kutu(x, y, w, h)` | işlevi uret.py içine aynen al (tür ipucu ekle) |
-| İkon ızgarası ve yerleştirme | `/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel/sahneler/12-hyperframes-ozet/uret.py` satır 72–156 | `_kutu`, `TREN` (yalnız lokomotif alt kümesi, §4.3), `_bilet()` / `BILET`, `_kutusu`, `_daire_yolu`, `ikon_yollari` (Catmull-Rom `egri` dalı dahil). `ikon_yollari`'yı kutu ölçüsünü parametre alacak biçimde uyarla: `ikon_yollari(parcalar, mx0, my0, en, boy)` (sabit `IKON_EN`/`IKON_BOY` yerine) |
-| Çizim kaynağı (doğrulama) | `/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel/sahneler/05-canvas-ornek3/sahne.js` satır 81–142 | `trenParcalari` (duman elipsleri), `biletParcalari`; yalnız koordinat okunur |
-| Tema dönüşümü | `P/ortak/hf_tema.py` | §5 |
+| v1 kodu (aynı sahne) | `/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s3/sahneler/06-hyperframes-kapak-c/uret.py` | AYNEN koru: `zaman.json` + `zamanlar.json` doğrulaması (satır 21–35), `g()`, `_kutu`, `TREN`, `_bilet`/`BILET`, `_kutusu`, `_daire_yolu`, `ikon_yollari`, `ikon_kutusu`, `ikon_svg`, `el_kutu`, `kesisim`, başlık `<text>` kalıbı (`bs-1` konturlu, `bk-kutu`, `bs-2` kontursuz), figür çizimi (`fig_kalinlik`, `/ fs`), HTML kabuğu (satır 620–645, iki `tl.set`), `__main__` bloğu. DEĞİŞİR: sabitler, `kunye_svg`, `hesapla_s_ve_baslik`, `kartlar_svg`, `eskiz_svg`, `blok_kutulari`, `kurallari_dogrula`, modül docstring'i |
+| Kanal katmanı + rozet (aynı paket, kapak A) | `/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/uret.py` satır 191–201 (`ROZET_W`, `KB_K` döngüsü, `ROZET_X`), 228–229 (`LOGO_W`, `LOGO_X`), 664–684 (`_kunye_svg`) | `kanal` grubu ve `rz0` grubu birebir; `ku-konu` YAZILMAZ (KONU yalnız rozet konumunu ölçmek için) |
 
-## 3. Okuma ve sabitler
+## 3. Sabitler ve renk
 
-- `PAKET = AD.parent.parent`. `PAKET/zaman.json` oku. `duragan` içinde `klasor == AD.name` olan TEK kayıt assert; kaydın `kare == 1`,
-  `cikti == "kapak-c.png"` assert. `sahneler[]` içinde `AD.name` YOK assert (S1 iskeletiyle aynı).
-- `D/zamanlar.json`: `sure == 1.0`, `kare == 1`, `fps == 30` assert.
-- Anlatım, sözcük, altyazı dosyası OKUNMAZ (ses yok, altyazı yok, karaoke yok).
+- `SOL = 60`, `SAG = 960` (içerik x), `ICERIK_UST = 460`, `ICERIK_ALT = 1380`. 0–280 ve 1400–1920 yalnız zemin (hiçbir öğe yok).
 - Renk yalnız `Y.RENK` anahtarlarıyla: `zemin #1b1a17`, `murekkep #f3efe6`, `ikincil #c9c2b3`, `vurgu #f2a93b`. Başka hex YOK.
-- Sabitler: `KENAR = 48`, `SAG = 1032`, `BASLIK_GEN = 952`, `BANT_UST = 864`, `BANT_ALT = 1344`.
-- Ölçü işlevi `g(m, b) = Y.genislik("Fredoka", 700, m, b)` (kerning yok; her yazıda `style="font-kerning:none"`).
+  Tema dönüşümü `P/ortak/hf_tema.py` yapar (açık: `rect fill #f2a93b` → `#ffe066`, `text fill #1b1a17` → `#1b2440`, `#f3efe6` → `#1b2440`,
+  `stroke #1b1a17` → zemin). Bu yüzden rozet/`bk-kutu`/`hap-leaves` = `<rect fill="#f2a93b">`; rozet yazısı, `bs-2`, `m1b` = `<text fill="#1b1a17">`.
+  CSS içinde renk yazma. `<path fill="#1b1a17">` YOK.
+- Ölçü: `g(m, b) = Y.genislik("Fredoka", 700, m, b)`; her Fredoka yazısında `style="font-kerning:none"`.
 
-## 4. Yerleşim (y = yazı tabanı, px)
+## 4. Yerleşim (y = yazı tabanı; beklenen değerler `≈`)
 
 ```
-y    0 ┌──────────────────────────────────────────────┐
-       │ [logo 387×96]                                 │ HUD: logo + rozet; çip YOK, ders adı YOK
-   216 │ (YDT · BASIC)                                 │ rozet 216–288
-   358 │ İKİ ÖRNEK                                     │ Fredoka 700 S=190 (hesaplanır), kontur 12
-  ≈544 │[İKİ ZAMAN]                                    │ satır 2 tamamen sarı kutuda
-  ≈772 │                                               │
-   884 │ ┌─────────────────────────────────┐           │ kart 1: [tren] The train [leaves] …
-       │ └─────────────────────────────────┘     o     │
-  1124 │ ┌─────────────────────────────────┐    /|\    │ kart 2: [bilet] I am going …
-  1324 │ └─────────────────────────────────┘   _/ \_   │ figür 340 px, ayak 1324; kısa zemin çizgisi
-  1344 ├───────────────────────────────────────────────┤ 1344–1920 BOŞ (hiçbir öğe yok)
+y    0 ┌──────────────────────────────────────────┐ 0–280 yalnız zemin
+   291 │[logo 193,5×48] @ydspublishing            │ kanal katmanı (kapak A ile aynı piksel)
+   386 │                      (YDT · BASIC)       │ rozet x ≈ 664,6–868,2 (kapak A konumu); konu adı YOK
+   460 │   İKİ ÖRNEK                              │ Fredoka 700 S = 170; kontur dahil üst = 460
+  ≈645 │  [İKİ ZAMAN]                             │ sarı kutu x ≈ 87,6–932,4
+  ≈849 │                                          │ başlık altı
+   896 │┌───────────────────────────────┐         │ kart 1: [tren] The train [leaves] …
+  1096 │└───────────────────────────────┘    o    │
+  1132 │┌───────────────────────────────┐   /|\   │ kart 2: [bilet] I am going …
+  1332 │└───────────────────────────────┘  _/ \_  │ figür 280 px, ayak 1332 + kısa zemin çizgisi
+  1400 ├──────────────────────────────────────────┤ 1400–1920 BOŞ (altyazı yok)
+       60                                 ≈841 ≈865 952 960
 ```
 
-### 4.1 HUD — `<g id="kunye">` (S1 iskeletindeki `kunye_svg()` aynen)
-| Öğe | Ölçü | Renk |
-|---|---|---|
-| logo `<g id="ku-logo"><image id="logoimg" href="assets/logo.svg" …/>` | x 48, y 48, yükseklik 96, genişlik `96 · Y.LOGO_EN_BOY` (387) | dosya |
-| rozet `<g id="rz0">` hap | x 48, y 216, h 72, rx 36, w = `Y.genislik("Lexend", 700, "YDT · BASIC", 36) + 56` | `<rect fill=vurgu>` |
-| rozet yazısı | Lexend 700 36, `text-anchor="middle"`, x = hap ortası, taban 265 | `<text fill=zemin>` |
-
-### 4.2 Başlık — `<g id="baslik">`
-- Metin (elle büyük harf, Türkçe `İ` U+0130; `text-transform` YOK): satır 1 `İKİ ÖRNEK`, satır 2 `İKİ ZAMAN`.
-- Boy: `p(S) = 0,08·S` (kutu yatay payı). Önce 100 ile ölç: `w100 = g("İKİ ZAMAN", 100) + 2·p(100)`;
-  `S = floor(min(190, 952·100 / w100))`. S ile `B = max(g("İKİ ÖRNEK", S), g("İKİ ZAMAN", S) + 2·p)`; `B > 952` ise S'yi 1'er azalt;
-  `B ≤ 952` assert. Beklenen: S = 190, B ≈ 944.
-- Yatay: blok ortalı. Kutu solu `KX = 540 − B/2`; iki satırın yazı başı AYNI `x0 = KX + p` (iki `İKİ` alt alta).
-  Kutu genişliği `g("İKİ ZAMAN", S) + 2·p`.
-- Dikey (İ noktası ve Ö iki noktası yazı tabanının 0,93·S üstüne çıkar; kutu bunları içine almalı):
-  `T1 = 358 + 0,93·S` · kutu üstü `KU = T1 + 0,12·S` · `T2 = KU + 1,00·S` · kutu altı `KA = T2 + 0,20·S` · rx `0,10·S`.
-  Beklenen: T1 ≈ 534,7 · KU ≈ 557,5 · T2 ≈ 747,5 · KA ≈ 785,5. (Şef düzeltmesi 1. tur: 344 → 358; kontur dahil üst 352 = içerik bandı üstü.)
-- `<text id="bs-1">` `İKİ ÖRNEK`: x0, T1, `fill` murekkep + kontur (S1 kalıbı: `stroke` zemin, 12, round, paint-order stroke fill).
-- `<rect id="bk-kutu">`: x KX, y KU, w `g("İKİ ZAMAN", S) + 2·p`, h `KA − KU`, rx `0,10·S`, `fill` vurgu.
-- `<text id="bs-2">` `İKİ ZAMAN`: x0, T2, `fill` zemin (`#1b1a17`), KONTURSUZ, `style="font-kerning:none"`.
-- Başlıkta başka renk, altçizgi, hap YOK. id `t2` YOK.
-
-### 4.3 Kartlar — `<g id="kartlar">` (iki kart üst üste, AYNI boy ve AYNI genişlik)
-| Ölçü | Değer |
-|---|---|
-| Kart kutusu | x `KART_X0 = 64` → `KART_X1 = 880` (w 816), h `KART_H = 200` |
-| Kart 1 / kart 2 üstü | `884` / `1124` (ara 40); kart 2 altı 1324 |
-| Çizgi | `<path id="kc1">` / `<path id="kc2">` d = `el_kutu(64, y, 816, 200)`, `fill="none"`, `stroke` murekkep, `stroke-width` 4, `stroke-linecap/linejoin` round |
-| Kart ortası | `cy = y + 100`; yazı tabanı `b = cy + 26` (kart 1 b = 1010, kart 2 b = 1250) |
-| Yazı başı (iki kartta aynı) | `METIN_X = KART_X1 − 28 − g("The train leaves …", 72)` (≈ 243,4) |
-| İkon kutusu (iki kartta aynı) | x `88` → `METIN_X − 24` (en ≈ 131,4), boy `112`, merkez y = cy; ikon kutuya oranı korunarak sığar, ortalanır |
-
-Kart 1 (`<g id="kart1">`): `The train leaves …` — Fredoka 700 72, `style="font-kerning:none"`, üç ayrı `<text>`:
-- `<text id="m1a">` `The train` → x METIN_X, `fill` murekkep.
-- `<rect id="hap-leaves">` → x `XL − 0,12·72`, y `b − 0,86·72`, w `g("leaves", 72) + 2·0,12·72`, h `(0,86 + 0,18)·72`, rx 12, `fill` vurgu.
-  `XL = METIN_X + g("The train ", 72)` (sondaki boşluk dahil).
-- `<text id="m1b">` `leaves` → x XL, `fill` zemin (`#1b1a17`), KONTURSUZ. **Kapaktaki tek kart vurgusu budur.**
-- `<text id="m1c">` `…` (U+2026) → x `XL + g("leaves ", 72)`, `fill` murekkep.
-- Tren ikonu `<g id="ik-tren" fill="none" stroke-linecap="round" stroke-linejoin="round">`, solda ikon kutusunda.
-
-Kart 2 (`<g id="kart2">`): `<text id="m2">` `I am going …` → x METIN_X, b, Fredoka 700 72, `fill` murekkep. `am going` VURGUSUZ (hap, altçizgi, renk yok).
-- Bilet ikonu `<g id="ik-bilet" …>` aynı ikon kutusunda.
-
-İkon parçaları (12-hyperframes-ozet/uret.py ızgarası; `ikon_yollari` yolları ekran koordinatına çevirir, stroke-width ekran px'i):
-- **Tren = lokomotif alt kümesi** (vagon ve bağlantı YOK; kutuya büyük sığsın diye): `_kutu(200, 55, 170, 75)` gövde ·
-  `_kutu(200, 10, 75, 45)` kabin · `_kutu(320, 22, 26, 33, True)` baca · `{"n": [(370, 95), (398, 130), (370, 130)]}` burun ·
-  `_kutu(215, 20, 42, 25, True)` kabin camı · `{"daire": (240, 138, 17)}`, `{"daire": (335, 138, 17)}` tekerlek ·
-  `{"n": [(190, 158), (410, 158)], "ince": True}` ray · duman `{"daire": (345, 2, 10), "ince": True}`, `{"daire": (372, -16, 7.5), "ince": True}`
-  (sahne 05 duman elipslerinin daire karşılığı).
-- **Bilet** = `_bilet()` aynen (çentikli çerçeve + 6 delik çizgisi + 3 baskı satırı), eğim yok.
-- Çizgi: ince olmayan parça `stroke` murekkep, `stroke-width` 4 · `"ince": True` parça `stroke` ikincil, `stroke-width` 3. Dolgu yok.
-
-### 4.4 Figür — `<g id="eskiz" fill="none" stroke=murekkep stroke-linecap="round" stroke-linejoin="round">`
+### 4.1 Künye — `<g id="kunye">` = `kanal` + `rz0` (konu adı, çip, üst logo YOK)
 | Öğe | Ölçü |
 |---|---|
-| figür `<g id="fig">` | `cizim/ogretmen.json` (`kadro.ogretmen`: ShirtPantsWB / Smile / Short). `FIG_H = 340`, ayak `FIG_ALT = 1324` (kart 2 altıyla aynı). `fs = FIG_H / (kutu.y1 − kutu.y0)`, `fw = (kutu.x1 − kutu.x0)·fs` (≈ 105), `FIG_X = 1016 − fw` (≈ 910,6). Çizim S1 iskeletindeki `eskiz_svg()` figür bölümüyle aynı (transform, `fig_kalinlik / fs`) |
-| kısa zemin çizgisi `<path id="zc">` | `M{FIG_X − 16} 1324 L1016 1324`, `stroke-width` 4 |
+| `<g id="kanal">` logo | `<image id="logoimg" href="assets/logo.svg" x=LOGO_X y="291" width=LOGO_W height="48"/>`; `LOGO_W = 48·Y.LOGO_EN_BOY` (≈ 193,49), `LOGO_X = 60 − Y.LOGO_KAYMA·LOGO_W` (≈ 53,15) |
+| `kanal` yazısı | `<text id="kanal-ad" x="263" y="330" font-family="Lexend" font-weight="700" font-size="42" fill=murekkep>@ydspublishing</text>` |
+| `<g id="rz0">` | `KONU = "Simple Present vs Present Continuous"`, `ROZET = "YDT · BASIC"`, `ROZET_W = Y.genislik("Lexend", 700, ROZET, 26) + 40` (≈ 203,57); `KB_K` = 34'ten 28'e ilk `60 + g(KONU, k) + 20 + ROZET_W ≤ 960` (≈ 34); `ROZET_X = 60 + g(KONU, KB_K) + 20` (≈ 664,63). `<rect x=ROZET_X y="386" width=ROZET_W height="48" rx="24" fill=vurgu/>` + `<text x=ROZET_X+ROZET_W/2 y="419.4" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill=zemin>YDT · BASIC</text>` |
 
-## 5. Tema (hf_tema.py ile uyum)
-- `Y.ZEMIN_CSS` ve `Y.zemin_html()` DEĞİŞTİRMEDEN kullan. Renkler SVG özniteliği, küçük harf hex. CSS `style` içinde renk YAZMA.
-- Dönüşüm (açık temada): `rect fill #f2a93b` → `#ffe066` · `text fill #1b1a17` → `#1b2440` · `stroke #1b1a17` → zemin ·
-  `#f3efe6` → `#1b2440` · `#c9c2b3` → `#5a6275`. Bu yüzden: rozet, `bk-kutu`, `hap-leaves` = `<rect fill="#f2a93b">`;
-  rozet yazısı, `bs-2`, `m1b` = `<text fill="#1b1a17">`. `<path fill="#1b1a17">` YOK. Kart çizgisi `fill="none"`.
-- id `t2`, `ku-nokta`, `rz1` KULLANMA.
+Opaklık 1; giriş/çıkış yok (zaman çizelgesinde yalnız iki `tl.set("#sahne", {opacity:1})`).
+
+### 4.2 Başlık — `<g id="baslik">`
+- Metin elle büyük harf, Türkçe `İ` (U+0130); `text-transform` YOK: `bs-1` `İKİ ÖRNEK`, `bs-2` `İKİ ZAMAN`.
+- Boy: `S = 170`; `p = 0,08·S`; `B = max(g("İKİ ÖRNEK", S), g("İKİ ZAMAN", S) + 2p)`; `B > 900` iken S'yi 1 azalt. Beklenen S = 170, B ≈ 844,7.
+- Yatay: içerik bandında ortalı. `KX = 510 − B/2` (≈ 87,6); iki satırın yazı başı aynı `x0 = KX + p`; kutu genişliği `kutu_w = g("İKİ ZAMAN", S) + 2p`.
+- Dikey: `T1 = 466 + 0,93·S` (≈ 624,1; İ noktası 466, kontur 6 → 460) · `KU = T1 + 0,12·S` (≈ 644,5) · `T2 = KU + 1,00·S` (≈ 814,5) ·
+  `KA = T2 + 0,20·S` (≈ 848,5) · kutu rx `0,10·S`.
+- `bs-1`: x0, T1, `fill` murekkep, `stroke` zemin, `stroke-width` 12, `stroke-linejoin="round"`, `style="font-kerning:none;paint-order:stroke fill"`.
+- `<rect id="bk-kutu">` x KX, y KU, w kutu_w, h KA − KU, `fill` vurgu. `bs-2`: x0, T2, `fill` zemin, KONTURSUZ.
+
+### 4.3 Figür — önce hesaplanır (kart genişliği buna bağlı)
+`FIG_H = 280`, `FIG_ALT = 1332`, `fs = FIG_H / (kutu.y1 − kutu.y0)`, `fw = (kutu.x1 − kutu.x0)·fs` (≈ 86,8), `FIG_SAG = 952`, `FIG_X = FIG_SAG − fw` (≈ 865,2).
+Çizim v1 `eskiz_svg()` ile aynı (translate + scale, `fig_kalinlik / fs`), yalnız ölçüler bu değerler. `<path id="zc">` zemin çizgisi
+`M{FIG_X − 12} 1332 L956 1332`, `stroke-width` 4. Grup `<g id="eskiz" fill="none" stroke=murekkep stroke-linecap="round" stroke-linejoin="round">`.
+
+### 4.4 Kartlar — `<g id="kartlar">` (üst üste, AYNI x, w, h)
+| Ölçü | Değer |
+|---|---|
+| Kart x | `KART_X0 = 64` → `KART_X1 = FIG_X − 24` (≈ 841,2); `KART_W = KART_X1 − KART_X0` (≈ 777,2); `KART_H = 200` |
+| Kart üstü | kart 1 `896`, kart 2 `1132` (ara 36); kart 2 altı 1332 = `FIG_ALT` |
+| Çizgi | `<path id="kc1">` / `<path id="kc2">` d = `el_kutu(KART_X0, y, KART_W, 200)`, `fill="none"`, `stroke` murekkep, 4, round |
+| Yazı tabanı | `b = y + 126` (kart 1 1022, kart 2 1258); ikon merkezi y = `y + 100` |
+| Yazı başı (iki kartta aynı) | `METIN_X = KART_X1 − 24 − g("The train leaves …", 72)` (≈ 208,6) |
+| İkon kutusu (iki kartta aynı) | x `84` → `METIN_X − 20`; `IKON_EN = METIN_X − 20 − 84` (≈ 104,6), `IKON_BOY = 100`, merkez x `84 + IKON_EN/2`; `ikon_yollari`/`ikon_svg` oranı korur, ortalar |
+
+Kart 1 (`<g id="kart1">`): `kc1` + `ik-tren` + Fredoka 700 72 üç `<text>`:
+- `m1a` `The train` x METIN_X, `fill` murekkep.
+- `<rect id="hap-leaves">` x `XL − 0,12·72`, y `b − 0,86·72`, w `g("leaves", 72) + 2·0,12·72`, h `1,04·72`, rx 12, `fill` vurgu; `XL = METIN_X + g("The train ", 72)`.
+- `m1b` `leaves` x XL, `fill` zemin, KONTURSUZ. **Kapaktaki tek kart vurgusu budur.**
+- `m1c` `…` (U+2026) x `XL + g("leaves ", 72)`, `fill` murekkep.
+
+Kart 2 (`<g id="kart2">`): `kc2` + `ik-bilet` + `<text id="m2">` `I am going …` x METIN_X, b 1258, Fredoka 700 72, `fill` murekkep. `am going` VURGUSUZ.
+İkonlar v1 `TREN` (lokomotif alt kümesi) ve `BILET` aynen; ince parça `ikincil` 3, diğeri `murekkep` 4; dolgu yok.
+
+## 5. Olay listesi (durağan kare; ses, altyazı, karaoke yok)
+
+| Olay | Kare / sn | Cümle sözcüğü |
+|---|---|---|
+| kapak tam görünür (kanal, rozet, başlık, kutu, iki kart, ikonlar, hap, figür, zemin çizgisi) | 0 / 0,00 → son (çizelge 1,0 sn, yakalama 0,5 sn) | — (anlatımdan bağımsız) |
+
+Ekran metni (tam liste): `@ydspublishing` · `YDT · BASIC` · `İKİ ÖRNEK` · `İKİ ZAMAN` · `The train` `leaves` `…` · `I am going …`. Başka yazı yok.
+Can alıcı: `canAlici[1]` (V-s, `leaves`) + `[2]` (am + V-ing, `am going`).
 
 ## 6. Kurallar ve kabul ölçütü (uret.py içinde `assert`)
-1. Bloklar (nesneler.json sırası): `hud` (48, 0, 984, 288) · `baslik` (x KX, y `T1 − 0,93·S`, w B, alt KA) · `bk-kutu` · `kart-1` ·
-   `ik-tren` · `m-1` · `hap-leaves` · `kart-2` · `ik-bilet` · `m-2` · `fig`. Yazı kutusu: y_üst = taban − 0,75·boy, y_alt = taban + 0,25·boy;
-   `m-1` x METIN_X, w `g("The train leaves …", 72)`; `m-2` w `g("I am going …", 72)`. İkon kutusu = çizilen yolların gerçek dış kutusu
-   (`ikon_yollari` girdisinden hesapla). Kart kutusu el kutusunun ±4 px salınımını içersin (x − 4, y − 4, w + 8, h + 8).
-2. Bütün bloklar x ∈ [48, 1032]; `hud` dışı bütün bloklar x ∈ [64 − 4, 1016]; hiçbir blok alt kenarı 1344'ü geçmez.
-3. Yazı boyu ≥ 64 (rozet 36 hariç); başlık 2 satır; satır ≤ 24 karakter (`İKİ ÖRNEK`, `İKİ ZAMAN`, `The train leaves …`, `I am going …`, `YDT · BASIC`).
-4. Kesişim 0: `hud`, `baslik`, `kart-1`, `kart-2`, `fig` çiftleri. Aralar: hud alt → başlık üstü ≥ 40 · başlık altı → kart 1 üstü ≥ 48 ·
-   kart 1 altı → kart 2 üstü ≥ 24 · kart sağı (`KART_X1`) → `FIG_X` ≥ 24.
-5. Kart içi: `ik-*` ve `m-*` kendi kartının iç kutusunda (kenara ≥ 16); ikon sağı → METIN_X ≥ 20; `m-1` sağı ≤ `KART_X1 − 24`.
-   `hap-leaves` solu ≥ `METIN_X + g("The train", 72) + 4`; sağı ≤ `XL + g("leaves ", 72) − 4` (hap `train`e ve `…`e değmez).
-6. Kart 1 ile kart 2 aynı (x, w, h) assert. Başlık kutusu `bs-2`'nin İ noktasını içerir: `KU ≤ T2 − 0,93·S`.
-7. Üretilen HTML'de `#[0-9a-fA-F]{6}` eşleşmelerinin kümesi ⊆ {`#1b1a17`, `#f3efe6`, `#c9c2b3`, `#f2a93b`} assert.
-   HTML'de `kanal`, `QR`, ` dk` geçmez assert. Emoji, kırmızı, yeşil, gradyan (zemin vinyeti hariç: `Y.ZEMIN_CSS`), gölge YOK.
-8. Yasak: `Math.random`, `Date`, try/catch, `opacity:0` başlangıç, tween (iki `set` dışında hareket yok). Python: bütün işlevlerde tür ipucu.
+
+1. Bloklar (nesneler.json sırası): `kanal` (x 60, y 280, w `263 + Y.genislik("Lexend", 700, "@ydspublishing", 42) − 60`, h 70) ·
+   `rozet` (ROZET_X, 386, ROZET_W, 48) · `baslik` (x KX, y `T1 − 0,93·S − 6`, w B, alt KA) · `bk-kutu` · `kart-1` · `ik-tren` · `m-1` ·
+   `hap-leaves` · `kart-2` · `ik-bilet` · `m-2` · `fig` (FIG_X, FIG_ALT − FIG_H, fw, FIG_H). Yazı kutusu: y_üst = taban − 0,75·boy, h = boy.
+   Kart kutusu el kutusu salınımını içerir (x − 4, y − 4, w + 8, h + 8). İkon kutusu = `ikon_kutusu` sonucu.
+2. Bütün bloklar: x ≥ 60 − 1e-4, x + w ≤ 960, y ≥ 280, y + h ≤ 1380. `kanal`, `rozet` dışı bloklar y ≥ 460 − 1e-4.
+3. Kesişim 0: `kanal`, `rozet`, `baslik`, `kart-1`, `kart-2`, `fig` çiftleri.
+   Aralar: rozet altı 434 → başlık üstü ≥ 20 · KA → kart 1 üstü ≥ 40 · kart 1 altı → kart 2 üstü ≥ 24 · `KART_X1 + 4` → FIG_X ≥ 16.
+4. Başlık: S ≤ 170, S ≥ 64, B ≤ 900, `KX ≥ 60`, `KX + kutu_w ≤ 960`, `KU ≤ T2 − 0,93·S` (kutu İ noktasını içerir).
+5. Kart içi: `ik-*` ve `m-*` kendi kartının iç kutusunda (kenara ≥ 16); ikon sağı → METIN_X ≥ 20; `m-1` sağı ≤ `KART_X1 − 24`;
+   `hap-leaves` solu ≥ `METIN_X + g("The train", 72) + 4`, sağı ≤ `XL + g("leaves ", 72) − 4`. `IKON_EN ≥ 96`; `ik-tren` h ≥ 70.
+6. Kart 1 ile kart 2 aynı (x, w, h). Yazı boyu ≥ 64 (künye 42 ve 26 hariç). Satır ≤ 24 karakter (§5 metinleri).
+7. HTML: `#[0-9a-fA-F]{6}` kümesi ⊆ {4 renk}. Küçük harfe çevrilmiş HTML'de `tam ders`, `dakika`, `qr`, ` dk`, `izle` YOK.
+   HTML'de `id="kanal"`, `@ydspublishing`, `href="assets/logo.svg"`, `id="rz0"` VAR; `id="ku-konu"`, `id="ku-logo"`, `id="ku-cip"`,
+   `id="ku-ders"`, `id="altyazi"`, `id="t2"` YOK. (v1'deki "`kanal` geçmez" kuralı KALKAR.)
+8. Yasak: `Math.random`, `Date`, `try`, `catch`, `opacity:0`, tween (iki `set` dışında hareket yok), gradyan, gölge, emoji, kırmızı, yeşil.
+   Python: bütün işlevlerde tür ipucu.
 9. `nesneler.json`: `[{"ad", "x", "y", "w", "h"}]` tam sayı (yuvarla), §6.1 sırası, `ensure_ascii=False`, `indent=2`.
 10. `/usr/bin/python3 uret.py` stdout'a `index.html yazıldı <bayt>` ve `S=<boy>` basar; hata yoksa çıkış 0.
 
-Kabul (şef koşturur, ajan koşturmaz): `ONIZLE_YALNIZ=1 bash calistir.sh` → "önizleme hazır"; `bash calistir.sh --tema acik|koyu` →
-`P/kapak-c.png` ve `D/k/koyu/kapak-c-koyu.png` 1080×1920; taşma, kesik yazı, üst üste binme yok; 1344 altı boş.
+Kabul (şef koşturur, ajan koşturmaz): `bash calistir.sh --tema acik|koyu` → `P/kapak-c.png` ve `D/k/koyu/kapak-c-koyu.png` 1080×1920;
+kanal katmanı x 60, y 291–339; 0–280 ve 1400–1920 boş; x 960 sağı boş; taşma, kesik yazı, üst üste binme yok.

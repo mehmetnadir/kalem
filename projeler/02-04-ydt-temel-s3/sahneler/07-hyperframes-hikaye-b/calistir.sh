@@ -1,6 +1,6 @@
 #!/bin/bash
-# Sahne 07 hikâye karesi B (soru kartı) (HyperFrames DİKEY 1080x1920, tek kare, ses yok, zaman çizelgesi dışı): üret -> [önizleme burada biter] -> tek kare PNG.
-# Tema: --tema acik|koyu (varsayılan acik, K19). acik -> paket kökü hikaye-b.png · koyu -> k/koyu/hikaye-b-koyu.png. mp4 yok. Kalıp: ../../../02-04-ydt-temel-s1/sahneler/07-hyperframes-hikaye-b/calistir.sh (S3 kopyası).
+# Sahne 07 hikâye karesi B (soru + cevap + Kaydet; huni v2) (HyperFrames DİKEY 1080x1920, tek kare, ses yok, zaman çizelgesi dışı): üret -> [önizleme burada biter] -> tek kare PNG.
+# Tema: --tema acik|koyu (varsayılan acik, K19). acik -> paket kökü hikaye-b.png · koyu -> k/koyu/hikaye-b-koyu.png. mp4 yok. Kalıp: ../04-hyperframes-hikaye/calistir.sh.
 # Boyut 1080x1920: snapshot proje/index.html #root data-width/data-height değerini kullanır.
 # Önizleme hazırlığı: ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu]
 set -e
@@ -15,7 +15,8 @@ SN=0.5                                      # yakalama anı: zamanlar.json yakal
 mkdir -p "$AD/proje/lib" "$AD/proje/assets/fonts" "$AD/k/koyu"
 cp "$M/node_modules/gsap/dist/gsap.min.js" "$AD/proje/lib/" 2>/dev/null || cp "$M/lib/gsap.min.js" "$AD/proje/lib/"
 cp "$ORTAK/logo/$LOGO_DOSYA" "$AD/proje/assets/logo.svg"
-/usr/bin/python3 "$AD/uret.py" >&2 && /usr/bin/python3 "$AD/olay.py" >&2
+/usr/bin/python3 "$AD/uret.py" >&2          # ayrı satır: `a && b` zincirinde set -e uret.py hatasını yutar
+/usr/bin/python3 "$AD/olay.py" >&2
 tema_hf "$AD/proje/index.html"
 [ -n "$ONIZLE_YALNIZ" ] && { echo "önizleme hazır"; exit 0; }
 # yük bekçisi: 1 dk yük > 24 ise 60 sn bekle (en çok 5 dk)
@@ -29,6 +30,7 @@ cd "$AD/proje"
 perl -e 'alarm 170; exec @ARGV' "$BIN/hyperframes" snapshot . --at "$SN" --no-end --keep -o "$KD" >&2
 HEDEF="$AD/k/koyu/hikaye-b-koyu.png"; [ "$TEMA" = acik ] && HEDEF="$PAKET/hikaye-b.png"
 cp "$KD/at-${SN}s.png" "$HEDEF"; chmod 644 "$HEDEF"   # snapshot 0600 yazar
-ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height -of csv=p=0 "$HEDEF"
+B=$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height -of csv=p=0 "$HEDEF")
+echo "$B"; [ "$B" = "png,1080,1920" ] || { echo "boyut 1080x1920 değil: $B" >&2; exit 3; }
 echo "$HEDEF"
 tema_bitir "$AD"

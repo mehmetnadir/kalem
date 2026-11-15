@@ -1,8 +1,7 @@
 // Sahne 02 (02-04-ydt-temel-s2 Shorts) — Örnek: Paper.js, 1080x1920, 449 kare, t_bas 2.84.
-// Soru satırı (Genel mi, şu an mı?), kart 1 (She wears her coat in the winter. / Simple Present / GENERAL),
-// kış zaman çizgisi, kart 2 (She is wearing her pink T-shirt today. / Present Continuous / RIGHT NOW),
-// MEANING sarı hapı ve today zaman çizgisi.
-import { sahneKur, RT, KUNYE, renkCoz } from "/projeler/02-04-ydt-temel-s2/sahneler/02-paperjs-ornek/kalem-paper.js";
+// Soru satırı (Genel mi, şu an mı?), kart 1 (Simple Present / GENERAL), kart 2 (Present Continuous / RIGHT NOW).
+// huni v2 yerleşimi: x 60–960, y 460–1380; kanal katmanı + künye sahnede çizilir.
+import { sahneKur, RT, renkCoz } from "/projeler/02-04-ydt-temel-s2/sahneler/02-paperjs-ornek/kalem-paper.js";
 import { yaziNoktalari } from "/projeler/02-04-ydt-temel-s2/ortak/kalem-canvas.js";
 
 export const KARE = 449, T_BAS = 2.84;
@@ -35,7 +34,42 @@ const TISORT = [
 ];
 
 export async function kur(P) {
-  const S = await sahneKur(P, { KARE, tBas: T_BAS, bolum: KUNYE.cipler["02-paperjs-ornek"] });
+  const KONU = "Simple Present vs Present Continuous";
+  const ROZET = "YDT · BASIC";
+  const ROZET_P = 20;
+  const ROZET_ARA = 20;
+
+  let rozetW = 0, KONU_BOY = 0, konuW = 0, rozetX = 0, kanalW = 0;
+
+  function kanalCiz(ctx, K) {
+    ctx.save();
+    ctx.globalAlpha = 1;
+    ctx.textBaseline = "alphabetic";
+    if (K && K.logo) ctx.drawImage(K.logo, 53.2, 291, 193.5, 48);
+    ctx.font = "700 42px Lexend";
+    ctx.fillStyle = renkCoz(RT.murekkep);
+    ctx.textAlign = "left";
+    ctx.fillText("@ydspublishing", 263, 330);
+    ctx.font = `700 ${KONU_BOY}px Fredoka`;
+    ctx.fillStyle = renkCoz(RT.murekkep);
+    ctx.fillText(KONU, SOL, 420);
+    ctx.fillStyle = renkCoz(RT.vurguDolgu);
+    ctx.beginPath();
+    ctx.roundRect(rozetX, 386, rozetW, 48, 24);
+    ctx.fill();
+    ctx.font = "700 26px Lexend";
+    ctx.fillStyle = renkCoz(RT.pilMetin);
+    ctx.textAlign = "center";
+    ctx.fillText(ROZET, rozetX + rozetW / 2, 419);
+    ctx.restore();
+    if (typeof window !== "undefined" && window.__kalemKutu) {
+      window.__kalemKutu.ekle("kunye", "kunye:kanal", 60, 291, 263 + kanalW - 60, 52);
+      window.__kalemKutu.ekle("kunye", "kunye:konu", SOL, 420 - Math.round(0.8 * KONU_BOY), konuW, KONU_BOY);
+      window.__kalemKutu.ekle("kunye", "kunye:rozet", rozetX, 386, rozetW, 48);
+    }
+  }
+
+  const S = await sahneKur(P, { KARE, tBas: T_BAS, kunye: (ctx, K) => kanalCiz(ctx, K) });
   const {
     fr, not, olay, ciz, ok, kutu, yazi, elYazisi, cumle, altCizgi, dinamik, oge, genislik, kis, cikis,
   } = S;
@@ -82,41 +116,42 @@ export async function kur(P) {
   const wSimdiki = al(s2, 21, "şimdiki");
   const wZaman2 = al(s2, 22, "zaman.");
 
-  // Ölçü ve sabitler (BRIEF-DIKEY §2–§3)
+  // Ölçü ve sabitler (huni v2 §2–§3)
   const W = 1080;
-  const KENAR = KUNYE.kenar;
-  const SAG = W - KENAR;
-  const SOL = KENAR + 24;
-  const KX = KENAR;
-  const KW = W - 2 * KENAR;
+  const SOL = 60;
+  const SAG = 960;
+  const ICERIK_UST = 460;
+  const ICERIK_ALT = 1380;
+  const KX = 68;
+  const KW = 884;
   const IC = KX + 40;
   const F_EN = "700 64px Fredoka";
   const BEN = 64;
-  const ARA = 84;
+  const ARA = 80;
   const ALT = 0.32;
-  const BSORU = 80;
-  const Y_SORU = 430;
-  const KY1 = 478;
-  const KH1 = 200;
-  const KY2 = 912;
-  const KH2 = 210;
-  const yb1 = KY1 + 84;
-  const yb2 = KY2 + 96;
-  // 72 → 64 (QA tur 1 bekçisi): satır B'de Present Continuous (611 px) + RIGHT NOW (72'de 333 px) 28 px çakıştı.
+  const BSORU = 72;
+  const Y_SORU = 530;
+  const KY1 = 576;
+  const KH1 = 192;
+  const yb1 = KY1 + 76;
   const BET = 64;
   const F_INCE = "500 64px Lexend";
   const BINCE = 64;
-  const Y_ETA = KY1 + KH1 + 78;
-  const Y_ETB = KY2 + KH2 + 78;
-  const AXY1 = 820;
-  const AXY2 = 1252;
+  const Y_ETA = KY1 + KH1 + 68;
+  const AXY1 = Y_ETA + 54;
   const BNOW = 64;
-  const NOW_DY = 66;
+  const NOW_DY = 54;
+  const KY2 = AXY1 + 70;
+  const KH2 = 210;
+  const yb2 = KY2 + 96;
+  const Y_ETB = KY2 + KH2 + 66;
+  const Y_RN = Y_ETB + 64;
+  const AXY2 = Y_RN + 16;
   const AX0 = SOL;
   const AX1 = SAG - 24;
   const NX = Math.round(AX0 + 0.45 * (AX1 - AX0));
-  const BW = 110;
-  const BP = 230;
+  const BW = 100;
+  const BP = 200;
   const TB = 120;
   const BANT_W = 28;
   const BANT_A = 0.35;
@@ -124,6 +159,22 @@ export async function kur(P) {
   const IKX = KX + KW - 32 - IKON;
   const HAP_H = 80;
   const HAP_P = 34;
+
+  // Künye ölçümü (sahneKur'dan sonra fontlar yüklü)
+  rozetW = genislik(ROZET, "700 26px Lexend") + 2 * ROZET_P;
+  for (let boy = 34; boy >= 28; boy--) {
+    const w = genislik(KONU, `700 ${boy}px Fredoka`);
+    if (SOL + w + ROZET_ARA + rozetW <= SAG) {
+      KONU_BOY = boy;
+      konuW = w;
+      break;
+    }
+  }
+  if (!KONU_BOY) {
+    throw new Error("Bekçi: KONU_BOY bulunamadı (28'de sığmıyor)");
+  }
+  rozetX = SOL + konuW + ROZET_ARA;
+  kanalW = genislik("@ydspublishing", "700 42px Lexend");
 
   // Türetilen konumlar
   const montKutu = [IKX, KY1 + KH1 - 14 - IKON, IKON, IKON];
@@ -134,11 +185,33 @@ export async function kur(P) {
     .filter((c) => c - BW / 2 >= AX0 + 8 && c + BW / 2 <= AX1 - 40);
 
   const xGeneral = SAG - 12 - eyGen("GENERAL", BET);
-  const xRightNow = SAG - 12 - eyGen("RIGHT NOW", BET);
+  const xRightNow = AX1 - 48 - eyGen("RIGHT NOW", BET);
 
   const HAP_W = genislik("MEANING", F_EN) + 2 * HAP_P;
   const hx0 = SAG - 24 - HAP_W;
   const hcx = hx0 + HAP_W / 2;
+
+  const eyKutu = (str, boyut) => {
+    const yn = yaziNoktalari(str, EY.G, {
+      upm: EY.M.unitsPerEm, asc: EY.M.ascender, boy: boyut, x: 0, taban: 0,
+    });
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity, maxGen = 0;
+    for (const d of yn.darbeler) {
+      if (d.gen > maxGen) maxGen = d.gen;
+      for (const p of d.pts) {
+        if (p[0] < minX) minX = p[0];
+        if (p[0] > maxX) maxX = p[0];
+        if (p[1] < minY) minY = p[1];
+        if (p[1] > maxY) maxY = p[1];
+      }
+    }
+    return {
+      ust: minY - maxGen / 2,
+      alt: maxY + maxGen / 2,
+      sol: minX - maxGen / 2,
+      sag: maxX + maxGen / 2,
+    };
+  };
 
   // Yardımcı işlevler
   const yalin = (z) => z.x0 + genislik(z.str.replace(/[.,:]$/, ""), F_EN);
@@ -241,6 +314,9 @@ export async function kur(P) {
   });
 
   // Bekçiler (sessiz geçiş yok, throw new Error(...))
+  if (KX - 8 < SOL || KX + KW + 8 > SAG) {
+    throw new Error(`Bekçi: Kart kutusu yatay sınırı aştı ([${KX - 8}, ${KX + KW + 8}] dışta [${SOL}, ${SAG}])`);
+  }
   const sagKart1_0 = kel1[3].x1;
   const sagKart1_1 = kel1[6].x1;
   if (sagKart1_0 > SAG - 40) {
@@ -265,10 +341,19 @@ export async function kur(P) {
   if (sagSimplePresent + 32 > xGeneral) {
     throw new Error(`Bekçi: Simple Present ile GENERAL çakışıyor (${sagSimplePresent + 32} > ${xGeneral})`);
   }
+  if (xGeneral + eyGen("GENERAL", BET) + 12 > SAG) {
+    const d = xGeneral + eyGen("GENERAL", BET) + 12;
+    throw new Error(`Bekçi: GENERAL sağ sınırı aştı (${d} > ${SAG})`);
+  }
 
-  const sagPresentContinuous = SOL + genislik("Present Continuous", F_INCE);
-  if (sagPresentContinuous + 32 > xRightNow) {
-    throw new Error(`Bekçi: Present Continuous ile RIGHT NOW çakışıyor (${sagPresentContinuous + 32} > ${xRightNow})`);
+  if (xRightNow + eyGen("RIGHT NOW", BET) + 12 > AX1 - 26) {
+    const d = xRightNow + eyGen("RIGHT NOW", BET) + 12;
+    throw new Error(`Bekçi: RIGHT NOW zaman çizgisi 2 ok ucuna değiyor (${d} > ${AX1 - 26})`);
+  }
+  const rnUst = Y_RN + eyKutu("RIGHT NOW", BET).ust;
+  const pcAlt = Y_ETB + 0.3 * BINCE - 4;
+  if (rnUst < pcAlt) {
+    throw new Error(`Bekçi: RIGHT NOW Present Continuous kutusuyla dikey kesişiyor (${rnUst} < ${pcAlt})`);
   }
 
   const hapAlt = KY2 + HAP_H / 2;
@@ -286,11 +371,16 @@ export async function kur(P) {
     throw new Error(`Bekçi: NX noktası bir kış bandının içinde (${NX})`);
   }
   if (NX - TB < AX0 || NX + TB > AX1) {
-    throw new Error(`Bekçi: today bandı eksen sınırlarını aştı ([${NX - TB}, ${NX + TB}] dışta [${AX0}, ${AX1}])`);
+    throw new Error(
+      `Bekçi: today bandı eksen sınırlarını aştı ([${NX - TB}, ${NX + TB}] dışta [${AX0}, ${AX1}])`
+    );
   }
 
-  if (AXY2 + NOW_DY + 4 > KUNYE.icerikSon) {
-    throw new Error(`Bekçi: Zaman çizgisi 2 alt sınırı aştı (${AXY2 + NOW_DY + 4} > ${KUNYE.icerikSon})`);
+  if (Y_SORU - 0.75 * BSORU < ICERIK_UST) {
+    throw new Error(`Bekçi: Soru satırı içerik üst sınırını aştı (${Y_SORU - 0.75 * BSORU} < ${ICERIK_UST})`);
+  }
+  if (AXY2 + NOW_DY + 4 > ICERIK_ALT) {
+    throw new Error(`Bekçi: Zaman çizgisi 2 alt sınırı aştı (${AXY2 + NOW_DY + 4} > ${ICERIK_ALT})`);
   }
   const sagSoru = SOL + genislik("Genel mi, şu an mı?", `700 ${BSORU}px Caveat`);
   if (sagSoru > SAG) {
@@ -432,8 +522,8 @@ export async function kur(P) {
   });
   not("MEANING hapı (anlam)", FM);
 
-  const sagSoruStr = SOL + genislik("Genel mi, şu an mı?", `700 ${BSORU}px Caveat`);
-  ciz([[SOL - 4, Y_SORU + 24], [sagSoruStr + 4, Y_SORU + 22]], {
+  const wSoru = genislik("Genel mi, şu an mı?", `700 ${BSORU}px Caveat`);
+  ciz([[SOL - 4, Y_SORU + 22], [SOL + wSoru + 4, Y_SORU + 20]], {
     duz: true, w: 6, renk: RT.murekkep, alfa: 0.9, uc0: 6, uc1: 10, amp: 0.8,
     bas: FM + 2, sure: 12, tur: "isaret", ses: false, ad: "soru altçizgi",
   });
@@ -441,7 +531,7 @@ export async function kur(P) {
 
   // --- 15,25 Konuşma: RIGHT NOW
   const RN = elYazisi("RIGHT NOW", {
-    x: xRightNow, y: Y_ETB, boyut: BET, renk: RT.murekkep,
+    x: xRightNow, y: Y_RN, boyut: BET, renk: RT.murekkep,
     sozcukler: [
       { f0: fr(wKonusma.t), f1: fr(wKonusma.t1) },
       { f0: fr(wKonusma.t1), f1: fr(wAni.t) + 6 },
@@ -464,11 +554,9 @@ export async function kur(P) {
   not("zaman-2 ok (Konuşma)", fr(wKonusma.t) + 13);
 
   // --- 15,73 Konuşma.t1: today dairesi -> RIGHT NOW ince oku
-  // QA tur 2: ok başı RIGHT'ın I'sına düşüyordu (RÎGHT). Ok halkanın sağından çıkar, yukarı bombe yapar,
-  // RIGHT NOW'un üst ortasına yukarıdan iner (uç yazı üstünden ≈ 12 px yukarıda).
-  ok([HR + 2, (HT + HB) / 2], [RN.x0 + RN.w * 0.45, Y_ETB - BET * 0.84], {
+  ok([HR + 2, (HT + HB) / 2], [RN.x0 + RN.w * 0.4, Y_RN - BET * 0.84], {
     bas: fr(wKonusma.t1), sure: 10, w: 4.5, renk: RT.murekkep, alfa: 0.9,
-    uzun: 16, bukum: 0.25, yon: [0.3, -1], ad: "bag today",
+    uzun: 16, bukum: 0.18, yon: [0.3, -1], ad: "bag today",
   });
   not("bag today (Konuşma)", fr(wKonusma.t1));
 

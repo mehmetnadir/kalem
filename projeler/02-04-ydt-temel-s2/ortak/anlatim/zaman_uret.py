@@ -19,7 +19,8 @@ FPS, N = 30, 12
 SAHNE = [
     ("01-hyperframes-kapak", "HyperFrames", "Kapak", "Kapak", 1, None),
     ("02-paperjs-ornek", "Paper.js", "Örnek", "Örnek", 2, None),
-    ("03-hyperframes-cta", "HyperFrames", "Çağrı", "Çağrı", 3, None),
+    ("08-hyperframes-kaydet", "HyperFrames", "Kaydet", "Kaydet", 3, None),  # V2-S2-C (15.11): huni v2 §3 kaydet sahnesi
+    ("03-hyperframes-cta", "HyperFrames", "Çağrı", "Çağrı", 4, None),  # V2: çağrı cümle 4 (öğrenci sesi)
 ]
 HIKAYE = {"klasor": "04-hyperframes-hikaye", "motor": "HyperFrames", "kare": 1, "cikti": "hikaye-a.png",
           "ad": "Hikâye karesi A (bilgi kartı)",

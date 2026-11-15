@@ -1,6 +1,7 @@
 #!/bin/bash
-# Sahne 06 kapak C (karşıt çift) (HyperFrames DİKEY 1080x1920, tek kare, ses yok, zaman çizelgesi dışı): üret -> [önizleme burada biter] -> tek kare PNG.
-# Tema: --tema acik|koyu (varsayılan acik, K19). acik -> paket kökü kapak-c.png · koyu -> k/koyu/kapak-c-koyu.png. mp4 yok. Kalıp: S1 06-hyperframes-kapak-c/calistir.sh (02-04-ydt-temel-s1).
+# Sahne 06 kapak C (karşıt çift), huni v2 (HyperFrames DİKEY 1080x1920, tek kare, ses yok, zaman çizelgesi dışı):
+# üret -> [önizleme burada biter] -> tek kare PNG. Tema: --tema acik|koyu (varsayılan acik, K19).
+# acik -> paket kökü kapak-c.png · koyu -> k/koyu/kapak-c-koyu.png. mp4 yok. Kalıp: S2 04-hyperframes-hikaye/calistir.sh (v2).
 # Önizleme hazırlığı: ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu]
 set -e
 [ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"   # arm64 node >= 22 (hyperframes şartı)
@@ -11,6 +12,7 @@ PAKET="$(cd "$AD/../.." && pwd)"            # paket kökü (02-04-ydt-temel-s2)
 M="$KOK/motorlar/hyperframes"; BIN="$M/node_modules/.bin"
 ORTAK="$AD/../../ortak"
 SN=0.5                                      # yakalama anı: zamanlar.json yakala_sn (kare durağan)
+GEN=1080; YUK=1920                          # yakalama 1080 1920 (index.html data-width/height; aşağıda ffprobe ile denetlenir)
 mkdir -p "$AD/proje/lib" "$AD/proje/assets/fonts" "$AD/k/koyu"
 cp "$M/node_modules/gsap/dist/gsap.min.js" "$AD/proje/lib/" 2>/dev/null || cp "$M/lib/gsap.min.js" "$AD/proje/lib/"
 cp "$ORTAK/logo/$LOGO_DOSYA" "$AD/proje/assets/logo.svg"
@@ -28,6 +30,8 @@ cd "$AD/proje"
 perl -e 'alarm 170; exec @ARGV' "$BIN/hyperframes" snapshot . --at "$SN" --no-end --keep -o "$KD" >&2
 HEDEF="$AD/k/koyu/kapak-c-koyu.png"; [ "$TEMA" = acik ] && HEDEF="$PAKET/kapak-c.png"
 cp "$KD/at-${SN}s.png" "$HEDEF"; chmod 644 "$HEDEF"   # snapshot 0600 yazar
-ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height -of csv=p=0 "$HEDEF"
+BOY=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 "$HEDEF")
+echo "png,$BOY"
+[ "$BOY" = "$GEN,$YUK" ] || { echo "HATA boyut $BOY != $GEN,$YUK" >&2; exit 1; }
 echo "$HEDEF"
 tema_bitir "$AD"

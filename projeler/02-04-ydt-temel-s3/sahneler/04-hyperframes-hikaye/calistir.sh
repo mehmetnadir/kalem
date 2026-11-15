@@ -31,6 +31,6 @@ HEDEF="$AD/k/hikaye-a-koyu.png"; [ "$TEMA" = acik ] && HEDEF="$PAKET/hikaye-a.pn
 cp "$KD/at-${SN}s.png" "$HEDEF"; chmod 644 "$HEDEF"   # snapshot 0600 yazar
 B=$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height -of csv=p=0 "$HEDEF")
 echo "$B"; [ "$B" = "png,1080,1920" ] || { echo "boyut 1080x1920 değil: $B" >&2; exit 3; }
-[ "$TEMA" = acik ] && { cp "$HEDEF" "$PAKET/hikaye.png"; chmod 644 "$PAKET/hikaye.png"; echo "$PAKET/hikaye.png"; }
+[ "$TEMA" = acik ] && { cp "$HEDEF" "$PAKET/hikaye.png"; chmod 644 "$PAKET/hikaye.png"; cmp "$HEDEF" "$PAKET/hikaye.png" && echo "cmp aynı: $PAKET/hikaye.png"; }
 echo "$HEDEF"
 tema_bitir "$AD"

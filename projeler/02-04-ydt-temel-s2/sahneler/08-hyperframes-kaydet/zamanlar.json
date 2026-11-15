@@ -1,0 +1,85 @@
+{
+  "fps": 30,
+  "kare": 172,
+  "sure": 5.7333,
+  "t_bas": 17.41,
+  "kart_giris": [
+    0.55,
+    0.4
+  ],
+  "nokta_giris": [
+    1.11,
+    0.46
+  ],
+  "imi_ciz": [
+    3.06,
+    0.5
+  ],
+  "kaydet_giris": [
+    4.74,
+    0.3
+  ],
+  "kuyruk_durgun": [
+    5.3333,
+    0.4
+  ],
+  "olaylar": [
+    [
+      0.55,
+      "vurus",
+      0.5
+    ],
+    [
+      1.11,
+      "tik",
+      0.4
+    ],
+    [
+      3.06,
+      "cizgi",
+      0.6
+    ],
+    [
+      4.74,
+      "tik",
+      0.6
+    ]
+  ],
+  "olay_listesi": [
+    {
+      "olay": "kart_giris",
+      "kare": 16,
+      "yerel": 0.55,
+      "kuresel": 17.96,
+      "sozcuk": "Bu,"
+    },
+    {
+      "olay": "nokta_giris",
+      "kare": 33,
+      "yerel": 1.11,
+      "kuresel": 18.52,
+      "sozcuk": "üç"
+    },
+    {
+      "olay": "imi_ciz",
+      "kare": 92,
+      "yerel": 3.06,
+      "kuresel": 20.47,
+      "sozcuk": "kuralı"
+    },
+    {
+      "olay": "kaydet_giris",
+      "kare": 142,
+      "yerel": 4.74,
+      "kuresel": 22.15,
+      "sozcuk": "Kaydet."
+    },
+    {
+      "olay": "kuyruk_durgun",
+      "kare": 160,
+      "yerel": 5.3333,
+      "kuresel": 22.743,
+      "sozcuk": "geçiş"
+    }
+  ]
+}

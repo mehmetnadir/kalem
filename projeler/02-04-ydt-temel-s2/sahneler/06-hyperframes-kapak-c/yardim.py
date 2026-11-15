@@ -1,6 +1,5 @@
-"""02-04-ydt-temel-s2 sahne 06: S1 06-hyperframes-kapak-c/yardim.py birebir kopyası (15.11; ORTAK = S2 ortak/).
-02-04-ydt-temel-s1 sahne 01; present-continuous-ileri-s1 kopyası, künye S1 HUD'una (kunye.js) çevrildi.
-Yol verisi, yazı genişliği (fontTools, kerning yok), künye SVG'si, yazı tipi CSS'i."""
+"""02-04-ydt-temel-s2 sahne 06 (kapak C) huni v2: sahne 01 v2 yardim.py kopyası (15.11). Kanal katmanı (y 280–350) +
+künye (y 360–450); değerler BRIEF-S2.md Yerleşim tablosu (S1 ile aynı). Yazı genişliği (fontTools, kerning yok), künye SVG, font CSS."""
 from __future__ import annotations
 
 import json
@@ -145,54 +144,82 @@ def tabler(ad: str, kok: Path | str | None = None) -> list[str]:
     return [d for d in re.findall(r'<path d="([^"]+)"', s) if not d.startswith("M0 0h24v24")]
 
 
-# ---- künye (SVG, dikey HUD v2, 05.11 telefon ölçeği; kunye.js ile aynı px) ----
+# ---- künye (SVG, dikey HUD v2; BRIEF-S2.md Yerleşim tablosu ile aynı px) ----
 HUD = {
-    "kenar": 48, "logoY": 48, "logoYuk": 96, "dersTaban": 212, "dersYazi": 56, "dersSatir": 64,
-    "rozetY": 216, "rozetH": 72, "rozetAra": 24, "rozetYazi": 36, "cipY": 48, "cipH": 80,
-    "cipYazi": 40, "cipDolgu": 64, "icerikBas": 352, "icerikSon": 1392, "altyaziBas": 1400,
-    "altyaziYazi": 44, "altyaziSatir": 56,
+    "kenar": 48,
+    "logoYuk": 48,
+    "logoY": 291,
+    "kanalX": 263,
+    "kanalTaban": 330,
+    "kanalYazi": 42,
+    "konuX": 60,
+    "konuTaban": 420,
+    "konuUst": 34,
+    "konuAlt": 28,
+    "rozetY": 386,
+    "rozetH": 48,
+    "rozetAra": 20,
+    "rozetYazi": 26,
+    "rozetDolgu": 20,
+    "sagSinir": 960,
+    "icerikUst": 460,
+    "icerikAlt": 1380,
+    "altyaziBas": 1400,
+    "altyaziYazi": 44,
+    "altyaziSatir": 56,
 }
-DERS = ("SIMPLE PRESENT vs", "PRESENT CONTINUOUS")
+KONU = "Simple Present vs Present Continuous"
 ROZET = "YDT · BASIC"
 
 
-def rozet_konumu() -> tuple[float, float]:
-    """Rozet hapının (x, genişlik) konumu (ders adı 2. satırının sağında)."""
-    x = HUD["kenar"] + genislik("Fredoka", 700, DERS[-1], HUD["dersYazi"]) + HUD["rozetAra"]
-    w = genislik("Lexend", 700, ROZET, HUD["rozetYazi"]) + 56
-    return x, w
+def konu_boyu() -> int:
+    """34'ten 28'e inerek rozetle birlikte sagSinir'a (960) sığan ilk tam sayı yazı boyu."""
+    rozet_g = genislik("Lexend", 700, ROZET, HUD["rozetYazi"]) + 2 * HUD["rozetDolgu"]
+    for boy in range(HUD["konuUst"], HUD["konuAlt"] - 1, -1):
+        toplam_g = HUD["konuX"] + genislik("Fredoka", 700, KONU, boy) + HUD["rozetAra"] + rozet_g
+        if toplam_g <= HUD["sagSinir"]:
+            return boy
+    raise AssertionError(f"Konu başlığı [{HUD['konuAlt']}, {HUD['konuUst']}] aralığında sağ sınıra sığmadı")
 
 
-def cip_olcu(metin: str) -> tuple[float, float, float, float]:
-    """Çip: (x, y, genislik, yukseklik) sağ kenar W-48."""
-    w = genislik("Lexend", 700, metin, HUD["cipYazi"]) + HUD["cipDolgu"]
-    return W - HUD["kenar"] - w, float(HUD["cipY"]), w, float(HUD["cipH"])
+def rozet_konumlari() -> list[tuple[float, float]]:
+    """Tek rozet hapı konumu: [(x, genişlik)]."""
+    x = HUD["konuX"] + genislik("Fredoka", 700, KONU, konu_boyu()) + HUD["rozetAra"]
+    w = genislik("Lexend", 700, ROZET, HUD["rozetYazi"]) + 2 * HUD["rozetDolgu"]
+    return [(x, w)]
 
 
-def kunye_svg(cip: str) -> str:
-    """Logo (#ku-logo) + ders adı (#ku-ders) + rozet (#rz0) + çip (#ku-cip). Hepsi kendi id'siyle yönetilir."""
+def kunye_svg() -> str:
+    """Kanal katmanı (#kanal) ve künye (#kunye) SVG grubu."""
     sar, kre, zem = RENK["vurgu"], RENK["murekkep"], RENK["zemin"]
     h = HUD
-    ders_metin = "".join(
-        '<text x="%d" y="%d" font-family="Fredoka" font-weight="700" font-size="%d" fill="%s">%s</text>'
-        % (h["kenar"], h["dersTaban"] + i * h["dersSatir"], h["dersYazi"], kre, d)
-        for i, d in enumerate(DERS)
+    lw = h["logoYuk"] * LOGO_EN_BOY
+    lx = h["konuX"] - lw * LOGO_KAYMA
+    logo = (
+        f'<image id="logoimg" href="assets/logo.svg" x="{lx:.2f}" y="{h["logoY"]}" '
+        f'width="{lw:.2f}" height="{h["logoYuk"]}"/>'
     )
-    ders = '<g id="ku-ders">%s</g>' % ders_metin
-    rx, rw = rozet_konumu()
-    rz = ('<g id="rz0"><rect x="%.1f" y="%d" width="%.1f" height="%d" rx="%d" fill="%s"/>'
-          '<text x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" font-weight="700" '
-          'font-size="%d" fill="%s">%s</text></g>'
-          % (rx, h["rozetY"], rw, h["rozetH"], h["rozetH"] // 2, sar,
-             rx + rw / 2, h["rozetY"] + h["rozetH"] / 2 + 13, h["rozetYazi"], zem, ROZET))
-    cx, cy, cw, ch = cip_olcu(cip)
-    chip = ('<g id="ku-cip"><rect id="ku-cipr" x="%.1f" y="%d" width="%.1f" height="%d" rx="%d" fill="none" '
-            'stroke="%s" stroke-width="4"/><text id="ku-cipt" x="%.1f" y="%.1f" text-anchor="middle" '
-            'font-family="Lexend" font-weight="700" font-size="%d" fill="%s">%s</text></g>'
-            % (cx, cy, cw, ch, int(ch) // 2, sar, cx + cw / 2, cy + ch / 2 + 14, h["cipYazi"], sar, cip))
-    logo = ('<g id="ku-logo"><image id="logoimg" href="assets/logo.svg" x="%.2f" y="%d" width="%.2f" '
-            'height="%d"/></g>' % (h["kenar"], h["logoY"], h["logoYuk"] * LOGO_EN_BOY, h["logoYuk"]))
-    return '<g id="kunye">' + ders + rz + chip + logo + '</g>'
+    kanal_ad = (
+        f'<text id="kanal-ad" x="{h["kanalX"]}" y="{h["kanalTaban"]}" '
+        f'font-family="Lexend" font-weight="700" font-size="{h["kanalYazi"]}" fill="{kre}">@ydspublishing</text>'
+    )
+    kanal = f'<g id="kanal">{logo}{kanal_ad}</g>'
+    k_boy = konu_boyu()
+    konu_txt = (
+        f'<text id="ku-konu" x="{h["konuX"]}" y="{h["konuTaban"]}" '
+        f'font-family="Fredoka" font-weight="700" font-size="{k_boy}" fill="{kre}" '
+        f'style="font-kerning:none">{KONU}</text>'
+    )
+    (x, w) = rozet_konumlari()[0]
+    rz = (
+        f'<g id="rz0">'
+        f'<rect x="{x:.1f}" y="{h["rozetY"]}" width="{w:.1f}" height="{h["rozetH"]}" '
+        f'rx="{h["rozetH"] // 2}" fill="{sar}"/>'
+        f'<text x="{x + w / 2:.1f}" y="419" text-anchor="middle" '
+        f'font-family="Lexend" font-weight="700" font-size="{h["rozetYazi"]}" fill="{zem}">{ROZET}</text>'
+        f'</g>'
+    )
+    return f'<g id="kunye">{kanal}{konu_txt}{rz}</g>'
 
 
 def altyazi_satirlari(metin):

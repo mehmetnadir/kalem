@@ -1,45 +1,80 @@
-# 07-hyperframes-hikaye-b — RAPOR (15.11, istem D-S3; mp4 yok)
-Tema: acik + koyu (iki kare)
+# RAPOR v2 — 02-04-ydt-temel-s3 · 07-hyperframes-hikaye-b (hikâye B, soru + cevap) · huni v2 · 15.11.2026
 
-| Alan | Değer |
+Tema: acik + koyu (iki tema çekildi)
+
+| Kalem | Sonuç |
 |---|---|
-| Motor | HyperFrames · 1080×1920 · tek kare, durağan, ses yok · zaman çizelgesi dışı (`zaman.json` → `duragan`, `sahneler[]` dışında) |
-| Çıktı | açık `../../hikaye-b.png` (paket kökü) · koyu `k/koyu/hikaye-b-koyu.png` · ikisi `png,1080,1920` (ffprobe) |
-| Dosyalar | `uret.py` (agy yazdı, SPEC.md'den) · `SPEC.md` · `calistir.sh`, `olay.py`, `zamanlar.json`, `yardim.py` (S1 sahne 07 kopyası; başlık satırları uyarlandı) · `nesneler.json`, `olaylar.json` (üretilir) |
-| Kaynak | BRIEF-S3 "Hikâye karesi B" · `uretim-tutanagi/hikaye-taslak.md` §3 (S3-C) · `S3-duzeltme.md` madde 2 · ana ders `05-canvas-ornek3/sahne.js` `trenParcalari` / `saatParcalari` · `13-hyperframes-mini-soru` şık kalıbı |
-| Kapı | `uret.py` iç kuralları (SPEC §6) geçti · `ONIZLE_YALNIZ=1` rc 0 · `--tema acik` rc 0 · `--tema koyu` rc 0 · qa-yerel koşulmadı (istem gereği: sahne `sahneler[]` dışında) |
+| Çıktı | `P/hikaye-b.png` (açık) · `D/k/koyu/hikaye-b-koyu.png` (koyu) · ikisi `png 1080×1920` (ffprobe; `calistir.sh` boyut denetimi rc 0) |
+| Kod | `uret.py` agy yazdı (SPEC v2) · şef 3 küçük düzeltme (§Düzeltme turları) · `calistir.sh` şef: başlık, boyut denetimi (çıkış 3), `uret.py` / `olay.py` ayrı satır |
+| İç kurallar | `uret.py` assert'leri geçti: bantlar, kesişim 0, dikey boşluk ≥ 10, kart içi ve şık içi paylar, yazı ≥ 64, satır ≤ 24, yasak dizgi, emoji yok, `#root.tema-acik` yok · `S_SORU=96` · nesneler.json 12 kayıt |
+| Çakışma kapısı | çıkış 2 (ölçülemedi; araç sınırı, sahne `sahneler[]` dışında) |
+| Metin taraması | `grep -rniE "tam ders\|dakika" …/proje` → sonuç yok (rc 1) |
+| Kanal katmanı | açık + koyu: logo ve `@ydspublishing` görünür, sol kenar x 60, y 291–339 içinde |
 
-## Ekran metni ve olay listesi
-Ses ve olay yok (`olaylar.json` = `[]`). Kare 1, yakalama 0,5 sn. Öğeler (y = yazı tabanı, px):
+## Öğe listesi
 
-| Öğe | Metin | Ölçü | Konum |
+| Öğe | Kimlik | y bandı | Yazı boyu |
 |---|---|---|---|
-| HUD | `SIMPLE PRESENT vs` / `PRESENT CONTINUOUS` · rozet `YDT · BASIC` · çip `Full lesson` (`KUNYE.cipler["07-hyperframes-hikaye-b"]`, kunye.js'ten okunur) | 56 / 36 / 40 | 0–288 |
-| Soru | `Tarife mi, plan mı?` | Fredoka 700 96, mürekkep | taban 448 (376–472) |
-| Cümle kartı | tren (ölçek 1,2) + saat (r 96, akrep 7, yelkovan 12, rakamsız) · `The train to İzmir` / `leaves at 7 pm today.` | Fredoka 700 64; vurgu yok | çerçeve 512–1014 |
-| Şıklar | `A` `TARİFE` · `B` `PLAN` (yan yana, harf rozeti mürekkep çerçeve) | Fredoka 700 72 (harf 64) | 1054–1274 |
-| Çağrı | `Cevap tam derste:` / `profildeki bağlantı` · `@ydspublishing` hap | Caveat 700 72 · Fredoka 700 64 | 1364–1520 |
-| Platform | boş | — | 1536–1920 |
+| Kanal: logo (tema logosu) | `#kunye > #kanal > #logoimg` | 291–339 (resim x 53,15, w 193,49) | — |
+| Kanal: `@ydspublishing` | `#kanal-yazi` | taban 330 | Lexend 700 42 |
+| Künye konu `Simple Present vs Present Continuous` | `#ku-konu` | taban 420 | Fredoka 700 34 |
+| Rozet `YDT · BASIC` (sarı hap) | `#rz0` | 386–434 | Lexend 700 26 |
+| Soru `Tarife mi, plan mı?` | `#soru` | 462–553 (taban 532) | Fredoka 700 96 |
+| Cümle kartı çerçevesi | `#kart-crv` | 580–760, x 60–960 | — |
+| `The train to İzmir` | `#kart-s1` | taban 655 | Fredoka 700 64 |
+| `leaves at 7 pm today.` + `leaves` sarı altçizgi | `#kart-s2`, `#alti` | taban 730 · altçizgi 733–751 | Fredoka 700 64 |
+| Tren (sağ üst) + saat (kollar yedide, rakamsız) | `#kart-tren`, `#kart-saat` | 594–656 · 676–749 | — |
+| Şık A `A` `TARİFE` (yeşil çerçeve + kalem ✓) | `#sA` | 779–901, x 60–498 | harf 64 · yazı Fredoka 700 72 |
+| Şık B `B` `PLAN` (soluk, opaklık 0,4) | `#sB` | 780–900, x 522–960 | harf 64 · yazı Fredoka 700 72 |
+| Kural özeti `Tren tarifeye uyar:` / `geniş zaman.` | `#kural` | 920–1059 (taban 970 / 1043) | Lexend 500 64 / Lexend 700 64 |
+| Yer imi simgesi (SVG yol) + `Kaydet` | `#kaydet-imi`, `#kaydet-yazi` | 1072–1137 (taban 1122) | Fredoka 700 64 |
+| Bağ çıkartması yeri | — | 1150–1380 boş zemin | — |
+| Alt boş | — | 1400–1920 boş; altyazı yok | — |
 
-İçerik bandı doluluğu: (1274 − 376) / 1040 = %86,3. Satır en uzun `leaves at 7 pm today.` = 21 karakter.
+Renk: tek sarı içerik öğesi `leaves` altçizgisi (+ künye rozeti, standart parça). Yeşil yalnız şık A çerçevesi ve ✓
+(açıkta `#167a4a`, koyuda `#3a9a6a`; sahne CSS'i `.tema-acik #sahne .dogru`). Kırmızı yok, emoji yok. `İzmir` noktalı, `7 pm` rakamla.
+
+## Kanal katmanı ölçümü (PNG piksel taraması, mürekkep/doygun piksel kutusu)
+
+| Tema | Logo görünür kutu (x0, y0, x1, y1) | Yazı görünür kutu | 0–280 | x 962+ | y 1146+ | İçerik kutusu |
+|---|---|---|---|---|---|---|
+| açık | 60, 298, 239, 330 | 265, 296, 596, 339 | boş | boş | boş | x 60–959, y 462–1136 |
+| koyu | 60, 298, 239, 330 | 265, 296, 596, 339 | boş | boş | boş | x 60–959, y 462–1136 |
+
+## Kapı (son satırlar, aynen)
+
+```
+$ node araclar/cakisma-kapisi.mjs 02-04-ydt-temel-s3 --sahne 07-hyperframes-hikaye-b --port 41333 --sunucu 41022
+HATA sahne bulunamadı: 07-hyperframes-hikaye-b
+çıkış=2
+```
 
 ## Bakılan kareler ve bulgu
-| Kare | Bulgu |
-|---|---|
-| `../../hikaye-b.png` (açık) | taşma yok · kesik yazı yok · üst üste binme yok · kontrast iyi · hap dolgu `#ffe066`, yazı `#1b2440` (piksel ölçümü) · 1290–1350 ve 1540–1920 yalnız zemin + vinyet (parlaklık 217–241) |
-| `k/koyu/hikaye-b-koyu.png` (koyu) | aynı yerleşim · hap `#f2a93b` · 1540–1920 parlaklık 16–25 (boş) |
 
-Cevap karede yok; doğru şık yeşil değil; iki şık aynı biçim. Sarı öğe yalnız rozet, çip, `@ydspublishing` hapı. `İzmir` noktalı İ,
-`7 pm` rakamla. "kanal", QR, süre, emoji, kırmızı, yeşil yok. Düzeltme turu gerekmedi (0 / 4).
+Tek kare (ilk = orta = son): `P/hikaye-b.png` (açık), `D/k/koyu/hikaye-b-koyu.png` (koyu). Read ile açıldı.
+- Taşma, kesik yazı, üst üste binme yok. Kontrast iki temada yeterli; soluk şık B okunur ama geri planda.
+- 0–280 boş; içerik x 960'ı aşmaz; 1150–1920 boş; altyazı yok.
+- v1 öğeleri (üst logo 48–144, 2 satır ders adı, `Full lesson` çipi, büyük tren, Caveat çağrı satırı, alt `@ydspublishing` hapı) yok.
 
-## agy koşu özeti
-`agy-filo tek --rol kod` · gemini-3.8-flash-high · başarılı · 326 sn · özet `~/.claude/canavar/agy-filo/20261115-124453/ozet.md`.
-Şef okuması: kod SPEC'e uyuyor, Edit gerekmedi. agy özetindeki "değişen" listesi (S2 03-cta, sozlesme.md) eş-oturum izidir;
-SPEC'ten sonra ana ders, S1, dikey paket, S3 `ortak/`, `zaman.json`, `BRIEF-S3.md` içinde değişen dosya yok (`find -newer SPEC.md`).
+## Düzeltme turları (2 / 4)
+
+1. Açık kare koyu çıktı (rc 0, boyut doğru). Sebep: SPEC'teki yerel kural `#root.tema-acik .dogru` → `hf_tema.py` bu dizgiyi görünce
+   dosyayı "çevrilmiş" sayıp renk değişkenlerini eklemedi. Düzeltme: seçici `.tema-acik #sahne .dogru` + assert; SPEC §3/§8 güncellendi;
+   ders `K/.claude/docs/sozlesme.md` son satırına yazıldı.
+2. Şık A'nın 6 px çerçevesi dış kenarı x 59'a taşıyordu (piksel ölçümü). Düzeltme: rect x 63, w 432 (dış 60–498), blok `sA` x 60, kural 1 x ≥ 60.
+- Ek (önleyici, sözleşme satır 91): `calistir.sh`'te `uret.py && olay.py` tek satırdaydı; `set -e` uret.py hatasını yutup eski
+  `index.html`'i yakalatabilirdi → iki ayrı satır.
+
+## agy koşusu
+
+`~/.claude/canavar/agy-filo/20261115-191627/ozet.md` — rol `kod`, gemini-3.8-flash-high, 202 sn, başarılı, tek dosya `uret.py`.
+Şef okuması: kod SPEC'e uyuyor; iç öğe kutuları (tren, saat, alti, tik) sabit sayı olarak yazılmış, PNG ölçümüyle tutarlı.
 
 ## Açık noktalar
-1. Logo: BRIEF-S3 hikâye B tablosu çağrı bandında "logo sol alt" der. BRIEF-DIKEY §0 "alt bantta logo yok" der; S1 hikâye B de logoyu
-   yalnız HUD'da taşır. Logo HUD'da kaldı; alt bantta Caveat + hap ile yer de yok.
-2. Bantlar: BRIEF tablosu soruyu 300–420'ye koyar; içerik bandı alt sınırı 352 olduğundan soru 376–472'ye, kart ve şıklar aşağı kaydı
-   (sıra aynı, 1344 üstünde biter). BRIEF'teki "1190–1300 boş" satırı doluluk kuralı (≥ %85) için şık kutusuyla kullanıldı.
-3. Çip: kunye.js bu sahneye `Full lesson` verir (S1 hikâye B'de `Quiz`). Değişiklik ortak dosyada; istenirse `ortak/kunye.js` sahibi düzeltir.
+
+- agy özetinin "değişen" listesinde `.claude/docs/sozlesme.md` ve `02-03-ydt-temel/sahneler/90-hyperframes-kapak/*` görünür. agy dökümünde
+  (`tek.d1.out`) bu yollar yok; dosyalar agy bittikten sonra (19:20, 19:21) değişti → eş zamanlı başka oturumun işi.
+- Ana derste (13-hyperframes-mini-soru) "ham yeşil yok" kararı var (13.11 QA); bu karede yeşil, istem ve standart gereği kullanıldı.
+- `Kaydet` satırı ile `geniş zaman.` arası 13 px (bantlar 920–1060 ve 1070–1140 sabit); göze sıkışık gelirse kural özeti 1 satıra
+  (`Tarife: geniş zaman.`) indirilebilir.
+- Çakışma kapısı bu sahneyi ölçmez (çıkış 2); yerine `uret.py` iç kuralları + piksel taraması.

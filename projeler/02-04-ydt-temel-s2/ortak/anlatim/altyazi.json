@@ -51,24 +51,32 @@
 "cumle": 3,
 "dil": "tr",
 "t0": 17.96,
-"t1": 20.04,
+"t1": 20.12,
 "metin": "Bu, üç farktan yalnız biri.",
 "konusan": "ogretmen"
 },
 {
 "cumle": 3,
 "dil": "tr",
-"t0": 20.19,
-"t1": 24.27,
-"metin": "Tam ders: Simple Present ve Present Continuous.",
+"t0": 20.27,
+"t1": 22.75,
+"metin": "Bu kuralı kaybetme. Kaydet.",
 "konusan": "ogretmen"
 },
 {
-"cumle": 3,
+"cumle": 4,
 "dil": "tr",
-"t0": 24.42,
-"t1": 26.98,
-"metin": "Üç farkın hepsi dört buçuk dakikada.",
-"konusan": "ogretmen"
+"t0": 23.3,
+"t1": 24.74,
+"metin": "Bitmedi, gel.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 4,
+"dil": "tr",
+"t0": 24.89,
+"t1": 28.41,
+"metin": "Dersin tamamı YDS Publishing YouTube kanalında.",
+"konusan": "ogrenci"
 }
 ]

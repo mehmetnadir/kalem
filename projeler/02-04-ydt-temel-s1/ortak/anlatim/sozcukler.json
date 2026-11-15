@@ -212,91 +212,91 @@
 {
 "cumle": 3,
 "sozcuk": "yalnız",
-"t0": 21.74,
-"t1": 22.14
+"t0": 21.78,
+"t1": 22.06
 },
 {
 "cumle": 3,
 "sozcuk": "biri.",
-"t0": 22.22,
+"t0": 22.14,
 "t1": 22.62
 },
 {
 "cumle": 3,
-"sozcuk": "Tam",
+"sozcuk": "Sınavdan",
 "t0": 22.77,
-"t1": 23.01
+"t1": 23.25
 },
 {
 "cumle": 3,
-"sozcuk": "ders:",
-"t0": 23.21,
-"t1": 23.81
+"sozcuk": "önce",
+"t0": 23.33,
+"t1": 23.57
 },
 {
 "cumle": 3,
-"sozcuk": "Simple",
+"sozcuk": "lazım",
+"t0": 23.65,
+"t1": 23.89
+},
+{
+"cumle": 3,
+"sozcuk": "olacak.",
 "t0": 23.97,
-"t1": 24.13
+"t1": 24.77
 },
 {
 "cumle": 3,
-"sozcuk": "Present",
-"t0": 24.21,
-"t1": 24.69
-},
-{
-"cumle": 3,
-"sozcuk": "ve",
-"t0": 24.77,
-"t1": 25.13
-},
-{
-"cumle": 3,
-"sozcuk": "Present",
-"t0": 25.25,
+"sozcuk": "Kaydet.",
+"t0": 24.89,
 "t1": 25.57
 },
 {
-"cumle": 3,
-"sozcuk": "Continuous.",
-"t0": 25.93,
-"t1": 26.85
+"cumle": 4,
+"sozcuk": "Gerisi",
+"t0": 26.04,
+"t1": 26.44
 },
 {
-"cumle": 3,
-"sozcuk": "Üç",
-"t0": 27.0,
-"t1": 27.2
+"cumle": 4,
+"sozcuk": "bizde.",
+"t0": 26.52,
+"t1": 27.08
 },
 {
-"cumle": 3,
-"sozcuk": "farkın",
-"t0": 27.24,
-"t1": 27.64
+"cumle": 4,
+"sozcuk": "Dersin",
+"t0": 27.23,
+"t1": 27.71
 },
 {
-"cumle": 3,
-"sozcuk": "hepsi",
-"t0": 27.72,
-"t1": 28.28
+"cumle": 4,
+"sozcuk": "tamamı",
+"t0": 27.79,
+"t1": 28.43
 },
 {
-"cumle": 3,
-"sozcuk": "dört",
-"t0": 28.36,
-"t1": 28.52
+"cumle": 4,
+"sozcuk": "YDS",
+"t0": 28.51,
+"t1": 28.99
 },
 {
-"cumle": 3,
-"sozcuk": "buçuk",
-"t0": 28.6,
-"t1": 28.76
+"cumle": 4,
+"sozcuk": "Publishing",
+"t0": 29.19,
+"t1": 29.55
 },
 {
-"cumle": 3,
-"sozcuk": "dakikada.",
-"t0": 28.84,
-"t1": 29.64
+"cumle": 4,
+"sozcuk": "YouTube",
+"t0": 29.63,
+"t1": 29.95
+},
+{
+"cumle": 4,
+"sozcuk": "kanalında.",
+"t0": 30.03,
+"t1": 30.83
 }
 ]

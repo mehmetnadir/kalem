@@ -31,23 +31,30 @@
  {
   "dil": "tr",
   "metin": "Bu, üç farktan yalnız biri.",
-  "duyulan": "Bu üç farktan yalnız biri.",
+  "duyulan": "Bu 3 farktan yalnız biri.",
   "benzerlik": 1.0,
   "tohum": 0
  },
  {
   "dil": "tr",
-  "metin": "Tam ders: Simple Present ve Present Continuous.",
-  "ses_metni": "Tam ders: Simple Present ve, Present Continuous.",
-  "duyulan": "Tam Ders, Simple Present ve Present Continuous",
+  "metin": "Bir arkadaşına gönder; o da karıştırıyor.",
+  "duyulan": "Bir arkadaşına gönder. O da karıştırıyor.",
   "benzerlik": 1.0,
   "tohum": 0
  },
  {
   "dil": "tr",
-  "metin": "Üç farkın hepsi dört buçuk dakikada.",
-  "duyulan": "3 farkın hepsi 4,5 dakikada.",
-  "benzerlik": 0.9,
+  "metin": "Bu sadece başlangıç.",
+  "duyulan": "Bu sadece başlangıç.",
+  "benzerlik": 1.0,
+  "tohum": 0
+ },
+ {
+  "dil": "tr",
+  "metin": "Dersin tamamı YDS Publishing YouTube kanalında.",
+  "ses_metni": "Dersin tamamı YeDeSe Publishing YouTube kanalında.",
+  "duyulan": "Dersin tamamı YEDESE Publishing YouTube kanalında.",
+  "benzerlik": 1.0,
   "tohum": 0
  }
 ]

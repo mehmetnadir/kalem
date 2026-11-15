@@ -1,93 +1,64 @@
-# Sahne 03 CTA (02-04-ydt-temel-s1, HyperFrames DİKEY 1080×1920, 347 kare, t_bas 19,99; cümle 3)
+# Sahne 03 Çağrı — huni v2 (02-04-ydt-temel-s1, HyperFrames DİKEY 1080×1920, 218 kare, t_bas 25,49; cümle 4 öğrenci)
 
-Durum: yazıldı. `ONIZLE_YALNIZ=1` hazırlığı koşuldu, son koşu AÇIK tema. Render yok. Kapı GEÇTİ (çıkış kodu 0, çakışma yok).
-Tema: acik
-Dosyalar: `SPEC.md` (şef) · `uret.py` (agy) · `olay.py` (şef, 11 satır) · `yardim.py` (örnek kopyası + künye düzeltmesi) ·
-`calistir.sh` (örnek kopyası + `ONIZLE_YALNIZ`) · `nesneler.json` · üretilen: `proje/index.html`, `zamanlar.json`, `olaylar.json` (11 ses olayı).
+| Kapı | Sonuç |
+|---|---|
+| `qa-yerel.sh … 25.55,28.60,31.70 31.70 --hazirla` | çıkış 0 · `kapı çıkış kodu: 0` |
+| `cakisma-kapisi.mjs --sahne 03-hyperframes-cta` | çıkış 0 · `03-hyperframes-cta \| çakışma yok (26 örnek, 3880 kutu)` · 0 uyarı |
+| `grep -rniE 'tam ders\|dakika'` (html/js/py) | boş (grep çıkış 1) |
+| Kanal katmanı (piksel ölçümü, 4 kare) | 4 karede aynı: logo mürekkebi x 61–239, y 298–330 (resim kutusu 53,2–246,7 × 291–339) · `@ydspublishing` x 264–595, y 296–339 (taban 330) |
+| Boş bölgeler (piksel ölçümü, 4 kare) | 0–280 boş · 1570–1920 boş · sağ 963–1080 (y 280–1570) içerik yok |
 
-## İçerik ve yerleşim
+Durum: yazıldı, önizleme hazır (`ONIZLE_YALNIZ=1`, son hazırlık AÇIK tema). Render yok. Commit yok.
+Tema: acik (koyu kare canlı tema geçişiyle çekildi).
 
-| Satır | Öğe | Yazı · boy | Konum (y) |
-|---|---|---|---|
-| A | `üç farktan biri` → `üç farkın hepsi` (`üç` yerinde kalır, sarı altçizgi) | Lexend 700 · 72 | taban 452 |
-| B | `Tam ders:` (soldan yazılır) | Caveat 700 · 96 | taban 620 |
-| Bant | `Simple Present` / `vs Present Continuous`, dolgu `vurgu` | Fredoka 700 · 74 | 660–896 (x 132–948) |
-| İkon | ev (sol, x 48–120) · bavul (sağ, x 960–1032), 72 px | çizgi 4,4 | merkez 778 |
-| E | saat + `dört buçuk dakikada` | Lexend 700 · 72 | taban 1066 |
-| F | `@ydspublishing` hapı (açık: `#ffe066` / `#1b2440`) | Fredoka 700 · 64 | 1200–1312 |
+## Dosyalar
+- `SPEC.md` (şef) → `yardim.py` (agy, bölüm A) + `uret.py` (agy, bölüm B; şef 2 savunma dalını sadeleştirdi).
+- `calistir.sh` (şef Edit): başlık, `KARE=218`, ana kapak iki tema kopyası `proje/assets/`, denetim kareleri.
+- `ortak/kapak/ana-kapak.png`, `ana-kapak-koyu.png`: `projeler/02-04-ydt-temel/kapak*.png` kopyası (`cp -p`, 1920×1080).
+- v1 yedeği: `~/Silinecekler/2026-11-15-huni-v2/02-04-ydt-temel-s1/sahneler/03-hyperframes-cta/v1/`; eski v1 kareleri `…/k-v1-tasindi/`.
+- Üretilen: `proje/index.html`, `zamanlar.json`, `olaylar.json` (4 ses olayı).
 
-İçerik bandı 383–1312 (bandın %89'u). Altyazı 1400–1536 (`yardim.altyazi_svg`). 1536 altı boş.
-Künye: logo, ders adı 2 satır `SIMPLE PRESENT vs` / `PRESENT CONTINUOUS`, rozet `YDT · BASIC` 2. satırın sağında (x 670–952),
-çip `Full lesson` (`KUNYE.cipler["03-hyperframes-cta"]`). Ölçüler `ortak/kunye.js` ile aynı.
-Renk: tek vurgu (bant, hap, `üç` altçizgisi). Vurgu renginde yazı yok. Yeşil, kırmızı, emoji yok. "kanal", QR, "6 dk" yok.
-
-## Olay listesi (yerel sn = küresel − 19,99; zaman `sozcukler.json` çapasından, `T(i, bas)` assert'li)
-
-| Olay | Kare · yerel (küresel) | Cümle 3 sözcüğü (sıra) |
+## Yerleşim
+| Öğe | Yazı · boy | Konum |
 |---|---|---|
-| `üç` kinetik | 31 · 1,03 (21,02) | üç (1) |
-| `farktan` kinetik | 36 · 1,19 (21,18) | farktan (2) |
-| `üç` sarı altçizgi | 38 · 1,25 (21,24) | üç + 0,22 |
-| `biri` kinetik | 67 · 2,23 (22,22) | biri. (4) |
-| `Tam ders:` yazımı (1,04 sn) | 83 · 2,78 (22,77) | Tam (5) → ders: t1 (6) |
-| bant girişi + `Simple` | 119 · 3,98 (23,97) | Simple (7) |
-| `Present` (satır 1) | 127 · 4,22 (24,21) | Present (8) |
-| `vs` | 143 · 4,78 (24,77) | ve (9) |
-| `Present` (satır 2) | 158 · 5,26 (25,25) | Present (10) |
-| `Continuous` | 178 · 5,94 (25,93) | Continuous. (11) |
-| `farktan biri` çıkışı | 210 · 7,01 (27,00) | Üç (12) |
-| `farkın` kinetik | 218 · 7,25 (27,24) | farkın (13) |
-| `hepsi` kinetik | 232 · 7,73 (27,72) | hepsi (14) |
-| saat darbesi + `dört` | 251 · 8,37 (28,36) | dört (15) |
-| `buçuk` | 258 · 8,61 (28,60) | buçuk (16) |
-| `dakikada` + hap girişi | 266 · 8,85 (28,84) | dakikada. (17) |
-| `@ydspublishing` yazımı (0,70 sn) | 268 · 8,95 (28,94) | dakikada. → t1 29,64 |
-| ev darbesi | 290 · 9,65 (29,64) | dakikada. t1 |
-| bavul darbesi | 292 · 9,75 (29,74) | dakikada. t1 + 0,10 |
+| Kanal | logo + `@ydspublishing` Lexend 700 42 | BRIEF tablosu; `#kunye > #kanal`, opaklık 1, animasyon yok |
+| Künye | konu Fredoka 700 34 + rozet `YDT · BASIC` Lexend 700 26 | taban 420; hap 386–434, x 665–868 |
+| `Gerisi bizde.` | Fredoka 700 96 | x 60, taban 560 (≈ 489–560) |
+| Kapak kartı | ana kapak 16:9 | x 60–960, y 620–1126, köşe 24, mürekkep kenar 4 px |
+| `@ydspublishing` hapı + `· YouTube` | Lexend 700 56 | hap x 60–568, y 1160–1240 (tek vurgu); `· YouTube` x 586–874, taban 1220 |
+| Altyazı + karaoke | Lexend 500 44 | 1400–1550, orta x 510, en çok 2 satır; okunan sözcük altında vurgu çizgisi |
 
-Hareket 10,20 yerel'de (kare 306) biter. İlk 12 kare ve son 41 kare durgun. En uzun durgunluk 1,1 sn; boş çerçeve yok.
-Son kare: ev ve bavul bandın iki yanında → kapak karesine döngü (kalıp §1 kural 5).
-
-## Kapı
-
-Komut: `bash araclar/qa-yerel.sh 02-04-ydt-temel-s1 03-hyperframes-cta 22.7,27.0,30.4 29.8 --hazirla`
-
-```
-== KAPI
-03-hyperframes-cta | çakışma yok (44 örnek, 1140 kutu)
-...
-kapı çıkış kodu: 0
-```
-
-Düzeltme turu: 0 (ilk koşu geçti).
-
-## Bakılan kareler ve bulgu
-
-| Kare | Ne görünür | Bulgu |
+## Olay listesi (yerel sn = küresel − 25,49; zaman `sozcukler.json` çapasından, `T(i, bas)` assert'li)
+| Olay | Kare · yerel (küresel) | Cümle 4 sözcüğü |
 |---|---|---|
-| `k/03-hyperframes-cta-22.7.png` | künye, `üç farktan biri` + altçizgi, altyazı cümle 3/1 | sorun yok; `Tam ders:` 22,77'de başlar, bant henüz yok |
-| `k/03-hyperframes-cta-27.png` | satır A (çıkış başlıyor), `Tam ders:`, bant 2 satır | sorun yok |
-| `k/03-hyperframes-cta-30.4.png` | son düzen: satır A, `Tam ders:`, bant + ev + bavul, saat satırı, hap | taşma, kesik yazı, üst üste binme yok; altyazı kapanmış; 1536 altı boş |
-| `k/koyu/03-hyperframes-cta-29.8.png` | koyu son düzen, ikonlar çizim ortasında | kontrast yeterli; ikonlar 29,64'ten çizilir (beklenen) |
+| kapak kartı girer (ölçek 0,94→1 0,50 sn + opaklık 0,25 sn) | 0 · 0,00 (25,49) | sahne başı |
+| `Gerisi` kinetik | 16 · 0,55 (26,04) | Gerisi |
+| `bizde.` kinetik | 31 · 1,03 (26,52) | bizde. |
+| `@ydspublishing` hapı girer | 91 · 3,02 (28,51) | YDS |
+| `· YouTube` girer | 124 · 4,14 (29,63) | YouTube |
+| durgun kuyruk | 160 · 5,34 (30,83) → 218 | kanalında. sonu |
+Ses olayları (`olaylar.json`): kare 12 vurus 0,6 · 16 tik 0,4 · 91 tik 0,6 · 124 tik 0,4.
+Altyazı: yalnız cümle 4 (2 parça); karaoke çizgisi her sözcüğün t0'ında 0,15 sn'de çizilir, sonraki sözcükte söner.
 
-## agy koşusu
+## Bakılan kareler
+| Kare | Bulgu |
+|---|---|
+| `k/03-hyperframes-cta-25.55.png` | kanal + künye tam; kart girişte (yarı saydam, %94 ölçek). Taşma yok. |
+| `k/03-hyperframes-cta-28.6.png` | `Gerisi bizde.`, kart, hap girişte; altyazı 2 satır x 81–936, `YDS` altında karaoke çizgisi. |
+| `k/03-hyperframes-cta-31.7.png` | son kare: bütün öğeler tam; altyazı kapalı (kuyruk). Üst üste binme yok. |
+| `k/koyu/03-hyperframes-cta-31.7.png` | koyu zemin, koyu kapak (`ana-kapak-koyu.png`) yüklendi; hap ve rozet koyu vurgu dolgusu; kontrast okunur. |
 
-`agy-filo tek --rol kod` · gemini-3.8-flash-high · 312 sn · başarılı. Özet: `~/.claude/canavar/agy-filo/20261115-120259`.
-Şef okuması: `uret.py` SPEC'e uyuyor (çapa assert'leri, `BANT_BOY` 74, yerleşim, renk kuralı, 11 ses olayı). Düzeltme gerekmedi.
-agy özetindeki "değişen" listesi worktree'nin tamamıdır. Listedeki `02-04-ydt-temel-dikey/…` ve `.claude/docs/sozlesme.md`
-yolları aynı worktree'de koşan eş oturumların işidir. agy yalnız `uret.py` yazdı (ve kendi denemesinde `uret.py` + `olay.py`'yi koştu).
+## Tema geçişi
+`hf_tema.py` yalnız `#logoimg` href'ini değiştirir. Kapak için `uret.py` küçük bir betik ekler: `#root` sınıfını `MutationObserver`
+ile izler, `tema-acik` → `assets/ana-kapak.png`, yoksa `assets/ana-kapak-koyu.png`; iki dosya önceden yüklenir. Koyu kare bunu doğruladı.
+
+## agy koşu özeti
+- yardim.py: `/home/sef/.claude/canavar/agy-filo/20261115-184951` (gemini-3.8-flash-high, başarılı, 207 sn).
+- uret.py: `/home/sef/.claude/canavar/agy-filo/20261115-184954` (gemini-3.8-flash-high, başarılı, 219 sn).
+- Not: iki özetin "değişen" listesinde başka sahne/paket dosyaları var; o dosyalar aynı çalışma ağacındaki paralel oturumlarındır, bu koşular yazmadı.
 
 ## Açık noktalar
-
-1. **Bant yazısı 74 px.** Bant tam genişlikte (984) olsaydı `vs Present Continuous` 84 px'e sığardı. Son karede ev ve bavul bandın
-   iki yanında durmalı; bant bu yüzden 816 px (yanlarda 72 px ikon + 12 px boşluk). İstenirse 3 satır (`Simple Present` / `vs` /
-   `Present Continuous`) ile yazı 78 px olur; BRIEF satır kırılımı değişir.
-2. **İkonlar kuyrukta çizilir** (29,64–30,19). BRIEF "29,56–30,56 durgun kuyruk" der; ikonlar son sözden sonra 0,55 sn çizilir, sonra durur.
-3. **Bant girişi öncesi boşluk.** 20,39–23,97 arasında içerik bandının alt kısmı (500–1392) boş; en uzun boş süre 3,6 sn (9 sn sınırının altında).
-4. `yardim.py` künyesi bu pakete göre değişti (ders adı 2 satır, rozet konumu, çip dolgusu 64). Sahne 01 ve 04 HF sahneleri aynı
-   düzeltmeyi taşımalı; kare 0 künyesi Paper.js sahne 02 (`kunye.js`) ile aynı px.
-6. **Sözleşme adayı (yazma kapsamı dışı, şef ekler):** "Dikey HF sahnesinin `yardim.py` künyesi `ortak/kunye.js` KUNYE ile aynı
-   olmalı (ders 2 satır `dersSatir` 64, rozet x = kenar + 2. satır genişliği + `rozetAra` 24, çip dolgusu 64); örnek paket kopyası tek
-   satır ders taşır (15.11, 02-04-s1 s03)." · "`agy-filo tek` özetindeki 'değişen' listesi worktree geneli; eş oturum varken sahiplik
-   `git status` + mtime ile ayrılır."
-5. Birim testi yok (HF sahneleri test taşımıyor); doğrulama kapı + kare. Render yapılmadı (`video.mp4`, `kontrol.png` yok).
+- Rozet iç boşluğu BRIEF'te yok: 20 px seçildi (canvas `ortak/kunye.js` `rozetPay: 20` ile aynı).
+- Ana kapakta rozet `YDT · TEMEL`, künyede `YDT · BASIC` (BRIEF değeri). Aynı karede iki farklı seviye adı görünür; karar şefte.
+- Sahne başında (kare 0–7) kart henüz saydam; geçiş (`gecis_kare` 12) bu aralığı örter. mp4 birleştirmede bakılmalı.
+- Ses: cümle 3 `Kaydet.` sözcüğü 25,57'de biter (sahne başından 0,08 sn sonra); bu sahne cümle 3 altyazısını göstermez (istem: yalnız cümle 4).

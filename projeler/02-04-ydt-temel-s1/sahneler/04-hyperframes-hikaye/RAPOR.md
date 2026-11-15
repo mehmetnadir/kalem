@@ -1,60 +1,54 @@
-# Sahne 04 · hikâye karesi (HyperFrames, 1080×1920, tek kare, ses yok; zaman çizelgesi dışı)
+# Sahne 04 · hikâye karesi A, huni v2 (HyperFrames, 1080×1920, tek kare, ses yok; zaman çizelgesi dışı) · 15.11.2026
 
-Tema: koyu
+Tema: acik
 
-Durum: yazıldı, iki temada tek kare yakalandı. mp4 yok, birleştirme yok, `zaman.json` değişmedi (`hikaye` alanı, `sahneler[]` dışında).
+| Kapı | Sonuç |
+|---|---|
+| `calistir.sh --tema acik` | rc 0 · `png,1080,1920` · `…/02-04-ydt-temel-s1/hikaye-a.png` (+ `hikaye.png`, `cp -p`, aynı md5 `40d30b8d8303…`) |
+| `calistir.sh --tema koyu` | rc 0 · `png,1080,1920` · `…/k/koyu/hikaye-a-koyu.png` (md5 `325ff6a66fbb…`) |
+| `uret.py` assert'leri | rc 0 · `S=124` · 7 blok, kesişim 0, dikey boşluk ≥ 16, içerik x 60–960 / y 460–1140 |
+| Çakışma kapısı `cakisma-kapisi.mjs … --sahne 04-hyperframes-hikaye --port 41333 --sunucu 41022` | çıkış 2 · `HATA sahne bulunamadı: 04-hyperframes-hikaye` (beklenen: araç yalnız `sahneler[]` okur, S1-VAR §5); çakışma gözle + blok assert'iyle denetlendi |
+| Metin taraması `grep -rniE 'tam ders\|dakika' … --include=*.html/js/py` | boş (grep çıkış 1) |
+| Kanal katmanı (piksel ölçümü) | açık + koyu aynı: logo mürekkebi x 60–239, y 298–330 (resim kutusu 53,2–246,7 × 291–339) · `@ydspublishing` x 265–595, y 296–339 (taban 330). Sahne 03 ölçümüyle aynı |
+| İlk = orta = son | `snapshot --at 0,0.5,0.966` (açık): üç kare md5 `40d30b8d8303…`, teslim PNG ile aynı (`k/qa/`) |
+| Boş bölgeler (piksel ölçümü, iki tema) | 0–280 boş · 1150–1920 boş · sağ 961–1080 (y 280–1570) boş · içerik mürekkebi x 60–959, y 476–1135 |
 
-| Çıktı | Yol | Boyut |
-|---|---|---|
-| açık (teslim) | `projeler/02-04-ydt-temel-s1/hikaye.png` | 1080×1920 (ffprobe) · sha256 `0196fdb33b15…` |
-| koyu | `sahneler/04-hyperframes-hikaye/k/hikaye-koyu.png` | 1080×1920 (ffprobe) · sha256 `22153bcebae8…` |
-| ham yakalama | `k/at-0.5s.png` (açık) · `k/koyu/at-0.5s.png` (koyu) | 1080×1920 |
+Durum: yazıldı, iki temada tek kare yakalandı. mp4 yok, git yok, `zaman.json` değişmedi.
 
 ## Dosyalar
-| Dosya | Kim yazdı | Not |
+| Dosya | Kim | Not |
 |---|---|---|
-| `SPEC.md` | şef | yerleşim, ölçüler, tema kuralları, kabul ölçütü; QA düzeltmeleri işlendi |
-| `uret.py` | agy-filo (rol kod, gemini-3.8-flash-high, 255 sn, 1 tur) | şef baştan sona okudu; 5 küçük Edit (aşağıda) |
-| `yardim.py` | örnekten birebir kopya | `present-continuous-ileri-s1/sahneler/03-hyperframes-cta/yardim.py` (sha256 `2cddbe805c13…`); `kunye_svg`/`altyazi_*` kullanılmaz |
-| `calistir.sh`, `olay.py`, `zamanlar.json` | şef | üret → [`ONIZLE_YALNIZ` çıkışı] → `hyperframes snapshot --at 0.5 --no-end --keep` → PNG kopyası |
-| `nesneler.json` | uret.py | 9 blok kutusu (hud, ust, ek, kart1, kart2, alt, cg1, cg2, hap) |
-| `olaylar.json` | olay.py | `[]` (ses yok) |
+| `SPEC.md` | şef | yerleşim, blok kutuları, kurallar, kabul ölçütü; QA 1 düzeltmeleri işlendi |
+| `uret.py` | agy-filo (rol kod, gemini-3.8-flash-high, 208 sn, 1 tur) | şef baştan sona okudu; 3 küçük Edit (aşağıda) |
+| `yardim.py` | sahne 03'ün v2 kopyası (`cp -p`) | `03-hyperframes-cta/yardim.py` sha256 `6f42605c38be…`; kapıdan geçmiş v2 `kunye_svg()` (kanal `<g id="kanal">` + `logoimg`, konu 34 px, rozet `YDT · BASIC`), `HUD` v2 bantları (kenar 60, içerik 460–1380, altyazı 1400–1550) |
+| `calistir.sh` | şef Edit | çıktı `hikaye-a.png` + `hikaye.png` kopyası; koyu `k/koyu/hikaye-a-koyu.png` |
+| `nesneler.json`, `proje/index.html` | uret.py | 7 blok: kanal, kunye, ek, kart1, kart2, ozet, kaydet |
 
-agy koşu özeti: `/home/sef/.claude/canavar/agy-filo/20261115-120335/ozet.md` (1/1 başarılı). Özetteki "değişen 46"
-listesinde paralel oturumların dosyaları da var (dikey paket, S1 sahne 01–03, `sozlesme.md`); mtime + sahne SPEC'iyle ayrıldı:
-agy yalnız `uret.py`, `nesneler.json`, `proje/index.html` yazdı. git'e giren başka değişiklik yok; agy'nin doğrulaması
-`ortak/__pycache__/hf_tema.cpython-310.pyc` önbelleğini yazmış olabilir (12:07:37, gitignore'da).
+agy koşu özeti: `/home/sef/.claude/canavar/agy-filo/20261115-190204/ozet.md` (1/1 başarılı). Özetteki "değişen" listesinde
+paralel oturumların dosyaları da var (05/06 SPEC, 06 yardim.py, s2/s3, `sozlesme.md`); agy yalnız `uret.py` yazdı ve koşturdu
+(`nesneler.json`, `proje/index.html`). `calistir.sh` ve `proje/assets/logo.svg` değişikliği şefin.
 
 ## Olay listesi (tek kare)
 | Olay | Kare / sn | Cümle sözcüğü |
 |---|---|---|
-| bütün öğeler görünür: HUD (logo, `SIMPLE PRESENT vs` / `PRESENT CONTINUOUS`, rozet `YDT · BASIC`, çip `Full lesson`) · `Türkçede tek sözcük` · `YAŞI-YOR-UM` (`YOR` sarı kutuda) · kart 1 ev + `I live` + `PERMANENT` + uzun bant · kart 2 bavul + `I am living` + `TEMPORARY` + kısa bant · `İngilizcede iki zaman` · `Tam ders:` / `profildeki bağlantı` · `@ydspublishing` hapı | kare 0 (yakalama 0,5 sn; çizelge 1,0 sn) | — (anlatım yok; metin `hikaye-taslak.md` §3) |
+| bütün öğeler görünür: kanal (logo + `@ydspublishing`) · künye (`Simple Present vs Present Continuous` + `YDT · BASIC`) · `YAŞI-YOR-UM` (`YOR` sarı kutu, Fredoka 124) · kart 1 ev + `I live` + `PERMANENT` · kart 2 bavul + `I am living` + `TEMPORARY` · `Kalıcıysa geniş zaman,` / `geçiciyse şimdiki zaman.` (Fredoka 68) · yer imi + `Kaydet` sarı hap | kare 0 (yakalama 0,5 sn; çizelge 1,0 sn) | — (anlatım yok; kural özeti BRIEF-S1 girişi) |
 
-Ölçüler: `YAŞI-YOR-UM` Fredoka 700 **137** (952 px'e sığan en büyük), kart başlığı Fredoka 80, etiket Caveat 64, düz satırlar
-Lexend 500 64, çağrı Caveat 72, hap Fredoka 64. En uzun satır `İngilizcede iki zaman` (21). HUD ölçüleri `ortak/kunye.js` ile aynı.
-
-## Kapı sonucu (son satırlar)
-qa-yerel / çakışma kapısı / sahne-kare koşmadı: üçü `zaman.json → sahneler[]` arar, bu sahne bilerek dışında (istem).
-Çakışma denetimini `uret.py` assert'leri yapar (blok kesişimi 0, dikey boşluk ≥ 16, x ∈ [48, 1032], y < 1536, satır ≤ 24).
-```
-ONIZLE_YALNIZ=1 bash calistir.sh --tema acik   → "önizleme hazır", rc=0
-bash calistir.sh --tema acik                   → S=137 · png,1080,1920 · …/02-04-ydt-temel-s1/hikaye.png · rc_acik=0
-bash calistir.sh --tema koyu                   → S=137 · png,1080,1920 · …/k/hikaye-koyu.png · rc_koyu=0
-```
+Yerleşim (y): kanal 291–339 · künye 386–434 · ek 476–611 · kartlar 636–840 (x 60–498 / 522–960) · özet 873–1025 · kaydet 1048–1136 · boş 1150–1920.
+Yazı boyları: ek 124, kart başlığı 64, etiket Caveat 64, özet 68, hap 64 (künye/kanal hariç hepsi ≥ 64). En uzun satır `geçiciyse şimdiki zaman.` (24).
 
 ## Bakılan kareler ve bulgu
 | Tur | Kare | Bulgu | Yapılan |
 |---|---|---|---|
-| 1 | `k/at-0.5s.png`, `k/koyu/at-0.5s.png` | taşma, kesik yazı, çakışma yok; 1536 altı boş; iki temada kontrast iyi. (a) tire 2 `UM`'ye yapışık (`-UM`), sol tire açık: dengesiz. (b) `PERMANENT` son T çerçeveye 18 px. | (a) tire 2 ile `UM` arasına bir `ara` (0,08 em), S 139 → 137. (b) etiket x 1000 → 980 |
-| 2 | `hikaye.png`, `k/hikaye-koyu.png` | tireler dengeli; etiketler çerçeveden açık; altçizgi `living` g kuyruğuna değmiyor; hap/rozet/`YOR` açıkta `#ffe066` + `#1b2440`, koyuda `#f2a93b` + `#1b1a17`; kırmızı, yeşil, emoji yok | — (geçti) |
+| 0 | `hikaye-a.png`, `k/koyu/hikaye-a-koyu.png` | taşma, kesik yazı, çakışma yok; kontrast iki temada iyi; 0–280 ve 1150–1920 boş. Piksel ölçümü: kart 2 çerçeve çizgisi x 961'e, yer imi çizgisi x 57'ye taşıyor (çizgi kalınlığı merkezde) | kart rect x0+2 / 434 × 200 / rx 26; yer imi translate x 36 → 39 |
+| 1 | aynı iki kare + `k/qa/at-{0,0.5,0.966}s.png` | içerik x 60–959; sağ 961–1080 boş; üç kare özdeş; tek vurgu sarı (açık `#ffe066` + `#1b2440`, koyu `#f2a93b` + `#1b1a17`), yeşil/kırmızı/emoji yok | — (geçti) |
 
-Şef Edit'leri (uret.py): altçizgi taban + 14 → taban + 0,48 × boy (`.claude/docs/sozlesme.md` satır 35; SPEC'e agy başladıktan sonra girdi) ·
-`top` formülü 3 yerde + `UM` x (tur 1 a) · etiket x (tur 1 b). `calistir.sh`: çıktıya `chmod 644` (snapshot 0600 yazıyordu).
+Şef Edit'leri (uret.py): kart çerçevesi içeri (tur 0) · yer imi x (tur 0) · kural 8 (yasak söz assert'i) kaldırıldı: koddaki
+literal `tam ders`/`dakika` listesi zorunlu grep taramasını kirletiyordu; denetim dış grep kapısında (standart §7.3).
 
 ## Açık noktalar
-1. **Logo yeri:** BRIEF-S1 ve `hikaye-taslak.md` §3 "logo sol alt y ≈ 1478" der; BRIEF-DIKEY §0 (Nadir bulgusu) "logo HUD sol üst 96 px, alt bantta logo yok" der. Nadir bulgusu uygulandı (logo HUD'da). Taslak ve BRIEF-S1 satırı güncellenmeli (yazma kapsamı dışı).
-2. **Çağrı bandı iki sütun:** 1344–1536 (192 px) bandına `Tam ders:` / `profildeki bağlantı` (Caveat 72) + hap (≥ 64 px) alt alta sığmaz. Yazı solda 2 satır, hap sağa hizalı. Tek sütun kuralına bu bantta istisna.
-3. **`now` yazısı yok:** kartta 64 px'lik `now` için yer yok; nokta iki kartta aynı x'te (540), karşılaştırma görselden okunur.
-4. **BRIEF-S1 bant tablosu ile fark:** taslak "300–420 üst satır" der; istem içerik bandını 352'den başlatır. `Türkçede tek sözcük` tabanı 424 (üst 376).
-5. **git:** `hikaye.png` `.gitignore` satır 27 (`projeler/*/*.png`), `k/` satır 36 ile yok sayılır. Teslim commit'e girecekse `git add -f projeler/02-04-ydt-temel-s1/hikaye.png` gerekir (örnek: `present-continuous-s1/kapak.png` izleniyor).
-6. **Önbellek yan etkisi:** snapshot denemesi `02-04-ydt-temel/sahneler/12-hyperframes-ozet/proje/.hyperframes/` önbelleğini güncelledi (gitignore'da, git değişikliği yok).
+1. **Çakışma kapısı ölçmüyor:** durağan kare `zaman.json → sahneler[]` dışında; araç çıkış 2 verir. Ölçüm blok assert'i + piksel ölçümü + gözle.
+2. **Çıkan satırlar:** `Türkçede tek sözcük` / `İngilizcede iki zaman` sığmadı (istemdeki izinle çıktı); v1 zaman bantları, `now` noktası ve altçizgi de yer için kalktı.
+3. **İki kart yan yana:** tek sütun kuralına bu bantta istisna (istem bunu istiyor); `I am living` kart iç sınırına 6 px kalıyor (assert ile çivili).
+4. **`zaman.json → hikaye.cikti`** hâlâ `hikaye.png` der; teslim `hikaye-a.png` + `hikaye.png` (aynı dosya). Alan güncellenmeli mi şef kararı (yazma kapsamı dışı).
+5. **git:** `projeler/*/*.png` ve `k/` `.gitignore`'da; teslim commit'e girecekse `git add -f` gerekir.
+6. **Ana ders yalnız okundu;** başka sahneye, `ortak/`a, `BRIEF-S1.md`'ye dokunulmadı.

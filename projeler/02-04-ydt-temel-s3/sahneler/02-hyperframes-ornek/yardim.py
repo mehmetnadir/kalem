@@ -190,12 +190,13 @@ def altyazi_svg(parcalar):
     return "".join(cikis)
 
 
-def altyazi_dilimleri(cumleler):
-    """altyazi.json parçalarını (verilen cumleler) en çok 2 satıra sığan dilimlere böler -> [(t0, t1, metin)]."""
+def altyazi_dilimleri(cumleler, gen=None):
+    """altyazi.json parçalarını (verilen cumleler) en çok 2 satıra sığan dilimlere böler -> [(t0, t1, metin)].
+    gen: satır genişliği px (varsayılan W - 96; huni v2 altyazı bandı 900)."""
     kok = ORTAK / "anlatim"
     parca = [p for p in json.loads((kok / "altyazi.json").read_text()) if p["cumle"] in cumleler]
     soz = json.loads((kok / "sozcukler.json").read_text())
-    gen = W - 96
+    gen = gen or (W - 96)
 
     def satir(m):
         n, cur = 1, ""

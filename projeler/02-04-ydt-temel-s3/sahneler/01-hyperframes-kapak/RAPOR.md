@@ -1,76 +1,113 @@
-# Sahne 01 · kapak (HyperFrames DİKEY 1080×1920, 102 kare, 0,00–3,00 sn + 12 kare geçiş payı)
+# Sahne 01 · kapak (kanca) · huni v2 — HyperFrames DİKEY 1080×1920, 102 kare, 0,00–3,00 sn + 12 kare geçiş payı
 
-Durum: yazıldı (istem D-S3, 15.11.2026, srv21). Önizleme hazırlığı `ONIZLE_YALNIZ=1` ile koştu. Render yok, `kapak-a.png` / `kapak.png` yok,
-commit yok. Tema: acik (koyu kareyle de denetlendi).
+Durum: yazıldı (istem D-V2-S3, 15.11.2026, srv21). Önizleme hazırlığı `ONIZLE_YALNIZ=1` ile koştu. mp4 yok, commit yok.
+Kapak A yazıldı: paket kökü `kapak-a.png` + `kapak.png` (cmp aynı), `k/koyu/kapak-a-koyu.png`. Tema: açık (koyu kareyle de denetlendi).
+v1 kod, SPEC, RAPOR ve eski kapaklar: `~/Silinecekler/2026-11-15-huni-v2/02-04-ydt-temel-s3/` (kök kapaklar ve koyu kapak yedekle cmp aynıydı).
 
-Kod yolu: şef `SPEC.md` yazdı → agy tek şerit `uret.py` yazdı → şef baştan sona okudu, kapıya soktu, 1 küçük düzeltmeyi Edit ile yaptı
-(≠ eğik çizgisi). `calistir.sh`, `yardim.py`, `olay.py`, `cizim/ogretmen.json` S1 sahne 01'den kopyalandı ve küçük Edit'le uyarlandı;
-`zamanlar.json`, `nesneler.json`, `cizim/KAYNAK.md` şefin.
+## Kod yolu
 
-## İçerik
-İlk kare = kapak A: logo HUD sol üst, rozet `YDT · BASIC`, başlık `TARİFE` (B = 190 px: üst sınır; 952 px sınırı 280 / 264 px verirdi) /
-`≠ PLAN` sarı hapta (hap 689 px; `≠` Fredoka'da yok → hap içinde 3 kalem çizgisi, `pilMetin`). Solda tren + saat (kollar yedide, rakamsız),
-etiket `leaves`; sağda elinde sinema bileti tutan öğretmen figürü (`kadro.ogretmen`), etiket `am going` (Caveat 72). Çizimler ana ders
-sahne 05 geometrisi (`trenParcalari`, `saatParcalari`, `biletParcalari`; kalem biçimi `kalem-canvas.js` `hash/gurul/kutu/elips` Python'a
-taşındı). Kart 1 satırları Fredoka 700 64, sözcük zamanlı. 2,00–2,85 uçuş: başlıklar ders adına küçülüp solar, rozet sağa kayar, sahne
-grubu solar, tren küçülüp kart 1 sağ üst köşesine iner, iki satır kart içine çıkar; 2,62–2,90 kart çerçevesi kalemle çizilir.
+| Adım | Kim | Dosya |
+|---|---|---|
+| tasarım | şef | `SPEC.md` (v2, delta listesi + ölçü tablosu + uçuş benzetimi) · `zamanlar.json` (`rozet_kay`, `ucus_ayrik` kalktı; `sahne_sol` 0,30) |
+| kod | agy tek şerit, rol `kod` (gemini-3.8-flash-high), 323 sn | `uret.py` (v1 yerinde düzenlendi, 1006 satır) |
+| okuma + kapı | şef | uret.py baştan sona okundu, SPEC'e uyuyor; düzeltme gerekmedi (0 Edit) |
+| küçük değişiklik | şef (Edit) | `calistir.sh`: render dalı artık `kapak-a.png` yazmıyor (mp4 karesinde altyazı var) |
+
+agy koşu özeti: `/home/sef/.claude/canavar/agy-filo/20261115-185456`. "değişen" listesinde `.claude/docs/sozlesme.md` ve
+`02-04-ydt-temel-dikey/90-…` dosyaları göründü. Bu dosyaların izni 664; agy 644 ile yazar (`uret.py` 644). Sonuç: aynı worktree'de
+paralel oturum yazdı, ajan yalnız `uret.py`'ye dokundu.
+
+## Yerleşim (v2)
+
+```
+  291–339  kanal: logo (x 53,15 · w 193,49 · h 48) + @ydspublishing (Lexend 700 42, x 263, taban 330) — 0→102 sabit
+  386–434  rozet YDT · BASIC (x 664,6 · w 203,6), 0. kareden son konumda
+  466–902  TARİFE (Fredoka 700, B 190, orta 510) · altçizgi 671 · hap ≠ PLAN 700–902
+  927–1000 The train to İzmir (taban 986) → uçuşla 568
+ 1036–1378 saat + leaves + tren (x 60–490) | figür + bilet + am going (x 600–956)
+ 1400–1550 altyazı (Lexend 500 44, orta 510, taban 1490, tek satır)
+Son hal: künye `Simple Present vs Present Continuous` (Fredoka 34, taban 420) + rozet · kart kutu(71, 472, 878, 254) ·
+satır 1 taban 568 · satır 2 `leaves at 7` taban 666 · tren [712, 494, 927, 586].
+```
 
 ## Olay listesi (küresel sn = yerel sn)
-| Olay | Kare / sn | Cümle sözcüğü |
+
+| Olay | Küresel sn (kare) | Sözcük |
 |---|---|---|
-| kapak tam görünür (logo, rozet x 48, `TARİFE`, hap `≠ PLAN`, tren, saat, bilet tutan figür, etiketler) | 0 / 0,00 | söz öncesi |
-| `TARİFE` altına sarı el altçizgisi (`cizgi`) | 9–24 / 0,30–0,80 | söz öncesi |
-| altyazı dilimi (cümle 1, ekran metni, tek satır) | 29 / 0,95 → sahne sonu | The t0 − 0,05 |
-| satır 1 `The` · `train` · `to` · `İzmir` kırpmayla (`hisirti` 30, 49) | 30–35 · 38–42 · 44–47 · 49–58 / 1,00–1,92 | The 1,00 · train 1,28 · to 1,48 · Izmir 1,64 |
-| KAPAK A KARESİ (çip yok, ders adı yok, satır 1 tam, altçizgi tam) | 59 / 1,97 | — |
-| rozet sağa kayar · sahne grubu solar | 60–72 / 2,00–2,40 | — |
-| uçuş: başlıklar → ders adı, tren → kart köşesi, satırlar yukarı (`parilti` 60) | 60–85 / 2,00–2,85 | — |
-| satır 2 `leaves` · `at` · `7` (`hisirti` 66) | 66–73 · 77–80 · 84–88 / 2,20–2,92 | leaves 2,20 · at 2,56 · seven 2,80 |
-| başlıklar solar · ders adı açılır · çip `Hook` (`tik` 85) | 75–85 / 2,49–2,85 | — |
-| kart 1 çerçevesi 4 kenar sırayla (`cizgi` 79) | 79–87 / 2,62–2,90 | — |
-| durgun; son 12 kare geçiş altında | 88–101 / 2,92–3,40 | `p.m.` 3,00 → sahne 02 |
+| kapak tam: kanal, rozet, `TARİFE`, hap `≠ PLAN`, saat + tren + `leaves`, bilet tutan figür + `am going` | 0,00 (0) | söz öncesi |
+| `TARİFE` altçizgisi (kalem, `sine.inOut`; ses `cizgi`) | 0,30–0,80 (9–24) | söz öncesi |
+| altyazı dilimi açılır (`The train to İzmir leaves at 7 pm today.`) | 0,95 (29) | The − 0,05 |
+| satır 1 kırpmayla: `The` · `train` · `to` · `İzmir` (`hisirti` 30, 49) | 1,00 · 1,28 · 1,48 · 1,64–1,92 | The 1,00 · train 1,28 · to 1,48 · Izmir 1,64 |
+| KAPAK A karesi | 1,97 (59) | — |
+| kapak sahnesi solar (`power1.in`) | 2,00–2,30 (60–69) | — |
+| uçuş: `TARİFE` → konu ilk yarısı, hap → ikinci yarı, tren → kart köşesi, satırlar −418 (`parilti` 60) | 2,00–2,85 (60–85) | — |
+| satır 2: `leaves` · `at` · `7` (`hisirti` 66) | 2,20 · 2,56 · 2,80–2,92 | leaves 2,20 · at 2,56 · seven 2,80 |
+| başlıklar solar · konu adı açılır (`tik` 85) | 2,49–2,67 · 2,62–2,85 | — |
+| kart 1 çerçevesi 4 kenar (`cizgi` 79) | 2,62–2,90 (79–87) | — |
+| durgun; son 12 kare geçiş altında | 2,92–3,40 (88–101) | `p.m.` 3,00 → sahne 02 |
 
-`olaylar.json`: 7 olay (kare 9, 30, 49, 60, 66, 79, 85), hepsi < 90. `uret.py` 7 denetim maddesini assert eder (tren dahil uçuş çakışma örneklemesi).
+Uçuş eksen ease'leri: `TARİFE` x `power3.out`, y `power3.inOut`; hap x/y `power3.inOut`; tren x `power3.inOut`, y `power2.inOut`.
+Tek ease ile şef benzetimi iki çakışma buldu (`TARİFE × hap` 2,47–2,53; `tren × satır 1` 2,50). Bu ease'lerle en dar aralık 24 px.
 
-## Kapı sonucu (son koşu, tur 2)
+## Kanal katmanı ölçümü (karede piksel ölçümü, zemine göre mürekkep kutusu)
+
+| Kare | Logo mürekkebi | `@ydspublishing` mürekkebi |
+|---|---|---|
+| açık 0,00 · 1,50 · 2,97 | x 60–239 · y 298–330 | x 264–595 · y 296–339 |
+| koyu 1,97 | x 60–239 · y 298–330 | x 264–595 · y 296–339 |
+| `kapak-a.png` · `kapak-a-koyu.png` | x 60–239 · y 298–330 | x 264–595 · y 296–339 |
+
+Görünür sol kenar x 60; logo resmi y 291–339 içinde; yazı tabanı 330 (alt uzantı 339). Altı karede konum aynı. Kodda `#kanal`
+hiçbir tween ya da set hedefi değil. Kapıda tür `kunye`, ad `kunye:kanal:image0` / `kunye:kanal:text0` (grupta 2 öğe olduğu için).
+
+## Kart 1 devri (`devir.json`)
+Fredoka 700 64, `font-kerning:none`, sol x 97, taban [568, 666]; tam satırlar `The train to İzmir` / `leaves at 7 pm today.`, görünen
+`leaves at 7`; 9 sözcüğün x aralığı v1 ile aynı (`pm` 428,8–514,1 · `today.` 529,1–714,3). Kart çerçevesi `kutu(71, 472, 878, 254,
+tohum 71)`, çizgi 4. Tren son kutusu [712, 494, 927, 586] (yerel kutu [−10, −24, 420, 158], iç `translate(70 1218)`, uçuş ölçeği 0,5).
+Ek alanlar: `kanal`, `kunye` (konu, boy 34, rozet [664,6, 386, 203,6, 48]), `altyazi` (x 510, boy 44, taban [1490]), `altyazi_ekran`.
+
+## Kapı sonuçları
+
+1. QA (`bash araclar/qa-yerel.sh 02-04-ydt-temel-s3 01-hyperframes-kapak 0.0,1.5,2.97 1.97 --hazirla`):
 ```
 == HAZIRLA → olay 7 · önizleme hazır
 == KAPI
-01-hyperframes-kapak | çakışma yok (13 örnek, 5329 kutu)
-== KARE (açık)  0.2 · 1.97 · 2.95
-== KARE (koyu)  1.97
+01-hyperframes-kapak | çakışma yok (13 örnek, 4847 kutu)
+== KARE (açık) 0 · 1.5 · 2.97   == KARE (koyu) 1.97
 kapı çıkış kodu: 0
 ```
-Komut: `bash araclar/qa-yerel.sh 02-04-ydt-temel-s3 01-hyperframes-kapak 0.2,1.97,2.95 1.97 --hazirla` (tur 1 de çıkış 0, 5338 kutu).
+2. Çakışma kapısı (`--port 41333 --sunucu 41022`): 0 uyarı (yukarıdaki KAPI satırı aynı komut). Ek: `--sikilik 30` (her kare)
+   → `çakışma yok (91 örnek, 35062 kutu)`, çıkış 0.
+3. Metin taraması `grep -rniE "tam ders|dakika" …/01-hyperframes-kapak/proje` → sonuç yok (rc 1).
+4. `uret.py` 7 denetim maddesi assert ile geçti; `olaylar.json` 7 olay (kare 9, 30, 49, 60, 66, 79, 85), hepsi < 90.
 
-## Bakılan kareler ve bulgu
-| Tur | Kare | Bulgu | Düzeltme |
-|---|---|---|---|
-| 1 | k/1.97, k/koyu/1.97 | `≠` eğik çizgisinin alt ucu hapın sol alt kavisinden taşıyor | eğik uçları (0,322; 0,555) → (0,150; −0,005) em; kavise ≥ 11 px (uret.py satır 590, SPEC §3.4) |
-| son | k/0.2, k/1.97, k/2.95, k/koyu/1.97, k/ara/0.55, 1.5, 2.2, 2.45, 2.62, 2.75, k/ara/koyu/2.45, 2.62 | taşma, kesik yazı, üst üste binme, okunmaz kontrast, boş kare YOK; platform bandı boş; altyazı bandında tek satır; 1,97'de satır 1 tam, çip ve ders adı yok; 2,95'te kart çerçevesi, `leaves at 7`, tren köşede, HUD tam. 1,5 / 2,62'de sözcük yazım ortasında (beklenen) | — |
+## Kapak A
+`proje-ka` ve `proje-ka-koyu` v2 `proje/`'den yeniden alındı. Açık kopya `proje/`'den yalnız `#altyazi{display:none !important}` satırıyla
+ayrılır (diff 0 satır). Koyu kopya: aynı CSS + `hf_tema.py … koyu` + şeffaf logo (`yds-publishing-seffaf.svg`; snapshot canlı kip
+değildir, logo değişimi JS'te kalır). `hyperframes snapshot --at 1.97 --no-end` → `kapak-a.png`, `kapak.png` (cmp aynı),
+`k/koyu/kapak-a-koyu.png`; 1080×1920.
 
-## agy koşu özeti
-| Şerit | Dosya | Süre | Özet |
-|---|---|---|---|
-| tek | `uret.py` (SPEC §3, 847 satır) | 306 sn | `~/.claude/canavar/agy-filo/20261115-125109` |
-Rol `kod` (gemini-3.8-flash-high). agy-filo "değişen" listesinde S2 paketinin dosyaları göründü: aynı worktree'deki paralel oturum; ajan yalnız
-`uret.py` yazdı (mtime ile doğrulandı). Şef Edit düzeltmesi: `uret.py` ≠ eğik çizgisi (1 satır).
+## Bakılan kareler (Read) ve bulgu
 
-## Sahne 02 devri (`devir.json`)
-Fredoka 700 64, `font-kerning:none`, x 97, taban [468, 566]; tam satırlar `The train to İzmir` / `leaves at 7 pm today.`, görünen
-`leaves at 7`; 9 sözcüğün x aralığı (`pm` 428,8–514,1 · `today.` 529,1–714,3). Kart çerçevesi `kutu(57, 368, 966, 260, tohum 71)`, çizgi 4.
-Tren kutusu [785, 392, 1000, 483] (ölçek 0,5, iç grup `translate(58 1226)`, çizgi `non-scaling-stroke`). Altyazı ekran dönüşümü
-`altyazi_ekran` = {Izmir → İzmir, seven p.m. → 7 pm}: sahne 02 aynı dilimi aynı metinle göstermeli (3,00 sınırında metin değişmesin).
+| Kare | Bulgu |
+|---|---|
+| `k/01-…-0.png` | kapak tam; taşma, kesik yazı, binme yok; 0–280 ve 1570–1920 boş; x 960 sağı boş |
+| `k/01-…-1.5.png` | `The train t` yazım ortasında (beklenen); altyazı tek satır 1457–1501 |
+| `k/01-…-2.97.png` | künye satırı + rozet, kart çerçevesi, `leaves at 7`, tren köşede; içerik bandının alt yarısı boş (kart 2 sahne 02'de) |
+| `k/koyu/01-…-1.97.png` | koyu tema okunur; kanal yazısı açık renkte |
+| kontak (2,1 · 2,2 · 2,3 · 2,45 · 2,62 · 2,75; `~/qa-kare/…/kontak-ucus.png`) | uçuş temiz; 2,2'de tren dumanı solan `leaves` etiketine ≈ 10 px yakın, binme yok (her kare kapısı 0) |
+| `kapak-a.png`, `k/koyu/kapak-a-koyu.png` | altyazı yok, kanal var, satır 1 ve altçizgi tam |
+
+Piksel ölçümü (4 QA karesi + 2 kapak): y 0–280 ve 1570–1920 boş; x 962–1080 (y 280–1570) boş. Düzeltme turu gerekmedi.
+k/ içindeki v1 kalıntıları (0.2, açık 1.97, 2.95, `ara/*`, `ara/koyu/*`) aynı adla v2 kareleriyle yeniden çekildi.
 
 ## Açık noktalar
-1. Altyazı: `ortak/anlatim/altyazi.json` ses metnini yazar (`Izmir`, `seven p.m.`). İstem "ekranda İzmir noktalı, `7 pm`" der; sahne kendi
-   kopyasında dönüştürdü (`EKRAN`). Ortak dosya düzeltmesi ya da sahne 02'nin aynı dönüşümü şefte (yazma kapsamı dışı).
-2. Logo: BRIEF-S3 "Kapak A" ve `kapak-taslak.md` "logo sol alt y ≈ 1478" der; BRIEF-DIKEY §0 (Nadir bulgusu) "alt bantta logo yok, HUD sol
-   üst 96 px" der. HUD sol üst uygulandı (S1 ile aynı). BRIEF satırının düzeltilmesi şefte.
-3. Saat akrebi mürekkep (ana ders sahne 05'te sarı): kapakta sarı altçizgi + hap + rozet zaten var; tek vurgu kuralı için.
-4. `kapak-taslak.md` "başı trene dönük": kit figürü önden bakar; baş dönmedi (S1 açık nokta 4 ile aynı).
-5. Son hal (2,85–3,00) içerik bandının alt yarısı boş; kart 2 ve zaman çizgisi sahne 02'de. BRIEF-DIKEY §0 "%85 dolu" bu 0,15 sn'de tutmaz.
-6. Kart çerçevesi sahne 01'de çizildi (BRIEF-DIKEY §3 kart: 4 px kalem çizgisi, iç boşluk 40, genişlik 984 → x 57, taşma payıyla 48–1032).
-   Sahne 02 kare 0 bu çerçeveyi `devir.json`'dan aynı tohumla çizmeli.
-7. mp4 render ve `kapak-a.png` / `kapak.png` yok (istem gereği); `calistir.sh` render dalı kare 59'u paket köküne `kapak-a.png` yazar ve
-   `kapak.png` olarak kopyalar.
+1. Sahne 02 kare 0 (salt okundu, 19:05): sahne 02 `uret.py` (19:00) bu sahnenin değerlerini kullanıyor — kart `kutu(71, 472, 878,
+   254, 71)`, tren [712, 494,5, 927, 585,5] (`translate(717 506.5) scale(0.5)`, non-scaling-stroke), altyazı x 510 / taban 1490.
+   Sahne 02 `SPEC.md` (18:52) hâlâ eski seçimi yazar (`kutu(70, 472, 880, 254)`, tren [719, 492, 934, 583]); kod doğru, belge bayat.
+2. Rozet iç boşluğu 20 + 20 (genişlik 203,6): BRIEF ve istem yazmıyor; sözleşmedeki S1 kaydı da pay 20 (taban 419; burada 419,4).
+3. Altyazı: x 510, Lexend 500 44, taban 1490; sözcük vurgusu yok (sözcük zamanı karttaki kırpmayla). Sahne 02 aynı dilimi aynı
+   biçimde göstermeli (`devir.json` `altyazi`); ortak `altyazi.json` hâlâ ses metni (`Izmir`, `seven p.m.`), dönüşüm sahne içinde.
+4. Koyu temada hap ve rozet dolgusu `#f2a93b` (tema değeri `vurguDolgu`); açık temada `#ffe066`.
+5. v1 koyu kapak lacivert logo taşıyordu (koyu zeminde zayıf); v2'de şeffaf logo.
+6. `zaman.json`, `ortak/`, BRIEF ve başka sahnelere dokunulmadı.

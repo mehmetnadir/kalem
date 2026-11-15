@@ -1,14 +1,13 @@
 # 02-04-ydt-temel-s1 · açıklama metni — SET B (YouTube · Instagram · TikTok)
 
 Kaynak: `uretim-tutanagi/aciklama-taslak.md` §8 (istem S1-VAR, 15.11.2026). Sürüm: B (`s1-aciklama-b`), soru ile açılır.
-A seti: `aciklama-a.md` (`utm_content=s1-a`). Ana ders: Simple Present ve Present Continuous (`ING-YDT-GR-02-04-T`),
-tam ders süresi 4 dakika 26 saniye (`cikti.mp4` 265,7 sn). Shorts: `ING-YDT-GR-02-04-T-S1`, 30,56 sn. Kimlik `@ydspublishing`.
-"kanal" sözü yok, QR yok.
+A seti: `aciklama-a.md` (`utm_content=s1-a`). Ana ders: Simple Present ve Present Continuous (`ING-YDT-GR-02-04-T`).
+Shorts: `ING-YDT-GR-02-04-T-S1`, 31,75 sn. Kimlik `@ydspublishing`.
+QR yok; "kanal" sözü yalnız v2 çekirdek cümlesinde.
+Huni v2 (15.11, istem V2-S1-C): her platform metninin ilk satırı standart §4 kaydet + kanal satırı; standart §1 kural 4–5 kapsamındaki sözler çıktı. Önceki sürüm `~/Silinecekler/2026-11-15-huni-v2/02-04-ydt-temel-s1/`.
 
 **UYARI:** `https://ydspublishing.com/grammar/02-04-ydt-temel` belgeden türedi; canlılığı ölçülmedi (grammar-kapi Worker 11.11'de
 yayında değil). Paylaşımdan önce adresi aç. Açılmazsa adresi `{PLATFORM_URL}` ile değiştir ya da satırı çıkar.
-
-**UYARI:** Yayın anında ana ders `cikti.mp4` süresini ffprobe ile yeniden ölç. Süre değişirse "4 dakika 26 saniye" satırlarını düzelt.
 
 ## 1. YouTube Shorts
 
@@ -21,11 +20,12 @@ Başlık:
 Açıklama:
 
 ```
+Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 "Yaşıyorum" İngilizcede nasıl denir: I live mı, I am living mi?
 İkisi de doğru; seçimi anlam yapar.
 I live in İstanbul. → kalıcı durum, geniş zaman
 I am living with my uncle. → geçici durum, şimdiki zaman
-Bu, Simple Present ve Present Continuous (ING-YDT-GR-02-04-T) arasındaki üç farktan biri. Tam ders süresi: 4 dakika 26 saniye.
+Bu, Simple Present ve Present Continuous (ING-YDT-GR-02-04-T) arasındaki üç farktan biri.
 Dersin tamamını izle: {UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ing-ydt-gr-02-04-t&utm_content=s1-b
 Sıradaki ders: Stative Verbs
 Ders sayfası: https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=youtube&utm_medium=short&utm_campaign=ing-ydt-gr-02-04-t&utm_content=s1-b
@@ -40,12 +40,13 @@ Elle adım: Studio'da "İlgili video" = uzun ders (API alanı yok). Kapak: `kapa
 Reels açıklaması:
 
 ```
+Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 "Yaşıyorum" İngilizcede hangisi: I live mı, I am living mi?
 Cevap anlama bağlı:
 I live in İstanbul. → kalıcı durum, Simple Present
 I am living with my uncle. → geçici durum, Present Continuous
-Bu, üç farktan biri. Üç farkın hepsi tam derste: 4 dakika 26 saniye.
-Tam ders: profildeki bağlantı.
+Bu, üç farktan biri.
+Ders sayfası: profildeki bağlantı.
 Öğretmenseniz sınıfınızla paylaşın.
 Sıradaki ders: Stative Verbs
 
@@ -55,7 +56,7 @@ Sıradaki ders: Stative Verbs
 Profil bağlantısı:
 `https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=instagram&utm_medium=bio&utm_campaign=ing-ydt-gr-02-04-t&utm_content=s1-b`
 
-Hikâye: `hikaye-b.png` (soru kartı, elle paylaşım). Bağlantı çıkartması (elle; uygulama özelliği, doğrulanmadı):
+Hikâye: `hikaye-b.png` (elle paylaşım). Bağlantı çıkartması (elle; uygulama özelliği, doğrulanmadı):
 `https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=instagram&utm_medium=story&utm_campaign=ing-ydt-gr-02-04-t&utm_content=s1-b`
 
 Açıklamaya adres yazılmaz (Instagram açıklamada bağlantı tıklanmaz).
@@ -63,9 +64,10 @@ Açıklamaya adres yazılmaz (Instagram açıklamada bağlantı tıklanmaz).
 ## 3. TikTok
 
 ```
+Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Hangisi: I live mı, I am living mi?
 "Yaşıyorum" ikisine de karşılık gelir. Kalıcı durum: I live. Geçici durum: I am living.
-Bu, üç farktan biri. Üç farkın hepsi tam derste (4 dakika 26 saniye). Tam ders: profildeki bağlantı.
+Bu, üç farktan biri. Ders sayfası: profildeki bağlantı.
 Sıradaki ders: Stative Verbs
 #YDT #İngilizce #gramer #SimplePresent #PresentContinuous
 ```
@@ -96,4 +98,3 @@ konduysa ölçüm o sete düşer. Instagram ve TikTok'ta A/B karşılaştırmas�
 |---|---|---|
 | `{UZUN_VIDEO_URL}` | §1 açıklama, "Dersin tamamını izle" satırı | ana ders YouTube'a yüklenince |
 | `{PLATFORM_URL}` (koşullu) | §1 "Ders sayfası", §2 profil + hikâye, §3 profil | grammar-kapi yayında değilse `https://ydspublishing.com/grammar/02-04-ydt-temel` yerine |
-| süre `4 dakika 26 saniye` (koşullu) | §1, §2, §3 | ana ders yeniden render olursa ffprobe değeriyle |

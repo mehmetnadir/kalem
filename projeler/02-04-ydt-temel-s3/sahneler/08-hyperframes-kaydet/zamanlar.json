@@ -1,0 +1,124 @@
+{
+  "fps": 30,
+  "kare": 172,
+  "sure": 5.7333,
+  "t_bas": 15.99,
+  "kart_ciz": [
+    0.55,
+    0.4
+  ],
+  "satir1": [
+    0.61,
+    0.3
+  ],
+  "satir2": [
+    0.71,
+    0.3
+  ],
+  "gonder_ciz": [
+    2.78,
+    0.4
+  ],
+  "imi_ciz": [
+    2.88,
+    0.4
+  ],
+  "arkadasina": [
+    3.02,
+    0.25
+  ],
+  "gonder_yaz": [
+    3.54,
+    0.25
+  ],
+  "sari_gecis": [
+    3.54,
+    0.3
+  ],
+  "kuyruk_durgun": [
+    5.333,
+    0.4
+  ],
+  "olaylar": [
+    [
+      0.55,
+      "cizgi",
+      0.5
+    ],
+    [
+      2.78,
+      "cizgi",
+      0.5
+    ],
+    [
+      3.54,
+      "tik",
+      0.5
+    ]
+  ],
+  "olay_listesi": [
+    {
+      "olay": "kart_ciz",
+      "kare": 16,
+      "yerel": 0.55,
+      "kuresel": 16.54,
+      "sozcuk": "Bu,"
+    },
+    {
+      "olay": "satir1",
+      "kare": 18,
+      "yerel": 0.61,
+      "kuresel": 16.6,
+      "sozcuk": "Bu,"
+    },
+    {
+      "olay": "satir2",
+      "kare": 21,
+      "yerel": 0.71,
+      "kuresel": 16.7,
+      "sozcuk": "Bu,"
+    },
+    {
+      "olay": "gonder_ciz",
+      "kare": 83,
+      "yerel": 2.78,
+      "kuresel": 18.77,
+      "sozcuk": "Bir"
+    },
+    {
+      "olay": "imi_ciz",
+      "kare": 86,
+      "yerel": 2.88,
+      "kuresel": 18.87,
+      "sozcuk": "Bir"
+    },
+    {
+      "olay": "arkadasina",
+      "kare": 91,
+      "yerel": 3.02,
+      "kuresel": 19.01,
+      "sozcuk": "arkadaşına"
+    },
+    {
+      "olay": "gonder_yaz",
+      "kare": 106,
+      "yerel": 3.54,
+      "kuresel": 19.53,
+      "sozcuk": "gönder;"
+    },
+    {
+      "olay": "sari_gecis",
+      "kare": 106,
+      "yerel": 3.54,
+      "kuresel": 19.53,
+      "sozcuk": "gönder;"
+    },
+    {
+      "olay": "kuyruk_durgun",
+      "kare": 160,
+      "yerel": 5.333,
+      "kuresel": 21.323,
+      "sozcuk": "sahne sonu"
+    }
+  ]
+}

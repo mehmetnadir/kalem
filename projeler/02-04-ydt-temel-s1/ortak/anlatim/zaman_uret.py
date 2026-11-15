@@ -17,8 +17,11 @@ FPS, N = 30, 12
 SAHNE = [
     ("01-hyperframes-kapak", "HyperFrames", "Kapak", "Kapak", 1, None),
     ("02-paperjs-ornek", "Paper.js", "Örnek", "Örnek", 2, None),
-    ("03-hyperframes-cta", "HyperFrames", "Çağrı", "Çağrı", 3, None),
+    ("08-hyperframes-kaydet", "HyperFrames", "Kaydet", "Kaydet", 3, None),  # huni v2 §3 (15.11)
+    ("03-hyperframes-cta", "HyperFrames", "Çağrı", "Çağrı", 4, None),
 ]
+# huni v2 (15.11): durağan kareler (05–07) var olan zaman.json'dan aynen taşınır
+ESKI = json.loads((PROJE / "zaman.json").read_text()) if (PROJE / "zaman.json").exists() else {}
 HIKAYE = {"klasor": "04-hyperframes-hikaye", "motor": "HyperFrames", "kare": 1, "cikti": "hikaye.png",
           "ad": "Hikâye karesi", "not": "anlatımdan bağımsız durağan kare; zaman çizelgesine girmez"}
 GIRIS_SN = 3.0
@@ -44,7 +47,7 @@ for no, (klasor, motor, ad, bolum, son_c, gecis) in enumerate(SAHNE, 1):
     sahneler.append(s)
     t_bas = t_son
 z = {"fps": FPS, "genislik": 1080, "yukseklik": 1920, "gecis_kare": N, "tema": "acik",
-     "anlatim": "ortak/anlatim/anlatim.m4a", "sahneler": sahneler, "hikaye": HIKAYE}
+     "anlatim": "ortak/anlatim/anlatim.m4a", "sahneler": sahneler, "hikaye": HIKAYE, "duragan": ESKI.get("duragan", [])}
 (PROJE / "zaman.json").write_text(json.dumps(z, ensure_ascii=False, indent=2) + "\n")
 for s in sahneler:
     print(s["no"], s["klasor"], s["t_bas"], s["t_son"], s["kare"])

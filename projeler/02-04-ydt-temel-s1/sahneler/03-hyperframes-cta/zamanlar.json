@@ -1,151 +1,96 @@
 {
   "fps": 30,
-  "kare": 347,
-  "sure": 11.5667,
-  "t_bas": 19.99,
-  "uc_giris": [
+  "kare": 218,
+  "sure": 7.2667,
+  "t_bas": 25.49,
+  "kart_giris": [
+    0.0,
+    0.5
+  ],
+  "gerisi_giris": [
+    0.55,
+    0.22
+  ],
+  "bizde_giris": [
     1.03,
     0.22
   ],
-  "farktan_giris": [
-    1.19,
-    0.22
-  ],
-  "uc_altcizgi": [
-    1.25,
-    0.3
-  ],
-  "biri_giris": [
-    2.23,
-    0.22
-  ],
-  "tam_ders": [
-    2.78,
-    1.04
-  ],
-  "bant_giris": [
-    3.98,
-    0.35
-  ],
-  "simple_giris": [
-    3.98,
-    0.22
-  ],
-  "present1_giris": [
-    4.22,
-    0.22
-  ],
-  "vs_giris": [
-    4.78,
-    0.22
-  ],
-  "present2_giris": [
-    5.26,
-    0.22
-  ],
-  "continuous_giris": [
-    5.94,
-    0.22
-  ],
-  "farktan_biri_cikis": [
-    7.01,
-    0.25
-  ],
-  "farkin_giris": [
-    7.25,
-    0.22
-  ],
-  "hepsi_giris": [
-    7.73,
-    0.22
-  ],
-  "saat_darbe": [
-    8.37,
-    0.35
-  ],
-  "dort_giris": [
-    8.37,
-    0.22
-  ],
-  "bucuk_giris": [
-    8.61,
-    0.22
-  ],
-  "dakikada_giris": [
-    8.85,
-    0.22
-  ],
   "hap_giris": [
-    8.85,
+    3.02,
     0.3
   ],
-  "hap_yazi": [
-    8.95,
-    0.7
+  "youtube_giris": [
+    4.14,
+    0.3
   ],
-  "ev_darbe": [
-    9.65,
-    0.45
-  ],
-  "bavul_darbe": [
-    9.75,
-    0.45
+  "kuyruk_durgun": [
+    5.34,
+    1.927
   ],
   "olaylar": [
     [
-      1.03,
-      "tik",
-      0.4
-    ],
-    [
-      1.25,
-      "cizgi",
-      0.5
-    ],
-    [
-      2.78,
-      "hisirti",
-      0.45
-    ],
-    [
-      3.98,
+      0.4,
       "vurus",
-      0.9
+      0.6
     ],
     [
-      4.78,
-      "tik",
-      0.5
-    ],
-    [
-      7.01,
+      0.55,
       "tik",
       0.4
     ],
     [
-      8.37,
-      "cizgi",
-      0.5
-    ],
-    [
-      8.85,
+      3.02,
       "tik",
       0.6
     ],
     [
-      8.95,
-      "hisirti",
-      0.5
-    ],
-    [
-      9.65,
-      "cizgi",
-      0.45
-    ],
-    [
-      9.75,
-      "cizgi",
-      0.45
+      4.14,
+      "tik",
+      0.4
     ]
+  ],
+  "olay_listesi": [
+    {
+      "olay": "kart_giris",
+      "kare": 0,
+      "yerel": 0.0,
+      "kuresel": 25.49,
+      "sozcuk": "sahne başı"
+    },
+    {
+      "olay": "gerisi_giris",
+      "kare": 16,
+      "yerel": 0.55,
+      "kuresel": 26.04,
+      "sozcuk": "Gerisi"
+    },
+    {
+      "olay": "bizde_giris",
+      "kare": 31,
+      "yerel": 1.03,
+      "kuresel": 26.52,
+      "sozcuk": "bizde."
+    },
+    {
+      "olay": "hap_giris",
+      "kare": 91,
+      "yerel": 3.02,
+      "kuresel": 28.51,
+      "sozcuk": "YDS"
+    },
+    {
+      "olay": "youtube_giris",
+      "kare": 124,
+      "yerel": 4.14,
+      "kuresel": 29.63,
+      "sozcuk": "YouTube"
+    },
+    {
+      "olay": "kuyruk_durgun",
+      "kare": 160,
+      "yerel": 5.34,
+      "kuresel": 30.83,
+      "sozcuk": "kanalında."
+    }
   ]
 }

@@ -2,13 +2,12 @@
 
 Kaynak: `uretim-tutanagi/aciklama-taslak.md` (S1-B jürisi + S1-C düzeltmeleri, `uretim-tutanagi/S1-duzeltme.md`).
 Sürüm: A (`s1-aciklama-a`). `aciklama.md` kopyası (15.11, istem S1-VAR); tek fark `utm_content=s1` → `s1-a` ve A dosya adları. B seti: `aciklama-b.md`.
-Ana ders: Simple Present ve Present Continuous (`ING-YDT-GR-02-04-T`), tam ders süresi 4 dakika 26 saniye (`cikti.mp4` 265,7 sn).
-Shorts: `ING-YDT-GR-02-04-T-S1`, 30,56 sn. Kimlik `@ydspublishing`. "kanal" sözü yok, QR yok.
+Ana ders: Simple Present ve Present Continuous (`ING-YDT-GR-02-04-T`).
+Shorts: `ING-YDT-GR-02-04-T-S1`, 31,75 sn. Kimlik `@ydspublishing`. QR yok; "kanal" sözü yalnız v2 çekirdek cümlesinde.
+Huni v2 (15.11, istem V2-S1-C): her platform metninin ilk satırı standart §4 kaydet + kanal satırı; standart §1 kural 4–5 kapsamındaki sözler çıktı. Önceki sürüm `~/Silinecekler/2026-11-15-huni-v2/02-04-ydt-temel-s1/`.
 
 **UYARI:** `https://ydspublishing.com/grammar/02-04-ydt-temel` belgeden türedi; canlılığı ölçülmedi (grammar-kapi Worker 11.11'de
 yayında değil). Paylaşımdan önce adresi aç. Açılmazsa adresi `{PLATFORM_URL}` ile değiştir ya da satırı çıkar.
-
-**UYARI:** Yayın anında ana ders `cikti.mp4` süresini ffprobe ile yeniden ölç. Süre değişirse "4 dakika 26 saniye" satırlarını düzelt.
 
 ## 1. YouTube Shorts
 
@@ -21,10 +20,11 @@ Yaşıyorum: I live mı, I am living mi? | YDT İngilizce #Shorts
 Açıklama:
 
 ```
+Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Simple Present ve Present Continuous (ING-YDT-GR-02-04-T) konusu püf noktası: Türkçede "yaşıyorum" tek sözcük, İngilizcede iki zaman.
 I live in İstanbul. → kalıcı durum, geniş zaman
 I am living with my uncle. → geçici durum, şimdiki zaman
-Bu, iki zaman arasındaki üç farktan biri. Tam ders süresi: 4 dakika 26 saniye.
+Bu, iki zaman arasındaki üç farktan biri.
 Dersin tamamını izle: {UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ing-ydt-gr-02-04-t&utm_content=s1-a
 Sıradaki ders: Stative Verbs
 Ders sayfası: https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=youtube&utm_medium=short&utm_campaign=ing-ydt-gr-02-04-t&utm_content=s1-a
@@ -39,11 +39,12 @@ Elle adım: Studio'da "İlgili video" = uzun ders (API alanı yok). Kapak: `kapa
 Reels açıklaması:
 
 ```
+Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Türkçede "yaşıyorum" tek sözcük. İngilizcede iki zaman:
 I live in İstanbul. → kalıcı durum, Simple Present
 I am living with my uncle. → geçici durum, Present Continuous
-Bu, üç farktan biri. Üç farkın hepsi tam derste: 4 dakika 26 saniye.
-Tam ders: profildeki bağlantı.
+Bu, üç farktan biri.
+Ders sayfası: profildeki bağlantı.
 Öğretmenseniz sınıfınızla paylaşın.
 Sıradaki ders: Stative Verbs
 
@@ -61,9 +62,10 @@ Açıklamaya adres yazılmaz (Instagram açıklamada bağlantı tıklanmaz).
 ## 3. TikTok
 
 ```
+Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 "Yaşıyorum" = I live mı, I am living mi?
 Kalıcı durum: I live. Geçici durum: I am living.
-Bu, üç farktan biri. Üç farkın hepsi tam derste (4 dakika 26 saniye). Tam ders: profildeki bağlantı.
+Bu, üç farktan biri. Ders sayfası: profildeki bağlantı.
 Sıradaki ders: Stative Verbs
 #YDT #İngilizce #gramer #SimplePresent #PresentContinuous
 ```
@@ -91,4 +93,3 @@ Profil bağlantısı:
 |---|---|---|
 | `{UZUN_VIDEO_URL}` | §1 açıklama, "Dersin tamamını izle" satırı | ana ders YouTube'a yüklenince |
 | `{PLATFORM_URL}` (koşullu) | §1 "Ders sayfası", §2 profil + hikâye, §3 profil | grammar-kapi yayında değilse `https://ydspublishing.com/grammar/02-04-ydt-temel` yerine |
-| süre `4 dakika 26 saniye` (koşullu) | §1, §2, §3 | ana ders yeniden render olursa ffprobe değeriyle |

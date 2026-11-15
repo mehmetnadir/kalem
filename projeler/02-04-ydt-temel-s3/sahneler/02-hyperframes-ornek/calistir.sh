@@ -1,7 +1,7 @@
 #!/bin/bash
 # Sahne 02 örnek + soru anı (02-04-ydt-temel-s3 shorts, HyperFrames DİKEY 1080x1920, 402 kare, t_bas 3,00):
 # üret -> olaylar -> [önizleme burada biter] -> render -> video.mp4 + kontrol.png + k/telefon-01.png.
-# Kalıp: 02-04-ydt-temel-dikey sahne 06 calistir.sh. Yerleşim BRIEF-DIKEY.md §2-§3 + SPEC.md.
+# Kalıp: 02-04-ydt-temel-dikey sahne 06 calistir.sh. Yerleşim huni v2 (BRIEF-S3.md "Yerleşim") + SPEC.md.
 # Tema: --tema acik|koyu (varsayılan acik, K19). Önizleme hazırlığı: ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu]
 set -e
 [ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"   # arm64 node >= 22 (hyperframes şartı)

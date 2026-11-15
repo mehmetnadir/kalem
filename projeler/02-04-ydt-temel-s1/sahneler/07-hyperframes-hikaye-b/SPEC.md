@@ -1,105 +1,131 @@
-# SPEC — 02-04-ydt-temel-s1 · sahne 07-hyperframes-hikaye-b (HyperFrames, 1080×1920, tek kare, ses yok)
+# SPEC — sahne 07 hikâye karesi B, huni v2 (02-04-ydt-temel-s1) · 15.11.2026
 
-Yazan: şef (15.11.2026, istem S1-VAR). Kod yazmaz; tasarım verir. K = `/home/sef/01dev/_worktrees/kalem-0204`.
-Sahne dizini D = `K/projeler/02-04-ydt-temel-s1/sahneler/07-hyperframes-hikaye-b/`. Paket P = `K/projeler/02-04-ydt-temel-s1/`.
-Kaynak: `P/uretim-tutanagi/hikaye-taslak.md` §6. Hikâye B = soru kartı: Türkçe cümle + "Hangisi doğru?" + iki seçenek; CEVAP YOK.
+MAKİNE: Linux x86_64 (srv21). Python `/usr/bin/python3` (fontTools kurulu). Şef yazdı (istem D-V2); kodu agy yazar.
 
-## 1. Dosyalar
+| Ne | Değer |
+|---|---|
+| Yazılacak dosya | `/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s1/sahneler/07-hyperframes-hikaye-b/uret.py` (baştan yaz) |
+| En yakın kalıp (v2, salt okunur) | `/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s1/sahneler/04-hyperframes-hikaye/uret.py` (hikâye A, kapıdan geçti) |
+| Eski sürüm (v1, salt okunur) | `/home/sef/Silinecekler/2026-11-15-huni-v2/02-04-ydt-temel-s1/sahneler/07-hyperframes-hikaye-b/v1/uret.py` |
+| Yardımcı (HAZIR, değiştirme) | `.../sahneler/07-hyperframes-hikaye-b/yardim.py` (v2; sahne 04 ile aynı dosya: `Y.kunye_svg()`, `Y.rozet_konumlari()`, `Y.genislik`, `Y.RENK`, `Y.font_css`, `Y.ZEMIN_CSS`, `Y.zemin_html`, `Y.font_kopyala`) |
+| Bağlayıcı standart | `/home/sef/01dev/dijital-anlatim/.claude/docs/huni-v2-standart.md` §1, §2, §6 |
+| Çıktı (uret.py yazar) | `proje/index.html`, `nesneler.json` (sahne dizininde) |
 
-| Dosya | Durum | İş |
-|---|---|---|
-| `D/uret.py` | YOK | **YAZILACAK** (mutlak yol `/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s1/sahneler/07-hyperframes-hikaye-b/uret.py`) |
-| `D/yardim.py` | VAR (sahne 01'in birebir kopyası) | DOKUNMA; yalnız `import yardim as Y` |
-| `D/calistir.sh`, `D/olay.py`, `D/zamanlar.json` | VAR (şef yazdı) | DOKUNMA |
-| `D/nesneler.json` | uret.py yazar | §6 |
+Kare: 1080×1920, durağan, ses yok, altyazı yok, çip yok. Zaman çizelgesi 1,0 sn (yakalama 0,5 sn; `zamanlar.json` değişmez).
+Düzen B = soru–cevap (A kural kartıydı): Türkçe cümle → doğru şık kartı (yeşil) → soluk yanlış şık → kural özeti → `Kaydet`.
 
-Başka dosyaya dokunma. Silme yok. Test, render, snapshot, `calistir.sh`, git YOK. `P/ortak/`, `P/zaman.json` ve başka sahneler salt okunur.
+## 1. Sahne 04'ten (v2) aynen alınacak kalıplar
 
-## 2. Kalıp (salt oku) — en yakın örnek
+- Dosya başı: `from __future__ import annotations`, `AD`, `sys.path.insert`, `import yardim as Y`, `PAKET`.
+- `zamanlar.json` okuma + 3 assert (sure 1,0 · kare 1 · fps 30) aynen.
+- `zaman.json` doğrulaması v1 dosyasındaki gibi (v1 satır 18–24): `duragan` listesinde `klasor == AD.name` olan TEK kayıt;
+  `kare == 1`, `cikti == "hikaye-b.png"`; `sahneler[]` içinde `AD.name` yok. (`hikaye` alanı sahne 04'ündür, okuma.)
+- `kaydet_svg()` yapısı (yer imi yolu, hap, yazı) — yalnız y değerleri §3.5'e göre değişir.
+- `kesisim()`, `kurallari_dogrula()` assert yapısı, HTML iskeleti (04 satır 285–313: `font_css`, `ZEMIN_CSS`, `#sahne` kuralı,
+  `#root` `data-duration` = `Z['sure']`, `zemin_html()`, `<svg id="sahne">`, GSAP iki `tl.set`, `window.__timelines["main"]`),
+  `__main__` (font kopyası, `index.html`, `nesneler.json` tam sayıya yuvarlanmış, `print(f"index.html yazıldı {len(html)}")`).
+- Künye ve kanal katmanı yalnız `Y.kunye_svg()` çağrısından gelir. uret.py içinde künye/logo kodu YOK.
+- Tür ipucu bütün işlevlerde; girinti 4 boşluk (dosyanın var olan stili); satır ≤ 120 karakter.
+- Her `<text>`'e `xml:space="preserve"`.
 
-`K/projeler/02-04-ydt-temel-s1/sahneler/04-hyperframes-hikaye/uret.py` (hikâye A). Bu sahne onun kardeşidir; aynısını al:
-- Dosya düzeni, `zaman.json` / `zamanlar.json` doğrulaması (§3'teki farkla), sabitler, HTML kabuğu, tek `set` çizelgesi, `__main__`.
-- `kunye_svg()` (satır 87–115) BİREBİR; tek fark çip metni `Full lesson` → **`Quiz`**.
-- Kart çerçevesi (`kart_svg` içindeki `crv`: x 48, w 984, rx 28, `fill="none"`, `stroke` murekkep 4).
-- Çağrı bandı: `cg1`, `cg2` (Caveat 700 72, x 48, taban 1418 ve 1498), `@ydspublishing` hapı (sağa hizalı, y 1398, h 84, rx 42, Fredoka 700 64).
-- `blok_kutulari`, `kesisim`, `kurallari_dogrula` kalıbı (bloklar §6'ya göre değişir).
-Kart içeriği (ikon, etiket, bant, now noktası, altçizgi) bu sahnede YOK.
+## 2. Kaldırılan v1 öğeleri
 
-## 3. Okuma ve sabitler
+v1 `kunye_svg()` (logo y 48, 2 satır ders adı, rozet, `Quiz` çipi), `soru` hapı (`Hangisi doğru?`), `kA`/`kB` seçenek kartları
+(harf daireleri), `cg1`, `cg2` (eski çağrı satırları), alt `@ydspublishing` hapı (`hap`). Bu metinler kodda literal olarak da geçmez.
 
-- `PAKET = AD.parent.parent`. `PAKET/zaman.json` oku. `duragan` listesinde `klasor == AD.name` olan TEK kayıt var assert; kaydın
-  `kare == 1` ve `cikti == "hikaye-b.png"` assert. `sahneler[]` içinde `AD.name` YOK assert. (`hikaye` alanı sahne 04'ündür; okuma.)
-- `Z = D/zamanlar.json`: `sure` 1,0 · `kare` 1 · `fps` 30 assert.
-- Renk yalnız `Y.RENK`: `zemin #1b1a17`, `murekkep #f3efe6`, `ikincil #c9c2b3`, `vurgu #f2a93b`. Başka hex YOK.
-- `W, H = Y.W, Y.H`; `KENAR = 48`; `SAG = 1032`; `ICERIK = (352, 1392)`; `CAGRI = (1344, 1536)`; `PLATFORM = 1536`.
-
-## 4. Yerleşim (y = yazı tabanı, px; x sol kenar)
+## 3. Yerleşim (px, mutlak; y = yazı tabanı)
 
 ```
-y    0 ┌───────────────────────────────────────────┐
-       │ [logo]                              [Quiz] │ HUD (sahne 04 ile aynı, çip Quiz)
-   212 │ SIMPLE PRESENT vs                         │
-   276 │ PRESENT CONTINUOUS  (YDT · BASIC)          │
-   440 │ Şimdilik amcamla                           │ Fredoka 700 88
-   540 │ yaşıyorum.                                 │ Fredoka 700 88
-   660 │ (Hangisi doğru?)                           │ sarı hap 596–680
-   716 │ ┌ kart A ───────────────────────────────┐  │ 716–976
-       │ │ (A)  I live                            │  │
-       │ │      with my uncle.                    │  │
-  1008 │ ┌ kart B ───────────────────────────────┐  │ 1008–1268
-       │ │ (B)  I am living                       │  │
-       │ │      with my uncle.                    │  │
-  1418 │ Cevap tam derste:        [@ydspublishing]  │ Caveat 72 · hap sağa hizalı
-  1498 │ profildeki bağlantı                        │ Caveat 72
-  1536 ├───────────────────────────────────────────┤ PLATFORM: boş
+y   0 ─ 280  boş zemin
+  291 ─ 339  kanal: logo + @ydspublishing          (Y.kunye_svg)
+  386 ─ 434  künye: konu + YDT · BASIC             (Y.kunye_svg)
+  538 / 622  Şimdilik amcamla / yaşıyorum.         Fredoka 700 76
+  664 ─ 864  [ I am living          ✓ ]            yeşil çerçeve + yeşil tik, Fredoka 700 72
+             [ with my uncle.          ]
+  936        I live with my uncle.  (soluk + gri üstü çizgi)  Fredoka 700 64
+ 1035 / 1117 Kalıcıysa geniş zaman, / geçiciyse şimdiki zaman.  Fredoka 700 68
+ 1150 ─ 1380 BOŞ ZEMİN (bağ çıkartması elle konur; kutu, çerçeve, çizgi ÇİZME)
+ 1416 ─ 1504 [yer imi] (Kaydet)                     sarı hap
+ 1570 ─ 1920 boş zemin
 ```
 
-### 4.1 İçerik
-| # | id | Öğe | Ölçü | Renk |
+Sabitler: `YESIL = "#167a4a"` (doğru şık; açık tema değeri) · `YESIL_KOYU = "#4fbf85"` (koyu tema değeri, yalnız CSS).
+Diğer renkler yalnız `Y.RENK["zemin"|"murekkep"|"ikincil"|"vurgu"]`. Kırmızı (`Y.RENK["kirmizi"]`) KULLANMA.
+
+### 3.1 Türkçe cümle (`<g id="tr">`)
+- `<text id="tr1" x="60" y="538">Şimdilik amcamla</text>` · `<text id="tr2" x="60" y="622">yaşıyorum.</text>`
+- Fredoka 700, 76, `fill` R["murekkep"].
+
+### 3.2 Doğru şık kartı (`<g id="dogru">`)
+- Çerçeve: `<rect id="dogru-crv" x="63" y="667" width="894" height="194" rx="28" fill="none" stroke=YESIL stroke-width="6"/>`
+  (çizginin dış kenarı x 60–960, y 664–864).
+- Satır 1: `<text id="dogru-s1" x="100" y="742">I am living</text>` · Satır 2: `<text id="dogru-s2" x="100" y="822">with my uncle.</text>`;
+  Fredoka 700, 72, `fill` R["murekkep"].
+- Tik: `<g id="dogru-tik" transform="translate(812 716) scale(4)" fill="none" stroke=YESIL stroke-width="2.5"
+  stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"/></g>` (görünür kutu ≈ x 827–897, y 739–789;
+  kart dikey ortası 764). Emoji YOK.
+
+### 3.3 Yanlış şık (`<g id="yanlis">`)
+- `<text id="yanlis-yazi" x="100" y="936" opacity="0.45">I live with my uncle.</text>`; Fredoka 700, 64, `fill` R["murekkep"].
+- Üstü çizgi: `<path id="yanlis-cizgi" d="M92 918H{x2}" stroke=R["ikincil"] stroke-width="6" stroke-linecap="round" fill="none"/>`,
+  `x2 = 100 + genişlik(Fredoka 700, "I live with my uncle.", 64) + 8` (iki ondalık). Çizgide opaklık YOK (tam gri).
+- Çerçeve, tik, çarpı YOK. Kırmızı YOK.
+
+### 3.4 Kural özeti (`<g id="ozet">`)
+- `<text id="ozet1" x="60" y="1035">Kalıcıysa geniş zaman,</text>` · `<text id="ozet2" x="60" y="1117">geçiciyse şimdiki zaman.</text>`
+- Fredoka 700, 68, `fill` R["murekkep"].
+
+### 3.5 Kaydet (`<g id="kaydet">`; sahne 04 `kaydet_svg()` ile aynı yapı, y +368)
+- Yer imi: `<g transform="translate(39 1412) scale(4)" fill="none" stroke=R["murekkep"] stroke-width="1.5" stroke-linejoin="round"
+  stroke-linecap="round"><path id="kaydet-imi" d="M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z"/></g>`
+  (görünür kutu x 60–108, y 1424–1496).
+- Hap: `hap_w = Y.genislik("Fredoka", 700, "Kaydet", 64) + 80`; `<rect id="kaydet-hap" x="128" y="1416" width=hap_w height="88" rx="44"
+  fill=R["vurgu"]/>` (tema dönüştürücüsü açıkta `#ffe066` yapar).
+- Yazı: `<text id="kaydet-yazi" x={128 + hap_w/2} y="1482" text-anchor="middle">Kaydet</text>`; Fredoka 700, 64, `fill` R["zemin"]
+  (açıkta `pilMetin` `#1b2440`).
+
+### 3.6 Tema (CSS, `<style>` içinde `#sahne{…}` satırının hemen altına tek satır)
+```
+#root:not(.tema-acik) [stroke="#167a4a"]{stroke:#4fbf85}
+```
+Gerekçe: `ortak/hf_tema.py` yeşili tanımaz; `#167a4a` koyu zeminde sönük kalır. **DİKKAT:** HTML içinde `#root.tema-acik` dizisi
+GEÇMEYECEK (hf_tema.py bu diziyi görürse CSS eklemez) — assert et.
+
+### 3.7 SVG sırası
+`Y.kunye_svg()` → `tr` → `dogru` → `yanlis` → `ozet` → `kaydet`. Animasyon yok; timeline yalnız `#sahne` opaklık 1 (04 ile aynı).
+
+## 4. Blok kutuları (`blok_kutulari`, `nesneler.json`; sıra aynen)
+
+| ad | x | y | w | h |
 |---|---|---|---|---|
-| 1 | `tr1` | `Şimdilik amcamla` | Fredoka 700 88, x 48, taban 440 | murekkep |
-| 2 | `tr2` | `yaşıyorum.` | Fredoka 700 88, x 48, taban 540 | murekkep |
-| 3 | `soru` (grup) | hap `<rect>` | x 48, y 596, h 84, rx 42, w = `Y.genislik("Fredoka", 700, "Hangisi doğru?", 64) + 56` | `fill` vurgu |
-| 4 | `soru` yazısı | `Hangisi doğru?` | Fredoka 700 64, `text-anchor="middle"`, x = hap ortası, taban 596 + 42 + 22 = 660 | `fill` zemin (`#1b1a17`) |
-| 5 | `kA` (grup) | seçenek kartı A | y0 = 716; §4.2 | §4.2 |
-| 6 | `kB` (grup) | seçenek kartı B | y0 = 1008; §4.2 | §4.2 |
-| 7 | `cg1` | `Cevap tam derste:` | Caveat 700 72, x 48, taban 1418 | murekkep |
-| 8 | `cg2` | `profildeki bağlantı` | Caveat 700 72, x 48, taban 1498 | murekkep |
-| 9 | `hap` | `@ydspublishing` hapı | sahne 04 ile aynı | sahne 04 ile aynı |
+| kanal | 53,2 | 291 | 263 + genişlik(Lexend 700 `@ydspublishing` 42) − 53,2 | 48 |
+| kunye | 60 | 386 | rozet x + rozet w − 60 (`Y.rozet_konumlari()[0]`) | 48 |
+| tr | 60 | 538 − 0,75·76 | max(genişlik(Fredoka 700, satır, 76)) iki satır | (622 + 0,25·76) − y |
+| dogru | 60 | 664 | 900 | 200 |
+| yanlis | 92 | 936 − 0,75·64 | x2 − 92 | 0,75·64 + 0,25·64 |
+| ozet | 60 | 1035 − 0,75·68 | max(genişlik(Fredoka 700, satır, 68)) iki satır | (1117 + 0,25·68) − y |
+| kaydet | 60 | 1416 | 128 + hap_w − 60 | 88 |
 
-Tek vurgu `soru` hapıdır (ve HUD rozeti, çağrı hapı — bunlar kalıbın parçası). Başka sarı öğe, altçizgi YOK.
+## 5. Kurallar (`kurallari_dogrula(bloklar, html)`, assert)
 
-### 4.2 Seçenek kartı (y0 = 716 ya da 1008; iki kart BİREBİR aynı biçim)
-| Öğe | Ölçü | Renk |
-|---|---|---|
-| çerçeve `<rect>` | x 48, y y0, w 984, h `KART_H = 260`, rx 28, `fill="none"`, `stroke-width` 4 | `stroke` murekkep |
-| harf dairesi `<circle>` | merkez (136, y0 + 130), r 52, `fill="none"`, `stroke-width` 4 | `stroke` murekkep |
-| harf | Fredoka 700 64, `text-anchor="middle"`, x 136, taban y0 + 130 + 22. Kart A `A`, kart B `B` | `fill` murekkep |
-| satır 1 | Fredoka 700 72, x 228, taban y0 + 112. Kart A `I live`, kart B `I am living` | `fill` murekkep |
-| satır 2 | Fredoka 700 72, x 228, taban y0 + 202. İki kartta `with my uncle.` | `fill` murekkep |
+1. tr, dogru, yanlis, ozet: x ≥ 60, x + w ≤ 960, y ≥ 460, y + h ≤ 1140.
+2. kaydet: x ≥ 60, x + w ≤ 960, y ≥ 1400, y + h ≤ 1520 (1150–1380 boş kalır, 1570–1920 boş kalır).
+3. kanal ve kunye: y ≥ 280, y + h ≤ 450.
+4. Bütün blok çiftlerinin kesişim alanı 0.
+5. Dikey boşluk ≥ 16: kunye → tr, tr → dogru, dogru → yanlis, yanlis → ozet.
+6. Kart içi: `100 + max(genişlik(Fredoka 700 "I am living" 72), genişlik(Fredoka 700 "with my uncle." 72)) ≤ 827 − 24`.
+7. Yazı boyları (sabit olarak tanımla, assert ≥ 64): tr 76, kart 72, yanlış 64, özet 68, kaydet 64.
+8. Ekran satırı ≤ 24 karakter (`len`): `Şimdilik amcamla`, `yaşıyorum.`, `I am living`, `with my uncle.`, `I live with my uncle.`,
+   `Kalıcıysa geniş zaman,`, `geçiciyse şimdiki zaman.`, `Kaydet` (künye ve kanal satırı hariç).
+9. HTML: `id="kanal"` ve `id="logoimg"` tam 1 kez; `#root.tema-acik` 0 kez; şu kimlikler var: `tr1`, `tr2`, `dogru-crv`, `dogru-s1`,
+   `dogru-s2`, `dogru-tik`, `yanlis-yazi`, `yanlis-cizgi`, `ozet1`, `ozet2`, `kaydet-imi`, `kaydet-hap`, `kaydet-yazi`;
+   şunlar yok: `ku-cip`, `cg1`, `cg2`, `hap-kutu`, `soru-kutu`, `kA`, `kB`.
+10. Yasak söz denetimi kodda YOK (dış grep kapısı; koddaki literal liste grep'i kirletir). Kodda ve yorumlarda "tam ders", "dakika"
+    sözleri GEÇMEZ. Emoji, `Math.random`, `Date`, try/except, gradyan, gölge YOK.
 
-- id: `kA-crv`, `kA-daire`, `kA-harf`, `kA-s1`, `kA-s2` (B için `kB-…`). Her `<text>` `xml:space="preserve"`.
-- Cevap belirtisi YOK: tik, çarpı, renk farkı, kalın çerçeve, altçizgi, ikon (ev/bavul ipucu verir) YOK.
+## 6. Kabul ölçütü
 
-## 5. Tema (hf_tema.py ile uyum)
-- `Y.ZEMIN_CSS` ve `Y.zemin_html()` DEĞİŞTİRMEDEN kullan. Renkler SVG özniteliği, küçük harf hex; CSS `style` içinde renk YOK.
-- Dönüşüm: `rect fill #f2a93b` → açıkta `#ffe066` · `text fill #1b1a17` → `#1b2440` · `fill/stroke #f3efe6` → `#1b2440`.
-  Hap ve rozet dolgusu `<rect fill="#f2a93b">`; hap/rozet/soru yazısı `<text fill="#1b1a17">`. `<circle fill="#1b1a17">` YOK (daireler `fill="none"`).
-- id `t2`, `ku-nokta`, `rz1` KULLANMA.
-
-## 6. Kurallar ve kabul ölçütü (uret.py içinde `assert`)
-1. Bütün metin ve kutular x ∈ [48, 1032]; hiçbir öğe y ≥ 1536 değil (yazı alt sınırı = taban + 0,30·boy).
-2. Yazı boyu ≥ 64 (HUD hariç: ders adı 56, rozet 36, çip 40).
-3. Her ekran satırı ≤ 24 karakter (`len`), HUD dahil.
-4. Blok kutuları çakışmaz. Yazı kutusu y_üst = taban − 0,75·boy, y_alt = taban + 0,30·boy (Caveat) / 0,25·boy (diğer).
-   Bloklar: `hud` (0–288) · `tr` (tr1+tr2) · `soru` · `kA` · `kB` · `cg1` · `cg2` · `hap`. Çiftler arası kesişim 0; dikey komşular arası
-   boşluk ≥ 16 (istisna: `cg1`–`cg2`, yalnız kesişim 0); `cg1` ve `cg2` sağ kenarı ile `hap` sol kenarı arası ≥ 24.
-   Kart içi: satır 1 ve satır 2 sağ kenarı ≤ 1000; harf dairesi sağı (188) ile yazı solu (228) arası ≥ 24.
-5. `tr` üstü ≥ 352; `kB` altı ≤ 1344; `hap`, `cg1`, `cg2` [1344, 1536] içinde.
-6. `nesneler.json`: `[{"ad", "x", "y", "w", "h"}]` tam sayı (yukarıdaki bloklar).
-7. Yasak: emoji, kırmızı, yeşil, gradyan, gölge, `Math.random`, `Date`, try/catch, `opacity:0` başlangıç, hareket (tek `set` dışında tween yok).
-8. Ekranda "kanal", QR, süre, cevap YOK. Python: tür ipuçları bütün işlevlerde.
-9. `/usr/bin/python3 uret.py` stdout'a `index.html yazıldı <bayt>` basar; hata yoksa çıkış 0.
-
-Kabul (şef koşturur, ajan koşturmaz): `ONIZLE_YALNIZ=1 bash calistir.sh` → "önizleme hazır"; `bash calistir.sh --tema acik|koyu` →
-`P/hikaye-b.png` ve `D/k/koyu/hikaye-b-koyu.png` 1080×1920; taşma, kesik yazı, üst üste binme yok.
+- `/usr/bin/python3 uret.py` rc 0; stdout `index.html yazıldı <n>`.
+- `nesneler.json` 7 blok (kanal, kunye, tr, dogru, yanlis, ozet, kaydet), tam sayı.
+- `proje/index.html` §5 madde 9'u sağlar; SVG içinde `stroke="#167a4a"` 2 kez (çerçeve + tik; CSS seçicisi sayılmaz — QA 1), `#4fbf85` 1 kez.
+- Test, render, `calistir.sh`, git YOK (şef koşar).

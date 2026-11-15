@@ -1,8 +1,7 @@
-// Ortak künye (HUD) + zemin + altyazı — DİKEY 1080x1920 sürüm 2 (05.11, telefon ölçeği).
-// Paper.js ve düz canvas sahneleri bunu çağırır; HyperFrames sahneleri aynı sayıları HTML/CSS ile uygular (BRIEF-DIKEY.md §3).
-// Kullanım: const K = await kunyeHazirla(); ... zeminCiz(ctx, f, K); ... kunyeCiz(ctx, { bolum: KUNYE.cipler["02-paperjs-ornek"], logo: K.logo });
+// huni v2 (15.11): kanal katmanı + v2 bantları
+// Paper.js ve düz canvas sahneleri bunu çağırır; HyperFrames sahneleri aynı sayıları HTML/CSS ile uygular.
+// Kullanım: const K = await kunyeHazirla(); ... zeminCiz(ctx, f, K); ... kunyeCiz(ctx, { logo: K.logo });
 //           altyaziCiz(ctx, altyaziMetin(K.altyazi, t));   // t = küresel sn
-// 02-04 (15.11): ders adı 56 px'te 1119 px, 984 px'e sığmaz → 2 satır; rozet 2. satırın sağında (BRIEF-DIKEY.md §2).
 // S1 (15.11, S1-C): 02-04-ydt-temel-dikey/ortak/kunye.js kopyası (sha256 34252b76…); yalnız KOK ve cipler değişti.
 export const KOK = "/projeler/02-04-ydt-temel-s1/ortak";
 export const TEMALAR = {
@@ -49,15 +48,59 @@ export function temaSec(ad) {
   if (!TEMALAR[ad] || ad === temaAd) return; temaAd = ad; surum++; Object.assign(RENK, TEMALAR[ad]);
 }
 try { temaSec(new URLSearchParams(location.search).get("tema") || "koyu"); } catch (e) { /* tarayıcı dışı */ }
-// Bantlar (y): HUD 0–320 · içerik 352–1392 · altyazı 1400–1536 · platform 1536–1920 BOŞ.
-// HUD: logo sol üst (96 px), ders adı 2 satır (56 px, satır 64), rozet hapı 2. satırın sağında (72 px); çip sağ üst (80 px).
-// Dikey HUD ajanda çizmez; çip sahnenin kendi bölümü (cipler). ders/ajanda kaynağı: 02-04-ydt-temel/ortak/kunye.js.
-export const KUNYE = { kenar: 48, logoY: 48, logoYuk: 96, dersTaban: 212, dersYazi: 56, dersSatir: 64, rozetY: 216,
-  rozetH: 72, rozetAra: 24, rozetYazi: 36, cipY: 48, cipH: 80, cipYazi: 40, hudSon: 320, icerikBas: 352,
-  icerikSon: 1392, altyaziBas: 1400, altyaziSon: 1536, altyaziYazi: 44, altyaziSatir: 56,
-  ders: ["SIMPLE PRESENT vs", "PRESENT CONTINUOUS"], rozet: "YDT · BASIC", ajanda: ["Hook", "Examples", "Rule", "Trap"],
-  cipler: { "01-hyperframes-kapak": "Hook", "02-paperjs-ornek": "Example",
-    "03-hyperframes-cta": "Full lesson", "04-hyperframes-hikaye": "Full lesson" } };
+// Bantlar: 0–280 boş · 291–339 kanal · 360–450 künye · 460–1380 içerik · 1400–1550 altyazı · 1570–1920 / sağ 960 boş.
+export const KANAL = {
+  logoX: 53.2,
+  logoY: 291,
+  logoH: 48,
+  logoW: 193.5,
+  yazi: "@ydspublishing",
+  yaziFont: "700 42px Lexend",
+  yaziX: 263,
+  yaziTaban: 330,
+  gorunurX: 60,
+  kutuY: 291,
+  kutuH: 50,
+};
+
+export function kanalCiz(ctx, K) {
+  const kn = KANAL;
+  ctx.save();
+  ctx.globalAlpha = 1;
+  ctx.textAlign = "left";
+  ctx.textBaseline = "alphabetic";
+  if (K && K.logo) ctx.drawImage(K.logo, kn.logoX, kn.logoY, kn.logoW, kn.logoH);
+  ctx.font = kn.yaziFont;
+  ctx.fillStyle = RENK.murekkep;
+  ctx.fillText(kn.yazi, kn.yaziX, kn.yaziTaban);
+  const yaziGen = ctx.measureText(kn.yazi).width;
+  ctx.restore();
+  if (typeof window !== "undefined" && window.__kalemKutu) {
+    window.__kalemKutu.ekle("kunye", "kunye:kanal", kn.gorunurX, kn.kutuY, kn.yaziX + yaziGen - kn.gorunurX, kn.kutuH);
+  }
+}
+
+export const KUNYE = {
+  kenar: 60,
+  sag: 960,
+  icerikBas: 460,
+  icerikSon: 1380,
+  altyaziBas: 1400,
+  altyaziSon: 1550,
+  altyaziYazi: 44,
+  altyaziSatir: 56,
+  konu: "Simple Present vs Present Continuous",
+  konuX: 60,
+  konuTaban: 420,
+  konuAzami: 34,
+  konuAsgari: 28,
+  rozet: "YDT · BASIC",
+  rozetY: 386,
+  rozetH: 48,
+  rozetYazi: 26,
+  rozetAra: 20,
+  rozetPay: 20,
+};
 const W = 1080, H = 1920;
 export const GEN = W, YUK = H;
 
@@ -138,63 +181,51 @@ function vinyetAl() {
 }
 
 
-// bolum: sağ üst "şu an" çipi ("Hook", "Example 1 / 3", "Form") · alfa: 0–1
-// Ders satırları + rozet x'i (ctx.font = 700 dersYazi Fredoka iken). ders tek dize ise rozet kenarda (eski düzen).
-function dersDuzen(ctx) {
-  const k = KUNYE, s = [].concat(k.ders), gw = Math.max(...s.map((m) => ctx.measureText(m).width));
-  return { s, gw, rx: s.length > 1 ? k.kenar + ctx.measureText(s[s.length - 1]).width + k.rozetAra : k.kenar };
-}
-export function kunyeCiz(ctx, { bolum, logo, alfa = 1 }) {
-  const k = KUNYE, R = RENK; ctx.save(); ctx.globalAlpha = alfa; ctx.textBaseline = "alphabetic"; ctx.textAlign = "left";
-  if (logo) { const h = k.logoYuk, w = h * 1920 / 476.3; ctx.drawImage(logo, k.kenar, k.logoY, w, h); }
-  ctx.fillStyle = R.murekkep; ctx.font = `700 ${k.dersYazi}px Fredoka`; const D = dersDuzen(ctx);
-  D.s.forEach((m, i) => ctx.fillText(m, k.kenar, k.dersTaban + i * k.dersSatir));
-  // rozet hapı (ders 2 satırsa 2. satırın sağında: D.rx)
-  ctx.font = `700 ${k.rozetYazi}px Lexend`; const rw = ctx.measureText(k.rozet).width + 56;
-  ctx.fillStyle = R.vurguDolgu; ctx.beginPath(); ctx.roundRect(D.rx, k.rozetY, rw, k.rozetH, k.rozetH / 2); ctx.fill();
-  ctx.fillStyle = R.pilMetin; ctx.textAlign = "center"; ctx.fillText(k.rozet, D.rx + rw / 2, k.rozetY + k.rozetH / 2 + 13);
-  // şu an çipi
-  if (bolum) {
-    ctx.font = `700 ${k.cipYazi}px Lexend`; const cw = ctx.measureText(bolum).width + 64, cx = W - k.kenar - cw;
-    ctx.strokeStyle = R.vurgu; ctx.lineWidth = 4; ctx.beginPath(); ctx.roundRect(cx, k.cipY, cw, k.cipH, k.cipH / 2); ctx.stroke();
-    ctx.fillStyle = R.vurgu; ctx.fillText(bolum, cx + cw / 2, k.cipY + k.cipH / 2 + 14);
+function konuDuzen(ctx) {
+  const k = KUNYE;
+  ctx.font = `700 ${k.rozetYazi}px Lexend`;
+  const rw = ctx.measureText(k.rozet).width + 2 * k.rozetPay;
+  for (let boy = k.konuAzami; boy >= k.konuAsgari; boy--) {
+    ctx.font = `700 ${boy}px Fredoka`;
+    const kw = ctx.measureText(k.konu).width;
+    if (k.konuX + kw + k.rozetAra + rw <= k.sag) {
+      return { boy, kw, rx: k.konuX + kw + k.rozetAra, rw };
+    }
   }
+  throw new Error("künye: konu + rozet 960'a sığmıyor");
+}
+
+export function kunyeCiz(ctx, { logo, alfa = 1 } = {}) {
+  kanalCiz(ctx, { logo });
+  const k = KUNYE, R = RENK;
+  ctx.save();
+  ctx.globalAlpha = alfa;
+  ctx.textBaseline = "alphabetic";
+  ctx.textAlign = "left";
+  const D = konuDuzen(ctx);
+  ctx.font = `700 ${D.boy}px Fredoka`;
+  ctx.fillStyle = R.murekkep;
+  ctx.fillText(k.konu, k.konuX, k.konuTaban);
+
+  // rozet hapı
+  ctx.fillStyle = R.vurguDolgu;
+  ctx.beginPath();
+  ctx.roundRect(D.rx, k.rozetY, D.rw, k.rozetH, k.rozetH / 2);
+  ctx.fill();
+  ctx.font = `700 ${k.rozetYazi}px Lexend`;
+  ctx.fillStyle = R.pilMetin;
+  ctx.textAlign = "center";
+  ctx.fillText(k.rozet, D.rx + D.rw / 2, k.rozetY + k.rozetH / 2 + 9);
   ctx.restore();
 
-  // Kanca: dikey künye bölgelerini 'kunye' türü olarak ekle (alfa >= 0.2 ise)
+  // Kanca (alfa >= 0.2 ve __kalemKutu varsa)
   if (typeof window !== "undefined" && window.__kalemKutu && alfa >= 0.2) {
-    if (logo) {
-      const h = k.logoYuk, w = h * 1920 / 476.3;
-      window.__kalemKutu.ekle("kunye", "kunye:logo", k.kenar, k.logoY, w, h);
-    }
-    ctx.save();
-    ctx.font = `700 ${k.dersYazi}px Fredoka`;
-    const D = dersDuzen(ctx), dh = k.dersYazi + 6 + (D.s.length - 1) * k.dersSatir;
-    window.__kalemKutu.ekle("kunye", "kunye:ders", k.kenar, k.dersTaban - k.dersYazi, D.gw, dh);
-    ctx.font = `700 ${k.rozetYazi}px Lexend`;
-    if (Array.isArray(k.rozet)) {
-      let rx = k.kenar;
-      for (const m of k.rozet) {
-        const rw = ctx.measureText(m).width + 56;
-        window.__kalemKutu.ekle("kunye", "kunye:rozet", rx, k.rozetY, rw, k.rozetH);
-        rx += rw + 12;
-      }
-    } else if (k.rozet) {
-      const rw = ctx.measureText(k.rozet).width + 56;
-      window.__kalemKutu.ekle("kunye", "kunye:rozet", D.rx, k.rozetY, rw, k.rozetH);
-    }
-    if (bolum) {
-      ctx.font = `700 ${k.cipYazi}px Lexend`;
-      const dolgu = k.cipDolgu || 64;
-      const cw = ctx.measureText(bolum).width + dolgu;
-      window.__kalemKutu.ekle("kunye", "kunye:sag-ust", W - k.kenar - cw, k.cipY, cw, k.cipH);
-    }
-    ctx.restore();
+    window.__kalemKutu.ekle("kunye", "kunye:konu", k.konuX, k.konuTaban - D.boy, D.kw, D.boy + 8);
+    window.__kalemKutu.ekle("kunye", "kunye:rozet", D.rx, k.rozetY, D.rw, k.rozetH);
   }
-
 }
 
-// Altyazı bandı (y 1400–1536): konuşulan parça, en çok 2 satır, ortalı. Sessiz izleme için zorunlu (kalıp §1 kural 3).
+// Altyazı bandı (y 1400–1550): konuşulan parça, en çok 2 satır, ortalı. Sessiz izleme için zorunlu (kalıp §1 kural 3).
 export function altyaziMetin(liste, t) {
   if (!liste) return "";
   const p = liste.find((a) => t >= a.t0 - 0.05 && t < a.t1 + 0.35);
@@ -202,19 +233,24 @@ export function altyaziMetin(liste, t) {
 }
 export function altyaziCiz(ctx, metin, { alfa = 1 } = {}) {
   if (!metin) return;
-  const k = KUNYE, R = RENK, genislik = W - 2 * k.kenar; ctx.save(); ctx.globalAlpha = alfa;
-  ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
-  // Uzun parça (05.11): yazı 44 → 40 → 36 küçülür; hâlâ 2 satıra sığmazsa 3 satır (satır 44, bant 136 px).
+  const k = KUNYE, R = RENK, genislik = k.sag - k.kenar;
+  const ortaX = (k.kenar + k.sag) / 2;
+  ctx.save();
+  ctx.globalAlpha = alfa;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "alphabetic";
   let satirlar = [];
   for (const boy of [k.altyaziYazi, 40, 36]) {
-    ctx.font = `500 ${boy}px Lexend`; satirlar = altyaziSar(ctx, metin, genislik);
+    ctx.font = `500 ${boy}px Lexend`;
+    satirlar = altyaziSar(ctx, metin, genislik);
     if (satirlar.length <= 2) break;
   }
-  while (satirlar.length > 3) { const son = satirlar.pop(); satirlar[2] += " " + son; }
-  const adim = satirlar.length === 3 ? 44 : k.altyaziSatir;
-  const y0 = k.altyaziBas + (satirlar.length === 1 ? 84 : satirlar.length === 2 ? 56 : 40);
+  if (satirlar.length > 2) {
+    throw new Error("altyazı 2 satıra sığmıyor: " + metin);
+  }
+  const y0 = k.altyaziBas + (satirlar.length === 1 ? 84 : 56);
   ctx.fillStyle = R.murekkep;
-  satirlar.forEach((sat, i) => ctx.fillText(sat, W / 2, y0 + i * adim));
+  satirlar.forEach((sat, i) => ctx.fillText(sat, ortaX, y0 + i * k.altyaziSatir));
   ctx.restore();
 }
 
@@ -223,7 +259,7 @@ function altyaziDilimle(liste, soz) {
   if (!liste || !liste.length) return [];
   const ctx = document.createElement("canvas").getContext("2d");
   ctx.font = `500 ${KUNYE.altyaziYazi}px Lexend`;
-  const genislik = W - 2 * KUNYE.kenar, cikti = [];
+  const genislik = KUNYE.sag - KUNYE.kenar, cikti = [];
   for (const p of liste) {
     if (altyaziSar(ctx, p.metin, genislik).length <= 2) {
       cikti.push(p);

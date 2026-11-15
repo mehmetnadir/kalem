@@ -5,7 +5,8 @@
  "seviye": "temel",
  "kitle": "YDT",
  "sesler": {
-  "ogretmen": "gsJ9nrlXYbPztJxC4fwc"
+  "ogretmen": "gsJ9nrlXYbPztJxC4fwc",
+  "ogrenci": "oPC5I9GKjMReiaM29gjY"
  },
  "kadro": {
   "ogretmen": {
@@ -15,6 +16,15 @@
    "govde": "ShirtPantsWB",
    "yuz": "Smile",
    "sac": "Short"
+  },
+  "ogrenci": {
+   "ses": "oPC5I9GKjMReiaM29gjY",
+   "cinsiyet": "kadin",
+   "yas": "genc",
+   "govde": "Sitting",
+   "yuz": "Smile",
+   "sac": "LongBangs",
+   "aksesuar": "GlassRound"
   }
  },
  "cumleler": [
@@ -65,15 +75,26 @@
     ],
     [
      "tr",
-     "Tam ders: Simple Present ve Present Continuous."
-    ],
-    [
-     "tr",
-     "Üç farkın hepsi dört buçuk dakikada."
+     "Bu kuralı kaybetme. Kaydet."
     ]
    ],
    "olaylar": [],
-   "metin": "Bu, üç farktan yalnız biri. Tam ders: Simple Present ve Present Continuous. Üç farkın hepsi dört buçuk dakikada."
+   "metin": "Bu, üç farktan yalnız biri. Bu kuralı kaybetme. Kaydet."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Bitmedi, gel."
+    ],
+    [
+     "tr",
+     "Dersin tamamı YDS Publishing YouTube kanalında."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bitmedi, gel. Dersin tamamı YDS Publishing YouTube kanalında."
   }
  ],
  "zaman": {

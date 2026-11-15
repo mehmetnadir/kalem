@@ -2,13 +2,11 @@
 
 Kaynak: `uretim-tutanagi/aciklama-taslak.md` §3 (S3-B jürisi + S3-C düzeltmeleri, `uretim-tutanagi/S3-duzeltme.md`).
 Sürüm: A (`s3-aciklama-a`), kısa ve doğrudan: kuralla açılır. `aciklama.md` bu dosyanın kopyasıdır. B seti: `aciklama-b.md`.
-Ana ders: Simple Present ve Present Continuous (`ING-YDT-GR-02-04-T`), tam ders süresi 4 dakika 26 saniye (`cikti.mp4` 265,7 sn).
-Shorts: `ING-YDT-GR-02-04-T-S3`, 26,56 sn. Kimlik `@ydspublishing`. "kanal" sözü yok, QR yok.
+Ana ders: Simple Present ve Present Continuous (`ING-YDT-GR-02-04-T`).
+Shorts: `ING-YDT-GR-02-04-T-S3`, 28,31 sn (huni v2). Kimlik `@ydspublishing`. Her platform metninin ilk satırı huni v2 standardı §4; standart §1 kural 4–5 sözleri yok, QR yok.
 
 **UYARI:** `https://ydspublishing.com/grammar/02-04-ydt-temel` belgeden türedi; canlılığı ölçülmedi (grammar-kapi Worker 11.11'de
 yayında değil). Paylaşımdan önce adresi aç. Açılmazsa adresi `{PLATFORM_URL}` ile değiştir ya da satırı çıkar.
-
-**UYARI:** Yayın anında ana ders `cikti.mp4` süresini ffprobe ile yeniden ölç. Süre değişirse "4 dakika 26 saniye" satırlarını düzelt.
 
 ## 1. YouTube Shorts
 
@@ -21,11 +19,12 @@ Tarife geniş zaman, plan şimdiki zaman | YDT İngilizce #Shorts
 Açıklama:
 
 ```
+Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Simple Present ve Present Continuous konusunun püf noktası: iki cümle de geleceği anlatır, zamanları farklıdır.
 The train to İzmir leaves at 7 pm today. → tarifeli gelecek, geniş zaman
 I am going to the movie theater tonight. → planlanmış gelecek, şimdiki zaman
 Planı bir kişi yapar. Tren plan yapmaz, tarifeye uyar.
-Bu, iki zaman arasındaki üç farktan biri. Tam ders süresi: 4 dakika 26 saniye.
+Bu, iki zaman arasındaki üç farktan biri.
 Dersin tamamını izle: {UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s3-a
 Sıradaki ders: Stative Verbs
 Ders sayfası: https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s3-a
@@ -40,11 +39,12 @@ Elle adım: Studio'da "İlgili video" = uzun ders (API alanı yok). Kapak: `kapa
 Reels açıklaması:
 
 ```
+Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 İki cümle de geleceği anlatıyor, zamanları farklı:
 The train to İzmir leaves at 7 pm today. → tarifeli gelecek, Simple Present
 I am going to the movie theater tonight. → planlanmış gelecek, Present Continuous
-Bu, üç farktan biri. Üç farkın hepsi tam derste: 4 dakika 26 saniye.
-Tam ders: profildeki bağlantı.
+Bu, üç farktan biri. Üç farkın hepsi dersin tamamında.
+Ders sayfası: profildeki bağlantı.
 Öğretmenseniz sınıfınızla paylaşın.
 Sıradaki ders: Stative Verbs
 
@@ -54,7 +54,7 @@ Sıradaki ders: Stative Verbs
 Profil bağlantısı:
 `https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=instagram&utm_medium=bio&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s3-a`
 
-Hikâye: `hikaye-a.png` (bilgi kartı, elle paylaşım). Bağlantı çıkartması (elle; uygulama özelliği, doğrulanmadı):
+Hikâye: `hikaye-a.png` (kural kartı + Kaydet, elle paylaşım). Bağlantı çıkartması (elle; uygulama özelliği, doğrulanmadı):
 `https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=instagram&utm_medium=story&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s3-a`
 
 Açıklamaya adres yazılmaz (Instagram açıklamada bağlantı tıklanmaz).
@@ -62,8 +62,9 @@ Açıklamaya adres yazılmaz (Instagram açıklamada bağlantı tıklanmaz).
 ## 3. TikTok
 
 ```
+Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Tarifeli gelecek: The train leaves. Planlanmış gelecek: I am going.
-Bu, üç farktan biri. Üç farkın hepsi tam derste (4 dakika 26 saniye). Tam ders: profildeki bağlantı.
+Bu, üç farktan biri. Üç farkın hepsi dersin tamamında. Ders sayfası: profildeki bağlantı.
 Sıradaki ders: Stative Verbs
 #YDT #İngilizce #gramer #SimplePresent #PresentContinuous
 ```
@@ -92,4 +93,3 @@ Profil bağlantısı:
 |---|---|---|
 | `{UZUN_VIDEO_URL}` | §1 açıklama, "Dersin tamamını izle" satırı | ana ders YouTube'a yüklenince |
 | `{PLATFORM_URL}` (koşullu) | §1 "Ders sayfası", §2 profil + hikâye, §3 profil | grammar-kapi yayında değilse `https://ydspublishing.com/grammar/02-04-ydt-temel` yerine |
-| süre `4 dakika 26 saniye` (koşullu) | §1, §2, §3 | ana ders yeniden render olursa ffprobe değeriyle |

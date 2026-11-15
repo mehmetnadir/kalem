@@ -1,6 +1,7 @@
 #!/bin/bash
-# Sahne 04 hikâye karesi (HyperFrames DİKEY 1080x1920, tek kare, ses yok): üret -> [önizleme burada biter] -> tek kare PNG.
-# Tema: --tema acik|koyu (varsayılan acik, K19). acik -> paket kökü hikaye.png · koyu -> k/hikaye-koyu.png. mp4 yok.
+# Sahne 04 hikâye karesi A, huni v2 (HyperFrames DİKEY 1080x1920, tek kare, ses yok): üret -> [önizleme biter] -> tek kare PNG.
+# Tema: --tema acik|koyu (varsayılan acik, K19). acik -> paket kökü hikaye-a.png (+ hikaye.png kopyası)
+# · koyu -> k/koyu/hikaye-a-koyu.png. mp4 yok.
 # Önizleme hazırlığı: ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu]
 set -e
 [ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"   # arm64 node >= 22 (hyperframes şartı)
@@ -26,8 +27,9 @@ KD="$AD/k"; [ "$TEMA" = koyu ] && KD="$AD/k/koyu"
 cd "$AD/proje"
 # tek kare: --keep çıktı klasörünü silmez (k/ altında k/koyu/ durur), ad at-<sn>s.png
 perl -e 'alarm 170; exec @ARGV' "$BIN/hyperframes" snapshot . --at "$SN" --no-end --keep -o "$KD" >&2
-HEDEF="$AD/k/hikaye-koyu.png"; [ "$TEMA" = acik ] && HEDEF="$PAKET/hikaye.png"
+HEDEF="$AD/k/koyu/hikaye-a-koyu.png"; [ "$TEMA" = acik ] && HEDEF="$PAKET/hikaye-a.png"
 cp "$KD/at-${SN}s.png" "$HEDEF"; chmod 644 "$HEDEF"   # snapshot 0600 yazar
+[ "$TEMA" = acik ] && cp -p "$HEDEF" "$PAKET/hikaye.png"   # hikaye.png = A (BRIEF-S1)
 ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height -of csv=p=0 "$HEDEF"
 echo "$HEDEF"
 tema_bitir "$AD"

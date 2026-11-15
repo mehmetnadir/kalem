@@ -2,7 +2,7 @@
 """02-04-ydt-temel-s3 sahne 05 kapak B (soru) index.html üretici (HyperFrames DİKEY 1080x1920; tek kare, ses yok).
 
 Durağan PNG üretimi için tek kare zaman çizelgesi (1,0 sn).
-Bantlar: HUD (0-288) -> başlık -> sahne (864-1344) -> platform (1536-1920 boş).
+Bantlar: HUD / kanal katmanı (280-450) -> başlık (460-781) -> sahne (820-1380) -> alt bant (1380-1920 boş).
 """
 from __future__ import annotations
 
@@ -11,6 +11,8 @@ import math
 import re
 import sys
 from pathlib import Path
+
+from PIL import Image, ImageChops, ImageFilter
 
 AD = Path(__file__).resolve().parent
 sys.path.insert(0, str(AD))
@@ -36,21 +38,47 @@ assert Z["fps"] == 30, f"fps {Z['fps']} != 30"
 R: dict[str, str] = Y.RENK
 assert set(R.keys()) >= {"zemin", "murekkep", "ikincil", "vurgu"}
 
-W: int = Y.W
-H: int = Y.H
-KENAR: int = 48
-SAG: int = 1032
-BASLIK_GEN: int = 952
-BANT_UST: int = 864
-BANT_ALT: int = 1344
-PLATFORM: int = 1536
+ICERIK_SOL: float = 60.0
+ICERIK_SAG: float = 960.0
+ICERIK_UST: float = 460.0
+ICERIK_ALT: float = 1380.0
+UST_BOS: float = 280.0
+MERKEZ_X: float = 510.0
 
-K_TREN: float = 1.1
-TX0: float = 196.0
-RAY_Y: float = 1172.0
-TY0: float = RAY_Y - 158.0 * K_TREN
+K_TREN: float = 1.05
+TX0: float = 64.0 + 10.0 * K_TREN + 2.0  # 76.5
+TY0: float = 1010.0
+RAY_Y: float = TY0 + 158.0 * K_TREN  # 1175.9
 
-FIG: dict = json.loads((AD / "cizim" / "ogretmen.json").read_text(encoding="utf-8"))
+SC: tuple[float, float] = (TX0 + 87.5 * K_TREN, 934.0)
+SR: float = 56.0
+
+SH: float = 112.0
+SY0: float = 880.0
+SCX: float = TX0 + 237.5 * K_TREN
+SX0: float = SCX - 0.31 * SH
+
+KB: int = 72
+kart_metin: str = "The train leaves \u2026"
+metin_w: float = Y.genislik("Fredoka", 700, kart_metin, KB)
+KW: float = metin_w + 80.0
+LX: float = 102.0 + Y.genislik("Fredoka", 700, "The train ", KB)
+LW: float = Y.genislik("Fredoka", 700, "leaves", KB)
+
+LOGO_W: float = 48.0 * Y.LOGO_EN_BOY
+LOGO_X: float = 60.0 - Y.LOGO_KAYMA * LOGO_W
+
+KONU: str = "Simple Present vs Present Continuous"
+ROZET: str = "YDT · BASIC"
+ROZET_W: float = Y.genislik("Lexend", 700, ROZET, 26) + 40.0
+
+KB_K: int | None = None
+for k in range(34, 27, -1):
+    if 60.0 + Y.genislik("Fredoka", 700, KONU, k) + 20.0 + ROZET_W <= 960.0:
+        KB_K = k
+        break
+assert KB_K is not None, "KB_K [28, 34] aralığında sığmadı"
+ROZET_X: float = 60.0 + Y.genislik("Fredoka", 700, KONU, KB_K) + 20.0
 
 
 def hesapla_s() -> tuple[int, float, float, float, float, float, float, float, float, float, float]:
@@ -58,28 +86,28 @@ def hesapla_s() -> tuple[int, float, float, float, float, float, float, float, f
     s0: float = 100.0
     g1_100: float = Y.genislik("Fredoka", 700, "NEDEN -ING", s0)
     g2_100: float = Y.genislik("Fredoka", 700, "YOK?", s0)
-    S: int = math.floor(min(190.0, BASLIK_GEN * 100.0 / g1_100, BASLIK_GEN * 100.0 / (g2_100 + 60.0)))
+    S: int = math.floor(min(170.0, 900.0 * 100.0 / g1_100, 900.0 * 100.0 / (g2_100 + 60.0)))
 
     g1: float = Y.genislik("Fredoka", 700, "NEDEN -ING", S)
     g2: float = Y.genislik("Fredoka", 700, "YOK?", S)
 
-    while (g1 > BASLIK_GEN or (g2 + 0.60 * S) > BASLIK_GEN) and S > 1:
+    while (g1 > 900.0 or (g2 + 0.60 * S) > 900.0) and S > 1:
         S -= 1
         g1 = Y.genislik("Fredoka", 700, "NEDEN -ING", S)
         g2 = Y.genislik("Fredoka", 700, "YOK?", S)
 
-    assert g1 <= BASLIK_GEN, f"g1={g1} > {BASLIK_GEN}"
-    assert g2 + 0.60 * S <= BASLIK_GEN, f"g2 + 0.60*S={g2 + 0.60 * S} > {BASLIK_GEN}"
+    assert S == 164, f"Beklenen S=164 != {S}"
+    T1: float = 476.0 + 0.70 * S
+    x1: float = 510.0 - g1 / 2.0
+    assert x1 >= 60.0, f"x1={x1} < 60"
 
-    T1: float = 375.0 + 0.70 * S
-    T2: float = T1 + 1.26 * S
-    x1: float = 540.0 - g1 / 2.0
     p: float = 0.30 * S
-    hap_x: float = 540.0 - g2 / 2.0 - p
+    hap_x: float = 510.0 - g2 / 2.0 - p
     hap_w: float = g2 + 2.0 * p
-    hap_y: float = T2 - 0.90 * S
-    hap_h: float = 1.10 * S
-    x2: float = 540.0 - g2 / 2.0
+    hap_y: float = T1 + 0.16 * S
+    hap_h: float = float(S)
+    T2: float = hap_y + 0.85 * S
+    x2: float = 510.0 - g2 / 2.0
 
     return S, g1, g2, T1, T2, x1, x2, hap_x, hap_w, hap_y, hap_h
 
@@ -187,34 +215,6 @@ def saat_svg(SC: tuple[float, float], SR: float) -> str:
     return f'<g id="saat">{kadran}{centik}{yelkovan}{akrep}</g>'
 
 
-def figur_svg(FIG_SOL: float, FIG_UST: float, fs: float, x1: float, y0: float) -> str:
-    """Figür SVG çıktısı (§4.3)."""
-    fig_kalinlik: dict[str, float] = {"govde": 4.4, "sac": 3.6, "yuz": 2.6}
-    fig_paths: str = "".join(
-        f'<path id="f{i}" d="{p["d"]}" stroke-width="{fig_kalinlik.get(p["parca"], 4.4) / fs:.3f}"/>'
-        for i, p in enumerate(FIG["yollar"])
-    )
-    return (
-        f'<g id="fig" transform="translate({FIG_SOL + x1 * fs:.2f} {FIG_UST - y0 * fs:.2f}) '
-        f'scale({-fs:.6f} {fs:.6f})">{fig_paths}</g>'
-    )
-
-
-def ok_svg(
-    S_ok: tuple[float, float],
-    E_ok: tuple[float, float],
-    C_ok: tuple[float, float],
-    uc1: tuple[float, float],
-    uc2: tuple[float, float],
-) -> str:
-    """Kalem oku SVG çıktısı (§4.3)."""
-    ok_g_d: str = f"M{S_ok[0]:.1f} {S_ok[1]:.1f} Q{C_ok[0]:.1f} {C_ok[1]:.1f} {E_ok[0]:.1f} {E_ok[1]:.1f}"
-    ok_b_d: str = f"M{uc1[0]:.1f} {uc1[1]:.1f} L{E_ok[0]:.1f} {E_ok[1]:.1f} L{uc2[0]:.1f} {uc2[1]:.1f}"
-    ok_g: str = f'<path id="ok-g" d="{ok_g_d}" stroke-width="6"/>'
-    ok_b: str = f'<path id="ok-b" d="{ok_b_d}" stroke-width="6"/>'
-    return f'<g id="ok">{ok_g}{ok_b}</g>'
-
-
 def soru_svg(SX0: float, SY0: float, SH: float) -> str:
     """Soru işareti SVG çıktısı (§4.4)."""
     return (
@@ -228,30 +228,35 @@ def soru_svg(SX0: float, SY0: float, SH: float) -> str:
 
 def kart_svg(KW: float, metin: str, LX: float, LW: float) -> str:
     """Kart SVG çıktısı (§4.5)."""
-    kart_rect: str = f'<rect id="kart" x="66" y="1202" width="{KW:.2f}" height="140" rx="28" fill="none" stroke="{R["murekkep"]}" stroke-width="4"/>'
+    kart_rect: str = (
+        f'<rect id="kart" x="62" y="1256" width="{KW:.2f}" height="120" rx="28" '
+        f'fill="none" stroke="{R["murekkep"]}" stroke-width="4"/>'
+    )
     kart_text: str = (
-        f'<text id="kart-yazi" x="106" y="1294" font-family="Fredoka" font-weight="700" '
+        f'<text id="kart-yazi" x="102" y="1341" font-family="Fredoka" font-weight="700" '
         f'font-size="72" fill="{R["murekkep"]}" style="font-kerning:none" xml:space="preserve">{metin}</text>'
     )
-    alti_d: str = f"M{LX - 4.0:.1f} 1314 Q{LX + LW / 2.0:.1f} 1320 {LX + LW + 4.0:.1f} 1311"
+    alti_d: str = f"M{LX - 4.0:.1f} 1358 Q{LX + LW / 2.0:.1f} 1364 {LX + LW + 4.0:.1f} 1355"
     kart_alti: str = f'<path id="alti" d="{alti_d}" fill="none" stroke="{R["vurgu"]}" stroke-width="10" stroke-linecap="round"/>'
     return f"{kart_rect}{kart_text}{kart_alti}"
 
 
-def kunye_svg() -> str:
-    """HUD (<g id="kunye">) SVG çıktısı (§4.1)."""
-    logo_w: float = 96.0 * Y.LOGO_EN_BOY
-    logo: str = f'<g id="ku-logo"><image id="logoimg" href="assets/logo.svg" x="48" y="48" width="{logo_w:.2f}" height="96"/></g>'
-    rz_w: float = Y.genislik("Lexend", 700, "YDT · BASIC", 36.0) + 56.0
-    rz_x: float = 48.0
-    rz_ortax: float = rz_x + rz_w / 2.0
-    rozet: str = (
-        f'<g id="rz0">'
-        f'<rect x="{rz_x:.1f}" y="216" width="{rz_w:.1f}" height="72" rx="36" fill="{R["vurgu"]}"/>'
-        f'<text x="{rz_ortax:.1f}" y="265" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="36" fill="{R["zemin"]}">YDT · BASIC</text>'
+def kunye_svg(LOGO_X: float, LOGO_W: float, ROZET_X: float, ROZET_W: float) -> str:
+    """Kanal katmanı ve rozet (<g id="kunye">) SVG çıktısı (§4.1)."""
+    kanal = (
+        f'<g id="kanal">'
+        f'<image id="logoimg" href="assets/logo.svg" x="{LOGO_X:.2f}" y="291" width="{LOGO_W:.2f}" height="48"/>'
+        f'<text id="kanal-ad" x="263" y="330" font-family="Lexend" font-weight="700" font-size="42" fill="{R["murekkep"]}">@ydspublishing</text>'
         f'</g>'
     )
-    return f'<g id="kunye">{logo}{rozet}</g>'
+    rz0 = (
+        f'<g id="rz0">'
+        f'<rect x="{ROZET_X:.2f}" y="386" width="{ROZET_W:.2f}" height="48" rx="24" fill="{R["vurgu"]}"/>'
+        f'<text x="{ROZET_X + ROZET_W / 2.0:.2f}" y="419.4" text-anchor="middle" '
+        f'font-family="Lexend" font-weight="700" font-size="26" fill="{R["zemin"]}">YDT · BASIC</text>'
+        f'</g>'
+    )
+    return f'<g id="kunye">{kanal}{rz0}</g>'
 
 
 def baslik_svg(
@@ -266,7 +271,7 @@ def baslik_svg(
     hap_h: float,
 ) -> str:
     """Başlık (<g id="baslik">) SVG çıktısı (§4.2)."""
-    rx_hap: float = hap_h / 2.0
+    rx_hap: float = S / 2.0
     bs_1: str = (
         f'<text id="bs-1" x="{x1:.2f}" y="{T1:.2f}" font-family="Fredoka" font-weight="700" '
         f'font-size="{S}" fill="{R["murekkep"]}" stroke="{R["zemin"]}" stroke-width="12" '
@@ -283,29 +288,13 @@ def baslik_svg(
     return f'<g id="baslik">{bs_1}{bk_hap}{bs_2}</g>'
 
 
-def sahne_svg(
-    FIG_SOL: float,
-    FIG_UST: float,
-    fs: float,
-    x1: float,
-    y0: float,
-    SC: tuple[float, float],
-    SR: float,
-    S_ok: tuple[float, float],
-    E_ok: tuple[float, float],
-    C_ok: tuple[float, float],
-    uc1: tuple[float, float],
-    uc2: tuple[float, float],
-) -> str:
-    """Sahne grubu (<g id="eskiz">) SVG çıktısı (§4.3)."""
-    zc: str = f'<path id="zc" d="M{FIG_SOL - 24.0:.1f} 1342 L1016 1342" stroke-width="4"/>'
+def eskiz_svg(TX0: float, TY0: float, K_TREN: float, SC: tuple[float, float], SR: float) -> str:
+    """Sahne eskiz grubu (<g id="eskiz">) SVG çıktısı (§4.3)."""
     tren: str = tren_svg(TX0, TY0, K_TREN)
     saat: str = saat_svg(SC, SR)
-    figur: str = figur_svg(FIG_SOL, FIG_UST, fs, x1, y0)
-    ok: str = ok_svg(S_ok, E_ok, C_ok, uc1, uc2)
     return (
         f'<g id="eskiz" fill="none" stroke="{R["murekkep"]}" stroke-linecap="round" stroke-linejoin="round">'
-        f'{zc}{tren}{saat}{figur}{ok}</g>'
+        f'{tren}{saat}</g>'
     )
 
 
@@ -316,11 +305,27 @@ def kesisim(b1: dict[str, float], b2: dict[str, float]) -> float:
     return dx * dy
 
 
+def karakter_hazirla(hedef: Path) -> tuple[int, int, int, int]:
+    """Karakter görselini kırıntılardan temizleyip kırparak proje/assets'e kaydeder (§4.6)."""
+    kaynak: Path = PAKET / "ortak" / "kapak" / "karakter.png"
+    im: Image.Image = Image.open(kaynak)
+    assert im.size == (896, 1200), f"karakter boyutu {im.size} != (896, 1200)"
+    assert im.mode == "RGBA", f"karakter modu {im.mode} != RGBA"
+    a = im.split()[-1]
+    m = a.point(lambda v: 255 if v > 64 else 0).filter(ImageFilter.MinFilter(3)).filter(ImageFilter.MaxFilter(3))
+    im.putalpha(ImageChops.multiply(a, m))
+    bbox = im.split()[-1].getbbox()
+    assert bbox is not None, "karakter alfasında getbbox None döndü"
+    kirpilan = im.crop(bbox)
+    hedef.parent.mkdir(parents=True, exist_ok=True)
+    kirpilan.save(hedef)
+    return bbox
+
+
 def blok_kutulari(
     S: int,
     g1: float,
     T1: float,
-    T2: float,
     x1: float,
     hap_x: float,
     hap_y: float,
@@ -335,27 +340,35 @@ def blok_kutulari(
     metin_w: float,
     LX: float,
     LW: float,
-    FIG_SOL: float,
-    FIG_UST: float,
-    fs: float,
-    x0: float,
-    x1_fig: float,
-    FIG_H: float,
-    ok_box: dict[str, float],
+    KX: float,
+    KY: float,
+    KW_K: float,
+    KH_K: float,
+    DX: float,
+    DY: float,
+    DR: float,
 ) -> list[dict[str, float]]:
-    """Yerleşim bloklarının kutularını döndürür (§6.1, §6.4)."""
-    hud: dict[str, float] = {"ad": "hud", "x": 48.0, "y": 0.0, "w": 984.0, "h": 288.0}
+    """Yerleşim bloklarının kutularını döndürür (§5.1)."""
+    kanal_w: float = 263.0 + Y.genislik("Lexend", 700, "@ydspublishing", 42) - LOGO_X
+    b_kanal: dict[str, float] = {"ad": "kanal", "x": LOGO_X, "y": 291.0, "w": kanal_w, "h": 48.0}
+    b_rozet: dict[str, float] = {"ad": "rozet", "x": ROZET_X, "y": 386.0, "w": ROZET_W, "h": 48.0}
 
-    bas_x: float = min(x1, hap_x)
-    bas_sag: float = max(x1 + g1, hap_x + hap_w)
-    bas_y: float = T1 - 0.75 * S
-    bas_h: float = (T2 + 0.20 * S) - bas_y
-    baslik: dict[str, float] = {"ad": "baslik", "x": bas_x, "y": bas_y, "w": bas_sag - bas_x, "h": bas_h}
+    bas_x: float = min(x1 - 6.0, hap_x)
+    bas_sag: float = max(x1 + g1 + 6.0, hap_x + hap_w)
+    bas_y: float = T1 - 0.70 * S - 6.0
+    bas_alt: float = hap_y + hap_h
+    b_baslik: dict[str, float] = {
+        "ad": "baslik",
+        "x": bas_x,
+        "y": bas_y,
+        "w": bas_sag - bas_x,
+        "h": bas_alt - bas_y,
+    }
 
-    bk_hap_kutu: dict[str, float] = {"ad": "bk-hap", "x": hap_x, "y": hap_y, "w": hap_w, "h": hap_h}
+    b_bk_hap: dict[str, float] = {"ad": "bk-hap", "x": hap_x, "y": hap_y, "w": hap_w, "h": hap_h}
 
     r_box: float = 1.02 * SR + 2.5
-    saat: dict[str, float] = {
+    b_saat: dict[str, float] = {
         "ad": "saat",
         "x": SC[0] - r_box,
         "y": SC[1] - r_box,
@@ -363,7 +376,7 @@ def blok_kutulari(
         "h": 2.0 * r_box,
     }
 
-    soru: dict[str, float] = {
+    b_soru: dict[str, float] = {
         "ad": "soru",
         "x": SX0 - 6.0,
         "y": SY0 - 6.0,
@@ -371,7 +384,7 @@ def blok_kutulari(
         "h": 0.92 * SH + 14.0,
     }
 
-    duman: dict[str, float] = {
+    b_duman: dict[str, float] = {
         "ad": "duman",
         "x": TX0 + 334.0 * K_TREN - 2.0,
         "y": TY0 - 23.0 * K_TREN - 2.0,
@@ -379,7 +392,7 @@ def blok_kutulari(
         "h": (TY0 + 11.0 * K_TREN + 2.0) - (TY0 - 23.0 * K_TREN - 2.0),
     }
 
-    tren: dict[str, float] = {
+    b_tren: dict[str, float] = {
         "ad": "tren",
         "x": TX0 - 10.0 * K_TREN - 2.0,
         "y": TY0 + 10.0 * K_TREN - 3.0,
@@ -387,95 +400,128 @@ def blok_kutulari(
         "h": (RAY_Y + 2.0) - (TY0 + 10.0 * K_TREN - 3.0),
     }
 
-    kart: dict[str, float] = {"ad": "kart", "x": 64.0, "y": 1200.0, "w": KW + 4.0, "h": 144.0}
-    kart_yazi: dict[str, float] = {
+    b_kart: dict[str, float] = {"ad": "kart", "x": 60.0, "y": 1254.0, "w": KW + 4.0, "h": 124.0}
+    b_kart_yazi: dict[str, float] = {
         "ad": "kart-yazi",
-        "x": 106.0,
-        "y": 1294.0 - 0.75 * 72.0,
+        "x": 102.0,
+        "y": 1341.0 - 0.75 * 72.0,
         "w": metin_w,
         "h": 72.0,
     }
-    alti: dict[str, float] = {"ad": "alti", "x": LX - 9.0, "y": 1306.0, "w": LW + 18.0, "h": 19.0}
-    fig: dict[str, float] = {"ad": "fig", "x": FIG_SOL, "y": FIG_UST, "w": (x1_fig - x0) * fs, "h": FIG_H}
+    b_alti: dict[str, float] = {"ad": "alti", "x": LX - 9.0, "y": 1350.0, "w": LW + 18.0, "h": 19.0}
+    b_karakter: dict[str, float] = {
+        "ad": "karakter",
+        "x": KX - 10.0,
+        "y": KY - 10.0,
+        "w": KW_K + 20.0,
+        "h": KH_K + 20.0,
+    }
+    b_daire: dict[str, float] = {
+        "ad": "daire",
+        "x": DX - DR,
+        "y": DY - DR,
+        "w": 2.0 * DR,
+        "h": 2.0 * DR,
+    }
 
-    return [hud, baslik, bk_hap_kutu, saat, soru, duman, tren, kart, kart_yazi, alti, fig, ok_box]
+    return [
+        b_kanal,
+        b_rozet,
+        b_baslik,
+        b_bk_hap,
+        b_saat,
+        b_soru,
+        b_duman,
+        b_tren,
+        b_kart,
+        b_kart_yazi,
+        b_alti,
+        b_karakter,
+        b_daire,
+    ]
 
 
-def kurallari_dogrula(bloklar: list[dict[str, float]], S: int, KB: int, html: str) -> None:
-    """SPEC.md §6 kurallarını ve kabul ölçütlerini doğrular."""
+def kurallari_dogrula(
+    bloklar: list[dict[str, float]],
+    S: int,
+    KB: int,
+    html: str,
+    x1: float,
+    g1: float,
+    DR: float,
+) -> None:
+    """SPEC.md §5.2 kurallarını ve kabul ölçütlerini doğrular."""
     b_dict: dict[str, dict[str, float]] = {b["ad"]: b for b in bloklar}
 
-    # 1. Bütün bloklar x in [48, 1032], y >= 0, alt <= 1344
+    # 1. Bant: her blok y >= 280, alt <= 1380, sağ <= 960; kanal dışındaki her blok x >= 60
     for b in bloklar:
-        assert b["x"] >= 48.0 - 1e-4, f"{b['ad']} sol kenar {b['x']} < 48"
-        assert b["x"] + b["w"] <= 1032.0 + 1e-4, f"{b['ad']} sağ kenar {b['x'] + b['w']} > 1032"
-        assert b["y"] >= 0.0, f"{b['ad']} üst {b['y']} < 0"
-        assert b["y"] + b["h"] <= 1344.0 + 1e-4, f"{b['ad']} alt {b['y'] + b['h']} > 1344"
+        assert b["y"] >= 280.0 - 1e-4, f"{b['ad']} üst {b['y']} < 280"
+        assert b["y"] + b["h"] <= 1380.0 + 1e-4, f"{b['ad']} alt {b['y'] + b['h']} > 1380"
+        if b["ad"] == "kanal":
+            assert b["x"] >= 53.0 - 1e-4, f"kanal sol {b['x']} < 53"
+            assert b["x"] + b["w"] <= 960.0 + 1e-4, f"kanal sağ {b['x'] + b['w']} > 960"
+        elif b["ad"] == "baslik":
+            assert x1 >= 60.0 - 1e-4, f"baslik sol {x1} < 60"
+            assert x1 + g1 <= 960.0 + 1e-4, f"baslik sağ {x1 + g1} > 960"
+        else:
+            assert b["x"] >= 60.0 - 1e-4, f"{b['ad']} sol {b['x']} < 60"
+            assert b["x"] + b["w"] <= 960.0 + 1e-4, f"{b['ad']} sağ {b['x'] + b['w']} > 960"
 
-    # Başlık ve sahne blokları x in [64, 1016]
-    for name in ["baslik", "saat", "soru", "duman", "tren", "kart", "fig", "ok"]:
-        b = b_dict[name]
-        assert b["x"] >= 64.0 - 1e-4, f"{name} sol {b['x']} < 64"
-        assert b["x"] + b["w"] <= 1016.0 + 1e-4, f"{name} sağ {b['x'] + b['w']} > 1016"
+    # Başlık ve sahne blokları y >= 460
+    for name in ["baslik", "saat", "soru", "duman", "tren", "kart", "karakter", "daire"]:
+        assert b_dict[name]["y"] >= 460.0 - 1e-4, f"{name} üst {b_dict[name]['y']} < 460"
 
-    # Sahne blokları y >= 864
-    for name in ["saat", "soru", "duman", "tren", "kart", "fig", "ok"]:
-        b = b_dict[name]
-        assert b["y"] >= 864.0 - 1e-4, f"{name} üst {b['y']} < 864"
-
-    # Kapsama kontrolleri
-    assert b_dict["bk-hap"]["x"] >= b_dict["baslik"]["x"] - 1e-4, "bk-hap baslik icinde olmali (sol)"
-    assert b_dict["bk-hap"]["x"] + b_dict["bk-hap"]["w"] <= b_dict["baslik"]["x"] + b_dict["baslik"]["w"] + 1e-4, "bk-hap baslik icinde olmali (sag)"
-    assert b_dict["bk-hap"]["y"] >= b_dict["baslik"]["y"] - 1e-4, "bk-hap baslik icinde olmali (ust)"
-    assert b_dict["bk-hap"]["y"] + b_dict["bk-hap"]["h"] <= b_dict["baslik"]["y"] + b_dict["baslik"]["h"] + 1e-4, "bk-hap baslik icinde olmali (alt)"
-
-    assert b_dict["kart-yazi"]["x"] >= b_dict["kart"]["x"] - 1e-4, "kart-yazi kart icinde olmali (sol)"
-    assert b_dict["kart-yazi"]["x"] + b_dict["kart-yazi"]["w"] <= b_dict["kart"]["x"] + b_dict["kart"]["w"] + 1e-4, "kart-yazi kart icinde olmali (sag)"
-    assert b_dict["kart-yazi"]["y"] >= b_dict["kart"]["y"] - 1e-4, "kart-yazi kart icinde olmali (ust)"
-    assert b_dict["kart-yazi"]["y"] + b_dict["kart-yazi"]["h"] <= b_dict["kart"]["y"] + b_dict["kart"]["h"] + 1e-4, "kart-yazi kart icinde olmali (alt)"
-
-    assert b_dict["alti"]["x"] >= b_dict["kart"]["x"] - 1e-4, "alti kart icinde olmali (sol)"
-    assert b_dict["alti"]["x"] + b_dict["alti"]["w"] <= b_dict["kart"]["x"] + b_dict["kart"]["w"] + 1e-4, "alti kart icinde olmali (sag)"
-    assert b_dict["alti"]["y"] >= b_dict["kart"]["y"] - 1e-4, "alti kart icinde olmali (ust)"
-    assert b_dict["alti"]["y"] + b_dict["alti"]["h"] <= b_dict["kart"]["y"] + b_dict["kart"]["h"] + 1e-4, "alti kart icinde olmali (alt)"
-
-    # Kesisim 0: hud, baslik, saat, soru, duman, tren, kart, fig, ok çiftleri (duman-tren hariç)
-    ciftler: list[str] = ["hud", "baslik", "saat", "soru", "duman", "tren", "kart", "fig", "ok"]
+    # 2. Kesişim 0
+    ciftler: list[str] = ["kanal", "rozet", "baslik", "saat", "soru", "duman", "tren", "kart", "karakter"]
     for i in range(len(ciftler)):
         for j in range(i + 1, len(ciftler)):
             n1, n2 = ciftler[i], ciftler[j]
             if {n1, n2} == {"duman", "tren"}:
                 continue
             k: float = kesisim(b_dict[n1], b_dict[n2])
-            assert k == 0.0, f"Kesisim {n1} - {n2}: {k}"
+            assert k == 0.0, f"Kesişim {n1} - {n2}: {k}"
 
-    # Boşluklar
-    bosluk_hud_baslik: float = b_dict["baslik"]["y"] - (b_dict["hud"]["y"] + b_dict["hud"]["h"])
-    assert bosluk_hud_baslik >= 40.0 - 1e-4, f"hud alt -> baslik ust bosluk {bosluk_hud_baslik} < 40"
+    for name in ["kanal", "rozet", "baslik", "saat", "soru", "duman", "tren", "kart"]:
+        k = kesisim(b_dict["daire"], b_dict[name])
+        assert k == 0.0, f"Kesişim daire - {name}: {k}"
 
-    en_ust_sahne: float = min(b_dict[n]["y"] for n in ["saat", "soru", "duman", "tren", "kart", "fig", "ok"])
-    bosluk_baslik_sahne: float = en_ust_sahne - (b_dict["baslik"]["y"] + b_dict["baslik"]["h"])
-    assert bosluk_baslik_sahne >= 48.0 - 1e-4, f"baslik alt -> sahne ust bosluk {bosluk_baslik_sahne} < 48"
+    # Kapsama: bk-hap ⊂ baslik; kart-yazi ⊂ kart; alti ⊂ kart
+    for child, parent in [("bk-hap", "baslik"), ("kart-yazi", "kart"), ("alti", "kart")]:
+        assert b_dict[child]["x"] >= b_dict[parent]["x"] - 1e-4, f"{child} sol kenar {parent} dışında"
+        assert (
+            b_dict[child]["x"] + b_dict[child]["w"] <= b_dict[parent]["x"] + b_dict[parent]["w"] + 1e-4
+        ), f"{child} sağ kenar {parent} dışında"
+        assert b_dict[child]["y"] >= b_dict[parent]["y"] - 1e-4, f"{child} üst kenar {parent} dışında"
+        assert (
+            b_dict[child]["y"] + b_dict[child]["h"] <= b_dict[parent]["y"] + b_dict[parent]["h"] + 1e-4
+        ), f"{child} alt kenar {parent} dışında"
 
-    assert b_dict["tren"]["y"] - (b_dict["saat"]["y"] + b_dict["saat"]["h"]) >= 16.0 - 1e-4, "saat alt -> tren ust < 16"
-    assert b_dict["tren"]["y"] - (b_dict["soru"]["y"] + b_dict["soru"]["h"]) >= 16.0 - 1e-4, "soru alt -> tren ust < 16"
-    assert b_dict["kart"]["y"] - (b_dict["tren"]["y"] + b_dict["tren"]["h"]) >= 20.0 - 1e-4, "tren alt -> kart ust < 20"
-    assert b_dict["fig"]["x"] - (b_dict["kart"]["x"] + b_dict["kart"]["w"]) >= 60.0 - 1e-4, "kart sag -> fig sol < 60"
-    assert b_dict["ok"]["x"] - (b_dict["tren"]["x"] + b_dict["tren"]["w"]) >= 8.0 - 1e-4, "ok sol - tren sag < 8"
-    assert b_dict["fig"]["x"] - (b_dict["ok"]["x"] + b_dict["ok"]["w"]) >= 4.0 - 1e-4, "fig sol - ok sag < 4"
-    assert b_dict["duman"]["x"] - (b_dict["soru"]["x"] + b_dict["soru"]["w"]) >= 24.0 - 1e-4, "soru sag -> duman sol < 24"
-    assert b_dict["soru"]["x"] - (b_dict["saat"]["x"] + b_dict["saat"]["w"]) >= 24.0 - 1e-4, "saat sag -> soru sol < 24"
+    # 3. Boşluk
+    assert b_dict["rozet"]["y"] - (b_dict["kanal"]["y"] + b_dict["kanal"]["h"]) >= 40.0 - 1e-4
+    assert b_dict["baslik"]["y"] - (b_dict["rozet"]["y"] + b_dict["rozet"]["h"]) >= 24.0 - 1e-4
+    assert b_dict["karakter"]["y"] - (b_dict["baslik"]["y"] + b_dict["baslik"]["h"]) >= 24.0 - 1e-4
+    for n in ["saat", "soru", "duman"]:
+        assert b_dict[n]["y"] - (b_dict["baslik"]["y"] + b_dict["baslik"]["h"]) >= 48.0 - 1e-4
+    assert b_dict["tren"]["y"] - (b_dict["saat"]["y"] + b_dict["saat"]["h"]) >= 16.0 - 1e-4
+    assert b_dict["tren"]["y"] - (b_dict["soru"]["y"] + b_dict["soru"]["h"]) >= 16.0 - 1e-4
+    assert b_dict["kart"]["y"] - (b_dict["tren"]["y"] + b_dict["tren"]["h"]) >= 20.0 - 1e-4
+    assert b_dict["kart"]["y"] - (b_dict["karakter"]["y"] + b_dict["karakter"]["h"]) >= 16.0 - 1e-4
+    max_tren_duman_sag: float = max(
+        b_dict["tren"]["x"] + b_dict["tren"]["w"], b_dict["duman"]["x"] + b_dict["duman"]["w"]
+    )
+    assert b_dict["karakter"]["x"] - max_tren_duman_sag >= 24.0 - 1e-4
+    assert b_dict["duman"]["x"] - (b_dict["soru"]["x"] + b_dict["soru"]["w"]) >= 24.0 - 1e-4
+    assert b_dict["soru"]["x"] - (b_dict["saat"]["x"] + b_dict["saat"]["w"]) >= 24.0 - 1e-4
+    assert DR >= 100.0 - 1e-4
 
-    # 2. Yazı boyu >= 64 (rozet 36 hariç)
-    assert S >= 64, f"Baslik boyutu {S} < 64"
-    assert KB >= 64, f"Kart metin boyutu {KB} < 64"
+    # 4. Yazı boyu
+    assert S >= 64, f"Başlık boyutu {S} < 64"
+    assert KB == 72, f"Kart yazı boyutu {KB} != 72"
 
-    # Satır uzunlukları <= 24 karakter
-    satirlar: list[str] = ["YDT · BASIC", "NEDEN -ING", "YOK?", "The train leaves \u2026"]
+    satirlar: list[str] = ["@ydspublishing", "YDT · BASIC", "NEDEN -ING", "YOK?", "The train leaves \u2026"]
     for s in satirlar:
         assert len(s) <= 24, f"Satır uzunluğu {len(s)} > 24: {s}"
 
-    # Başlık 2 satır, 3 sözcük
     baslik_satirlari: list[str] = ["NEDEN -ING", "YOK?"]
     assert len(baslik_satirlari) == 2, f"Başlık satır sayısı {len(baslik_satirlari)} != 2"
     baslik_sozcukleri: list[str] = " ".join(baslik_satirlari).split()
@@ -483,20 +529,42 @@ def kurallari_dogrula(bloklar: list[dict[str, float]], S: int, KB: int, html: st
     assert "İ" not in " ".join(baslik_satirlari), "Başlıkta Türkçe İ harfi yasak"
     assert "\u0049" in "NEDEN -ING", "-ING içinde U+0049 I harfi olmalı"
 
-    # 5. Yasaklar ve ek kontroller
+    # 5. Zorunlu
+    zorunlu_ifadeler: list[str] = [
+        'id="kunye"',
+        'id="kanal"',
+        "@ydspublishing",
+        "assets/logo.svg",
+        'id="karakter"',
+        "assets/karakter.png",
+        'id="daire"',
+        "drop-shadow",
+    ]
+    for z in zorunlu_ifadeler:
+        assert z in html, f"Zorunlu ifade eksik: {z}"
+
+    kunye_m = re.search(r'<g id="kunye">(.*?)</g>', html, re.DOTALL)
+    assert kunye_m is not None, "id kunye grubu bulunamadi"
+    assert 'id="kanal"' in kunye_m.group(1), 'id="kanal" ogesi id="kunye" grubunun icinde olmali'
+
+    # 6. Yasak
     html_lower: str = html.lower()
     yasak_kelimeler: list[str] = [
-        "kanal",
+        "tam ders",
+        "dakika",
         "qr",
+        "izle",
         "tarife",
         "timetable",
         "6 dk",
+        "simple present",
         "text-transform",
         "math.random",
         "date.now",
         "new date",
         "opacity:0",
         "<circle",
+        "altyazi",
     ]
     for yk in yasak_kelimeler:
         assert yk not in html_lower, f"Yasak ifade bulundu: {yk}"
@@ -504,124 +572,46 @@ def kurallari_dogrula(bloklar: list[dict[str, float]], S: int, KB: int, html: st
     assert 'id="t2"' not in html, "id t2 yasak"
     assert 'id="ku-nokta"' not in html, "id ku-nokta yasak"
     assert 'id="rz1"' not in html, "id rz1 yasak"
+    # hf_tema bu dizgeyi "tema CSS'i var" sayar, açık tema koyu çıkar (sözleşme satır 75, 79)
+    assert "#root.tema-acik" not in html, "#root.tema-acik dizgesi yasak"
 
-    # 6 haneli hex renk kontrolü
     hex_kumesi: set[str] = set(re.findall(r"#[0-9a-f]{6}\b", html_lower))
     izin_verilen_hex: set[str] = {"#1b1a17", "#f3efe6", "#c9c2b3", "#f2a93b"}
     assert hex_kumesi.issubset(izin_verilen_hex), f"İzinsiz hex renk(ler): {hex_kumesi - izin_verilen_hex}"
 
-    # Emoji kontrolü
     for ch in html:
         assert ord(ch) < 0x1F000, f"Emoji karakteri yasak: {ch}"
 
 
-def uret() -> tuple[str, int, float, list[dict[str, float]]]:
+def uret() -> tuple[str, int, float, int, float, float, float, float, float, list[dict[str, float]]]:
     """Sahne HTML'i, font boyutları ve nesnelerini üretir."""
     S, g1, g2, T1, T2, x1, x2, hap_x, hap_w, hap_y, hap_h = hesapla_s()
+    baslik_alt: float = hap_y + hap_h
 
-    # Saat sabitleri
-    SC: tuple[float, float] = (TX0 + 87.5 * K_TREN, 924.0)
-    SR: float = 56.0
+    hedef_karakter: Path = AD / "proje" / "assets" / "karakter.png"
+    bx0, by0, bx1, by1 = karakter_hazirla(hedef_karakter)
 
-    # Soru sabitleri
-    SH: float = 112.0
-    SY0: float = 872.0
-    SCX: float = TX0 + 237.5 * K_TREN
-    SX0: float = SCX - 0.31 * SH
+    SK: float = 520.0 / 1200.0
+    KW_K: float = (bx1 - bx0) * SK
+    KH_K: float = (by1 - by0) * SK
+    KX: float = 948.0 - KW_K
+    KY: float = 820.0
 
-    # Figür koordinatları
-    x0, y0, x1_fig, y1_fig = FIG["kutu"]
-    FIG_H: float = 476.0
-    FIG_ALT: float = 1341.0
-    FIG_SAG: float = 1016.0
-    fs: float = FIG_H / (y1_fig - y0)
-    FIG_SOL: float = FIG_SAG - (x1_fig - x0) * fs
-    FIG_UST: float = FIG_ALT - FIG_H
+    DX: float = KX + (461.0 - bx0) * SK
+    DY: float = KY + (470.0 - by0) * SK
+    DR: float = min(0.36 * KH_K, DY - (baslik_alt + 16.0), 960.0 - DX)
 
-    el: list[float] = FIG["el"]
-    EL: tuple[float, float] = (FIG_SOL + (x1_fig - el[0]) * fs, FIG_UST + (el[1] - y0) * fs)
-
-    # Kalem oku koordinatları
-    TREN_SAG: float = TX0 + 420.0 * K_TREN
-    S_ok: tuple[float, float] = (FIG_SOL - 12.0, EL[1] - 10.0)
-    E_ok: tuple[float, float] = (TREN_SAG + 16.0, 1086.0)
-    C_ok: tuple[float, float] = ((S_ok[0] + E_ok[0]) / 2.0, min(S_ok[1], E_ok[1]) - 50.0)
-
-    vx: float = E_ok[0] - C_ok[0]
-    vy: float = E_ok[1] - C_ok[1]
-    v_len: float = math.hypot(vx, vy)
-    ux: float = -vx / v_len
-    uy: float = -vy / v_len
-    rx1: float = ux * math.cos(0.5) - uy * math.sin(0.5)
-    ry1: float = ux * math.sin(0.5) + uy * math.cos(0.5)
-    rx2: float = ux * math.cos(-0.5) - uy * math.sin(-0.5)
-    ry2: float = ux * math.sin(-0.5) + uy * math.cos(-0.5)
-    uc1: tuple[float, float] = (E_ok[0] + 26.0 * rx1, E_ok[1] + 26.0 * ry1)
-    uc2: tuple[float, float] = (E_ok[0] + 26.0 * rx2, E_ok[1] + 26.0 * ry2)
-
-    ok_noktalar: list[tuple[float, float]] = []
-    for i in range(40):
-        t: float = i / 39.0
-        bx: float = (1.0 - t) ** 2 * S_ok[0] + 2.0 * (1.0 - t) * t * C_ok[0] + t**2 * E_ok[0]
-        by: float = (1.0 - t) ** 2 * S_ok[1] + 2.0 * (1.0 - t) * t * C_ok[1] + t**2 * E_ok[1]
-        ok_noktalar.append((bx, by))
-    ok_noktalar.extend([uc1, E_ok, uc2])
-    min_x: float = min(pt[0] for pt in ok_noktalar)
-    max_x: float = max(pt[0] for pt in ok_noktalar)
-    min_y: float = min(pt[1] for pt in ok_noktalar)
-    max_y: float = max(pt[1] for pt in ok_noktalar)
-
-    ok_box: dict[str, float] = {
-        "ad": "ok",
-        "x": min_x - 3.0,
-        "y": min_y - 3.0,
-        "w": (max_x + 3.0) - (min_x - 3.0),
-        "h": (max_y + 3.0) - (min_y - 3.0),
-    }
-
-    # Kart metin ve altçizgi
-    KB: int = 72
-    kart_metin: str = "The train leaves \u2026"
-    metin_w: float = Y.genislik("Fredoka", 700, kart_metin, KB)
-    KW: float = metin_w + 80.0
-    LX: float = 106.0 + Y.genislik("Fredoka", 700, "The train ", KB)
-    LW: float = Y.genislik("Fredoka", 700, "leaves", KB)
-
-    # SVG elemanları
-    kunye: str = kunye_svg()
+    kunye: str = kunye_svg(LOGO_X, LOGO_W, ROZET_X, ROZET_W)
     baslik: str = baslik_svg(S, T1, T2, x1, x2, hap_x, hap_y, hap_w, hap_h)
-    eskiz: str = sahne_svg(
-        FIG_SOL, FIG_UST, fs, x1_fig, y0, SC, SR, S_ok, E_ok, C_ok, uc1, uc2
-    )
+    eskiz: str = eskiz_svg(TX0, TY0, K_TREN, SC, SR)
     soru: str = soru_svg(SX0, SY0, SH)
     kart: str = kart_svg(KW, kart_metin, LX, LW)
 
-    bloklar: list[dict[str, float]] = blok_kutulari(
-        S,
-        g1,
-        T1,
-        T2,
-        x1,
-        hap_x,
-        hap_y,
-        hap_w,
-        hap_h,
-        SC,
-        SR,
-        SX0,
-        SY0,
-        SH,
-        KW,
-        metin_w,
-        LX,
-        LW,
-        FIG_SOL,
-        FIG_UST,
-        fs,
-        x0,
-        x1_fig,
-        FIG_H,
-        ok_box,
+    adim: float = 10.0 / 3.0
+    kenar_filter: str = " ".join(
+        f"drop-shadow({dx:.2f}px {dy:.2f}px 0 {R['murekkep']})"
+        for _ in range(3)
+        for dx, dy in ((adim, 0), (-adim, 0), (0, adim), (0, -adim))
     )
 
     html: str = f"""<!doctype html>
@@ -630,9 +620,14 @@ def uret() -> tuple[str, int, float, list[dict[str, float]]]:
 {Y.font_css()}
 {Y.ZEMIN_CSS}
 #sahne{{position:absolute;left:0;top:0;}}
+.kenar{{filter:{kenar_filter};}}
+#daire{{display:none;border-radius:50%;background:#f3efe6;}}
+.tema-acik #daire{{display:block;}}
 </style></head><body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="{Z['sure']}" data-fps="30" data-width="1080" data-height="1920">
 {Y.zemin_html()}
+<div id="daire" class="abs" style="left:{DX - DR:.1f}px;top:{DY - DR:.1f}px;width:{2.0 * DR:.1f}px;height:{2.0 * DR:.1f}px"></div>
+<img id="karakter" class="abs kenar" src="assets/karakter.png" alt="" style="left:{KX:.1f}px;top:{KY:.1f}px;width:{KW_K:.1f}px;height:{KH_K:.1f}px">
 <svg id="sahne" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
 {kunye}
 {baslik}
@@ -652,15 +647,42 @@ def uret() -> tuple[str, int, float, list[dict[str, float]]]:
 }})();
 </script></body></html>"""
 
-    kurallari_dogrula(bloklar, S, KB, html)
-    return html, S, KW, bloklar
+    bloklar: list[dict[str, float]] = blok_kutulari(
+        S,
+        g1,
+        T1,
+        x1,
+        hap_x,
+        hap_y,
+        hap_w,
+        hap_h,
+        SC,
+        SR,
+        SX0,
+        SY0,
+        SH,
+        KW,
+        metin_w,
+        LX,
+        LW,
+        KX,
+        KY,
+        KW_K,
+        KH_K,
+        DX,
+        DY,
+        DR,
+    )
+
+    kurallari_dogrula(bloklar, S, KB, html, x1, g1, DR)
+    return html, S, KW, KB_K, KX, KY, KW_K, KH_K, DR, bloklar
 
 
 if __name__ == "__main__":
     proje_dizini: Path = AD / "proje"
     proje_dizini.mkdir(exist_ok=True)
     Y.font_kopyala(proje_dizini / "assets" / "fonts")
-    html, S, KW, bloklar = uret()
+    html, S, KW, KB_K, KX, KY, KW_K, KH_K, DR, bloklar = uret()
     (proje_dizini / "index.html").write_text(html, encoding="utf-8")
 
     nesneler: list[dict[str, str | int]] = [
@@ -676,4 +698,4 @@ if __name__ == "__main__":
     (AD / "nesneler.json").write_text(json.dumps(nesneler, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(f"index.html yazıldı {len(html)}")
-    print(f"S={S} KW={KW:.1f}")
+    print(f"S={S} KW={KW:.1f} KB_K={KB_K} karakter={KX:.1f},{KY:.1f},{KW_K:.1f},{KH_K:.1f} daire r={DR:.1f}")

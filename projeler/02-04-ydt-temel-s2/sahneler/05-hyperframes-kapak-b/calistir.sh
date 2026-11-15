@@ -1,5 +1,6 @@
 #!/bin/bash
 # Sahne 05 kapak B (soru) (HyperFrames DİKEY 1080x1920, tek kare, ses yok, zaman çizelgesi dışı): üret -> [önizleme burada biter] -> tek kare PNG.
+# Huni v2 (15.11, D-S2-V2): kanal katmanı + künye (yardim.py), kapak görseli assets/karakter.png.
 # Tema: --tema acik|koyu (varsayılan acik, K19). acik -> paket kökü kapak-b.png · koyu -> k/koyu/kapak-b-koyu.png. mp4 yok. Kalıp: S1 05-hyperframes-kapak-b/calistir.sh (02-04-ydt-temel-s2, 15.11).
 # Önizleme hazırlığı: ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu]
 set -e
@@ -14,7 +15,9 @@ SN=0.5                                      # yakalama anı: zamanlar.json yakal
 mkdir -p "$AD/proje/lib" "$AD/proje/assets/fonts" "$AD/k/koyu"
 cp "$M/node_modules/gsap/dist/gsap.min.js" "$AD/proje/lib/" 2>/dev/null || cp "$M/lib/gsap.min.js" "$AD/proje/lib/"
 cp "$ORTAK/logo/$LOGO_DOSYA" "$AD/proje/assets/logo.svg"
-/usr/bin/python3 "$AD/uret.py" >&2 && /usr/bin/python3 "$AD/olay.py" >&2
+cp "$ORTAK/kapak/karakter.png" "$AD/proje/assets/karakter.png"   # kapak görseli (huni v2; ana ders kopyası, md5 3d846e4b…)
+/usr/bin/python3 "$AD/uret.py" >&2       # ayrı satır: "a && b" zincirinde set -e uret.py hatasını yutar (sözleşme 15.11)
+/usr/bin/python3 "$AD/olay.py" >&2
 tema_hf "$AD/proje/index.html"
 [ -n "$ONIZLE_YALNIZ" ] && { echo "önizleme hazır"; exit 0; }
 # yük bekçisi: 1 dk yük > 24 ise 60 sn bekle (en çok 5 dk)

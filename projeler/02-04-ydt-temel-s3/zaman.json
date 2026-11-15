@@ -30,12 +30,23 @@
     },
     {
       "no": 3,
+      "klasor": "08-hyperframes-kaydet",
+      "motor": "HyperFrames",
+      "kare": 172,
+      "t_bas": 15.99,
+      "t_son": 21.33,
+      "icerik_kare": 160,
+      "ad": "Kaydet",
+      "bolum": "Kaydet"
+    },
+    {
+      "no": 4,
       "klasor": "03-hyperframes-cta",
       "motor": "HyperFrames",
-      "kare": 347,
-      "t_bas": 15.99,
-      "t_son": 26.56,
-      "icerik_kare": 317,
+      "kare": 239,
+      "t_bas": 21.33,
+      "t_son": 28.31,
+      "icerik_kare": 209,
       "ad": "Çağrı",
       "bolum": "Çağrı"
     }
@@ -45,7 +56,7 @@
     "motor": "HyperFrames",
     "kare": 1,
     "cikti": "hikaye-a.png",
-    "ad": "Hikâye karesi A (bilgi kartı)",
+    "ad": "Hikâye karesi A (kural kartı + Kaydet)",
     "not": "anlatımdan bağımsız durağan kare; zaman çizelgesine girmez; hikaye.png = aynı dosyanın kopyası"
   },
   "duragan": [
@@ -70,7 +81,7 @@
       "motor": "HyperFrames",
       "kare": 1,
       "cikti": "hikaye-b.png",
-      "ad": "Hikâye karesi B (soru kartı)",
+      "ad": "Hikâye karesi B (soru + cevap + Kaydet)",
       "not": "durağan kare; zaman çizelgesine girmez"
     }
   ]

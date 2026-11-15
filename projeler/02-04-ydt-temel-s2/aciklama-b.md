@@ -2,14 +2,14 @@
 
 Kaynak: `uretim-tutanagi/aciklama-taslak.md` §4 (S2-B jürisi + S2-C düzeltmeleri, `uretim-tutanagi/S2-duzeltme.md`).
 Sürüm: B (`s2-aciklama-b`), soruyla açılır: "Cümlede today var: hangi zaman?". A seti: `aciklama-a.md`.
-Ana ders: Simple Present ve Present Continuous (`ING-YDT-GR-02-04-T`), tam ders süresi 4 dakika 26 saniye (`cikti.mp4` 265,676 sn).
-Shorts: `ING-YDT-GR-02-04-T-S2`, 27,98 sn. Kimlik `@ydspublishing`. "kanal" sözü yok, QR yok.
+Ana ders: Simple Present ve Present Continuous (`ING-YDT-GR-02-04-T`).
+Shorts: `ING-YDT-GR-02-04-T-S2`, 29,41 sn (huni v2). Kimlik `@ydspublishing`. "kanal" sözü yalnız ilk satırda (huni v2 §4), QR yok.
 Eşleşen kapak: `kapak-b.png` (`TODAY VARSA` / `HANGİ ZAMAN?`, aynı soru).
 
 **UYARI:** `https://ydspublishing.com/grammar/02-04-ydt-temel` belgeden türedi; canlılığı ölçülmedi (grammar-kapi Worker 11.11'de
 yayında değil). Paylaşımdan önce adresi aç. Açılmazsa adresi `{PLATFORM_URL}` ile değiştir ya da satırı çıkar.
 
-**UYARI:** Yayın anında ana ders `cikti.mp4` süresini ffprobe ile yeniden ölç. Süre değişirse "4 dakika 26 saniye" satırlarını düzelt.
+**UYARI:** Süre sözü yazılmaz; dersin bütünü için kalıp "Dersin tamamı" (huni v2 §1 kural 4–5, V2-S2-C 15.11).
 
 ## 1. YouTube Shorts
 
@@ -22,10 +22,11 @@ Today varsa hangi zaman? | YDT İngilizce #Shorts
 Açıklama:
 
 ```
+Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Cümlede today var: hangi zaman? Cevap sözcükte değil, anlamda: genel mi, şu an mı?
 She wears her coat in the winter. → genel durum, geniş zaman
 She is wearing her pink T-shirt today. → konuşma anı, şimdiki zaman
-Simple Present ve Present Continuous (ING-YDT-GR-02-04-T): bu, iki zaman arasındaki üç farktan biri. Tam ders süresi: 4 dakika 26 saniye.
+Simple Present ve Present Continuous (ING-YDT-GR-02-04-T): bu, iki zaman arasındaki üç farktan biri.
 Dersin tamamını izle: {UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s2-b
 Sıradaki ders: Stative Verbs
 Ders sayfası: https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s2-b
@@ -40,12 +41,13 @@ Elle adım: Studio'da "İlgili video" = uzun ders (API alanı yok). Kapak: `kapa
 Reels açıklaması (öğretmen + YDT öğrencisi; gerekçe `uretim-tutanagi/hikaye-taslak.md` §2):
 
 ```
+Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Cümlede today var: hangi zaman?
 Today iki zamanda da geçebilir. Karar anlamda: genel mi, şu an mı?
 She wears her coat in the winter. → genel durum, Simple Present
 She is wearing her pink T-shirt today. → konuşma anı, Present Continuous
-Bu, üç farktan biri. Üç farkın hepsi tam derste: 4 dakika 26 saniye.
-Tam ders: profildeki bağlantı.
+Bu, üç farktan biri. Üç farkın hepsi dersin tamamında.
+Bağlantı profilde.
 Öğretmenseniz sınıfınızla paylaşın.
 Sıradaki ders: Stative Verbs
 
@@ -66,9 +68,10 @@ Açıklamaya adres yazılmaz (Instagram açıklamada bağlantı tıklanmaz).
 ## 3. TikTok
 
 ```
+Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Today varsa hangi zaman?
 Today iki zamanda da geçebilir; farkı anlam yapar. Genel durum: wears. Konuşma anı: is wearing.
-Bu, üç farktan biri. Üç farkın hepsi tam derste (4 dakika 26 saniye). Tam ders: profildeki bağlantı.
+Bu, üç farktan biri. Üç farkın hepsi dersin tamamında; bağlantı profilde.
 Sıradaki ders: Stative Verbs
 #YDT #İngilizce #gramer #SimplePresent #PresentContinuous
 ```
@@ -98,4 +101,3 @@ Profil bağlantısı:
 |---|---|---|
 | `{UZUN_VIDEO_URL}` | §1 açıklama, "Dersin tamamını izle" satırı | ana ders YouTube'a yüklenince |
 | `{PLATFORM_URL}` (koşullu) | §1 "Ders sayfası", §2 profil + hikâye, §3 profil | grammar-kapi yayında değilse `https://ydspublishing.com/grammar/02-04-ydt-temel` yerine |
-| süre `4 dakika 26 saniye` (koşullu) | §1, §2, §3 | ana ders yeniden render olursa ffprobe değeriyle (huni-plan §4: elle süre yasak) |

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Sahne 01 kapak (02-04 YDT temel S1 Shorts, HyperFrames DİKEY 1080x1920, 102 kare): üret -> olaylar -> tema
-# -> [önizleme burada biter] -> render -> video.mp4 + kontrol.png + k/*.png (+ tema acik ise paket kökü kapak.png).
+# -> [önizleme burada biter] -> render -> video.mp4 + kontrol.png + k/*.png (kapak.png ayrı: snapshot, RAPOR.md "Kapak A").
 # Tema: --tema acik|koyu (varsayılan acik, K19). Önizleme hazırlığı: ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu]
 set -e
 [ -d /opt/homebrew/bin ] && export PATH="/opt/homebrew/bin:$PATH"   # arm64 node >= 22 (hyperframes şartı)
@@ -33,9 +33,7 @@ for sn in 0.2 1.97 2.45 2.95; do
   n=$(awk "BEGIN{printf \"%d\", $sn*30+0.5}")
   ffmpeg -loglevel error -y -i "$AD/video.mp4" -vf "select=eq(n\,$n)" -frames:v 1 "$AD/k/$n.png"
 done
-# kapak karesi (t = 1,97 sn; uçuş öncesi, çip yok): tam boy PNG paket köküne (yalnız tema acik)
-if [ "$TEMA" = acik ]; then
-  ffmpeg -loglevel error -y -i "$AD/video.mp4" -vf "select=eq(n\,59)" -frames:v 1 "$AD/../../kapak.png"
-fi
+# huni v2 (15.11): kapak.png = kapak-a.png render dalında YAZILMAZ (kare 59 altyazılı; standart §6 kapakta altyazı yok).
+# Kapak A yöntemi: proje-ka kopyası + CSS #altyazi{display:none} + hyperframes snapshot --at 1.97 (RAPOR.md "Kapak A").
 ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=codec_name,pix_fmt,width,height,nb_read_frames,r_frame_rate -of csv=p=0 "$AD/video.mp4"
 tema_bitir "$AD"

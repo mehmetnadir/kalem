@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""Sahne 04 hikâye karesi index.html üretici (HyperFrames DİKEY 1080x1920; tek kare, ses yok).
+"""Sahne 04 hikâye karesi index.html üretici (02-04-ydt-temel-s2 huni v2; DİKEY 1080×1920, tek kare, ses yok).
 Durağan PNG üretimi için tek kare zaman çizelgesi (1,0 sn).
-Bantlar: HUD (0-288) -> içerik (352-1392) -> çağrı (1344-1536) -> platform (1536-1920 boş)."""
+Yerleşim: kanal katmanı + künye (280–450) -> soru (530) -> kural kartı (570–862) -> eşleşme (926, 1000) -> Kaydet (1116); 1150–1920 boş."""
 from __future__ import annotations
 
 import json
@@ -12,6 +12,9 @@ from pathlib import Path
 
 AD = Path(__file__).resolve().parent
 sys.path.insert(0, str(AD))
+for _p in ("/usr/local/lib/python3.10/dist-packages", str(Path.home() / ".local/lib/python3.10/site-packages")):
+    if _p not in sys.path:
+        sys.path.append(_p)
 import yardim as Y  # noqa: E402
 
 PAKET = AD.parent.parent
@@ -29,44 +32,28 @@ assert Z["sure"] == 1.0, f"sure {Z['sure']} != 1.0"
 assert Z["kare"] == 1, f"kare {Z['kare']} != 1"
 assert Z["fps"] == 30, f"fps {Z['fps']} != 30"
 
-# Künye metinleri kunye.js dosyasından okunur
-kunye_metni = (PAKET / "ortak" / "kunye.js").read_text(encoding="utf-8")
-m_ders = re.search(r'ders:\s*\[\s*"([^"]+)"\s*,\s*"([^"]+)"\s*\]', kunye_metni)
-assert m_ders, "kunye.js içinde ders bulunamadı"
-DERS: list[str] = [m_ders.group(1), m_ders.group(2)]
-assert DERS == ["SIMPLE PRESENT vs", "PRESENT CONTINUOUS"], f"ders {DERS} beklenen değil"
-
-m_rozet = re.search(r'rozet:\s*"([^"]+)"', kunye_metni)
-assert m_rozet, "kunye.js içinde rozet bulunamadı"
-ROZET: str = m_rozet.group(1)
-assert ROZET == "YDT · BASIC", f"rozet {ROZET} beklenen değil"
-
-m_cip = re.search(r'"04-hyperframes-hikaye":\s*"([^"]+)"', kunye_metni)
-assert m_cip, "kunye.js içinde çip bulunamadı"
-CIP: str = m_cip.group(1)
-assert CIP == "Full lesson", f"çip {CIP} beklenen değil"
+assert Y.KONU == "Simple Present vs Present Continuous"
+assert Y.ROZETLER == ("YDT · BASIC",)
 
 R = Y.RENK
 assert set(R.keys()) >= {"zemin", "murekkep", "ikincil", "vurgu"}
 
-W, H = Y.W, Y.H
-KENAR = 48
-SAG = 1032
-GEN = 984
-ICERIK = (352, 1392)
-CAGRI = (1344, 1536)
-PLATFORM = 1536
+X0, X1 = 60, 960
+SORU_TABAN = 530
+KART_X, KART_Y, KART_W, KART_H, KART_RX = 62, 570, 896, 292, 32
+TX = 124
+# şef QA tur 1: `y` kuyruğu hap alt kenarına değiyordu -> hap üstü taban − 64, yükseklik 88; satır 2–3 +4 px
+TABAN = (658, 744, 826)
+HAP_PAD, HAP_H, HAP_RX, HAP_UST = 22, 88, 44, 64
+ESLESME_TABAN = (926, 1000)
+IKON_X, IKON_W, IKON_H = 60, 64, 56
+FIIL_X, OK_SON, ETIKET_X = 140, 460, 484
+KAYDET_BOY, KAYDET_TABAN = 88, 1116
+YERIMI_S, YERIMI_UST = 5.5, 1036
+BOS_UST = 1150
 
-KART_H = 272
-KART1_Y = 468
-KART2_Y = 760
-CUMLE_X = 240
-CUMLE_BOY = 64
-ETIKET_BOY = 64
-
-AX0 = round(80 + Y.genislik("Caveat", 700, "RIGHT NOW", 64) + 36)
-AX1 = 988
-NOW_X = round((AX0 + AX1) / 2)
+# Tabler Icons `bookmark` (MIT License) - 24x24 viewBox, bounding box x: 6-18, y: 3-21
+YERIMI_D = "M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4z"
 
 MONT: list[dict] = [
     {"n": [[40, 4], [20, 10], [6, 70], [17, 74], [26, 34], [23, 116], [50, 117]]},
@@ -105,40 +92,128 @@ TISORT: list[dict] = [
 ]
 
 
-def kunye_svg(ders: list[str], rozet: str, cip: str) -> str:
-    """Künye (HUD) grubu SVG çıktısı."""
-    logo_w = 96.0 * Y.LOGO_EN_BOY
-    logo = f'<g id="ku-logo"><image id="logoimg" href="assets/logo.svg" x="48" y="48" width="{logo_w:.2f}" height="96"/></g>'
-    ders1 = f'<text id="ku-ders1" x="48" y="212" font-family="Fredoka" font-weight="700" font-size="56" fill="{R["murekkep"]}" xml:space="preserve">{ders[0]}</text>'
-    ders2 = f'<text id="ku-ders2" x="48" y="276" font-family="Fredoka" font-weight="700" font-size="56" fill="{R["murekkep"]}" xml:space="preserve">{ders[1]}</text>'
+def kesisim(b1: dict[str, float], b2: dict[str, float]) -> float:
+    """İki kutu arasındaki kesişim alanını döndürür."""
+    dx = max(0.0, min(b1["x"] + b1["w"], b2["x"] + b2["w"]) - max(b1["x"], b2["x"]))
+    dy = max(0.0, min(b1["y"] + b1["h"], b2["y"] + b2["h"]) - max(b1["y"], b2["y"]))
+    return dx * dy
 
-    ders2_w = Y.genislik("Fredoka", 700, ders[1], 56)
-    rz_w = Y.genislik("Lexend", 700, rozet, 36) + 56.0
-    rz_x = 48.0 + ders2_w + 24.0
-    rozet_svg = (
-        f'<g id="rz0">'
-        f'<rect x="{rz_x:.1f}" y="216" width="{rz_w:.1f}" height="72" rx="36" fill="{R["vurgu"]}"/>'
-        f'<text x="{rz_x + rz_w / 2.0:.1f}" y="265" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="36" fill="{R["zemin"]}">{rozet}</text>'
-        f'</g>'
+
+def blok_kutulari() -> list[dict[str, float]]:
+    """Yerleşim bloklarının kutularını hesaplar (SPEC §6 sırası)."""
+    # 1. kanal (53.15, 291, 263 + genislik - 53.15, 341 - 291)
+    w_ad = Y.genislik("Lexend", 700, "@ydspublishing", 42)
+    kanal = {
+        "ad": "kanal",
+        "x": 53.15,
+        "y": 291.0,
+        "w": 263.0 + w_ad - 53.15,
+        "h": 341.0 - 291.0,
+    }
+
+    # 2. kunye (60, 386, rozet_sag - 60, 48)
+    rozet_konum = Y.rozet_konumlari()[0]
+    rozet_sag = rozet_konum[0] + rozet_konum[1]
+    kunye = {
+        "ad": "kunye",
+        "x": 60.0,
+        "y": 386.0,
+        "w": rozet_sag - 60.0,
+        "h": 48.0,
+    }
+
+    # 3. soru (Caveat 72: üst = 530 - 0.75*72, alt = 530 + 0.30*72)
+    w_soru = Y.genislik("Caveat", 700, "Genel mi, şu an mı?", 72)
+    soru = {
+        "ad": "soru",
+        "x": 60.0,
+        "y": float(SORU_TABAN) - 0.75 * 72.0,
+        "w": w_soru,
+        "h": (0.75 + 0.30) * 72.0,
+    }
+
+    # 4. kart (stroke dahil: x 60, y 568, w 900, h 296)
+    kart = {
+        "ad": "kart",
+        "x": 60.0,
+        "y": 568.0,
+        "w": 900.0,
+        "h": 296.0,
+    }
+
+    # 5. eslesme (60, 878, max(etiket_sag) - 60, 1000 + 0.30*64 - 878)
+    w_gen = Y.genislik("Caveat", 700, "GENERAL", 64)
+    w_now = Y.genislik("Caveat", 700, "RIGHT NOW", 64)
+    max_etiket_sag = max(float(ETIKET_X) + w_gen, float(ETIKET_X) + w_now)
+    eslesme = {
+        "ad": "eslesme",
+        "x": 60.0,
+        "y": float(ESLESME_TABAN[0]) - 0.75 * 64.0,
+        "w": max_etiket_sag - 60.0,
+        "h": (float(ESLESME_TABAN[1]) + 0.30 * 64.0) - (float(ESLESME_TABAN[0]) - 0.75 * 64.0),
+    }
+
+    # 6. kaydet (yer imi sol - 3, 1036 - 3, 960 - (yer imi sol - 3), 1138 - 1033)
+    w_kaydet = Y.genislik("Fredoka", 700, "Kaydet", KAYDET_BOY)
+    kx = float(X1) - w_kaydet
+    tx = (kx - 24.0 - 12.0 * YERIMI_S) - 6.0 * YERIMI_S
+    yerimi_sol = tx + 6.0 * YERIMI_S
+    kaydet = {
+        "ad": "kaydet",
+        "x": yerimi_sol - 3.0,
+        "y": float(YERIMI_UST) - 3.0,
+        "w": float(X1) - (yerimi_sol - 3.0),
+        "h": 1138.0 - 1033.0,
+    }
+
+    return [kanal, kunye, soru, kart, eslesme, kaydet]
+
+
+def soru_svg() -> str:
+    """Soru başlığı SVG çıktısı (§4.3)."""
+    return (
+        f'<text id="soru" x="{X0}" y="{SORU_TABAN}" font-family="Caveat" font-weight="700" '
+        f'font-size="72" fill="{R["murekkep"]}" xml:space="preserve">Genel mi, şu an mı?</text>'
     )
 
-    cip_w = Y.genislik("Lexend", 700, cip, 40) + 64.0
-    cip_x = 1032.0 - cip_w
-    cip_svg = (
-        f'<g id="ku-cip">'
-        f'<rect id="ku-cipr" x="{cip_x:.1f}" y="48" width="{cip_w:.1f}" height="80" rx="40" fill="none" stroke="{R["vurgu"]}" stroke-width="4"/>'
-        f'<text id="ku-cipt" x="{cip_x + cip_w / 2.0:.1f}" y="102" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="40" fill="{R["vurgu"]}">{cip}</text>'
+
+def kart_svg() -> str:
+    """Kural kartı grubu SVG çıktısı (§4.3.1)."""
+    hw = Y.genislik("Fredoka", 700, "Today", 72) + 2.0 * HAP_PAD
+    s1_x = (TX - HAP_PAD) + hw + 20.0
+    crv = (
+        f'<rect id="kart-crv" x="{KART_X}" y="{KART_Y}" width="{KART_W}" height="{KART_H}" '
+        f'rx="{KART_RX}" fill="none" stroke="{R["murekkep"]}" stroke-width="4"/>'
+    )
+    today_hap = (
+        f'<g id="today-hap">'
+        f'<rect id="today-kutu" x="{TX - HAP_PAD}" y="{TABAN[0] - HAP_UST}" width="{hw:.1f}" '
+        f'height="{HAP_H}" rx="{HAP_RX}" fill="{R["vurgu"]}"/>'
+        f'<text id="today-yazi" x="{TX}" y="{TABAN[0]}" font-family="Fredoka" font-weight="700" '
+        f'font-size="72" fill="{R["zemin"]}" xml:space="preserve">Today</text>'
         f'</g>'
     )
-    return f'<g id="kunye">{logo}{ders1}{ders2}{rozet_svg}{cip_svg}</g>'
+    s1 = (
+        f'<text id="s1" x="{s1_x:.1f}" y="{TABAN[0]}" font-family="Fredoka" font-weight="700" '
+        f'font-size="72" fill="{R["murekkep"]}" xml:space="preserve">iki zamanda</text>'
+    )
+    s2 = (
+        f'<text id="s2" x="{TX}" y="{TABAN[1]}" font-family="Fredoka" font-weight="700" '
+        f'font-size="72" fill="{R["murekkep"]}" xml:space="preserve">da geçebilir;</text>'
+    )
+    s3 = (
+        f'<text id="s3" x="{TX}" y="{TABAN[2]}" font-family="Fredoka" font-weight="700" '
+        f'font-size="72" fill="{R["murekkep"]}" xml:space="preserve">farkı anlam yapar.</text>'
+    )
+    return f'<g id="kart">{crv}{today_hap}{s1}{s2}{s3}</g>'
 
 
-def ikon_svg(k: str, y0: int, veri: list[dict], gw: float, gh: float) -> str:
-    """İkon SVG çıktısı (kutuda ortalı, görünür stroke-width 4)."""
-    s = min(128.0 / gw, 120.0 / gh)
-    tx = 80.0 + (128.0 - gw * s) / 2.0
-    ty = (y0 + 44.0) + (120.0 - gh * s) / 2.0
-    sw = 4.0 / s
+def ikon_svg(k: str, t_taban: int, veri: list[dict], gw: float, gh: float) -> str:
+    """İkon SVG çıktısı (kutuda ortalı, görünür stroke-width 3, §4.3.2)."""
+    s = min(float(IKON_W) / gw, float(IKON_H) / gh)
+    tx = float(IKON_X) + (float(IKON_W) - gw * s) / 2.0
+    ty = (float(t_taban) - 48.0) + (float(IKON_H) - gh * s) / 2.0
+    sw = 3.0 / s
 
     parcalar: list[str] = []
     for item in veri:
@@ -155,298 +230,235 @@ def ikon_svg(k: str, y0: int, veri: list[dict], gw: float, gh: float) -> str:
 
     govde = "".join(parcalar)
     return (
-        f'<g id="{k}-ikon" transform="translate({tx:.4f} {ty:.4f}) scale({s:.6f})" '
+        f'<g id="{k}" transform="translate({tx:.4f} {ty:.4f}) scale({s:.6f})" '
         f'fill="none" stroke="{R["murekkep"]}" stroke-width="{sw:.4f}" stroke-linecap="round" stroke-linejoin="round">'
         f'{govde}'
         f'</g>'
     )
 
 
-def kart1_svg() -> str:
-    """Kart 1 grubu SVG çıktısı (MONT, GENERAL)."""
-    k = "kart1"
-    y0 = KART1_Y
-    AY = y0 + 222
-
-    crv = f'<rect id="{k}-crv" x="48" y="{y0}" width="984" height="{KART_H}" rx="28" fill="none" stroke="{R["murekkep"]}" stroke-width="4"/>'
-    ikon = ikon_svg(k, y0, MONT, 100.0, 120.0)
-    s1 = f'<text id="{k}-s1" x="{CUMLE_X}" y="{y0 + 84}" font-family="Fredoka" font-weight="700" font-size="{CUMLE_BOY}" fill="{R["murekkep"]}" xml:space="preserve">She wears her coat</text>'
-    s2 = f'<text id="{k}-s2" x="{CUMLE_X}" y="{y0 + 164}" font-family="Fredoka" font-weight="700" font-size="{CUMLE_BOY}" fill="{R["murekkep"]}" xml:space="preserve">in the winter.</text>'
-    etiket = f'<text id="{k}-etiket" x="80" y="{y0 + 242}" font-family="Caveat" font-weight="700" font-size="{ETIKET_BOY}" fill="{R["murekkep"]}">GENERAL</text>'
-
-    d_list = (-187.5, -62.5, 62.5, 187.5)
-    dx = 20.0 * math.cos(0.5)
-    dy = 20.0 * math.sin(0.5)
-    # şef QA tur 1: eksen bantların içinden geçmez (kar tanesi çizgiyle kesişiyordu) -> bant aralıklarında kesilir
-    seg = f"M{AX0} {AY}" + "".join(f" L{NOW_X + d - 32.0:.1f} {AY} M{NOW_X + d + 32.0:.1f} {AY}" for d in d_list)
-    d_eksen = f"{seg} L{AX1} {AY} M{AX1 - dx:.1f} {AY - dy:.1f} L{AX1} {AY} L{AX1 - dx:.1f} {AY + dy:.1f}"
-    eksen = f'<path id="{k}-eksen" d="{d_eksen}" fill="none" stroke="{R["ikincil"]}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>'
-
-    kis_parcalari: list[str] = []
-    kar_parcalari: list[str] = []
-    dx_30 = 11.0 * math.cos(math.radians(30))
-    dy_30 = 11.0 * math.sin(math.radians(30))
-
-    for i, d in enumerate(d_list):
-        mx = NOW_X + d
-        bx = mx - 32.0
-        kis_parcalari.append(
-            f'<rect id="{k}-kis{i}" x="{bx:.1f}" y="{AY - 18}" width="64" height="36" rx="18" '
-            f'fill="{R["murekkep"]}" fill-opacity="0.14" stroke="{R["murekkep"]}" stroke-width="3"/>'
-        )
-        d_kar = (
-            f"M {mx:.2f} {AY - 11.0:.2f} L {mx:.2f} {AY + 11.0:.2f} "
-            f"M {mx - dx_30:.2f} {AY + dy_30:.2f} L {mx + dx_30:.2f} {AY - dy_30:.2f} "
-            f"M {mx - dx_30:.2f} {AY - dy_30:.2f} L {mx + dx_30:.2f} {AY + dy_30:.2f}"
-        )
-        kar_parcalari.append(
-            f'<path id="{k}-kar{i}" d="{d_kar}" fill="none" stroke="{R["murekkep"]}" stroke-width="3" stroke-linecap="round"/>'
-        )
-
-    bantlar = "".join(kis_parcalari)
-    karlar = "".join(kar_parcalari)
-    now = f'<circle id="{k}-now" cx="{NOW_X}" cy="{AY}" r="12" fill="{R["murekkep"]}"/>'
-
-    return f'<g id="{k}">{crv}{ikon}{s1}{s2}{etiket}{eksen}{bantlar}{karlar}{now}</g>'
-
-
-def kart2_svg() -> str:
-    """Kart 2 grubu SVG çıktısı (TISORT, RIGHT NOW)."""
-    k = "kart2"
-    y0 = KART2_Y
-    AY = y0 + 222
-
-    crv = f'<rect id="{k}-crv" x="48" y="{y0}" width="984" height="{KART_H}" rx="28" fill="none" stroke="{R["murekkep"]}" stroke-width="4"/>'
-    ikon = ikon_svg(k, y0, TISORT, 100.0, 90.0)
-    s1 = f'<text id="{k}-s1" x="{CUMLE_X}" y="{y0 + 84}" font-family="Fredoka" font-weight="700" font-size="{CUMLE_BOY}" fill="{R["murekkep"]}" xml:space="preserve">She is wearing her</text>'
-    s2 = f'<text id="{k}-s2" x="{CUMLE_X}" y="{y0 + 164}" font-family="Fredoka" font-weight="700" font-size="{CUMLE_BOY}" fill="{R["murekkep"]}" xml:space="preserve">pink T-shirt today.</text>'
-    etiket = f'<text id="{k}-etiket" x="80" y="{y0 + 242}" font-family="Caveat" font-weight="700" font-size="{ETIKET_BOY}" fill="{R["murekkep"]}">RIGHT NOW</text>'
-
-    dx = 20.0 * math.cos(0.5)
-    dy = 20.0 * math.sin(0.5)
-    # şef QA tur 1: eksen today bandının içinden geçmez (now noktasını kesiyordu)
-    d_eksen = (f"M{AX0} {AY} L{NOW_X - 80} {AY} M{NOW_X + 80} {AY} L{AX1} {AY} "
-               f"M{AX1 - dx:.1f} {AY - dy:.1f} L{AX1} {AY} L{AX1 - dx:.1f} {AY + dy:.1f}")
-    eksen = f'<path id="{k}-eksen" d="{d_eksen}" fill="none" stroke="{R["ikincil"]}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>'
-
-    bant = (
-        f'<rect id="{k}-bant" x="{NOW_X - 80}" y="{AY - 18}" width="160" height="36" rx="18" '
-        f'fill="{R["murekkep"]}" fill-opacity="0.14" stroke="{R["murekkep"]}" stroke-width="3"/>'
+def ok_svg(ok_id: str, t_taban: int, fiil: str) -> str:
+    """Ok çizgisi SVG çıktısı (§4.3.2)."""
+    oy = float(t_taban - 16)
+    ox0 = float(FIIL_X) + Y.genislik("Caveat", 700, fiil, 64) + 20.0
+    dx = 16.0 * math.cos(0.5)
+    dy = 16.0 * math.sin(0.5)
+    d = (
+        f"M {ox0:.1f} {oy:.1f} L {float(OK_SON):.1f} {oy:.1f} "
+        f"M {float(OK_SON) - dx:.1f} {oy - dy:.1f} L {float(OK_SON):.1f} {oy:.1f} "
+        f"L {float(OK_SON) - dx:.1f} {oy + dy:.1f}"
     )
-    now = f'<circle id="{k}-now" cx="{NOW_X}" cy="{AY}" r="12" fill="{R["murekkep"]}"/>'
-
-    return f'<g id="{k}">{crv}{ikon}{s1}{s2}{etiket}{eksen}{bant}{now}</g>'
-
-
-def today_svg(hw: float) -> str:
-    """today hapı grubu SVG çıktısı."""
     return (
-        f'<g id="today">'
-        f'<rect id="today-kutu" x="48" y="1064" width="{hw:.1f}" height="84" rx="42" fill="{R["vurgu"]}"/>'
-        f'<text id="today-yazi" x="{48.0 + hw / 2.0:.1f}" y="1128" text-anchor="middle" font-family="Fredoka" font-weight="700" font-size="64" fill="{R["zemin"]}">today</text>'
-        f'</g>'
+        f'<path id="{ok_id}" d="{d}" fill="none" stroke="{R["ikincil"]}" '
+        f'stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>'
     )
 
 
-def blok_kutulari() -> list[dict[str, float]]:
-    """Yerleşim bloklarının kutularını hesaplar (§6.4 sırası)."""
-    hud = {"ad": "hud", "x": 48.0, "y": 0.0, "w": 984.0, "h": 288.0}
+def eslesme_svg() -> str:
+    """Eşleşme grubu SVG çıktısı (§4.3.2)."""
+    t1, t2_taban = ESLESME_TABAN
+    ikon1 = ikon_svg("ikon1", t1, MONT, 100.0, 120.0)
+    fiil1 = (
+        f'<text id="fiil1" x="{FIIL_X}" y="{t1}" font-family="Caveat" font-weight="700" '
+        f'font-size="64" fill="{R["murekkep"]}" xml:space="preserve">wears</text>'
+    )
+    ok1 = ok_svg("ok1", t1, "wears")
+    etiket1 = (
+        f'<text id="etiket1" x="{ETIKET_X}" y="{t1}" font-family="Caveat" font-weight="700" '
+        f'font-size="64" fill="{R["murekkep"]}" xml:space="preserve">GENERAL</text>'
+    )
 
-    w_ust = Y.genislik("Lexend", 500, "Genel mi, şu an mı?", 64)
-    ust = {"ad": "ust", "x": 48.0, "y": 424.0 - 0.75 * 64.0, "w": w_ust, "h": (0.75 + 0.25) * 64.0}
+    ikon2 = ikon_svg("ikon2", t2_taban, TISORT, 100.0, 90.0)
+    fiil2 = (
+        f'<text id="fiil2" x="{FIIL_X}" y="{t2_taban}" font-family="Caveat" font-weight="700" '
+        f'font-size="64" fill="{R["murekkep"]}" xml:space="preserve">is wearing</text>'
+    )
+    ok2 = ok_svg("ok2", t2_taban, "is wearing")
+    etiket2 = (
+        f'<text id="etiket2" x="{ETIKET_X}" y="{t2_taban}" font-family="Caveat" font-weight="700" '
+        f'font-size="64" fill="{R["murekkep"]}" xml:space="preserve">RIGHT NOW</text>'
+    )
 
-    kart1 = {"ad": "kart1", "x": 48.0, "y": float(KART1_Y), "w": 984.0, "h": float(KART_H)}
-    kart2 = {"ad": "kart2", "x": 48.0, "y": float(KART2_Y), "w": 984.0, "h": float(KART_H)}
-
-    w_today = Y.genislik("Fredoka", 700, "today", 64) + 56.0
-    today = {"ad": "today", "x": 48.0, "y": 1064.0, "w": w_today, "h": 84.0}
-
-    w_not1 = Y.genislik("Lexend", 500, "iki zamanda da geçebilir", 64)
-    not1 = {"ad": "not1", "x": 48.0, "y": 1212.0 - 0.75 * 64.0, "w": w_not1, "h": (0.75 + 0.25) * 64.0}
-
-    w_not2 = Y.genislik("Lexend", 700, "Farkı anlam yapar.", 64)
-    not2 = {"ad": "not2", "x": 48.0, "y": 1296.0 - 0.75 * 64.0, "w": w_not2, "h": (0.75 + 0.25) * 64.0}
-
-    w_cg1 = Y.genislik("Caveat", 700, "Tam ders:", 72)
-    cg1 = {"ad": "cg1", "x": 48.0, "y": 1418.0 - 0.75 * 72.0, "w": w_cg1, "h": (0.75 + 0.30) * 72.0}
-
-    w_cg2 = Y.genislik("Caveat", 700, "profildeki bağlantı", 72)
-    cg2 = {"ad": "cg2", "x": 48.0, "y": 1498.0 - 0.75 * 72.0, "w": w_cg2, "h": (0.75 + 0.30) * 72.0}
-
-    w_hap = Y.genislik("Fredoka", 700, "@ydspublishing", 64) + 56.0
-    hap = {"ad": "hap", "x": 1032.0 - w_hap, "y": 1398.0, "w": w_hap, "h": 84.0}
-
-    return [hud, ust, kart1, kart2, today, not1, not2, cg1, cg2, hap]
+    return f'<g id="eslesme">{ikon1}{fiil1}{ok1}{etiket1}{ikon2}{fiil2}{ok2}{etiket2}</g>'
 
 
-def kesisim(b1: dict[str, float], b2: dict[str, float]) -> float:
-    """İki kutu arasındaki kesişim alanını döndürür."""
-    dx = max(0.0, min(b1["x"] + b1["w"], b2["x"] + b2["w"]) - max(b1["x"], b2["x"]))
-    dy = max(0.0, min(b1["y"] + b1["h"], b2["y"] + b2["h"]) - max(b1["y"], b2["y"]))
-    return dx * dy
+def kaydet_svg() -> str:
+    """Kaydet grubu SVG çıktısı (§4.3.3)."""
+    w_kaydet = Y.genislik("Fredoka", 700, "Kaydet", KAYDET_BOY)
+    kx = float(X1) - w_kaydet
+    tx = (kx - 24.0 - 12.0 * YERIMI_S) - 6.0 * YERIMI_S
+    ty = float(YERIMI_UST) - 3.0 * YERIMI_S
+    sw = 6.0 / YERIMI_S
+    yerimi = (
+        f'<path id="yerimi" d="{YERIMI_D}" transform="translate({tx:.4f} {ty:.4f}) scale({YERIMI_S})" '
+        f'fill="none" stroke="{R["murekkep"]}" stroke-width="{sw:.4f}" '
+        f'stroke-linecap="round" stroke-linejoin="round"/>'
+    )
+    kaydet_yazi = (
+        f'<text id="kaydet-yazi" x="{kx:.1f}" y="{KAYDET_TABAN}" font-family="Fredoka" font-weight="700" '
+        f'font-size="{KAYDET_BOY}" fill="{R["murekkep"]}" xml:space="preserve">Kaydet</text>'
+    )
+    return f'<g id="kaydet">{yerimi}{kaydet_yazi}</g>'
 
 
 def kurallari_dogrula(bloklar: list[dict[str, float]], html: str) -> None:
     """SPEC.md §6 kurallarını doğrular."""
     b_dict = {b["ad"]: b for b in bloklar}
 
-    # 1. Bütün metin ve kutular x ∈ [48, 1032]; hiçbir öğe y ≥ 1536 değil
+    # 1. Bütün blok x ∈ [53, 960]; kanal dışındaki bloklar x ≥ 60
     for b in bloklar:
-        assert b["x"] >= 48.0 - 1e-4, f"{b['ad']} sol kenar {b['x']} < 48"
-        assert b["x"] + b["w"] <= 1032.0 + 1e-4, f"{b['ad']} sağ kenar {b['x'] + b['w']} > 1032"
-        assert b["y"] >= 0.0, f"{b['ad']} üst {b['y']} < 0"
-        assert b["y"] + b["h"] <= 1536.0 + 1e-4, f"{b['ad']} alt {b['y'] + b['h']} > 1536"
+        assert b["x"] >= 53.0 - 1e-4, f"{b['ad']} sol kenar {b['x']} < 53"
+        assert b["x"] + b["w"] <= 960.0 + 1e-4, f"{b['ad']} sağ kenar {b['x'] + b['w']} > 960"
+        if b["ad"] != "kanal":
+            assert b["x"] >= 60.0 - 1e-4, f"{b['ad']} sol kenar {b['x']} < 60"
+        assert b["y"] >= 280.0 - 1e-4, f"{b['ad']} üst {b['y']} < 280"
 
-    # Yazı alt sınırı: cg2 taban + 0.30 * 72 <= 1536
-    assert 1498.0 + 0.30 * 72.0 <= 1536.0, "cg2 yazı alt sınırı > 1536"
+    # İçerik blokları y ≥ 460 ve alt ≤ BOS_UST (1150)
+    for ad in ("soru", "kart", "eslesme", "kaydet"):
+        b = b_dict[ad]
+        assert b["y"] >= 460.0 - 1e-4, f"{ad} üst {b['y']} < 460"
+        assert b["y"] + b["h"] <= float(BOS_UST) + 1e-4, f"{ad} alt {b['y'] + b['h']} > {BOS_UST}"
 
-    # 2. Yazı boyu ≥ 64 (HUD hariç: ders adı 56, rozet 36, çip 40)
-    # İçerik bloğunda kullanılan yazı boyutları: 64, 72. Hepsi >= 64.
+    # 2. İçerik yazı boyu ≥ 64 (soru 72, kart 72, eşleşme 64, Kaydet 88). Künye/kanal hariç.
+    icerik_yazi_boylari = [72, 72, 64, KAYDET_BOY]
+    for boy in icerik_yazi_boylari:
+        assert boy >= 64, f"İçerik yazı boyu {boy} < 64"
 
-    # 3. Her ekran satırı ≤ 24 karakter (len), HUD dahil (§4.3 listesinin tamamı)
-    satirlar = [
-        "SIMPLE PRESENT vs",
-        "PRESENT CONTINUOUS",
-        "YDT · BASIC",
-        "Full lesson",
+    # 3. İçerik satırı ≤ 24 karakter (len)
+    icerik_satirlari = [
+        "Today iki zamanda",
+        "da geçebilir;",
+        "farkı anlam yapar.",
         "Genel mi, şu an mı?",
-        "She wears her coat",
-        "in the winter.",
+        "wears",
         "GENERAL",
-        "She is wearing her",
-        "pink T-shirt today.",
+        "is wearing",
         "RIGHT NOW",
-        "today",
-        "iki zamanda da geçebilir",
-        "Farkı anlam yapar.",
-        "Tam ders:",
-        "profildeki bağlantı",
-        "@ydspublishing",
+        "Kaydet",
     ]
-    for s in satirlar:
+    for s in icerik_satirlari:
         assert len(s) <= 24, f"Satır uzunluğu {len(s)} > 24: {s}"
 
-    # 4. Blok kutuları çakışmaz (kesişim alanı 0)
+    # 4. Blok çiftleri kesişmez (alan 0). Dikey sıra kanal → kunye → soru → kart → eslesme → kaydet komşu boşluğu ≥ 12
     for i in range(len(bloklar)):
         for j in range(i + 1, len(bloklar)):
             k = kesisim(bloklar[i], bloklar[j])
             assert k == 0.0, f"Kesişim {bloklar[i]['ad']} - {bloklar[j]['ad']}: {k}"
 
-    # Dikey komşular arası boşluk ≥ 16
-    dikey_sirali = ["hud", "ust", "kart1", "kart2", "today", "not1", "not2"]
+    dikey_sirali = ["kanal", "kunye", "soru", "kart", "eslesme", "kaydet"]
     for i in range(len(dikey_sirali) - 1):
         b1 = b_dict[dikey_sirali[i]]
         b2 = b_dict[dikey_sirali[i + 1]]
         bosluk = b2["y"] - (b1["y"] + b1["h"])
-        assert bosluk >= 16.0 - 1e-4, f"Dikey boşluk {b1['ad']} -> {b2['ad']}: {bosluk} < 16"
+        assert bosluk >= 12.0 - 1e-4, f"Dikey boşluk {b1['ad']} -> {b2['ad']}: {bosluk} < 12"
 
-    assert b_dict["cg1"]["y"] - (b_dict["not2"]["y"] + b_dict["not2"]["h"]) >= 16.0 - 1e-4
-    assert b_dict["hap"]["y"] - (b_dict["not2"]["y"] + b_dict["not2"]["h"]) >= 16.0 - 1e-4
+    # 5. Kart içi kurallar
+    hw = Y.genislik("Fredoka", 700, "Today", 72) + 2.0 * HAP_PAD
+    today_x = float(TX - HAP_PAD)
+    today_y = float(TABAN[0] - HAP_UST)
+    today_w = hw
+    today_h = float(HAP_H)
 
-    # cg1 ve cg2 sağ kenarı ile hap sol kenarı arası ≥ 24
-    assert b_dict["hap"]["x"] - (b_dict["cg1"]["x"] + b_dict["cg1"]["w"]) >= 24.0 - 1e-4
-    assert b_dict["hap"]["x"] - (b_dict["cg2"]["x"] + b_dict["cg2"]["w"]) >= 24.0 - 1e-4
+    assert today_x - float(KART_X) >= 16.0 - 1e-4, f"Hap sol boşluk {today_x - float(KART_X)} < 16"
+    assert today_y - float(KART_Y) >= 16.0 - 1e-4, f"Hap üst boşluk {today_y - float(KART_Y)} < 16"
+    assert (float(KART_X + KART_W)) - (today_x + today_w) >= 16.0 - 1e-4, "Hap sağ boşluk < 16"
+    assert (float(KART_Y + KART_H)) - (today_y + today_h) >= 16.0 - 1e-4, "Hap alt boşluk < 16"
 
-    # 5. ust üstü ≥ 352; not2 altı ≤ 1344; hap, cg1, cg2 [1344, 1536] içinde
-    assert b_dict["ust"]["y"] >= 352.0 - 1e-4, f"ust üstü {b_dict['ust']['y']} < 352"
-    assert b_dict["not2"]["y"] + b_dict["not2"]["h"] <= 1344.0 + 1e-4, f"not2 altı > 1344"
-    for ad in ("hap", "cg1", "cg2"):
-        assert b_dict[ad]["y"] >= 1344.0 - 1e-4, f"{ad} üstü {b_dict[ad]['y']} < 1344"
-        assert b_dict[ad]["y"] + b_dict[ad]["h"] <= 1536.0 + 1e-4, f"{ad} altı > 1536"
+    s1_x = today_x + hw + 20.0
+    assert s1_x >= (today_x + today_w) + 16.0 - 1e-4, f"s1 sol {s1_x} < hap sağı + 16"
 
-    # 6. Kart içi kurallar (iki kartta)
-    cümle_satirlari = [
-        "She wears her coat",
-        "in the winter.",
-        "She is wearing her",
-        "pink T-shirt today.",
-    ]
-    for cs in cümle_satirlari:
-        w_cs = Y.genislik("Fredoka", 700, cs, 64)
-        assert CUMLE_X + w_cs <= 1000.0, f"Cümle sağ kenar {CUMLE_X + w_cs} > 1000: {cs}"
+    w_s1 = Y.genislik("Fredoka", 700, "iki zamanda", 72)
+    w_s2 = Y.genislik("Fredoka", 700, "da geçebilir;", 72)
+    w_s3 = Y.genislik("Fredoka", 700, "farkı anlam yapar.", 72)
+    assert s1_x + w_s1 <= 958.0 - 32.0 + 1e-4, f"s1 sağ kenar {s1_x + w_s1} > 958 - 32"
+    assert float(TX) + w_s2 <= 958.0 - 32.0 + 1e-4, f"s2 sağ kenar {float(TX) + w_s2} > 958 - 32"
+    assert float(TX) + w_s3 <= 958.0 - 32.0 + 1e-4, f"s3 sağ kenar {float(TX) + w_s3} > 958 - 32"
 
-    for y0 in (KART1_Y, KART2_Y):
-        s2_alt = y0 + 164.0 + 0.25 * 64.0
-        etiket_ust = y0 + 242.0 - 0.75 * 64.0
-        assert s2_alt < etiket_ust, f"satır 2 alt {s2_alt} >= etiket üst {etiket_ust}"
+    s2_ust = float(TABAN[1]) - 0.75 * 72.0
+    hap_alt = today_y + today_h
+    assert s2_ust > hap_alt, f"satır 2 üst {s2_ust} <= hap altı {hap_alt}"
+
+    s3_alt = float(TABAN[2]) + 0.25 * 72.0
+    cerceve_alt = float(KART_Y + KART_H)
+    assert s3_alt + 16.0 <= cerceve_alt + 1e-4, f"satır 3 alt + 16 > çerçeve altı {cerceve_alt}"
+
+    # 6. Eşleşme kuralları
+    t1, t2_taban = ESLESME_TABAN
+    sat1_alt = float(t1) + 0.30 * 64.0
+    sat2_ust = float(t2_taban) - 0.75 * 64.0
+    assert sat1_alt <= sat2_ust + 1e-4, f"satır 1 alt {sat1_alt} > satır 2 üst {sat2_ust}"
+
+    for fiil, t_tab in (("wears", t1), ("is wearing", t2_taban)):
+        w_f = Y.genislik("Caveat", 700, fiil, 64)
+        fiil_sag = float(FIIL_X) + w_f
+        ox0 = fiil_sag + 20.0
+        assert ox0 >= fiil_sag + 16.0 - 1e-4, f"{fiil} ox0 < fiil sağı + 16"
+        assert float(OK_SON) - ox0 >= 40.0 - 1e-4, f"{fiil} 460 - ox0 < 40"
+
+    assert float(OK_SON) + 20.0 <= float(ETIKET_X) + 1e-4, "460 + 20 > 484"
 
     w_gen = Y.genislik("Caveat", 700, "GENERAL", 64)
     w_now = Y.genislik("Caveat", 700, "RIGHT NOW", 64)
-    assert 80.0 + w_gen + 24.0 <= float(AX0), "GENERAL etiket sağ kenarı + 24 > AX0"
-    assert 80.0 + w_now + 24.0 <= float(AX0), "RIGHT NOW etiket sağ kenarı + 24 > AX0"
+    assert float(ETIKET_X) + w_gen <= 960.0 + 1e-4, "GENERAL sağ kenar > 960"
+    assert float(ETIKET_X) + w_now <= 960.0 + 1e-4, "RIGHT NOW sağ kenar > 960"
+    assert float(IKON_X + IKON_W) + 16.0 <= float(FIIL_X) + 1e-4, "İkon kutusu sağı + 16 > 140"
 
-    # Bütün bantlar [AX0 + 24, AX1 - 24] içinde
-    for d in (-187.5, -62.5, 62.5, 187.5):
-        mx = NOW_X + d
-        bx = mx - 32.0
-        assert bx >= AX0 + 24.0, f"kart 1 bant sol {bx} < AX0 + 24"
-        assert bx + 64.0 <= AX1 - 24.0, f"kart 1 bant sağ {bx + 64.0} > AX1 - 24"
+    # 7. Kaydet kuralları
+    w_kaydet = Y.genislik("Fredoka", 700, "Kaydet", KAYDET_BOY)
+    kx = float(X1) - w_kaydet
+    assert abs((kx + w_kaydet) - 960.0) <= 0.5, f"kaydet-yazi sağ kenar != 960: {kx + w_kaydet}"
 
-    bx2 = NOW_X - 80.0
-    assert bx2 >= AX0 + 24.0, f"kart 2 bant sol {bx2} < AX0 + 24"
-    assert bx2 + 160.0 <= AX1 - 24.0, f"kart 2 bant sağ {bx2 + 160.0} > AX1 - 24"
+    yerimi_gorunur_sag = kx - 24.0
+    assert yerimi_gorunur_sag + 20.0 <= kx + 1e-4, "yer imi sağ + 20 > kx"
+    yerimi_gorunur_ust = float(YERIMI_UST)
+    yerimi_gorunur_alt = yerimi_gorunur_ust + 18.0 * YERIMI_S
+    assert yerimi_gorunur_ust == 1036.0, f"yer imi üst {yerimi_gorunur_ust} != 1036"
+    assert yerimi_gorunur_alt <= 1140.0 + 1e-4, f"yer imi alt {yerimi_gorunur_alt} > 1140"
 
-    # Kart 1 now noktası (r 12) ile her bant arası ≥ 12
-    now_sol = NOW_X - 12.0
-    now_sag = NOW_X + 12.0
-    for d in (-187.5, -62.5, 62.5, 187.5):
-        mx = NOW_X + d
-        bx = mx - 32.0
-        bw = 64.0
-        if bx + bw <= now_sol:
-            bosluk = now_sol - (bx + bw)
-        elif bx >= now_sag:
-            bosluk = bx - now_sag
-        else:
-            bosluk = 0.0
-        assert bosluk >= 12.0, f"kart 1 now-bant boşluğu {bosluk} < 12 (d={d})"
+    # 8. Tek sarı: #icerik grubunun HTML'inde fill="#f2a93b" tam 1 kez (today-kutu), stroke="#f2a93b" 0 kez
+    m_icerik = re.search(r'<g id="icerik">(.*?)</g>\s*</svg>', html, re.DOTALL)
+    assert m_icerik, "#icerik grubu HTML içinde bulunamadı"
+    icerik_html = m_icerik.group(1)
+    cnt_vurgu_fill = icerik_html.count('fill="#f2a93b"')
+    cnt_vurgu_stroke = icerik_html.count('stroke="#f2a93b"')
+    assert cnt_vurgu_fill == 1, (
+        f"#icerik içinde fill=#f2a93b {cnt_vurgu_fill} kez bulundu, 1 olmalı"
+    )
+    assert cnt_vurgu_stroke == 0, (
+        f"#icerik içinde stroke=#f2a93b {cnt_vurgu_stroke} kez bulundu, 0 olmalı"
+    )
 
-    # Kart 2 now noktası today bandının içinde
-    assert bx2 <= now_sol and now_sag <= bx2 + 160.0, "kart 2 now noktası today bandı içinde değil"
+    # 9. Yasak kontrolleri (büyük/küçük harf duyarsız)
+    # desen düzenli ifadedir: huni v2 §7 madde 3 grep taraması bu dosyanın kendi yasak listesine takılmasın
+    for desen in (r"tam\s+ders", r"dak[iı]ka", r"\bqr\b"):
+        assert not re.search(desen, html, re.IGNORECASE), f"HTML içinde yasak dizgi bulundu: {desen}"
 
-    # İkon kutusu sağ kenarı (208) + 24 ≤ CUMLE_X
-    assert 208.0 + 24.0 <= float(CUMLE_X), "ikon kutusu sağ kenarı + 24 > CUMLE_X"
-
-    # 8. Yasaklar ve metin taraması
-    yasak_kelimeler = ["kanal", "qr", "dakika"]
-    html_kucuk = html.lower()
-    for yk in yasak_kelimeler:
-        assert yk not in html_kucuk, f"HTML içinde yasak dizgi bulundu: {yk}"
-
-    # dk yalnız SVG metinlerinde taranır
+    # SVG <text> içeriklerinde 'dk'
     svg_metinler = re.findall(r"<text[^>]*>(.*?)</text>", html, re.DOTALL)
     for sm in svg_metinler:
         assert "dk" not in sm.lower(), f"SVG metni içinde 'dk' bulundu: {sm}"
 
-    assert "opacity:0" not in html, "opacity:0 başlangıç yasak"
-    assert R["kirmizi"] not in html, "kırmızı renk kullanımı yasak"
+    assert "opacity:0" not in html, "HTML içinde 'opacity:0' bulundu"
+    assert R["kirmizi"] not in html, f"HTML içinde kırmızı renk ({R['kirmizi']}) bulundu"
+    assert "#root.tema-acik" not in html, "HTML içinde '#root.tema-acik' bulundu"
+
+    # Emoji kontrolü (U+1F000 üstü ve U+2600-U+27BF)
+    emoji_bulgular = re.findall(r"[\U0001F000-\U0010FFFF\u2600-\u27BF]", html)
+    assert not emoji_bulgular, f"HTML içinde emoji bulundu: {emoji_bulgular}"
+
+    for yasak_kod in ("Math.random", "Date", "try", "catch"):
+        assert yasak_kod not in html, f"HTML içinde yasak JavaScript öğesi: {yasak_kod}"
 
 
 def uret() -> tuple[str, list[dict[str, float]]]:
     """Sahne HTML'i ve nesnelerini üretir."""
     bloklar = blok_kutulari()
 
-    kunye = kunye_svg(DERS, ROZET, CIP)
-    ust = f'<text id="ust" x="48" y="424" font-family="Lexend" font-weight="500" font-size="64" fill="{R["murekkep"]}">Genel mi, şu an mı?</text>'
-    kart1 = kart1_svg()
-    kart2 = kart2_svg()
-
-    today_w = Y.genislik("Fredoka", 700, "today", 64) + 56.0
-    today = today_svg(today_w)
-
-    not1 = f'<text id="not1" x="48" y="1212" font-family="Lexend" font-weight="500" font-size="64" fill="{R["murekkep"]}">iki zamanda da geçebilir</text>'
-    not2 = f'<text id="not2" x="48" y="1296" font-family="Lexend" font-weight="700" font-size="64" fill="{R["murekkep"]}">Farkı anlam yapar.</text>'
-    cg1 = f'<text id="cg1" x="48" y="1418" font-family="Caveat" font-weight="700" font-size="72" fill="{R["murekkep"]}">Tam ders:</text>'
-    cg2 = f'<text id="cg2" x="48" y="1498" font-family="Caveat" font-weight="700" font-size="72" fill="{R["murekkep"]}">profildeki bağlantı</text>'
-
-    hap_w = Y.genislik("Fredoka", 700, "@ydspublishing", 64) + 56.0
-    hap_x = 1032.0 - hap_w
-    hap = (
-        f'<g id="hap">'
-        f'<rect id="hap-kutu" x="{hap_x:.1f}" y="1398" width="{hap_w:.1f}" height="84" rx="42" fill="{R["vurgu"]}"/>'
-        f'<text id="hap-yazi" x="{hap_x + hap_w / 2.0:.1f}" y="1462" text-anchor="middle" font-family="Fredoka" font-weight="700" font-size="64" fill="{R["zemin"]}">@ydspublishing</text>'
-        f'</g>'
-    )
+    kunye = Y.kunye_svg()
+    soru = soru_svg()
+    kart = kart_svg()
+    eslesme = eslesme_svg()
+    kaydet = kaydet_svg()
 
     html = f"""<!doctype html>
 <html lang="tr"><head><meta charset="utf-8">
@@ -459,23 +471,20 @@ def uret() -> tuple[str, list[dict[str, float]]]:
 {Y.zemin_html()}
 <svg id="sahne" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
 {kunye}
-{ust}
-{kart1}
-{kart2}
-{today}
-{not1}
-{not2}
-{cg1}
-{cg2}
-{hap}
+<g id="icerik">
+{soru}
+{kart}
+{eslesme}
+{kaydet}
+</g>
 </svg>
 </div>
 <script src="lib/gsap.min.js"></script>
 <script>
 (function () {{
   var tl = gsap.timeline({{ paused: true }});
-  tl.set("#sahne", {{ opacity: 1, immediateRender: false }}, 0);
-  tl.set("#sahne", {{ opacity: 1, immediateRender: false }}, {Z['sure']});
+  tl.set("#icerik", {{ opacity: 1, immediateRender: false }}, 0);
+  tl.set("#icerik", {{ opacity: 1, immediateRender: false }}, {Z['sure']});
   window.__timelines = window.__timelines || {{}};
   window.__timelines["main"] = tl;
 }})();
@@ -505,11 +514,10 @@ if __name__ == "__main__":
     (AD / "nesneler.json").write_text(json.dumps(nesneler, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     b_dict = {b["ad"]: b for b in bloklar}
-    print(f"index.html yazıldı {len(html)}")
+    print(f"index.html yazıldı {len(html.encode('utf-8'))}")
     print(
-        f"ust={int(round(b_dict['ust']['y']))}-{int(round(b_dict['ust']['y'] + b_dict['ust']['h']))} "
-        f"kart1={int(round(b_dict['kart1']['y']))}-{int(round(b_dict['kart1']['y'] + b_dict['kart1']['h']))} "
-        f"kart2={int(round(b_dict['kart2']['y']))}-{int(round(b_dict['kart2']['y'] + b_dict['kart2']['h']))} "
-        f"today={int(round(b_dict['today']['y']))}-{int(round(b_dict['today']['y'] + b_dict['today']['h']))} "
-        f"not2={int(round(b_dict['not2']['y']))}-{int(round(b_dict['not2']['y'] + b_dict['not2']['h']))}"
+        f"soru={int(round(b_dict['soru']['y']))}-{int(round(b_dict['soru']['y'] + b_dict['soru']['h']))} "
+        f"kart={int(round(b_dict['kart']['y']))}-{int(round(b_dict['kart']['y'] + b_dict['kart']['h']))} "
+        f"eslesme={int(round(b_dict['eslesme']['y']))}-{int(round(b_dict['eslesme']['y'] + b_dict['eslesme']['h']))} "
+        f"kaydet={int(round(b_dict['kaydet']['y']))}-{int(round(b_dict['kaydet']['y'] + b_dict['kaydet']['h']))}"
     )

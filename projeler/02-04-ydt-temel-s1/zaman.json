@@ -30,12 +30,23 @@
     },
     {
       "no": 3,
+      "klasor": "08-hyperframes-kaydet",
+      "motor": "HyperFrames",
+      "kare": 177,
+      "t_bas": 19.99,
+      "t_son": 25.49,
+      "icerik_kare": 165,
+      "ad": "Kaydet",
+      "bolum": "Kaydet"
+    },
+    {
+      "no": 4,
       "klasor": "03-hyperframes-cta",
       "motor": "HyperFrames",
-      "kare": 347,
-      "t_bas": 19.99,
-      "t_son": 30.56,
-      "icerik_kare": 317,
+      "kare": 218,
+      "t_bas": 25.49,
+      "t_son": 31.75,
+      "icerik_kare": 188,
       "ad": "Çağrı",
       "bolum": "Çağrı"
     }

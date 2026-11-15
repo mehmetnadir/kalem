@@ -58,8 +58,8 @@ export const KUNYE = { kenar: 48, logoY: 48, logoYuk: 96, dersTaban: 212, dersYa
   icerikSon: 1392, altyaziBas: 1400, altyaziSon: 1536, altyaziYazi: 44, altyaziSatir: 56,
   ders: ["SIMPLE PRESENT vs", "PRESENT CONTINUOUS"], rozet: "YDT · BASIC", ajanda: ["Hook", "Examples", "Rule", "Trap"],
   cipler: { "01-hyperframes-kapak": "Hook", "02-paperjs-ornek": "Example",
-    "03-hyperframes-cta": "Full lesson", "04-hyperframes-hikaye": "Full lesson", "05-hyperframes-kapak-b": "Hook",
-    "06-hyperframes-kapak-c": "Hook", "07-hyperframes-hikaye-b": "Full lesson" } };
+    "03-hyperframes-cta": "Channel", "04-hyperframes-hikaye": "Channel", "05-hyperframes-kapak-b": "Hook",
+    "06-hyperframes-kapak-c": "Hook", "07-hyperframes-hikaye-b": "Channel" } };
 const W = 1080, H = 1920;
 export const GEN = W, YUK = H;
 

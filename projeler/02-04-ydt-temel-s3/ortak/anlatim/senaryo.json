@@ -74,15 +74,26 @@
     ],
     [
      "tr",
-     "Tam ders: Simple Present ve Present Continuous."
-    ],
-    [
-     "tr",
-     "Üç farkın hepsi dört buçuk dakikada."
+     "Bir arkadaşına gönder; o da karıştırıyor."
     ]
    ],
    "olaylar": [],
-   "metin": "Bu, üç farktan yalnız biri. Tam ders: Simple Present ve Present Continuous. Üç farkın hepsi dört buçuk dakikada."
+   "metin": "Bu, üç farktan yalnız biri. Bir arkadaşına gönder; o da karıştırıyor."
+  },
+  {
+   "ses": "ogrenci",
+   "parcalar": [
+    [
+     "tr",
+     "Bu sadece başlangıç."
+    ],
+    [
+     "tr",
+     "Dersin tamamı YDS Publishing YouTube kanalında."
+    ]
+   ],
+   "olaylar": [],
+   "metin": "Bu sadece başlangıç. Dersin tamamı YDS Publishing YouTube kanalında."
   }
  ],
  "zaman": {

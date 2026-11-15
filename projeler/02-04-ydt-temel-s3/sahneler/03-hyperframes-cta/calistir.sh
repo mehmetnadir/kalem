@@ -1,6 +1,6 @@
 #!/bin/bash
-# Sahne 03 CTA (02-04-ydt-temel-s3, HyperFrames DİKEY 1080x1920, 347 kare, t_bas 15,99): üret -> olaylar -> [önizleme burada biter]
-# Kaynak: 02-04-ydt-temel-s1 sahne 03 kopyası (aynı ses dosyası; S3 küresel zaman = S1 − 4,00 sn).
+# Sahne 03 Çağrı (02-04-ydt-temel-s3, huni v2, HyperFrames DİKEY 1080x1920, 239 kare, t_bas 21,33; cümle 5 öğrenci):
+# üret -> olaylar -> [önizleme burada biter]. Ana ders kapağı: ortak/kapak/ana-kapak{,-koyu}.png -> proje/assets/.
 # -> render -> video.mp4 + kontrol.png + k/*.png. Tema: --tema acik|koyu (varsayılan acik, K19).
 # Önizleme hazırlığı: ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu]
 set -e
@@ -10,10 +10,11 @@ AD="$(cd "$(dirname "$0")" && pwd)"
 KOK="$AD/../../../.."                       # paket kökü (kalem)
 M="$KOK/motorlar/hyperframes"; BIN="$M/node_modules/.bin"
 ORTAK="$AD/../../ortak"
-KARE=347
+KARE=239
 mkdir -p "$AD/proje/lib" "$AD/proje/assets/fonts" "$AD/k" "$AD/proje/renders"
 cp "$M/node_modules/gsap/dist/gsap.min.js" "$AD/proje/lib/" 2>/dev/null || cp "$M/lib/gsap.min.js" "$AD/proje/lib/"
 cp "$ORTAK/logo/$LOGO_DOSYA" "$AD/proje/assets/logo.svg"
+cp "$ORTAK/kapak/ana-kapak.png" "$ORTAK/kapak/ana-kapak-koyu.png" "$AD/proje/assets/"
 /usr/bin/python3 "$AD/uret.py" >&2 && /usr/bin/python3 "$AD/olay.py" >&2
 tema_hf "$AD/proje/index.html"
 [ -n "$ONIZLE_YALNIZ" ] && { echo "önizleme hazır"; exit 0; }
@@ -29,8 +30,8 @@ ffmpeg -loglevel error -y -i "$OUT" -c:v libx264 -crf 16 -pix_fmt yuv420p -r 30 
   -vf "tpad=stop_mode=clone:stop_duration=2" -frames:v $KARE "$AD/video.mp4"
 SEL="eq(n,0)+eq(n,$((KARE/5)))+eq(n,$((KARE*2/5)))+eq(n,$((KARE*3/5)))+eq(n,$((KARE*4/5)))+eq(n,$((KARE-13)))"
 ffmpeg -loglevel error -y -i "$AD/video.mp4" -vf "select='$SEL',scale=240:-1,tile=6x1" -frames:v 1 "$AD/kontrol.png"
-# denetim kareleri (yerel): 2,7 / 7,0 / 9,4 / 10,4 sn (küresel 18,7 / 23,0 / 25,4 / 26,4)
-for sn in 2.7 7.0 9.4 10.4; do
+# denetim kareleri (yerel): 0,0 / 3,49 / 6,95 sn (küresel 21,33 / 24,82 / 28,28)
+for sn in 0.0 3.49 6.95; do
   n=$(awk "BEGIN{printf \"%d\", $sn*30+0.5}")
   ffmpeg -loglevel error -y -i "$AD/video.mp4" -vf "select=eq(n\,$n)" -frames:v 1 "$AD/k/$n.png"
 done

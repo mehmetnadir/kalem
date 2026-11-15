@@ -1,211 +1,191 @@
-# SPEC — 02-04-ydt-temel-s3 · sahne 01-hyperframes-kapak (HyperFrames, 1080×1920, 102 kare)
+# SPEC v2 — 02-04-ydt-temel-s3 · sahne 01-hyperframes-kapak (kanca, HyperFrames, 1080×1920, 102 kare) · huni v2 · 15.11.2026
 
-Kaynak: `BRIEF-S3.md` ("Sahneler" satır 01, "Sahne içeriği" 0,00–3,00, "Kapak A"), `uretim-tutanagi/kapak-taslak.md` §1–§3 (A),
-`uretim-tutanagi/senaryo-taslak.md` §2 satır 01, `uretim-tutanagi/S3-duzeltme.md`, `../present-continuous-dikey/BRIEF-DIKEY.md` §0, §2, §3,
-`K/.claude/docs/sozlesme.md` (HF dersleri). Yazan: şef (15.11.2026). Bu belge tasarım verir; tam kod içermez.
+Yazan: şef. Bu belge tasarım verir; tam kod içermez. Bağlayıcı: `/home/sef/01dev/dijital-anlatim/.claude/docs/huni-v2-standart.md` §2, §3, §6.
 K = `/home/sef/01dev/_worktrees/kalem-0204`. D = `K/projeler/02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/` (bu sahne dizini).
+v1 SPEC ve kod yedeği: `/home/sef/Silinecekler/2026-11-15-huni-v2/02-04-ydt-temel-s3/sahneler-v1/01-hyperframes-kapak/`.
 
 ## 1. Dosyalar
 
 | Dosya | Durum | İş |
 |---|---|---|
-| `D/uret.py` | YOK | §3'e göre yaz (agy) |
-| `D/yardim.py` | VAR (S1 sahne 01 `yardim.py` birebir kopyası; `ORTAK` = S3 `ortak/`) | DOKUNMA; `import yardim as Y` |
-| `D/olay.py` | VAR (şef uyarladı) | DOKUNMA; `uret.zamanlar()` arayüzü §3.10'da |
-| `D/calistir.sh`, `D/zamanlar.json`, `D/nesneler.json`, `D/cizim/ogretmen.json`, `D/cizim/KAYNAK.md` | VAR (şef) | DOKUNMA |
+| `/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s3/sahneler/01-hyperframes-kapak/uret.py` | VAR (v1, 849 satır) | YERİNDE DÜZENLE: §3 delta listesi. Yalnız bu dosya yazılır |
+| `D/yardim.py` | VAR (v1 HUD) | DOKUNMA. `Y.genislik`, `Y.font_css`, `Y.font_kopyala`, `Y.ZEMIN_CSS`, `Y.zemin_html`, `Y.LOGO_EN_BOY`, `Y.LOGO_KAYMA` kullanılır. `Y.kunye_svg`, `Y.altyazi_svg`, `Y.HUD`, `Y.rozet_konumu`, `Y.DERS` ARTIK KULLANILMAZ (v1 HUD) |
+| `D/olay.py` | VAR | DOKUNMA; `uret.zamanlar()` arayüzü v1 ile aynı kalır (§3.10) |
+| `D/zamanlar.json` | VAR (şef v2'ye çevirdi) | DOKUNMA; §3.1 |
+| `D/calistir.sh`, `D/cizim/ogretmen.json` | VAR | DOKUNMA |
 
-Yalnız `D/uret.py` yazılır. Başka dosyaya dokunma. Silme yok. Test, render, git yok. Betik koşma yok (şef koşar).
-Python: girinti 4 boşluk (S1 kalıbıyla uyum), satır ≤ 120, yeni işlevlerde tip ipucu. Çalıştırma `/usr/bin/python3 uret.py`
-(fontTools kullanıcı site-packages'ta; `-I` YOK).
+Başka dosyaya dokunma. Silme yok. Test, render, git yok. Betik koşma yok (şef koşar). Python: girinti 4 boşluk, satır ≤ 120,
+yeni işlevlerde tip ipucu. Çalıştırma `/usr/bin/python3 uret.py` (fontTools kullanıcı site-packages'ta; `-I` YOK).
 
-## 2. Kalıp kaynakları (salt oku)
+## 2. Kalıp kaynağı
 
-| Kalıp | Mutlak yol | Ne alınır |
-|---|---|---|
-| Ana iskelet (aynı motor, aynı ders, dikey kapak) | `K/projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/uret.py` | BÜTÜN yapı: okuma, sabitler, `_denetimler()` (power3 ease işlevleri, `_kesisir`, örnekleme döngüsü), `zamanlar()`, `uret()` HTML iskeleti (`#root` data-*, `#sahne` svg, `<defs>` clip), `ac()`, kırpmayla yazım (`#crN` width tween), `uc2()` (svgOrigin bir kez `gsap.set`, x/y `power3.inOut`, scale `power3.out`), altyazı aç/kapa, 0. kare `gsap.set`'leri, `window.__timelines["main"]`, `__main__` (font kopya, index.html, devir.json) |
-| Kalem geometrisi | `K/projeler/02-04-ydt-temel-s3/ortak/kalem-canvas.js` satır 48–56 (`hash`, `gurul`), 254–263 (`elips`), 279–291 (`kutu`) | Python'a birebir taşı (§3.2) |
-| Çizim geometrisi | `K/projeler/02-04-ydt-temel/sahneler/05-canvas-ornek3/sahne.js` satır 81–142 (`trenParcalari`, `saatParcalari`, `biletParcalari`) | parça listeleri, tohumlar, kalınlıklar (§3.3) |
-| Künye, tema | `D/yardim.py` (`kunye_svg`, `altyazi_svg`, `rozet_konumu`, `HUD`, `DERS`, `RENK`) · `K/projeler/02-04-ydt-temel-s3/ortak/hf_tema.py` | uret.py KOYU hex yazar; §3.7 |
+Örnek sahne = bu sahnenin v1 kodu: `D/uret.py` (yedeği yukarıdaki dizinde). Alınacak kalıp: BÜTÜN v1 yapısı korunur — kalem geometrisi
+(`hash_`, `gurul`, `elips`, `kutu`, `pts_to_d`, `kutu_kenar_to_d`), çizim üreticileri (`_tren_parcalari_svg`, `_saat_svg`, `_bilet_svg`,
+`_fig_svg`), `_denetimler()` iskeleti (ease işlevleri, `_kesisir`, örnekleme döngüsü), `zamanlar()`, `uret()` HTML iskeleti, `ac()`, kırpmayla
+yazım (`#cr1`/`#cr2` width tween), altçizgi, kart çerçevesi çizimi, `uc2()` (svgOrigin bir kez `gsap.set`, `smoothOrigin:false`), `__main__`.
+Değişen yalnız: yerleşim sabitleri, künye/kanal/altyazı (v1 HUD → v2), uçuş hedefleri ve eksen ease'leri, devir değerleri, denetimler.
 
-## 3. `uret.py`
+## 3. `uret.py` delta listesi
 
 ### 3.1 Okuma
-- `Z = zamanlar.json` (D içinde): fps 30, kare 102, sure 3,4, `alti` [0,30, 0,50], `yazi_cap` 0,28, `ucus` [2,00, 0,85], `ucus_olcek` 0,72,
-  `rozet_kay` [2,00, 0,40], `sahne_sol` [2,00, 0,40], `kunye_ac` [2,62, 0,23], `baslik_sol` [2,49, 0,18], `ucus_ayrik` 16, `kapak_kare` 59,
-  `kart_ciz` [2,62, 0,28], `tren_olcek` 0,5.
-- `SOZ` = `ORTAK/anlatim/sozcukler.json` içinde `cumle == 1` sözcükler. Assert: ilk 7 sözcük
-  `["The", "train", "to", "Izmir", "leaves", "at", "seven"]`. Zaman dosyadan okunur (sahne 01: küresel sn = yerel sn).
-  Ölçülen: The 1,00–1,16 · train 1,28–1,40 · to 1,48–1,56 · Izmir 1,64–2,12 · leaves 2,20–2,44 · at 2,56–2,68 · seven 2,80–2,92.
-- `ALT` = `ORTAK/anlatim/altyazi.json`, EKRAN dönüşümüyle kopyalanır: her öğenin `metin` alanında `"Izmir"` → `"İzmir"`,
-  `"seven p.m."` → `"7 pm"` (ekranda noktalı İ ve `7 pm` kuralı; ses değişmez). Sözlük modül düzeyinde `EKRAN` adıyla durur.
-- `FIG` = `D/cizim/ogretmen.json` (`kutu` [x0,y0,x1,y1], `el` [x,y], `yollar` [{parca, d}]) — S1 ile aynı veri.
+- `Z` = `D/zamanlar.json` (v2): fps 30, kare 102, sure 3,4, `alti` [0,30, 0,50], `yazi_cap` 0,28, `ucus` [2,00, 0,85], `ucus_olcek` 0,72,
+  `sahne_sol` [2,00, 0,30], `kunye_ac` [2,62, 0,23], `baslik_sol` [2,49, 0,18], `kapak_kare` 59, `kart_ciz` [2,62, 0,28], `tren_olcek` 0,5.
+  v1'deki `rozet_kay` ve `ucus_ayrik` alanları YOK; koddan da kaldır (rozet kaymaz, ayrık yok).
+- `SOZ`, `EKRAN`, `ALT`, `FIG`: v1 ile aynı (sözcük zamanları dosyadan; ilk 7 sözcük assert'i kalır).
 
-### 3.2 Kalem geometrisi (kalem-canvas.js → Python, birebir)
-- `_imul(a, b)`: 32 bit tamsayı çarpımı (`(a & 0xFFFFFFFF) * (b & 0xFFFFFFFF) & 0xFFFFFFFF`).
-- `hash(a, b=0, c=0) -> float`: JS ile aynı: h = (imul(a,374761393) + imul(b,668265263) + imul(c,1274126177)) mod 2³²;
-  h = imul(h ^ (h >> 13), 1274126177); h ^= h >> 16; dönüş h / 4294967296 (bütün işlemler işaretsiz 32 bit).
-- `gurul(x, s)`: i = floor(x), f = x − i, u = f²(3 − 2f); lerp(hash(i, s, 7), hash(i + 1, s, 7), u) − 0,5.
-- `elips(cx, cy, rx, ry, egim=0, tohum=1) -> list[(x, y)]` ve `kutu(x, y, w, h, tohum=1) -> list[list[(x, y)]]` (4 kenar, her biri 3 nokta):
-  JS satır 254–263 ve 279–291 ile aynı formül.
-- SVG yolu: kutu kenarı `[a, m, b]` → `"M a Q m b"`; öbür nokta dizileri → `"M p0 L p1 L …"`. Sayılar 2 ondalık.
+### 3.2 Kalem geometrisi ve çizim geometrisi
+v1 ile birebir aynı (değişmez). Tren, saat, bilet, figür yollarının iç geometrisi aynı; yalnız yerleşim sabitleri değişir (§3.4).
 
-### 3.3 Çizimler (yerel birim = px; `u(n) = n`)
-| Öğe | Geometri (ana ders sahne 05'ten) | Kalınlık · renk |
-|---|---|---|
-| Tren `g#tren > g#tren-ic` | `trenParcalari(0, 0)` parça listesinin aynısı: lokomotif kutu(200,55,170,75,31), kabin kutu(200,10,75,45,32), baca kutu(320,22,26,33,33), ön burun düz [(370,95),(398,130),(370,130)], vagon kutu(0,45,175,85,34), bağlantı düz [(175,112),(200,112)], vagon camları kutu(20,60,50,30,35) + kutu(100,60,50,30,36), kabin camı kutu(215,20,42,25,37), tekerlek elips(x,138,17,17,0,50+i) x∈{40,135,240,335}, ray düz [(−10,158),(420,158)], duman elips(345,2,11,9,0.2,61) + elips(372,−16,8,7,0.3,62) | gövde 4,5 · ince 3,6 (baca, bağlantı, camlar) · ray 4 · duman 3,4 / 3,2; gövde/ince `#f3efe6`, ray ve duman `#c9c2b3`; her yolda `vector-effect="non-scaling-stroke"` |
-| Saat `g#saat` (`#eskiz` içinde) | `saatParcalari(SAAT_X, SAAT_Y, SAAT_R)`: kadran elips(cx,cy,r,0.97r,0.05,41); 4 çentik (12, 3, 6, 9) 0,8r → 0,66r; yelkovan merkez → (cx, cy − 0,66r); akrep merkez → 210° yönünde 0,5r (kollar yedide). Rakam YOK | kadran 5, çentik 4, yelkovan 5, akrep 6; hepsi `#f3efe6` (akrep sarı DEĞİL: tek vurgu kuralı) |
-| Bilet `g#bilet` (`#eskiz` içinde, figürden ÖNCE) | `biletParcalari` noktaları ölçek BS ile: P(x, y) = (BCX + BS·(x·cos e − y·sin e), BCY + BS·(x·sin e + y·cos e)); 4 kenar (sağ/sol kenarda 13 noktalı çentik yayı, yarıçap 22), 6 delik çizgisi (x 100, y0 = −58 + 20i, boy 11), 3 baskı satırı ([−150,−30→60], [−150,0→30], [−150,30→70]) | kenar 4,5 `#f3efe6`; delik 3,4 ve baskı 4 `#c9c2b3`. Önce örtü: köşeler (±180, ±70) dönüşmüş çokgen, `stroke="none" style="fill:var(--zemin)"` |
-| Figür `g#fig` (`#eskiz` içinde, biletten SONRA: el bileti tutar) | S1 ile aynı: `translate(FIG_X − x0·fs  (ZEMIN_Y − FIG_H) − y0·fs) scale(fs)`, yollar `f0…` | gövde 4,4 · saç 3,6 · yüz 2,6 (ekranda; `/ fs`), `#f3efe6` |
-
-`#tren` dışta dönüşümsüz grup (GSAP bunu sürer); yerleştirme içteki `g#tren-ic transform="translate(TX TY)"`'de. Dış grupta transform
-özniteliği OLMAZ (GSAP öznitelikteki translate'i x/y diye okur, uçuşta kaybolur). Yer çizgisi YOK: tren rayı zemin; figür ayağı aynı y'de.
+### 3.3 Kaldırılanlar (v1 HUD)
+`KENAR` (48), `DERS`, `ROZET` (v1 36 px), `rz_x/rz_w` (`Y.rozet_konumu`), `gd1/gd2`, `dersTaban/dersSatir`, `Y.kunye_svg("Hook")`, çip,
+`#ku-ders`, `#ku-cip`, rozet kayma tween'i, `V.rz_kayma`. Üst logo (y 48–144) YOK. Ekranda "Hook" yazısı YOK.
 
 ### 3.4 Sabitler ve türetilen ölçüler (px; g(m, aile, ağırlık, boy) = `Y.genislik`)
 | Ad | Değer | Not (şef ölçümü) |
 |---|---|---|
-| KENAR | `Y.HUD["kenar"]` = 48 | |
-| BAS1, BAS2Y | `TARİFE`, `PLAN` | başlık; Türkçe İ; `text-transform` yok |
-| PAD | 0,20 em | hap yatay iç boşluğu |
-| B | floor(min(190, 952 / g(BAS1,1), 952 / (g(`= PLAN`,1) + 2·PAD))) | = 190; assert 150 ≤ B ≤ 190 |
-| g1, t1x | g(BAS1, Fredoka 700, B), (W − g1)/2 | ≈ 647,9 · 216,0 |
-| T1 | 354 + 0,921·B | ≈ 529,0 (İ noktası üstü 354 ≥ 352) |
-| ALTI_Y | T1 + 0,16·B | ≈ 559,4 (TARİFE'de kuyruk yok) |
-| HAP_UST | ALTI_Y + 29 | ≈ 588,4 |
-| T2 | HAP_UST + 0,88·B | ≈ 755,6 (`PLAN` başlık 2 tabanı) |
-| HAP_ALT | T2 + 0,18·B | ≈ 789,8 |
-| hap | w = g(`= PLAN`, B) + 2·PAD·B, x = (W − w)/2, h = HAP_ALT − HAP_UST, rx = h/2 | ≈ x 195,6 · w 688,8 |
-| GX | hap.x + PAD·B | ≠ glif kutusunun solu ≈ 233,6 |
-| PX | GX + g(`= `, B) | `PLAN` yazısının x'i ≈ 362,8 (text-anchor start) |
-| ≠ çizgileri (em → px: x = GX + a·B, y = T2 − b·B) | çubuk 1 (0,093; 0,159) → (0,352; 0,159); çubuk 2 (0,093; 0,356) → (0,352; 0,356); eğik (0,322; 0,555) → (0,150; −0,005) | Fredoka `=` glif ölçüsü (çubuk kalınlığı 0,158 em). Çubuk w 0,158·B, eğik w 0,14·B, round cap. QA tur 1: ilk eğik (0,330; 0,560) → (0,115; −0,045) hap kavisinden taşıdı |
-| SOL | 97 | kart yazısı solu (kart x 57 + iç boşluk 40) |
-| KB | 64 | kart yazısı Fredoka 700 64 (sahne 02 kart yazısıyla aynı; BRIEF-DIKEY §3) |
-| SATIR_ARA | 98 | ≈ 1,54·KB (sözleşme: kalıcı altçizgi alt satıra değmez) |
-| R1_K, R2_K | 876, R1_K + SATIR_ARA = 974 | kapak konumu tabanları |
-| KART | x 57, y 368, w 966, h 260, tohum 71 | `kutu(57, 368, 966, 260, 71)`; taşma payı 9 px ile x 48–1032 |
-| R1_SON, R2_SON | 468, 566 | uçuş sonrası = sahne 02 kare 0 |
-| DY | R1_SON − R1_K = −408 | iki satıra aynı kayma |
-| ZEMIN_Y | 1384 | tren rayı ve figür ayağı |
-| TX, TY | 58, ZEMIN_Y − 158 = 1226 | tren yerel (−10, 158) → ekran (48, 1384); tren kutusu yerel [−10, 420] × [−24, 158] → ekran [48, 478] × [1202, 1384] |
-| SAAT_X, SAAT_Y, SAAT_R | 160, 1100, 72 | ekranda ≈ 82–238 × 1022–1178 (elips taşması 1,09·r) |
-| FIG_H, FIG_X | 460, 600 | fs = FIG_H / (y1 − y0); figür 600–742,6 × 924–1384; el EX, EY ≈ (728,8, 1167,9) (S1 formülü) |
-| BS, egim | 0,42, −0,18 | bilet ölçeği ve eğimi |
-| BCX, BCY | EX + BS·150, EY − 6 | ≈ (791,8, 1161,9); bilet sol ucu elin üstünde |
-| E1 (`leaves`) | x 380 `text-anchor="middle"`, taban 1080 | Caveat 700 72; ≈ 309–451 × 1030–1098 |
-| E2 (`am going`) | x W − KENAR = 1032 `text-anchor="end"`, taban 1080 | Caveat 700 72; ≈ 816–1032 |
-| TREN_SON | kutu [785, 392] – [1000, 483]; o3 = kapak kutusu merkezi (263, 1293); h3 = (892,5, 437,5); hs3 = `tren_olcek` 0,5 | kart 1 sağ üst köşesi (kart içinde, satır 1'in sağında) |
+| ORTA_X | 510 | içerik bandı x 60–960'ın ortası (v1 540) |
+| B | floor(min(190, 900 / g(BAS1,1), 900 / (g(`= PLAN`,1) + 2·PAD))) | = 190; assert B == 190 (900 sınırı 263 / 249 verir) |
+| g1, t1x | g(`TARİFE`, Fredoka 700, B), ORTA_X − g1/2 | ≈ 647,9 · 186,05 |
+| T1 | 466 + 0,921·B | ≈ 640,99 (İ noktası üstü 466 ≥ 460) |
+| ALTI_Y | T1 + 0,16·B | ≈ 671,39 |
+| HAP_UST | ALTI_Y + 29 | ≈ 700,39 |
+| T2 | HAP_UST + 0,88·B | ≈ 867,59 |
+| HAP_ALT | T2 + 0,18·B | ≈ 901,79 |
+| hap | w = g(`= PLAN`, B) + 2·PAD·B ≈ 688,75; x = ORTA_X − w/2 ≈ 165,63; h = HAP_ALT − HAP_UST; rx = h/2 | |
+| GX, PX | hap.x + PAD·B ≈ 203,63; GX + g(`= `, B) ≈ 332,83 | ≠ çizgileri v1 em formülüyle (GX, T2, B'ye göre; değişmez) |
+| SOL, KB, SATIR_ARA | 97, 64, 98 | v1 ile aynı |
+| R1_K, R2_K | 986, 1084 | kapak konumu tabanları (satır 1 üstü 927 = HAP_ALT + 25) |
+| R1_SON, R2_SON | 568, 666 | uçuş sonu = sahne 02 kare 0 (v1 468/566 + 100; istem sabiti) |
+| DY | R1_SON − R1_K = −418 | iki satıra aynı kayma |
+| ZEMIN_Y | 1376 | tren rayı + figür ayağı (ray çizgisi 4 → alt 1378 ≤ 1380) |
+| TX, TY | 70, ZEMIN_Y − 158 = 1218 | tren yerel kutusu [−10, 420] × [−24, 158] → ekran [60, 490] × [1194, 1376]; tren iç ölçeği 1 |
+| SAAT_X, SAAT_Y, SAAT_R | 130, 1170, 58 | ekranda ≈ 66,8–193,2 × 1106,8–1233,2 (taşma 1,09·r); vagon üstü 1263'e 30 px |
+| FIG_H, FIG_X | 340, 600 | fs = FIG_H / (y1 − y0) ≈ 0,11517; figür 600–705,4 × 1036–1376; el EX, EY ≈ (695,2, 1216,3) (v1 formülü) |
+| BS, egim | 0,42, −0,18 | v1 ile aynı |
+| BCX, BCY | EX + BS·150, EY − 6 | ≈ (758,2, 1210,3); bilet ≈ x 678,6–837,8 (+ çentik 9) × y 1167,8–1252,8 |
+| E1 (`leaves`) | x 300 `text-anchor="middle"`, taban 1196 | Caveat 700 72; ≈ 229–371 × 1146–1214; kabin üstü 1228 |
+| E2 (`am going`) | x 956 `text-anchor="end"`, taban 1136 | Caveat 700 72; ≈ 739,9–956 × 1086–1154 |
+| KART | `kutu(71, 472, 878, 254, 71)` | x 62–958 (titreşim ±9 + çizgi 2 ile 60–960), üst ≥ 461 |
+| o3, h3, hs3 | (275, 1285) kapak kutusu merkezi · (819,5, 540,0) · `tren_olcek` 0,5 | uçuş sonu tren kutusu h3 + hs3·(kapak kutusu − o3) = [712, 494,5, 927, 585,5]; hesapla, elle yazma |
+| KONU | `Simple Present vs Present Continuous` | künye satırı metni (büyük-küçük harf aynen) |
+| ROZET | `YDT · BASIC` | Lexend 700 26 |
+| ROZET_W | g(ROZET, Lexend 700, 26) + 40 | ≈ 203,6 (iç boşluk 20 + 20) |
+| KB_K | {34, 33, …, 28} içinde 60 + g(KONU, Fredoka 700, k) + 20 + ROZET_W ≤ 960 sağlayan EN BÜYÜK k | = 34 (868,2 ≤ 960); 28'de de sığmazsa assert |
+| ROZET_X | 60 + g(KONU, Fredoka 700, KB_K) + 20 | ≈ 664,6 |
+| UK | 0,85 | başlık hedef genişlik payı (v1 ile aynı) |
+| ga, gs, gb | g(`Simple Present vs`, KB_K), g(`Simple Present vs `, KB_K), g(`Present Continuous`, KB_K) | ≈ 264,8 · 272,5 · 294,9 |
+| KONU_ORTA_Y | 420 − 0,35·KB_K | ≈ 408,1 |
+| o1, h1, hs1 | (t1x + g1/2, T1 − 0,35·B) · (60 + UK·ga/2, KONU_ORTA_Y) · UK·ga / g1 | ≈ (510, 574,5) · (172,5, 408,1) · 0,3474; uçuş sonu `#bas1` konu satırının ilk yarısında (x 60–285) |
+| o2, h2, hs2 | (ORTA_X, (HAP_UST + HAP_ALT)/2) · (60 + gs + UK·gb/2, KONU_ORTA_Y) · UK·gb / hap.w | ≈ (510, 801,1) · (457,9, 408,1) · 0,3639; uçuş sonu `#bas2` konu satırının ikinci yarısında (x 332,5–583) |
 
-### 3.5 Olay listesi (kare = round(sn × 30))
+### 3.5 Kanal katmanı + künye + altyazı (yeni, uret.py içinde; v1 `Y.kunye_svg` / `Y.altyazi_svg` yerine)
+Değerler istem ve BRIEF-S3 "Yerleşim" tablosundan; değiştirme.
+
+| Öğe (ID) | Değer |
+|---|---|
+| `g#kunye` | dış grup (kapı `#kunye` içini künye sayar). İçinde sırayla `g#kanal`, `text#ku-konu`, `g#rz0` |
+| `g#kanal` | `image#logoimg` `href="assets/logo.svg"` (calistir.sh tema logosunu buraya kopyalar; hf_tema `#logoimg` kimliğini arar): height 48, width = 48·`Y.LOGO_EN_BOY` (≈ 193,49), x = 60 − `Y.LOGO_KAYMA`·width (≈ 53,15), y 291 · `text#kanal-ad` `@ydspublishing`: x 263, y 330, Lexend 700 42, `fill="#f3efe6"` (→ murekkep). Hiçbir tween, set, opaklık, dönüşüm YOK (0. kareden 102. kareye sabit) |
+| `text#ku-konu` | KONU: x 60, y 420, Fredoka 700 KB_K, `fill="#f3efe6"`, `style="font-kerning:none"`. 0. kare `gsap.set` opaklık 0; `kunye_ac`'ta 0 → 1 (`power1.out`) |
+| `g#rz0` | `rect` x ROZET_X, y 386, w ROZET_W, h 48, rx 24, `fill="#f2a93b"` (→ vurguDolgu; açık `#ffe066`) · `text` x ROZET_X + ROZET_W/2, y 419,4, `text-anchor="middle"`, Lexend 700 26, `fill="#1b1a17"` (→ pilMetin; açık `#1b2440`). 0. kareden SON KONUMUNDA, opaklık 1, tween YOK |
+| `g#altyazi` | içinde her parça `g#al<i>` (`style="opacity:0"`), aç/kapa v1 zaman kuralıyla (aç = t0 − 0,05 − t_bas, kapat = min(t1 + 0,35, sonraki t0 − 0,05) − t_bas, sure ile kırp). Satır kırma: genişlik 900, Lexend 500; boy 44, 2 satıra sığmazsa 40, sonra 36; 36'da da > 2 satır ise assert. `text-anchor="middle"`, x 510, `fill="#f3efe6"`. Taban: tek satır 1490; iki satır 1462 ve 1518. Metin EKRAN dönüşümlü `ALT` (`İzmir`, `7 pm`). Karaoke vurgusu YOK (sözcük zamanı karttaki kırpmayla verilir) |
+
+Kanal yazısı ve logo kimliği kapıda `kunye:kanal…` adıyla görünür (`#kunye` > `#kanal`).
+
+### 3.6 Olay listesi (kare = round(sn × 30); küresel sn = yerel sn)
 | # | Olay | sn (kare) | Cümle sözcüğü |
 |---|---|---|---|
-| 1 | Kapak tam görünür: logo, rozet `YDT · BASIC` (x 48'de), `TARİFE`, hap `≠ PLAN`, tren + saat, bilet tutan figür, etiketler `leaves` / `am going` | 0,00 (0) | söz öncesi |
-| 2 | `TARİFE` altına sarı el altçizgisi kalemle çizilir (`strokeDashoffset`, `sine.inOut`) | `alti` 0,30–0,80 (9–24) | söz öncesi |
-| 3 | altyazı dilimi açılır (cümle 1, EKRAN metni), sahne sonuna kadar | SOZ[0].t0 − 0,05 = 0,95 (29) | The |
-| 4 | satır 1 kırpmayla sözcük sözcük yazılır: `The` · `train` · `to` · `İzmir`; her sözcük t0'da başlar, süre min(t1 − t0, `yazi_cap`) | 1,00–1,16 · 1,28–1,40 · 1,48–1,56 · 1,64–1,92 | The 1,00 · train 1,28 · to 1,48 · Izmir 1,64 |
-| 5 | KAPAK A KARESİ: uçuş öncesi, çip yok, ders adı yok, satır 1 tam, altçizgi tam | 1,97 (59) | — |
-| 6 | rozet sağa kayar: x 48 → `Y.rozet_konumu()[0]` | `rozet_kay` 2,00–2,40 (60–72) | — |
-| 7 | `#kapak-sahne` (saat, bilet, figür, etiketler) solar | `sahne_sol` 2,00–2,40 | — |
-| 8 | uçuş: başlık 1 → ders adı 1. satır, hap → ders adı 2. satır (S1 `uc2`, opaklık `baslik_sol`'da 0'a); tren küçülerek kart 1 sağ üst köşesine iner (aynı x/y/scale kalıbı, opaklık DEĞİŞMEZ); `#r1`, `#r2` DY kadar yukarı | `ucus` 2,00–2,85 (60–85) | — |
-| 9 | satır 2 sözcük sözcük: `leaves` · `at` · `7` (satır grubu uçuşla birlikte yerine iner) | 2,20–2,44 · 2,56–2,68 · 2,80–2,92 | leaves 2,20 · at 2,56 · seven 2,80 |
-| 10 | başlıklar solar (2,49–2,67), ders adı açılır (2,62–2,85), çip `Hook` açılır (u1 − 0,22 = 2,63, 0,2 sn) | 2,49–2,85 | — |
-| 11 | kart 1 çerçevesi kalemle çizilir: 4 kenar sırayla (kutu sırası), süre kenar boyuyla orantılı, toplam `kart_ciz`; her kenar başlangıcında opaklık 0 → 1 | 2,62–2,90 (79–87) | — |
-| 12 | durgun; son 12 kare geçiş altında | 2,92–3,40 (88–101) | `p.m.` 3,00 → sahne 02 |
+| 1 | Kapak tam görünür: kanal katmanı, rozet (son konum), `TARİFE`, hap `≠ PLAN`, satır yeri boş, saat + tren, bilet tutan figür, etiketler `leaves` / `am going` | 0,00 (0) | söz öncesi |
+| 2 | `TARİFE` altına sarı el altçizgisi (`strokeDashoffset`, `sine.inOut`) | `alti` 0,30–0,80 (9–24) | söz öncesi |
+| 3 | altyazı dilimi açılır (cümle 1 EKRAN metni, tek satır), sahne sonuna kadar | 0,95 (29) | The − 0,05 |
+| 4 | satır 1 kırpmayla sözcük sözcük: `The` · `train` · `to` · `İzmir` | 1,00–1,16 · 1,28–1,40 · 1,48–1,56 · 1,64–1,92 | The 1,00 · train 1,28 · to 1,48 · Izmir 1,64 |
+| 5 | KAPAK A KARESİ: uçuş öncesi, konu adı yok, satır 1 tam, altçizgi tam | 1,97 (59) | — |
+| 6 | `#kapak-sahne` (saat, bilet, figür, etiketler) solar (`power1.in`) | `sahne_sol` 2,00–2,30 (60–69) | — |
+| 7 | uçuş: `#bas1` → konu ilk yarısı, `#bas2` → konu ikinci yarısı; `#tren` küçülerek kart 1 sağ üst köşesine; `#r1`, `#r2` DY yukarı | `ucus` 2,00–2,85 (60–85) | — |
+| 8 | satır 2 sözcük sözcük: `leaves` · `at` · `7` | 2,20–2,44 · 2,56–2,68 · 2,80–2,92 | leaves 2,20 · at 2,56 · seven 2,80 |
+| 9 | başlıklar solar (`baslik_sol` 2,49–2,67, `power1.in`); konu adı açılır (`kunye_ac` 2,62–2,85) | 2,49–2,85 | — |
+| 10 | kart 1 çerçevesi 4 kenar sırayla (süre kenar boyuyla orantılı) | `kart_ciz` 2,62–2,90 (79–87) | — |
+| 11 | durgun; son 12 kare geçiş altında | 2,92–3,40 (88–101) | `p.m.` 3,00 → sahne 02 |
 
-### 3.6 Yerleşim
+Kanal katmanı her satırda görünür; hiçbir olay ona dokunmaz.
+
+### 3.7 Uçuş (eksen ease'leri; şef ölçümü: tek ease ile `#bas1 × #bas2` 2,47–2,53'te, `#tren × #r1` 2,50'de çakışıyordu)
+- `uc2(id, o, h, hs, sol, ex, ey)`: v1 `uc2` + eksen başına ease. x tween ease `ex`, y tween ease `ey`, ikisi de süre `ud`, başlangıç `u0`;
+  scale `power3.out`, süre `Z.ucus_olcek`; `sol` true ise opaklık 0'a (`baslik_sol`, `power1.in`). `svgOrigin` uçuştan önce bir kez `gsap.set`.
+- `#bas1`: ex `power3.out`, ey `power3.inOut`, sol true. `#bas2`: ex/ey `power3.inOut`, sol true. `#tren`: ex `power3.inOut`, ey
+  `power2.inOut`, sol false (opaklık değişmez). `#r1`, `#r2`: y → DY, `power3.inOut`, süre `ud`.
+- `#tren` dış grubunda transform özniteliği OLMAZ; yerleştirme içteki `g#tren-ic transform="translate(70 1218)"` (v1 kuralı).
+
+### 3.8 SVG düzeni (alttan üste) ve renk
+`g#kapak-sahne` [`g#eskiz` (`#saat`, `#bilet`, `#fig`) + `#etk1` + `#etk2`] → `#tren` → `#kart` → `#r1` → `#r2` → `#bas2` → `#bas1` →
+`g#kunye` (§3.5) → `g#altyazi`. Renkler v1 gibi KOYU hex (hf_tema temaya çevirir): murekkep `#f3efe6`, ikincil `#c9c2b3`, vurgu
+`#f2a93b` (altçizgi stroke; hap ve rozet rect fill → vurguDolgu), hap/rozet yazısı `fill="#1b1a17"` (→ pilMetin), `≠` çizgileri
+`style="stroke:var(--pilMetin)"` (stroke özniteliği yok), `TARİFE` konturu `stroke="#1b1a17"` 12 `paint-order:stroke fill`.
+Tek vurgu = altçizgi + hap (rozet künye öğesidir). Kırmızı, yeşil, emoji, gradyan, gölge YOK. Ekranda `İzmir` noktalı, `7` rakam.
+"Tam ders", "dakika", süre sözü, QR, "izle" düğmesi, "Hook" YOK.
+
+### 3.9 Yerleşim (kapak karesi ve son hal)
 ```
-y   48 ┌ logo 387×96 (0. kareden)                        [Hook] çip 2,63'ten ┐ HUD 0–320
-  ~173 │ SIMPLE PRESENT vs  (ders, 2,62'den; taban 212)                       │
-   216 │ [YDT · BASIC] kapakta x 48 ─(2,0–2,4)→ x ≈ 670 · PRESENT CONTINUOUS   │
-   354 │ TARİFE (B 190, ortalı x 216–864, kontur 12)       ← uçuşla ders 1     │ içerik 352–1392
-   559 │ ~~~~~~ sarı altçizgi TARİFE altında (x 210–870)                        │
-   588 │ ( ≠ PLAN ) sarı hap x 196–884, ≠ kalemle çizili    ← uçuşla ders 2     │
-   876 │ The train to İzmir   Fredoka 64, x 97              → uçuşta taban 468  │
-   974 │ leaves at 7  (2,20'den yazılır; uçuşla taban 566)                     │
-  1080 │      leaves (Caveat 72, x≈380)                     am going (sağa 1032)│
-  1100 │ (saat r72, x≈160)                [figür 600–743, 924–1384][bilet ≈ 714–870]
-  1236 │ [tren 48–478, 1202–1384 → uçuşta kart köşesi 785–1000 × 392–483]       │
-  1384 │ ═════ ray (tren) ═════                    figür ayağı                  │
-  1456 │ The train to İzmir leaves at 7 pm today.  (Lexend 500 44)              │ altyazı 1400–1536
-  1536 └ PLATFORM: öğe yok                                                      ┘
-Son hal (2,92+): HUD tam · kart 1 çerçevesi 57,368 966×260 · satır 1 taban 468 · satır 2 `leaves at 7` taban 566 · tren köşede.
+y   0–280  boş zemin
+  291–339  [logo 53,2–246,6] @ydspublishing (x 263, taban 330)                 kanal: 0→102 sabit
+  360–450  künye: (kapakta yalnız rozet)            [YDT · BASIC] x 664,6–868,2 · y 386–434
+  466–641  TARİFE (B 190, ortası 510, x 186–834, kontur 12)      → uçuşla konu ilk yarısı (x 60–285)
+     671   ~~~~ sarı altçizgi (x 180–840)
+  700–902  ( ≠ PLAN ) hap x 165,6–854,4                           → uçuşla konu ikinci yarısı (x 332–583)
+  927–1000 The train to İzmir   Fredoka 64, x 97, taban 986      → taban 568
+ 1036–1098 (boş: satır 2 `leaves at 7` 2,20'den yazılır, taban 1084 → 666)
+ 1036–1376 saat (66–193 × 1107–1233) · leaves (229–371, taban 1196) · tren 60–490 × 1194–1376 |
+           figür 600–705 × 1036–1376 · am going (740–956, taban 1136) · bilet 679–847 × 1168–1253
+ 1400–1550 altyazı: The train to İzmir leaves at 7 pm today. (Lexend 500 44, orta 510, taban 1490)
+ 1570–1920 boş zemin
+Son hal (2,92+): kanal · künye `Simple Present vs Present Continuous` (34) + rozet · kart 71,472 878×254 · satır 1 taban 568 ·
+satır 2 `leaves at 7` taban 666 · tren [712, 494,5, 927, 585,5] · altyazı.
 ```
 
-### 3.7 Ekran metni, yazı, renk (KOYU hex yaz; hf_tema temaya çevirir)
-| Öğe (ID) | Metin | Yazı | Renk (hex → tema) |
-|---|---|---|---|
-| başlık 1 `text#bas1t` (grup `#bas1`) | `TARİFE` | Fredoka 700 B, x t1x, taban T1, `font-kerning:none`, kontur `stroke="#1b1a17"` 12, `paint-order:stroke fill` | `fill="#f3efe6"` → murekkep |
-| altçizgi `path#alti` (`#bas1` içinde) | — | x: t1x − 6 → t1x + g1 + 6; ALTI_Y çevresinde ±5 px dalgalı tek kübik yol (S1 kalıbı); w 10, round cap; 0. karede opaklık 0 | `stroke="#f2a93b"` → vurgu |
-| hap `rect#hap` (grup `#bas2`) | — | §3.4 | `fill="#f2a93b"` → vurguDolgu (açık `#ffe066`) |
-| ≠ `g#neq` (`#bas2` içinde, 3 `path`) | — | §3.4 çizgileri; `fill="none"`, round cap; stroke ÖZNİTELİĞİ YOK, `style="stroke:var(--pilMetin)"` (sözleşme: `stroke="#1b1a17"` zemine boyanır) | pilMetin (açık `#1b2440`) |
-| başlık 2 `text#bas2t` (`#bas2` içinde) | `PLAN` | Fredoka 700 B, x PX, taban T2, `font-kerning:none` | `fill="#1b1a17"` → pilMetin |
-| satır 1 `g#r1 > text` | `The train to İzmir` | Fredoka 700 64, x SOL, taban R1_K, `font-kerning:none`, `clip-path="url(#cp1)"` | `#f3efe6` → murekkep |
-| satır 2 `g#r2 > text` | `leaves at 7` (yalnız bu; `pm today.` sahne 02'de) | Fredoka 700 64, x SOL, taban R2_K, `clip-path="url(#cp2)"` | murekkep |
-| kırpma `clipPath#cp1/#cp2 > rect#cr1/#cr2` | — | x SOL − 12, y taban − 64, h 1,35·64, width 0 | — |
-| kart `g#kart > path#kc0…#kc3` | — | `kutu(57, 368, 966, 260, 71)` kenarları; w 4, round cap, `fill="none"`; 0. karede opaklık 0 | `stroke="#f3efe6"` |
-| etiket `text#etk1`, `text#etk2` | `leaves`, `am going` | Caveat 700 72, §3.4 E1/E2; `stroke="none"` | `fill="#f3efe6"` |
-| tren / saat / bilet / figür | — | §3.3 | §3.3 |
-| künye | `Y.kunye_svg("Hook")` (`KUNYE.cipler["01-hyperframes-kapak"]` = `Hook`) | S1 ile aynı | |
-| altyazı `g#altyazi` | `Y.altyazi_svg(0.0, Z["sure"], ALT)` (ALT = EKRAN dönüşümlü kopya) | Lexend 500 44 | murekkep |
+### 3.10 Denetimler (`_denetimler()`; assert, ihlalde dur, sabiti kendin değiştirme, ihlali mesaja yaz)
+1. B == 190; hap ve başlık 1 x ∈ [60, 960]; T1 − 0,921·B ≥ 460; KB_K ∈ [28, 34] ve ROZET_X + ROZET_W ≤ 960.
+2. Satır metinleri ≤ 24 karakter; SOL + g(`leaves at 7 pm today.`, 64) ≤ 71 + 878 − 26.
+3. Kapak dikey (≥ 24 px): HAP_ALT → R1_K − 0,921·64; R1_K + 0,212·64 → min(figür üstü ZEMIN_Y − FIG_H, E2 üstü 1136 − 0,70·72).
+   Satır 2 yeri (≥ 6 px): R2_K + 0,212·64 + 6 ≤ min(saat üstü SAAT_Y − 1,09·SAAT_R, E1 üstü 1196 − 0,70·72).
+   E2 altı (1136 + 0,25·72) + 12 ≤ bilet üstü (dönmüş 4 köşenin en küçük y'si). E1 altı (1196 + 0,25·72) + 12 ≤ kabin üstü TY + 10.
+   saat altı + 20 ≤ vagon üstü TY + 45. ZEMIN_Y + 2 ≤ 1380.
+4. Yatay (≥ 20 px): E2 sol (956 − g) ≥ figür sağı + 20; saat sağı + 20 ≤ E1 sol (300 − g/2); E1 sağı + 20 ≤ duman solu TX + 334;
+   tren sağı TX + 420 + 20 ≤ FIG_X; bilet sağı (dönmüş köşe) + 9,24 ≤ 960; E2 sağı 956 ≤ 960; saat solu ≥ 60; tren solu TX − 10 ≥ 60.
+5. Son hal: kart titreşim + çizgi payıyla (x − 11, x + w + 11) ⊂ [60, 960], y − 11 ≥ 460; R1_SON − 0,921·64 ≥ 472 + 30;
+   R2_SON + 0,48·64 + 20 ≤ 472 + 254; tren son kutusu kart içinde ≥ 20 px (sağ ≤ 71 + 878 − 20, üst ≥ 472 + 20);
+   tren son altı + 24 ≤ R2_SON − 0,75·64; tren son solu ≥ SOL + g(satır 1, 64) + 40; rozet altı 434 + 20 ≤ kart üstü 472 − 11.
+6. Zaman: satır 1 son bitiş ≤ kapak_kare/30 − 1/30; satır 2 son bitiş ≤ 2,93; u1 ≤ (Z.kare − 12)/30; kart_ciz bitişi ≤ 2,97;
+   başlık opaklığı 0,5'in altına iner (baslik_sol[0] + 0,71·baslik_sol[1]) < konu opaklığı 0,5'i geçer (kunye_ac[0] + 0,29·kunye_ac[1]).
+7. Uçuş çakışma örneklemesi (adım 1/30, t = u0 … u1, 6 px pay; v1 `_kesisir`). Ease işlevleri: power3.inOut (v1), power3.out (v1),
+   power2.inOut (p < 0,5 ise 4p³, değilse 1 − 4(1 − p)³). Kutular: `#bas1` [t1x, t1x + g1] × [T1 − 0,921·B, ALTI_Y + 5] (o1 çevresinde
+   ölçek es, x kayması ex ile, y kayması ey ile), `#bas2` hap kutusu (o2), `#rz0` [ROZET_X, ROZET_X + ROZET_W] × [386, 434] (sabit),
+   `#kanal` [53, 602] × [291, 339] (sabit), `#r1` [SOL, SOL + g(satır 1)] × [R1_K − 0,921·64, R1_K + 0,212·64] + DY·et,
+   `#r2` [SOL, SOL + g(o ana kadar açılmış önek)] × [R2_K − 0,75·64, R2_K + 0,212·64] + DY·et (yalnız t ≥ 2,20),
+   `#tren` kapak kutusu [60, 490] × [1194, 1376] o3 çevresinde es ile ölçeklenip x'te power3.inOut, y'de power2.inOut ile kayar.
+   Çiftler: başlık opaklığı ≥ 0,5 iken bas1 × rz0, bas2 × rz0, bas1 × kanal, bas2 × kanal, bas2 × r1, bas1 × r1, bas1 × bas2 (tam kutu),
+   tren × bas1, tren × bas2; bütün uçuşta tren × r1, tren × r2, tren × rz0. Düşerse t ve çifti yazıp dur.
+   (Şef benzetimi: bu parametrelerle hiçbir çift düşmez; en dar aralık bas1 × bas2 24 px, tren × r1 23,6 px.)
 
-Tek vurgu = altçizgi + hap + rozet + çip (aynı sarı). Kırmızı, yeşil, emoji, gradyan, gölge YOK. Ekranda `İzmir` noktalı, `7` rakam.
-"kanal" sözü, QR, süre YOK.
-
-### 3.8 SVG düzeni ve zaman çizelgesi
-- Sıra (alttan üste): `g#kapak-sahne` [`g#eskiz` (`#saat`, `#bilet`, `#fig`) + `#etk1` + `#etk2`] → `#tren` → `#kart` → `#r1` → `#r2` →
-  `#bas2` → `#bas1` → künye → `#altyazi`. `#eskiz`: `fill="none" stroke="#f3efe6" stroke-linecap="round" stroke-linejoin="round"`.
-- 0. kare `gsap.set`: `#ku-ders` opaklık 0, `#ku-cip` opaklık 0, `#rz0` x = KENAR − rozet_konumu().x, `#alti` ve `#kc0…3` dash gizli.
-  Bütün tween'ler `immediateRender: false` (`ac()`).
-- Altçizgi: S1 kalıbı (`tl.set` opaklık 1 + `strokeDashoffset` 0, `sine.inOut`).
-- Satır 1: `#cr1` genişliği 4 adımda; adım k genişliği = 12 + g(önek_k) + 8 (önekler `The`, `The train`, `The train to`), son adım
-  12 + g(tam satır) + 12. Her adım `fromTo` önceki genişlikten, `ease: "none"`, başlangıç t0, süre min(t1 − t0, `yazi_cap`).
-  Satır 2: aynı kalıp 3 adım (önekler `leaves`, `leaves at`; son `leaves at 7`).
-- Uçuş: `uc2(id, o, h, hs, sol)` — S1 `uc2` + `sol` bayrağı (false ise opaklık tween'i yok). `svgOrigin` uçuştan önce bir kez `gsap.set`
-  (`smoothOrigin: false`), tween'lerde YOK (S1 QA tur 3). UK = 0,85.
-  o1 = (t1x + g1/2, T1 − 0,35·B), h1 = (KENAR + UK·gd1/2, dersTaban − 0,35·56 − `ucus_ayrik`), hs1 = UK·gd1 / g1;
-  o2 = (540, (HAP_UST + HAP_ALT)/2), h2 = (KENAR + UK·gd2/2, dersTaban + dersSatir − 0,35·56 + `ucus_ayrik`), hs2 = UK·gd2 / hap.w;
-  gd1, gd2 = g(DERS[0|1], Fredoka 700, 56). `#bas1`, `#bas2` sol = true; `#tren` o3, h3, hs3 (§3.4), sol = false.
-  `#ku-ders` 0 → 1 (`kunye_ac`, `power1.out`); `#ku-cip` 0 → 1 (0,2 sn, u1 − 0,22); `#rz0` x → 0 (`rozet_kay`, `power3.inOut`);
-  `#kapak-sahne` opaklık → 0 (`sahne_sol`, `power1.in`); `#r1`, `#r2` y → DY (`ucus`, `power3.inOut`).
-- Kart çerçevesi: 4 kenar sırayla; kenar boyu `getTotalLength()`; süreler boy oranıyla `kart_ciz[1]`'e bölünür; her kenarda `tl.set`
-  opaklık 1 + `strokeDashoffset` → 0, `ease: "none"`.
-- Altyazı: S1 `V.alt.forEach` aç/kapa.
-
-### 3.9 Denetimler (uret.py içinde assert; ihlalde dur, sabiti kendin değiştirme, ihlali yaz)
-1. B ∈ [150, 190]; hap ve başlık 1 x ∈ [63, 1017]; T1 − 0,921·B ≥ 352.
-2. Satır metinleri ≤ 24 karakter (`The train to İzmir`, `leaves at 7 pm today.`); SOL + g(`leaves at 7 pm today.`, 64) ≤ 57 + 966 − 40.
-3. Kapak dikey (≥ 24 px ara): HAP_ALT → R1_K − 0,921·64; R1_K + 0,212·64 → min(figür üstü ZEMIN_Y − FIG_H, etiket üstü 1080 − 0,70·72,
-   saat üstü SAAT_Y − 1,09·SAAT_R); etiket altı (1080 + 0,25·72) + 12 ≤ bilet üst köşesi (dönmüş 4 köşenin en küçük y'si);
-   `leaves` altı + 24 ≤ tren üstü (1202).
-4. Yatay (≥ 20 px): `am going` sol (1032 − g) ≥ figür sağı (FIG_X + (x1 − x0)·fs) + 20; `leaves` sağı (380 + g/2) + 20 ≤ FIG_X;
-   saat sağı (SAAT_X + 1,09·SAAT_R) + 20 ≤ `leaves` sol; bilet sağı (dönmüş köşe + çentik payı yok) ≤ W − KENAR; tren sağı 478 + 20 ≤ FIG_X.
-5. Son hal: kart taşma payıyla x ∈ [48, 1032], üstü ≥ 352; R1_SON − 0,921·64 ≥ 368 + 40; R2_SON + 0,48·64 + 24 ≤ 368 + 260;
-   TREN_SON kutusu kart iç payı ≥ 20 (sağ 1000 ≤ 1023 − 20, üst 392 ≥ 368 + 20); TREN_SON altı 483 + 24 ≤ R2_SON − 0,75·64;
-   TREN_SON solu 785 ≥ SOL + g(satır 1, 64) + 40. TREN_SON kutusu §3.4 formülünden hesaplanır (h3 + hs3·(kapak kutusu − o3)), elle yazılmaz.
-6. Zaman: satır 1 son bitiş ≤ kapak_kare/30 − 1/30; satır 2 son bitiş ≤ 2,93 (2,95 karesinde `7` tam; S1 QA tur 2);
-   u1 ≤ (Z.kare − 12)/30; kart_ciz bitişi ≤ 2,97.
-7. Uçuş çakışma örneklemesi (S1 §4.7 kalıbı, adım 1/30, 6 px pay): t = u0 … u1. Kutular: `#bas1` [t1x, t1x + g1] × [T1 − 0,921·B, ALTI_Y + 5],
-   `#bas2` hap, `#rz0` (kayan x, y 216–288), `#r1` [SOL, SOL + g(satır 1)] × [R1_K − 0,921·64, R1_K + 0,212·64] + DY·ease,
-   `#r2` [SOL, SOL + g(o ana kadar açılmış önek)] × [R2_K − 0,75·64, R2_K + 0,212·64] + DY·ease (yalnız t ≥ 2,20),
-   `#tren` kapak kutusu o3 çevresinde es ile ölçeklenip et ile kayar. Çiftler: bas1 × rz0, bas2 × rz0, bas2 × r1, bas1 × bas2 (S1 c4,
-   T1 + 0,01·B ve T2 − 0,69·B ile), yalnız başlık opaklığı ≥ 0,5 iken (S1 sınırı); tren × r1, tren × r2, tren × rz0 bütün uçuşta;
-   tren × bas1, tren × bas2 başlık opaklığı ≥ 0,5 iken. Düşerse t ve çifti yazıp dur.
-
-### 3.10 Çıktı ve arayüz
-- `uret() -> str` (index.html metni). Modül düzeyinde `Z`, `SOZ`, `EKRAN`; ayrıca `zamanlar() -> dict`:
-  `{"alti": [bas, sure], "r1": [[bas, sure] ×4], "r2": [[bas, sure] ×3], "ucus": [bas, sure], "kart": [bas, sure]}` (olay.py okur:
-  `r1[0]`, `r1[3]`, `r2[0]`, `kart`).
+### 3.11 Çıktı ve arayüz
+- `uret() -> str` (index.html). Modül düzeyinde `Z`, `SOZ`, `EKRAN`; `zamanlar() -> dict` v1 ile AYNI şema
+  (`alti`, `r1` ×4, `r2` ×3, `ucus`, `kart`); olay.py değişmez.
+- `V` (sayfa verisi): v1 alanları − `rz_kayma`; + `ex`/`ey` ease adları ya da uc2 çağrısında sabit dizgeler. `gsap.set("#ku-konu",{opacity:0})`;
+  `#ku-ders`/`#ku-cip`/`#rz0` set'leri YOK.
+- Kök: `data-width="1080" data-height="1920"`, `data-duration` = Z.sure, `data-fps` 30, `data-composition-id="main"`; `#sahne`
+  `viewBox="0 0 1080 1920"`; `window.__timelines["main"] = tl`.
 - `__main__`: `proje/` yoksa aç; `Y.font_kopyala(AD/"proje"/"assets"/"fonts")`; `proje/index.html` yaz; `D/devir.json` yaz ve tek satır
-  `devir: <json>` bas. devir alanları: `font` "Fredoka", `agirlik` 700, `boy` 64, `kerning` "none", `sol` 97, `taban` [468, 566],
-  `satir` ["The train to İzmir", "leaves at 7 pm today."], `gorunen` ["The train to İzmir", "leaves at 7"],
-  `sozcuk` [[metin, satır, x0, x1] ×9] (tam satırlarda: x0 = SOL + g(önceki sözcükler + boşluk), x1 = x0 + g(sözcük); `pm`, `today.` dahil),
-  `kart` {x 57, y 368, w 966, h 260, tohum 71, cizgi 4, bicim "kutu (ortak/kalem-canvas.js)"},
-  `tren` {kutu [785, 392, 1000, 483] (hesaplanmış), olcek 0,5, yerel_kutu [−10, −24, 420, 158], tx 58, ty 1226, kaynak "trenParcalari"},
-  `altyazi_ekran` EKRAN, `t` 3.0.
-- Kök: `data-width="1080" data-height="1920"`, `data-duration` = Z.sure, `data-fps` 30; `#sahne` `viewBox="0 0 1080 1920"`.
+  `devir: <json>` bas. devir alanları: `font` "Fredoka", `agirlik` 700, `boy` 64, `kerning` "none", `sol` 97, `taban` [568, 666],
+  `satir` ["The train to İzmir", "leaves at 7 pm today."], `gorunen` ["The train to İzmir", "leaves at 7"], `sozcuk` (v1 kuralı, 9 sözcük),
+  `kart` {x 71, y 472, w 878, h 254, tohum 71, cizgi 4, bicim "kutu (ortak/kalem-canvas.js)"},
+  `tren` {kutu (hesaplanmış, tamsayıya yuvarla), olcek 0,5, yerel_kutu [−10, −24, 420, 158], tx 70, ty 1218, kaynak "trenParcalari"},
+  `kanal` {logo [x, y, w, h] (2 ondalık), yazi "@ydspublishing", yazi_x 263, yazi_taban 330, font "Lexend 700 42"},
+  `kunye` {konu KONU, boy KB_K, taban 420, rozet [ROZET_X, 386, ROZET_W, 48] (1 ondalık)},
+  `altyazi` {x 510, boy (seçilen), taban [1490] ya da [1462, 1518]}, `altyazi_ekran` EKRAN, `t` 3.0.
 
 ## 4. Kabul ölçütü (şef koşar)
 1. `cd D && /usr/bin/python3 uret.py && /usr/bin/python3 olay.py` çıkış 0; assert yok; `olaylar.json` 7 olay, hepsi kare < 90.
-2. `proje/index.html`: 1080×1920; `#kunye` içinde `#ku-ders`, `#rz0`, `#ku-cip`, `#logoimg`; `#bas1`, `#bas2`, `#neq`, `#r1`, `#r2`,
-   `#kapak-sahne`, `#tren`, `#tren-ic`, `#kart`, `#al0`. `#tren` öğesinde transform özniteliği yok.
-3. `cd K && bash araclar/qa-yerel.sh 02-04-ydt-temel-s3 01-hyperframes-kapak 0.2,1.97,2.95 1.97 --hazirla` çıkış 0.
-4. Kareler: taşma, kesik yazı, üst üste binme, okunmaz kontrast, boş kare YOK; platform bandında öğe YOK; 1,97'de satır 1 tam, çip yok,
-   ders adı yok; 2,95'te kart çerçevesi, iki satır (`leaves at 7`), tren köşede, HUD tam.
+2. `proje/index.html`: 1080×1920; `#kunye` içinde `#kanal` (`#logoimg`, `#kanal-ad`), `#ku-konu`, `#rz0`; `#ku-ders`, `#ku-cip`, "Hook" YOK;
+   `#bas1`, `#bas2`, `#neq`, `#r1`, `#r2`, `#kapak-sahne`, `#tren`, `#tren-ic`, `#kart`, `#altyazi`, `#al0`. `#tren`'de transform özniteliği yok;
+   `#kanal` hiçbir tween/set hedefinde geçmez.
+3. `cd K && bash araclar/qa-yerel.sh 02-04-ydt-temel-s3 01-hyperframes-kapak 0.0,1.5,2.97 1.97 --hazirla` çıkış 0.
+4. Çakışma kapısı 0 uyarı. Kareler: 0–280 ve 1570–1920 boş; içerik x ≤ 960; kanal katmanı dört karede aynı yerde; 1,97'de konu adı yok,
+   satır 1 tam; 2,97'de künye satırı, kart çerçevesi, `leaves at 7`, tren köşede.

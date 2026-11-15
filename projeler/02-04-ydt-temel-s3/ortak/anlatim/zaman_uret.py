@@ -7,6 +7,7 @@ S1 (15.11, S1-C): 3 sahne, 1080×1920; geçiş birlestir --gecis ile (örnekteki
 alanında, sahneler[] dışında: birlestir.py ve kur.py yalnız sahneler[] okur, hikâye zaman çizelgesine girmez.
 S3 (15.11, S3-C): S1 kopyası; sahne 02 HyperFrames (cümle 1 sonu + 2 + 3), sahne 03 cümle 4. Çok sürüm: hikâye A `hikaye`
 alanında, kapak B/C ve hikâye B `duragan` listesinde (ikisi de sahneler[] dışında, S1 zaman.json biçimi).
+Huni v2 (15.11, V2-S3-C): 4 sahne — 01 kanca → 02 değer → 08 kaydet (cümle 4, öğretmen) → 03 çağrı (cümle 5, öğrenci).
 Kullanım: /usr/bin/python3 -I zaman_uret.py   (kur.py zaman.json'un son t_son'unu toplam süre sayar)"""
 import json
 from pathlib import Path
@@ -19,15 +20,16 @@ FPS, N = 30, 12
 SAHNE = [
     ("01-hyperframes-kapak", "HyperFrames", "Kapak", "Kapak", 1, None),
     ("02-hyperframes-ornek", "HyperFrames", "Örnek", "Örnek", 3, None),
-    ("03-hyperframes-cta", "HyperFrames", "Çağrı", "Çağrı", 4, None),
+    ("08-hyperframes-kaydet", "HyperFrames", "Kaydet", "Kaydet", 4, None),
+    ("03-hyperframes-cta", "HyperFrames", "Çağrı", "Çağrı", 5, None),
 ]
 NOT = "durağan kare; zaman çizelgesine girmez"
 HIKAYE = {"klasor": "04-hyperframes-hikaye", "motor": "HyperFrames", "kare": 1, "cikti": "hikaye-a.png",
-          "ad": "Hikâye karesi A (bilgi kartı)", "not": "anlatımdan bağımsız " + NOT + "; hikaye.png = aynı dosyanın kopyası"}
+          "ad": "Hikâye karesi A (kural kartı + Kaydet)", "not": "anlatımdan bağımsız " + NOT + "; hikaye.png = aynı dosyanın kopyası"}
 DURAGAN = [{"klasor": k, "motor": "HyperFrames", "kare": 1, "cikti": c, "ad": a, "not": NOT} for k, c, a in [
     ("05-hyperframes-kapak-b", "kapak-b.png", "Kapak B (soru)"),
     ("06-hyperframes-kapak-c", "kapak-c.png", "Kapak C (karşıt çift)"),
-    ("07-hyperframes-hikaye-b", "hikaye-b.png", "Hikâye karesi B (soru kartı)")]]
+    ("07-hyperframes-hikaye-b", "hikaye-b.png", "Hikâye karesi B (soru + cevap + Kaydet)")]]
 GIRIS_SN = 3.0
 
 baslar = json.loads((AD / "baslar.json").read_text())

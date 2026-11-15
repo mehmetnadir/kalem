@@ -1,6 +1,6 @@
 """02-04-ydt-temel-s1 sahne 01 kapak index.html üretici (HyperFrames DİKEY 1080x1920, 102 kare).
 
-SPEC.md §4 uygulaması: kapak düzeni, çizimler, Caveat cümle yazımı, başlık uçuşu ve devir.json çıktısı.
+SPEC v2 §4 uygulaması (huni v2): kanal katmanı, künye, kapak düzeni, Caveat cümle yazımı, başlık uçuşu ve devir.json.
 """
 from __future__ import annotations
 
@@ -34,42 +34,45 @@ except TypeError:
     BAVUL_YOLLAR = [d for d in re.findall(r'<path d="([^"]+)"', _lug_svg) if not d.startswith("M0 0h24v24")]
 EV_YOLLAR = Y.tabler("home")
 
-# ---- 4.2 Sabitler ve türetilen ölçüler ----
+# ---- 4.1 Sabitler ve türetilen ölçüler (§4.1) ----
 W, H = Y.W, Y.H
-KENAR = Y.HUD.get("kenar", 48) if hasattr(Y, "HUD") else 48
+KENAR = Y.HUD["kenar"]
+SAG = Y.HUD["sagSinir"]
+ORTA = (KENAR + SAG) / 2
 BAS1 = "YAŞIYORUM"
 BAS2 = "= İKİ ZAMAN"
 PAD = 0.20  # em
 
 B = math.floor(min(
     190,
-    952 / Y.genislik("Fredoka", 700, BAS1, 1),
-    952 / (Y.genislik("Fredoka", 700, BAS2, 1) + 2 * PAD)
+    (SAG - KENAR) / Y.genislik("Fredoka", 700, BAS1, 1),
+    (SAG - KENAR) / (Y.genislik("Fredoka", 700, BAS2, 1) + 2 * PAD),
 ))
 g1 = Y.genislik("Fredoka", 700, BAS1, B)
-t1x = (W - g1) / 2
-T1 = 375 + 0.70 * B
+t1x = ORTA - g1 / 2
+TOP1 = 472
+T1 = TOP1 + 0.70 * B
 ALTI_Y = T1 + 0.20 * B
 HAP_UST = ALTI_Y + 29
 T2 = HAP_UST + 0.98 * B
 HAP_ALT = T2 + 0.26 * B
 
 hap_w = Y.genislik("Fredoka", 700, BAS2, B) + 2 * PAD * B
-hap_x = (W - hap_w) / 2
+hap_x = ORTA - hap_w / 2
 hap_rx = (HAP_ALT - HAP_UST) / 2
 hap_h = HAP_ALT - HAP_UST
 
-SOL = 48
+SOL = 84
 SAT_BOY = 80
-R1_K, R2_K = 856, 1004
-R1_SON, R2_SON = 452, 600
+R1_K, R2_K = 920, 1040
+R1_SON, R2_SON = 560, 680
 DY = R1_SON - R1_K
 
-ZEMIN_Y = 1384
-EV_S, EV_X = 16, 48
+ZEMIN_Y = 1372
+EV_S, EV_X = 16, KENAR
 EV_Y = ZEMIN_Y - 21 * EV_S
 
-FIG_H, FIG_X = 460, 600
+FIG_H, FIG_X = 400, 540
 x0, y0, x1, y1 = FIG["kutu"]
 fs = FIG_H / (y1 - y0)
 EX = FIG_X + (FIG["el"][0] - x0) * fs
@@ -81,7 +84,7 @@ BY = EY - 3 * BV_S
 
 E1_X = EV_X + 12 * EV_S
 E1_Y = EV_Y + 3 * EV_S - 36
-E2_X = W - KENAR
+E2_X = SAG - 6  # QA tur 1: Caveat g kuyruğu sağa 5 px taşıyordu (mürekkep 961–965)
 E2_Y = EY - 48
 
 SATIR1 = "İstanbul'da yaşı-yor-um."
@@ -89,46 +92,46 @@ SATIR2 = "Amcamla yaşı-yor-um."
 g_sat1 = Y.genislik("Caveat", 700, SATIR1, SAT_BOY)
 g_sat2 = Y.genislik("Caveat", 700, SATIR2, SAT_BOY)
 
-# Künye bilgileri (kunye.js / yardim.py arayüzü)
-DERS = getattr(Y, "DERS", ("SIMPLE PRESENT vs", "PRESENT CONTINUOUS"))
-ROZET = getattr(Y, "ROZET", "YDT · BASIC")
+# Künye ve uçuş hedefleri (§2, §4.1)
+boy = Y.konu_boyu()
+rz_x, rz_w = Y.rozet_konumu()
+rz_y = Y.HUD["rozetY"]
+rz_h = Y.HUD["rozetH"]
 
-if hasattr(Y, "rozet_konumu"):
-    rz_x, rz_w = Y.rozet_konumu()
-else:
-    rz_x = KENAR + Y.genislik("Fredoka", 700, DERS[-1], 56) + 24
-    rz_w = Y.genislik("Lexend", 700, ROZET, 36) + 56
-rz_h = 72
-rz_y = 216
-
+gk1 = Y.genislik("Fredoka", 700, Y.KONU_PARCA[0], boy)
+gk2 = Y.genislik("Fredoka", 700, Y.KONU_PARCA[1], boy)
+KONU_SON = KENAR + Y.genislik("Fredoka", 700, Y.KONU, boy)
+YK = Y.HUD["konuTaban"] - 0.35 * boy
 UK = 0.85
-gd1 = Y.genislik("Fredoka", 700, DERS[0], 56)
-gd2 = Y.genislik("Fredoka", 700, DERS[1], 56)
-dersTaban = Y.HUD.get("dersTaban", 212) if hasattr(Y, "HUD") else 212
-dersSatir = Y.HUD.get("dersSatir", 64) if hasattr(Y, "HUD") else 64
 
 o1 = (t1x + g1 / 2, T1 - 0.35 * B)
-h1 = (KENAR + UK * gd1 / 2, dersTaban - 0.35 * 56 - Z["ucus_ayrik"])   # QA tur 1: bas1 × bas2 26 px
-hs1 = UK * gd1 / g1
+h1 = (KENAR + UK * gk1 / 2, YK - Z["ucus_ayrik"])
+hs1 = UK * gk1 / g1
 
-o2 = (540, (HAP_UST + HAP_ALT) / 2)
-h2 = (KENAR + UK * gd2 / 2, dersTaban + dersSatir - 0.35 * 56 + Z["ucus_ayrik"])
-hs2 = UK * gd2 / hap_w
+o2 = (ORTA, (HAP_UST + HAP_ALT) / 2)
+h2 = (KONU_SON - UK * gk2 / 2, YK + Z["ucus_ayrik"])
+hs2 = UK * gk2 / hap_w
 
 
-# ---- 4.7 Denetimler ----
+# ---- 4.6 Denetimler ----
 def _denetimler() -> None:
     # 1. B, hap, baslik 1
-    assert 150 <= B <= 190, f"B={B} aralık [150, 190] dışı"
-    assert hap_x >= 63 and hap_x + hap_w <= 1017, f"hap x={hap_x:.2f}..{hap_x + hap_w:.2f} aralık [63, 1017] dışı"
-    assert t1x >= 63 and t1x + g1 <= 1017, f"baslik 1 x={t1x:.2f}..{t1x + g1:.2f} aralık [63, 1017] dışı"
-    assert (T1 - 0.70 * B) >= 352, f"baslik 1 üstü {T1 - 0.70 * B:.2f} < 352"
+    assert 140 <= B <= 190, f"B={B} aralık [140, 190] dışı"
+    assert hap_x >= KENAR and hap_x + hap_w <= SAG, (
+        f"hap x={hap_x:.2f}..{hap_x + hap_w:.2f} aralık [{KENAR}, {SAG}] dışı"
+    )
+    assert t1x >= KENAR and t1x + g1 <= SAG, (
+        f"baslik 1 x={t1x:.2f}..{t1x + g1:.2f} aralık [{KENAR}, {SAG}] dışı"
+    )
+    assert (T1 - 0.70 * B) >= Y.HUD["icerikBas"], (
+        f"baslik 1 üstü {T1 - 0.70 * B:.2f} < icerikBas {Y.HUD['icerikBas']}"
+    )
 
     # 2. Satır metinleri
     assert len(SATIR1) <= 24, f"satir 1 {len(SATIR1)} > 24 karakter"
     assert len(SATIR2) <= 24, f"satir 2 {len(SATIR2)} > 24 karakter"
-    assert SOL + g_sat1 <= W - KENAR, f"satir 1 {SOL + g_sat1:.2f} > {W - KENAR}"
-    assert SOL + g_sat2 <= W - KENAR, f"satir 2 {SOL + g_sat2:.2f} > {W - KENAR}"
+    assert SOL + g_sat1 <= SAG, f"satir 1 {SOL + g_sat1:.2f} > SAG {SAG}"
+    assert SOL + g_sat2 <= SAG, f"satir 2 {SOL + g_sat2:.2f} > SAG {SAG}"
 
     # 3. Kapak dikey sıra (>= 24 px ara)
     r1_ust = R1_K - 0.864 * SAT_BOY
@@ -143,25 +146,34 @@ def _denetimler() -> None:
     assert e1_ust - r1_alt >= 24, f"satır 1 altı -> E1 üstü ara {e1_ust - r1_alt:.2f} < 24"
     assert ev_ust - E1_Y >= 24, f"E1 tabanı -> ev üstü ara {ev_ust - E1_Y:.2f} < 24"
     assert e2_alt + 12 <= EY, f"E2 altı + 12 = {e2_alt + 12:.2f} > EY = {EY:.2f}"
+    assert BY + 21 * BV_S <= ZEMIN_Y, f"bavul altı {BY + 21 * BV_S:.2f} > ZEMIN_Y {ZEMIN_Y}"
+    assert ZEMIN_Y + 2 <= Y.HUD["icerikSon"], f"ZEMIN_Y + 2 = {ZEMIN_Y + 2} > icerikSon {Y.HUD['icerikSon']}"
 
     # 4. Yatay
     g_e2 = Y.genislik("Caveat", 700, "I am living", 72)
     g_e1 = Y.genislik("Caveat", 700, "I live", 72)
-    e2_sol = W - KENAR - g_e2
+    e2_sol = E2_X - g_e2
     fig_sag = FIG_X + (x1 - x0) * fs
     assert e2_sol >= fig_sag + 20, f"E2 sol {e2_sol:.2f} < figür sağı + 20 ({fig_sag + 20:.2f})"
-    assert BX + 18 * BV_S <= W - KENAR, f"bavul sağı {BX + 18 * BV_S:.2f} > {W - KENAR}"
+    assert BX + 18 * BV_S <= SAG, f"bavul sağı {BX + 18 * BV_S:.2f} > SAG {SAG}"
     e1_sag = E1_X + g_e1 / 2
     assert e1_sag < FIG_X, f"E1 sağı {e1_sag:.2f} >= FIG_X {FIG_X}"
+    assert EV_X + 3 * EV_S >= KENAR, f"ev solu {EV_X + 3 * EV_S:.2f} < KENAR {KENAR}"
 
     # 5. Son hal
-    assert R1_SON - 0.864 * SAT_BOY >= 352, f"R1_SON üstü {R1_SON - 0.864 * SAT_BOY:.2f} < 352"
-    assert R2_SON + 0.212 * SAT_BOY <= 1392, f"R2_SON altı {R2_SON + 0.212 * SAT_BOY:.2f} > 1392"
-    assert R2_SON - R1_SON >= 1.85 * SAT_BOY, f"satır aralığı {R2_SON - R1_SON} < {1.85 * SAT_BOY}"
+    assert R1_SON - 0.864 * SAT_BOY >= Y.HUD["icerikBas"], (
+        f"R1_SON üstü {R1_SON - 0.864 * SAT_BOY:.2f} < icerikBas {Y.HUD['icerikBas']}"
+    )
+    assert R2_SON + 0.212 * SAT_BOY <= Y.HUD["icerikSon"], (
+        f"R2_SON altı {R2_SON + 0.212 * SAT_BOY:.2f} > icerikSon {Y.HUD['icerikSon']}"
+    )
+    assert R2_SON - R1_SON == 120, f"R2_SON - R1_SON = {R2_SON - R1_SON} != 120"
 
     # 6. Zaman
     satir1_bitis = SOZ[1]["t0"] + Z["yazi_cap"]
-    assert satir1_bitis <= Z["kapak_kare"] / 30.0 - 1.0 / 30.0, f"satır 1 bitiş {satir1_bitis:.3f} > kapak_kare sınırı"
+    assert satir1_bitis <= Z["kapak_kare"] / 30.0 - 1.0 / 30.0, (
+        f"satır 1 bitiş {satir1_bitis:.3f} > kapak_kare sınırı"
+    )
     u1 = Z["ucus"][0] + Z["ucus"][1]
     hareket_bitis_sinir = (Z["kare"] - 12) / 30.0
     assert u1 <= hareket_bitis_sinir, f"u1 {u1:.3f} > {hareket_bitis_sinir:.3f}"
@@ -181,9 +193,12 @@ def _denetimler() -> None:
 
     u0, ud = Z["ucus"]
     rk0, rkd = Z["rozet_kay"]
+    g2 = Y.genislik("Fredoka", 700, BAS2, B)
+    box_kanal = [60.0, 602.0, 291.0, 341.0]
+    box_kunye_bandi = [60.0, 960.0, 360.0, 450.0]
+
     curr_t = u0
-    # başlıklar opaklık ≥ 0,5 iken (power1.in: süre × 0,71); QA tur 1'de kapı 2,75'te çapraz solmayı yakaladı
-    while curr_t <= Z["baslik_sol"][0] + 0.71 * Z["baslik_sol"][1] + 1e-6:
+    while curr_t <= u0 + ud + 1e-6:
         pt = (curr_t - u0) / ud
         et = _p3_in_out(pt)
         es = _p3_out((curr_t - u0) / Z["ucus_olcek"])
@@ -195,23 +210,29 @@ def _denetimler() -> None:
             o1[0] + dx1 + s1 * (t1x - o1[0]),
             o1[0] + dx1 + s1 * (t1x + g1 - o1[0]),
             o1[1] + dy1 + s1 * (T1 - 0.70 * B - o1[1]),
-            o1[1] + dy1 + s1 * (ALTI_Y + 5 - o1[1]),
+            o1[1] + dy1 + s1 * (T1 + 0.182 * B - o1[1]),
         ]
 
         dx2 = (h2[0] - o2[0]) * et
         dy2 = (h2[1] - o2[1]) * et
         s2 = 1.0 + (hs2 - 1.0) * es
-        box_bas2 = [
+        box_hap = [
             o2[0] + dx2 + s2 * (hap_x - o2[0]),
             o2[0] + dx2 + s2 * (hap_x + hap_w - o2[0]),
             o2[1] + dy2 + s2 * (HAP_UST - o2[1]),
             o2[1] + dy2 + s2 * (HAP_ALT - o2[1]),
         ]
+        box_bas2t = [
+            o2[0] + dx2 + s2 * (ORTA - g2 / 2 - o2[0]),
+            o2[0] + dx2 + s2 * (ORTA + g2 / 2 - o2[0]),
+            o2[1] + dy2 + s2 * (T2 - 0.921 * B - o2[1]),
+            o2[1] + dy2 + s2 * (T2 - o2[1]),
+        ]
 
         prz = (curr_t - rk0) / rkd
         erz = _p3_in_out(prz)
         curr_rz_x = KENAR + (rz_x - KENAR) * erz
-        box_rz0 = [curr_rz_x, curr_rz_x + rz_w, 216.0, 288.0]
+        box_rz0 = [curr_rz_x, curr_rz_x + rz_w, 386.0, 434.0]
 
         box_r1 = [
             float(SOL),
@@ -220,22 +241,35 @@ def _denetimler() -> None:
             R1_K + 0.212 * SAT_BOY + DY * et,
         ]
 
-        c1 = _kesisir(box_bas1, box_rz0, 6.0)
-        c2 = _kesisir(box_bas2, box_rz0, 6.0)
-        c3 = _kesisir(box_bas2, box_r1, 6.0)
-        # bas1 × bas2 yazı mürekkebi (kapı ölçüsü): Ş çengeli 0,182 em, İ noktası 0,921 em
-        b1_alt = o1[1] + dy1 + s1 * (T1 + 0.182 * B - o1[1])
-        b2_ust = o2[1] + dy2 + s2 * (T2 - 0.921 * B - o2[1])
-        c4 = b2_ust - b1_alt < 6.0
-        if c1 or c2 or c3 or c4:
-            assert False, f"Uçuş çakışması t={curr_t:.3f}: bas1xrz0={c1}, bas2xrz0={c2}, bas2xr1={c3}, bas1xbas2={c4}"
+        # Bütün uçuş boyunca denetimler:
+        if _kesisir(box_r1, box_kanal, 6.0):
+            assert False, f"Uçuş çakışması t={curr_t:.3f}: r1 x kanal"
+        if _kesisir(box_r1, box_kunye_bandi, 6.0):
+            assert False, f"Uçuş çakışması t={curr_t:.3f}: r1 x künye bandı"
+
+        # Başlıklar opaklık >= 0.5 iken:
+        if curr_t <= Z["baslik_sol"][0] + 0.71 * Z["baslik_sol"][1] + 1e-6:
+            c_bas1_hap = _kesisir(box_bas1, box_hap, 6.0)
+            c_bas1_bas2t = _kesisir(box_bas1, box_bas2t, 6.0)
+            c_bas1_rz0 = _kesisir(box_bas1, box_rz0, 6.0)
+            c_hap_rz0 = _kesisir(box_hap, box_rz0, 6.0)
+            c_hap_r1 = _kesisir(box_hap, box_r1, 6.0)
+            c_bas1_kanal = _kesisir(box_bas1, box_kanal, 6.0)
+            c_hap_kanal = _kesisir(box_hap, box_kanal, 6.0)
+            if any([c_bas1_hap, c_bas1_bas2t, c_bas1_rz0, c_hap_rz0, c_hap_r1, c_bas1_kanal, c_hap_kanal]):
+                assert False, (
+                    f"Uçuş çakışması t={curr_t:.3f}: bas1xhap={c_bas1_hap}, bas1xbas2t={c_bas1_bas2t}, "
+                    f"bas1xrz0={c_bas1_rz0}, hapxrz0={c_hap_rz0}, hapxr1={c_hap_r1}, "
+                    f"bas1xkanal={c_bas1_kanal}, hapxkanal={c_hap_kanal}"
+                )
+
         curr_t += 1.0 / 30.0
 
 
 _denetimler()
 
 
-# ---- 4.8 Zamanlar fonksiyonu ----
+# ---- 4.7 Zamanlar fonksiyonu ----
 def zamanlar() -> dict:
     """olay.py tarafından okunan olay zamanları."""
     return {
@@ -249,7 +283,7 @@ def zamanlar() -> dict:
     }
 
 
-# ---- 4.8 uret() fonksiyonu ----
+# ---- 4.7 uret() fonksiyonu ----
 def uret() -> str:
     R = Y.RENK
 
@@ -263,7 +297,7 @@ def uret() -> str:
 
     # Çizimler
     # 1. Yer
-    zc_path = '<path id="zc" d="M64 1384 L1016 1384" stroke-width="4"/>'
+    zc_path = f'<path id="zc" d="M{KENAR + 4} {ZEMIN_Y} L{SAG - 4} {ZEMIN_Y}" stroke-width="4"/>'
 
     # 2. Ev (home)
     ev_svg = "".join(f'<path d="{d}"/>' for d in EV_YOLLAR)
@@ -324,7 +358,7 @@ def uret() -> str:
         f'<g id="bas2">'
         f'<rect id="hap" x="{hap_x:.2f}" y="{HAP_UST:.2f}" width="{hap_w:.2f}" height="{hap_h:.2f}" '
         f'rx="{hap_rx:.2f}" fill="{R["vurgu"]}"/>'
-        f'<text id="bas2t" x="540" y="{T2:.2f}" text-anchor="middle" font-family="Fredoka" '
+        f'<text id="bas2t" x="{ORTA}" y="{T2:.2f}" text-anchor="middle" font-family="Fredoka" '
         f'font-weight="700" font-size="{B}" fill="{R["zemin"]}" style="font-kerning:none">{BAS2}</text>'
         f'</g>'
     )
@@ -350,7 +384,7 @@ def uret() -> str:
     )
 
     # Künye ve altyazı
-    kunye_svg = Y.kunye_svg("Hook")
+    kunye_svg = Y.kunye_svg()
     alt_svg, alt_zaman = Y.altyazi_svg(0.0, Z["sure"], ALT)
 
     # GSAP parametreleri
@@ -414,8 +448,7 @@ def uret() -> str:
   function ac(o) {{ o.immediateRender = false; return o; }}
 
   // 0. kare durumu
-  gsap.set("#ku-ders", {{ opacity: 0 }});
-  gsap.set("#ku-cip", {{ opacity: 0 }});
+  gsap.set("#ku-konu", {{ opacity: 0 }});
   gsap.set("#rz0", {{ x: V.rz_kayma }});
 
   // Altçizgi hazırla
@@ -470,11 +503,8 @@ def uret() -> str:
   tl.fromTo("#cr2", {{ attr: {{ width: 0 }} }},
     ac({{ attr: {{ width: V.r2_w }}, duration: V.r2_dur, ease: "none" }}), V.r2_t0);
 
-  // 9. Künye açılır
-  tl.to("#ku-ders", ac({{ opacity: 1, duration: Z.kunye_ac[1], ease: "power1.out" }}), Z.kunye_ac[0]);
-
-  // 10. Çip açılır
-  tl.to("#ku-cip", ac({{ opacity: 1, duration: 0.2, ease: "power1.out" }}), u1 - 0.22);
+  // 9. Konu adı açılır
+  tl.to("#ku-konu", ac({{ opacity: 1, duration: Z.kunye_ac[1], ease: "power1.out" }}), Z.kunye_ac[0]);
 
   window.__timelines = window.__timelines || {{}};
   window.__timelines["main"] = tl;
@@ -483,7 +513,7 @@ def uret() -> str:
     return html
 
 
-# ---- 4.8 __main__ bloğu ----
+# ---- 4.7 __main__ bloğu ----
 if __name__ == "__main__":
     (AD / "proje").mkdir(exist_ok=True)
     Y.font_kopyala(AD / "proje" / "assets" / "fonts")
@@ -500,12 +530,13 @@ if __name__ == "__main__":
         "agirlik": 700,
         "boy": 80,
         "kerning": "none",
-        "sol": 48,
-        "taban": [452, 600],
+        "sol": SOL,
+        "taban": [R1_SON, R2_SON],
         "satir": [SATIR1, SATIR2],
         "yor": [[round(x0_1, 2), round(x1_1, 2)], [round(x0_2, 2), round(x1_2, 2)]],
         "sag": [round(SOL + g_sat1, 2), round(SOL + g_sat2, 2)],
         "t": 3.0,
+        "not": "huni v2 (15.11): sahne 02 Y_L1/Y_L2 560/680, SOL = kenar 60 + 24",
     }
     (AD / "devir.json").write_text(json.dumps(devir, ensure_ascii=False, indent=2), encoding="utf-8")
     print("devir:", json.dumps(devir, ensure_ascii=False))

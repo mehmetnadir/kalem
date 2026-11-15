@@ -1,4 +1,4 @@
-"""02-04-ydt-temel-s1 sahne 01; present-continuous-ileri-s1 kopyası, künye S1 HUD'una (kunye.js) çevrildi.
+"""02-04-ydt-temel-s1 sahne 05 kapak B; huni v2 (15.11): kanal katmanı + künye satırı + v2 bantları (BRIEF-S1 "Kanal katmanı").
 Yol verisi, yazı genişliği (fontTools, kerning yok), künye SVG'si, yazı tipi CSS'i."""
 from __future__ import annotations
 
@@ -144,54 +144,117 @@ def tabler(ad: str, kok: Path | str | None = None) -> list[str]:
     return [d for d in re.findall(r'<path d="([^"]+)"', s) if not d.startswith("M0 0h24v24")]
 
 
-# ---- künye (SVG, dikey HUD v2, 05.11 telefon ölçeği; kunye.js ile aynı px) ----
+# ---- künye (SVG, huni v2 yerleşim bantları; kanal katmanı + künye satırı) ----
 HUD = {
-    "kenar": 48, "logoY": 48, "logoYuk": 96, "dersTaban": 212, "dersYazi": 56, "dersSatir": 64,
-    "rozetY": 216, "rozetH": 72, "rozetAra": 24, "rozetYazi": 36, "cipY": 48, "cipH": 80,
-    "cipYazi": 40, "cipDolgu": 64, "icerikBas": 352, "icerikSon": 1392, "altyaziBas": 1400,
-    "altyaziYazi": 44, "altyaziSatir": 56,
+    "kenar": 60,
+    "sagSinir": 960,
+    "kanalLogoX": 53.2,
+    "kanalLogoY": 291,
+    "kanalLogoEn": 193.5,
+    "kanalLogoYuk": 48,
+    "kanalYaziX": 263,
+    "kanalYaziTaban": 330,
+    "kanalYaziBoy": 42,
+    "konuX": 60,
+    "konuTaban": 420,
+    "konuBoyUst": 34,
+    "konuBoyAlt": 28,
+    "rozetY": 386,
+    "rozetH": 48,
+    "rozetAra": 20,
+    "rozetYazi": 26,
+    "rozetPay": 20,
+    "icerikBas": 460,
+    "icerikSon": 1380,
+    "altyaziBas": 1400,
+    "altyaziSon": 1550,
+    "altyaziYazi": 44,
+    "altyaziSatir": 56,
+    "altyaziOrta": 510,
+    "altyaziGen": 900,
 }
-DERS = ("SIMPLE PRESENT vs", "PRESENT CONTINUOUS")
+KONU = "Simple Present vs Present Continuous"
+KONU_PARCA = ("Simple Present vs", "Present Continuous")
 ROZET = "YDT · BASIC"
+KANAL_YAZI = "@ydspublishing"
+
+
+def rozet_genislik() -> float:
+    """Rozet hapı genişliği px (Lexend 700 rozetYazi + 2*rozetPay)."""
+    return genislik("Lexend", 700, ROZET, HUD["rozetYazi"]) + 2 * HUD["rozetPay"]
+
+
+def konu_boyu() -> int:
+    """Konu başlığı için sığan en büyük Fredoka 700 boyu (konuBoyUst..konuBoyAlt)."""
+    rw = rozet_genislik()
+    for boy in range(HUD["konuBoyUst"], HUD["konuBoyAlt"] - 1, -1):
+        toplam = HUD["konuX"] + genislik("Fredoka", 700, KONU, boy) + HUD["rozetAra"] + rw
+        if toplam <= HUD["sagSinir"]:
+            return boy
+    son_toplam = HUD["konuX"] + genislik("Fredoka", 700, KONU, HUD["konuBoyAlt"]) + HUD["rozetAra"] + rw
+    raise ValueError(
+        f"Konu başlığı sağ sınıra sığmaz: boy {HUD['konuBoyAlt']} icin toplam {son_toplam:.1f} px > sagSinir {HUD['sagSinir']}"
+    )
 
 
 def rozet_konumu() -> tuple[float, float]:
-    """Rozet hapının (x, genişlik) konumu (ders adı 2. satırının sağında)."""
-    x = HUD["kenar"] + genislik("Fredoka", 700, DERS[-1], HUD["dersYazi"]) + HUD["rozetAra"]
-    w = genislik("Lexend", 700, ROZET, HUD["rozetYazi"]) + 56
-    return x, w
+    """Rozet hapının (x, genişlik) konumu (konu başlığının sağında)."""
+    rw = rozet_genislik()
+    x = HUD["konuX"] + genislik("Fredoka", 700, KONU, konu_boyu()) + HUD["rozetAra"]
+    return x, rw
 
 
-def cip_olcu(metin: str) -> tuple[float, float, float, float]:
-    """Çip: (x, y, genislik, yukseklik) sağ kenar W-48."""
-    w = genislik("Lexend", 700, metin, HUD["cipYazi"]) + HUD["cipDolgu"]
-    return W - HUD["kenar"] - w, float(HUD["cipY"]), w, float(HUD["cipH"])
-
-
-def kunye_svg(cip: str) -> str:
-    """Logo (#ku-logo) + ders adı (#ku-ders) + rozet (#rz0) + çip (#ku-cip). Hepsi kendi id'siyle yönetilir."""
+def kunye_svg() -> str:
+    """Kanal katmanı (#kanal) + konu adı (#ku-konu) + rozet (#rz0). Hepsi kendi id'siyle yönetilir."""
     sar, kre, zem = RENK["vurgu"], RENK["murekkep"], RENK["zemin"]
     h = HUD
-    ders_metin = "".join(
-        '<text x="%d" y="%d" font-family="Fredoka" font-weight="700" font-size="%d" fill="%s">%s</text>'
-        % (h["kenar"], h["dersTaban"] + i * h["dersSatir"], h["dersYazi"], kre, d)
-        for i, d in enumerate(DERS)
+    kanal = (
+        '<g id="kanal">'
+        '<image id="logoimg" href="assets/logo.svg" x="%.2f" y="%d" width="%.2f" height="%d"/>'
+        '<text id="kanal-yazi" x="%d" y="%d" font-family="Lexend" font-weight="700" font-size="%d" '
+        'fill="%s" style="font-kerning:none">%s</text>'
+        '</g>'
+        % (
+            h["kanalLogoX"],
+            h["kanalLogoY"],
+            h["kanalLogoEn"],
+            h["kanalLogoYuk"],
+            h["kanalYaziX"],
+            h["kanalYaziTaban"],
+            h["kanalYaziBoy"],
+            kre,
+            KANAL_YAZI,
+        )
     )
-    ders = '<g id="ku-ders">%s</g>' % ders_metin
+    konu = (
+        '<g id="ku-konu">'
+        '<text x="%d" y="%d" font-family="Fredoka" font-weight="700" font-size="%d" fill="%s" '
+        'style="font-kerning:none">%s</text>'
+        '</g>'
+        % (h["konuX"], h["konuTaban"], konu_boyu(), kre, KONU)
+    )
     rx, rw = rozet_konumu()
-    rz = ('<g id="rz0"><rect x="%.1f" y="%d" width="%.1f" height="%d" rx="%d" fill="%s"/>'
-          '<text x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" font-weight="700" '
-          'font-size="%d" fill="%s">%s</text></g>'
-          % (rx, h["rozetY"], rw, h["rozetH"], h["rozetH"] // 2, sar,
-             rx + rw / 2, h["rozetY"] + h["rozetH"] / 2 + 13, h["rozetYazi"], zem, ROZET))
-    cx, cy, cw, ch = cip_olcu(cip)
-    chip = ('<g id="ku-cip"><rect id="ku-cipr" x="%.1f" y="%d" width="%.1f" height="%d" rx="%d" fill="none" '
-            'stroke="%s" stroke-width="4"/><text id="ku-cipt" x="%.1f" y="%.1f" text-anchor="middle" '
-            'font-family="Lexend" font-weight="700" font-size="%d" fill="%s">%s</text></g>'
-            % (cx, cy, cw, ch, int(ch) // 2, sar, cx + cw / 2, cy + ch / 2 + 14, h["cipYazi"], sar, cip))
-    logo = ('<g id="ku-logo"><image id="logoimg" href="assets/logo.svg" x="%.2f" y="%d" width="%.2f" '
-            'height="%d"/></g>' % (h["kenar"], h["logoY"], h["logoYuk"] * LOGO_EN_BOY, h["logoYuk"]))
-    return '<g id="kunye">' + ders + rz + chip + logo + '</g>'
+    rz = (
+        '<g id="rz0">'
+        '<rect x="%.1f" y="%d" width="%.1f" height="%d" rx="%d" fill="%s"/>'
+        '<text x="%.1f" y="%.1f" text-anchor="middle" font-family="Lexend" font-weight="700" '
+        'font-size="%d" fill="%s">%s</text>'
+        '</g>'
+        % (
+            rx,
+            h["rozetY"],
+            rw,
+            h["rozetH"],
+            h["rozetH"] // 2,
+            sar,
+            rx + rw / 2,
+            h["rozetY"] + h["rozetH"] / 2 + 9,
+            h["rozetYazi"],
+            zem,
+            ROZET,
+        )
+    )
+    return '<g id="kunye">' + kanal + konu + rz + '</g>'
 
 
 def altyazi_satirlari(metin):

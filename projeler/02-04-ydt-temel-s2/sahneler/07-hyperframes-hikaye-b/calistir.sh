@@ -11,10 +11,12 @@ PAKET="$(cd "$AD/../.." && pwd)"            # paket kökü (02-04-ydt-temel-s2)
 M="$KOK/motorlar/hyperframes"; BIN="$M/node_modules/.bin"
 ORTAK="$AD/../../ortak"
 SN=0.5                                      # yakalama anı: zamanlar.json yakala_sn (kare durağan)
+GEN=1080; YUK=1920                          # yakalama 1080 1920 (index.html data-width/height; aşağıda ffprobe ile denetlenir)
 mkdir -p "$AD/proje/lib" "$AD/proje/assets/fonts" "$AD/k/koyu"
 cp "$M/node_modules/gsap/dist/gsap.min.js" "$AD/proje/lib/" 2>/dev/null || cp "$M/lib/gsap.min.js" "$AD/proje/lib/"
 cp "$ORTAK/logo/$LOGO_DOSYA" "$AD/proje/assets/logo.svg"
-/usr/bin/python3 "$AD/uret.py" >&2 && /usr/bin/python3 "$AD/olay.py" >&2
+/usr/bin/python3 "$AD/uret.py" >&2          # ayrı satır: `a && b` zincirinde set -e uret.py hatasını yutar (sözleşme, S1 s07 v2)
+/usr/bin/python3 "$AD/olay.py" >&2
 tema_hf "$AD/proje/index.html"
 [ -n "$ONIZLE_YALNIZ" ] && { echo "önizleme hazır"; exit 0; }
 # yük bekçisi: 1 dk yük > 24 ise 60 sn bekle (en çok 5 dk)
@@ -28,6 +30,8 @@ cd "$AD/proje"
 perl -e 'alarm 170; exec @ARGV' "$BIN/hyperframes" snapshot . --at "$SN" --no-end --keep -o "$KD" >&2
 HEDEF="$AD/k/koyu/hikaye-b-koyu.png"; [ "$TEMA" = acik ] && HEDEF="$PAKET/hikaye-b.png"
 cp "$KD/at-${SN}s.png" "$HEDEF"; chmod 644 "$HEDEF"   # snapshot 0600 yazar
-ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height -of csv=p=0 "$HEDEF"
+BOY=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 "$HEDEF")
+echo "png,$BOY"
+[ "$BOY" = "$GEN,$YUK" ] || { echo "HATA boyut $BOY != $GEN,$YUK" >&2; exit 1; }
 echo "$HEDEF"
 tema_bitir "$AD"

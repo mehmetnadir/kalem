@@ -1,93 +1,88 @@
-# Sahne 03 CTA (02-04-ydt-temel-s3, HyperFrames DİKEY 1080×1920, 347 kare, t_bas 15,99; cümle 4)
+# Sahne 03 Çağrı (02-04-ydt-temel-s3, huni v2, HyperFrames DİKEY 1080×1920, 239 kare, t_bas 21,33; cümle 5 öğrenci) · 15.11.2026
 
-Durum: yazıldı. `ONIZLE_YALNIZ=1` hazırlığı koşuldu, son koşu AÇIK tema. Render yok. Kapı GEÇTİ (çıkış kodu 0, çakışma yok).
+Durum: yazıldı. `ONIZLE_YALNIZ=1` hazırlığı koşuldu (son koşu AÇIK tema). mp4 render yok. Kapı GEÇTİ (çakışma yok, çıkış kodu 0).
 Tema: acik
 
-| Dosya | Kaynak | Değişiklik |
+| Dosya | Yazan | Değişiklik |
 |---|---|---|
-| `uret.py` | S1 s03 kopyası → agy | cümle 3 → 4; ev/bavul → tren/bilet (ana ders sahne 07 `TREN`, `_bilet()`); şef: çizgi 4,0/2,6 → 3,2/2,0 |
-| `SPEC.md` | şef | değişiklik tarifi, olay listesi, kabul ölçütü |
-| `calistir.sh` | S1 kopyası | başlık (paket, t_bas 15,99) ve denetim karesi yorumu; `ONIZLE_YALNIZ` satırı örnekte vardı |
-| `yardim.py`, `olay.py`, `nesneler.json` | S1 kopyası | yalnız `yardim.py` docstring'ine S3 notu |
-| üretilen | `uret.py` + `olay.py` | `proje/index.html`, `zamanlar.json`, `olaylar.json` (11 ses olayı) |
+| `SPEC.md` | şef | v2 tasarımı: yerleşim, olay listesi, ekran metni, kabul ölçütü (v1 SPEC yedekte) |
+| `uret.py` | agy-filo (`kod`, gemini-3.8-flash-high, 335 sn) + şef 1 satır | baştan yazıldı; v1 içeriği tamamen kalktı |
+| `calistir.sh` | şef (Edit) | başlık, `KARE=239`, ana kapak kopyası `proje/assets/`, denetim kareleri |
+| `yardim.py`, `olay.py`, `nesneler.json` | — | değişmedi (`yardim.py` künyesi/altyazısı kullanılmıyor) |
+| üretilen | `uret.py` + `olay.py` | `proje/index.html`, `zamanlar.json` (`cagri_satir` 2), `olaylar.json` (5 olay) |
 
-## İçerik ve yerleşim (S1 s03 düzeni; aynı ses dosyası, md5 `80e56127…`)
+## Ana kapak kopyası
+| Kaynak (ana ders, 1920×1080) | Hedef | `cmp` |
+|---|---|---|
+| `projeler/02-04-ydt-temel/kapak.png` (632.015 B) | `ortak/kapak/ana-kapak.png` | aynı |
+| `projeler/02-04-ydt-temel/kapak-koyu.png` (634.425 B) | `ortak/kapak/ana-kapak-koyu.png` | aynı |
+`cp -a` ile kopyalandı. `calistir.sh` ikisini `proje/assets/`e koyar; tema seçimi CSS ile (`.tema-acik #kapakA`).
 
-| Satır | Öğe | Yazı · boy | Konum (y) |
+## Yerleşim (px)
+| Bölge | y | İçerik |
+|---|---|---|
+| Kanal (`#kunye > #kanal`) | 291–339 | logo `#logoimg` x 53,2 w 193,5 h 48 · `@ydspublishing` Lexend 700 42, x 263, taban 330; tween yok |
+| Künye | 386–434 | konu Fredoka 700 34 (x 60, taban 420, son x 644,6) + rozet `YDT · BASIC` (x 664,6, w 203,6) |
+| Giriş sözü | ≈ 490–582 | `Bu sadece başlangıç.` Fredoka 700 96, x 60, taban 560 (890,9 px) |
+| Kapak kartı | 620–1126 | 900×506, x 60, rx 24, çerçeve `murekkep` 3 px; oynat düğmesi/çubuk/süre yok |
+| Çağrı | 1160–1346 | hap `@ydspublishing` (x 60, w 580,4, h 104; Lexend 700 64) / `YouTube` (x 60, taban 1346). Tek satır 946,6 px > 900 → iki satır |
+| Altyazı + karaoke | 1430–1529 | Lexend 500 44, orta x 510, 2 satır (taban 1462/1518); okunmamış sözcük `ikincil`, okunan `murekkep` |
+
+## Olay listesi
+| Olay | Küresel sn | Yerel kare | Sözcük |
 |---|---|---|---|
-| A | `üç farktan biri` → `üç farkın hepsi` (`üç` yerinde kalır, sarı altçizgi) | Lexend 700 · 72 | taban 452 |
-| B | `Tam ders:` (soldan yazılır) | Caveat 700 · 96 | taban 620 |
-| Bant | `Simple Present` / `vs Present Continuous`, dolgu `vurgu` | Fredoka 700 · 74 | 660–896 (x 132–948) |
-| İkon sol | tren (yandan), 72×25, satır 1 hizası (merkez y ≈ 731) | çizgi 3,2 / ince 2,0 | x 48–120 |
-| İkon sağ | sinema bileti, 72×28, satır 2 hizası (merkez y ≈ 823) | çizgi 3,2 / ince 2,0 | x 960–1032 |
-| E | saat + `dört buçuk dakikada` | Lexend 700 · 72 | taban 1066 |
-| F | `@ydspublishing` hapı (açık: `#ffe066` / `#1b2440`) | Fredoka 700 · 64 | 1200–1312 |
+| Kanal + künye tam | 21,33 | 0 | sahne başı |
+| Kapak kartı girer (opaklık + ölçek 0,96→1, 0,40 sn) | 21,33 | 0 | sahne başı |
+| `Bu` kinetik · ses `tik` 0,40 | 21,88 | 16 | `Bu` |
+| `sadece` kinetik | 22,12 | 24 | `sadece` |
+| `başlangıç.` kinetik · ses `tik` 0,45 | 22,68 | 40 | `başlangıç.` |
+| Altyazı parça 0 / parça 1 | 21,83 / 23,74 | 15 / 72 | `Bu` / `Dersin` |
+| Hap kalem çizgisi (0,30 sn) · ses `cizgi` 0,50 | 25,07 | 112 | `YDS` |
+| Hap yazısı kalemle yazılır (→ 26,11) · ses `hisirti` 0,45 | 25,17 | 115 | `YDS` → `Publishing` |
+| Hap dolgusu (0,15 sn) | 25,27 | 118 | `YDS` |
+| `YouTube` kinetik · ses `tik` 0,50 | 26,19 | 146 | `YouTube` |
+| Durgun kuyruk (tween yok) | 27,31 → son kare | 179 → 238 | `kanalında.` sonu |
 
-İkon hizası bilinçli: tren (tarife) `Simple Present` satırının, bilet (plan) `Present Continuous` satırının yanında.
-İkon çizimi S3 kapak A ile aynı kaynak (ana ders sahne 05 `trenParcalari` / `biletParcalari` → sahne 07 sadeleştirmesi): döngü tutarlı.
-Künye: logo, ders adı 2 satır, rozet `YDT · BASIC`, çip `Full lesson` (`KUNYE.cipler["03-hyperframes-cta"]`). Altyazı 1400–1536, 1536 altı boş.
-Renk: tek vurgu (bant, hap, `üç` altçizgisi). Vurgu renginde yazı yok. Yeşil, kırmızı, emoji yok. "kanal", QR, "6 dk" yok.
-
-## Olay listesi (yerel sn = küresel − 15,99; zaman `sozcukler.json` cümle 4 çapasından, `T(i, bas)` assert'li)
-
-| Olay | Kare · yerel (küresel) | Cümle 4 sözcüğü (sıra) | Ses olayı |
-|---|---|---|---|
-| `üç` kinetik + altçizgi (+0,22) | 31 · 1,03 (17,02) | üç (1) | tik 0,4 · cizgi 0,5 |
-| `farktan` kinetik | 36 · 1,19 (17,18) | farktan (2) | — |
-| `biri` kinetik | 67 · 2,23 (18,22) | biri. (4) | — |
-| `Tam ders:` yazımı (1,04 sn) | 83 · 2,78 (18,77) | Tam (5) → ders: t1 (6) | hisirti 0,45 |
-| bant girişi + `Simple` | 119 · 3,98 (19,97) | Simple (7) | vurus 0,9 |
-| `Present` (satır 1) | 127 · 4,22 (20,21) | Present (8) | — |
-| `vs` | 143 · 4,78 (20,77) | ve (9) | tik 0,5 |
-| `Present` · `Continuous` (satır 2) | 158 · 5,26 (21,25) · 178 · 5,94 (21,93) | Present (10) · Continuous. (11) | — |
-| `farktan biri` çıkışı → `farkın` · `hepsi` | 210 · 7,01 (23,00) → 218 · 232 | Üç (12) · farkın (13) · hepsi (14) | tik 0,4 |
-| saat darbesi + `dört` · `buçuk` | 251 · 8,37 (24,36) · 258 | dört (15) · buçuk (16) | cizgi 0,5 |
-| `dakikada` + hap girişi | 266 · 8,85 (24,84) | dakikada. (17) | tik 0,6 |
-| `@ydspublishing` yazımı (0,70 sn) | 268 · 8,95 (24,94) | dakikada. → t1 25,64 | hisirti 0,5 |
-| tren darbesi (sol) | 290 · 9,65 (25,64) | dakikada. t1 | cizgi 0,45 |
-| bilet darbesi (sağ) | 293 · 9,75 (25,74) | dakikada. t1 + 0,10 | cizgi 0,45 |
-
-Yerel zamanların hepsi S1 `zamanlar.json` ile birebir eşit (betikle karşılaştırıldı; yalnız anahtar adı `tren_darbe` / `bilet_darbe`).
-Hareket yerel 10,20'de (kare 306) biter. Kare 306–346 durgun son düzen. En uzun boş alan: y 660–1392, sahne başı 15,99'dan bant girişi 19,97'ye kadar (≈ 4,0 sn, 9 sn sınırının altında).
-
-## Kapı
-
-Komut: `bash araclar/qa-yerel.sh 02-04-ydt-temel-s3 03-hyperframes-cta 18.7,23.0,26.4 25.8 --hazirla`
-
+## Kapı ve QA
+`bash araclar/qa-yerel.sh 02-04-ydt-temel-s3 03-hyperframes-cta 21.33,24.82,28.28 27.0 --hazirla` (2. koşu, düzeltme sonrası):
 ```
 == KAPI
-03-hyperframes-cta | çakışma yok (44 örnek, 1196 kutu)
-== KARE (açık)  18.7 · 23 · 26.4
-== KARE (koyu)  25.8
+03-hyperframes-cta | çakışma yok (29 örnek, 5038 kutu)
+== KARE (açık)  21.33 · 24.82 · 28.28
+== KARE (koyu)  27
 kapı çıkış kodu: 0
 ```
+Metin taraması `grep -rniE "tam ders|dakika" …/03-hyperframes-cta/proje` → sonuç yok (rc 1).
 
-Düzeltme turu: 1 (tren çizgisi inceltildi; iki koşu da kapı 0).
+## Kanal katmanı ölçümü (PIL, mürekkep kutusu)
+| Kare | Logo (x0, y0, x1, y1) | `@ydspublishing` |
+|---|---|---|
+| açık 21,33 | 61, 298, 240, 331 | 265, 296, 596, 340 |
+| açık 24,82 | 61, 298, 240, 331 | 265, 296, 596, 340 |
+| açık 28,28 | 61, 298, 240, 331 | 265, 296, 596, 340 |
+| koyu 27,00 | 60, 298, 240, 331 | 264, 296, 596, 340 |
+Görünür sol kenar x 60; resim kutusu y 291–339. Dört karede de aynı konum. y 0–280, 1570–1920 ve x 962–1080: dört karede boş.
 
 ## Bakılan kareler ve bulgu
+| Kare | Bulgu |
+|---|---|
+| açık 21,33 | yalnız kanal + künye (kapak girişi 0. karede başlar); zemin açık |
+| açık 24,82 | kapak (açık), giriş sözü, altyazı 2 satır: `Dersin tamamı` okunmuş, kalanı soluk |
+| açık 28,28 | kapak, giriş sözü, sarı hap + `YouTube`; altyazı yok (27,74'te kapandı); son kare = tam düzen |
+| koyu 27,00 | koyu kapak (`kapakK`), hap, `YouTube`, altyazı tam okunmuş |
+Taşma, kesik yazı, üst üste binme yok. Kontrast iki temada yeterli.
 
-| Kare | Ne görünür | Bulgu |
-|---|---|---|
-| `k/03-hyperframes-cta-18.7.png` | künye, `üç farktan biri` + altçizgi, altyazı `Bu, üç farktan yalnız biri.` | sorun yok; `Tam ders:` 18,77'de başlar |
-| `k/03-hyperframes-cta-23.png` | satır A (çıkış 23,00'te başlar), `Tam ders:`, bant 2 satır, altyazı cümle 4/3 | sorun yok |
-| `k/03-hyperframes-cta-26.4.png` | son düzen: satır A, `Tam ders:`, bant + tren + bilet, saat satırı, hap | tur 0: tren 72 px'te çizgi 4,0 ile pencere/teker kapanmıştı → 3,2/2,0; tur 1: tren ve bilet okunur. Taşma, kesik yazı, üst üste binme yok; altyazı kapanmış; 1536 altı boş |
-| `k/koyu/03-hyperframes-cta-25.8.png` | koyu, ikonlar çizim ortasında | beklenen (25,64'ten çizilir); kontrast yeterli |
-| ek: koyu 26,4 (yalnız şef bakışı, `/tmp`) | koyu son düzen | tren ve bilet açık renkte tam; sorun yok |
+Düzeltme turu 1 (şef, Edit): ilk koşuda açık karelerin zemini koyu kaldı. Sebep: kapak CSS'indeki `#root.tema-acik` dizgesi
+`ortak/hf_tema.py` içindeki "tema CSS'i zaten var" denetimini (`"#root.tema-acik" not in html`) tetikledi, değişken CSS'i eklenmedi.
+Seçici `.tema-acik #kapakA` yapıldı; 2. koşuda dört kare doğru.
 
 ## agy koşusu
-
-`agy-filo tek --rol kod` · gemini-3.8-flash-high · 120 sn · başarılı. Özet: `~/.claude/canavar/agy-filo/20261115-124456`.
-Şef okuması: `diff` S1 ↔ S3 `uret.py` yalnız SPEC'teki satırları gösterir (cümle 4, `TREN`/`BILET` verisi, ikon sabitleri, şerit `assert`'i,
-SVG grupları, `veri` anahtarları, 2 `darbeCok` satırı). Özet "değişen" listesi worktree geneli: `02-04-ydt-temel-s2/…` ve S3 sahne 01
-dosyaları eş oturumların işidir; bu sahne dışında agy değişikliği yok.
+Özet: `/home/sef/.claude/canavar/agy-filo/20261115-184909` (1/1 başarılı, 335 sn). agy-filo "değişen 87" listesi başka oturumun
+`projeler/02-04-ydt-temel-dikey/` dosyalarını da sayar (aynı worktree'de eş zamanlı iş); bu sahne dışında dosyaya dokunmadım.
 
 ## Açık noktalar
-
-1. **Tren küçük (72×25 px).** Şerit 72 px; yandan tren oranı ≈ 2,9 : 1. Büyütmek için bant daraltılmalı (yazı 74 → ≈ 69) ya da ikonlar hap
-   yanına alınmalı (≈ 160 px). BRIEF "küçük" dediği için S1 düzeni korundu.
-2. **İkonlar kuyrukta çizilir** (25,64–26,19). BRIEF "25,56–26,56 durgun kuyruk" der; S1 açık nokta 2 ile aynı (S1 göreli çapası korundu).
-   Alternatif: tren `Simple` (19,97), bilet `vs` (20,77) çapasında çizilir; kuyruk tam durgun olur.
-3. **İkon hizası S1'den farklı** (S1: ikisi bant ortası 778; S3: satır hizası 731 / 823). Gerekçe: tarife ↔ Simple Present, plan ↔ Present
-   Continuous. İstenirse iki sabit 778'e döner.
-4. Birim testi yok (HF sahneleri test taşımıyor); doğrulama kapı + kare. Render yapılmadı (`video.mp4`, `kontrol.png` yok).
-5. Sözleşmeye 1 satır eklendi (`.claude/docs/sozlesme.md`: aynı sesli kısa sahne kopyası + 72 px tren çizgi kalınlığı).
+- `k/` içinde v1 QA kareleri duruyor (`18.7`, `23`, `26.4`, `koyu/25.8`); silme yasağı yüzünden yerinde. Yedekleri
+  `~/Silinecekler/2026-11-15-huni-v2/02-04-ydt-temel-s3/sahneler-v1/03-hyperframes-cta/k/` altında; taşıma kararı şefte.
+- Ana kapak görseli sarı; kapakla `@ydspublishing` hapı aynı karede iki sarı alan (kapak dosyanın kendisi, vurgu kuralı dışı).
+- Açık temada hap çizgisi `vurgu` `#d9900f`, dolgu `#ffe066`: hapın koyu sarı kenarı kalır (koyu temada çizgi ve dolgu aynı renk).
+- Kare 0'da kapak opaklığı 0 (giriş 0,00–0,40 sn); sahne geçişi (BookFlip, 12 kare) bu aralığı örter.

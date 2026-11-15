@@ -1,5 +1,5 @@
 #!/bin/bash
-# Sahne 07 hikâye karesi B (soru kartı) (HyperFrames DİKEY 1080x1920, tek kare, ses yok, zaman çizelgesi dışı): üret -> [önizleme burada biter] -> tek kare PNG.
+# Sahne 07 hikâye karesi B, huni v2 (soru–cevap: doğru şık yeşil, kural özeti, Kaydet) (HyperFrames DİKEY 1080x1920, tek kare, ses yok, zaman çizelgesi dışı): üret -> [önizleme burada biter] -> tek kare PNG.
 # Tema: --tema acik|koyu (varsayılan acik, K19). acik -> paket kökü hikaye-b.png · koyu -> k/koyu/hikaye-b-koyu.png. mp4 yok. Kalıp: 04-hyperframes-hikaye/calistir.sh.
 # Önizleme hazırlığı: ONIZLE_YALNIZ=1 bash calistir.sh [--tema koyu]
 set -e
@@ -14,7 +14,8 @@ SN=0.5                                      # yakalama anı: zamanlar.json yakal
 mkdir -p "$AD/proje/lib" "$AD/proje/assets/fonts" "$AD/k/koyu"
 cp "$M/node_modules/gsap/dist/gsap.min.js" "$AD/proje/lib/" 2>/dev/null || cp "$M/lib/gsap.min.js" "$AD/proje/lib/"
 cp "$ORTAK/logo/$LOGO_DOSYA" "$AD/proje/assets/logo.svg"
-/usr/bin/python3 "$AD/uret.py" >&2 && /usr/bin/python3 "$AD/olay.py" >&2
+/usr/bin/python3 "$AD/uret.py" >&2         # ayrı satır: `a && b` zincirinde set -e a'nın hatasını yutar (15.11)
+/usr/bin/python3 "$AD/olay.py" >&2
 tema_hf "$AD/proje/index.html"
 [ -n "$ONIZLE_YALNIZ" ] && { echo "önizleme hazır"; exit 0; }
 # yük bekçisi: 1 dk yük > 24 ise 60 sn bekle (en çok 5 dk)

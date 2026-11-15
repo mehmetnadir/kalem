@@ -1,109 +1,151 @@
-# SPEC — 02-04-ydt-temel-s1 · sahne 05-hyperframes-kapak-b (HyperFrames, 1080×1920, tek kare, ses yok)
+# SPEC v2 — 02-04-ydt-temel-s1 · sahne 05-hyperframes-kapak-b (huni v2; HyperFrames, 1080×1920, tek kare, ses yok)
 
-Yazan: şef (15.11.2026, istem S1-VAR). Kod yazmaz; tasarım verir. K = `/home/sef/01dev/_worktrees/kalem-0204`.
-Sahne dizini D = `K/projeler/02-04-ydt-temel-s1/sahneler/05-hyperframes-kapak-b/`. Paket P = `K/projeler/02-04-ydt-temel-s1/`.
-Kaynak: `P/uretim-tutanagi/kapak-taslak.md` §5 (bu sürüm), §7 (A/B/C farkı). Kapak B = soru/merak kapağı; cevap karede YOK.
+Yazan: şef (15.11.2026, istem D-V2 `uretim-tutanagi/istem/sahne-v2/D-05-hyperframes-kapak-b.md`). Tasarım verir; tam kod yok.
+K = `/home/sef/01dev/_worktrees/kalem-0204`. D = `K/projeler/02-04-ydt-temel-s1/sahneler/05-hyperframes-kapak-b/`. P = `K/projeler/02-04-ydt-temel-s1/`.
+Bağlayıcı: `/home/sef/01dev/dijital-anlatim/.claude/docs/huni-v2-standart.md` §1, §2, §6; `kapak-standardi.md` §2 (çıkartma kenarı).
+v1 SPEC yedeği: `~/Silinecekler/2026-11-15-huni-v2/02-04-ydt-temel-s1/sahneler/05-hyperframes-kapak-b/SPEC.md`.
+
+## 0. v1 → v2 farkı
+
+| Öğe | v1 | v2 |
+|---|---|---|
+| Üst bant | logo 48–144, rozet 216–288 | 0–280 BOŞ; kanal katmanı 280–350; künye 360–450 |
+| Künye | yalnız rozet `YDT · BASIC` (36 px) | konu `Simple Present vs Present Continuous` + rozet (yardim.py `kunye_svg()`) |
+| Görsel | doodle öğretmen figürü + zemin çizgisi | `P/ortak/kapak/karakter.png` + 10 px krem çıkartma kenarı; zemin çizgisi YOK |
+| Başlık | 952 px'e sığan boy, orta x 540 | 888 px'e sığan boy, orta x 510 (içerik bandı 60–960) |
+| Balon | x 360–1032 (sağ 960–1080 doluydu) | x `bx0`–960, yükseklik 140 |
+| Yasak taraması | bütün HTML'de "kanal" | yalnız görünen `<text>` içeriğinde (id `kanal` serbest) |
 
 ## 1. Dosyalar
 
-| Dosya | Durum | İş |
-|---|---|---|
-| `D/uret.py` | YOK | **YAZILACAK** (mutlak yol `/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s1/sahneler/05-hyperframes-kapak-b/uret.py`) |
-| `D/yardim.py` | VAR (sahne 01'in birebir kopyası) | DOKUNMA; yalnız `import yardim as Y` |
-| `D/cizim/ogretmen.json`, `D/cizim/luggage.svg` | VAR (sahne 01 kopyası) | salt oku |
-| `D/calistir.sh`, `D/olay.py`, `D/zamanlar.json` | VAR (şef yazdı) | DOKUNMA |
-| `D/nesneler.json` | uret.py yazar | §6 |
+| Dosya | İş |
+|---|---|
+| `D/yardim.py` | **agy koşusu 1.** §2'deki ekleme. Başka satır değişmez |
+| `D/uret.py` | **agy koşusu 2.** Baştan yazılır (`/home/sef/01dev/_worktrees/kalem-0204/projeler/02-04-ydt-temel-s1/sahneler/05-hyperframes-kapak-b/uret.py`) |
+| `D/calistir.sh`, `D/olay.py`, `D/zamanlar.json`, `D/cizim/` | DOKUNMA |
+| `D/nesneler.json`, `D/proje/index.html`, `D/proje/assets/karakter.png`, `D/proje/assets/fonts/` | uret.py yazar |
 
-Başka dosyaya dokunma. Silme yok. Test, render, snapshot, `calistir.sh`, git YOK. `P/ortak/`, `P/zaman.json` ve başka sahneler salt okunur.
+Başka dosyaya dokunma. Silme yok. Test, render, git YOK. `P/ortak/`, `P/zaman.json`, başka sahneler salt okunur.
 
-## 2. Kalıp kaynakları (salt oku)
+## 2. yardim.py (agy koşusu 1)
 
-| Kalıp | Mutlak yol | Ne alınır |
-|---|---|---|
-| İskelet (aynı tür: durağan tek kare) | `K/projeler/02-04-ydt-temel-s1/sahneler/04-hyperframes-hikaye/uret.py` | dosya düzeni, `zaman.json` doğrulaması, HTML kabuğu (`Y.font_css()`, `Y.ZEMIN_CSS`, `#root data-…`, `Y.zemin_html()`, tek `<svg id="sahne" … viewBox="0 0 1080 1920">`, `lib/gsap.min.js`, tek `set` çizelgesi, `window.__timelines["main"]`), blok kutusu + kesişim assert'leri, `__main__` (`proje/`, `Y.font_kopyala`, `proje/index.html`, `nesneler.json`) |
-| Başlık konturu, logo, rozet, figür, bavul | `K/projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/uret.py` | başlık `<text>` konturu (satır 342–347: `stroke=zemin stroke-width=12 stroke-linejoin=round style="font-kerning:none;paint-order:stroke fill"`); figür çizimi (satır 72–76 ölçek, 276–285 yollar ve parça kalınlıkları `govde 4.4 · sac 3.6 · yuz 2.6` / ölçek); `Y.tabler("luggage", AD / "cizim")`; `<g id="eskiz" fill="none" stroke=murekkep stroke-linecap=round stroke-linejoin=round>` |
-| Ev ikonu | `Y.tabler("home")` (24×24 ızgara, çizim y 3→21, x 3→21) | |
-| Tema dönüşümü | `P/ortak/hf_tema.py` | §5 |
+Kaynak: `K/projeler/02-04-ydt-temel-s1/sahneler/01-hyperframes-kapak/yardim.py` (sahne 01, v2'ye çevrilmiş).
+1. Satır 1 docstring ilk satırı: `"""02-04-ydt-temel-s1 sahne 05 kapak B; huni v2 (15.11): kanal katmanı + künye satırı + v2 bantları (BRIEF-S1 "Kanal katmanı").`
+2. `D/yardim.py` satır 147 (`# ---- künye ...`) ile satır 194 (`return '<g id="kunye">' + ders + rz + chip + logo + '</g>'`) ARASI (dahil)
+   silinir; yerine sahne 01 `yardim.py` satır 147–257 bloğu BİREBİR konur: `HUD` (kenar 60, sagSinir 960, kanalLogoX 53.2,
+   kanalLogoY 291, kanalLogoEn 193.5, kanalLogoYuk 48, kanalYaziX 263, kanalYaziTaban 330, kanalYaziBoy 42, konuX 60, konuTaban 420,
+   konuBoyUst 34, konuBoyAlt 28, rozetY 386, rozetH 48, rozetAra 20, rozetYazi 26, rozetPay 20, icerikBas 460, icerikSon 1380,
+   altyaziBas 1400, altyaziSon 1550, altyaziYazi 44, altyaziSatir 56, altyaziOrta 510, altyaziGen 900), `KONU`, `KONU_PARCA`, `ROZET`,
+   `KANAL_YAZI`, `rozet_genislik()`, `konu_boyu()`, `rozet_konumu()`, `kunye_svg()` (argümansız; `<g id="kunye">` içinde
+   `<g id="kanal">` (`<image id="logoimg" href="assets/logo.svg" …>` + `<text id="kanal-yazi">`) + `<g id="ku-konu">` + `<g id="rz0">`).
+3. Eski `DERS`, `cip_olcu()`, eski `rozet_konumu()` kalkar. Satır 195'ten sonrası (`altyazi_satirlari` … `cizgi_zamanlari`) AYNEN kalır.
 
-## 3. Okuma ve sabitler
+## 3. uret.py — okuma ve sabitler
 
-- `PAKET = AD.parent.parent`. `PAKET/zaman.json` oku. `duragan` listesinde `klasor == AD.name` olan TEK kayıt var assert; o kaydın
-  `kare == 1` ve `cikti == "kapak-b.png"` assert. `sahneler[]` içinde `AD.name` YOK assert.
-- `Z = D/zamanlar.json`: `sure` 1,0 · `kare` 1 · `fps` 30 assert (sahne 04 ile aynı).
-- Anlatım, sözcük, altyazı dosyası OKUNMAZ (ses yok).
-- Renk yalnız `Y.RENK` anahtarlarıyla: `zemin #1b1a17`, `murekkep #f3efe6`, `ikincil #c9c2b3`, `vurgu #f2a93b`. Başka hex YOK.
-- `W, H = Y.W, Y.H`; `KENAR = 48`; `SAG = 1032`; `BASLIK_GEN = 952` (1080 − 2 × 64); `ZEMIN_Y = 1344`; `PLATFORM = 1536`.
+- İskelet v1 ile aynı (yedek `uret.py`): `AD`, `sys.path` + `import yardim as Y`, `PAKET = AD.parent.parent`, `ORTAK = PAKET / "ortak"`.
+- `zaman.json`: `duragan` içinde `klasor == AD.name` TEK kayıt, `kare == 1`, `cikti == "kapak-b.png"`; `sahneler[]` içinde `AD.name` YOK (assert).
+- `zamanlar.json`: `sure` 1.0 · `kare` 1 · `fps` 30 (assert). Anlatım, sözcük, altyazı dosyası OKUNMAZ.
+- Renk yalnız `Y.RENK` (`zemin #1b1a17`, `murekkep #f3efe6`, `ikincil #c9c2b3`, `vurgu #f2a93b`). `KREM = Y.RENK["murekkep"]`.
+- Bant sabitleri: `X0, X1 = 60, 960` · `XC = 510` · `Y0, Y1 = 460, 1380` · `KANAL_Y = (280, 350)` · `KUNYE_Y = (360, 450)`.
+- Başlık: `BASLIK_GEN = 888` (900 − 2 × 6 kontur payı) · `BAS_UST = 480` (satır 1 kutu üstü).
+- Karakter: `KARAKTER = ORTAK / "kapak" / "karakter.png"` (896×1200 RGBA) · `ESIK = 64` · `KENAR_PX = 10` · `KENAR_GECIS = 3` · `PAY = 24` ·
+  `BAS_SATIR = 300` (PNG'de saçın sağ üst bölgesi; düşünce izinin çıkış satırı, göz ölçümü) · ölçek adayları 0.60 → 0.40, adım 0.01.
+- Balon: `BL1_Y = 864` · `BL_H = 140` · `BL_ARA = 24` → `BL2_Y = 1028` · sağ `BL_X1 = 958` (4 px çizginin dış kenarı 960) · `rx 48` ·
+  `IK = 56` (ikon kutusu) · `PAD = 24` · `PAD_SAG = 40` (Caveat `?` glifi ilerleme genişliğini ≈ 10 px aşar) · `IK_ARA = 16`.
+- Şef QA (15.11): `BL_X1` 960 → 958, sağ pay `PAD_SAG` 40 (tur 1: `?` kenara 11 px), karakter `kx` + 2 px (tur 2: kenar yumuşatması x 58).
 
-## 4. Yerleşim (y = yazı tabanı, px)
+## 4. Yerleşim (y = yazı tabanı ya da kutu, px)
 
 ```
-y    0 ┌───────────────────────────────────────────┐
-       │ [logo 387×96]                              │ HUD (çip YOK, ders adı YOK — kapak A karesiyle aynı)
-   216 │ (YDT · BASIC)                              │ rozet 216–288
-   ≈480│       YAŞI[YOR]UM                          │ Fredoka 700 S, ortalı, YOR sarı kutuda
-   ≈670│      NASIL DENİR?                          │ Fredoka 700 S, ortalı
-   860 │ ┌fig┐   ( ev    I live?        )           │ balon 1: 860–1060
-       │ │   │ o                                    │ düşünce noktaları
-  1100 │ │   │   ( bavul I am living?   )           │ balon 2: 1100–1300
-  1344 │─┴───┴──────────────────────────────────── │ zemin çizgisi
-  1536 ├───────────────────────────────────────────┤ PLATFORM: boş
+y    0 ┌──────────────────────────────────────────────┐
+       │                (boş zemin)                    │ 0–280
+   291 │ [logo 193,5×48] @ydspublishing                │ kanal 280–350 (Y.kunye_svg)
+   420 │ Simple Present vs Present Continuous (YDT·BASIC)│ künye 360–450
+   480 │       YAŞI[YOR]UM                             │ başlık, orta x 510
+   ≈781│      NASIL DENİR?                             │ (S ≈ 142)
+   864 │ ┌karakter┐   o  ┌─[ev]  I live? ──────────┐    │ bl1 864–1004
+       │ │ (kenar)│ o    └────────────────────────┘    │
+  1028 │ │  ✋  ✋ │O     ┌─[bavul] I am living? ───┐   │ bl2 1028–1168
+       │ └────────┘      └────────────────────────┘    │
+  1380 ├───────────── karakter alt (kenar dahil) ──────┤ x 60–960 içerik
+  1920 └──────────────── boş ─────────────────────────┘ 1380–1920 boş (altyazı yok)
 ```
 
-### 4.1 HUD — `<g id="kunye">`
-| Öğe | Ölçü | Renk |
-|---|---|---|
-| logo `<g id="ku-logo"><image id="logoimg" href="assets/logo.svg" …/>` | x 48, y 48, yükseklik 96, genişlik `96 · Y.LOGO_EN_BOY` | dosya |
-| rozet `<g id="rz0">` hap | x 48, y 216, h 72, rx 36, w = `Y.genislik("Lexend", 700, "YDT · BASIC", 36) + 56` | `<rect fill=vurgu>` |
-| rozet yazısı | Lexend 700 36, `text-anchor="middle"`, x = hap ortası, taban 265 | `<text fill=zemin>` |
+### 4.1 Kanal + künye
+`Y.kunye_svg()` aynen (argümansız). uret.py künyeye kendi değer yazmaz.
 
-Ders adı ve çip YOK (kapak A'nın kapak karesi t 1,97'de de yok).
+### 4.2 Başlık — `<g id="baslik">` (v1 algoritması, iki değişiklik)
+- Parçalar ve ölçüm v1 ile aynı (`YAŞI` · `YOR` · `UM`; `NASIL DENİR?`; kutu payı `p = 0,08·S`; `g1 = wa + 2p + wy + wu`).
+- `S = floor(min(190, 888·100/g1_100, 888·100/g2_100))`; S ile yeniden ölç, `g1 ≤ 888`, `g2 ≤ 888` assert.
+- Taban: `T1 = BAS_UST + 0,86·S`; `T2 = T1 + 1,26·S`. Yatay: `x1 = XC − g1/2`, `x2 = XC − g2/2`.
+- Kutu, renk, kontur, id'ler v1 ile birebir: `bk-kutu` (`<rect fill=vurgu>`, YOR'un ALTINDA), `bs-yasi`, `bs-yor` (`fill` zemin, kontursuz),
+  `bs-um`, `bs-2` (`fill` murekkep, `stroke` zemin 12, round, `style="font-kerning:none;paint-order:stroke fill"`). `t2` id YOK.
 
-### 4.2 Başlık — `<g id="baslik">`
-- Satır 1 `YAŞIYORUM` üç parça: `YAŞI` · `YOR` · `UM`. `wa, wy, wu = Y.genislik("Fredoka", 700, parça, S)`. Kutu payı `p = 0,08·S`.
-  Satır 1 genişliği `g1 = wa + 2p + wy + wu`.
-- Satır 2 `NASIL DENİR?` tek `<text>`: `g2 = Y.genislik("Fredoka", 700, "NASIL DENİR?", S)`.
-- Boy `S`: önce boy 100 ile ölç; `S = floor(min(190, 952·100/g1_100, 952·100/g2_100))`; S ile yeniden ölç; `g1 ≤ 952` ve `g2 ≤ 952` assert.
-- Taban: `T1 = 375 + 0,70·S`; `T2 = T1 + 1,26·S` (satır 1 kutusu ve Ş çengeli altı + `İ` noktası payı).
-- Yatay: iki satır ayrı ayrı ortalı. `x1 = 540 − g1/2`; `YAŞI` x1 → kutu `kx0 = x1 + wa`, `kx1 = kx0 + 2p + wy` → `YOR` x `kx0 + p` →
-  `UM` x `kx1`. Satır 2 x = `540 − g2/2`.
-- Kutu `<rect id="bk-kutu">`: x kx0, w `kx1 − kx0`, üst `T1 − 0,86·S`, alt `T1 + 0,16·S`, rx `0,10·S`, `fill` vurgu. Kutu `YOR` yazısının ALTINDA çizilir.
-- Renk ve kontur: `YAŞI`, `UM`, satır 2 → `fill` murekkep + kontur (`stroke` zemin, `stroke-width` 12, round, paint-order stroke fill).
-  `YOR` → `fill` zemin (`#1b1a17`; açık temada pilMetin), KONTURSUZ. id: `bs-yasi`, `bs-yor`, `bs-um`, `bs-2`. **`t2` id YOK.**
-- Tek vurgu bu kutudur. Başlıkta başka renk, altçizgi, hap YOK.
+### 4.3 Karakter — HTML `<img>` (SVG dışı)
+Kalıp: `K/projeler/02-04-ydt-temel-dikey/sahneler/90-hyperframes-kapak/uret.py` → `alfa_kutusu`, `maske`, `bos_mu`, `maske_kutusu`,
+`gorsel_kopyala` (yalnız KARAKTER; hedef `AD/"proje"/"assets"/"karakter.png"`), `gorsel_img`, `.kenar` filtresi (`html_yaz` içinde `kenar`).
+- `ax0, ay0, ax1, ay1 = alfa_kutusu(KARAKTER)` (ölçüm: 21, 173, 878, 1112).
+- Ölçek `s` için: `kx = X0 + KENAR_PX + 2 − ax0·s` (görünür sol 72, kenarla 62) · `ky = Y1 − KENAR_PX − ay1·s` (görünür alt 1370, kenarla 1380).
+- Öğe: `<img id="karakter" class="abs kenar" src="assets/karakter.png" alt="" style="left:..px;top:..px;width:896·s px;height:1200·s px">`,
+  `Y.zemin_html()`'den SONRA, `<svg id="sahne">`'den ÖNCE.
+- CSS: `.kenar{filter: …}` = `KENAR_GECIS` × 4 yön `drop-shadow(±adım px 0 0 KREM)` / `drop-shadow(0 ±adım px 0 KREM)`, `adım = KENAR_PX / KENAR_GECIS`
+  (90 kapak ile aynı). Kenar rengi iki temada krem kalır (hf_tema CSS dizesine dokunmaz). Krem daire YOK (açık zemin zaten krem).
 
-### 4.3 Sahne — `<g id="eskiz" fill="none" stroke=murekkep stroke-linecap="round" stroke-linejoin="round">`
+### 4.4 Ölçek araması (büyükten küçüğe; ilk geçen ölçek seçilir)
+Her `s` için sırayla:
+1. `m = maske(KARAKTER, kx, ky, s)`; görünür üst `kust = ky + ay0·s`. Şart: `kust − KENAR_PX ≥ baslik_alt + 40` (`baslik_alt = T2 + 0,10·S + 6`).
+2. Balon solu: `bx0 = ceil(sağ_kenar + KENAR_PX + PAY)`; `sağ_kenar` = maskenin `[BL1_Y − KENAR_PX − PAY, BL2_Y + BL_H + KENAR_PX + PAY]`
+   satırlarındaki en sağ dolu sütun (+1). Balon genişliği `bw = BL_X1 − bx0`.
+3. Balon yazısı: `tx = bx0 + PAD + IK + IK_ARA`; `TB = min(88, floor((BL_X1 − PAD_SAG − tx)·100 / Y.genislik("Caveat", 700, "I am living?", 100)))`.
+   Şart `TB ≥ 72`. Sonuç (15.11): `s = 0,49`, `bx0 = 525`, `TB = 74`, `S = 142`.
+4. Düşünce izi (§4.6) şartları.
+Hiçbir `s` geçmezse `AssertionError("yerleşim bulunamadı: …")` (son ölçeğin gerekçeleriyle). Beklenen sonuç `s ≈ 0,52`, `bx0 ≈ 550`.
+
+### 4.5 Balonlar — `<g id="eskiz" fill="none" stroke=murekkep stroke-linecap="round" stroke-linejoin="round">`
 | Öğe | Ölçü |
 |---|---|
-| zemin çizgisi `<path id="zc">` | `M64 1344 L1016 1344`, `stroke-width` 4 |
-| figür `<g id="fig">` | `FIG_H = 500`, `fs = FIG_H / (kutu.y1 − kutu.y0)`, figür kutusu sol `FIG_X = 120`, alt = `ZEMIN_Y`; çizim sahne 01 satır 276–285 ile aynı (`translate(FIG_X − x0·fs, (ZEMIN_Y − FIG_H) − y0·fs) scale(fs)`; parça kalınlıkları / fs). `fig_sag = FIG_X + (x1 − x0)·fs`, `fig_ust = ZEMIN_Y − FIG_H` |
-| balon 1 `<rect id="bl1">` | x 360, y 860, w 672 (sağ 1032), h 200, rx 56, `stroke-width` 4 |
-| balon 2 `<rect id="bl2">` | x 360, y 1100, w 672, h 200, rx 56, `stroke-width` 4 |
-| düşünce noktaları `<circle>` | her balon için 2 daire (r 9 ve r 15), `stroke-width` 4. Başlangıç `P0 = (fig_sag + 16, fig_ust + 70)`, bitiş `P1 = (348, balon orta y)`; daireler P0→P1 doğrusunun t = 0,30 (r 9) ve t = 0,68 (r 15) noktasında. Her dairenin sol kenarı ≥ `fig_sag + 10` assert |
-| balon ikonu | 24×24 ızgara, kutu 112×112, sol üst (392, balon orta y − 56); `scale(112/24)`, `stroke-width = 4 / ölçek`. Balon 1 = `Y.tabler("home")`, balon 2 = bavul (`Y.tabler("luggage", AD / "cizim")`) |
+| `<rect id="bl1">` | x `bx0`, y 864, w `bw`, h 140, rx 48, `stroke-width` 4 |
+| `<rect id="bl2">` | x `bx0`, y 1028, w `bw`, h 140, rx 48, `stroke-width` 4 |
+| `<g id="bl1-ikon">` | `Y.tabler("home")`; `translate(bx0 + PAD, orta_y − IK/2) scale(IK/24)`, `stroke-width = 4 / (IK/24)` |
+| `<g id="bl2-ikon">` | `Y.tabler("luggage", AD / "cizim")`; aynı kalıp |
+| `<g id="iz">` | §4.6 daireleri |
 
-Balon yazısı (`<text>`, eskiz grubunun DIŞINDA, `fill` murekkep, kontursuz):
-- Balon 1 `I live?`, balon 2 `I am living?`. Caveat 700, boy `TB = min(88, floor((1032 − 32 − 528)·100 / genislik("Caveat", 700, "I am living?", 100)))`;
-  iki balonda aynı TB; `TB ≥ 72` assert. x 528, taban = balon orta y + 0,30·TB.
-- Sağ kenar ≤ 1000 assert (balon içi pay 32).
+Balon yazısı (`<text>`, eskiz grubunun DIŞINDA, `fill` murekkep, kontursuz, `xml:space="preserve"`): `bl1-yazi` = `I live?`,
+`bl2-yazi` = `I am living?`; Caveat 700, boy TB (iki balonda aynı); x `tx`; taban `orta_y + 0,30·TB` (`orta_y = balon y + 70`).
+Sağ kenar `tx + genişlik ≤ BL_X1 − PAD` assert.
+
+### 4.6 Düşünce izi — karakterin başından iki balonun arasına
+- `P0`: PNG satırı `BAS_SATIR` → ekran `y = ky + BAS_SATIR·s`; `x` = maskenin o satırdaki en sağ dolu sütunu + `KENAR_PX` + 14.
+- `P1 = (bx0 − 12 − 16, (BL1_Y + BL_H + BL2_Y) / 2)`.
+- 3 daire `<circle id="dn-1|2|3" fill="none" stroke-width="4">`: (t, r) = (0,10, 8) · (0,45, 12) · (0,85, 16); merkez `P0 + t·(P1 − P0)`.
+- Şartlar: `P1.x − P0.x ≥ 60`; her daire için `bos_mu(m, daire kutusu, KENAR_PX + 8)` (karaktere ve kenarına değmez);
+  `cx + r ≤ bx0 − 8`; ardışık daireler arası merkez uzaklığı `≥ r_i + r_j + 8`.
 
 ## 5. Tema (hf_tema.py ile uyum)
-- `Y.ZEMIN_CSS` ve `Y.zemin_html()` DEĞİŞTİRMEDEN kullan.
-- Renkler SVG özniteliği, küçük harf hex. CSS `style` içinde renk YAZMA (paint-order ve font-kerning style'da kalabilir).
-- Dönüşüm: `rect fill #f2a93b` → açıkta `#ffe066` · `text fill #1b1a17` → `#1b2440` · `stroke #1b1a17` → zemin · `#f3efe6` → `#1b2440`.
-  Bu yüzden rozet ve `bk-kutu` dolgusu `<rect fill="#f2a93b">`; rozet yazısı ve `YOR` `<text fill="#1b1a17">`.
-  `<circle fill=…>` ya da `<path fill="#1b1a17">` YOK (düşünce noktaları `fill="none"`).
-- id `t2`, `ku-nokta`, `rz1` KULLANMA.
+- `Y.ZEMIN_CSS`, `Y.zemin_html()`, `Y.font_css()` DEĞİŞTİRMEDEN. `#sahne{position:absolute;left:0;top:0;}`.
+- Renkler SVG özniteliği, küçük harf hex. CSS'te tek renk: `.kenar` filtresindeki KREM.
+- `rect fill #f2a93b` → açıkta `#ffe066`; `text fill #1b1a17` → `#1b2440`. `<circle fill=…>`, `<path fill="#1b1a17">` YOK. id `t2`, `ku-nokta`, `rz1` YOK.
+- Kanal logosu kimliği `logoimg` (yardim.py); `calistir.sh` tema logosunu `proje/assets/logo.svg` olarak kopyalar.
 
 ## 6. Kurallar ve kabul ölçütü (uret.py içinde `assert`)
-1. Bütün öğeler x ∈ [48, 1032]; hiçbir öğe y ≥ 1536 değil; başlık ve sahne x ∈ [64, 1016] (zemin çizgisi dahil).
-2. Yazı boyu ≥ 64 (HUD rozeti 36 hariç). Başlık 2 satır, toplam 3 sözcük. Her satır ≤ 24 karakter.
-3. Bloklar: `hud` (0–288), `baslik` (satır 1 kutu/Ş üstü → satır 2 altı `T2 + 0,10·S`), `fig`, `bl1`, `bl2`. Yazı kutusu y_üst = taban − 0,75·boy
-   (`İ` satırında − 0,94·boy), y_alt = taban + 0,25·boy. Çiftler arası kesişim 0; `baslik` alt ile en üst sahne öğesi arası ≥ 48;
-   `hud` alt (288) ile başlık üstü arası ≥ 40; `fig` sağ ile balon sol arası ≥ 60; `bl1` alt ile `bl2` üst arası ≥ 24.
-4. `nesneler.json`: `[{"ad", "x", "y", "w", "h"}]` tam sayı; bloklar: hud, baslik, bk-kutu, fig, bl1, bl2, bl1-yazi, bl2-yazi.
-5. Yasak: emoji, kırmızı, yeşil, gradyan, gölge, `Math.random`, `Date`, try/catch, `opacity:0` başlangıç, hareket (tek `set` dışında tween yok).
-6. Ekranda "kanal", QR, süre, cevap ("ikisi de", "kalıcı/geçici") YOK. Python: tür ipuçları bütün işlevlerde.
-7. `/usr/bin/python3 uret.py` stdout'a `index.html yazıldı <bayt>` ve `S=<boy> TB=<boy>` basar; hata yoksa çıkış 0.
+1. Bloklar (x, y, w, h; kutu payları): `kanal` (x 60, y 291, sağ = 263 + genişlik(`@ydspublishing`, Lexend 700, 42), alt 339) ·
+   `kunye` (x 60, y = min(386, 420 − 0,75·konu_boyu), sağ = rozet sağı, alt = max(434, 420 + 0,25·konu_boyu)) ·
+   `baslik` (min(x1, x2) − 6 … max(x1+g1, x2+g2) + 6; y `T1 − 0,86·S − 6` … `T2 + 0,10·S + 6`) · `bk-kutu` · `karakter`
+   (`maske_kutusu(m)` ± KENAR_PX) · `bl1`, `bl2` (± 2 çizgi) · `bl1-yazi`, `bl2-yazi` (üst `taban − 0,75·TB`, h `1,0·TB`) · `dn-1..3` (± r + 2).
+2. `kanal` ⊂ x [60, 960] × y [280, 350]; `kunye` ⊂ x [60, 960] × y [360, 450]; öteki bütün bloklar ⊂ x [60, 960] × y [460, 1380].
+   Böylece 0–280 ve 1380–1920 boş, sağ 960–1080 boş.
+3. Kesişim 0: `kanal`, `kunye`, `baslik`, `bl1`, `bl2` çiftleri; `baslik` ile `karakter` (kutu); `dn-*` ile `bl1`, `bl2`, `baslik`.
+   Karakter ile balon/iz maskeyle (§4.4–4.6). `bl1` alt ile `bl2` üst arası ≥ 24; `baslik` alt ile `bl1` üstü arası ≥ 40.
+4. Yazı boyu ≥ 64 (kanal 42 ve künye ≤ 34 / 26 hariç). Başlık 2 satır, toplam 3 sözcük. Her satır ≤ 24 karakter.
+5. Görünen metin taraması: bütün `<text>` içerikleri (regex `>([^<]+)</text>`) küçük harfe çevrilir; şu sözler YOK: `tam ders`, `dakika`,
+   `izle`, `qr`, `kanal`, `ikisi de`, `kalıcı`, `geçici`. Görünen metinde U+2FFF üstü karakter (emoji) YOK.
+6. Bütün HTML'de (küçük harf) YOK: `math.random`, `date.now`, `new date`, `opacity:0`. HTML'deki her `#rrggbb` değeri `Y.RENK`'in
+   zemin/murekkep/ikincil/vurgu kümesinde. `id="kanal"` ve `id="logoimg"` TAM bir kez.
+7. Yasak: kırmızı, yeşil, gradyan (zemin vinyeti dışında), gölge (kenar filtresi dışında), try/except, tween (tek `set` dışında). Python: tür
+   ipuçları bütün işlevlerde.
+8. Zaman çizelgesi v1 ile aynı: `tl.set("#sahne", {opacity: 1, immediateRender: false}, 0)` ve `…, Z["sure"])`; `window.__timelines["main"]`.
+9. `nesneler.json`: `[{"ad", "x", "y", "w", "h"}]` tam sayı; sıra kanal, kunye, baslik, bk-kutu, karakter, bl1, bl2, bl1-yazi, bl2-yazi, dn-1, dn-2, dn-3.
+10. `/usr/bin/python3 uret.py` stdout: `index.html yazıldı <bayt>` ve `S=<S> TB=<TB> s=<ölçek> bx0=<bx0>`; çıkış 0.
 
-Kabul (şef koşturur, ajan koşturmaz): `ONIZLE_YALNIZ=1 bash calistir.sh` → "önizleme hazır"; `bash calistir.sh --tema acik|koyu` →
-`P/kapak-b.png` ve `D/k/koyu/kapak-b-koyu.png` 1080×1920; taşma, kesik yazı, üst üste binme yok.
+Kabul (şef koşturur, ajan koşturmaz): `bash calistir.sh --tema acik|koyu` → `P/kapak-b.png` ve `D/k/koyu/kapak-b-koyu.png` 1080×1920;
+taşma, kesik yazı, üst üste binme yok; kanal katmanı görünür; 0–280, 1380–1920 ve x 960–1080 boş.

@@ -1,5 +1,5 @@
-"""Sahne 03 CTA index.html ve zamanlar.json üretici (02-04-ydt-temel-s3; DİKEY 1080x1920; 347 kare = 11,5667 sn).
-Cümle 4 ses olayları ve kinetik sözcükler. HUD hazır; içerik bandı 352-1392; altyazı 1400-1536."""
+"""Sahne 03 Çağrı index.html ve zamanlar.json üretici (02-04-ydt-temel-s3; DİKEY 1080x1920; 239 kare = 7.9667 sn).
+Cümle 5 ses olayları, kapak kartı, giriş sözü ve @ydspublishing YouTube çağrısı. Huni v2."""
 import json
 import math
 import sys
@@ -13,22 +13,21 @@ import yardim as Y  # noqa: E402
 PAKET = AD.parent.parent
 SAH = next(s for s in json.loads((PAKET / "zaman.json").read_text(encoding="utf-8"))["sahneler"]
            if s["klasor"] == AD.name)
-T_BAS: float = SAH["t_bas"]  # 15.99
-KARE: int = SAH["kare"]      # 347
-SURE: float = round(KARE / 30, 4)  # 11.5667
+T_BAS: float = SAH["t_bas"]  # 21.33
+KARE: int = SAH["kare"]      # 239
+SURE: float = round(KARE / 30, 4)  # 7.9667
 SOZ: List[Dict[str, Any]] = [
     w for w in json.loads((PAKET / "ortak" / "anlatim" / "sozcukler.json").read_text(encoding="utf-8"))
-    if w["cumle"] == 4
+    if w["cumle"] == 5
 ]
-ALT: List[Dict[str, Any]] = json.loads(
-    (PAKET / "ortak" / "anlatim" / "altyazi.json").read_text(encoding="utf-8")
-)
-R = Y.RENK
-CIP = "Full lesson"
+ALT: List[Dict[str, Any]] = [
+    a for a in json.loads((PAKET / "ortak" / "anlatim" / "altyazi.json").read_text(encoding="utf-8"))
+    if a.get("cumle") == 5
+]
 
 
 def T(i: int, bas: str = "") -> float:
-    """Cümle 4, i. sözcüğün t0'ı (küresel sn); sözcük kayarsa durur."""
+    """Cümle 5, i. sözcüğün t0'ı (küresel sn); sözcük kayarsa durur."""
     w = SOZ[i]
     if bas:
         val = w["sozcuk"]
@@ -37,7 +36,7 @@ def T(i: int, bas: str = "") -> float:
 
 
 def E(i: int, bas: str = "") -> float:
-    """Cümle 4, i. sözcüğün t1'i (küresel sn); sözcük kayarsa durur."""
+    """Cümle 5, i. sözcüğün t1'i (küresel sn); sözcük kayarsa durur."""
     w = SOZ[i]
     if bas:
         val = w["sozcuk"]
@@ -45,326 +44,286 @@ def E(i: int, bas: str = "") -> float:
     return float(w["t1"])
 
 
-# Sözcük assert'leri ile 18 sözcüğün sırası baştan doğrulanır
+def y_sn(t_kuresel: float) -> float:
+    """Küresel saniyeyi yerel sahne saniyesine çevirir (4 basamak yuvarlar)."""
+    return round(t_kuresel - T_BAS, 4)
+
+
+# Sözcük assert'leri ile 9 sözcüğün sırası baştan doğrulanır
 BEKLENEN_SOZLER: List[Tuple[int, str]] = [
-    (0, "Bu"), (1, "üç"), (2, "farktan"), (3, "yalnız"), (4, "biri"),
-    (5, "Tam"), (6, "ders"), (7, "Simple"), (8, "Present"), (9, "ve"),
-    (10, "Present"), (11, "Continuous"), (12, "Üç"), (13, "farkın"),
-    (14, "hepsi"), (15, "dört"), (16, "buçuk"), (17, "dakikada")
+    (0, "Bu"),
+    (1, "sadece"),
+    (2, "başlangıç"),
+    (3, "Dersin"),
+    (4, "tamamı"),
+    (5, "YDS"),
+    (6, "Publishing"),
+    (7, "YouTube"),
+    (8, "kanalında"),
 ]
 for _idx, _bas in BEKLENEN_SOZLER:
     T(_idx, _bas)
 
+# ---- Yerleşim Sabitleri (px, DİKEY 1080x1920) ----
+W: int = 1080
+H: int = 1920
 
-# Tren ve bilet ikonu (02-04-ydt-temel sahne 07; kaynak sahne 05 trenParcalari/biletParcalari)
-def _kutu(x: float, y: float, w: float, h: float, ince: bool = False) -> Dict[str, Any]:
-    return {"n": [(x, y), (x + w, y), (x + w, y + h), (x, y + h)], "kapali": True, "ince": ince}
+# Renkler (tema CSS'i bu sabitleri değişkene çevirir; başka renk yazma)
+RENK_MUREKKEP: str = "#f3efe6"
+RENK_IKINCIL: str = "#c9c2b3"
+RENK_VURGU: str = "#f2a93b"
+RENK_PIL_METIN: str = "#1b1a17"
+
+# 3.1 Kanal ve Künye
+KANAL_LOGO_X: float = 53.2
+KANAL_LOGO_Y: int = 291
+KANAL_LOGO_W: float = 193.5  # 48 * 1920 / 476.3
+KANAL_LOGO_H: int = 48
+KANAL_METIN_X: int = 263
+KANAL_METIN_Y: int = 330
+KANAL_METIN_BOY: int = 42
+
+KUNYE_X: int = 60
+KUNYE_Y: int = 420
+KUNYE_KONU: str = "Simple Present vs Present Continuous"
+
+ROZET_METIN: str = "YDT · BASIC"
+ROZET_BOY: int = 26
+ROZET_Y: int = 386
+ROZET_H: int = 48
+ROZET_RX: int = 24
+ROZET_DOLGU_EK: int = 40
+ROZET_ARA: int = 20
+
+# 3.2 Giriş Sözü
+GS_X: int = 60
+GS_Y: int = 560
+GS_METIN: str = "Bu sadece başlangıç."
+
+# 3.3 Ana Ders Kapağı Kartı
+KAPAK_X: int = 60
+KAPAK_Y: int = 620
+KAPAK_W: int = 900
+KAPAK_H: int = 506
+KAPAK_RX: int = 24
+KAPAK_CX: float = KAPAK_X + KAPAK_W / 2.0  # 510.0
+KAPAK_CY: float = KAPAK_Y + KAPAK_H / 2.0  # 873.0
+
+# 3.4 @ydspublishing / YouTube
+HAP_X: int = 60
+HAP_Y: int = 1160
+HAP_H: int = 104
+HAP_RX: int = 52
+HAP_METIN: str = "@ydspublishing"
+HAP_YAZI_X: int = 92
+HAP_YAZI_Y: int = 1234
+HAP_YAZI_BOY: int = 64
+
+YT_METIN: str = "YouTube"
+YT_X: int = 60
+YT_Y: int = 1346
+YT_BOY: int = 64
+
+# 3.5 Altyazı
+ALTYAZI_X: int = 510
+ALTYAZI_Y_TEK: int = 1490
+ALTYAZI_Y_CIFT1: int = 1462
+ALTYAZI_Y_CIFT2: int = 1518
+ALTYAZI_EN_SINIR: int = 900
 
 
-TREN: List[Dict[str, Any]] = [  # sahne 05 trenParcalari sadeleştirmesi (yandan, sağa bakar)
-    _kutu(200, 55, 170, 75), _kutu(200, 10, 75, 45), _kutu(320, 22, 26, 33, True),
-    {"n": [(370, 95), (398, 130), (370, 130)]}, _kutu(0, 45, 175, 85),
-    {"n": [(175, 112), (200, 112)], "ince": True},
-    _kutu(20, 60, 50, 30, True), _kutu(100, 60, 50, 30, True), _kutu(215, 20, 42, 25, True),
-    {"daire": (40, 138, 17)}, {"daire": (135, 138, 17)}, {"daire": (240, 138, 17)}, {"daire": (335, 138, 17)},
-    {"n": [(-10, 158), (420, 158)], "ince": True},
-]
-
-
-def _bilet() -> List[Dict[str, Any]]:
-    """Sahne 05 biletParcalari: iki yanında çentik, delik çizgisi, 3 baskı satırı (merkez 0,0)."""
-    def yay(x0: float, yon: int) -> List[Tuple[float, float]]:
-        return [(x0 - yon * 22 * math.cos(-math.pi / 2 + i / 12 * math.pi),
-                 yon * 22 * math.sin(-math.pi / 2 + i / 12 * math.pi)) for i in range(13)]
-    kenar = [(-180, -70), (180, -70), (180, -22)] + yay(180, 1) + [(180, 70), (-180, 70), (-180, 22)] + yay(-180, -1)
-    p: List[Dict[str, Any]] = [{"n": kenar + [(-180, -70)]}]
-    p += [{"n": [(100, -58 + i * 20), (100, -47 + i * 20)], "ince": True} for i in range(6)]
-    p += [{"n": [(-150, y), (x1, y)], "ince": True} for y, x1 in ((-30, 60), (0, 30), (30, 70))]
-    return p
-
-
-BILET: List[Dict[str, Any]] = _bilet()
-
-
-def _kutusu(parcalar: List[Dict[str, Any]]) -> Tuple[float, float, float, float]:
-    xs: List[float] = []
-    ys: List[float] = []
-    for p in parcalar:
-        if "daire" in p:
-            x, y, r = p["daire"]
-            xs += [x - r, x + r]
-            ys += [y - r, y + r]
-        else:
-            xs += [q[0] for q in p["n"]]
-            ys += [q[1] for q in p["n"]]
-    return min(xs), min(ys), max(xs), max(ys)
-
-
-def _daire_yolu(cx: float, cy: float, r: float) -> str:
-    k = 0.5523 * r
+def hap_yolu(x: float, y: float, w: float, h: float, rx: float) -> str:
+    """Yuvarlak dikdörtgenin çevresi (sol orta noktadan başlar, saat yönünde tek kapalı yol)."""
     return (
-        "M%.1f %.1f C%.1f %.1f %.1f %.1f %.1f %.1f C%.1f %.1f %.1f %.1f %.1f %.1f "
-        "C%.1f %.1f %.1f %.1f %.1f %.1f C%.1f %.1f %.1f %.1f %.1f %.1f" % (
-            cx + r, cy, cx + r, cy + k, cx + k, cy + r, cx, cy + r,
-            cx - k, cy + r, cx - r, cy + k, cx - r, cy,
-            cx - r, cy - k, cx - k, cy - r, cx, cy - r,
-            cx + k, cy - r, cx + r, cy - k, cx + r, cy
-        )
+        f"M{x:.1f} {y + rx:.1f} "
+        f"A{rx:.1f} {rx:.1f} 0 0 1 {x + rx:.1f} {y:.1f} "
+        f"L{x + w - rx:.1f} {y:.1f} "
+        f"A{rx:.1f} {rx:.1f} 0 0 1 {x + w:.1f} {y + rx:.1f} "
+        f"A{rx:.1f} {rx:.1f} 0 0 1 {x + w - rx:.1f} {y + h:.1f} "
+        f"L{x + rx:.1f} {y + h:.1f} "
+        f"A{rx:.1f} {rx:.1f} 0 0 1 {x:.1f} {y + rx:.1f} Z"
     )
 
 
-def ikon_yollari(
-    parcalar: List[Dict[str, Any]], mx0: float, my0: float, en: float = 72.0, boy: float = 72.0
-) -> List[Tuple[str, float, bool]]:
-    """Izgara parçalarını en x boy kutusuna (merkez mx0, my0) sığdırır. Döner: [(d, uzunluk, ince)]."""
-    gx0, gy0, gx1, gy1 = _kutusu(parcalar)
-    sc = min(boy / (gy1 - gy0), en / (gx1 - gx0))
-    gmx, gmy = (gx0 + gx1) / 2.0, (gy0 + gy1) / 2.0
+def uret_altyazi() -> Tuple[str, List[List[Any]], List[List[Any]]]:
+    """Altyazı parçalarını ve karaoke zamanlarını üretir (Lexend 500 en çok 2 satır; tspan sözcükleri)."""
+    svg_parcalar: List[str] = []
+    alt_zaman: List[List[Any]] = []
+    karaoke_zaman: List[List[Any]] = []
 
-    def P(q: Tuple[float, float]) -> Tuple[float, float]:
-        return (mx0 + (q[0] - gmx) * sc, my0 + (q[1] - gmy) * sc)
+    for i, p in enumerate(ALT):
+        metin_sozcukler = p["metin"].split()
+        soz_eslesen = [w for w in SOZ if p["t0"] - 0.05 <= w["t0"] < p["t1"] + 0.05]
+        assert len(soz_eslesen) == len(metin_sozcukler), (
+            f"parça {i}: sözcük sayısı {len(soz_eslesen)} != {len(metin_sozcukler)}"
+        )
 
-    out: List[Tuple[str, float, bool]] = []
-    for p in parcalar:
-        if "daire" in p:
-            x, y, r = p["daire"]
-            c = P((x, y))
-            out.append((_daire_yolu(c[0], c[1], r * sc), 2.0 * math.pi * r * sc, p.get("ince", False)))
-            continue
-        q = [P(v) for v in p["n"]]
-        if p.get("kapali"):
-            q = q + [q[0]]
-        uz = sum(math.hypot(b[0] - a[0], b[1] - a[1]) for a, b in zip(q, q[1:]))
-        d = "M%.1f %.1f " % q[0] + " ".join("L%.1f %.1f" % v for v in q[1:])
-        out.append((d, uz, p.get("ince", False)))
-    return out
+        # Satır kırma: Lexend 500, en çok 2 satır; boy 44 -> 40 -> 36
+        secilen_boy: int = 0
+        secilen_satirlar: List[List[str]] = []
+        for boy in (44, 40, 36):
+            satirlar: List[List[str]] = []
+            cur: List[str] = []
+            ok = True
+            for w in metin_sozcukler:
+                cand = " ".join(cur + [w])
+                if Y.genislik("Lexend", 500, cand, boy) <= ALTYAZI_EN_SINIR:
+                    cur.append(w)
+                else:
+                    if not cur:
+                        ok = False
+                        break
+                    satirlar.append(cur)
+                    cur = [w]
+                    if Y.genislik("Lexend", 500, w, boy) > ALTYAZI_EN_SINIR:
+                        ok = False
+                        break
+            if cur:
+                satirlar.append(cur)
+            if ok and len(satirlar) <= 2:
+                secilen_boy = boy
+                secilen_satirlar = satirlar
+                break
 
+        assert secilen_satirlar, f"parça {i} 2 satıra sığmadı"
 
-# ---- Yerleşim Sabitleri (px) ----
-CX: float = 540.0
+        tabanlar = [ALTYAZI_Y_TEK] if len(secilen_satirlar) == 1 else [ALTYAZI_Y_CIFT1, ALTYAZI_Y_CIFT2]
 
-# Satır A
-A_Y: int = 452
-A_BOY: int = 72
+        satir_svglari: List[str] = []
+        w_idx = 0
+        for sat_words, y_tab in zip(secilen_satirlar, tabanlar):
+            tspans: List[str] = []
+            for w in sat_words:
+                tspans.append(f'<tspan id="al{i}w{w_idx}" fill="{RENK_IKINCIL}">{w}</tspan>')
+                w_idx += 1
+            satir_svglari.append(
+                f'<text x="{ALTYAZI_X}" y="{y_tab}" text-anchor="middle" font-family="Lexend" '
+                f'font-weight="500" font-size="{secilen_boy}">' + " ".join(tspans) + "</text>"
+            )
 
-# Satır B
-CAV_Y: int = 620
-CAV_BOY: int = 96
+        svg_parcalar.append(f'<g id="al{i}" style="opacity:0">\n' + "\n".join(satir_svglari) + "\n</g>")
 
-# Ders Bandı
-BANT_X: int = 132
-BANT_Y: int = 660
-BANT_W: int = 816
-BANT_H: int = 236
-BANT_RX: int = 48
-BANT_CX: float = 540.0
-BANT_CY: float = BANT_Y + BANT_H / 2.0  # 778.0
-P1_Y: int = 758
-P2_Y: int = 850
+        ac_sn = round(max(0.0, p["t0"] - 0.05 - T_BAS), 4)
+        son_sn = p["t1"] + 0.35
+        if i + 1 < len(ALT):
+            son_sn = min(son_sn, ALT[i + 1]["t0"] - 0.05)
+        kapat_sn = round(min(son_sn - T_BAS, SURE), 4)
+        alt_zaman.append([f"al{i}", ac_sn, kapat_sn])
 
-# İkonlar
-TREN_CX: float = 84.0
-BILET_CX: float = 996.0
-IKON_EN: float = 72.0
-IKON_KALIN: float = 3.2  # 72 px trende 4,0 pencere ve tekeri kapatıyordu (kare 26,4, tur 1)
-IKON_INCE: float = 2.0
+        for k, w_soz in enumerate(soz_eslesen):
+            t0_yerel = round(w_soz["t0"] - T_BAS, 4)
+            karaoke_zaman.append([f"al{i}w{k}", t0_yerel])
 
-# Satır E
-E_Y: int = 1066
-E_BOY: int = 72
-
-# Satır F (Hap)
-F_BOY: int = 64
-HAP_Y: int = 1200
-HAP_H: int = 112
-HAP_RX: int = 56
-HAP_CX: float = 540.0
-HAP_CY: float = HAP_Y + HAP_H / 2.0  # 1256.0
-HAP_YAZI_Y: int = 1279
+    return "\n".join(svg_parcalar), alt_zaman, karaoke_zaman
 
 
 def uret() -> Tuple[str, Dict[str, Any]]:
     """index.html ve zamanlar verisini üretir."""
-    # 1. Satır A ölçüleri
-    w_a1 = Y.genislik("Lexend", 700, "üç farktan biri", A_BOY)
-    w_a2 = Y.genislik("Lexend", 700, "üç farkın hepsi", A_BOY)
-    a_x0 = CX - max(w_a1, w_a2) / 2.0
+    # 1. Künye konu boyu ve rozet konumu
+    w_rozet = Y.genislik("Lexend", 700, ROZET_METIN, ROZET_BOY) + ROZET_DOLGU_EK
+    konu_boy: int = 34
+    for boy in range(34, 27, -1):
+        w_k = Y.genislik("Fredoka", 700, KUNYE_KONU, boy)
+        if KUNYE_X + w_k + ROZET_ARA + w_rozet <= 960:
+            konu_boy = boy
+            break
 
-    w_uc = Y.genislik("Lexend", 700, "üç", A_BOY)
-    w_uc_bos = Y.genislik("Lexend", 700, "üç ", A_BOY)
-    w_farktan_bos = Y.genislik("Lexend", 700, "üç farktan ", A_BOY)
-    w_farkin_bos = Y.genislik("Lexend", 700, "üç farkın ", A_BOY)
+    w_konu = Y.genislik("Fredoka", 700, KUNYE_KONU, konu_boy)
+    rz_x = KUNYE_X + w_konu + ROZET_ARA
+    rz_cx = rz_x + w_rozet / 2.0
 
-    x_uc = a_x0
-    x_farktan = a_x0 + w_uc_bos
-    x_biri = a_x0 + w_farktan_bos
-    x_farkin = a_x0 + w_uc_bos
-    x_hepsi = a_x0 + w_farkin_bos
+    # 2. Giriş sözü (Bu sadece başlangıç.)
+    gs_birim = Y.genislik("Fredoka", 700, GS_METIN, 1)
+    gs_boy = min(96, math.floor(900 / gs_birim))
+    w_gs = Y.genislik("Fredoka", 700, GS_METIN, gs_boy)
+    assert gs_boy >= 64, f"giriş sözü boyu {gs_boy} < 64"
+    assert w_gs <= 900, f"giriş sözü genişliği {w_gs} > 900"
 
-    alt_y = A_Y + 0.42 * A_BOY
-    alt_x0 = a_x0 - 4.0
-    alt_x1 = a_x0 + w_uc + 4.0
-    alt_xm = (alt_x0 + alt_x1) / 2.0
-    d_alt = f"M{alt_x0:.1f} {alt_y:.1f} L{alt_xm:.1f} {alt_y - 2:.1f} L{alt_x1:.1f} {alt_y + 1:.1f}"
+    x_gs0 = float(GS_X)
+    x_gs1 = GS_X + Y.genislik("Fredoka", 700, "Bu ", gs_boy)
+    x_gs2 = GS_X + Y.genislik("Fredoka", 700, "Bu sadece ", gs_boy)
 
-    # 2. Satır B (Tam ders:)
-    cav_txt = "Tam ders:"
-    cav_w = Y.genislik("Caveat", 700, cav_txt, CAV_BOY)
-    cav_clip_w = cav_w + 24.0
+    # 3. @ydspublishing / YouTube (Tek veya İki Satır)
+    w_cta = Y.genislik("Lexend", 700, HAP_METIN, HAP_YAZI_BOY)
+    w_hap = w_cta + 64.0
+    w_yt_tek = Y.genislik("Lexend", 700, "· YouTube", HAP_YAZI_BOY)
+    tek_satir_toplam = w_hap + 20.0 + w_yt_tek
 
-    # 3. Bant & Bant Yazıları
-    w_vs_birim = Y.genislik("Fredoka", 700, "vs Present Continuous", 1)
-    bant_boy = min(96, math.floor((BANT_W - 2 * 28) / w_vs_birim))
-    assert bant_boy == 74, f"beklenen 74, bulunan {bant_boy}"
-    assert w_vs_birim * bant_boy <= 760, f"satır 2 banttan taşıyor: {w_vs_birim * bant_boy}"
+    if tek_satir_toplam <= 900.0:
+        cagri_satir = 1
+        yt_metin = "· YouTube"
+        yt_x = HAP_X + w_hap + 20.0
+        yt_y = 1234
+    else:
+        cagri_satir = 2
+        yt_metin = "YouTube"
+        yt_x = float(YT_X)
+        yt_y = YT_Y
 
-    w_s1 = Y.genislik("Fredoka", 700, "Simple Present", bant_boy)
-    s1_x0 = CX - w_s1 / 2.0
-    x_simple = s1_x0
-    x_present1 = s1_x0 + Y.genislik("Fredoka", 700, "Simple ", bant_boy)
+    d_hap = hap_yolu(float(HAP_X), float(HAP_Y), w_hap, float(HAP_H), float(HAP_RX))
+    hap_clip_w = w_cta + 24.0
 
-    w_s2 = Y.genislik("Fredoka", 700, "vs Present Continuous", bant_boy)
-    s2_x0 = CX - w_s2 / 2.0
-    x_vs = s2_x0
-    x_present2 = s2_x0 + Y.genislik("Fredoka", 700, "vs ", bant_boy)
-    x_cont = s2_x0 + Y.genislik("Fredoka", 700, "vs Present ", bant_boy)
-
-    # 4. İkonlar: Tren (sol, satır 1) ve Bilet (sağ, satır 2)
-    tren_cy = P1_Y - 0.36 * bant_boy
-    bilet_cy = P2_Y - 0.36 * bant_boy
-
-    for parcalar, cx, cy, x_min, x_max in [
-        (TREN, TREN_CX, tren_cy, 48.0, BANT_X - 8.0),
-        (BILET, BILET_CX, bilet_cy, BANT_X + BANT_W + 8.0, 1032.0),
-    ]:
-        gx0, gy0, gx1, gy1 = _kutusu(parcalar)
-        sc = min(IKON_EN / (gy1 - gy0), IKON_EN / (gx1 - gx0))
-        gmx, gmy = (gx0 + gx1) / 2.0, (gy0 + gy1) / 2.0
-        x0 = cx + (gx0 - gmx) * sc
-        x1 = cx + (gx1 - gmx) * sc
-        y0 = cy + (gy0 - gmy) * sc
-        y1 = cy + (gy1 - gmy) * sc
-        assert x_min <= x0 and x1 <= x_max, f"ikon x şeritten taşıyor: [{x0}, {x1}] not in [{x_min}, {x_max}]"
-        assert BANT_Y <= y0 and y1 <= BANT_Y + BANT_H, f"ikon y banttan taşıyor: [{y0}, {y1}]"
-
-    tren_yollar = ikon_yollari(TREN, TREN_CX, tren_cy, IKON_EN, IKON_EN)
-    tren_ids = [f"tren_{i}" for i in range(len(tren_yollar))]
-    tren_svg = "".join(
-        f'<path id="tren_{i}" d="{d}" stroke-width="{IKON_INCE if ince else IKON_KALIN}" style="opacity:0"/>'
-        for i, (d, _, ince) in enumerate(tren_yollar)
+    hap_svg = (
+        f'<g id="hapg">\n'
+        f'  <rect id="hapdolgu" x="{HAP_X}" y="{HAP_Y}" width="{w_hap:.1f}" height="{HAP_H}" '
+        f'rx="{HAP_RX}" fill="{RENK_VURGU}" style="opacity:0"/>\n'
+        f'  <path id="hapcizgi" d="{d_hap}" fill="none" stroke="{RENK_VURGU}" stroke-width="4" '
+        f'stroke-linecap="round" style="opacity:0"/>\n'
+        f'  <text id="hapyazi" x="{HAP_YAZI_X}" y="{HAP_YAZI_Y}" font-family="Lexend" font-weight="700" '
+        f'font-size="{HAP_YAZI_BOY}" fill="{RENK_PIL_METIN}" clip-path="url(#cph)">{HAP_METIN}</text>\n'
+        f'</g>\n'
+        f'<text id="yt" x="{yt_x:.1f}" y="{yt_y}" font-family="Lexend" font-weight="700" '
+        f'font-size="{YT_BOY}" fill="{RENK_MUREKKEP}" style="opacity:0">{yt_metin}</text>'
     )
 
-    bilet_yollar = ikon_yollari(BILET, BILET_CX, bilet_cy, IKON_EN, IKON_EN)
-    bilet_ids = [f"bilet_{i}" for i in range(len(bilet_yollar))]
-    bilet_svg = "".join(
-        f'<path id="bilet_{i}" d="{d}" stroke-width="{IKON_INCE if ince else IKON_KALIN}" style="opacity:0"/>'
-        for i, (d, _, ince) in enumerate(bilet_yollar)
-    )
+    # 4. Altyazı ve Karaoke
+    altyazi_svg, alt_zaman, karaoke_zaman = uret_altyazi()
 
-    # 5. Satır E (Saat + dört buçuk dakikada)
-    w_e_txt = Y.genislik("Lexend", 700, "dört buçuk dakikada", E_BOY)
-    grp_w = 88.0 + 20.0 + w_e_txt
-    grp_x0 = CX - grp_w / 2.0
-
-    saat_s = 88.0 / 24.0
-    saat_cy = E_Y - 0.36 * E_BOY
-    saat_x = grp_x0
-    saat_y = saat_cy - 44.0
-    saat_yollar = Y.tabler("clock")
-    saat_ids = [f"saat_{i}" for i in range(len(saat_yollar))]
-    saat_svg = "".join(f'<path id="saat_{i}" d="{d}" style="opacity:0"/>' for i, d in enumerate(saat_yollar))
-
-    e_txt_x0 = grp_x0 + 108.0
-    x_dort = e_txt_x0
-    x_bucuk = e_txt_x0 + Y.genislik("Lexend", 700, "dört ", E_BOY)
-    x_dakikada = e_txt_x0 + Y.genislik("Lexend", 700, "dört buçuk ", E_BOY)
-
-    # 6. Satır F (@ydspublishing)
-    cta_txt = "@ydspublishing"
-    w_cta = Y.genislik("Fredoka", 700, cta_txt, F_BOY)
-    hap_w = w_cta + 112.0
-    hap_rx = CX - hap_w / 2.0
-    cta_x = CX - w_cta / 2.0
-    cta_clip_w = w_cta + 24.0
-
-    # 7. Zamanlar ve Olaylar
-    def y_sn(t_kuresel: float) -> float:
-        return round(t_kuresel - T_BAS, 4)
-
-    t_tam = y_sn(T(5, "tam"))
-    dur_tam = round(E(6, "ders") - T(5, "tam"), 4)
-
-    t_hap_yazi = y_sn(T(17, "dakikada") + 0.10)
-    dur_hap_yazi = round(E(17, "dakikada") - (T(17, "dakikada") + 0.10), 4)
+    # 5. Zamanlar ve Olaylar
+    t_hap_yazi = y_sn(T(5, "YDS") + 0.10)
+    dur_hap_yazi = round(E(6, "Publishing") - (T(5, "YDS") + 0.10), 4)
 
     zamanlar: Dict[str, Any] = {
         "fps": 30,
         "kare": KARE,
         "sure": SURE,
         "t_bas": T_BAS,
-        "uc_giris": [y_sn(T(1, "üç")), 0.22],
-        "farktan_giris": [y_sn(T(2, "farktan")), 0.22],
-        "uc_altcizgi": [y_sn(T(1, "üç") + 0.22), 0.30],
-        "biri_giris": [y_sn(T(4, "biri")), 0.22],
-        "tam_ders": [t_tam, dur_tam],
-        "bant_giris": [y_sn(T(7, "simple")), 0.35],
-        "simple_giris": [y_sn(T(7, "simple")), 0.22],
-        "present1_giris": [y_sn(T(8, "present")), 0.22],
-        "vs_giris": [y_sn(T(9, "ve")), 0.22],
-        "present2_giris": [y_sn(T(10, "present")), 0.22],
-        "continuous_giris": [y_sn(T(11, "continuous")), 0.22],
-        "farktan_biri_cikis": [y_sn(T(12, "üç")), 0.25],
-        "farkin_giris": [y_sn(T(13, "farkın")), 0.22],
-        "hepsi_giris": [y_sn(T(14, "hepsi")), 0.22],
-        "saat_darbe": [y_sn(T(15, "dört")), 0.35],
-        "dort_giris": [y_sn(T(15, "dört")), 0.22],
-        "bucuk_giris": [y_sn(T(16, "buçuk")), 0.22],
-        "dakikada_giris": [y_sn(T(17, "dakikada")), 0.22],
-        "hap_giris": [y_sn(T(17, "dakikada")), 0.30],
+        "cagri_satir": cagri_satir,
+        "kapak_giris": [0.0, 0.40],
+        "gs0_giris": [y_sn(T(0, "Bu")), 0.30],
+        "gs1_giris": [y_sn(T(1, "sadece")), 0.30],
+        "gs2_giris": [y_sn(T(2, "başlangıç")), 0.30],
+        "hap_cizgi": [y_sn(T(5, "YDS")), 0.30],
+        "hap_dolgu": [y_sn(T(5, "YDS") + 0.20), 0.15],
         "hap_yazi": [t_hap_yazi, dur_hap_yazi],
-        "tren_darbe": [y_sn(E(17, "dakikada")), 0.45],
-        "bilet_darbe": [y_sn(E(17, "dakikada") + 0.10), 0.45],
+        "yt_giris": [y_sn(T(7, "YouTube")), 0.30],
         "olaylar": [
-            [y_sn(T(1, "üç")), "tik", 0.4],
-            [y_sn(T(1, "üç") + 0.22), "cizgi", 0.5],
-            [y_sn(T(5, "tam")), "hisirti", 0.45],
-            [y_sn(T(7, "simple")), "vurus", 0.9],
-            [y_sn(T(9, "ve")), "tik", 0.5],
-            [y_sn(T(12, "üç")), "tik", 0.4],
-            [y_sn(T(15, "dört")), "cizgi", 0.5],
-            [y_sn(T(17, "dakikada")), "tik", 0.6],
-            [y_sn(T(17, "dakikada") + 0.10), "hisirti", 0.5],
-            [y_sn(E(17, "dakikada")), "cizgi", 0.45],
-            [y_sn(E(17, "dakikada") + 0.10), "cizgi", 0.45],
+            [y_sn(T(0, "Bu")), "tik", 0.40],
+            [y_sn(T(2, "başlangıç")), "tik", 0.45],
+            [y_sn(T(5, "YDS")), "cizgi", 0.50],
+            [y_sn(T(5, "YDS") + 0.10), "hisirti", 0.45],
+            [y_sn(T(7, "YouTube")), "tik", 0.50],
         ],
     }
 
-    # 8. Altyazı ve Künye
-    kunye_svg = Y.kunye_svg(CIP)
-    alt_svg, alt_zaman = Y.altyazi_svg(T_BAS, SURE, ALT)
-
-    # 9. ClipPath tanımları
+    # ClipPath tanımları
     cp = lambda n, x, y, b: (  # noqa: E731
         f'<clipPath id="cp{n}"><rect id="cr{n}" x="{x:.1f}" y="{y - b}" width="0" height="{int(b * 1.5)}"/>'
         '</clipPath>'
     )
     clips = (
-        cp("c", CX - cav_clip_w / 2.0, CAV_Y, CAV_BOY)
-        + cp("l", CX - cta_clip_w / 2.0, HAP_YAZI_Y, F_BOY)
+        f'<clipPath id="kapakkirp"><rect x="{KAPAK_X}" y="{KAPAK_Y}" width="{KAPAK_W}" '
+        f'height="{KAPAK_H}" rx="{KAPAK_RX}"/></clipPath>\n'
+        + cp("h", HAP_YAZI_X, HAP_YAZI_Y, HAP_YAZI_BOY)
     )
 
-    veri = {
+    veri: Dict[str, Any] = {
         "Z": zamanlar,
-        "cav_w": cav_clip_w,
-        "cta_w": cta_clip_w,
-        "bant_cx": BANT_CX,
-        "bant_cy": BANT_CY,
-        "hap_cx": HAP_CX,
-        "hap_cy": HAP_CY,
-        "saat_ids": saat_ids,
-        "tren_ids": tren_ids,
-        "bilet_ids": bilet_ids,
+        "kapak_cx": KAPAK_CX,
+        "kapak_cy": KAPAK_CY,
+        "hap_clip_w": hap_clip_w,
         "alt": alt_zaman,
+        "karaoke": karaoke_zaman,
     }
 
     html = f"""<!doctype html>
@@ -373,60 +332,59 @@ def uret() -> Tuple[str, Dict[str, Any]]:
 {Y.font_css()}
 {Y.ZEMIN_CSS}
 #sahne{{position:absolute;left:0;top:0;}}
+#kapakA{{display:none}}.tema-acik #kapakA{{display:inline}}.tema-acik #kapakK{{display:none}}
 </style></head><body>
-<div id="root" data-composition-id="main" data-start="0" data-duration="{SURE}" data-fps="30" data-width="1080" data-height="1920">
+<div id="root" data-composition-id="main" data-start="0" data-duration="{SURE}" data-fps="30"
+     data-width="1080" data-height="1920">
 {Y.zemin_html()}
 <svg id="sahne" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
-<defs>{clips}</defs>
+<defs>
+{clips}
+</defs>
 
-<!-- Satır A: üç farktan biri / üç farkın hepsi -->
-<text id="tx_uc" x="{x_uc:.1f}" y="{A_Y}" font-family="Lexend" font-weight="700" font-size="{A_BOY}" fill="{R['murekkep']}" style="opacity:0">üç</text>
-<text id="tx_farktan" x="{x_farktan:.1f}" y="{A_Y}" font-family="Lexend" font-weight="700" font-size="{A_BOY}" fill="{R['murekkep']}" style="opacity:0">farktan</text>
-<text id="tx_biri" x="{x_biri:.1f}" y="{A_Y}" font-family="Lexend" font-weight="700" font-size="{A_BOY}" fill="{R['murekkep']}" style="opacity:0">biri</text>
-<text id="tx_farkin" x="{x_farkin:.1f}" y="{A_Y}" font-family="Lexend" font-weight="700" font-size="{A_BOY}" fill="{R['murekkep']}" style="opacity:0">farkın</text>
-<text id="tx_hepsi" x="{x_hepsi:.1f}" y="{A_Y}" font-family="Lexend" font-weight="700" font-size="{A_BOY}" fill="{R['murekkep']}" style="opacity:0">hepsi</text>
-<path id="uc_alt" d="{d_alt}" fill="none" stroke="{R['vurgu']}" stroke-width="10" stroke-linecap="round" style="opacity:0"/>
-
-<!-- Satır B: Tam ders: -->
-<text id="cav" x="540" y="{CAV_Y}" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="{CAV_BOY}" fill="{R['murekkep']}" clip-path="url(#cpc)">{cav_txt}</text>
-
-<!-- Ders Bandı -->
-<g id="bantg" style="opacity:0">
-<rect id="bant" x="{BANT_X}" y="{BANT_Y}" width="{BANT_W}" height="{BANT_H}" rx="{BANT_RX}" fill="{R['vurgu']}"/>
-<text id="bp_simple" x="{x_simple:.1f}" y="{P1_Y}" font-family="Fredoka" font-weight="700" font-size="{bant_boy}" fill="{R['zemin']}" style="opacity:0">Simple</text>
-<text id="bp_present1" x="{x_present1:.1f}" y="{P1_Y}" font-family="Fredoka" font-weight="700" font-size="{bant_boy}" fill="{R['zemin']}" style="opacity:0">Present</text>
-<text id="bp_vs" x="{x_vs:.1f}" y="{P2_Y}" font-family="Fredoka" font-weight="700" font-size="{bant_boy}" fill="{R['zemin']}" style="opacity:0">vs</text>
-<text id="bp_present2" x="{x_present2:.1f}" y="{P2_Y}" font-family="Fredoka" font-weight="700" font-size="{bant_boy}" fill="{R['zemin']}" style="opacity:0">Present</text>
-<text id="bp_cont" x="{x_cont:.1f}" y="{P2_Y}" font-family="Fredoka" font-weight="700" font-size="{bant_boy}" fill="{R['zemin']}" style="opacity:0">Continuous</text>
+<!-- 3.1 Kanal Katmanı + Künye -->
+<g id="kunye">
+  <g id="kanal">
+    <image id="logoimg" href="assets/logo.svg" x="{KANAL_LOGO_X}" y="{KANAL_LOGO_Y}"
+           width="{KANAL_LOGO_W}" height="{KANAL_LOGO_H}"/>
+    <text x="{KANAL_METIN_X}" y="{KANAL_METIN_Y}" font-family="Lexend" font-weight="700"
+          font-size="{KANAL_METIN_BOY}" fill="{RENK_MUREKKEP}">@ydspublishing</text>
+  </g>
+  <text id="ku-konu" x="{KUNYE_X}" y="{KUNYE_Y}" font-family="Fredoka" font-weight="700"
+        font-size="{konu_boy}" fill="{RENK_MUREKKEP}">{KUNYE_KONU}</text>
+  <g id="rz0">
+    <rect x="{rz_x:.1f}" y="{ROZET_Y}" width="{w_rozet:.1f}" height="{ROZET_H}" rx="{ROZET_RX}" fill="{RENK_VURGU}"/>
+    <text x="{rz_cx:.1f}" y="419" text-anchor="middle" font-family="Lexend" font-weight="700"
+          font-size="{ROZET_BOY}" fill="{RENK_PIL_METIN}">{ROZET_METIN}</text>
+  </g>
 </g>
 
-<!-- İkon Sol: Tren (satır 1 hizası) -->
-<g id="tren" fill="none" stroke="{R['murekkep']}" stroke-linecap="round" stroke-linejoin="round">
-{tren_svg}
+<!-- 3.2 Giriş Sözü -->
+<text id="gs0" x="{x_gs0:.1f}" y="{GS_Y}" font-family="Fredoka" font-weight="700" font-size="{gs_boy}"
+      fill="{RENK_MUREKKEP}" style="opacity:0">Bu</text>
+<text id="gs1" x="{x_gs1:.1f}" y="{GS_Y}" font-family="Fredoka" font-weight="700" font-size="{gs_boy}"
+      fill="{RENK_MUREKKEP}" style="opacity:0">sadece</text>
+<text id="gs2" x="{x_gs2:.1f}" y="{GS_Y}" font-family="Fredoka" font-weight="700" font-size="{gs_boy}"
+      fill="{RENK_MUREKKEP}" style="opacity:0">başlangıç.</text>
+
+<!-- 3.3 Ana Ders Kapağı Kartı -->
+<g id="kapakg" style="opacity:0">
+  <image id="kapakA" href="assets/ana-kapak.png" x="{KAPAK_X}" y="{KAPAK_Y}" width="{KAPAK_W}" height="{KAPAK_H}"
+         preserveAspectRatio="xMidYMid slice" clip-path="url(#kapakkirp)"/>
+  <image id="kapakK" href="assets/ana-kapak-koyu.png" x="{KAPAK_X}" y="{KAPAK_Y}" width="{KAPAK_W}" height="{KAPAK_H}"
+         preserveAspectRatio="xMidYMid slice" clip-path="url(#kapakkirp)"/>
+  <rect id="kapakcer" x="{KAPAK_X}" y="{KAPAK_Y}" width="{KAPAK_W}" height="{KAPAK_H}" rx="{KAPAK_RX}"
+        fill="none" stroke="{RENK_MUREKKEP}" stroke-width="3"/>
 </g>
 
-<!-- İkon Sağ: Bilet (satır 2 hizası) -->
-<g id="bilet" fill="none" stroke="{R['murekkep']}" stroke-linecap="round" stroke-linejoin="round">
-{bilet_svg}
+<!-- 3.4 @ydspublishing / YouTube -->
+{hap_svg}
+
+<!-- 3.5 Altyazı + Karaoke -->
+<g id="altyazi">
+{altyazi_svg}
 </g>
 
-<!-- Satır E: Saat + dört buçuk dakikada -->
-<g id="saat" fill="none" stroke="{R['murekkep']}" stroke-linecap="round" stroke-linejoin="round" stroke-width="{4.4 / saat_s:.4f}">
-<g transform="translate({saat_x:.1f} {saat_y:.1f}) scale({saat_s:.6f})">
-{saat_svg}
-</g>
-</g>
-<text id="tx_dort" x="{x_dort:.1f}" y="{E_Y}" font-family="Lexend" font-weight="700" font-size="{E_BOY}" fill="{R['murekkep']}" style="opacity:0">dört</text>
-<text id="tx_bucuk" x="{x_bucuk:.1f}" y="{E_Y}" font-family="Lexend" font-weight="700" font-size="{E_BOY}" fill="{R['murekkep']}" style="opacity:0">buçuk</text>
-<text id="tx_dakikada" x="{x_dakikada:.1f}" y="{E_Y}" font-family="Lexend" font-weight="700" font-size="{E_BOY}" fill="{R['murekkep']}" style="opacity:0">dakikada</text>
-
-<!-- Satır F: @ydspublishing hapı -->
-<g id="pilg" style="opacity:0">
-<rect id="pill" x="{hap_rx:.1f}" y="{HAP_Y}" width="{hap_w:.1f}" height="{HAP_H}" rx="{HAP_RX}" fill="{R['vurgu']}"/>
-<text id="lin" x="{cta_x:.1f}" y="{HAP_YAZI_Y}" font-family="Fredoka" font-weight="700" font-size="{F_BOY}" fill="{R['zemin']}" clip-path="url(#cpl)">{cta_txt}</text>
-</g>
-
-{kunye_svg}<g id="altyazi">{alt_svg}</g>
 </svg>
 </div>
 <script src="lib/gsap.min.js"></script>
@@ -447,28 +405,14 @@ def uret() -> Tuple[str, Dict[str, Any]]:
     tl.to(p, ac({{ strokeDashoffset: 0, duration: sure, ease: "none" }}), bas);
   }}
 
-  function darbeCok(ids, bas, toplamSure) {{
-    var elms = ids.map(function (id) {{ return $("#" + id); }});
-    var lens = elms.map(function (p) {{ return p.getTotalLength(); }});
-    var tot = lens.reduce(function (a, b) {{ return a + b; }}, 0) || 1;
-    var t = bas;
-    for (var i = 0; i < elms.length; i++) {{
-      var p = elms[i], L = lens[i];
-      var s = toplamSure * (L / tot);
-      p.style.strokeDasharray = L + " " + (L + 2);
-      p.style.strokeDashoffset = L;
-      tl.set(p, ac({{ opacity: 1 }}), t);
-      tl.to(p, ac({{ strokeDashoffset: 0, duration: s, ease: "none" }}), t);
-      t += s;
-    }}
-  }}
-
   function kinetik(id, bas) {{
-    tl.fromTo(id, {{ opacity: 0, y: 24 }}, {{ opacity: 1, y: 0, duration: 0.22, ease: "back.out(1.6)", immediateRender: false }}, bas);
+    tl.fromTo(id, {{ opacity: 0, y: 24 }},
+      {{ opacity: 1, y: 0, duration: 0.30, ease: "power3.out", immediateRender: false }}, bas);
   }}
 
   function yaz(id, z, w) {{
-    tl.fromTo("#cr" + id, {{ attr: {{ width: 0 }} }}, {{ attr: {{ width: w }}, duration: z[1], ease: "none", immediateRender: false }}, z[0]);
+    tl.fromTo("#cr" + id, {{ attr: {{ width: 0 }} }},
+      {{ attr: {{ width: w }}, duration: z[1], ease: "none", immediateRender: false }}, z[0]);
   }}
 
   V.alt.forEach(function (a) {{
@@ -476,37 +420,25 @@ def uret() -> Tuple[str, Dict[str, Any]]:
     tl.set("#" + a[0], ac({{ opacity: 0 }}), a[2]);
   }});
 
-  kinetik("#tx_uc", Z.uc_giris[0]);
-  kinetik("#tx_farktan", Z.farktan_giris[0]);
-  darbe("uc_alt", Z.uc_altcizgi[0], Z.uc_altcizgi[1]);
-  kinetik("#tx_biri", Z.biri_giris[0]);
+  V.karaoke.forEach(function (k) {{
+    tl.set("#" + k[0], ac({{ attr: {{ fill: "{RENK_MUREKKEP}" }} }}), k[1]);
+  }});
 
-  yaz("c", Z.tam_ders, V.cav_w);
+  gsap.set("#kapakg", {{ svgOrigin: V.kapak_cx + " " + V.kapak_cy }});
+  tl.fromTo("#kapakg", {{ opacity: 0, scale: 0.96 }},
+    {{ opacity: 1, scale: 1, duration: Z.kapak_giris[1], ease: "power3.out", immediateRender: false }},
+    Z.kapak_giris[0]);
 
-  gsap.set("#bantg", {{ svgOrigin: V.bant_cx + " " + V.bant_cy }});
-  tl.fromTo("#bantg", {{ opacity: 0, scale: 0.92 }}, {{ opacity: 1, scale: 1, duration: Z.bant_giris[1], ease: "power3.out", immediateRender: false }}, Z.bant_giris[0]);
+  kinetik("#gs0", Z.gs0_giris[0]);
+  kinetik("#gs1", Z.gs1_giris[0]);
+  kinetik("#gs2", Z.gs2_giris[0]);
 
-  kinetik("#bp_simple", Z.simple_giris[0]);
-  kinetik("#bp_present1", Z.present1_giris[0]);
-  kinetik("#bp_vs", Z.vs_giris[0]);
-  kinetik("#bp_present2", Z.present2_giris[0]);
-  kinetik("#bp_cont", Z.continuous_giris[0]);
+  darbe("hapcizgi", Z.hap_cizgi[0], Z.hap_cizgi[1]);
+  tl.fromTo("#hapdolgu", {{ opacity: 0 }},
+    {{ opacity: 1, duration: Z.hap_dolgu[1], ease: "power3.out", immediateRender: false }}, Z.hap_dolgu[0]);
+  yaz("h", Z.hap_yazi, V.hap_clip_w);
 
-  tl.to(["#tx_farktan", "#tx_biri"], {{ opacity: 0, y: -16, duration: Z.farktan_biri_cikis[1], ease: "power2.in", immediateRender: false }}, Z.farktan_biri_cikis[0]);
-  kinetik("#tx_farkin", Z.farkin_giris[0]);
-  kinetik("#tx_hepsi", Z.hepsi_giris[0]);
-
-  darbeCok(V.saat_ids, Z.saat_darbe[0], Z.saat_darbe[1]);
-  kinetik("#tx_dort", Z.dort_giris[0]);
-  kinetik("#tx_bucuk", Z.bucuk_giris[0]);
-  kinetik("#tx_dakikada", Z.dakikada_giris[0]);
-
-  gsap.set("#pilg", {{ svgOrigin: V.hap_cx + " " + V.hap_cy }});
-  tl.fromTo("#pilg", {{ opacity: 0, scale: 0.9 }}, {{ opacity: 1, scale: 1, duration: Z.hap_giris[1], ease: "power3.out", immediateRender: false }}, Z.hap_giris[0]);
-  yaz("l", Z.hap_yazi, V.cta_w);
-
-  darbeCok(V.tren_ids, Z.tren_darbe[0], Z.tren_darbe[1]);
-  darbeCok(V.bilet_ids, Z.bilet_darbe[0], Z.bilet_darbe[1]);
+  kinetik("#yt", Z.yt_giris[0]);
 
   window.__timelines = window.__timelines || {{}};
   window.__timelines["main"] = tl;

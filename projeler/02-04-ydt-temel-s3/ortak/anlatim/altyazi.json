@@ -43,16 +43,24 @@
 "cumle": 4,
 "dil": "tr",
 "t0": 18.77,
-"t1": 22.85,
-"metin": "Tam ders: Simple Present ve Present Continuous.",
+"t1": 21.41,
+"metin": "Bir arkadaşına gönder; o da karıştırıyor.",
 "konusan": "ogretmen"
 },
 {
-"cumle": 4,
+"cumle": 5,
 "dil": "tr",
-"t0": 23.0,
-"t1": 25.64,
-"metin": "Üç farkın hepsi dört buçuk dakikada.",
-"konusan": "ogretmen"
+"t0": 21.88,
+"t1": 23.64,
+"metin": "Bu sadece başlangıç.",
+"konusan": "ogrenci"
+},
+{
+"cumle": 5,
+"dil": "tr",
+"t0": 23.79,
+"t1": 27.39,
+"metin": "Dersin tamamı YDS Publishing YouTube kanalında.",
+"konusan": "ogrenci"
 }
 ]
