@@ -21,7 +21,7 @@ Açıklama:
 
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
-Cümlede always, usually ya da every day var: hangi zaman? Alışkanlık işareti: Simple Present. Şu an olan iş değil.
+Cümlede always, usually ya da every day var: hangi zaman? Çoğunlukla alışkanlık işareti: Simple Present. Şu an olan iş değil.
 My brother usually goes to school by bus. → alışkanlık, geniş zaman
 Türkçede de öyle: Her sabah yedide kalkarım.
 Simple Present (ING-YDT-GR-02-02-T) dersinden.
@@ -41,7 +41,7 @@ Reels açıklaması:
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
 Always varsa hangi zaman?
-Usually, always, every day: alışkanlık işareti. İlk akla gelen: Simple Present.
+Usually, always, every day: çoğunlukla alışkanlık işareti. İlk akla gelen: Simple Present.
 My brother usually goes to school by bus. → şu an değil, alışkanlık
 Öğretmenseniz sınıfınızla paylaşın.
 Sıradaki ders: Present Continuous ve Simple Present
@@ -64,7 +64,7 @@ Simple Present ister). Instagram test çıkartması (iki şık) kullanılırsa y
 
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
-Always varsa hangi zaman? Usually, always, every day: alışkanlık. İlk akla gelen: Simple Present.
+Always varsa hangi zaman? Usually, always, every day: çoğunlukla alışkanlık. İlk akla gelen: Simple Present.
 Ders sayfası: profildeki bağlantı. Sıradaki ders: Present Continuous ve Simple Present
 #YDT #İngilizce #gramer #SimplePresent
 ```

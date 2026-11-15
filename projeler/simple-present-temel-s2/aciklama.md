@@ -14,14 +14,14 @@ Açılmazsa adresi `{PLATFORM_URL}` ile değiştir ya da satırı çıkar.
 Başlık:
 
 ```
-Usually, always, every day = Simple Present | YDT İngilizce #Shorts
+Usually, always, every day görürsen: çoğunlukla Simple Present | YDT İngilizce #Shorts
 ```
 
 Açıklama:
 
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
-Simple Present (ING-YDT-GR-02-02-T) konusunda püf nokta: usually, always, every day alışkanlık işaretidir. Alışkanlık: Simple Present.
+Simple Present (ING-YDT-GR-02-02-T) konusunda püf nokta: usually, always, every day çoğunlukla alışkanlık işaretidir. Alışkanlık: Simple Present.
 My brother usually goes to school by bus. → Kardeşim genellikle okula otobüsle gider.
 Türkçede de geniş zaman: Her sabah yedide kalkarım.
 Dersin tamamı: {UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-02-T&utm_content=s2-a
@@ -39,7 +39,7 @@ Reels açıklaması:
 
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
-Usually, always, every day: alışkanlık işareti. Alışkanlık: Simple Present.
+Usually, always, every day: çoğunlukla alışkanlık işareti. Alışkanlık: Simple Present.
 My brother usually goes to school by bus. → alışkanlık, şu an olan iş değil
 Türkçede de geniş zaman: Her sabah yedide kalkarım.
 Öğretmenseniz sınıfınızla paylaşın.
@@ -60,7 +60,7 @@ Hikâye: `hikaye-a.png` (elle paylaşım). Bağlantı çıkartması (elle; uygul
 
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
-Usually, always, every day: Simple Present. My brother usually goes to school by bus.
+Usually, always, every day: çoğunlukla Simple Present. My brother usually goes to school by bus.
 Ders sayfası: profildeki bağlantı. Sıradaki ders: Present Continuous ve Simple Present
 #YDT #İngilizce #gramer #SimplePresent
 ```

@@ -26,9 +26,9 @@ Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalı
 I live in İstanbul. → kalıcı durum, geniş zaman
 I am living with my uncle. → geçici durum, şimdiki zaman
 Bu, Simple Present ve Present Continuous (ING-YDT-GR-02-04-T) arasındaki üç farktan biri.
-Dersin tamamını izle: {UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ing-ydt-gr-02-04-t&utm_content=s1-b
+Dersin tamamını izle: {UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s1-b
 Sıradaki ders: Stative Verbs
-Ders sayfası: https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=youtube&utm_medium=short&utm_campaign=ing-ydt-gr-02-04-t&utm_content=s1-b
+Ders sayfası: https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s1-b
 
 #YDT #İngilizce #gramer #SimplePresent #PresentContinuous
 ```
@@ -54,10 +54,10 @@ Sıradaki ders: Stative Verbs
 ```
 
 Profil bağlantısı:
-`https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=instagram&utm_medium=bio&utm_campaign=ing-ydt-gr-02-04-t&utm_content=s1-b`
+`https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=instagram&utm_medium=bio&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s1-b`
 
 Hikâye: `hikaye-b.png` (elle paylaşım). Bağlantı çıkartması (elle; uygulama özelliği, doğrulanmadı):
-`https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=instagram&utm_medium=story&utm_campaign=ing-ydt-gr-02-04-t&utm_content=s1-b`
+`https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=instagram&utm_medium=story&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s1-b`
 
 Açıklamaya adres yazılmaz (Instagram açıklamada bağlantı tıklanmaz).
 
@@ -73,7 +73,7 @@ Sıradaki ders: Stative Verbs
 ```
 
 Profil bağlantısı:
-`https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=tiktok&utm_medium=bio&utm_campaign=ing-ydt-gr-02-04-t&utm_content=s1-b`
+`https://ydspublishing.com/grammar/02-04-ydt-temel?utm_source=tiktok&utm_medium=bio&utm_campaign=ING-YDT-GR-02-04-T&utm_content=s1-b`
 
 **DİKKAT:** TikTok `@ydspublishing` kullanıcı adı ve profil bağlantısı koşulu doğrulanmadı. Hesap açılınca doğrula.
 
@@ -83,7 +83,7 @@ Profil bağlantısı:
 |---|---|
 | `utm_source` | `youtube` · `instagram` · `tiktok` |
 | `utm_medium` | `short` (YouTube açıklaması) · `bio` (profil bağlantısı) · `story` (Instagram hikâye çıkartması) |
-| `utm_campaign` | `ing-ydt-gr-02-04-t` (ana ders kodu, küçük harf; huni-plan §6'dan sapma, gerekçe taslak §6) |
+| `utm_campaign` | `ING-YDT-GR-02-04-T` (ana ders kodu olduğu gibi; huni-plan §6 şeması; DUZ-1 15.11 küçük harften düzeltildi) |
 | `utm_content` | `s1-b` (B seti; A seti `s1-a` → `aciklama-a.md`) |
 
 - `{UZUN_VIDEO_URL}` `watch?v=…` biçiminde gelirse ilk `?` yerine `&` yaz.

@@ -20,7 +20,7 @@ Açıklama:
 
 ```
 Sınav günü bakmak için kaydet. Dersin tamamı @ydspublishing YouTube kanalında.
-Simple Present (ING-YDT-GR-02-02-T): Türkçedeki geniş zaman eki = İngilizcedeki s. Gider = goes.
+Simple Present (ING-YDT-GR-02-02-T): Gider = goes; ama yalnız he, she, it ile. I, you, we, they ile go.
 My brother goes to school by bus. → my brother = he, fiile s gelir
 He, she, it: s gelir. I, you, we, they: s yok.
 Ders videosu: {UZUN_VIDEO_URL}?utm_source=youtube&utm_medium=short&utm_campaign=ING-YDT-GR-02-02-T&utm_content=s1-a
