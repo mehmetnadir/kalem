@@ -3,7 +3,9 @@
   python3 ortak/yakala.py <sayfa> <cikis_klasoru> [genislik] [yukseklik]
 <sayfa> paket köküne göre yol (ör. ornek/ucan-makine/sahneler/01-paperjs/sayfa.html).
 Sayfa ortak/surucu.js'i kur()/kare(f) ile çağırır; kareler cikis/0000.png ... olarak yazılır.
-Zaman kare numarasından gelir; Math.random yok, iki koşu aynı kareyi verir."""
+Zaman kare numarasından gelir; Math.random yok, iki koşu aynı kareyi verir.
+YAKALA_KARELER="12,240,359" verilirse bütün kareler çizilir ama yalnız bu numaralar diske yazılır
+(kanıt toplama; 16.11: her koşu ~500 × 2,4 MB yazıp srv21 diskini %99'a getirdi)."""
 import http.server, os, sys, subprocess, threading, shutil, tempfile, platform
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import yakala_platform as yp
@@ -13,6 +15,7 @@ CHROME = yp.chrome_yolu(SISTEM, os.environ)
 sayfa, cikis = sys.argv[1], os.path.abspath(sys.argv[2])
 W, H = (int(sys.argv[3]), int(sys.argv[4])) if len(sys.argv) > 4 else (1920, 1080)
 shutil.rmtree(cikis, ignore_errors=True); os.makedirs(cikis)
+SECILI = {int(x) for x in os.environ.get("YAKALA_KARELER", "").replace(" ", "").split(",") if x}
 import time
 bitti = threading.Event(); durum = {"hata": None, "son": time.time(), "kare": 0}
 class I(http.server.SimpleHTTPRequestHandler):
@@ -23,7 +26,9 @@ class I(http.server.SimpleHTTPRequestHandler):
         from urllib.parse import urlparse, parse_qs
         u = urlparse(s.path); q = parse_qs(u.query); veri = s.rfile.read(int(s.headers.get("Content-Length", 0)))
         durum["son"] = time.time()
-        if u.path == "/kare": durum["kare"] += 1; open(os.path.join(cikis, f"{int(q['i'][0]):04d}.png"), "wb").write(veri)
+        if u.path == "/kare":
+            durum["kare"] += 1; i = int(q['i'][0])
+            if not SECILI or i in SECILI: open(os.path.join(cikis, f"{i:04d}.png"), "wb").write(veri)
         elif u.path == "/log": print("[sayfa]", veri.decode("utf-8", "replace"), flush=True)
         elif u.path == "/bitti":
             m = veri.decode(); print("[sayfa] bitti:", m, flush=True)
