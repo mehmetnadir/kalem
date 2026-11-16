@@ -24,6 +24,19 @@ export const uyku = (ms) => new Promise((r) => setTimeout(r, ms));
 export const SAYAC = `(() => { const d = [...document.body.children]
   .find((e) => /^\\d+ \\/ \\d+/.test(e.textContent || "")); return d ? d.textContent : ""; })()`;
 
+export function hazirOlmadiMesaji(url, istisnalar = [], basarisizlar = []) {
+  let msg = "sahne hazır olmadı (sayaç yok): " + url;
+  const ilkIstisna = istisnalar[0];
+  if (ilkIstisna) {
+    msg += ` · sayfa hatası: ${ilkIstisna}`;
+  }
+  const ilkBasarisiz = basarisizlar[0];
+  if (ilkBasarisiz) {
+    msg += ` · başarısız istek: ${ilkBasarisiz.yol} ${ilkBasarisiz.durum}`;
+  }
+  return msg;
+}
+
 export function cdpGonderici(ws, { cdpZaman = 20 } = {}) {
   let n = 0;
   const bk = new Map();
@@ -154,16 +167,58 @@ if (process.argv[1] && path.resolve(process.argv[1]) === suAnkiDosya) {
   const ws = new WebSocket(v.webSocketDebuggerUrl);
   const { g, mesajIsle, temizle } = cdpGonderici(ws, { cdpZaman });
   const ISTEK = new Map();
+  const istisnalar = [];
+  const basarisizlar = [];
+
+  // favicon 404'ü asıl sebebi (ör. lib/gsap.min.js) gölgelemesin
+  const sayilirMi = (yol) => !/\/favicon\.ico$/.test(yol);
+  const istekYolu = (u) => {
+    try {
+      return new URL(u).pathname;
+    } catch {
+      return u;
+    }
+  };
 
   ws.onmessage = (e) => {
     const m = mesajIsle(e.data);
-    if (sec.dbg && m.method === "Network.requestWillBeSent") {
-      ISTEK.set(m.params.requestId, m.params.request.method + " " + m.params.request.url);
+    if (m.method === "Runtime.exceptionThrown") {
+      const ed = m.params?.exceptionDetails;
+      const aciklama = ed?.exception?.description || ed?.text;
+      if (aciklama && istisnalar.length < 3) {
+        istisnalar.push(aciklama);
+      }
+    }
+    if (m.method === "Network.requestWillBeSent") {
+      const req = m.params?.request;
+      if (m.params?.requestId && req?.url) {
+        ISTEK.set(m.params.requestId, { url: req.url, method: req.method });
+      }
+    }
+    if (m.method === "Network.loadingFailed") {
+      const reqInfo = ISTEK.get(m.params?.requestId);
+      const hamUrl = typeof reqInfo === "object" ? reqInfo.url : reqInfo;
+      const yol = istekYolu(hamUrl || "");
+      const durum = m.params?.errorText || "failed";
+      if (basarisizlar.length < 5 && sayilirMi(yol)) {
+        basarisizlar.push({ yol, durum });
+      }
+    }
+    if (m.method === "Network.responseReceived") {
+      const status = m.params?.response?.status;
+      if (typeof status === "number" && status >= 400) {
+        const hamUrl = m.params?.response?.url || (ISTEK.get(m.params?.requestId)?.url);
+        const yol = istekYolu(hamUrl || "");
+        if (basarisizlar.length < 5 && sayilirMi(yol)) {
+          basarisizlar.push({ yol, durum: status });
+        }
+      }
     }
     if (sec.dbg && /^Network\.(responseReceived|loadingFailed)$/.test(m.method || "")) {
       const p = m.params, u = ISTEK.get(p.requestId) || "";
+      const textUrl = typeof u === "object" ? `${u.method} ${u.url}` : u;
       console.error(m.method.slice(8), p.response ? p.response.status : "", p.errorText || "",
-        u.slice(-80));
+        textUrl.slice(-80));
     }
   };
   ws.onclose = () => {
@@ -179,7 +234,8 @@ if (process.argv[1] && path.resolve(process.argv[1]) === suAnkiDosya) {
       const { targetId } = await g("Target.createTarget",
         { url: "about:blank", width: W, height: H, browserContextId: ctx });
       const { sessionId } = await g("Target.attachToTarget", { targetId, flatten: true });
-      if (sec.dbg) await g("Network.enable", {}, sessionId);
+      await g("Runtime.enable", {}, sessionId);
+      await g("Network.enable", {}, sessionId);
       await g("Page.navigate", { url }, sessionId);
       const ev = async (js) => (await g("Runtime.evaluate",
         { expression: js, awaitPromise: true, returnByValue: true }, sessionId)).result.value;
@@ -188,7 +244,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === suAnkiDosya) {
       if (!(await ev(SAYAC))) {
         if (sec.dbg) console.error("durum:", await ev(`document.readyState + " " + innerWidth + "x"
           + innerHeight + " " + [...document.body.children].map((e) => e.tagName).join(",")`));
-        throw new Error("sahne hazır olmadı (sayaç yok): " + url);
+        throw new Error(hazirOlmadiMesaji(url, istisnalar, basarisizlar));
       }
       if ((await ev("innerWidth + 'x' + innerHeight")) !== `${W}x${H}`) {
         await g("Emulation.setDeviceMetricsOverride",
