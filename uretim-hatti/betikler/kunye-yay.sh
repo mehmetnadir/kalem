@@ -6,8 +6,12 @@
 # Dikey ve kısa paketlerde künye ölçüsü ayrıdır (taban 50 / huni-v2): yalnız renk değişir, eşleşmeyen satıra dokunulmaz.
 # Paket verilmezse K/projeler altındaki bütün paketler. Ders zincirinin boş olduğunu ÇAĞIRAN denetler (durum adları paket değil kod taşır).
 # Kaynak değişir; k/ kareleri ve mp4 bayatlar ("render sonrası" etiketi). Render bu betiğin işi değildir.
+# --renksiz: D-0391 renk kısmını atla, yalnız D-0392 künye ölçüsü (16.11: renk kararı G-8'de yeniden açık).
 set -uo pipefail
-KURU=0; [ "${1:-}" = --kuru ] && { KURU=1; shift; }
+KURU=0; RENK=1
+while [ $# -gt 0 ]; do
+  case "$1" in --kuru) KURU=1; shift ;; --renksiz) RENK=0; shift ;; *) break ;; esac
+done
 K="${KALEM_KOK:-$HOME/01dev/_worktrees/kalem-0204}"
 if [ $# -gt 0 ]; then PAKETLER=("$@"); else PAKETLER=(); for d in "$K"/projeler/*/; do PAKETLER+=("$(basename "$d")"); done; fi
 degisen=0
@@ -18,13 +22,17 @@ for pa in "${PAKETLER[@]}"; do
   [ ${#dosyalar[@]} -gt 0 ] || continue
   once=$(cat "${dosyalar[@]}" | md5sum | cut -c1-8)
   if [ "$KURU" -eq 1 ]; then
-    n=$(grep -cE 'kirmizi: "#(e0473b|d6453a)"|"kirmizi": "#e0473b"|bolumYazi: 24, ajandaYazi: 20|seviyeYazi: 22,|genislik\("Lexend", 500, ad, 20\)|cy="1023" r="4"' "${dosyalar[@]}" | awk -F: '{s+=$NF} END {print s+0}')
+    desen='bolumYazi: 24, ajandaYazi: 20|seviyeYazi: 22,|genislik\("Lexend", 500, ad, 20\)|cy="1023" r="4"'
+    [ "$RENK" -eq 1 ] && desen="kirmizi: \"#(e0473b|d6453a)\"|\"kirmizi\": \"#e0473b\"|$desen"
+    n=$(grep -cE "$desen" "${dosyalar[@]}" | awk -F: '{s+=$NF} END {print s+0}')
     echo "$pa: değişecek satır $n"; continue
   fi
-  for f in "${dosyalar[@]}"; do
-    sed -i -e 's/kirmizi: "#e0473b"/kirmizi: "#c9c2b3"/; s/kirmizi: "#d6453a"/kirmizi: "#5a6275"/' \
-      -e 's/"kirmizi": "#e0473b"/"kirmizi": "#c9c2b3"/' "$f"
-  done
+  if [ "$RENK" -eq 1 ]; then
+    for f in "${dosyalar[@]}"; do
+      sed -i -e 's/kirmizi: "#e0473b"/kirmizi: "#c9c2b3"/; s/kirmizi: "#d6453a"/kirmizi: "#5a6275"/' \
+        -e 's/"kirmizi": "#e0473b"/"kirmizi": "#c9c2b3"/' "$f"
+    done
+  fi
   if [ -f "$P/ortak/kunye.js" ] && grep -q 'bolumYazi: 24, ajandaYazi: 20' "$P/ortak/kunye.js"; then
     sed -i -e 's/bolumYazi: 24, ajandaYazi: 20/bolumYazi: 30, ajandaYazi: 30/' -e 's/seviyeYazi: 22,/seviyeYazi: 30,/' \
       -e 's/ctx.arc(x - w - 12, k.altTaban - 7, 4,/ctx.arc(x - w - 12, k.altTaban - Math.round(k.ajandaYazi * 0.35), 4,/' "$P/ortak/kunye.js"

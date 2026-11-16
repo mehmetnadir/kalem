@@ -48,6 +48,15 @@ sina "dikey kirmizi soluk" "$(grep -c '#e0473b\|#d6453a' "$T/projeler/ders-dikey
 sina "iki paket değişti" "$(grep -o 'değişen paket [0-9]*' "$T/cikti.txt")" "değişen paket 2"
 KALEM_KOK="$T" bash "$B/kunye-yay.sh" ders ders-dikey > "$T/cikti2.txt"
 sina "ikinci koşu değiştirmez" "$(grep -o 'değişen paket [0-9]*' "$T/cikti2.txt")" "değişen paket 0"
+# --renksiz: künye 30 olur, kirmizi aynen kalır (G-8 açıkken)
+R="$T/renksiz"; mkdir -p "$R/projeler/ders/ortak"
+printf '%s\n' 'const TEMALAR = { koyu: { kirmizi: "#e0473b" }, acik: { kirmizi: "#d6453a" } };' \
+  'export const KUNYE = { seviyeYazi: 22, bolumYazi: 24, ajandaYazi: 20 };' > "$R/projeler/ders/ortak/kunye.js"
+rk=$(KALEM_KOK="$R" bash "$B/kunye-yay.sh" --kuru --renksiz ders | grep -o "satır [0-9]*")
+sina "renksiz kuru yalnız künye satırı sayar (renk satırı sayılmaz)" "$rk" "satır 1"
+KALEM_KOK="$R" bash "$B/kunye-yay.sh" --renksiz ders > /dev/null
+sina "renksiz künye 30" "$(grep -c 'bolumYazi: 30, ajandaYazi: 30' "$R/projeler/ders/ortak/kunye.js")" "1"
+sina "renksiz kirmizi aynen" "$(grep -c '#e0473b\|#d6453a' "$R/projeler/ders/ortak/kunye.js")" "1"
 mkdir -p "$HOME/Silinecekler/$(date +%F)-test-kunye-yay"; mv "$T" "$HOME/Silinecekler/$(date +%F)-test-kunye-yay/"
 echo "SONUÇ geçti $gecti kaldı $kaldi"
 [ "$kaldi" -eq 0 ]
