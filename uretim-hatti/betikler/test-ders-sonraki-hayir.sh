@@ -7,6 +7,12 @@ T="$(mktemp -d "${TMPDIR:-/tmp}/ders-sonraki-test.XXXXXX")"
 satir=$(grep -m1 '^ *hayir=\$(grep' "$BU/ders-sonraki.sh") || { echo "KALDI: sayım satırı bulunamadı"; exit 1; }
 gecti=0; kaldi=0
 sina() { if [ "$2" = "$3" ]; then gecti=$((gecti + 1)); echo "GEÇTİ $1"; else kaldi=$((kaldi + 1)); echo "KALDI $1: beklenen [$3] gelen [$2]"; fi; }
+# Sözdizimi: dış betik + tek tırnaklı iç gövde (16.11: iç gövdedeki yorumda "9'u" tırnağı kapattı, 9 zincir başlamadı).
+sina "dış betik bash -n" "$(bash -n "$BU/ders-sonraki.sh" 2>&1 && echo tamam)" "tamam"
+sed -n "/^setsid bash -c '\$/,/^' _ /p" "$BU/ders-sonraki.sh" | sed '1d;$d' > "$T/govde.sh"
+sina "iç gövde boş değil" "$([ -s "$T/govde.sh" ] && echo var)" "var"
+sina "iç gövde bash -n" "$(bash -n "$T/govde.sh" 2>&1 && echo tamam)" "tamam"
+sina "iç gövdede tek tırnak yok" "$(grep -c "'" "$T/govde.sh")" "0"
 say() { local h="$1"; eval "$satir"; echo "$hayir"; }
 cat > "$T/karma.md" <<'EOF'
 | Bölüm | evet | hayır | kanıt yok |

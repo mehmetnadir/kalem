@@ -22,7 +22,7 @@ setsid bash -c '
     sleep 30
   done
   # Sayım tablosunun başlık satırı ("| Bölüm | evet | hayır | kanıt yok |") hüküm satırı değildir.
-  # Jüri hücreyi kalın da yazar ("| **hayır** |"; 16.11 ölçüm: son 12 DJ hükmünün 9'u kalın) — ikisi de sayılır.
+  # Jüri hücreyi kalın da yazar ("| **hayır** |"; 16.11 ölçüm: son 12 DJ hükmünden 9 tanesi kalın) — ikisi de sayılır.
   hayir=$(grep -E "^\|.*\| *(\*\*)?hayır(\*\*)?( |\||\()" "$h" | grep -c -v -E "\| *(\*\*)?evet(\*\*)? *\|")
   # DUZ_MODEL (16.11): düzeltme turunun modeli ölçülsün diye ezilebilir; varsayılan opus.
   if [ "$hayir" -gt 0 ]; then ILK="DUZ3B-$KOD"; MODEL="${DUZ_MODEL:-claude-opus-5-5}"; else ILK="KNT-$KOD"; MODEL=claude-sonnet-5-5; fi
