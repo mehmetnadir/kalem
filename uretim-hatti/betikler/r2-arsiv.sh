@@ -12,12 +12,16 @@
 # Yerel dizini SİLMEZ. "denetle" GEÇTİ yazmadan yerel kopyaya dokunulmaz (silme kararı Nadir'de).
 # Kayıt: $R2_ARSIV_KAYIT (varsayılan /home/sef/is/r2-arsiv.jsonl): her yükleme ve denetim bir satır.
 # Test için: R2_ARSIV_HEDEF (rclone hedefi), R2_ARSIV_ANAHTAR, R2_ARSIV_KIMLIKSIZ=1 (DB okuma atlanır).
+# denetle/geri parçalı okur (R2_ARSIV_PARCA bayt, R2_ARSIV_DENEME deneme); 16.11 ölçümü: tek akış büyük nesnede %60'ta koptu.
 set -euo pipefail
 ANAHTAR="${R2_ARSIV_ANAHTAR:-/root/.interactive-yedek.anahtar}"
 HEDEF="${R2_ARSIV_HEDEF:-r2yds:ydsdigital/uretim-arsiv}"
 KAYIT="${R2_ARSIV_KAYIT:-/home/sef/is/r2-arsiv.jsonl}"
 R2_ID=2c449b6d-ab28-49d4-ab3f-596618db0018
 BANT="${R2_ARSIV_BANT:-30M}"
+PARCA="${R2_ARSIV_PARCA:-268435456}"
+DENEME="${R2_ARSIV_DENEME:-5}"
+BEKLE_TAVAN="${R2_ARSIV_BEKLE_TAVAN:-30}"
 SIFRE=(-aes-256-ctr -pbkdf2 -iter 200000 -pass "file:$ANAHTAR")
 
 kimlik() {
@@ -35,6 +39,42 @@ kimlik() {
 
 uzak_boyut() {
   rclone lsjson --stat "$HEDEF/$1" 2>/dev/null | sed -n 's/.*"Size": *\([0-9]*\).*/\1/p'
+}
+
+parcali_oku() {  # parcali_oku <uzak> <gecici-dizin>
+  local uzak="$1" g="$2"
+  local parca="${R2_ARSIV_PARCA:-$PARCA}"
+  local deneme_maks="${R2_ARSIV_DENEME:-$DENEME}"
+  local tavan="${R2_ARSIV_BEKLE_TAVAN:-$BEKLE_TAVAN}"
+  local boyut ofset=0
+  boyut=$(uzak_boyut "$uzak" || true)
+  [ -n "$boyut" ] || { echo "HATA: boyut okunamadı ($uzak)" >&2; return 1; }
+  while [ "$ofset" -lt "$boyut" ]; do
+    local kalan=$((boyut - ofset))
+    local c=$((kalan < parca ? kalan : parca))
+    local tamam=0 d=1
+    while [ "$d" -le "$deneme_maks" ]; do
+      rclone cat --offset "$ofset" --count "$c" --bwlimit "$BANT" \
+        --low-level-retries 10 --timeout 5m "$HEDEF/$uzak" > "$g/parca" || true
+      local alinan=0
+      alinan=$(wc -c < "$g/parca" 2>/dev/null | tr -d ' ' || echo 0)
+      if [ "$alinan" = "$c" ]; then
+        cat "$g/parca"
+        : > "$g/parca"
+        tamam=1
+        break
+      fi
+      local bekle=$((2 ** d))
+      [ "$bekle" -gt "$tavan" ] && bekle="$tavan"
+      sleep "$bekle"
+      d=$((d + 1))
+    done
+    if [ "$tamam" -ne 1 ]; then
+      echo "HATA: parça $ofset $deneme_maks denemede okunamadı" >&2
+      return 1
+    fi
+    ofset=$((ofset + c))
+  done
 }
 
 kaydet() {  # kaydet <json satırı>
@@ -98,7 +138,7 @@ case "$komut" in
       bek_sha=$(son_kayit "$uzak" tar_sha); bek_dosya=$(son_kayit "$uzak" dosya)
       [ -n "$bek_sha" ] || { echo "HATA: kayıtta yükleme yok: $uzak" >&2; hata=$((hata + 1)); continue; }
       g=$(mktemp -d "${TMPDIR:-/var/tmp}/r2-arsiv.XXXXXX")
-      rclone cat "$HEDEF/$uzak" --bwlimit "$BANT" | openssl enc -d "${SIFRE[@]}" | zstd -q -d \
+      parcali_oku "$uzak" "$g" | openssl enc -d "${SIFRE[@]}" | zstd -q -d \
         | tee >(sha256sum | cut -d' ' -f1 > "$g/sha") | tar -tf - | grep -vc '/$' > "$g/n" || true
       sleep 2
       sha=$(cat "$g/sha"); n=$(tr -d ' ' < "$g/n")
@@ -112,7 +152,8 @@ case "$komut" in
     [ $# -eq 2 ] || { echo "kullanım: $0 geri [--kume <ad>] <ad> <hedef-dizin>" >&2; exit 2; }
     kimlik
     mkdir -p "$2"
-    rclone cat "$HEDEF/$kume/$1.tar.zst.enc" | openssl enc -d "${SIFRE[@]}" | zstd -q -d | tar -C "$2" -xf -
+    g=$(mktemp -d "${TMPDIR:-/var/tmp}/r2-arsiv.XXXXXX")
+    parcali_oku "$kume/$1.tar.zst.enc" "$g" | openssl enc -d "${SIFRE[@]}" | zstd -q -d | tar -C "$2" -xf -
     echo "OK $2/$1"
     ;;
   liste)
