@@ -1,0 +1,22 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [{"type": "command", "command": "/home/sef/.local/bin/kanca-bash", "onFailure": "block"}]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {"type": "command", "command": "bash /home/sef/.claude/hooks/screenshot-shrink.sh 2>/dev/null || true", "timeout": 5}
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [{"type": "command", "command": "bash /home/sef/.claude/hooks/turkish-char-check.sh", "timeout": 5}]
+      }
+    ]
+  }
+}
