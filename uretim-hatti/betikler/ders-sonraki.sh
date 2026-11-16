@@ -1,6 +1,6 @@
 #!/bin/bash
 # ders-sonraki.sh <kod> <paket> — DUZ3-<kod> ve ardından gelen DJ-<kod> hükmünü bekler; hükme göre sıradaki turu başlatır (srv21, sef):
-#   hükümde "hayır" satırı varsa  DUZ3B-<kod> (opus) → kanıt betiği (model yok) → DJ-<kod> (sonnet)
+#   hükümde "hayır" satırı varsa  DUZ3B-<kod> (opus; DUZ_MODEL ile ezilir) → kanıt betiği (model yok) → DJ-<kod> (sonnet)
 #   yalnız "kanıt yok" varsa       kanıt betiği (model yok) → DJ-<kod> (sonnet)   [KNT oturumu 16.11 kalktı]
 # Ders başına BİR kez karar verir (ikinci DJ hükmünden sonra yeni tur başlatmaz; şef okur).
 # Kapasite: düzeltme / kanıt oturumu sayısı < ESZ (varsayılan 8), yük1 < 14, MemAvailable > 14 GB (16.11 OOM dersi).
@@ -22,8 +22,10 @@ setsid bash -c '
     sleep 30
   done
   # Sayım tablosunun başlık satırı ("| Bölüm | evet | hayır | kanıt yok |") hüküm satırı değildir.
-  hayir=$(grep -E "^\|.*\| *hayır( |\||\()" "$h" | grep -c -v -E "\| *evet *\|")
-  if [ "$hayir" -gt 0 ]; then ILK="DUZ3B-$KOD"; MODEL=claude-opus-5-5; else ILK="KNT-$KOD"; MODEL=claude-sonnet-5-5; fi
+  # Jüri hücreyi kalın da yazar ("| **hayır** |"; 16.11 ölçüm: son 12 DJ hükmünün 9'u kalın) — ikisi de sayılır.
+  hayir=$(grep -E "^\|.*\| *(\*\*)?hayır(\*\*)?( |\||\()" "$h" | grep -c -v -E "\| *(\*\*)?evet(\*\*)? *\|")
+  # DUZ_MODEL (16.11): düzeltme turunun modeli ölçülsün diye ezilebilir; varsayılan opus.
+  if [ "$hayir" -gt 0 ]; then ILK="DUZ3B-$KOD"; MODEL="${DUZ_MODEL:-claude-opus-5-5}"; else ILK="KNT-$KOD"; MODEL=claude-sonnet-5-5; fi
   [ -s "$I/$ILK.md" ] || { echo "bitti 91 (istem yok: $ILK)" > "$S"; exit; }
   echo "kapasite bekliyor ($ILK, hayır $hayir) $$" > "$S"
   while :; do
