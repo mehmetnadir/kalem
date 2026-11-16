@@ -7,12 +7,14 @@ Python `/usr/bin/python3 -I`. Skill `~/.claude/skills/motion-grafik-ders/`.
 KURALLAR: SALT OKUMA denetçisisin; tek yazma izni aşağıdaki çıktı dosyası. Taslağı düzeltme, yalnız değerlendir. Alt ajan açma.
 Silme yok, commit yok, ses/render yok. Yazanla aynı kişi değilsin (yapan ≠ denetleyen).
 
-Denetlenen (dizin `K/projeler/{{paket}}-s{{n}}/uretim-tutanagi/`): ÇIKTI dosyaları (aşağıdaki GİRDİ); taslak md ve yazarın raporu yalnız karşılaştırma içindir.
+Denetlenen (dizin `K/projeler/{{paket}}-s{{n}}/uretim-tutanagi/`): TASLAK aşaması — `senaryo-taslak.md`, `kapak-taslak.md` (3 sürüm A/B/C),
+`hikaye-taslak.md` (2 sürüm), `aciklama-taslak.md` (2 set), yazarın raporu `S{{n}}-A-RAPOR.md`. Bu turda çıktı dosyası
+(`senaryo.json`, ses dökümü, kare) YOKTUR ve beklenmez: çıktıyı J jüri turu görür (sahne ve karelerden sonra, D-0338).
+Çıktı yokluğunu madde yazma; yalnız taslakta ölçülebilen maddelere bak.
 Kaynak: ana ders `K/projeler/{{paket}}/` (`ortak/anlatim/senaryo.json`, `surumler.json`, `uretim-tutanagi/juri.md`).
 Kalıp: `D/.claude/docs/huni-v2-standart.md` (bağlayıcı; çelişirse bu geçer), `D/.claude/docs/dikey-senaryo-kalibi.md` §4–§5, `D/.claude/docs/huni-plan-1211.md` §4–§7.
 
-GİRDİ — jüri TASLAĞI değil ÇIKTIYI görür (D-0338): son `senaryo.json`, ses dökümü (`sureler.json`, `sozcukler.json`), açıklama dosyaları (`aciklama*.md`), `surumler.json` ve kareler (her kip ve yön: açık + koyu, yatay + dikey, her kapak ve hikâye karesi). Taslak yalnız karşılaştırma içindir; hüküm ÇIKTIYA göre verilir. Bakılamayan dosya ya da kare = KALDI.
-ÖLÇÜT: `D/.claude/docs/juri-olcutleri.md` — ilgili alt başlığın BÜTÜN maddelerine evet/hayır + kanıt.
+ÖLÇÜT: `D/.claude/docs/juri-olcutleri.md` — ilgili alt başlığın taslakta ölçülebilen BÜTÜN maddelerine evet/hayır + kanıt.
 JÜRİ KURALLARI: içerik her değiştiğinde jüri yeniden koşar. "Kaldı" maddesi kayda bırakılıp geçilmez; `KARAR: DÜZELT` yazılır. Kaynağa uygun ≠ doğru: kuralı bağımsız doğrula, ana dersteki hatayı da raporla (D-0205). Jüri modeli üretici oturumun modelinden farklıdır; tutanağa `MODEL: <ad>` satırı yaz.
 
 Taslakların "Açık noktalar" listesinde kendi alanına düşen maddeleri tek tek cevapla (madde no + cevap + kanıt).
