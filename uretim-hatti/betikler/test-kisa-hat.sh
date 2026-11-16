@@ -8,9 +8,14 @@ ANA="${TMPDIR:-/tmp}"
 gecti=0; kaldi=0
 sina() { if [ "$2" = "$3" ]; then gecti=$((gecti + 1)); echo "GEÇTİ $1"; else kaldi=$((kaldi + 1)); echo "KALDI $1: beklenen [$3] gelen [$2]"; fi; }
 
+# Çıkışta sahte ortamlarda bekleyen ayrık döngüleri kapat (16.11: hiç "bitti" olmayacak durum dosyasını
+# 0,2 sn'de bir yoklayan 3 yetim döngü Mac'teki süreç doğumunun %80'ini üretti).
+TUM=()
+temizle() { for t in ${TUM[@]+"${TUM[@]}"}; do pkill -f "$t" 2>/dev/null; done; return 0; }
+trap temizle EXIT
 # kur: yeni sahte ortam; T, H, R, K, L (çağrı günlüğü) değişkenlerini ayarlar
 kur() {
-  T="$(mktemp -d "$ANA/kisa-hat-test.XXXXXX")"; H="$T/home"
+  T="$(mktemp -d "$ANA/kisa-hat-test.XXXXXX")"; H="$T/home"; TUM+=("$T")
   R="$H/is/uretim-0204"; K="$H/01dev/_worktrees/kalem-0204"; L="$T/cagri.log"
   mkdir -p "$R" "$H/.local/bin" "$K/araclar" "$K/projeler/p1-s2/uretim-tutanagi/istem/sahne"
   : > "$L"
