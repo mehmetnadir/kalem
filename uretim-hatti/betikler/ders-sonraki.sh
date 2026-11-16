@@ -1,6 +1,6 @@
 #!/bin/bash
 # ders-sonraki.sh <kod> <paket> — DUZ3-<kod> ve ardından gelen DJ-<kod> hükmünü bekler; hükme göre sıradaki turu başlatır (srv21, sef):
-#   hükümde "hayır" satırı varsa  DUZ3B-<kod> (opus; DUZ_MODEL ile ezilir) → kanıt betiği (model yok) → DJ-<kod> (sonnet)
+#   hükümde "hayır" satırı varsa  DUZ3B-<kod> (sonnet; DUZ_MODEL ile ezilir) → kanıt betiği (model yok) → DJ-<kod> (sonnet)
 #   yalnız "kanıt yok" varsa       kanıt betiği (model yok) → DJ-<kod> (sonnet)   [KNT oturumu 16.11 kalktı]
 # Ders başına BİR kez karar verir (ikinci DJ hükmünden sonra yeni tur başlatmaz; şef okur).
 # Kapasite: düzeltme / kanıt oturumu sayısı < ESZ (varsayılan 8), yük1 < 14, MemAvailable > 14 GB (16.11 OOM dersi).
@@ -24,9 +24,15 @@ setsid bash -c '
   # Sayım tablosunun başlık satırı ("| Bölüm | evet | hayır | kanıt yok |") hüküm satırı değildir.
   # Jüri hücreyi kalın da yazar ("| **hayır** |"; 16.11 ölçüm: son 12 DJ hükmünden 9 tanesi kalın) — ikisi de sayılır.
   hayir=$(grep -E "^\|.*\| *(\*\*)?hayır(\*\*)?( |\||\()" "$h" | grep -c -v -E "\| *(\*\*)?evet(\*\*)? *\|")
-  # DUZ_MODEL (16.11): düzeltme turunun modeli ölçülsün diye ezilebilir; varsayılan opus.
-  if [ "$hayir" -gt 0 ]; then ILK="DUZ3B-$KOD"; MODEL="${DUZ_MODEL:-claude-opus-5-5}"; else ILK="KNT-$KOD"; MODEL=claude-sonnet-5-5; fi
-  [ -s "$I/$ILK.md" ] || { echo "bitti 91 (istem yok: $ILK)" > "$S"; exit; }
+  # DUZ_MODEL (16.11): varsayılan sonnet (analiz §4: Opus DUZ3 ort. 17,23 $, Sonnet DUZ3B 1,64 $; API kredisi tek org kaldı). Opus için DUZ_MODEL=claude-opus-5-5.
+  if [ "$hayir" -gt 0 ]; then ILK="DUZ3B-$KOD"; MODEL="${DUZ_MODEL:-claude-sonnet-5-5}"; else ILK="KNT-$KOD"; MODEL=claude-sonnet-5-5; fi
+  GOVDE="$I/$ILK.md"
+  # Elle yazılmış DUZ3B dosyası kazanır; yoksa şablon üreteci hükümden gövdeyi üretir (16.11, git dizinine yazılmaz).
+  if [ ! -s "$GOVDE" ] && [ "${ILK#DUZ3B-}" != "$ILK" ]; then
+    GOVDE="$R/govde-$ILK.md"
+    /usr/bin/python3 -I "$K/uretim-hatti/betikler/duz-istem-uret.py" "$KOD" "$PA" --hukum "$h" > "$GOVDE" 2>> "$R/sonraki.log" || : > "$GOVDE"
+  fi
+  [ -s "$GOVDE" ] || { echo "bitti 91 (istem yok: $ILK)" > "$S"; exit; }
   echo "kapasite bekliyor ($ILK, hayır $hayir) $$" > "$S"
   while :; do
     sleep $((RANDOM % 25))
@@ -41,7 +47,7 @@ setsid bash -c '
   fi
   {
     printf "MAKİNE NOTU: \`el.py\` makinede aynı anda en çok 2 koşar: \"yuva bekleniyor\" satırı olağandır; ses komutunu ön planda \`timeout 1500\` ile koştur, aynı anda ikinci bir \`el.py\` başlatma. Kare çekimini sahne sahne yap; aynı anda birden çok başsız tarayıcı açma. \`surumler.json\` revizyon notu (\`degisiklik\`) en çok 500 karakter, \`no\` alanı \`r<sayı>\` (panel şeması); ayrıntı rapora yazılır. Düzeltme raporunun ilk satırına \`uretici_model: <model>\` yaz.\n\n"
-    cat "$I/$ILK.md"
+    cat "$GOVDE"
   } > "$R/istem-$ILK.md"
   bash "$R/kos.sh" "$ILK" "$MODEL" "$R/istem-$ILK.md" >> "$R/sonraki.log" 2>&1
   # KNT oturumu yerine kanıt betiği (16.11, K-0266): DUZ3B bitince kanıt, sonra DJ.

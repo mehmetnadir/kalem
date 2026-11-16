@@ -25,6 +25,12 @@ hüküm dosyalarına DOKUNMA (`juri-olcutleri.md` §1b: önceki hüküm kalır, 
 6. Tutarlılık kapısı çıktısını ekle: `python3 K/uretim-hatti/betikler/yv-tutarlilik.py --kilitli
    simple-present-temel,simple-present-temel-dikey,02-04-ydt-temel-dikey` (çıkış kodu ve bu derse düşen satırlar).
 7. Hüküm dosyası: özet (geçti / kaldı / kanıt yok sayıları), cümle tablosu, madde tablosu, kaldı maddeleri için düzeltme önerisi (tek cümle).
+8. Kalıcılık tablosu (hükmün sonunda, ZORUNLU): önceki hükmü (aynı paketteki bir önceki `DJ-hukum-*.md`) oku; her `hayır` kimliği için bir satır:
+   `| kimlik | önceki hükümde? | arada düzeltme turu var mı | sınıf a–e |`. "Arada düzeltme turu" = önceki hükümden sonra değişen `DUZ*-RAPOR.md` ya da
+   paket dosyası (mtime). Sınıf: a render gerektirir · b düzeltilebilir · c ölçüt belirsiz ya da çelişkili · d kaynak/veri sorunu · e ölçüm aracı eksik.
+   Araya düzeltme turu girmediyse hükmün BAŞINA "aynı durum yeniden yargılandı" satırı yaz; hayır sayısının artışını gerileme sayma.
+9. EK-5b / EK-5c `hayır` satırı karşı örnek + önerilen kapsam sözcüğü taşımak zorundadır (örn. "çoğu zaman", "durum anlamında"); ikisi de yoksa
+   satır eksik sayılır. Düzeltici öneriyi uygular ya da karşı gerekçe yazar.
 
 Son mesajın en çok 10 satır: geçti / kaldı / kanıt yok sayıları, yanlış bulduğun cümleler (no + tek cümle), kaldı maddeleri (kimlik + tek cümle),
 jüri modeli.

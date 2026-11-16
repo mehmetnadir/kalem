@@ -29,5 +29,8 @@ printf '| Bölüm | evet | hayır | kanıt yok |\n| A | evet | x |\n| B | **evet
 sina "temiz: başlık ve evet satırları sayılmaz" "$(say "$T/temiz.md")" "0"
 printf '| DK-1 | **hayır** | a |\n| DK-2 | **hayır** | b |\n' > "$T/kalin.md"
 sina "yalnız kalın: 2" "$(say "$T/kalin.md")" "2"
+# 16.11: DUZ3B istemi yoksa şablon üreteci devreye girer; elle yazılmış dosya kazanır.
+sina "üreteç çağrısı gövdede" "$(grep -c 'duz-istem-uret.py' "$T/govde.sh")" "1"
+sina "elle yazılmış istem kazanır (cat GOVDE)" "$(grep -c 'cat "$GOVDE"' "$T/govde.sh")" "1"
 echo "SONUÇ geçti $gecti kaldı $kaldi"
 [ "$kaldi" -eq 0 ]
