@@ -10,8 +10,16 @@ case "$(cat "$DIZIN/$AD.durum" 2>/dev/null)" in calisiyor*) echo "zaten çalış
 read -r SID MODEL < <(/usr/bin/python3 -I -c '
 import json, sys
 d = json.load(open(sys.argv[1]))
-print(d["session_id"], next(iter(d.get("modelUsage") or {"opus": 0})))
+mu = d.get("modelUsage") or {"opus": {}}
+print(d["session_id"], max(mu, key=lambda k: (mu[k] or {}).get("costUSD", 0)))
 ' "$DIZIN/$AD.json")
+# Kredi kipi (16.11): KREDI_ORG verilirse oturum kos.sh üstünden API kredisiyle sürer (KOS_DEVAM, kredi-sec.sh).
+# Döküm yalın profil dizinindeyse aynı profille sürdürülür. Eski koşu dosyalarını kos.sh taşır.
+if [ -n "${KREDI_ORG:-}" ]; then
+  ls "$HOME"/.claude-uretim/projects/*/"$SID".jsonl > /dev/null 2>&1 && export KOS_PROFIL=yalin
+  export KOS_DEVAM="$SID"
+  exec bash "$DIZIN/kos.sh" "$AD" "$MODEL" "$MESAJ"
+fi
 ESKI="$DIZIN/eski/$(date +%Y%m%d-%H%M%S)-$AD"; mkdir -p "$ESKI"
 for f in "$DIZIN/$AD".{bitti,json,err,durum}; do [ -e "$f" ] && mv "$f" "$ESKI/"; done
 export PATH="$HOME/.local/bin:$HOME/.venvs/ses/bin:$HOME/.nvm/versions/node/v24.22.2/bin:/usr/local/bin:/usr/bin:/bin"

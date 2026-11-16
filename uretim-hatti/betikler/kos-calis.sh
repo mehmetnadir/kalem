@@ -25,6 +25,10 @@ claude -p "$(cat "$ISTEM")" "${DEVAM[@]}" --model "$MODEL" --dangerously-skip-pe
   --output-format json > "$DIZIN/$AD.json" 2> "$DIZIN/$AD.err"
 rc=$?
 m=$(grep -a -o '"total_cost_usd":[0-9.]*' "$DIZIN/$AD.json" | tail -1 | cut -d: -f2)
+# Kredi bitti işareti (16.11 ölçüm: org 3 Mac + sunucu harcamasıyla 200 $'ı aştı, 7 oturum "Credit balance is too low"
+# ile öldü; sunucu defteri Mac harcamasını görmez). İşaretli org'u kredi-sec.sh o ay seçmez.
+grep -aq "Credit balance is too low" "$DIZIN/$AD.json" "$DIZIN/$AD.err" 2>/dev/null \
+  && echo "$(date -Is) $AD" >> "$DIZIN/kredi-bitti-$ORG-$(date -u +%Y-%m)"
 pr="${PROFIL[0]:+yalin}"
 printf '{"zaman":"%s","ay":"%s","ad":"%s","org":"%s","model":"%s","maliyet":%s,"rc":%s,"profil":"%s"}\n' \
   "$(date -Is)" "$(date -u +%Y-%m)" "$AD" "$ORG" "$MODEL" "${m:-0}" "$rc" "${pr:-tam}" >> "$DIZIN/kredi-defter.jsonl"

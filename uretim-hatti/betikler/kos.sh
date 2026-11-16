@@ -14,6 +14,14 @@ if ls "$DIZIN/$AD".{bitti,json,err,durum} >/dev/null 2>&1; then
   for f in "$DIZIN/$AD".{bitti,json,err,durum}; do [ -e "$f" ] && mv "$f" "$ESKI/"; done
 fi
 export PATH="$HOME/.local/bin:$HOME/.venvs/ses/bin:$HOME/.nvm/versions/node/v24.22.2/bin:/usr/local/bin:/usr/bin:/bin"
+# Kredi kipi (16.11): KREDI_ORG=<N|auto> verilirse oturum API kredisiyle koşar (kredi-sec.sh tavanı, kos-calis.sh gövdesi).
+if [ -n "${KREDI_ORG:-}" ]; then
+  if ! SECIM=$(bash "$DIZIN/kredi-sec.sh" "$KREDI_ORG"); then
+    echo "bitti 91" > "$DIZIN/$AD.durum"; echo 91 > "$DIZIN/$AD.bitti"; echo "kredi yok: $AD" >&2; exit 1
+  fi
+  setsid bash "$DIZIN/kos-calis.sh" "$AD" "$MODEL" "$ISTEM" "${SECIM%% *}" "${SECIM#* }" < /dev/null > /dev/null 2>&1 &
+  echo "başladı: $AD ($MODEL, kredi org ${SECIM%% *})"; exit 0
+fi
 setsid bash -c "
   cd '$K'
   echo \"calisiyor \$\$\" > '$DIZIN/$AD.durum'
