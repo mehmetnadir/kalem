@@ -1,16 +1,16 @@
 #!/bin/bash
-# kunye-yay.sh [--kuru] [paket…] — D-0391 + D-0392 ortak künye düzeltmesini paketlere yayar (srv21, sef; 16.11).
-#   D-0391 (bütün paketler): yanlış işareti rengi kirmizi → ikincil (koyu #c9c2b3, açık #5a6275); kunye.js TEMALAR + yardim.py RENK.
+# kunye-yay.sh [--kuru] [paket…] — D-0392 künye 30 px düzeltmesini yatay ders paketlerine yayar (srv21, sef; 16.11).
+#   D-0391 (soluk yanlış işareti) D-0415 ile geri alındı: renk satırlarına dokunulmaz.
 #   D-0392 (yalnız yatay ders şablonu): künye yazısı 30 px — kunye.js seviye/bölüm/ajanda 30, ajanda noktası yazı boyuna göre;
 #     HyperFrames yardim.py ajanda/seviye/bölüm 30 px, ajanda genişliği 30 px ile ölçülür, nokta cy 1019,5.
-# Dikey ve kısa paketlerde künye ölçüsü ayrıdır (taban 50 / huni-v2): yalnız renk değişir, eşleşmeyen satıra dokunulmaz.
+# Dikey ve kısa paketlerde künye ölçüsü ayrıdır (taban 50 / huni-v2): eşleşmeyen satıra dokunulmaz.
 # Paket verilmezse K/projeler altındaki bütün paketler. Ders zincirinin boş olduğunu ÇAĞIRAN denetler (durum adları paket değil kod taşır).
 # Kaynak değişir; k/ kareleri ve mp4 bayatlar ("render sonrası" etiketi). Render bu betiğin işi değildir.
-# --renksiz: D-0391 renk kısmını atla, yalnız D-0392 künye ölçüsü (16.11: renk kararı G-8'de yeniden açık).
+# --renksiz: geriye uyum için kabul edilir, etkisizdir (renk kısmı D-0415 ile kalktı).
 set -uo pipefail
-KURU=0; RENK=1
+KURU=0
 while [ $# -gt 0 ]; do
-  case "$1" in --kuru) KURU=1; shift ;; --renksiz) RENK=0; shift ;; *) break ;; esac
+  case "$1" in --kuru) KURU=1; shift ;; --renksiz) shift ;; *) break ;; esac
 done
 K="${KALEM_KOK:-$HOME/01dev/_worktrees/kalem-0204}"
 if [ $# -gt 0 ]; then PAKETLER=("$@"); else PAKETLER=(); for d in "$K"/projeler/*/; do PAKETLER+=("$(basename "$d")"); done; fi
@@ -23,15 +23,8 @@ for pa in "${PAKETLER[@]}"; do
   once=$(cat "${dosyalar[@]}" | md5sum | cut -c1-8)
   if [ "$KURU" -eq 1 ]; then
     desen='bolumYazi: 24, ajandaYazi: 20|seviyeYazi: 22,|genislik\("Lexend", 500, ad, 20\)|cy="1023" r="4"'
-    [ "$RENK" -eq 1 ] && desen="kirmizi: \"#(e0473b|d6453a)\"|\"kirmizi\": \"#e0473b\"|$desen"
     n=$(grep -cE "$desen" "${dosyalar[@]}" | awk -F: '{s+=$NF} END {print s+0}')
     echo "$pa: değişecek satır $n"; continue
-  fi
-  if [ "$RENK" -eq 1 ]; then
-    for f in "${dosyalar[@]}"; do
-      sed -i -e 's/kirmizi: "#e0473b"/kirmizi: "#c9c2b3"/; s/kirmizi: "#d6453a"/kirmizi: "#5a6275"/' \
-        -e 's/"kirmizi": "#e0473b"/"kirmizi": "#c9c2b3"/' "$f"
-    done
   fi
   if [ -f "$P/ortak/kunye.js" ] && grep -q 'bolumYazi: 24, ajandaYazi: 20' "$P/ortak/kunye.js"; then
     sed -i -e 's/bolumYazi: 24, ajandaYazi: 20/bolumYazi: 30, ajandaYazi: 30/' -e 's/seviyeYazi: 22,/seviyeYazi: 30,/' \

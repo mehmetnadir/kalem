@@ -29,23 +29,28 @@ EOF
 dk_once=$(grep -c "dersYazi: 56, seviyeYazi: 22, bolumYazi: 44" "$T/projeler/ders-dikey/ortak/kunye.js")
 kuru=$(KALEM_KOK="$T" bash "$B/kunye-yay.sh" --kuru ders | grep -o "satır [0-9]*")
 sina "kuru kip yazmaz" "$(grep -c 'ajandaYazi: 20' "$T/projeler/ders/ortak/kunye.js")" "1"
-sina "kuru kip satır sayar" "$kuru" "satır 8"
+# Kuru sayım hesabı (yalnız künye desenleri, renk satırları sayılmaz):
+#   ders/ortak/kunye.js: seviyeYazi: 22, (1 satır) + bolumYazi: 24, ajandaYazi: 20 (1 satır) = 2
+#   ders/sahneler/06-hf/yardim.py: genislik(Lexend, 500, ad, 20) (1 satır) + cy="1023" r="4" (1 satır) = 2
+#   ders/sahneler/01-hf/yardim.py: genislik(Lexend, 500, ad, 20) (1 satır) + cy="1023" r="4" (1 satır) = 2
+#   Toplam: 2 + 2 + 2 = 6 satır
+sina "kuru kip satır sayar" "$kuru" "satır 6"
 KALEM_KOK="$T" bash "$B/kunye-yay.sh" ders ders-dikey > "$T/cikti.txt"
 J="$T/projeler/ders/ortak/kunye.js"; Y="$T/projeler/ders/sahneler/06-hf/yardim.py"; G="$T/projeler/ders/sahneler/01-hf/yardim.py"
 sina "kunye 30" "$(grep -c 'bolumYazi: 30, ajandaYazi: 30' "$J")" "1"
 sina "seviye 30" "$(grep -c 'seviyeYazi: 30,' "$J")" "1"
 sina "nokta yazıya göre" "$(grep -c 'k.ajandaYazi \* 0.35' "$J")" "1"
-sina "kirmizi koyu soluk" "$(grep -c 'kirmizi: "#c9c2b3"' "$J")" "1"
-sina "kirmizi açık soluk" "$(grep -c 'kirmizi: "#5a6275"' "$J")" "1"
-sina "HF kirmizi soluk" "$(grep -c '"kirmizi": "#c9c2b3"' "$Y")" "1"
+sina "kirmizi koyu aynen" "$(grep -c 'kirmizi: "#e0473b"' "$J")" "1"
+sina "kirmizi açık aynen" "$(grep -c 'kirmizi: "#d6453a"' "$J")" "1"
+sina "HF kirmizi aynen" "$(grep -c '"kirmizi": "#e0473b"' "$Y")" "1"
 sina "HF genişlik 30" "$(grep -c 'ad, 30)' "$Y")" "1"
 sina "HF 20/22/24 kalmadı" "$(grep -cE 'font-size="(20|22|24)"' "$Y")" "0"
 sina "HF nokta cy" "$(grep -c 'cy="1019.5"' "$Y")" "1"
 sina "01 ajanda 30" "$(grep -c 'font-size="30">%s</text>' "$G")" "1"
 sina "01 nokta cy" "$(grep -c 'cy="1019.5"' "$G")" "1"
 sina "dikey ölçü aynı" "$(grep -c 'dersYazi: 56, seviyeYazi: 22, bolumYazi: 44' "$T/projeler/ders-dikey/ortak/kunye.js")" "$dk_once"
-sina "dikey kirmizi soluk" "$(grep -c '#e0473b\|#d6453a' "$T/projeler/ders-dikey/ortak/kunye.js")" "0"
-sina "iki paket değişti" "$(grep -o 'değişen paket [0-9]*' "$T/cikti.txt")" "değişen paket 2"
+sina "dikey kirmizi aynen" "$(grep -c '#e0473b\|#d6453a' "$T/projeler/ders-dikey/ortak/kunye.js")" "1"
+sina "yalnız yatay paket değişti" "$(grep -o 'değişen paket [0-9]*' "$T/cikti.txt")" "değişen paket 1"
 KALEM_KOK="$T" bash "$B/kunye-yay.sh" ders ders-dikey > "$T/cikti2.txt"
 sina "ikinci koşu değiştirmez" "$(grep -o 'değişen paket [0-9]*' "$T/cikti2.txt")" "değişen paket 0"
 # --renksiz: künye 30 olur, kirmizi aynen kalır (G-8 açıkken)
