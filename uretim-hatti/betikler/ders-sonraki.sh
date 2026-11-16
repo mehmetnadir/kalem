@@ -1,7 +1,7 @@
 #!/bin/bash
 # ders-sonraki.sh <kod> <paket> — DUZ3-<kod> ve ardından gelen DJ-<kod> hükmünü bekler; hükme göre sıradaki turu başlatır (srv21, sef):
-#   hükümde "hayır" satırı varsa  DUZ3B-<kod> (opus) → KNT-<kod> (sonnet) → DJ-<kod> (sonnet)
-#   yalnız "kanıt yok" varsa       KNT-<kod> (sonnet) → DJ-<kod> (sonnet)
+#   hükümde "hayır" satırı varsa  DUZ3B-<kod> (opus) → kanıt betiği (model yok) → DJ-<kod> (sonnet)
+#   yalnız "kanıt yok" varsa       kanıt betiği (model yok) → DJ-<kod> (sonnet)   [KNT oturumu 16.11 kalktı]
 # Ders başına BİR kez karar verir (ikinci DJ hükmünden sonra yeni tur başlatmaz; şef okur).
 # Kapasite: düzeltme / kanıt oturumu sayısı < ESZ (varsayılan 8), yük1 < 14, MemAvailable > 14 GB (16.11 OOM dersi).
 # Ayrık oturumda koşar; durum ~/is/uretim-0204/sonraki-<kod>.durum.
@@ -33,15 +33,17 @@ setsid bash -c '
     [ "$n" -lt "$ESZ" ] && [ "$yuk" -lt 14 ] && [ "$bos" -gt 14 ] && break
     sleep 30
   done
+  if [ "$ILK" = "KNT-$KOD" ]; then
+    bash "$K/uretim-hatti/betikler/kanit-sonra.sh" - "$PA,$PA-dikey" "DJ-$KOD" >> "$R/sonraki.log" 2>&1
+    echo "bitti 0 (kanıt betiği → DJ, hayır 0)" > "$S"; exit
+  fi
   {
     printf "MAKİNE NOTU: \`el.py\` makinede aynı anda en çok 2 koşar: \"yuva bekleniyor\" satırı olağandır; ses komutunu ön planda \`timeout 1500\` ile koştur, aynı anda ikinci bir \`el.py\` başlatma. Kare çekimini sahne sahne yap; aynı anda birden çok başsız tarayıcı açma. \`surumler.json\` revizyon notu (\`degisiklik\`) en çok 500 karakter, \`no\` alanı \`r<sayı>\` (panel şeması); ayrıntı rapora yazılır. Düzeltme raporunun ilk satırına \`uretici_model: <model>\` yaz.\n\n"
     cat "$I/$ILK.md"
   } > "$R/istem-$ILK.md"
   bash "$R/kos.sh" "$ILK" "$MODEL" "$R/istem-$ILK.md" >> "$R/sonraki.log" 2>&1
-  if [ "$ILK" = "DUZ3B-$KOD" ]; then
-    bash "$K/uretim-hatti/betikler/sonra-m.sh" "DUZ3B-$KOD" claude-sonnet-5-5 "$I" "KNT-$KOD" >> "$R/sonraki.log" 2>&1
-  fi
-  bash "$K/uretim-hatti/betikler/sonra-m.sh" "KNT-$KOD" claude-sonnet-5-5 "$I" "DJ-$KOD" >> "$R/sonraki.log" 2>&1
+  # KNT oturumu yerine kanıt betiği (16.11, K-0266): DUZ3B bitince kanıt, sonra DJ.
+  bash "$K/uretim-hatti/betikler/kanit-sonra.sh" "DUZ3B-$KOD" "$PA,$PA-dikey" "DJ-$KOD" >> "$R/sonraki.log" 2>&1
   echo "$(date +%H:%M:%S) $KOD: $ILK başladı (hayır $hayir, yük $yuk, boş $bos G, çalışan $n)" >> "$R/sonraki.log"
   echo "bitti 0 ($ILK, hayır $hayir)" > "$S"
 ' _ "$R" "$K" "$I" "$KOD" "$PA" "$ESZ" < /dev/null > /dev/null 2>&1 &
