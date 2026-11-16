@@ -32,6 +32,12 @@ export KONTROL_ISCI_JETON
 AYNA_DEPO="${AYNA_DEPO:-$KAYIT/storage/kontrol-ayna/projeler}"
 if [ "${AYNA_EKSILT:-0}" != 1 ]; then
   for p in "${paketler[@]}"; do
+    # R2 budaması (16.11, r2-ders-arsiv.sh): git dışı kare/ses/mp4 sunucudan silinmiş paket yüklenmez.
+    if [ -f "$KOK/projeler/$p/R2-BUDANDI.txt" ]; then
+      echo "HATA: $p R2'ye arşivlenip budandı ($KOK/projeler/$p/R2-BUDANDI.txt); yükleme aynadan kare/ses düşürür." >&2
+      echo "Önce geri yükle (r2-arsiv.sh geri …), sonra işaret dosyasını kaldır." >&2
+      exit 1
+    fi
     [ -d "$AYNA_DEPO/$p" ] || continue
     kayip="$(cd "$AYNA_DEPO/$p" && find . -type f \( -name '*.wav' -o -name '*.m4a' -o -name '*.mp3' -o -name '*.min.js' \
       -o -path './ortak/font/*' \) | while read -r f; do [ -f "$KOK/projeler/$p/$f" ] || echo "$f"; done)"
