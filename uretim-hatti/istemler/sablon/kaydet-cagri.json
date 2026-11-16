@@ -1,0 +1,6 @@
+{
+  "_not": "Huni v2 kaydet/çağrı kalıpları (kısa sırasına göre). Kaynak: P0202-S1/S2/S3-A (15.11). Her kısa farklı kalıp alır; N>3 için --kaydet ve --cagri bayrağı gerekir.",
+  "1": {"kaydet": "Sınavdan önce lazım olacak. Kaydet.", "cagri": "Gerisi bizde."},
+  "2": {"kaydet": "Bu kuralı kaybetme. Kaydet.", "cagri": "Bitmedi, gel."},
+  "3": {"kaydet": "Bir arkadaşına gönder; o da karıştırıyor.", "cagri": "Bu sadece başlangıç."}
+}

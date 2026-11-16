@@ -16,6 +16,8 @@ Bağlayıcı standartlar: `~/01dev/dijital-anlatim/.claude/docs/` (huni-v2, kapa
 | `istemler/RUNBOOK.md` | uçtan uca koşu defteri | hat kurarken |
 | `betikler/kos.sh`, `kos-devam.sh` | sunucuda başsız iş başlatma | her iş |
 | `betikler/sonra.sh`, `sonra2.sh`, `zincir*.sh`, `sahne-kuyruk*.sh` | zincir, kuyruk | biten yerine yenisi |
+| `betikler/kisa-istem-uret.py <kod> <paket> <N>` | A, B-dil, B-kural, C istemlerini şablondan (`istemler/sablon/`) üretir: `istemler/P<kod>-S<N>-{A,B-dil,B-kural,C}.md` (kod harfli: `P0201T-…`; eski `P0202-…` harfsiz kalır). Eksik alan → çıkış 2, var olan dosya → 3. Test `test_kisa_istem_uret.py` | yeni kısa (600 ders) |
+| `betikler/kisa-hat.sh <kod> <paket> <N> [--model M] [--juri-model J] [--esz 3] [--kuru]` | A (M) → B-dil+B-kural (J) → C (M) → sahne kuyruğu (M) → kapı; model `KISA_MODEL` ile `sonra*.sh`/`zincir2.sh`e geçer (yoksa opus). Jüri modeli üreticiden farklı. Test `test-kisa-hat.sh` | kısa üretimi |
 | `betikler/oku.py`, `bekle.sh` | sonuç oku, durum bekle | iş sonrası |
 | `betikler/kontak.py`, `render-*.sh`, `olc*.sh` | kontak sayfası, ölçüm | görsel denetim |
 | `betikler/kapasite*.sh`, `takili-bekci.sh` | kapasite, takılı bekleyici | izleme |

@@ -1,0 +1,18 @@
+{
+  "_not": "simple-present-temel (0202T) için huni-konu.json yok (kısalar elle yazıldı). Bu dosya P0202-S1/S2/S3-A istemlerindeki bilgiyi aynen taşır; yalnız altın test ve emsal karşılaştırması içindir (kisa-istem-uret.py --konu-json).",
+  "paket": "simple-present-temel",
+  "adaylar": [
+    {"sira": 1, "kimlik": "s1", "bicim": "köprü cümle",
+     "baslik": "Türkçe–İngilizce köprü: gider = goes (he, she, it öznesinde fiile -s gelir; I, you, we, they ile gelmez)",
+     "kaynak_cumle": [4, 7],
+     "kaynak_not": "cümle 4 (My brother usually goes to school by bus) ve cümle 7 (üçüncü tekil kişi kuralı)"},
+    {"sira": 2, "kimlik": "s2", "bicim": "sinyal sözcük",
+     "baslik": "Sinyal sözcükler: usually, always, every day gördüysen alışkanlık, yani Simple Present (konuşma anı değil)",
+     "kaynak_cumle": [1, 4],
+     "kaynak_not": "cümle 1 (Her sabah yedide kalkarım) ve cümle 4 (usually, always, every day: alışkanlık işareti)"},
+    {"sira": 3, "kimlik": "s3", "bicim": "yanlış–doğru",
+     "baslik": "Tuzak: does girince fiildeki -s düşer (He doesn't goes YANLIŞ → He doesn't go; Does she goes YANLIŞ → Does she go)",
+     "kaynak_cumle": [7],
+     "kaynak_not": "cümle 7 (Olumsuzda ve soruda does girer, s ona geçer. He does not go.)"}
+  ]
+}

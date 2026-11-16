@@ -1,0 +1,81 @@
+# İstem P{{kod}}-S{{n}}-C — {{paket}}-s{{n}} paket + ses + zaman + sahne istemleri + açıklama · {{tarih}}
+
+BAĞLAYICI STANDART: üretimden önce `D/.claude/docs/` altından oku — `huni-v2-standart.md` (kısa), `kapak-standardi.md` (kapak, hikâye), `youtube-surumu-standart.md` (YouTube sürümü), `huni-ab-sozlesme.md` (A/B kolu). Bu istemdeki eski (v1) söz bunlarla çelişirse standart geçer. mp4 yalnız Nadir'in açık sözüyle. D=`/home/sef/01dev/dijital-anlatim`.
+
+MAKİNE: Linux x86_64 (srv21), kullanıcı sef. K=`/home/sef/01dev/_worktrees/kalem-0204` (worktree, dal `sunucu/02-04-ydt-temel`),
+D=`/home/sef/01dev/dijital-anlatim`. Python `/usr/bin/python3 -I`; ses venv `~/.venvs/ses`. Node `~/.nvm/versions/node/v24.22.2/bin`.
+KURALLAR: Yalnız isteneni yaz. Silme yok (`~/Silinecekler/2026-11-15-0204/` altına taşı). Render yok, sahne kodu yok, git commit yok,
+Claude alt ajanı yok. Yazma yalnız `K/projeler/{{paket}}-s{{n}}/` altında. ElevenLabs YALNIZ `araclar/ses-sunucu.sh` ile (kayit vekili;
+anahtar görmezsin; başka yoldan çağrı yok). Kod yazma kapısı 15+ satır kod dosyasını kapatır: betikleri örnek paketten KOPYALA ve
+küçük Edit'le uyarla; yeni uzun betik gerekiyorsa SPEC.md + `agy-filo tek --rol kod …` yolu (tam kodu yazıp agy'ye kopyalatmak yasak).
+
+Girdi (jüriden geçti ya da düzeltildi): `K/projeler/{{paket}}-s{{n}}/uretim-tutanagi/` — `senaryo-taslak.md`, `kapak-taslak.md`,
+`hikaye-taslak.md`, `aciklama-taslak.md`, `S{{n}}-A-RAPOR.md`, jüri `juri/s{{n}}.dil.md`, `juri/s{{n}}.kaynak-kural.md`.
+Örnek paket (biçim tek kaynağı, aynı dersin bitmiş kısası): `K/projeler/02-04-ydt-temel-s1/` (iskelet, ortak/, senaryo.json şeması, zaman_uret.py, BRIEF-S1.md, sahne istemleri `uretim-tutanagi/istem/sahne/`). Ana ders: `K/projeler/{{paket}}/`.
+Ses zinciri örneği (yatay ders, sunucuda koştu): `~/is/uretim-0204/ses-zinciri.sh`.
+
+## Adımlar
+1. Jüri maddelerini uygula: DÜZELT maddelerini taslaklara işle, `uretim-tutanagi/S{{n}}-duzeltme.md`'ye madde → yapılan → kanıt yaz.
+   Jüri kararıyla çelişen ya da Nadir kararı gerektiren madde varsa uygulama, raporla.
+2. İskelet: 02-04-ydt-temel-s1 yapısı (`ortak/` bağları ve dosyaları, `gorevler.json`, `yorumlar.json`, `harita-konum.json`,
+   `BRIEF-S{{n}}.md`). Künye verisi {{oge}}'ye göre.
+3. `ortak/anlatim/senaryo.json`: örnekle aynı şema; ses kimliği ana dersin öğretmen sesi; ham sözcük, rakam yok.
+4. Ses: `cd K && bash araclar/ses-sunucu.sh {{paket}}-s{{n}}` (el.py, faster-whisper turbo kapısı). Sonra örnek paketteki ses betikleri
+   (`ortak/anlatim/*.py`) ve yatay zincirdeki adımlarla: sözcük zamanı, kur (m4a + imza), altyazı, METIN. Kapı geçmezse dur ve raporla
+   (aynı cümle 2 kez düşerse yeniden deneme yok).
+5. `zaman.json`: 1080×1920, 30 fps, gecis_kare 12; 4 sahne: `01-hyperframes-kapak`, `02-<motor>-ornek`, `03-hyperframes-cta`
+   (örnekteki gibi, sürelerin toplamı = anlatım) ve `04-hyperframes-hikaye` (hikâye karesi: anlatımdan bağımsız, 1 kare yeter; zaman
+   çizelgesine girmez — zaman.json'da ayrı `hikaye` alanı ya da sahne listesinin dışında; birleştirmeyi bozmayacak biçimi seç ve yaz).
+6. `BRIEF-S{{n}}.md`: örnek biçiminde (çıktı, kaynaklar, sahne tablosu, kapak ve hikâye karesi tarifi, çalıştırma).
+7. `aciklama.md` (paket kökü): jüriden geçmiş açıklama metni; YouTube / Instagram / TikTok bölümleri; yer tutucular açık ve listeli.
+8. `surumler.json`: 02-04-ydt-temel-s1 biçiminde, `video.kimlik` = `{{oge}}`. YALNIZ bu sürüm:
+   `{"kimlik":"shorts","tur":"shorts","ad":"S1 Shorts (<ölçülen> sn)","durum":"uretimde","onizleme":"/p/{{paket}}-s{{n}}/onizle.html","seviye":"temel","kaynak":"ana-yatay"}`.
+   Huni satırları (aşağıdaki 3 satır) şimdilik `uretim-tutanagi/huni-surumler.json` dosyasına (`{"surumler":[…]}`) yazılır,
+   surumler.json'a GİRMEZ: kayit'in yeni sürümü yayına alınmadan içe alma bu türleri tanımaz, yatay video sanar (şef sonra taşır):
+   `{"kimlik":"kapak","tur":"kapak","ad":"Kapak (1080x1920)","durum":"uretimde","dosya":"kapak.png","seviye":"temel","kaynak":"ana-yatay"}`,
+   `{"kimlik":"hikaye","tur":"hikaye","ad":"Hikâye karesi (1080x1920)","durum":"uretimde","dosya":"hikaye.png","seviye":"temel","kaynak":"ana-yatay"}`,
+   `{"kimlik":"aciklama","tur":"aciklama","ad":"Açıklama + UTM","durum":"hazir","dosya":"aciklama.md","seviye":"temel","kaynak":"ana-yatay"}`.
+9. Sahne istemleri `uretim-tutanagi/istem/sahne/D-<klasör>.md` × 4: şablon `~/is/uretim-0204/D-dikey-sablon.md`'yi pakete kopyala ve
+   S1'e uyarla (paket adı `{{paket}}-s{{n}}`, BRIEF-S{{n}} satırı, örnek sahne 02-04-ydt-temel-s1 içinden; kapak sahnesi
+   `kapak.png`'yi örnekteki gibi üretir; hikâye sahnesi `hikaye.png` üretir).
+10. `uretim-tutanagi/S{{n}}-C-RAPOR.md`: yazılanlar, ses kapısı sonucu (cümle başına benzerlik), anlatım süresi, açık noktalar.
+
+Son mesajın en çok 12 satır.
+
+## Çok sürüm (Nadir 15.11) — bu istemin üstündeki tek sürümlü tarifin yerine geçer
+- Kapak 3 sürüm: A zaman çizelgesindeki `01-hyperframes-kapak` sahnesinin karesi (`kapak-a.png`; `kapak.png` de aynı dosyanın kopyası),
+  B ve C durağan kare sahneleri (`05-hyperframes-kapak-b` → `kapak-b.png`, `06-hyperframes-kapak-c` → `kapak-c.png`).
+- Hikâye 2 sürüm: `04-hyperframes-hikaye` → `hikaye-a.png` (+ `hikaye.png` kopyası), `07-hyperframes-hikaye-b` → `hikaye-b.png`.
+- Açıklama 2 set: `aciklama-a.md`, `aciklama-b.md` (paket kökü; `aciklama.md` = A kopyası).
+- `zaman.json`: 3 sahne + durağan kareler `sahneler[]` DIŞINDA (S1'deki `hikaye` alanı biçimi; birden çok kare için `duragan` listesi).
+- `surumler.json`: yalnız kısa video satırı, `kimlik` = `s{{n}}`, `tur` `shorts`, ad `S{{n}} Shorts (<ölçülen> sn)`.
+- `uretim-tutanagi/huni-surumler.json`: `s{{n}}-kapak-a|b|c` (`tur` `kapak`, `dosya` `kapak-a.png` …), `s{{n}}-hikaye-a|b`, `s{{n}}-aciklama-a|b`;
+  ad `S{{n}} Kapak A` biçiminde; durum `uretimde` (açıklama `inceleme`).
+- Sahne istemleri × 7: 01 kapak, 02 örnek, 03 CTA, 04 hikâye A, 05 kapak B, 06 kapak C, 07 hikâye B. Her isteme şu satırı ekle:
+  "Kanca atlama bayrağı OLUŞTURMA (/tmp/conductor-*, ~/.conductor/*). Durdurma kancası sözleşme satırı isterse K/.claude/docs/sozlesme.md
+  dosyasına 1–2 satır EKLE (tek istisna)." ve qa-yerel t değerlerinin KÜRESEL anlatım saniyesi olduğunu yaz.
+- Süre hedefi 24–28 sn; sentez sonrası 30 sn'yi aşarsa raporla (yeniden sentez yok).
+- Bu oturum için de geçerli: kanca atlama bayrağı oluşturma; sözleşme kancası isterse `K/.claude/docs/sozlesme.md`'ye 1–2 satır ekle.
+
+## Huni v2 (15.11) — bu istemin üstündeki 3 sahneli tarifin, "Çok sürüm" bölümündeki sahne listesinin ve huni-surumler.json tarifinin YERİNE geçer
+BAĞLAYICI standart: `D/.claude/docs/huni-v2-standart.md` (tamamı). v2 emsal paket (biçim tek kaynağı): `K/projeler/02-04-ydt-temel-s1/` —
+`ortak/anlatim/senaryo.json` (öğretmen + öğrenci, 4 cümle), `zaman.json`, `BRIEF-S1.md` (yerleşim §2, kanal katmanı tablosu),
+`uretim-tutanagi/istem/sahne-v2/D-*.md` (v2 sahne istemleri), `uretim-tutanagi/V2-C-RAPOR.md`, `surumler.json` (8 satır).
+Ders: {{konu}}, dil sınavı {{seviye}}. Öğe kimliği `{{oge}}`; ana paket `{{paket}}` (kadro ve ses kimlikleri buradan kopyalanır).
+
+- Zaman çizelgesi 4 sahne, temiz numara: `01-hyperframes-kanca` → `02-<motor>-deger` → `03-hyperframes-kaydet` → `04-hyperframes-cagri`.
+  Durağan kareler (`sahneler[]` dışında, emsaldeki `hikaye` + `duragan[]` biçimi): `05-hyperframes-hikaye-a`, `06-hyperframes-kapak-b`,
+  `07-hyperframes-kapak-c`, `08-hyperframes-hikaye-b`. Kapak A = `01` sahnesinin kanca karesi, altyazı katmanı gizli (`kapak-a.png` + `kapak.png`).
+- Çağrı sahnesi: ana dersin kapağı `K/projeler/{{paket}}/kapak.png` ve `kapak-koyu.png` (VAR; 1920×1080) → pakete
+  `ortak/kapak/ana-kapak.png`, `ana-kapak-koyu.png` olarak kopyalanır (bu oturum kopyalar). Karakter görseli
+  `K/projeler/{{paket}}/ortak/kapak/karakter.png` → `ortak/kapak/karakter.png` (kapak B ya da C'de kullanılır; krem çıkartma kenarı).
+- Kanal katmanı değerleri emsal BRIEF tablosundan AYNEN (logo x 53,2 / görünür 60, y 291–339, h 48; `@ydspublishing` Lexend 700 42, x 263, taban 330).
+- Sahne istemleri `uretim-tutanagi/istem/sahne/D-<klasör>.md` × 8; emsalin `sahne-v2` istemleri şablondur (paket adı, BRIEF satırı, içerik değişir).
+  Emsalde v1'den devralınan "çevir" dili yeni pakette "kur" olur. Her istemde çakışma kapısı komutu, QA kareleri (ilk, orta, son; KÜRESEL saniye),
+  koyu tema, "kanca atlama bayrağı oluşturma; sözleşme kancası isterse K/.claude/docs/sozlesme.md dosyasına 1–2 satır ekle" satırı.
+- `surumler.json`: emsaldeki 8 satır biçimi; `video.kimlik` = `{{oge}}`; satır kimlikleri `s{{n}}`, `s{{n}}-kapak-a|b|c`, `s{{n}}-hikaye-a|b`,
+  `s{{n}}-aciklama-a|b`; durum `inceleme`; `onizleme` `/p/{{paket}}-s{{n}}/onizle.html`. Ayrı `huni-surumler.json` YAZILMAZ.
+- Süre hedefi 22–28 sn; 32 sn'yi aşarsa raporla (yeniden sentez yok). "Tam ders" ve süre sözü hiçbir dosyada yok. Rozet emsaldeki gibi.
+- Jüri dosyaları `uretim-tutanagi/juri/s{{n}}.dil.md` ve `s{{n}}.kaynak-kural.md` (adı farklıysa dizindeki iki dosya); düzeltme kaydı `S{{n}}-duzeltme.md`.
+- Bu oturum için de geçerli: kanca atlama bayrağı oluşturma; alt ajan yok; git commit yok; mp4 render yok.
+{{eski_c}}
