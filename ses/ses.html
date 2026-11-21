@@ -12,8 +12,9 @@ window.render = async () => {
     const master = new Tone.Limiter(-1.5).toDestination();
     const rev = new Tone.Reverb({ decay: 2.2, wet: 1 }); rev.generate(); const revG = new Tone.Gain(0.18).connect(master); rev.connect(revG);
     const bus = new Tone.Gain(1).fan(master, rev);
-    // oda tonu: çok alçak, kağıt odası hissi
-    const oda = new Tone.Noise("brown").start(0).stop(SURE); const odaF = new Tone.Filter(220, "lowpass"); const odaG = new Tone.Gain(0.025).connect(master); oda.connect(odaF); odaF.connect(odaG);
+    // oda tonu: çok alçak, kağıt odası hissi. 21.11: 0.025 → 0.0063 (−12 dB). Hışırtı kipi efekt izini +9,5 dB
+    // açınca oda tonu cümle aralarında −35 dB'de uğultu olarak duyuluyordu (Nadir 17.11).
+    const oda = new Tone.Noise("brown").start(0).stop(SURE); const odaF = new Tone.Filter(220, "lowpass"); const odaG = new Tone.Gain(0.0063).connect(master); oda.connect(odaF); odaF.connect(odaG);
     const gurultu = (tip, f, Q, vol, a, d) => { const n = new Tone.NoiseSynth({ noise: { type: tip }, envelope: { attack: a, decay: d, sustain: 0 }, volume: vol }); const fl = new Tone.Filter({ type: "bandpass", frequency: f, Q }).connect(bus); n.connect(fl); return [n, fl]; };
     // kalem: kısa patlamalar değil, darbe boyunca süren yumuşak, alçak bir hışırtı (tiz yok)
     const kalem = new Tone.NoiseSynth({ noise: { type: "brown" }, envelope: { attack: 0.14, decay: 0, sustain: 1, release: 0.35 }, volume: -44 });
